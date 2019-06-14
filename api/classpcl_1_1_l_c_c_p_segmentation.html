@@ -1,0 +1,698 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class LCCPSegmentation &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class LCCPSegmentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_l_c_c_p_segmentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-lccpsegmentation">
+<span id="exhale-class-classpcl-1-1-l-c-c-p-segmentation"></span><h1>Template Class LCCPSegmentation<a class="headerlink" href="#template-class-lccpsegmentation" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_segmentation_include_pcl_segmentation_lccp_segmentation.h.html#file-pcl-segmentation-include-pcl-segmentation-lccp-segmentation-h"><span class="std std-ref">File lccp_segmentation.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_l_c_c_p_segmentation_1_1_edge_properties.html#exhale-struct-structpcl-1-1-l-c-c-p-segmentation-1-1-edge-properties"><span class="std std-ref">Struct LCCPSegmentation::EdgeProperties</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::CPCSegmentation&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_c_p_c_segmentation.html#exhale-class-classpcl-1-1-c-p-c-segmentation"><span class="std std-ref">Template Class CPCSegmentation</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl16LCCPSegmentationE">
+<span id="_CPPv3I0EN3pcl16LCCPSegmentationE"></span><span id="_CPPv2I0EN3pcl16LCCPSegmentationE"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">LCCPSegmentation</code><a class="headerlink" href="#_CPPv4I0EN3pcl16LCCPSegmentationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A simple segmentation algorithm partitioning a supervoxel graph into groups of locally convex connected supervoxels separated by concave borders. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>If you use this in a scientific work please cite the following paper: S. C. Stein, M. Schoeler, J. Papon, F. Woergoetter <a class="reference internal" href="class_object.html#class_object"><span class="std std-ref">Object</span></a> Partitioning using Local Convexity In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 2014 </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Simon Christoph Stein and Markus Schoeler (<a class="reference external" href="mailto:mschoeler&#37;&#52;&#48;gwdg&#46;de">mschoeler<span>&#64;</span>gwdg<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_c_p_c_segmentation.html#classpcl_1_1_c_p_c_segmentation"><span class="std std-ref">pcl::CPCSegmentation&lt; PointT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE">
+<span id="_CPPv3N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE"></span><span id="_CPPv2N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE"></span><span id="pcl::LCCPSegmentation::SupervoxelAdjacencyList"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a1c2eb66ea772fab4b9cc938bfb124e3b"></span><em class="property">typedef </em>boost::adjacency_list&lt;boost::setS, boost::setS, boost::undirectedS, uint32_t, <a class="reference internal" href="structpcl_1_1_l_c_c_p_segmentation_1_1_edge_properties.html#_CPPv4N3pcl16LCCPSegmentation14EdgePropertiesE" title="pcl::LCCPSegmentation::EdgeProperties">EdgeProperties</a>&gt; <code class="sig-name descname">SupervoxelAdjacencyList</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16LCCPSegmentation14VertexIteratorE">
+<span id="_CPPv3N3pcl16LCCPSegmentation14VertexIteratorE"></span><span id="_CPPv2N3pcl16LCCPSegmentation14VertexIteratorE"></span><span id="pcl::LCCPSegmentation::VertexIterator"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a7c1ae820fe571a812141ed1becd76782"></span><em class="property">typedef </em>boost::graph_traits&lt;<a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="pcl::LCCPSegmentation::SupervoxelAdjacencyList">SupervoxelAdjacencyList</a>&gt;::vertex_iterator <code class="sig-name descname">VertexIterator</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation14VertexIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16LCCPSegmentation17AdjacencyIteratorE">
+<span id="_CPPv3N3pcl16LCCPSegmentation17AdjacencyIteratorE"></span><span id="_CPPv2N3pcl16LCCPSegmentation17AdjacencyIteratorE"></span><span id="pcl::LCCPSegmentation::AdjacencyIterator"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a04491d410e22c02b7d929fce0124cc69"></span><em class="property">typedef </em>boost::graph_traits&lt;<a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="pcl::LCCPSegmentation::SupervoxelAdjacencyList">SupervoxelAdjacencyList</a>&gt;::adjacency_iterator <code class="sig-name descname">AdjacencyIterator</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation17AdjacencyIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16LCCPSegmentation8VertexIDE">
+<span id="_CPPv3N3pcl16LCCPSegmentation8VertexIDE"></span><span id="_CPPv2N3pcl16LCCPSegmentation8VertexIDE"></span><span id="pcl::LCCPSegmentation::VertexID"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ac1008d34ae53627ce8bd51bd04ff7571"></span><em class="property">typedef </em>boost::graph_traits&lt;<a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="pcl::LCCPSegmentation::SupervoxelAdjacencyList">SupervoxelAdjacencyList</a>&gt;::vertex_descriptor <code class="sig-name descname">VertexID</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation8VertexIDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16LCCPSegmentation12EdgeIteratorE">
+<span id="_CPPv3N3pcl16LCCPSegmentation12EdgeIteratorE"></span><span id="_CPPv2N3pcl16LCCPSegmentation12EdgeIteratorE"></span><span id="pcl::LCCPSegmentation::EdgeIterator"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ae3f738a80bfffac4f89c43c48e7df213"></span><em class="property">typedef </em>boost::graph_traits&lt;<a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="pcl::LCCPSegmentation::SupervoxelAdjacencyList">SupervoxelAdjacencyList</a>&gt;::edge_iterator <code class="sig-name descname">EdgeIterator</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation12EdgeIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16LCCPSegmentation15OutEdgeIteratorE">
+<span id="_CPPv3N3pcl16LCCPSegmentation15OutEdgeIteratorE"></span><span id="_CPPv2N3pcl16LCCPSegmentation15OutEdgeIteratorE"></span><span id="pcl::LCCPSegmentation::OutEdgeIterator"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1aad0a5b82dfe5cf59481ba0e8bcae5323"></span><em class="property">typedef </em>boost::graph_traits&lt;<a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="pcl::LCCPSegmentation::SupervoxelAdjacencyList">SupervoxelAdjacencyList</a>&gt;::out_edge_iterator <code class="sig-name descname">OutEdgeIterator</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation15OutEdgeIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16LCCPSegmentation6EdgeIDE">
+<span id="_CPPv3N3pcl16LCCPSegmentation6EdgeIDE"></span><span id="_CPPv2N3pcl16LCCPSegmentation6EdgeIDE"></span><span id="pcl::LCCPSegmentation::EdgeID"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ac5b56b02f769a92c815ff98ee63b497e"></span><em class="property">typedef </em>boost::graph_traits&lt;<a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="pcl::LCCPSegmentation::SupervoxelAdjacencyList">SupervoxelAdjacencyList</a>&gt;::edge_descriptor <code class="sig-name descname">EdgeID</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation6EdgeIDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation16LCCPSegmentationEv">
+<span id="_CPPv3N3pcl16LCCPSegmentation16LCCPSegmentationEv"></span><span id="_CPPv2N3pcl16LCCPSegmentation16LCCPSegmentationEv"></span><span id="pcl::LCCPSegmentation::LCCPSegmentation"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a4a207f7776e9e9b11e47d5b29ca0c5ec"></span><code class="sig-name descname">LCCPSegmentation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation16LCCPSegmentationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentationD0Ev">
+<span id="_CPPv3N3pcl16LCCPSegmentationD0Ev"></span><span id="_CPPv2N3pcl16LCCPSegmentationD0Ev"></span><span id="pcl::LCCPSegmentation::~LCCPSegmentation"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a0590d2f40d8786a8d2f807a51bbefc28"></span><code class="sig-name descname">~LCCPSegmentation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentationD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation5resetEv">
+<span id="_CPPv3N3pcl16LCCPSegmentation5resetEv"></span><span id="_CPPv2N3pcl16LCCPSegmentation5resetEv"></span><span id="pcl::LCCPSegmentation::reset"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1af5a6ac69bde329584570506c7c78b9af"></span>void <code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation5resetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset internal memory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation19setInputSupervoxelsERKNSt3mapI8uint32_tN3pcl10SupervoxelI6PointTE3PtrEEERKNSt8multimapI8uint32_t8uint32_tEE">
+<span id="_CPPv3N3pcl16LCCPSegmentation19setInputSupervoxelsERKNSt3mapI8uint32_tN3pcl10SupervoxelI6PointTE3PtrEEERKNSt8multimapI8uint32_t8uint32_tEE"></span><span id="_CPPv2N3pcl16LCCPSegmentation19setInputSupervoxelsERKNSt3mapI8uint32_tN3pcl10SupervoxelI6PointTE3PtrEEERKNSt8multimapI8uint32_t8uint32_tEE"></span><span id="pcl::LCCPSegmentation::setInputSupervoxels__std::map:uint32_t.pcl::Supervoxel:PointT:::Ptr:CR.std::multimap:uint32_t.uint32_t:CR"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a097a5b8996de53f1d955747eacbc8e8e"></span>void <code class="sig-name descname">setInputSupervoxels</code><span class="sig-paren">(</span><em class="property">const</em> std::map&lt;uint32_t, <em class="property">typename</em> pcl::Supervoxel&lt;PointT&gt;::Ptr&gt; &amp;<em>supervoxel_clusters_arg</em>, <em class="property">const</em> std::multimap&lt;uint32_t, uint32_t&gt; &amp;<em>label_adjacency_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation19setInputSupervoxelsERKNSt3mapI8uint32_tN3pcl10SupervoxelI6PointTE3PtrEEERKNSt8multimapI8uint32_t8uint32_tEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the supervoxel clusters as well as the adjacency graph for the segmentation.Those parameters are generated by using the <a class="reference internal" href="classpcl_1_1_supervoxel_clustering.html#classpcl_1_1_supervoxel_clustering"><span class="std std-ref">SupervoxelClustering</span></a> class. </p>
+<p>To retrieve the output use the <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a8ef6896e6fabc91e26f7f9dfff757753"><span class="std std-ref">segment</span></a> method. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Implicitly calls <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1af5a6ac69bde329584570506c7c78b9af"><span class="std std-ref">reset</span></a> </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">supervoxel_clusters_arg</span></code>: Map of &lt; supervoxel labels, supervoxels &gt; </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">label_adjacency_arg</span></code>: The graph defining the supervoxel adjacency relations </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation7segmentEv">
+<span id="_CPPv3N3pcl16LCCPSegmentation7segmentEv"></span><span id="_CPPv2N3pcl16LCCPSegmentation7segmentEv"></span><span id="pcl::LCCPSegmentation::segment"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a8ef6896e6fabc91e26f7f9dfff757753"></span>void <code class="sig-name descname">segment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation7segmentEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Merge supervoxels using local convexity. </p>
+<p>The input parameters are generated by using the <a class="reference internal" href="classpcl_1_1_supervoxel_clustering.html#classpcl_1_1_supervoxel_clustering"><span class="std std-ref">SupervoxelClustering</span></a> class. To retrieve the output use the <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a73b148531688cdb949bb9185e6ada8e9"><span class="std std-ref">relabelCloud</span></a> method. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>There are three ways to retrieve the segmentation afterwards: <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a73b148531688cdb949bb9185e6ada8e9"><span class="std std-ref">relabelCloud</span></a>, getSegmentSupervoxelMap and getSupervoxelSegmentMap </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation12relabelCloudERN3pcl10PointCloudIN3pcl9PointXYZLEEE">
+<span id="_CPPv3N3pcl16LCCPSegmentation12relabelCloudERN3pcl10PointCloudIN3pcl9PointXYZLEEE"></span><span id="_CPPv2N3pcl16LCCPSegmentation12relabelCloudERN3pcl10PointCloudIN3pcl9PointXYZLEEE"></span><span id="pcl::LCCPSegmentation::relabelCloud__pcl::PointCloud:pcl::PointXYZL:R"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a73b148531688cdb949bb9185e6ada8e9"></span>void <code class="sig-name descname">relabelCloud</code><span class="sig-paren">(</span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_l.html#_CPPv4N3pcl9PointXYZLE" title="pcl::PointXYZL">PointXYZL</a>&gt; &amp;<em>labeled_cloud_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation12relabelCloudERN3pcl10PointCloudIN3pcl9PointXYZLEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Relabels cloud with supervoxel labels with the computed segment labels. </p>
+<p>labeled_cloud_arg should be created using the getLabeledCloud method of the <a class="reference internal" href="classpcl_1_1_supervoxel_clustering.html#classpcl_1_1_supervoxel_clustering"><span class="std std-ref">SupervoxelClustering</span></a> class. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">labeled_cloud_arg</span></code>: Cloud to relabel </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16LCCPSegmentation25getSegmentToSupervoxelMapERNSt3mapI8uint32_tNSt3setI8uint32_tEEEE">
+<span id="_CPPv3NK3pcl16LCCPSegmentation25getSegmentToSupervoxelMapERNSt3mapI8uint32_tNSt3setI8uint32_tEEEE"></span><span id="_CPPv2NK3pcl16LCCPSegmentation25getSegmentToSupervoxelMapERNSt3mapI8uint32_tNSt3setI8uint32_tEEEE"></span><span id="pcl::LCCPSegmentation::getSegmentToSupervoxelMap__std::map:uint32_t.std::set:uint32_t::RC"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ac07470079debf27fbd456e57995c4c2d"></span>void <code class="sig-name descname">getSegmentToSupervoxelMap</code><span class="sig-paren">(</span>std::map&lt;uint32_t, std::set&lt;uint32_t&gt;&gt; &amp;<em>segment_supervoxel_map_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16LCCPSegmentation25getSegmentToSupervoxelMapERNSt3mapI8uint32_tNSt3setI8uint32_tEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get map&lt;SegmentID, std::set&lt;SuperVoxel IDs&gt; &gt; </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">segment_supervoxel_map_arg</span></code>: The output container. On error the map is empty. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16LCCPSegmentation25getSupervoxelToSegmentMapERNSt3mapI8uint32_t8uint32_tEE">
+<span id="_CPPv3NK3pcl16LCCPSegmentation25getSupervoxelToSegmentMapERNSt3mapI8uint32_t8uint32_tEE"></span><span id="_CPPv2NK3pcl16LCCPSegmentation25getSupervoxelToSegmentMapERNSt3mapI8uint32_t8uint32_tEE"></span><span id="pcl::LCCPSegmentation::getSupervoxelToSegmentMap__std::map:uint32_t.uint32_t:RC"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ac99912aeb217065259bff30d7d526a35"></span>void <code class="sig-name descname">getSupervoxelToSegmentMap</code><span class="sig-paren">(</span>std::map&lt;uint32_t, uint32_t&gt; &amp;<em>supervoxel_segment_map_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16LCCPSegmentation25getSupervoxelToSegmentMapERNSt3mapI8uint32_t8uint32_tEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get map&lt;Supervoxel_ID, Segment_ID&gt; </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">supervoxel_segment_map_arg</span></code>: The output container. On error the map is empty. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation22getSegmentAdjacencyMapERNSt3mapI8uint32_tNSt3setI8uint32_tEEEE">
+<span id="_CPPv3N3pcl16LCCPSegmentation22getSegmentAdjacencyMapERNSt3mapI8uint32_tNSt3setI8uint32_tEEEE"></span><span id="_CPPv2N3pcl16LCCPSegmentation22getSegmentAdjacencyMapERNSt3mapI8uint32_tNSt3setI8uint32_tEEEE"></span><span id="pcl::LCCPSegmentation::getSegmentAdjacencyMap__std::map:uint32_t.std::set:uint32_t::R"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1af5753af2e6779ce28ddc3ae6c137893d"></span>void <code class="sig-name descname">getSegmentAdjacencyMap</code><span class="sig-paren">(</span>std::map&lt;uint32_t, std::set&lt;uint32_t&gt;&gt; &amp;<em>segment_adjacency_map_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation22getSegmentAdjacencyMapERNSt3mapI8uint32_tNSt3setI8uint32_tEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get map &lt;SegmentID, std::set&lt;Neighboring SegmentIDs&gt; &gt; </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">segment_adjacency_map_arg</span></code>: map &lt; SegmentID, std::set&lt; Neighboring SegmentIDs&gt; &gt;. On error the map is empty. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16LCCPSegmentation30getConcavityToleranceThresholdEv">
+<span id="_CPPv3NK3pcl16LCCPSegmentation30getConcavityToleranceThresholdEv"></span><span id="_CPPv2NK3pcl16LCCPSegmentation30getConcavityToleranceThresholdEv"></span><span id="pcl::LCCPSegmentation::getConcavityToleranceThresholdC"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ac4d9e71e46c6be921687146b33e9deed"></span>float <code class="sig-name descname">getConcavityToleranceThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16LCCPSegmentation30getConcavityToleranceThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get normal threshold. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The concavity tolerance angle in [deg] that is currently set </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16LCCPSegmentation18getSVAdjacencyListER23SupervoxelAdjacencyList">
+<span id="_CPPv3NK3pcl16LCCPSegmentation18getSVAdjacencyListER23SupervoxelAdjacencyList"></span><span id="_CPPv2NK3pcl16LCCPSegmentation18getSVAdjacencyListER23SupervoxelAdjacencyList"></span><span id="pcl::LCCPSegmentation::getSVAdjacencyList__SupervoxelAdjacencyListRC"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1aed49f8015934b23055f2d307a8ee9f01"></span>void <code class="sig-name descname">getSVAdjacencyList</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="pcl::LCCPSegmentation::SupervoxelAdjacencyList">SupervoxelAdjacencyList</a> &amp;<em>adjacency_list_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16LCCPSegmentation18getSVAdjacencyListER23SupervoxelAdjacencyList" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the supervoxel adjacency graph with classified edges (boost::adjacency_list). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">adjacency_list_arg</span></code>: The supervoxel adjacency list with classified (convex/concave) edges. On error the list is empty. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation30setConcavityToleranceThresholdEf">
+<span id="_CPPv3N3pcl16LCCPSegmentation30setConcavityToleranceThresholdEf"></span><span id="_CPPv2N3pcl16LCCPSegmentation30setConcavityToleranceThresholdEf"></span><span id="pcl::LCCPSegmentation::setConcavityToleranceThreshold__float"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1abc2b7be596c2785fb8664922bbca7177"></span>void <code class="sig-name descname">setConcavityToleranceThreshold</code><span class="sig-paren">(</span>float <em>concavity_tolerance_threshold_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation30setConcavityToleranceThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set normal threshold. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">concavity_tolerance_threshold_arg</span></code>: the concavity tolerance angle in [deg] to set </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation18setSmoothnessCheckEbfff">
+<span id="_CPPv3N3pcl16LCCPSegmentation18setSmoothnessCheckEbfff"></span><span id="_CPPv2N3pcl16LCCPSegmentation18setSmoothnessCheckEbfff"></span><span id="pcl::LCCPSegmentation::setSmoothnessCheck__b.float.float.float"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a391f12ac00e266066391bbff3fd1d823"></span>void <code class="sig-name descname">setSmoothnessCheck</code><span class="sig-paren">(</span>bool <em>use_smoothness_check_arg</em>, float <em>voxel_res_arg</em>, float <em>seed_res_arg</em>, float <em>smoothness_threshold_arg</em> = 0.1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation18setSmoothnessCheckEbfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determines if a smoothness check is done during segmentation, trying to invalidate edges of non-smooth connected edges (steps). </p>
+<p>Two supervoxels are unsmooth if their plane-to-plane distance DIST &gt; (expected_distance + smoothness_threshold_*voxel_resolution_). For parallel supervoxels, the expected_distance is zero. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">use_smoothness_check_arg</span></code>: Determines if the smoothness check is used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">voxel_res_arg</span></code>: The voxel resolution used for the supervoxels that are segmented </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">seed_res_arg</span></code>: The seed resolution used for the supervoxels that are segmented </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">smoothness_threshold_arg</span></code>: Threshold (/fudging factor) for smoothness constraint according to the above formula. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation14setSanityCheckEKb">
+<span id="_CPPv3N3pcl16LCCPSegmentation14setSanityCheckEKb"></span><span id="_CPPv2N3pcl16LCCPSegmentation14setSanityCheckEKb"></span><span id="pcl::LCCPSegmentation::setSanityCheck__bC"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1afcbcd533f01655310bec5f17c5213c65"></span>void <code class="sig-name descname">setSanityCheck</code><span class="sig-paren">(</span><em class="property">const</em> bool <em>use_sanity_criterion_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation14setSanityCheckEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determines if we want to use the sanity criterion to invalidate singular connected patches. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">use_sanity_criterion_arg</span></code>: Determines if the sanity check is performed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation10setKFactorEK8uint32_t">
+<span id="_CPPv3N3pcl16LCCPSegmentation10setKFactorEK8uint32_t"></span><span id="_CPPv2N3pcl16LCCPSegmentation10setKFactorEK8uint32_t"></span><span id="pcl::LCCPSegmentation::setKFactor__uint32_tC"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1affa15262ca3f2713ee31412d88697d36"></span>void <code class="sig-name descname">setKFactor</code><span class="sig-paren">(</span><em class="property">const</em> uint32_t <em>k_factor_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation10setKFactorEK8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the value used for k convexity. </p>
+<p>For k&gt;0 convex connections between p_i and p_j require k common neighbors of these patches that have a convex connection to both. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k_factor_arg</span></code>: factor used for extended convexity check </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation17setMinSegmentSizeEK8uint32_t">
+<span id="_CPPv3N3pcl16LCCPSegmentation17setMinSegmentSizeEK8uint32_t"></span><span id="_CPPv2N3pcl16LCCPSegmentation17setMinSegmentSizeEK8uint32_t"></span><span id="pcl::LCCPSegmentation::setMinSegmentSize__uint32_tC"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a700734f0f748fdda3110c7924232e9c9"></span>void <code class="sig-name descname">setMinSegmentSize</code><span class="sig-paren">(</span><em class="property">const</em> uint32_t <em>min_segment_size_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation17setMinSegmentSizeEK8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the value <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a3cbd29b0450bed2d70257ab13bf5bf38"><span class="std std-ref">min_segment_size_</span></a> used in <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a7f0ada4d9a4918d9dbb9e33e32b23d46"><span class="std std-ref">mergeSmallSegments</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_segment_size_arg</span></code>: Segments smaller than this size will be merged </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation18mergeSmallSegmentsEv">
+<span id="_CPPv3N3pcl16LCCPSegmentation18mergeSmallSegmentsEv"></span><span id="_CPPv2N3pcl16LCCPSegmentation18mergeSmallSegmentsEv"></span><span id="pcl::LCCPSegmentation::mergeSmallSegments"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a7f0ada4d9a4918d9dbb9e33e32b23d46"></span>void <code class="sig-name descname">mergeSmallSegments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation18mergeSmallSegmentsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Segments smaller than <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a3cbd29b0450bed2d70257ab13bf5bf38"><span class="std std-ref">min_segment_size_</span></a> are merged to the label of largest neighbor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation23computeSegmentAdjacencyEv">
+<span id="_CPPv3N3pcl16LCCPSegmentation23computeSegmentAdjacencyEv"></span><span id="_CPPv2N3pcl16LCCPSegmentation23computeSegmentAdjacencyEv"></span><span id="pcl::LCCPSegmentation::computeSegmentAdjacency"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a6a3d6ce5b725f4ba8989654bcb94c1e5"></span>void <code class="sig-name descname">computeSegmentAdjacency</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation23computeSegmentAdjacencyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the adjacency of the segments. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation19prepareSegmentationERKNSt3mapI8uint32_tN3pcl10SupervoxelI6PointTE3PtrEEERKNSt8multimapI8uint32_t8uint32_tEE">
+<span id="_CPPv3N3pcl16LCCPSegmentation19prepareSegmentationERKNSt3mapI8uint32_tN3pcl10SupervoxelI6PointTE3PtrEEERKNSt8multimapI8uint32_t8uint32_tEE"></span><span id="_CPPv2N3pcl16LCCPSegmentation19prepareSegmentationERKNSt3mapI8uint32_tN3pcl10SupervoxelI6PointTE3PtrEEERKNSt8multimapI8uint32_t8uint32_tEE"></span><span id="pcl::LCCPSegmentation::prepareSegmentation__std::map:uint32_t.pcl::Supervoxel:PointT:::Ptr:CR.std::multimap:uint32_t.uint32_t:CR"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a6336316795782b93b5caef627f2c4051"></span>void <code class="sig-name descname">prepareSegmentation</code><span class="sig-paren">(</span><em class="property">const</em> std::map&lt;uint32_t, <em class="property">typename</em> pcl::Supervoxel&lt;PointT&gt;::Ptr&gt; &amp;<em>supervoxel_clusters_arg</em>, <em class="property">const</em> std::multimap&lt;uint32_t, uint32_t&gt; &amp;<em>label_adjacency_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation19prepareSegmentationERKNSt3mapI8uint32_tN3pcl10SupervoxelI6PointTE3PtrEEERKNSt8multimapI8uint32_t8uint32_tEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is called within <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a097a5b8996de53f1d955747eacbc8e8e"><span class="std std-ref">setInputSupervoxels</span></a> mainly to reserve required memory. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">supervoxel_clusters_arg</span></code>: map of &lt; supervoxel labels, supervoxels &gt; </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">label_adjacency_arg</span></code>: The graph defining the supervoxel adjacency relations </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation10doGroupingEv">
+<span id="_CPPv3N3pcl16LCCPSegmentation10doGroupingEv"></span><span id="_CPPv2N3pcl16LCCPSegmentation10doGroupingEv"></span><span id="pcl::LCCPSegmentation::doGrouping"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ad1a810ce20594b9a9309c29f089f0d18"></span>void <code class="sig-name descname">doGrouping</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation10doGroupingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Perform depth search on the graph and recursively group all supervoxels with convex connections. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The vertices in the supervoxel adjacency list are the supervoxel centroids </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation23recursiveSegmentGrowingERK8VertexIDKj">
+<span id="_CPPv3N3pcl16LCCPSegmentation23recursiveSegmentGrowingERK8VertexIDKj"></span><span id="_CPPv2N3pcl16LCCPSegmentation23recursiveSegmentGrowingERK8VertexIDKj"></span><span id="pcl::LCCPSegmentation::recursiveSegmentGrowing__VertexIDCR.unsigned-iC"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a4a492a4362ba841361155407ef78c00e"></span>void <code class="sig-name descname">recursiveSegmentGrowing</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation8VertexIDE" title="pcl::LCCPSegmentation::VertexID">VertexID</a> &amp;<em>queryPointID</em>, <em class="property">const</em> unsigned int <em>group_label</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation23recursiveSegmentGrowingERK8VertexIDKj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Assigns neighbors of the query point to the same group as the query point. </p>
+<p>Recursive part of <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1ad1a810ce20594b9a9309c29f089f0d18"><span class="std std-ref">doGrouping</span></a>. Grouping is done by a depth-search of nodes in the adjacency-graph. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">queryPointID</span></code>: ID of point whose neighbors will be considered for grouping </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">group_label</span></code>: ID of the group/segment the queried point belongs to </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation26calculateConvexConnectionsER23SupervoxelAdjacencyList">
+<span id="_CPPv3N3pcl16LCCPSegmentation26calculateConvexConnectionsER23SupervoxelAdjacencyList"></span><span id="_CPPv2N3pcl16LCCPSegmentation26calculateConvexConnectionsER23SupervoxelAdjacencyList"></span><span id="pcl::LCCPSegmentation::calculateConvexConnections__SupervoxelAdjacencyListR"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a64ade0e74f07da2c8100a1a9d5d46e00"></span>void <code class="sig-name descname">calculateConvexConnections</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="pcl::LCCPSegmentation::SupervoxelAdjacencyList">SupervoxelAdjacencyList</a> &amp;<em>adjacency_list_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation26calculateConvexConnectionsER23SupervoxelAdjacencyList" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculates convexity of edges and saves this to the adjacency graph. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">adjacency_list_arg</span></code>: The supervoxel adjacency list </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation15applyKconvexityEKj">
+<span id="_CPPv3N3pcl16LCCPSegmentation15applyKconvexityEKj"></span><span id="_CPPv2N3pcl16LCCPSegmentation15applyKconvexityEKj"></span><span id="pcl::LCCPSegmentation::applyKconvexity__unsigned-iC"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ad918a280410d18af75bad10b3134e5ab"></span>void <code class="sig-name descname">applyKconvexity</code><span class="sig-paren">(</span><em class="property">const</em> unsigned int <em>k_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation15applyKconvexityEKj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Connections are only convex if this is true for at least k_arg common neighbors of the two patches. </p>
+<p>Call <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1affa15262ca3f2713ee31412d88697d36"><span class="std std-ref">setKFactor</span></a> before <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a8ef6896e6fabc91e26f7f9dfff757753"><span class="std std-ref">segment</span></a> to use this. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k_arg</span></code>: Factor used for extended convexity check </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16LCCPSegmentation12connIsConvexEK8uint32_tK8uint32_tRf">
+<span id="_CPPv3N3pcl16LCCPSegmentation12connIsConvexEK8uint32_tK8uint32_tRf"></span><span id="_CPPv2N3pcl16LCCPSegmentation12connIsConvexEK8uint32_tK8uint32_tRf"></span><span id="pcl::LCCPSegmentation::connIsConvex__uint32_tC.uint32_tC.floatR"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ab7189d3e7ad6bcb44b995664c6a0b77e"></span>bool <code class="sig-name descname">connIsConvex</code><span class="sig-paren">(</span><em class="property">const</em> uint32_t <em>source_label_arg</em>, <em class="property">const</em> uint32_t <em>target_label_arg</em>, float &amp;<em>normal_angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation12connIsConvexEK8uint32_tK8uint32_tRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if the connection between source and target is convex. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if connection is convex </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">source_label_arg</span></code>: <a class="reference internal" href="structpcl_1_1_label.html#structpcl_1_1_label"><span class="std std-ref">Label</span></a> of one supervoxel connected to the edge that should be checked </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target_label_arg</span></code>: <a class="reference internal" href="structpcl_1_1_label.html#structpcl_1_1_label"><span class="std std-ref">Label</span></a> of the other supervoxel connected to the edge that should be checked </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">normal_angle</span></code>: The angle between source and target </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation30concavity_tolerance_threshold_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation30concavity_tolerance_threshold_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation30concavity_tolerance_threshold_E"></span><span id="pcl::LCCPSegmentation::concavity_tolerance_threshold___float"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a90f2ad90bee047f31f2c9ad4f3b0c158"></span>float <code class="sig-name descname">concavity_tolerance_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation30concavity_tolerance_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>*** Parameters *** /// </p>
+<p><a class="reference internal" href="structpcl_1_1_normal.html#structpcl_1_1_normal"><span class="std std-ref">Normal</span></a> Threshold in degrees [0,180] used for merging </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation20grouping_data_valid_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation20grouping_data_valid_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation20grouping_data_valid_E"></span><span id="pcl::LCCPSegmentation::grouping_data_valid___b"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a428e19cb5f6711c7d2e20f31472a876a"></span>bool <code class="sig-name descname">grouping_data_valid_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation20grouping_data_valid_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Marks if valid grouping data (<a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1adff367bb7eab2ec652da194f36ad2ab4"><span class="std std-ref">sv_adjacency_list_</span></a>, <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1afb6ff37d270e3f16c69c46560a1fafce"><span class="std std-ref">sv_label_to_seg_label_map_</span></a>, <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a40779a978d7208a82cc9421c4033a1e4"><span class="std std-ref">processed_</span></a>) is available. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation16supervoxels_set_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation16supervoxels_set_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation16supervoxels_set_E"></span><span id="pcl::LCCPSegmentation::supervoxels_set___b"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a0ebcf3b12da8ec8ff9029a4bc77292b6"></span>bool <code class="sig-name descname">supervoxels_set_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation16supervoxels_set_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Marks if supervoxels have been set by calling <a class="reference internal" href="#classpcl_1_1_l_c_c_p_segmentation_1a097a5b8996de53f1d955747eacbc8e8e"><span class="std std-ref">setInputSupervoxels</span></a>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation21use_smoothness_check_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation21use_smoothness_check_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation21use_smoothness_check_E"></span><span id="pcl::LCCPSegmentation::use_smoothness_check___b"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a6c58a7748116a2fa0e9d820ffadb718a"></span>bool <code class="sig-name descname">use_smoothness_check_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation21use_smoothness_check_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determines if the smoothness check is used during segmentation. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation21smoothness_threshold_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation21smoothness_threshold_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation21smoothness_threshold_E"></span><span id="pcl::LCCPSegmentation::smoothness_threshold___float"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1aa4b03eeae0ef4422a5e49b41455a098d"></span>float <code class="sig-name descname">smoothness_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation21smoothness_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Two supervoxels are unsmooth if their plane-to-plane distance DIST &gt; (expected_distance + smoothness_threshold_*voxel_resolution_). </p>
+<p>For parallel supervoxels, the expected_distance is zero. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation17use_sanity_check_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation17use_sanity_check_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation17use_sanity_check_E"></span><span id="pcl::LCCPSegmentation::use_sanity_check___b"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a728844e11f8848c7400d7875bae92800"></span>bool <code class="sig-name descname">use_sanity_check_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation17use_sanity_check_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determines if we use the sanity check which tries to find and invalidate singular connected patches. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation16seed_resolution_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation16seed_resolution_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation16seed_resolution_E"></span><span id="pcl::LCCPSegmentation::seed_resolution___float"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1aa9f7011e99af9d3849937ff5370c2e11"></span>float <code class="sig-name descname">seed_resolution_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation16seed_resolution_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Seed resolution of the supervoxels (used only for smoothness check) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation17voxel_resolution_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation17voxel_resolution_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation17voxel_resolution_E"></span><span id="pcl::LCCPSegmentation::voxel_resolution___float"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a0998d8eabad97e8dbc57973b28d4b389"></span>float <code class="sig-name descname">voxel_resolution_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation17voxel_resolution_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Voxel resolution used to build the supervoxels (used only for smoothness check) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation9k_factor_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation9k_factor_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation9k_factor_E"></span><span id="pcl::LCCPSegmentation::k_factor___uint32_t"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1ab56b15cb177706d688e6773368e123e2"></span>uint32_t <code class="sig-name descname">k_factor_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation9k_factor_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Factor used for k-convexity. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation17min_segment_size_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation17min_segment_size_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation17min_segment_size_E"></span><span id="pcl::LCCPSegmentation::min_segment_size___uint32_t"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a3cbd29b0450bed2d70257ab13bf5bf38"></span>uint32_t <code class="sig-name descname">min_segment_size_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation17min_segment_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Minimum segment size. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation10processed_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation10processed_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation10processed_E"></span><span id="pcl::LCCPSegmentation::processed___std::map:uint32_t.b:"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a40779a978d7208a82cc9421c4033a1e4"></span>std::map&lt;uint32_t, bool&gt; <code class="sig-name descname">processed_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation10processed_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores which supervoxel labels were already visited during recursive grouping. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>processed_[sv_Label] = false (default)/true (already processed) </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation18sv_adjacency_list_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation18sv_adjacency_list_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation18sv_adjacency_list_E"></span><span id="pcl::LCCPSegmentation::sv_adjacency_list___SupervoxelAdjacencyList"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1adff367bb7eab2ec652da194f36ad2ab4"></span><a class="reference internal" href="#_CPPv4N3pcl16LCCPSegmentation23SupervoxelAdjacencyListE" title="pcl::LCCPSegmentation::SupervoxelAdjacencyList">SupervoxelAdjacencyList</a> <code class="sig-name descname">sv_adjacency_list_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation18sv_adjacency_list_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Adjacency graph with the supervoxel labels as nodes and edges between adjacent supervoxels. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation27sv_label_to_supervoxel_map_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation27sv_label_to_supervoxel_map_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation27sv_label_to_supervoxel_map_E"></span><span id="pcl::LCCPSegmentation::sv_label_to_supervoxel_map___std::map:uint32_t.pcl::Supervoxel:PointT:::Ptr:"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a6e8c0fd169543d42903904b02d36239b"></span>std::map&lt;uint32_t, <em class="property">typename</em> pcl::Supervoxel&lt;PointT&gt;::Ptr&gt; <code class="sig-name descname">sv_label_to_supervoxel_map_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation27sv_label_to_supervoxel_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>map from the supervoxel labels to the supervoxel objects </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation26sv_label_to_seg_label_map_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation26sv_label_to_seg_label_map_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation26sv_label_to_seg_label_map_E"></span><span id="pcl::LCCPSegmentation::sv_label_to_seg_label_map___std::map:uint32_t.uint32_t:"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1afb6ff37d270e3f16c69c46560a1fafce"></span>std::map&lt;uint32_t, uint32_t&gt; <code class="sig-name descname">sv_label_to_seg_label_map_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation26sv_label_to_seg_label_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Storing relation between original SuperVoxel Labels and new segmantion labels. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>sv_label_to_seg_label_map_[old_labelID] = new_labelID </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation25seg_label_to_sv_list_map_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation25seg_label_to_sv_list_map_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation25seg_label_to_sv_list_map_E"></span><span id="pcl::LCCPSegmentation::seg_label_to_sv_list_map___std::map:uint32_t.std::set:uint32_t::"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1af38c9be4e674843ba21de27b73ca0189"></span>std::map&lt;uint32_t, std::set&lt;uint32_t&gt;&gt; <code class="sig-name descname">seg_label_to_sv_list_map_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation25seg_label_to_sv_list_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>map &lt;Segment <a class="reference internal" href="structpcl_1_1_label.html#structpcl_1_1_label"><span class="std std-ref">Label</span></a>, std::set &lt;SuperVoxel labels&gt;=”“&gt; &gt; </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16LCCPSegmentation30seg_label_to_neighbor_set_map_E">
+<span id="_CPPv3N3pcl16LCCPSegmentation30seg_label_to_neighbor_set_map_E"></span><span id="_CPPv2N3pcl16LCCPSegmentation30seg_label_to_neighbor_set_map_E"></span><span id="pcl::LCCPSegmentation::seg_label_to_neighbor_set_map___std::map:uint32_t.std::set:uint32_t::"></span><span class="target" id="classpcl_1_1_l_c_c_p_segmentation_1a7f426262406a9f9cec6248cdfa5a205c"></span>std::map&lt;uint32_t, std::set&lt;uint32_t&gt;&gt; <code class="sig-name descname">seg_label_to_neighbor_set_map_</code><a class="headerlink" href="#_CPPv4N3pcl16LCCPSegmentation30seg_label_to_neighbor_set_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>map &lt; SegmentID, std::set&lt; Neighboring segment labels&gt; &gt; </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,646 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class SupervoxelClustering &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class SupervoxelClustering</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_supervoxel_clustering.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-supervoxelclustering">
+<span id="exhale-class-classpcl-1-1-supervoxel-clustering"></span><h1>Template Class SupervoxelClustering<a class="headerlink" href="#template-class-supervoxelclustering" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_segmentation_include_pcl_segmentation_supervoxel_clustering.h.html#file-pcl-segmentation-include-pcl-segmentation-supervoxel-clustering-h"><span class="std std-ref">File supervoxel_clustering.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper.html#exhale-class-classpcl-1-1-supervoxel-clustering-1-1-supervoxel-helper"><span class="std std-ref">Class SupervoxelClustering::SupervoxelHelper</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1_1compare_leaves.html#exhale-struct-structpcl-1-1-supervoxel-clustering-1-1-supervoxel-helper-1-1compare-leaves"><span class="std std-ref">Struct SupervoxelHelper::compareLeaves</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1_supervoxel_clustering_1_1_voxel_data.html#exhale-class-classpcl-1-1-supervoxel-clustering-1-1-voxel-data"><span class="std std-ref">Class SupervoxelClustering::VoxelData</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PCLBase&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_c_l_base.html#exhale-class-classpcl-1-1-p-c-l-base"><span class="std std-ref">Template Class PCLBase</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl20SupervoxelClusteringE">
+<span id="_CPPv3I0EN3pcl20SupervoxelClusteringE"></span><span id="_CPPv2I0EN3pcl20SupervoxelClusteringE"></span><span class="target" id="classpcl_1_1_supervoxel_clustering"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">SupervoxelClustering</code> : <em class="property">public</em> pcl::PCLBase&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl20SupervoxelClusteringE" title="pcl::SupervoxelClustering::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl20SupervoxelClusteringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Implements a supervoxel algorithm based on voxel structure, normals, and rgb values. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Supervoxels are oversegmented volumetric patches (usually surfaces) </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>Usually, color isn’t needed (and can be detrimental)- spatial structure is mainly used<ul class="simple">
+<li><p>J. Papon, A. Abramov, M. Schoeler, F. Woergoetter Voxel Cloud Connectivity Segmentation - Supervoxels from PointClouds In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR) 2013</p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Jeremie Papon (<a class="reference external" href="mailto:jpapon&#37;&#52;&#48;gmail&#46;com">jpapon<span>&#64;</span>gmail<span>&#46;</span>com</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering14LeafContainerTE">
+<span id="_CPPv3N3pcl20SupervoxelClustering14LeafContainerTE"></span><span id="_CPPv2N3pcl20SupervoxelClustering14LeafContainerTE"></span><span id="pcl::SupervoxelClustering::LeafContainerT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1af8c3ee970dccc2451fe1a0d8094a0001"></span><em class="property">typedef </em>pcl::octree::OctreePointCloudAdjacencyContainer&lt;PointT, <a class="reference internal" href="#_CPPv4N3pcl20SupervoxelClustering9VoxelDataE" title="pcl::SupervoxelClustering::VoxelData">VoxelData</a>&gt; <code class="sig-name descname">LeafContainerT</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering14LeafContainerTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering11LeafVectorTE">
+<span id="_CPPv3N3pcl20SupervoxelClustering11LeafVectorTE"></span><span id="_CPPv2N3pcl20SupervoxelClustering11LeafVectorTE"></span><span id="pcl::SupervoxelClustering::LeafVectorT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a53fede579637bfb35a24dac9b91f0d13"></span><em class="property">typedef </em>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl20SupervoxelClustering14LeafContainerTE" title="pcl::SupervoxelClustering::LeafContainerT">LeafContainerT</a> *&gt; <code class="sig-name descname">LeafVectorT</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering11LeafVectorTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering11PointCloudTE">
+<span id="_CPPv3N3pcl20SupervoxelClustering11PointCloudTE"></span><span id="_CPPv2N3pcl20SupervoxelClustering11PointCloudTE"></span><span id="pcl::SupervoxelClustering::PointCloudT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1ad17bc8f2a4f6a12afa95f667d9b90918"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointT&gt; <code class="sig-name descname">PointCloudT</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering11PointCloudTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering12NormalCloudTE">
+<span id="_CPPv3N3pcl20SupervoxelClustering12NormalCloudTE"></span><span id="_CPPv2N3pcl20SupervoxelClustering12NormalCloudTE"></span><span id="pcl::SupervoxelClustering::NormalCloudT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a148ade4813a92aacd7b6770442badaa8"></span><em class="property">typedef </em>pcl::PointCloud&lt;<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt; <code class="sig-name descname">NormalCloudT</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering12NormalCloudTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering16OctreeAdjacencyTE">
+<span id="_CPPv3N3pcl20SupervoxelClustering16OctreeAdjacencyTE"></span><span id="_CPPv2N3pcl20SupervoxelClustering16OctreeAdjacencyTE"></span><span id="pcl::SupervoxelClustering::OctreeAdjacencyT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a0daf8044d79d603e907f21cb542c3e70"></span><em class="property">typedef </em>pcl::octree::OctreePointCloudAdjacency&lt;PointT, <a class="reference internal" href="#_CPPv4N3pcl20SupervoxelClustering14LeafContainerTE" title="pcl::SupervoxelClustering::LeafContainerT">LeafContainerT</a>&gt; <code class="sig-name descname">OctreeAdjacencyT</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering16OctreeAdjacencyTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering13OctreeSearchTE">
+<span id="_CPPv3N3pcl20SupervoxelClustering13OctreeSearchTE"></span><span id="_CPPv2N3pcl20SupervoxelClustering13OctreeSearchTE"></span><span id="pcl::SupervoxelClustering::OctreeSearchT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1ae3ba712a19176646a68f501584c32dfc"></span><em class="property">typedef </em>pcl::octree::OctreePointCloudSearch&lt;PointT&gt; <code class="sig-name descname">OctreeSearchT</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering13OctreeSearchTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering7KdTreeTE">
+<span id="_CPPv3N3pcl20SupervoxelClustering7KdTreeTE"></span><span id="_CPPv2N3pcl20SupervoxelClustering7KdTreeTE"></span><span id="pcl::SupervoxelClustering::KdTreeT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a42fbafb6c47e0ff3fd46c5ea0e1675ce"></span><em class="property">typedef </em>pcl::search::KdTree&lt;PointT&gt; <code class="sig-name descname">KdTreeT</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering7KdTreeTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering10IndicesPtrE">
+<span id="_CPPv3N3pcl20SupervoxelClustering10IndicesPtrE"></span><span id="_CPPv2N3pcl20SupervoxelClustering10IndicesPtrE"></span><span id="pcl::SupervoxelClustering::IndicesPtr"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a0b3d44a62a29746f49b4548f93e68d2c"></span><em class="property">typedef </em>boost::shared_ptr&lt;std::vector&lt;int&gt;&gt; <code class="sig-name descname">IndicesPtr</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering10IndicesPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering18VoxelAdjacencyListE">
+<span id="_CPPv3N3pcl20SupervoxelClustering18VoxelAdjacencyListE"></span><span id="_CPPv2N3pcl20SupervoxelClustering18VoxelAdjacencyListE"></span><span id="pcl::SupervoxelClustering::VoxelAdjacencyList"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a478b23e41f4a20ff60a10a50c004262e"></span><em class="property">typedef </em>boost::adjacency_list&lt;boost::setS, boost::setS, boost::undirectedS, uint32_t, float&gt; <code class="sig-name descname">VoxelAdjacencyList</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering18VoxelAdjacencyListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering7VoxelIDE">
+<span id="_CPPv3N3pcl20SupervoxelClustering7VoxelIDE"></span><span id="_CPPv2N3pcl20SupervoxelClustering7VoxelIDE"></span><span id="pcl::SupervoxelClustering::VoxelID"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a9f4ad1f242a07f60e5d3a58bce74a952"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl20SupervoxelClustering18VoxelAdjacencyListE" title="pcl::SupervoxelClustering::VoxelAdjacencyList">VoxelAdjacencyList</a>::vertex_descriptor <code class="sig-name descname">VoxelID</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering7VoxelIDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SupervoxelClustering6EdgeIDE">
+<span id="_CPPv3N3pcl20SupervoxelClustering6EdgeIDE"></span><span id="_CPPv2N3pcl20SupervoxelClustering6EdgeIDE"></span><span id="pcl::SupervoxelClustering::EdgeID"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a3338517cb8a8741c504c9b695343da58"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl20SupervoxelClustering18VoxelAdjacencyListE" title="pcl::SupervoxelClustering::VoxelAdjacencyList">VoxelAdjacencyList</a>::edge_descriptor <code class="sig-name descname">EdgeID</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering6EdgeIDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering20SupervoxelClusteringEff">
+<span id="_CPPv3N3pcl20SupervoxelClustering20SupervoxelClusteringEff"></span><span id="_CPPv2N3pcl20SupervoxelClustering20SupervoxelClusteringEff"></span><span id="pcl::SupervoxelClustering::SupervoxelClustering__float.float"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1aa91db439be84dadc9143483aa2240835"></span><code class="sig-name descname">SupervoxelClustering</code><span class="sig-paren">(</span>float <em>voxel_resolution</em>, float <em>seed_resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering20SupervoxelClusteringEff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor that sets default values for member variables. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">voxel_resolution</span></code>: The resolution (in meters) of voxels used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">seed_resolution</span></code>: The average size (in meters) of resulting supervoxels </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering20SupervoxelClusteringEffb">
+<span id="_CPPv3N3pcl20SupervoxelClustering20SupervoxelClusteringEffb"></span><span id="_CPPv2N3pcl20SupervoxelClustering20SupervoxelClusteringEffb"></span><span id="pcl::SupervoxelClustering::SupervoxelClustering__float.float.b"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a902a00129f2e209c6ef9533bb08dc5f2"></span><code class="sig-name descname">SupervoxelClustering</code><span class="sig-paren">(</span>float <em>voxel_resolution</em>, float <em>seed_resolution</em>, bool<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering20SupervoxelClusteringEffb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClusteringD0Ev">
+<span id="_CPPv3N3pcl20SupervoxelClusteringD0Ev"></span><span id="_CPPv2N3pcl20SupervoxelClusteringD0Ev"></span><span id="pcl::SupervoxelClustering::~SupervoxelClustering"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1ac09241a0bd7d0799f97a688d89dcd6e3"></span><code class="sig-name descname">~SupervoxelClustering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClusteringD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This destructor destroys the cloud, normals and search method used for finding neighbors. </p>
+<p>In other words it frees memory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering18setVoxelResolutionEf">
+<span id="_CPPv3N3pcl20SupervoxelClustering18setVoxelResolutionEf"></span><span id="_CPPv2N3pcl20SupervoxelClustering18setVoxelResolutionEf"></span><span id="pcl::SupervoxelClustering::setVoxelResolution__float"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a4c6cdbb8117d4c80506a427c5fd1c221"></span>void <code class="sig-name descname">setVoxelResolution</code><span class="sig-paren">(</span>float <em>resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering18setVoxelResolutionEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the resolution of the octree voxels. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering18getVoxelResolutionEv">
+<span id="_CPPv3NK3pcl20SupervoxelClustering18getVoxelResolutionEv"></span><span id="_CPPv2NK3pcl20SupervoxelClustering18getVoxelResolutionEv"></span><span id="pcl::SupervoxelClustering::getVoxelResolutionC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a2b6f7118c8c4ba33d474fda9e53c0aee"></span>float <code class="sig-name descname">getVoxelResolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering18getVoxelResolutionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the resolution of the octree voxels. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering17setSeedResolutionEf">
+<span id="_CPPv3N3pcl20SupervoxelClustering17setSeedResolutionEf"></span><span id="_CPPv2N3pcl20SupervoxelClustering17setSeedResolutionEf"></span><span id="pcl::SupervoxelClustering::setSeedResolution__float"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a8357cf80b7a32e7315e01ed3ce265b1f"></span>void <code class="sig-name descname">setSeedResolution</code><span class="sig-paren">(</span>float <em>seed_resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering17setSeedResolutionEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the resolution of the octree seed voxels. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering17getSeedResolutionEv">
+<span id="_CPPv3NK3pcl20SupervoxelClustering17getSeedResolutionEv"></span><span id="_CPPv2NK3pcl20SupervoxelClustering17getSeedResolutionEv"></span><span id="pcl::SupervoxelClustering::getSeedResolutionC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1ad6ecaedc1bd918a372a2305e0e7dbfef"></span>float <code class="sig-name descname">getSeedResolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering17getSeedResolutionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the resolution of the octree seed voxels. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering18setColorImportanceEf">
+<span id="_CPPv3N3pcl20SupervoxelClustering18setColorImportanceEf"></span><span id="_CPPv2N3pcl20SupervoxelClustering18setColorImportanceEf"></span><span id="pcl::SupervoxelClustering::setColorImportance__float"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a3acef1d574a49a782557a2925a6d7af0"></span>void <code class="sig-name descname">setColorImportance</code><span class="sig-paren">(</span>float <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering18setColorImportanceEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the importance of color for supervoxels. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering20setSpatialImportanceEf">
+<span id="_CPPv3N3pcl20SupervoxelClustering20setSpatialImportanceEf"></span><span id="_CPPv2N3pcl20SupervoxelClustering20setSpatialImportanceEf"></span><span id="pcl::SupervoxelClustering::setSpatialImportance__float"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a29cf64b3f1ae3345dd3d2462a10f677c"></span>void <code class="sig-name descname">setSpatialImportance</code><span class="sig-paren">(</span>float <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering20setSpatialImportanceEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the importance of spatial distance for supervoxels. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering19setNormalImportanceEf">
+<span id="_CPPv3N3pcl20SupervoxelClustering19setNormalImportanceEf"></span><span id="_CPPv2N3pcl20SupervoxelClustering19setNormalImportanceEf"></span><span id="pcl::SupervoxelClustering::setNormalImportance__float"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1ae4ea0842b3d4205104c23b63294a8ed8"></span>void <code class="sig-name descname">setNormalImportance</code><span class="sig-paren">(</span>float <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering19setNormalImportanceEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the importance of scalar normal product for supervoxels. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering27setUseSingleCameraTransformEb">
+<span id="_CPPv3N3pcl20SupervoxelClustering27setUseSingleCameraTransformEb"></span><span id="_CPPv2N3pcl20SupervoxelClustering27setUseSingleCameraTransformEb"></span><span id="pcl::SupervoxelClustering::setUseSingleCameraTransform__b"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1aa8888922b5dfae82f61ddb15f8074bd7"></span>void <code class="sig-name descname">setUseSingleCameraTransform</code><span class="sig-paren">(</span>bool <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering27setUseSingleCameraTransformEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set whether or not to use the single camera transform. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>By default it will be used for organized clouds, but not for unorganized - this parameter will override that behavior The single camera transform scales bin size so that it increases exponentially with depth (z dimension). This is done to account for the decreasing point density found with depth when using an RGB-D camera. Without the transform, beyond a certain depth adjacency of voxels breaks down unless the voxel size is set to a large value. Using the transform allows preserving detail up close, while allowing adjacency at distance. The specific transform used here is: x /= z; y /= z; z = ln(z); This transform is applied when calculating the octree bins in OctreePointCloudAdjacency </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering7extractERNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE">
+<span id="_CPPv3N3pcl20SupervoxelClustering7extractERNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE"></span><span id="_CPPv2N3pcl20SupervoxelClustering7extractERNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE"></span><span id="pcl::SupervoxelClustering::extract__std::map:uint32_t.Supervoxel:PointT:::Ptr:R"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a938e1cbb1bbbc364c9113d7971b362e3"></span>void <code class="sig-name descname">extract</code><span class="sig-paren">(</span>std::map&lt;uint32_t, <em class="property">typename</em> Supervoxel&lt;PointT&gt;::Ptr&gt; &amp;<em>supervoxel_clusters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering7extractERNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method launches the segmentation algorithm and returns the supervoxels that were obtained during the segmentation. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">supervoxel_clusters</span></code>: A map of labels to pointers to supervoxel structures </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering13setInputCloudERKN3pcl10PointCloudI6PointTE8ConstPtrE">
+<span id="_CPPv3N3pcl20SupervoxelClustering13setInputCloudERKN3pcl10PointCloudI6PointTE8ConstPtrE"></span><span id="_CPPv2N3pcl20SupervoxelClustering13setInputCloudERKN3pcl10PointCloudI6PointTE8ConstPtrE"></span><span id="pcl::SupervoxelClustering::setInputCloud__pcl::PointCloud:PointT:::ConstPtrCR"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a77235192a0a6f1622a1bb3d7cc0003d2"></span>void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::ConstPtr &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering13setInputCloudERKN3pcl10PointCloudI6PointTE8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method sets the cloud to be supervoxelized. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: The cloud to be supervoxelize </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering14setNormalCloudEN12NormalCloudT8ConstPtrE">
+<span id="_CPPv3N3pcl20SupervoxelClustering14setNormalCloudEN12NormalCloudT8ConstPtrE"></span><span id="_CPPv2N3pcl20SupervoxelClustering14setNormalCloudEN12NormalCloudT8ConstPtrE"></span><span id="pcl::SupervoxelClustering::setNormalCloud__NormalCloudT::ConstPtr"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a2b87562ad91fe6c0132340b53b04ea97"></span>void <code class="sig-name descname">setNormalCloud</code><span class="sig-paren">(</span><em class="property">typename</em> <a class="reference internal" href="#_CPPv4N3pcl20SupervoxelClustering12NormalCloudTE" title="pcl::SupervoxelClustering::NormalCloudT">NormalCloudT</a>::ConstPtr <em>normal_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering14setNormalCloudEN12NormalCloudT8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method sets the normals to be used for supervoxels (should be same size as input cloud) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normal_cloud</span></code>: The input normals </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering17refineSupervoxelsEiRNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE">
+<span id="_CPPv3N3pcl20SupervoxelClustering17refineSupervoxelsEiRNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE"></span><span id="_CPPv2N3pcl20SupervoxelClustering17refineSupervoxelsEiRNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE"></span><span id="pcl::SupervoxelClustering::refineSupervoxels__i.std::map:uint32_t.Supervoxel:PointT:::Ptr:R"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a43b9d69751345e0d41d461233bc2559f"></span>void <code class="sig-name descname">refineSupervoxels</code><span class="sig-paren">(</span>int <em>num_itr</em>, std::map&lt;uint32_t, <em class="property">typename</em> Supervoxel&lt;PointT&gt;::Ptr&gt; &amp;<em>supervoxel_clusters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering17refineSupervoxelsEiRNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method refines the calculated supervoxels - may only be called after extract. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_itr</span></code>: The number of iterations of refinement to be done (2 or 3 is usually sufficient) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">supervoxel_clusters</span></code>: The resulting refined supervoxels </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering15getColoredCloudEv">
+<span id="_CPPv3NK3pcl20SupervoxelClustering15getColoredCloudEv"></span><span id="_CPPv2NK3pcl20SupervoxelClustering15getColoredCloudEv"></span><span id="pcl::SupervoxelClustering::getColoredCloudC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a1ddb159d39a3da31c756a66786b232a8"></span>pcl::PointCloud&lt;<a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b_a.html#_CPPv4N3pcl12PointXYZRGBAE" title="pcl::PointXYZRGBA">PointXYZRGBA</a>&gt;::Ptr <code class="sig-name descname">getColoredCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering15getColoredCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns an <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> colorized cloud showing superpixels Otherwise it returns an empty pointer. </p>
+<p>Points that belong to the same supervoxel have the same color. But this function doesn’t guarantee that different segments will have different color(it’s random). Points that are unlabeled will be black <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This will expand the label_colors_ vector so that it can accommodate all labels </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering21getVoxelCentroidCloudEv">
+<span id="_CPPv3NK3pcl20SupervoxelClustering21getVoxelCentroidCloudEv"></span><span id="_CPPv2NK3pcl20SupervoxelClustering21getVoxelCentroidCloudEv"></span><span id="pcl::SupervoxelClustering::getVoxelCentroidCloudC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a768a1fad8f67a7ea5e18a36cd4cf4af5"></span>pcl::PointCloud&lt;PointT&gt;::Ptr <code class="sig-name descname">getVoxelCentroidCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering21getVoxelCentroidCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a deep copy of the voxel centroid cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering15getLabeledCloudEv">
+<span id="_CPPv3NK3pcl20SupervoxelClustering15getLabeledCloudEv"></span><span id="_CPPv2NK3pcl20SupervoxelClustering15getLabeledCloudEv"></span><span id="pcl::SupervoxelClustering::getLabeledCloudC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1aec41648bf8e12ee2b9621e7ec08fd887"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_l.html#_CPPv4N3pcl9PointXYZLE" title="pcl::PointXYZL">PointXYZL</a>&gt;::Ptr <code class="sig-name descname">getLabeledCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering15getLabeledCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns labeled cloud Points that belong to the same supervoxel have the same label. </p>
+<p>Labels for segments start from 1, unlabled points have label 0 </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering20getColoredVoxelCloudEv">
+<span id="_CPPv3NK3pcl20SupervoxelClustering20getColoredVoxelCloudEv"></span><span id="_CPPv2NK3pcl20SupervoxelClustering20getColoredVoxelCloudEv"></span><span id="pcl::SupervoxelClustering::getColoredVoxelCloudC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a47bf1608e4ff872353503bce404db736"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b_a.html#_CPPv4N3pcl12PointXYZRGBAE" title="pcl::PointXYZRGBA">PointXYZRGBA</a>&gt;::Ptr <code class="sig-name descname">getColoredVoxelCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering20getColoredVoxelCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns an <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> colorized voxelized cloud showing superpixels Otherwise it returns an empty pointer. </p>
+<p>Points that belong to the same supervoxel have the same color. But this function doesn’t guarantee that different segments will have different color(it’s random). Points that are unlabeled will be black <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This will expand the label_colors_ vector so that it can accommodate all labels </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering20getLabeledVoxelCloudEv">
+<span id="_CPPv3NK3pcl20SupervoxelClustering20getLabeledVoxelCloudEv"></span><span id="_CPPv2NK3pcl20SupervoxelClustering20getLabeledVoxelCloudEv"></span><span id="pcl::SupervoxelClustering::getLabeledVoxelCloudC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a48b32cea7002e291ddc3bb1398f52656"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_l.html#_CPPv4N3pcl9PointXYZLE" title="pcl::PointXYZL">PointXYZL</a>&gt;::Ptr <code class="sig-name descname">getLabeledVoxelCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering20getLabeledVoxelCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns labeled voxelized cloud Points that belong to the same supervoxel have the same label. </p>
+<p>Labels for segments start from 1, unlabled points have label 0 </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering26getSupervoxelAdjacencyListER18VoxelAdjacencyList">
+<span id="_CPPv3NK3pcl20SupervoxelClustering26getSupervoxelAdjacencyListER18VoxelAdjacencyList"></span><span id="_CPPv2NK3pcl20SupervoxelClustering26getSupervoxelAdjacencyListER18VoxelAdjacencyList"></span><span id="pcl::SupervoxelClustering::getSupervoxelAdjacencyList__VoxelAdjacencyListRC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1abc98c38e820acde1fb8dc87c66ddc5c3"></span>void <code class="sig-name descname">getSupervoxelAdjacencyList</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl20SupervoxelClustering18VoxelAdjacencyListE" title="pcl::SupervoxelClustering::VoxelAdjacencyList">VoxelAdjacencyList</a> &amp;<em>adjacency_list_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering26getSupervoxelAdjacencyListER18VoxelAdjacencyList" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the adjacency list (Boost Graph library) which gives connections between supervoxels. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">adjacency_list_arg</span></code>: BGL graph where supervoxel labels are vertices, edges are touching relationships </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering22getSupervoxelAdjacencyERNSt8multimapI8uint32_t8uint32_tEE">
+<span id="_CPPv3NK3pcl20SupervoxelClustering22getSupervoxelAdjacencyERNSt8multimapI8uint32_t8uint32_tEE"></span><span id="_CPPv2NK3pcl20SupervoxelClustering22getSupervoxelAdjacencyERNSt8multimapI8uint32_t8uint32_tEE"></span><span id="pcl::SupervoxelClustering::getSupervoxelAdjacency__std::multimap:uint32_t.uint32_t:RC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a92f5536d132225ee24c33fa967a37cf3"></span>void <code class="sig-name descname">getSupervoxelAdjacency</code><span class="sig-paren">(</span>std::multimap&lt;uint32_t, uint32_t&gt; &amp;<em>label_adjacency</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering22getSupervoxelAdjacencyERNSt8multimapI8uint32_t8uint32_tEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a multimap which gives supervoxel adjacency. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">label_adjacency</span></code>: Multi-Map which maps a supervoxel label to all adjacent supervoxel labels </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SupervoxelClustering11getMaxLabelEv">
+<span id="_CPPv3NK3pcl20SupervoxelClustering11getMaxLabelEv"></span><span id="_CPPv2NK3pcl20SupervoxelClustering11getMaxLabelEv"></span><span id="pcl::SupervoxelClustering::getMaxLabelC"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a180e6e54a1b1320266ec41c2879923cd"></span>int <code class="sig-name descname">getMaxLabel</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SupervoxelClustering11getMaxLabelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the current maximum (highest) label. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl20SupervoxelClustering25makeSupervoxelNormalCloudERNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE">
+<span id="_CPPv3N3pcl20SupervoxelClustering25makeSupervoxelNormalCloudERNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE"></span><span id="_CPPv2N3pcl20SupervoxelClustering25makeSupervoxelNormalCloudERNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE"></span><span id="pcl::SupervoxelClustering::makeSupervoxelNormalCloud__std::map:uint32_t.Supervoxel:PointT:::Ptr:R"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1a4cf4c3c376c25b784c35faff05326d88"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_normal.html#_CPPv4N3pcl11PointNormalE" title="pcl::PointNormal">PointNormal</a>&gt;::Ptr <code class="sig-name descname">makeSupervoxelNormalCloud</code><span class="sig-paren">(</span>std::map&lt;uint32_t, <em class="property">typename</em> Supervoxel&lt;PointT&gt;::Ptr&gt; &amp;<em>supervoxel_clusters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering25makeSupervoxelNormalCloudERNSt3mapI8uint32_tN10SupervoxelI6PointTE3PtrEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Static helper function which returns a pointcloud of normals for the input supervoxels. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Cloud of PointNormals of the supervoxels </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">supervoxel_clusters</span></code>: <a class="reference internal" href="classpcl_1_1_supervoxel.html#classpcl_1_1_supervoxel"><span class="std std-ref">Supervoxel</span></a> cluster map coming from this class </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl20SupervoxelClustering9VoxelDataE">
+<span id="_CPPv3N3pcl20SupervoxelClustering9VoxelDataE"></span><span id="_CPPv2N3pcl20SupervoxelClustering9VoxelDataE"></span><span id="pcl::SupervoxelClustering::VoxelData"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data"></span><em class="property">class </em><code class="sig-name descname">VoxelData</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering9VoxelDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_supervoxel_clustering_1_1_voxel_data.html#classpcl_1_1_supervoxel_clustering_1_1_voxel_data"><span class="std std-ref">VoxelData</span></a> is a structure used for storing data within a <a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container.html#classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container"><span class="std std-ref">pcl::octree::OctreePointCloudAdjacencyContainer</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>It stores xyz, rgb, normal, distance, an index, and an owner. </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData9VoxelDataEv">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData9VoxelDataEv"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData9VoxelDataEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1add608c5f913cad1857d0b27a18aa16f2"></span>template&lt;&gt;<br /><code class="sig-name descname">VoxelData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData9VoxelDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE9VoxelData8getPointEvR6PointT">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE9VoxelData8getPointER6PointT"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE9VoxelData8getPointER6PointT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1a6a43e5d0cf77ec2fb51787af00afbf0f"></span>template&lt;&gt;<br />void <code class="sig-name descname">getPoint</code><span class="sig-paren">(</span>PointT &amp;<em>point_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE9VoxelData8getPointEvR6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the data of in the form of a point. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">point_arg</span></code>: Will contain the point value of the voxeldata </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE9VoxelData9getNormalEvR6Normal">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE9VoxelData9getNormalER6Normal"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE9VoxelData9getNormalER6Normal"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1ad51a32b2a4d8e5dc62e337261b89c88f"></span>template&lt;&gt;<br />void <code class="sig-name descname">getNormal</code><span class="sig-paren">(</span><a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a> &amp;<em>normal_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE9VoxelData9getNormalEvR6Normal" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the data of in the form of a normal. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">normal_arg</span></code>: Will contain the normal value of the voxeldata </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClustering9VoxelData8getPointEvRN3pcl11PointXYZRGBE">
+<span id="_CPPv3IENK3pcl20SupervoxelClustering9VoxelData8getPointERN3pcl11PointXYZRGBE"></span><span id="_CPPv2IENK3pcl20SupervoxelClustering9VoxelData8getPointERN3pcl11PointXYZRGBE"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1a49894874942ad4305e55229baac419af"></span>template&lt;&gt;<br />void <code class="sig-name descname">getPoint</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b.html#_CPPv4N3pcl11PointXYZRGBE" title="pcl::PointXYZRGB">PointXYZRGB</a> &amp;<em>point_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClustering9VoxelData8getPointEvRN3pcl11PointXYZRGBE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClustering9VoxelData8getPointEvRN3pcl12PointXYZRGBAE">
+<span id="_CPPv3IENK3pcl20SupervoxelClustering9VoxelData8getPointERN3pcl12PointXYZRGBAE"></span><span id="_CPPv2IENK3pcl20SupervoxelClustering9VoxelData8getPointERN3pcl12PointXYZRGBAE"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1af21babff7098f1e0ba3fae3b8fb6d857"></span>template&lt;&gt;<br />void <code class="sig-name descname">getPoint</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b_a.html#_CPPv4N3pcl12PointXYZRGBAE" title="pcl::PointXYZRGBA">PointXYZRGBA</a> &amp;<em>point_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClustering9VoxelData8getPointEvRN3pcl12PointXYZRGBAE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4xyz_E">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4xyz_E"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4xyz_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1aaf426829f7537f6518652e07352ddcf8"></span>Eigen::Vector3f <code class="sig-name descname">xyz_</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4xyz_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4rgb_E">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4rgb_E"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4rgb_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1ab55858d25e973740cb4dd4c416164551"></span>Eigen::Vector3f <code class="sig-name descname">rgb_</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4rgb_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData7normal_E">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData7normal_E"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData7normal_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1a5e119b52dcfa6f00b3659e5743b3e6a0"></span>Eigen::Vector4f <code class="sig-name descname">normal_</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData7normal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData10curvature_E">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData10curvature_E"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData10curvature_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1a0dce4b1bf55cb740f817c98962c6683e"></span>float <code class="sig-name descname">curvature_</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData10curvature_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData9distance_E">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData9distance_E"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData9distance_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1a49fd6e2f8578612dc2c03e6a5979323a"></span>float <code class="sig-name descname">distance_</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData9distance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4idx_E">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4idx_E"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4idx_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1a13f8581d95f96e93118ca6675ad52e72"></span>int <code class="sig-name descname">idx_</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData4idx_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData6owner_E">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData6owner_E"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData6owner_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_voxel_data_1a881a826716e1142e278e0ccc6dba6af2"></span>SupervoxelHelper *<code class="sig-name descname">owner_</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE9VoxelData6owner_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

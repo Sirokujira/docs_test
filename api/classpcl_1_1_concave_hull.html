@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class ConcaveHull &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class ConcaveHull</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_concave_hull.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-concavehull">
+<span id="exhale-class-classpcl-1-1-concave-hull"></span><h1>Template Class ConcaveHull<a class="headerlink" href="#template-class-concavehull" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_concave_hull.h.html#file-pcl-surface-include-pcl-surface-concave-hull-h"><span class="std std-ref">File concave_hull.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::MeshConstruction&lt;</span> <span class="pre">PointInT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_mesh_construction.html#exhale-class-classpcl-1-1-mesh-construction"><span class="std std-ref">Template Class MeshConstruction</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl11ConcaveHullE">
+<span id="_CPPv3I0EN3pcl11ConcaveHullE"></span><span id="_CPPv2I0EN3pcl11ConcaveHullE"></span><span class="target" id="classpcl_1_1_concave_hull"></span>template&lt;typename <code class="sig-name descname">PointInT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">ConcaveHull</code> : <em class="property">public</em> pcl::MeshConstruction&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl11ConcaveHullE" title="pcl::ConcaveHull::PointInT">PointInT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl11ConcaveHullE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_concave_hull"><span class="std std-ref">ConcaveHull</span></a></strong> (alpha shapes) using libqhull library. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Aitor Aldoma </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl11ConcaveHull10PointCloudE">
+<span id="_CPPv3N3pcl11ConcaveHull10PointCloudE"></span><span id="_CPPv2N3pcl11ConcaveHull10PointCloudE"></span><span id="pcl::ConcaveHull::PointCloud"></span><span class="target" id="classpcl_1_1_concave_hull_1a1ae423663e717dac5e64bd91a7d09067"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointInT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11ConcaveHull13PointCloudPtrE">
+<span id="_CPPv3N3pcl11ConcaveHull13PointCloudPtrE"></span><span id="_CPPv2N3pcl11ConcaveHull13PointCloudPtrE"></span><span id="pcl::ConcaveHull::PointCloudPtr"></span><span class="target" id="classpcl_1_1_concave_hull_1a5d9f714ede8bd1d0a523297903d24b52"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl11ConcaveHull10PointCloudE" title="pcl::ConcaveHull::PointCloud">PointCloud</a>::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11ConcaveHull18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl11ConcaveHull18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl11ConcaveHull18PointCloudConstPtrE"></span><span id="pcl::ConcaveHull::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_concave_hull_1ad29d716bb87d84622e8067b006e14e1d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl11ConcaveHull10PointCloudE" title="pcl::ConcaveHull::PointCloud">PointCloud</a>::ConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull11ConcaveHullEv">
+<span id="_CPPv3N3pcl11ConcaveHull11ConcaveHullEv"></span><span id="_CPPv2N3pcl11ConcaveHull11ConcaveHullEv"></span><span id="pcl::ConcaveHull::ConcaveHull"></span><span class="target" id="classpcl_1_1_concave_hull_1a1f530c2dfc6e91207479d04a50b93a9a"></span><code class="sig-name descname">ConcaveHull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull11ConcaveHullEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHullD0Ev">
+<span id="_CPPv3N3pcl11ConcaveHullD0Ev"></span><span id="_CPPv2N3pcl11ConcaveHullD0Ev"></span><span id="pcl::ConcaveHull::~ConcaveHull"></span><span class="target" id="classpcl_1_1_concave_hull_1ad968a359a8a105495fab52fc2e71f5d2"></span><em class="property">virtual</em> <code class="sig-name descname">~ConcaveHull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHullD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull11reconstructER10PointCloudRNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl11ConcaveHull11reconstructER10PointCloudRNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl11ConcaveHull11reconstructER10PointCloudRNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::ConcaveHull::reconstruct__PointCloudR.std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_concave_hull_1aa7364aaab2721664ae667a4dfb4d32c0"></span>void <code class="sig-name descname">reconstruct</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11ConcaveHull10PointCloudE" title="pcl::ConcaveHull::PointCloud">PointCloud</a> &amp;<em>points</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull11reconstructER10PointCloudRNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute a concave hull for all points given. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">points</span></code>: the resultant points lying on the concave hull </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">polygons</span></code>: the resultant concave hull polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull11reconstructER10PointCloud">
+<span id="_CPPv3N3pcl11ConcaveHull11reconstructER10PointCloud"></span><span id="_CPPv2N3pcl11ConcaveHull11reconstructER10PointCloud"></span><span id="pcl::ConcaveHull::reconstruct__PointCloudR"></span><span class="target" id="classpcl_1_1_concave_hull_1ae0ff39ec68c6d8205d1999984c39ef7f"></span>void <code class="sig-name descname">reconstruct</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11ConcaveHull10PointCloudE" title="pcl::ConcaveHull::PointCloud">PointCloud</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull11reconstructER10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute a concave hull for all points given. </p>
+<p>Software License Agreement (BSD License)</p>
+<p><p>Point Cloud Library (PCL) - www.pointclouds.org Copyright (c) 2010-2011, Willow Garage, Inc.</p>
+<dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span></code>: the resultant concave hull vertices</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<p><ul class="simple">
+<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p></li>
+<li><p>Neither the name of Willow Garage, Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p></li>
+</ul>
+</p>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p>$Id$ </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull8setAlphaEd">
+<span id="_CPPv3N3pcl11ConcaveHull8setAlphaEd"></span><span id="_CPPv2N3pcl11ConcaveHull8setAlphaEd"></span><span id="pcl::ConcaveHull::setAlpha__double"></span><span class="target" id="classpcl_1_1_concave_hull_1ab2e24dc457ff32634aa2549a10bc7562"></span>void <code class="sig-name descname">setAlpha</code><span class="sig-paren">(</span>double <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull8setAlphaEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the alpha value, which limits the size of the resultant hull segments (the smaller the more detailed the hull). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>: positive, non-zero value, defining the maximum length from a vertex to the facet center (center of the voronoi cell). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull8getAlphaEv">
+<span id="_CPPv3N3pcl11ConcaveHull8getAlphaEv"></span><span id="_CPPv2N3pcl11ConcaveHull8getAlphaEv"></span><span id="pcl::ConcaveHull::getAlpha"></span><span class="target" id="classpcl_1_1_concave_hull_1ae261bc108f87fea3ba3722203709a806"></span>double <code class="sig-name descname">getAlpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull8getAlphaEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the alpha parameter, see <a class="reference internal" href="#classpcl_1_1_concave_hull_1ab2e24dc457ff32634aa2549a10bc7562"><span class="std std-ref">setAlpha()</span></a>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull17setVoronoiCentersE13PointCloudPtr">
+<span id="_CPPv3N3pcl11ConcaveHull17setVoronoiCentersE13PointCloudPtr"></span><span id="_CPPv2N3pcl11ConcaveHull17setVoronoiCentersE13PointCloudPtr"></span><span id="pcl::ConcaveHull::setVoronoiCenters__PointCloudPtr"></span><span class="target" id="classpcl_1_1_concave_hull_1a13e8beee87153e19208e444bfabb5df3"></span>void <code class="sig-name descname">setVoronoiCenters</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11ConcaveHull13PointCloudPtrE" title="pcl::ConcaveHull::PointCloudPtr">PointCloudPtr</a> <em>voronoi_centers</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull17setVoronoiCentersE13PointCloudPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If set, the voronoi cells center will be saved in <em>voronoi_centers</em> </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">voronoi_centers</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull18setKeepInformationEb">
+<span id="_CPPv3N3pcl11ConcaveHull18setKeepInformationEb"></span><span id="_CPPv2N3pcl11ConcaveHull18setKeepInformationEb"></span><span id="pcl::ConcaveHull::setKeepInformation__b"></span><span class="target" id="classpcl_1_1_concave_hull_1a3218e3de033d4fd40eabd3cb066bb849"></span>void <code class="sig-name descname">setKeepInformation</code><span class="sig-paren">(</span>bool <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull18setKeepInformationEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If keep_information_is set to true the convex hull points keep other information like rgb, normals, … </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: where to keep the information or not, default is false </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11ConcaveHull12getDimensionEv">
+<span id="_CPPv3NK3pcl11ConcaveHull12getDimensionEv"></span><span id="_CPPv2NK3pcl11ConcaveHull12getDimensionEv"></span><span id="pcl::ConcaveHull::getDimensionC"></span><span class="target" id="classpcl_1_1_concave_hull_1a548937a6f770b680937cf71cfd401d6b"></span>int <code class="sig-name descname">getDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11ConcaveHull12getDimensionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the dimensionality (2 or 3) of the calculated hull. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull12setDimensionEi">
+<span id="_CPPv3N3pcl11ConcaveHull12setDimensionEi"></span><span id="_CPPv2N3pcl11ConcaveHull12setDimensionEi"></span><span id="pcl::ConcaveHull::setDimension__i"></span><span class="target" id="classpcl_1_1_concave_hull_1af6016068adc7280b2ac7a6141cf96ba4"></span>void <code class="sig-name descname">setDimension</code><span class="sig-paren">(</span>int <em>dimension</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull12setDimensionEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the dimension on the input data, 2D or 3D. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dimension</span></code>: The dimension of the input data. If not set, this will be determined automatically. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11ConcaveHull19getHullPointIndicesERN3pcl12PointIndicesE">
+<span id="_CPPv3NK3pcl11ConcaveHull19getHullPointIndicesERN3pcl12PointIndicesE"></span><span id="_CPPv2NK3pcl11ConcaveHull19getHullPointIndicesERN3pcl12PointIndicesE"></span><span id="pcl::ConcaveHull::getHullPointIndices__pcl::PointIndicesRC"></span><span class="target" id="classpcl_1_1_concave_hull_1ad196870bcbdfd1f3ad46ca59b0519f87"></span>void <code class="sig-name descname">getHullPointIndices</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a> &amp;<em>hull_point_indices</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11ConcaveHull19getHullPointIndicesERN3pcl12PointIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieve the indices of the input point cloud that for the convex hull. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Should only be called after reconstruction was performed and if the <a class="reference internal" href="#classpcl_1_1_concave_hull"><span class="std std-ref">ConcaveHull</span></a> is set to preserve information via setKeepInformation ().</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">hull_point_indices</span></code>: The indices of the points forming the point cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl11ConcaveHull3PtrE">
+<span id="_CPPv3N3pcl11ConcaveHull3PtrE"></span><span id="_CPPv2N3pcl11ConcaveHull3PtrE"></span><span id="pcl::ConcaveHull::Ptr"></span><span class="target" id="classpcl_1_1_concave_hull_1acbef0fb6adce46cd38b549bde5f80e42"></span><em class="property">typedef </em>boost::shared_ptr&lt;ConcaveHull&lt;PointInT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11ConcaveHull8ConstPtrE">
+<span id="_CPPv3N3pcl11ConcaveHull8ConstPtrE"></span><span id="_CPPv2N3pcl11ConcaveHull8ConstPtrE"></span><span id="pcl::ConcaveHull::ConstPtr"></span><span class="target" id="classpcl_1_1_concave_hull_1a4d61a860ffdd9ffcdba1f6930dcb6993"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> ConcaveHull&lt;PointInT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl11ConcaveHull12getClassNameEv">
+<span id="_CPPv3NK3pcl11ConcaveHull12getClassNameEv"></span><span id="_CPPv2NK3pcl11ConcaveHull12getClassNameEv"></span><span id="pcl::ConcaveHull::getClassNameC"></span><span class="target" id="classpcl_1_1_concave_hull_1afc6198c09a244ad4eb4f4440efd5017e"></span>std::string <code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11ConcaveHull12getClassNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class get name method. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull21performReconstructionER10PointCloudRNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl11ConcaveHull21performReconstructionER10PointCloudRNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl11ConcaveHull21performReconstructionER10PointCloudRNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::ConcaveHull::performReconstruction__PointCloudR.std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_concave_hull_1ada48c56bbbc15ddce89bfcd3749e2df3"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11ConcaveHull10PointCloudE" title="pcl::ConcaveHull::PointCloud">PointCloud</a> &amp;<em>points</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull21performReconstructionER10PointCloudRNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The actual reconstruction method. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">points</span></code>: the resultant points lying on the concave hull </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">polygons</span></code>: the resultant concave hull polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull21performReconstructionER11PolygonMesh">
+<span id="_CPPv3N3pcl11ConcaveHull21performReconstructionER11PolygonMesh"></span><span id="_CPPv2N3pcl11ConcaveHull21performReconstructionER11PolygonMesh"></span><span id="pcl::ConcaveHull::performReconstruction__PolygonMeshR"></span><span class="target" id="classpcl_1_1_concave_hull_1abc4641d7b43b4f468e25143b939b12c4"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span><a class="reference internal" href="structpcl_1_1_polygon_mesh.html#_CPPv4N3pcl11PolygonMeshE" title="pcl::PolygonMesh">PolygonMesh</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull21performReconstructionER11PolygonMesh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract surface reconstruction method. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the output polygonal mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11ConcaveHull21performReconstructionERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl11ConcaveHull21performReconstructionERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl11ConcaveHull21performReconstructionERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::ConcaveHull::performReconstruction__std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_concave_hull_1afa4a0f30b163de62d9af28f6a70da5fd"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull21performReconstructionERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract surface reconstruction method. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl11ConcaveHull6alpha_E">
+<span id="_CPPv3N3pcl11ConcaveHull6alpha_E"></span><span id="_CPPv2N3pcl11ConcaveHull6alpha_E"></span><span id="pcl::ConcaveHull::alpha___double"></span><span class="target" id="classpcl_1_1_concave_hull_1a526e439e73beeeae10de2fb0c45da05d"></span>double <code class="sig-name descname">alpha_</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull6alpha_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The method accepts facets only if the distance from any vertex to the facet-&gt;center (center of the voronoi cell) is smaller than alpha. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11ConcaveHull17keep_information_E">
+<span id="_CPPv3N3pcl11ConcaveHull17keep_information_E"></span><span id="_CPPv2N3pcl11ConcaveHull17keep_information_E"></span><span id="pcl::ConcaveHull::keep_information___b"></span><span class="target" id="classpcl_1_1_concave_hull_1a9ea1713523e004b383e3677a54525a90"></span>bool <code class="sig-name descname">keep_information_</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull17keep_information_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If set to true, the reconstructed point cloud describing the hull is obtained from the original input cloud by performing a nearest neighbor search from Qhull output. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11ConcaveHull16voronoi_centers_E">
+<span id="_CPPv3N3pcl11ConcaveHull16voronoi_centers_E"></span><span id="_CPPv2N3pcl11ConcaveHull16voronoi_centers_E"></span><span id="pcl::ConcaveHull::voronoi_centers___PointCloudPtr"></span><span class="target" id="classpcl_1_1_concave_hull_1aaf3e2f2387e079971a1413d9d0c6c792"></span><a class="reference internal" href="#_CPPv4N3pcl11ConcaveHull13PointCloudPtrE" title="pcl::ConcaveHull::PointCloudPtr">PointCloudPtr</a> <code class="sig-name descname">voronoi_centers_</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull16voronoi_centers_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the centers of the voronoi cells </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11ConcaveHull4dim_E">
+<span id="_CPPv3N3pcl11ConcaveHull4dim_E"></span><span id="_CPPv2N3pcl11ConcaveHull4dim_E"></span><span id="pcl::ConcaveHull::dim___i"></span><span class="target" id="classpcl_1_1_concave_hull_1ac67b30e8d387537a116564d37333fed6"></span>int <code class="sig-name descname">dim_</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull4dim_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the dimensionality of the concave hull </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11ConcaveHull13hull_indices_E">
+<span id="_CPPv3N3pcl11ConcaveHull13hull_indices_E"></span><span id="_CPPv2N3pcl11ConcaveHull13hull_indices_E"></span><span id="pcl::ConcaveHull::hull_indices___pcl::PointIndices"></span><span class="target" id="classpcl_1_1_concave_hull_1a48197858510d710dc761634eaee059c1"></span>pcl::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a> <code class="sig-name descname">hull_indices_</code><a class="headerlink" href="#_CPPv4N3pcl11ConcaveHull13hull_indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>vector containing the point cloud indices of the convex hull points. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

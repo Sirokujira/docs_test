@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class SampleConsensusModel &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class SampleConsensusModel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_sample_consensus_model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-sampleconsensusmodel">
+<span id="exhale-class-classpcl-1-1-sample-consensus-model"></span><h1>Template Class SampleConsensusModel<a class="headerlink" href="#template-class-sampleconsensusmodel" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_sample_consensus_include_pcl_sample_consensus_sac_model.h.html#file-pcl-sample-consensus-include-pcl-sample-consensus-sac-model-h"><span class="std std-ref">File sac_model.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SampleConsensusModelCircle2D&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_sample_consensus_model_circle2_d.html#exhale-class-classpcl-1-1-sample-consensus-model-circle2-d"><span class="std std-ref">Template Class SampleConsensusModelCircle2D</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SampleConsensusModelCircle3D&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_sample_consensus_model_circle3_d.html#exhale-class-classpcl-1-1-sample-consensus-model-circle3-d"><span class="std std-ref">Template Class SampleConsensusModelCircle3D</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SampleConsensusModelCone&lt;</span> <span class="pre">PointT,</span> <span class="pre">PointNT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_sample_consensus_model_cone.html#exhale-class-classpcl-1-1-sample-consensus-model-cone"><span class="std std-ref">Template Class SampleConsensusModelCone</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SampleConsensusModelCylinder&lt;</span> <span class="pre">PointT,</span> <span class="pre">PointNT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_sample_consensus_model_cylinder.html#exhale-class-classpcl-1-1-sample-consensus-model-cylinder"><span class="std std-ref">Template Class SampleConsensusModelCylinder</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SampleConsensusModelLine&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_sample_consensus_model_line.html#exhale-class-classpcl-1-1-sample-consensus-model-line"><span class="std std-ref">Template Class SampleConsensusModelLine</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SampleConsensusModelPlane&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_sample_consensus_model_plane.html#exhale-class-classpcl-1-1-sample-consensus-model-plane"><span class="std std-ref">Template Class SampleConsensusModelPlane</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SampleConsensusModelRegistration&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_sample_consensus_model_registration.html#exhale-class-classpcl-1-1-sample-consensus-model-registration"><span class="std std-ref">Template Class SampleConsensusModelRegistration</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SampleConsensusModelSphere&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_sample_consensus_model_sphere.html#exhale-class-classpcl-1-1-sample-consensus-model-sphere"><span class="std std-ref">Template Class SampleConsensusModelSphere</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SampleConsensusModelStick&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_sample_consensus_model_stick.html#exhale-class-classpcl-1-1-sample-consensus-model-stick"><span class="std std-ref">Template Class SampleConsensusModelStick</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl20SampleConsensusModelE">
+<span id="_CPPv3I0EN3pcl20SampleConsensusModelE"></span><span id="_CPPv2I0EN3pcl20SampleConsensusModelE"></span><span class="target" id="classpcl_1_1_sample_consensus_model"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">SampleConsensusModel</code><a class="headerlink" href="#_CPPv4I0EN3pcl20SampleConsensusModelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_sample_consensus_model"><span class="std std-ref">SampleConsensusModel</span></a></strong> represents the base model class. </p>
+<p>All sample consensus models must inherit from this class. <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Radu B. Rusu </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_sample_consensus_model_circle2_d.html#classpcl_1_1_sample_consensus_model_circle2_d"><span class="std std-ref">pcl::SampleConsensusModelCircle2D&lt; PointT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_sample_consensus_model_circle3_d.html#classpcl_1_1_sample_consensus_model_circle3_d"><span class="std std-ref">pcl::SampleConsensusModelCircle3D&lt; PointT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_sample_consensus_model_cone.html#classpcl_1_1_sample_consensus_model_cone"><span class="std std-ref">pcl::SampleConsensusModelCone&lt; PointT, PointNT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_sample_consensus_model_cylinder.html#classpcl_1_1_sample_consensus_model_cylinder"><span class="std std-ref">pcl::SampleConsensusModelCylinder&lt; PointT, PointNT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_sample_consensus_model_line.html#classpcl_1_1_sample_consensus_model_line"><span class="std std-ref">pcl::SampleConsensusModelLine&lt; PointT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_sample_consensus_model_plane.html#classpcl_1_1_sample_consensus_model_plane"><span class="std std-ref">pcl::SampleConsensusModelPlane&lt; PointT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_sample_consensus_model_registration.html#classpcl_1_1_sample_consensus_model_registration"><span class="std std-ref">pcl::SampleConsensusModelRegistration&lt; PointT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_sample_consensus_model_sphere.html#classpcl_1_1_sample_consensus_model_sphere"><span class="std std-ref">pcl::SampleConsensusModelSphere&lt; PointT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_sample_consensus_model_stick.html#classpcl_1_1_sample_consensus_model_stick"><span class="std std-ref">pcl::SampleConsensusModelStick&lt; PointT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl20SampleConsensusModel10PointCloudE">
+<span id="_CPPv3N3pcl20SampleConsensusModel10PointCloudE"></span><span id="_CPPv2N3pcl20SampleConsensusModel10PointCloudE"></span><span id="pcl::SampleConsensusModel::PointCloud"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a70b51e8d9f8526c1d2dc69ce68d9269e"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SampleConsensusModel18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl20SampleConsensusModel18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl20SampleConsensusModel18PointCloudConstPtrE"></span><span id="pcl::SampleConsensusModel::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a8f28a92c63418a12f95d1d668d13b49f"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointT&gt;::ConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SampleConsensusModel13PointCloudPtrE">
+<span id="_CPPv3N3pcl20SampleConsensusModel13PointCloudPtrE"></span><span id="_CPPv2N3pcl20SampleConsensusModel13PointCloudPtrE"></span><span id="pcl::SampleConsensusModel::PointCloudPtr"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1aef5bb60764603c6566d663d6e8575b7d"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointT&gt;::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SampleConsensusModel9SearchPtrE">
+<span id="_CPPv3N3pcl20SampleConsensusModel9SearchPtrE"></span><span id="_CPPv2N3pcl20SampleConsensusModel9SearchPtrE"></span><span id="pcl::SampleConsensusModel::SearchPtr"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1ae432b503734f6bb16a0c47b6bfa8616d"></span><em class="property">typedef </em>pcl::search::Search&lt;PointT&gt;::Ptr <code class="sig-name descname">SearchPtr</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel9SearchPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SampleConsensusModel3PtrE">
+<span id="_CPPv3N3pcl20SampleConsensusModel3PtrE"></span><span id="_CPPv2N3pcl20SampleConsensusModel3PtrE"></span><span id="pcl::SampleConsensusModel::Ptr"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1acf6ca2b42beebcccb83a22d50866392c"></span><em class="property">typedef </em>boost::shared_ptr&lt;SampleConsensusModel&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl20SampleConsensusModel8ConstPtrE">
+<span id="_CPPv3N3pcl20SampleConsensusModel8ConstPtrE"></span><span id="_CPPv2N3pcl20SampleConsensusModel8ConstPtrE"></span><span id="pcl::SampleConsensusModel::ConstPtr"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a028b710e8a2c3b3fa62c34c1a348c575"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> SampleConsensusModel&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel20SampleConsensusModelERK18PointCloudConstPtrb">
+<span id="_CPPv3N3pcl20SampleConsensusModel20SampleConsensusModelERK18PointCloudConstPtrb"></span><span id="_CPPv2N3pcl20SampleConsensusModel20SampleConsensusModelERK18PointCloudConstPtrb"></span><span id="pcl::SampleConsensusModel::SampleConsensusModel__PointCloudConstPtrCR.b"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1aa99d99ea0457237eca3b2f8e9a39022b"></span><code class="sig-name descname">SampleConsensusModel</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl20SampleConsensusModel18PointCloudConstPtrE" title="pcl::SampleConsensusModel::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud</em>, bool <em>random</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel20SampleConsensusModelERK18PointCloudConstPtrb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for base <a class="reference internal" href="#classpcl_1_1_sample_consensus_model"><span class="std std-ref">SampleConsensusModel</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the input point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">random</span></code>: if true set the random seed to the current time, else set to 12345 (default: false) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel20SampleConsensusModelERK18PointCloudConstPtrRKNSt6vectorIiEEb">
+<span id="_CPPv3N3pcl20SampleConsensusModel20SampleConsensusModelERK18PointCloudConstPtrRKNSt6vectorIiEEb"></span><span id="_CPPv2N3pcl20SampleConsensusModel20SampleConsensusModelERK18PointCloudConstPtrRKNSt6vectorIiEEb"></span><span id="pcl::SampleConsensusModel::SampleConsensusModel__PointCloudConstPtrCR.std::vector:i:CR.b"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a3fd6d364bc52a69c6aff54691975b7aa"></span><code class="sig-name descname">SampleConsensusModel</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl20SampleConsensusModel18PointCloudConstPtrE" title="pcl::SampleConsensusModel::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices</em>, bool <em>random</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel20SampleConsensusModelERK18PointCloudConstPtrRKNSt6vectorIiEEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for base <a class="reference internal" href="#classpcl_1_1_sample_consensus_model"><span class="std std-ref">SampleConsensusModel</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the input point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: a vector of point indices to be used from <em>cloud</em> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">random</span></code>: if true set the random seed to the current time, else set to 12345 (default: false) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModelD0Ev">
+<span id="_CPPv3N3pcl20SampleConsensusModelD0Ev"></span><span id="_CPPv2N3pcl20SampleConsensusModelD0Ev"></span><span id="pcl::SampleConsensusModel::~SampleConsensusModel"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a6fd82ae7fce7b90406608b8db249acd1"></span><em class="property">virtual</em> <code class="sig-name descname">~SampleConsensusModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModelD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor for base <a class="reference internal" href="#classpcl_1_1_sample_consensus_model"><span class="std std-ref">SampleConsensusModel</span></a>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel10getSamplesERiRNSt6vectorIiEE">
+<span id="_CPPv3N3pcl20SampleConsensusModel10getSamplesERiRNSt6vectorIiEE"></span><span id="_CPPv2N3pcl20SampleConsensusModel10getSamplesERiRNSt6vectorIiEE"></span><span id="pcl::SampleConsensusModel::getSamples__iR.std::vector:i:R"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a2ae178816daf4f2c7af3a19d12324b77"></span><em class="property">virtual</em> void <code class="sig-name descname">getSamples</code><span class="sig-paren">(</span>int &amp;<em>iterations</em>, std::vector&lt;int&gt; &amp;<em>samples</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel10getSamplesERiRNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a set of random data samples and return them as point indices. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">iterations</span></code>: the internal number of iterations used by SAC methods </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">samples</span></code>: the resultant model samples </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel24computeModelCoefficientsERKNSt6vectorIiEERN5Eigen8VectorXfE">
+<span id="_CPPv3NK3pcl20SampleConsensusModel24computeModelCoefficientsERKNSt6vectorIiEERN5Eigen8VectorXfE"></span><span id="_CPPv2NK3pcl20SampleConsensusModel24computeModelCoefficientsERKNSt6vectorIiEERN5Eigen8VectorXfE"></span><span id="pcl::SampleConsensusModel::computeModelCoefficients__std::vector:i:CR.Eigen::VectorXfRC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a3dd79cb11f05a4bc0269a9bddad6915f"></span><em class="property">virtual</em> bool <code class="sig-name descname">computeModelCoefficients</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>samples</em>, Eigen::VectorXf &amp;<em>model_coefficients</em><span class="sig-paren">)</span> <em class="property">const</em> = 0<a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel24computeModelCoefficientsERKNSt6vectorIiEERN5Eigen8VectorXfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check whether the given index samples can form a valid model, compute the model coefficients from these samples and store them in model_coefficients. </p>
+<p>Pure virtual. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">samples</span></code>: the point indices found as possible good candidates for creating a valid model </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">model_coefficients</span></code>: the computed model coefficients </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel25optimizeModelCoefficientsERKNSt6vectorIiEERKN5Eigen8VectorXfERN5Eigen8VectorXfE">
+<span id="_CPPv3NK3pcl20SampleConsensusModel25optimizeModelCoefficientsERKNSt6vectorIiEERKN5Eigen8VectorXfERN5Eigen8VectorXfE"></span><span id="_CPPv2NK3pcl20SampleConsensusModel25optimizeModelCoefficientsERKNSt6vectorIiEERKN5Eigen8VectorXfERN5Eigen8VectorXfE"></span><span id="pcl::SampleConsensusModel::optimizeModelCoefficients__std::vector:i:CR.Eigen::VectorXfCR.Eigen::VectorXfRC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a580b9e2a329c889e929c37dc8bb7d05c"></span><em class="property">virtual</em> void <code class="sig-name descname">optimizeModelCoefficients</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>inliers</em>, <em class="property">const</em> Eigen::VectorXf &amp;<em>model_coefficients</em>, Eigen::VectorXf &amp;<em>optimized_coefficients</em><span class="sig-paren">)</span> <em class="property">const</em> = 0<a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel25optimizeModelCoefficientsERKNSt6vectorIiEERKN5Eigen8VectorXfERN5Eigen8VectorXfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recompute the model coefficients using the given inlier set and return them to the user. </p>
+<p>Pure virtual.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>: these are the coefficients of the model after refinement (e.g., after a least-squares optimization)</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inliers</span></code>: the data inliers supporting the model </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model_coefficients</span></code>: the initial guess for the model coefficients </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">optimized_coefficients</span></code>: the resultant recomputed coefficients after non-linear optimization </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel19getDistancesToModelERKN5Eigen8VectorXfERNSt6vectorIdEE">
+<span id="_CPPv3NK3pcl20SampleConsensusModel19getDistancesToModelERKN5Eigen8VectorXfERNSt6vectorIdEE"></span><span id="_CPPv2NK3pcl20SampleConsensusModel19getDistancesToModelERKN5Eigen8VectorXfERNSt6vectorIdEE"></span><span id="pcl::SampleConsensusModel::getDistancesToModel__Eigen::VectorXfCR.std::vector:double:RC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1afc6e1d8217e25d7f1db621dcbf8f442a"></span><em class="property">virtual</em> void <code class="sig-name descname">getDistancesToModel</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::VectorXf &amp;<em>model_coefficients</em>, std::vector&lt;double&gt; &amp;<em>distances</em><span class="sig-paren">)</span> <em class="property">const</em> = 0<a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel19getDistancesToModelERKN5Eigen8VectorXfERNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute all distances from the cloud data to a given model. </p>
+<p>Pure virtual.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model_coefficients</span></code>: the coefficients of a model that we need to compute distances to </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">distances</span></code>: the resultant estimated distances </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel20selectWithinDistanceERKN5Eigen8VectorXfEKdRNSt6vectorIiEE">
+<span id="_CPPv3N3pcl20SampleConsensusModel20selectWithinDistanceERKN5Eigen8VectorXfEKdRNSt6vectorIiEE"></span><span id="_CPPv2N3pcl20SampleConsensusModel20selectWithinDistanceERKN5Eigen8VectorXfEKdRNSt6vectorIiEE"></span><span id="pcl::SampleConsensusModel::selectWithinDistance__Eigen::VectorXfCR.doubleC.std::vector:i:R"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1af9aefc3c3ab13ede1430c680e9243d26"></span><em class="property">virtual</em> void <code class="sig-name descname">selectWithinDistance</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::VectorXf &amp;<em>model_coefficients</em>, <em class="property">const</em> double <em>threshold</em>, std::vector&lt;int&gt; &amp;<em>inliers</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel20selectWithinDistanceERKN5Eigen8VectorXfEKdRNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Select all the points which respect the given model coefficients as inliers. </p>
+<p>Pure virtual.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model_coefficients</span></code>: the coefficients of a model that we need to compute distances to </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: a maximum admissible distance threshold for determining the inliers from the outliers </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">inliers</span></code>: the resultant model inliers </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel19countWithinDistanceERKN5Eigen8VectorXfEKd">
+<span id="_CPPv3NK3pcl20SampleConsensusModel19countWithinDistanceERKN5Eigen8VectorXfEKd"></span><span id="_CPPv2NK3pcl20SampleConsensusModel19countWithinDistanceERKN5Eigen8VectorXfEKd"></span><span id="pcl::SampleConsensusModel::countWithinDistance__Eigen::VectorXfCR.doubleCC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a1cea1350ca2d333a68fcbadcf461e7f1"></span><em class="property">virtual</em> int <code class="sig-name descname">countWithinDistance</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::VectorXf &amp;<em>model_coefficients</em>, <em class="property">const</em> double <em>threshold</em><span class="sig-paren">)</span> <em class="property">const</em> = 0<a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel19countWithinDistanceERKN5Eigen8VectorXfEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Count all the points which respect the given model coefficients as inliers. </p>
+<p>Pure virtual.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the resultant number of inliers </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model_coefficients</span></code>: the coefficients of a model that we need to compute distances to </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: a maximum admissible distance threshold for determining the inliers from the outliers </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel13projectPointsERKNSt6vectorIiEERKN5Eigen8VectorXfER10PointCloudb">
+<span id="_CPPv3NK3pcl20SampleConsensusModel13projectPointsERKNSt6vectorIiEERKN5Eigen8VectorXfER10PointCloudb"></span><span id="_CPPv2NK3pcl20SampleConsensusModel13projectPointsERKNSt6vectorIiEERKN5Eigen8VectorXfER10PointCloudb"></span><span id="pcl::SampleConsensusModel::projectPoints__std::vector:i:CR.Eigen::VectorXfCR.PointCloudR.bC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1afb28f289bbdeae38a02446087acaca49"></span><em class="property">virtual</em> void <code class="sig-name descname">projectPoints</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>inliers</em>, <em class="property">const</em> Eigen::VectorXf &amp;<em>model_coefficients</em>, <a class="reference internal" href="#_CPPv4N3pcl20SampleConsensusModel10PointCloudE" title="pcl::SampleConsensusModel::PointCloud">PointCloud</a> &amp;<em>projected_points</em>, bool <em>copy_data_fields</em> = true<span class="sig-paren">)</span> <em class="property">const</em> = 0<a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel13projectPointsERKNSt6vectorIiEERKN5Eigen8VectorXfER10PointCloudb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a new point cloud with inliers projected onto the model. </p>
+<p>Pure virtual. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">inliers</span></code>: the data inliers that we want to project on the model </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model_coefficients</span></code>: the coefficients of a model </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">projected_points</span></code>: the resultant projected points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">copy_data_fields</span></code>: set to true (default) if we want the <em>projected_points</em> cloud to be an exact copy of the input dataset minus the point projections on the plane model </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel20doSamplesVerifyModelERKNSt3setIiEERKN5Eigen8VectorXfEKd">
+<span id="_CPPv3NK3pcl20SampleConsensusModel20doSamplesVerifyModelERKNSt3setIiEERKN5Eigen8VectorXfEKd"></span><span id="_CPPv2NK3pcl20SampleConsensusModel20doSamplesVerifyModelERKNSt3setIiEERKN5Eigen8VectorXfEKd"></span><span id="pcl::SampleConsensusModel::doSamplesVerifyModel__std::set:i:CR.Eigen::VectorXfCR.doubleCC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1aa807985da6207bb16d648d2aa277bab5"></span><em class="property">virtual</em> bool <code class="sig-name descname">doSamplesVerifyModel</code><span class="sig-paren">(</span><em class="property">const</em> std::set&lt;int&gt; &amp;<em>indices</em>, <em class="property">const</em> Eigen::VectorXf &amp;<em>model_coefficients</em>, <em class="property">const</em> double <em>threshold</em><span class="sig-paren">)</span> <em class="property">const</em> = 0<a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel20doSamplesVerifyModelERKNSt3setIiEERKN5Eigen8VectorXfEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Verify whether a subset of indices verifies a given set of model coefficients. </p>
+<p>Pure virtual.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: the data indices that need to be tested against the model </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model_coefficients</span></code>: the set of model coefficients </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: a maximum admissible distance threshold for determining the inliers from the outliers </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel13setInputCloudERK18PointCloudConstPtr">
+<span id="_CPPv3N3pcl20SampleConsensusModel13setInputCloudERK18PointCloudConstPtr"></span><span id="_CPPv2N3pcl20SampleConsensusModel13setInputCloudERK18PointCloudConstPtr"></span><span id="pcl::SampleConsensusModel::setInputCloud__PointCloudConstPtrCR"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1aae3b06fbee5243f926d40f8115bd406c"></span><em class="property">virtual</em> void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl20SampleConsensusModel18PointCloudConstPtrE" title="pcl::SampleConsensusModel::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel13setInputCloudERK18PointCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel13getInputCloudEv">
+<span id="_CPPv3NK3pcl20SampleConsensusModel13getInputCloudEv"></span><span id="_CPPv2NK3pcl20SampleConsensusModel13getInputCloudEv"></span><span id="pcl::SampleConsensusModel::getInputCloudC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a41226f6ed6de6db5ea190f265f520fc9"></span><a class="reference internal" href="#_CPPv4N3pcl20SampleConsensusModel18PointCloudConstPtrE" title="pcl::SampleConsensusModel::PointCloudConstPtr">PointCloudConstPtr</a> <code class="sig-name descname">getInputCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel13getInputCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the input point cloud dataset. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel10setIndicesERKN5boost10shared_ptrINSt6vectorIiEEEE">
+<span id="_CPPv3N3pcl20SampleConsensusModel10setIndicesERKN5boost10shared_ptrINSt6vectorIiEEEE"></span><span id="_CPPv2N3pcl20SampleConsensusModel10setIndicesERKN5boost10shared_ptrINSt6vectorIiEEEE"></span><span id="pcl::SampleConsensusModel::setIndices__boost::shared_ptr:std::vector:i::CR"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a4d9b6652b63eacd8c0ae1fb3a3eafa25"></span>void <code class="sig-name descname">setIndices</code><span class="sig-paren">(</span><em class="property">const</em> boost::shared_ptr&lt;std::vector&lt;int&gt;&gt; &amp;<em>indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel10setIndicesERKN5boost10shared_ptrINSt6vectorIiEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the vector of indices that represents the input data. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: a pointer to the vector of indices that represents the input data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel10setIndicesERKNSt6vectorIiEE">
+<span id="_CPPv3N3pcl20SampleConsensusModel10setIndicesERKNSt6vectorIiEE"></span><span id="_CPPv2N3pcl20SampleConsensusModel10setIndicesERKNSt6vectorIiEE"></span><span id="pcl::SampleConsensusModel::setIndices__std::vector:i:CR"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a6d23c173237ca4be1451182b9a84b3ac"></span>void <code class="sig-name descname">setIndices</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel10setIndicesERKNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide the vector of indices that represents the input data. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">indices</span></code>: the vector of indices that represents the input data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel10getIndicesEv">
+<span id="_CPPv3NK3pcl20SampleConsensusModel10getIndicesEv"></span><span id="_CPPv2NK3pcl20SampleConsensusModel10getIndicesEv"></span><span id="pcl::SampleConsensusModel::getIndicesC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a7b59467495bbcc1e6ba1b69bbd6c4206"></span>boost::shared_ptr&lt;std::vector&lt;int&gt;&gt; <code class="sig-name descname">getIndices</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel10getIndicesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the vector of indices used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel12getModelTypeEv">
+<span id="_CPPv3NK3pcl20SampleConsensusModel12getModelTypeEv"></span><span id="_CPPv2NK3pcl20SampleConsensusModel12getModelTypeEv"></span><span id="pcl::SampleConsensusModel::getModelTypeC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a2c2824f82edf6564ba8a0160526992f0"></span><em class="property">virtual</em> <a class="reference internal" href="enum_namespacepcl_1a801a3c83fe807097c9aded5534df1394.html#_CPPv4N3pcl8SacModelE" title="pcl::SacModel">SacModel</a> <code class="sig-name descname">getModelType</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> = 0<a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel12getModelTypeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return an unique id for each type of model employed. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel12getClassNameEv">
+<span id="_CPPv3NK3pcl20SampleConsensusModel12getClassNameEv"></span><span id="_CPPv2NK3pcl20SampleConsensusModel12getClassNameEv"></span><span id="pcl::SampleConsensusModel::getClassNameC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a490884cb22bfa92325111bd5be0bbe96"></span><em class="property">const</em> std::string &amp;<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel12getClassNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a string representation of the name of this class. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel13getSampleSizeEv">
+<span id="_CPPv3NK3pcl20SampleConsensusModel13getSampleSizeEv"></span><span id="_CPPv2NK3pcl20SampleConsensusModel13getSampleSizeEv"></span><span id="pcl::SampleConsensusModel::getSampleSizeC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1aff175b4323080fe1a3ca98a76ca4da46"></span>unsigned int <code class="sig-name descname">getSampleSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel13getSampleSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the size of a sample from which the model is computed. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel12getModelSizeEv">
+<span id="_CPPv3NK3pcl20SampleConsensusModel12getModelSizeEv"></span><span id="_CPPv2NK3pcl20SampleConsensusModel12getModelSizeEv"></span><span id="pcl::SampleConsensusModel::getModelSizeC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a35884d269a39055c962b24d1db5fa97d"></span>unsigned int <code class="sig-name descname">getModelSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel12getModelSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the number of coefficients in the model. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel15setRadiusLimitsERKdRKd">
+<span id="_CPPv3N3pcl20SampleConsensusModel15setRadiusLimitsERKdRKd"></span><span id="_CPPv2N3pcl20SampleConsensusModel15setRadiusLimitsERKdRKd"></span><span id="pcl::SampleConsensusModel::setRadiusLimits__doubleCR.doubleCR"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a3ed94271a12d7903c0bee9091e9a8f95"></span>void <code class="sig-name descname">setRadiusLimits</code><span class="sig-paren">(</span><em class="property">const</em> double &amp;<em>min_radius</em>, <em class="property">const</em> double &amp;<em>max_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel15setRadiusLimitsERKdRKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the minimum and maximum allowable radius limits for the model (applicable to models that estimate a radius) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_radius</span></code>: the minimum radius model </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_radius</span></code>: the maximum radius model </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel15getRadiusLimitsERdRd">
+<span id="_CPPv3NK3pcl20SampleConsensusModel15getRadiusLimitsERdRd"></span><span id="_CPPv2NK3pcl20SampleConsensusModel15getRadiusLimitsERdRd"></span><span id="pcl::SampleConsensusModel::getRadiusLimits__doubleR.doubleRC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1acd821e0e4699a143f48f728e597842fb"></span>void <code class="sig-name descname">getRadiusLimits</code><span class="sig-paren">(</span>double &amp;<em>min_radius</em>, double &amp;<em>max_radius</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel15getRadiusLimitsERdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the minimum and maximum allowable radius limits for the model as set by the user. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">min_radius</span></code>: the resultant minimum radius model </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">max_radius</span></code>: the resultant maximum radius model </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel17setSamplesMaxDistERKd9SearchPtr">
+<span id="_CPPv3N3pcl20SampleConsensusModel17setSamplesMaxDistERKd9SearchPtr"></span><span id="_CPPv2N3pcl20SampleConsensusModel17setSamplesMaxDistERKd9SearchPtr"></span><span id="pcl::SampleConsensusModel::setSamplesMaxDist__doubleCR.SearchPtr"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1af9eea9dd0e12e1de8671ac542400d3f1"></span>void <code class="sig-name descname">setSamplesMaxDist</code><span class="sig-paren">(</span><em class="property">const</em> double &amp;<em>radius</em>, <a class="reference internal" href="#_CPPv4N3pcl20SampleConsensusModel9SearchPtrE" title="pcl::SampleConsensusModel::SearchPtr">SearchPtr</a> <em>search</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel17setSamplesMaxDistERKd9SearchPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum distance allowed when drawing random samples. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the maximum distance (L2 norm) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">search</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel17getSamplesMaxDistERd">
+<span id="_CPPv3NK3pcl20SampleConsensusModel17getSamplesMaxDistERd"></span><span id="_CPPv2NK3pcl20SampleConsensusModel17getSamplesMaxDistERd"></span><span id="pcl::SampleConsensusModel::getSamplesMaxDist__doubleRC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a3fe68c64c09cb0e6dcb6b28b98806203"></span>void <code class="sig-name descname">getSamplesMaxDist</code><span class="sig-paren">(</span>double &amp;<em>radius</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel17getSamplesMaxDistERd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get maximum distance allowed when drawing random samples. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">radius</span></code>: the maximum distance (L2 norm) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel15computeVarianceERKNSt6vectorIdEE">
+<span id="_CPPv3NK3pcl20SampleConsensusModel15computeVarianceERKNSt6vectorIdEE"></span><span id="_CPPv2NK3pcl20SampleConsensusModel15computeVarianceERKNSt6vectorIdEE"></span><span id="pcl::SampleConsensusModel::computeVariance__std::vector:double:CRC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a5bcc6b73fdf983bb80992e5b6a1c0c78"></span>double <code class="sig-name descname">computeVariance</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>error_sqr_dists</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel15computeVarianceERKNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the variance of the errors to the model. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">error_sqr_dists</span></code>: a vector holding the distances </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel15computeVarianceEv">
+<span id="_CPPv3NK3pcl20SampleConsensusModel15computeVarianceEv"></span><span id="_CPPv2NK3pcl20SampleConsensusModel15computeVarianceEv"></span><span id="pcl::SampleConsensusModel::computeVarianceC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a6a28b0e4114224fa28d9bc630ad5c638"></span>double <code class="sig-name descname">computeVariance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel15computeVarianceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the variance of the errors to the model from the internally estimated vector of distances. </p>
+<p>The model must be computed first (or at least selectWithinDistance must be called). </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel20SampleConsensusModelEb">
+<span id="_CPPv3N3pcl20SampleConsensusModel20SampleConsensusModelEb"></span><span id="_CPPv2N3pcl20SampleConsensusModel20SampleConsensusModelEb"></span><span id="pcl::SampleConsensusModel::SampleConsensusModel__b"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a910f3f0d75a6c2bf8bc4a9c43df825ce"></span><code class="sig-name descname">SampleConsensusModel</code><span class="sig-paren">(</span>bool <em>random</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel20SampleConsensusModelEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor for base <a class="reference internal" href="#classpcl_1_1_sample_consensus_model"><span class="std std-ref">SampleConsensusModel</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">random</span></code>: if true set the random seed to the current time, else set to 12345 (default: false) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel15drawIndexSampleERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl20SampleConsensusModel15drawIndexSampleERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl20SampleConsensusModel15drawIndexSampleERNSt6vectorIiEE"></span><span id="pcl::SampleConsensusModel::drawIndexSample__std::vector:i:R"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a2f687798633c8e702568aea8d68b2bec"></span>void <code class="sig-name descname">drawIndexSample</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>sample</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel15drawIndexSampleERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fills a sample array with random samples from the indices_ vector. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">sample</span></code>: the set of indices of target_ to analyze </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel21drawIndexSampleRadiusERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl20SampleConsensusModel21drawIndexSampleRadiusERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl20SampleConsensusModel21drawIndexSampleRadiusERNSt6vectorIiEE"></span><span id="pcl::SampleConsensusModel::drawIndexSampleRadius__std::vector:i:R"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a94696e418be704a4443b031ca18bc298"></span>void <code class="sig-name descname">drawIndexSampleRadius</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>sample</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel21drawIndexSampleRadiusERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fills a sample array with one random sample from the indices_ vector and other random samples that are closer than samples_radius_. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">sample</span></code>: the set of indices of target_ to analyze </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel12isModelValidERKN5Eigen8VectorXfE">
+<span id="_CPPv3NK3pcl20SampleConsensusModel12isModelValidERKN5Eigen8VectorXfE"></span><span id="_CPPv2NK3pcl20SampleConsensusModel12isModelValidERKN5Eigen8VectorXfE"></span><span id="pcl::SampleConsensusModel::isModelValid__Eigen::VectorXfCRC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a7e32592b85589f587600a37130edbca7"></span><em class="property">virtual</em> bool <code class="sig-name descname">isModelValid</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::VectorXf &amp;<em>model_coefficients</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel12isModelValidERKN5Eigen8VectorXfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check whether a model is valid given the user constraints. </p>
+<p>Default implementation verifies that the number of coefficients in the supplied model is as expected for this SAC model type. Specific SAC models should extend this function by checking the user constraints (if any).</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model_coefficients</span></code>: the set of model coefficients </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl20SampleConsensusModel12isSampleGoodERKNSt6vectorIiEE">
+<span id="_CPPv3NK3pcl20SampleConsensusModel12isSampleGoodERKNSt6vectorIiEE"></span><span id="_CPPv2NK3pcl20SampleConsensusModel12isSampleGoodERKNSt6vectorIiEE"></span><span id="pcl::SampleConsensusModel::isSampleGood__std::vector:i:CRC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1ac38e3dc90b66bacc563605a31901ac55"></span><em class="property">virtual</em> bool <code class="sig-name descname">isSampleGood</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>samples</em><span class="sig-paren">)</span> <em class="property">const</em> = 0<a class="headerlink" href="#_CPPv4NK3pcl20SampleConsensusModel12isSampleGoodERKNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a sample of indices results in a good sample of points indices. </p>
+<p>Pure virtual. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">samples</span></code>: the resultant index samples </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl20SampleConsensusModel3rndEv">
+<span id="_CPPv3N3pcl20SampleConsensusModel3rndEv"></span><span id="_CPPv2N3pcl20SampleConsensusModel3rndEv"></span><span id="pcl::SampleConsensusModel::rnd"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1ab8b77e6a4edb210c2ddaca923ac8470a"></span>int <code class="sig-name descname">rnd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel3rndEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Boost-based random number generator. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel11model_name_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel11model_name_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel11model_name_E"></span><span id="pcl::SampleConsensusModel::model_name___ss"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1ab10fd6af7c7ab78040d4f638a572943f"></span>std::string <code class="sig-name descname">model_name_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel11model_name_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The model name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel6input_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel6input_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel6input_E"></span><span id="pcl::SampleConsensusModel::input___PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a7bffa6777a49f1c461ee8e0960bbec01"></span><a class="reference internal" href="#_CPPv4N3pcl20SampleConsensusModel18PointCloudConstPtrE" title="pcl::SampleConsensusModel::PointCloudConstPtr">PointCloudConstPtr</a> <code class="sig-name descname">input_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel6input_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A boost shared pointer to the point cloud data array. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel8indices_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel8indices_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel8indices_E"></span><span id="pcl::SampleConsensusModel::indices___boost::shared_ptr:std::vector:i::"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1ad45adf0e36f396a908c2ba08cfdd7a41"></span>boost::shared_ptr&lt;std::vector&lt;int&gt;&gt; <code class="sig-name descname">indices_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel8indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A pointer to the vector of point indices to use. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel11radius_min_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel11radius_min_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel11radius_min_E"></span><span id="pcl::SampleConsensusModel::radius_min___double"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a3e4708339fa0bc73aac513ddb1891a18"></span>double <code class="sig-name descname">radius_min_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel11radius_min_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The minimum and maximum radius limits for the model. </p>
+<p>Applicable to all models that estimate a radius. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel11radius_max_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel11radius_max_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel11radius_max_E"></span><span id="pcl::SampleConsensusModel::radius_max___double"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a0e6cdd749083398f532e2e2e3e22d544"></span>double <code class="sig-name descname">radius_max_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel11radius_max_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel15samples_radius_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel15samples_radius_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel15samples_radius_E"></span><span id="pcl::SampleConsensusModel::samples_radius___double"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1aab89218101a313d2aa8adcaf6991f73b"></span>double <code class="sig-name descname">samples_radius_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel15samples_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum distance of subsequent samples from the first (radius search) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel22samples_radius_search_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel22samples_radius_search_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel22samples_radius_search_E"></span><span id="pcl::SampleConsensusModel::samples_radius_search___SearchPtr"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a4b939f4747b5d6e12b03148a680380c3"></span><a class="reference internal" href="#_CPPv4N3pcl20SampleConsensusModel9SearchPtrE" title="pcl::SampleConsensusModel::SearchPtr">SearchPtr</a> <code class="sig-name descname">samples_radius_search_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel22samples_radius_search_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The search object for picking subsequent samples using radius search. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel17shuffled_indices_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel17shuffled_indices_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel17shuffled_indices_E"></span><span id="pcl::SampleConsensusModel::shuffled_indices___std::vector:i:"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a9b8317cdaac5ccc14e822135d4e97dc1"></span>std::vector&lt;int&gt; <code class="sig-name descname">shuffled_indices_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel17shuffled_indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data containing a shuffled version of the indices. </p>
+<p>This is used and modified when drawing samples. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel8rng_alg_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel8rng_alg_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel8rng_alg_E"></span><span id="pcl::SampleConsensusModel::rng_alg___boost::mt19937"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a73e9fb74bbe6ba122781c42913618756"></span>boost::mt19937 <code class="sig-name descname">rng_alg_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel8rng_alg_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Boost-based random number generator algorithm. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel9rng_dist_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel9rng_dist_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel9rng_dist_E"></span><span id="pcl::SampleConsensusModel::rng_dist___boost::shared_ptr:boost::uniform_int:::"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a81041dab94f5b0a5644697a12c4b9351"></span>boost::shared_ptr&lt;boost::uniform_int&lt;&gt;&gt; <code class="sig-name descname">rng_dist_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel9rng_dist_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Boost-based random number generator distribution. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel8rng_gen_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel8rng_gen_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel8rng_gen_E"></span><span id="pcl::SampleConsensusModel::rng_gen___boost::shared_ptr:boost::variate_generator:boost::mt19937R.boost::uniform_int::::"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a7c57e94b06912d8bbf472667ba9940db"></span>boost::shared_ptr&lt;boost::variate_generator&lt;boost::mt19937&amp;, boost::uniform_int&lt;&gt;&gt;&gt; <code class="sig-name descname">rng_gen_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel8rng_gen_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Boost-based random number generator. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel16error_sqr_dists_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel16error_sqr_dists_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel16error_sqr_dists_E"></span><span id="pcl::SampleConsensusModel::error_sqr_dists___std::vector:double:"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1af526982856012edcfa78ffc0fd589f97"></span>std::vector&lt;double&gt; <code class="sig-name descname">error_sqr_dists_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel16error_sqr_dists_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A vector holding the distances to the computed model. </p>
+<p>Used internally. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel12sample_size_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel12sample_size_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel12sample_size_E"></span><span id="pcl::SampleConsensusModel::sample_size___unsigned-i"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a64854cad238a0583093c446dc295f245"></span>unsigned int <code class="sig-name descname">sample_size_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel12sample_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The size of a sample from which the model is computed. </p>
+<p>Every subclass should initialize this appropriately. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel11model_size_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel11model_size_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel11model_size_E"></span><span id="pcl::SampleConsensusModel::model_size___unsigned-i"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1ab7f51bf1c63fcfb05694d0f19c2f7dc3"></span>unsigned int <code class="sig-name descname">model_size_</code><a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel11model_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of coefficients in the model. </p>
+<p>Every subclass should initialize this appropriately. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Static Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl20SampleConsensusModel18max_sample_checks_E">
+<span id="_CPPv3N3pcl20SampleConsensusModel18max_sample_checks_E"></span><span id="_CPPv2N3pcl20SampleConsensusModel18max_sample_checks_E"></span><span id="pcl::SampleConsensusModel::max_sample_checks___unsigned-iC"></span><span class="target" id="classpcl_1_1_sample_consensus_model_1a19d4a467b5c0cd6267e6282ac0a2cf8c"></span><em class="property">const</em> unsigned int <code class="sig-name descname">max_sample_checks_</code> = 1000<a class="headerlink" href="#_CPPv4N3pcl20SampleConsensusModel18max_sample_checks_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum number of samples to try until we get a good one. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_sample_consensus_model_1aae240ae44d58a110da9e06af61cad56d"></span><em class="property">friend </em><code class="sig-name descname">pcl::SampleConsensusModel::ProgressiveSampleConsensus&lt; PointT &gt;</code></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

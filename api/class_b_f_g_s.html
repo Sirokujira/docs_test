@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class BFGS &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class BFGS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/class_b_f_g_s.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-bfgs">
+<span id="exhale-class-class-b-f-g-s"></span><h1>Template Class BFGS<a class="headerlink" href="#template-class-bfgs" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_registration_include_pcl_registration_bfgs.h.html#file-pcl-registration-include-pcl-registration-bfgs-h"><span class="std std-ref">File bfgs.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="struct_b_f_g_s_1_1_parameters.html#exhale-struct-struct-b-f-g-s-1-1-parameters"><span class="std std-ref">Struct BFGS::Parameters</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0E4BFGS">
+<span id="_CPPv3I0E4BFGS"></span><span id="_CPPv2I0E4BFGS"></span><span class="target" id="class_b_f_g_s"></span>template&lt;typename <code class="sig-name descname">FunctorType</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">BFGS</code><a class="headerlink" href="#_CPPv4I0E4BFGS" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#class_b_f_g_s"><span class="std std-ref">BFGS</span></a> stands for Broyden–Fletcher–Goldfarb–Shanno (<a class="reference internal" href="#class_b_f_g_s"><span class="std std-ref">BFGS</span></a>) method for solving unconstrained nonlinear optimization problems. </p>
+<p>For further details please visit: <a class="reference external" href="http://en.wikipedia.org/wiki/BFGS_method">http://en.wikipedia.org/wiki/BFGS_method</a> The method provided here is almost similar to the one provided by GSL. It reproduces Fletcher’s original algorithm in Practical Methods of Optimization algorithms : 2.6.2 and 2.6.4 and uses the same politics in GSL with cubic interpolation whenever it is possible else falls to quadratic interpolation for alpha parameter. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N4BFGS6ScalarE">
+<span id="_CPPv3N4BFGS6ScalarE"></span><span id="_CPPv2N4BFGS6ScalarE"></span><span id="BFGS::Scalar"></span><span class="target" id="class_b_f_g_s_1aeb7b4c02dac21fc1ab14062e5063a229"></span><em class="property">typedef </em>FunctorType::Scalar <code class="sig-name descname">Scalar</code><a class="headerlink" href="#_CPPv4N4BFGS6ScalarE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N4BFGS11FVectorTypeE">
+<span id="_CPPv3N4BFGS11FVectorTypeE"></span><span id="_CPPv2N4BFGS11FVectorTypeE"></span><span id="BFGS::FVectorType"></span><span class="target" id="class_b_f_g_s_1a54271c4aac12fabe87f1acef87e3d616"></span><em class="property">typedef </em>FunctorType::VectorType <code class="sig-name descname">FVectorType</code><a class="headerlink" href="#_CPPv4N4BFGS11FVectorTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N4BFGS5IndexE">
+<span id="_CPPv3N4BFGS5IndexE"></span><span id="_CPPv2N4BFGS5IndexE"></span><span id="BFGS::Index"></span><span class="target" id="class_b_f_g_s_1a0f29f7cd6ab1cad42189be82b6e3c04e"></span><em class="property">typedef </em>Eigen::DenseIndex <code class="sig-name descname">Index</code><a class="headerlink" href="#_CPPv4N4BFGS5IndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N4BFGS4BFGSER11FunctorType">
+<span id="_CPPv3N4BFGS4BFGSER11FunctorType"></span><span id="_CPPv2N4BFGS4BFGSER11FunctorType"></span><span id="BFGS::BFGS__FunctorTypeR"></span><span class="target" id="class_b_f_g_s_1afee6f4eec88df11f96ee847aa77fe1e5"></span><code class="sig-name descname">BFGS</code><span class="sig-paren">(</span>FunctorType &amp;<em>_functor</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4BFGS4BFGSER11FunctorType" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N4BFGS8minimizeER11FVectorType">
+<span id="_CPPv3N4BFGS8minimizeER11FVectorType"></span><span id="_CPPv2N4BFGS8minimizeER11FVectorType"></span><span id="BFGS::minimize__FVectorTypeR"></span><span class="target" id="class_b_f_g_s_1a1117f2b973fe49b08922c947ccac4bcc"></span>BFGSSpace::<a class="reference internal" href="enum_bfgs_8h_1a6da6dcc5e99db2044c2526fde6b6266c.html#_CPPv4N9BFGSSpace6StatusE" title="BFGSSpace::Status">Status</a> <code class="sig-name descname">minimize</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4BFGS11FVectorTypeE" title="BFGS::FVectorType">FVectorType</a> &amp;<em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4BFGS8minimizeER11FVectorType" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N4BFGS12minimizeInitER11FVectorType">
+<span id="_CPPv3N4BFGS12minimizeInitER11FVectorType"></span><span id="_CPPv2N4BFGS12minimizeInitER11FVectorType"></span><span id="BFGS::minimizeInit__FVectorTypeR"></span><span class="target" id="class_b_f_g_s_1a7093fb69d7c7c7062112de99acb9cc36"></span>BFGSSpace::<a class="reference internal" href="enum_bfgs_8h_1a6da6dcc5e99db2044c2526fde6b6266c.html#_CPPv4N9BFGSSpace6StatusE" title="BFGSSpace::Status">Status</a> <code class="sig-name descname">minimizeInit</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4BFGS11FVectorTypeE" title="BFGS::FVectorType">FVectorType</a> &amp;<em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4BFGS12minimizeInitER11FVectorType" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N4BFGS15minimizeOneStepER11FVectorType">
+<span id="_CPPv3N4BFGS15minimizeOneStepER11FVectorType"></span><span id="_CPPv2N4BFGS15minimizeOneStepER11FVectorType"></span><span id="BFGS::minimizeOneStep__FVectorTypeR"></span><span class="target" id="class_b_f_g_s_1aa8ecd76033d7bb38d852cb514026d5bb"></span>BFGSSpace::<a class="reference internal" href="enum_bfgs_8h_1a6da6dcc5e99db2044c2526fde6b6266c.html#_CPPv4N9BFGSSpace6StatusE" title="BFGSSpace::Status">Status</a> <code class="sig-name descname">minimizeOneStep</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4BFGS11FVectorTypeE" title="BFGS::FVectorType">FVectorType</a> &amp;<em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4BFGS15minimizeOneStepER11FVectorType" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N4BFGS12testGradientE6Scalar">
+<span id="_CPPv3N4BFGS12testGradientE6Scalar"></span><span id="_CPPv2N4BFGS12testGradientE6Scalar"></span><span id="BFGS::testGradient__Scalar"></span><span class="target" id="class_b_f_g_s_1aa971ecb8e4ef4fad1119f89c99060eb4"></span>BFGSSpace::<a class="reference internal" href="enum_bfgs_8h_1a6da6dcc5e99db2044c2526fde6b6266c.html#_CPPv4N9BFGSSpace6StatusE" title="BFGSSpace::Status">Status</a> <code class="sig-name descname">testGradient</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4BFGS6ScalarE" title="BFGS::Scalar">Scalar</a> <em>epsilon</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4BFGS12testGradientE6Scalar" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N4BFGS15resetParametersEv">
+<span id="_CPPv3N4BFGS15resetParametersEv"></span><span id="_CPPv2N4BFGS15resetParametersEv"></span><span id="BFGS::resetParameters__void"></span><span class="target" id="class_b_f_g_s_1aec83c834090574b02259bea23478a306"></span>void <code class="sig-name descname">resetParameters</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4BFGS15resetParametersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N4BFGS10parametersE">
+<span id="_CPPv3N4BFGS10parametersE"></span><span id="_CPPv2N4BFGS10parametersE"></span><span id="BFGS::parameters__Parameters"></span><span class="target" id="class_b_f_g_s_1ae019c9680d55d111c2f220c0e85b074d"></span><a class="reference internal" href="#_CPPv4N4BFGS10ParametersE" title="BFGS::Parameters">Parameters</a> <code class="sig-name descname">parameters</code><a class="headerlink" href="#_CPPv4N4BFGS10parametersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N4BFGS1fE">
+<span id="_CPPv3N4BFGS1fE"></span><span id="_CPPv2N4BFGS1fE"></span><span id="BFGS::f__Scalar"></span><span class="target" id="class_b_f_g_s_1a0abf555d33ec7b4f004b6359dfdfc87c"></span><a class="reference internal" href="#_CPPv4N4BFGS6ScalarE" title="BFGS::Scalar">Scalar</a> <code class="sig-name descname">f</code><a class="headerlink" href="#_CPPv4N4BFGS1fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N4BFGS8gradientE">
+<span id="_CPPv3N4BFGS8gradientE"></span><span id="_CPPv2N4BFGS8gradientE"></span><span id="BFGS::gradient__FVectorType"></span><span class="target" id="class_b_f_g_s_1abf43b9fa70284be62ca1e42b9d416d73"></span><a class="reference internal" href="#_CPPv4N4BFGS11FVectorTypeE" title="BFGS::FVectorType">FVectorType</a> <code class="sig-name descname">gradient</code><a class="headerlink" href="#_CPPv4N4BFGS8gradientE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N4BFGS10ParametersE">
+<span id="_CPPv3N4BFGS10ParametersE"></span><span id="_CPPv2N4BFGS10ParametersE"></span><span id="BFGS::Parameters"></span><span class="target" id="struct_b_f_g_s_1_1_parameters"></span><em class="property">struct </em><code class="sig-name descname">Parameters</code><a class="headerlink" href="#_CPPv4N4BFGS10ParametersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters10ParametersEv">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters10ParametersEv"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters10ParametersEv"></span><span class="target" id="struct_b_f_g_s_1_1_parameters_1a8b96981fc28cedf9118c09644dd15216"></span>template&lt;&gt;<br /><code class="sig-name descname">Parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters10ParametersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters9max_itersE">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters9max_itersE"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters9max_itersE"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1a124d2fde1d7e58b3352f6df857736648"></span>Index <code class="sig-name descname">max_iters</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters9max_itersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters13bracket_itersE">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters13bracket_itersE"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters13bracket_itersE"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1ad41c70193175443083b5fe878df3530d"></span>Index <code class="sig-name descname">bracket_iters</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters13bracket_itersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters13section_itersE">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters13section_itersE"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters13section_itersE"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1a5e471f845fbe0a3f1bfcfce3483ecea1"></span>Index <code class="sig-name descname">section_iters</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters13section_itersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters3rhoE">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters3rhoE"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters3rhoE"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1a86cee48716cde248f581dd687e35236d"></span>Scalar <code class="sig-name descname">rho</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters3rhoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters5sigmaE">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters5sigmaE"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters5sigmaE"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1a36eba29fe2040ec1c83688781b279312"></span>Scalar <code class="sig-name descname">sigma</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters5sigmaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters4tau1E">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters4tau1E"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters4tau1E"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1ad64d1add80c42776e55fbb5e84617831"></span>Scalar <code class="sig-name descname">tau1</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters4tau1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters4tau2E">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters4tau2E"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters4tau2E"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1a8236c158e3ba6ff7e31fc2781267efd4"></span>Scalar <code class="sig-name descname">tau2</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters4tau2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters4tau3E">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters4tau3E"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters4tau3E"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1ae5a3b8e955c271ff97c72e0e7da6ad72"></span>Scalar <code class="sig-name descname">tau3</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters4tau3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters9step_sizeE">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters9step_sizeE"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters9step_sizeE"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1ab31de1ad373533169b5f7c6e8affa8fe"></span>Scalar <code class="sig-name descname">step_size</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters9step_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN4BFGSI11FunctorTypeE10Parameters5orderE">
+<span id="_CPPv3IEN4BFGSI11FunctorTypeE10Parameters5orderE"></span><span id="_CPPv2IEN4BFGSI11FunctorTypeE10Parameters5orderE"></span>template&lt;&gt;<br /><span class="target" id="struct_b_f_g_s_1_1_parameters_1affbbdfd92b8c34a84932ba66b800dd67"></span>Index <code class="sig-name descname">order</code><a class="headerlink" href="#_CPPv4IEN4BFGSI11FunctorTypeE10Parameters5orderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

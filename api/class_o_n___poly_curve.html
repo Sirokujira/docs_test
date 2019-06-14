@@ -1,0 +1,679 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class ON_PolyCurve &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class ON_PolyCurve</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/class_o_n___poly_curve.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-on-polycurve">
+<span id="exhale-class-class-o-n-poly-curve"></span><h1>Class ON_PolyCurve<a class="headerlink" href="#class-on-polycurve" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_3rdparty_opennurbs_opennurbs_polycurve.h.html#file-pcl-surface-include-pcl-surface-3rdparty-opennurbs-opennurbs-polycurve-h"><span class="std std-ref">File opennurbs_polycurve.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ON_Curve</span></code> (<a class="reference internal" href="class_o_n___curve.html#exhale-class-class-o-n-curve"><span class="std std-ref">Class ON_Curve</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ON_PolyEdgeCurve</span></code> (<a class="reference internal" href="class_o_n___poly_edge_curve.html#exhale-class-class-o-n-poly-edge-curve"><span class="std std-ref">Class ON_PolyEdgeCurve</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv412ON_PolyCurve">
+<span id="_CPPv312ON_PolyCurve"></span><span id="_CPPv212ON_PolyCurve"></span><span id="ON_PolyCurve"></span><span class="target" id="class_o_n___poly_curve"></span><em class="property">class </em><code class="sig-name descname">ON_PolyCurve</code> : <em class="property">public</em> <a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a><a class="headerlink" href="#_CPPv412ON_PolyCurve" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Subclassed by <a class="reference internal" href="class_o_n___poly_edge_curve.html#class_o_n___poly_edge_curve"><span class="std std-ref">ON_PolyEdgeCurve</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve19DestroyRuntimeCacheEb">
+<span id="_CPPv3N12ON_PolyCurve19DestroyRuntimeCacheEb"></span><span id="_CPPv2N12ON_PolyCurve19DestroyRuntimeCacheEb"></span><span id="ON_PolyCurve::DestroyRuntimeCache__b"></span><span class="target" id="class_o_n___poly_curve_1a91ed429b2b28658f486b9752ba3e5cd9"></span>void <code class="sig-name descname">DestroyRuntimeCache</code><span class="sig-paren">(</span>bool <em>bDelete</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve19DestroyRuntimeCacheEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve12ON_PolyCurveEv">
+<span id="_CPPv3N12ON_PolyCurve12ON_PolyCurveEv"></span><span id="_CPPv2N12ON_PolyCurve12ON_PolyCurveEv"></span><span id="ON_PolyCurve::ON_PolyCurve"></span><span class="target" id="class_o_n___poly_curve_1a8a34d3cd95166974da908e33a612f60d"></span><code class="sig-name descname">ON_PolyCurve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve12ON_PolyCurveEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve12ON_PolyCurveEi">
+<span id="_CPPv3N12ON_PolyCurve12ON_PolyCurveEi"></span><span id="_CPPv2N12ON_PolyCurve12ON_PolyCurveEi"></span><span id="ON_PolyCurve::ON_PolyCurve__i"></span><span class="target" id="class_o_n___poly_curve_1a73efa6eedf0cf58759201e15f3167c54"></span><code class="sig-name descname">ON_PolyCurve</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve12ON_PolyCurveEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve12ON_PolyCurveERK12ON_PolyCurve">
+<span id="_CPPv3N12ON_PolyCurve12ON_PolyCurveERK12ON_PolyCurve"></span><span id="_CPPv2N12ON_PolyCurve12ON_PolyCurveERK12ON_PolyCurve"></span><span id="ON_PolyCurve::ON_PolyCurve__ON_PolyCurveCR"></span><span class="target" id="class_o_n___poly_curve_1a2fe4a7f770adf0bd3eeb36aedce194ec"></span><code class="sig-name descname">ON_PolyCurve</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N12ON_PolyCurve12ON_PolyCurveEv" title="ON_PolyCurve::ON_PolyCurve">ON_PolyCurve</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve12ON_PolyCurveERK12ON_PolyCurve" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve7DestroyEv">
+<span id="_CPPv3N12ON_PolyCurve7DestroyEv"></span><span id="_CPPv2N12ON_PolyCurve7DestroyEv"></span><span id="ON_PolyCurve::Destroy"></span><span class="target" id="class_o_n___poly_curve_1a39bed6df37ccd74c76ed5569ecec358a"></span>void <code class="sig-name descname">Destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve7DestroyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurveD0Ev">
+<span id="_CPPv3N12ON_PolyCurveD0Ev"></span><span id="_CPPv2N12ON_PolyCurveD0Ev"></span><span id="ON_PolyCurve::~ON_PolyCurve"></span><span class="target" id="class_o_n___poly_curve_1a7d431f5751cfd3b9a3e83b507b0ce4cb"></span><em class="property">virtual</em> <code class="sig-name descname">~ON_PolyCurve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurveD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve16EmergencyDestroyEv">
+<span id="_CPPv3N12ON_PolyCurve16EmergencyDestroyEv"></span><span id="_CPPv2N12ON_PolyCurve16EmergencyDestroyEv"></span><span id="ON_PolyCurve::EmergencyDestroy"></span><span class="target" id="class_o_n___poly_curve_1aa351355180964f525a3103734769666a"></span>void <code class="sig-name descname">EmergencyDestroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve16EmergencyDestroyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurveaSERK12ON_PolyCurve">
+<span id="_CPPv3N12ON_PolyCurveaSERK12ON_PolyCurve"></span><span id="_CPPv2N12ON_PolyCurveaSERK12ON_PolyCurve"></span><span id="ON_PolyCurve::assign-operator__ON_PolyCurveCR"></span><span class="target" id="class_o_n___poly_curve_1aea70889d03602c829c9d0e5285ca2c58"></span><a class="reference internal" href="#_CPPv412ON_PolyCurve" title="ON_PolyCurve">ON_PolyCurve</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv412ON_PolyCurve" title="ON_PolyCurve">ON_PolyCurve</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurveaSERK12ON_PolyCurve" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve6SizeOfEv">
+<span id="_CPPv3NK12ON_PolyCurve6SizeOfEv"></span><span id="_CPPv2NK12ON_PolyCurve6SizeOfEv"></span><span id="ON_PolyCurve::SizeOfC"></span><span class="target" id="class_o_n___poly_curve_1a7cfd2593372e670d40bdee8d3fe3df5e"></span>unsigned int <code class="sig-name descname">SizeOf</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve6SizeOfEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve7DataCRCE10ON__UINT32">
+<span id="_CPPv3NK12ON_PolyCurve7DataCRCE10ON__UINT32"></span><span id="_CPPv2NK12ON_PolyCurve7DataCRCE10ON__UINT32"></span><span id="ON_PolyCurve::DataCRC__ON__UINT32C"></span><span class="target" id="class_o_n___poly_curve_1a3b818d24d6e616550ce0e365086aaafe"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1aea03c6f4bab106103ada72c766f7fe5c.html#_CPPv410ON__UINT32" title="ON__UINT32">ON__UINT32</a> <code class="sig-name descname">DataCRC</code><span class="sig-paren">(</span><a class="reference internal" href="typedef_opennurbs__system_8h_1aea03c6f4bab106103ada72c766f7fe5c.html#_CPPv410ON__UINT32" title="ON__UINT32">ON__UINT32</a> <em>current_remainder</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve7DataCRCE10ON__UINT32" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve7IsValidEP10ON_TextLog">
+<span id="_CPPv3NK12ON_PolyCurve7IsValidEP10ON_TextLog"></span><span id="_CPPv2NK12ON_PolyCurve7IsValidEP10ON_TextLog"></span><span id="ON_PolyCurve::IsValid__ON_TextLogPC"></span><span class="target" id="class_o_n___poly_curve_1a9ea013f404b269a4c07f8350c9309dd5"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___text_log.html#_CPPv410ON_TextLog" title="ON_TextLog">ON_TextLog</a> *<em>text_log</em> = NULL<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve7IsValidEP10ON_TextLog" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve7IsValidEbP10ON_TextLog">
+<span id="_CPPv3NK12ON_PolyCurve7IsValidEbP10ON_TextLog"></span><span id="_CPPv2NK12ON_PolyCurve7IsValidEbP10ON_TextLog"></span><span id="ON_PolyCurve::IsValid__b.ON_TextLogPC"></span><span class="target" id="class_o_n___poly_curve_1ad18204f5af4db575034594bd5bbfaf00"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span>bool <em>bAllowGaps</em>, <a class="reference internal" href="class_o_n___text_log.html#_CPPv410ON_TextLog" title="ON_TextLog">ON_TextLog</a> *<em>text_log</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve7IsValidEbP10ON_TextLog" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve4DumpER10ON_TextLog">
+<span id="_CPPv3NK12ON_PolyCurve4DumpER10ON_TextLog"></span><span id="_CPPv2NK12ON_PolyCurve4DumpER10ON_TextLog"></span><span id="ON_PolyCurve::Dump__ON_TextLogRC"></span><span class="target" id="class_o_n___poly_curve_1a36bedac119d8cdb6f7cc11fab0ce68af"></span>void <code class="sig-name descname">Dump</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___text_log.html#_CPPv410ON_TextLog" title="ON_TextLog">ON_TextLog</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve4DumpER10ON_TextLog" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve5WriteER16ON_BinaryArchive">
+<span id="_CPPv3NK12ON_PolyCurve5WriteER16ON_BinaryArchive"></span><span id="_CPPv2NK12ON_PolyCurve5WriteER16ON_BinaryArchive"></span><span id="ON_PolyCurve::Write__ON_BinaryArchiveRC"></span><span class="target" id="class_o_n___poly_curve_1a080fe4e79eaed7c37d16d01b6b7a54fd"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Write</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___binary_archive.html#_CPPv416ON_BinaryArchive" title="ON_BinaryArchive">ON_BinaryArchive</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve5WriteER16ON_BinaryArchive" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve4ReadER16ON_BinaryArchive">
+<span id="_CPPv3N12ON_PolyCurve4ReadER16ON_BinaryArchive"></span><span id="_CPPv2N12ON_PolyCurve4ReadER16ON_BinaryArchive"></span><span id="ON_PolyCurve::Read__ON_BinaryArchiveR"></span><span class="target" id="class_o_n___poly_curve_1af66661cf09557a08254e966a246c6d0f"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Read</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___binary_archive.html#_CPPv416ON_BinaryArchive" title="ON_BinaryArchive">ON_BinaryArchive</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve4ReadER16ON_BinaryArchive" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve9DimensionEv">
+<span id="_CPPv3NK12ON_PolyCurve9DimensionEv"></span><span id="_CPPv2NK12ON_PolyCurve9DimensionEv"></span><span id="ON_PolyCurve::DimensionC"></span><span class="target" id="class_o_n___poly_curve_1a65173a642933e09d674f9b268838bf30"></span>int <code class="sig-name descname">Dimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve9DimensionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve7GetBBoxEPdPd9ON_BOOL32">
+<span id="_CPPv3NK12ON_PolyCurve7GetBBoxEPdPd9ON_BOOL32"></span><span id="_CPPv2NK12ON_PolyCurve7GetBBoxEPdPd9ON_BOOL32"></span><span id="ON_PolyCurve::GetBBox__doubleP.doubleP.ON_BOOL32C"></span><span class="target" id="class_o_n___poly_curve_1a162b5bbf900e1b24ee8f550c28313c8b"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">GetBBox</code><span class="sig-paren">(</span>double *, double *, <a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> = false<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve7GetBBoxEPdPd9ON_BOOL32" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve19GetTightBoundingBoxER14ON_BoundingBoxiPK8ON_Xform">
+<span id="_CPPv3NK12ON_PolyCurve19GetTightBoundingBoxER14ON_BoundingBoxiPK8ON_Xform"></span><span id="_CPPv2NK12ON_PolyCurve19GetTightBoundingBoxER14ON_BoundingBoxiPK8ON_Xform"></span><span id="ON_PolyCurve::GetTightBoundingBox__ON_BoundingBoxR.i.ON_XformCPC"></span><span class="target" id="class_o_n___poly_curve_1a6306df86b9a3d8827ecda750e9b41765"></span>bool <code class="sig-name descname">GetTightBoundingBox</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___bounding_box.html#_CPPv414ON_BoundingBox" title="ON_BoundingBox">ON_BoundingBox</a> &amp;<em>tight_bbox</em>, int <em>bGrowBox</em> = false, <em class="property">const</em> <a class="reference internal" href="class_o_n___xform.html#_CPPv48ON_Xform" title="ON_Xform">ON_Xform</a> *<em>xform</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve19GetTightBoundingBoxER14ON_BoundingBoxiPK8ON_Xform" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve9TransformERK8ON_Xform">
+<span id="_CPPv3N12ON_PolyCurve9TransformERK8ON_Xform"></span><span id="_CPPv2N12ON_PolyCurve9TransformERK8ON_Xform"></span><span id="ON_PolyCurve::Transform__ON_XformCR"></span><span class="target" id="class_o_n___poly_curve_1ae3d9ca512bb96d693ab581b1401d6b93"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Transform</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="class_o_n___xform.html#_CPPv48ON_Xform" title="ON_Xform">ON_Xform</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve9TransformERK8ON_Xform" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve12IsDeformableEv">
+<span id="_CPPv3NK12ON_PolyCurve12IsDeformableEv"></span><span id="_CPPv2NK12ON_PolyCurve12IsDeformableEv"></span><span id="ON_PolyCurve::IsDeformableC"></span><span class="target" id="class_o_n___poly_curve_1abac1072444e74ff32a01246429822b56"></span>bool <code class="sig-name descname">IsDeformable</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve12IsDeformableEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve14MakeDeformableEv">
+<span id="_CPPv3N12ON_PolyCurve14MakeDeformableEv"></span><span id="_CPPv2N12ON_PolyCurve14MakeDeformableEv"></span><span id="ON_PolyCurve::MakeDeformable"></span><span class="target" id="class_o_n___poly_curve_1acdca0d47d2b475a0a1b120bfca9dd170"></span>bool <code class="sig-name descname">MakeDeformable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve14MakeDeformableEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve15SwapCoordinatesEii">
+<span id="_CPPv3N12ON_PolyCurve15SwapCoordinatesEii"></span><span id="_CPPv2N12ON_PolyCurve15SwapCoordinatesEii"></span><span id="ON_PolyCurve::SwapCoordinates__i.i"></span><span class="target" id="class_o_n___poly_curve_1a70302504a8003d8bcbb311f69432a5fb"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">SwapCoordinates</code><span class="sig-paren">(</span>int, int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve15SwapCoordinatesEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve13EvaluatePointERK9ON_ObjRefR10ON_3dPoint">
+<span id="_CPPv3NK12ON_PolyCurve13EvaluatePointERK9ON_ObjRefR10ON_3dPoint"></span><span id="_CPPv2NK12ON_PolyCurve13EvaluatePointERK9ON_ObjRefR10ON_3dPoint"></span><span id="ON_PolyCurve::EvaluatePoint__ON_ObjRefCR.ON_3dPointRC"></span><span class="target" id="class_o_n___poly_curve_1a8137b497eb30721c3fe9a6f23037c9af"></span>bool <code class="sig-name descname">EvaluatePoint</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">class</em> <a class="reference internal" href="class_o_n___obj_ref.html#_CPPv49ON_ObjRef" title="ON_ObjRef">ON_ObjRef</a> &amp;<em>objref</em>, <a class="reference internal" href="class_o_n__3d_point.html#_CPPv410ON_3dPoint" title="ON_3dPoint">ON_3dPoint</a> &amp;<em>P</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve13EvaluatePointERK9ON_ObjRefR10ON_3dPoint" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve14DuplicateCurveEv">
+<span id="_CPPv3NK12ON_PolyCurve14DuplicateCurveEv"></span><span id="_CPPv2NK12ON_PolyCurve14DuplicateCurveEv"></span><span id="ON_PolyCurve::DuplicateCurveC"></span><span class="target" id="class_o_n___poly_curve_1a97467b27cba7d2a8902ea7f52b3b4fdc"></span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<code class="sig-name descname">DuplicateCurve</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve14DuplicateCurveEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve6DomainEv">
+<span id="_CPPv3NK12ON_PolyCurve6DomainEv"></span><span id="_CPPv2NK12ON_PolyCurve6DomainEv"></span><span id="ON_PolyCurve::DomainC"></span><span class="target" id="class_o_n___poly_curve_1af42be915a900f7b61191e90814107125"></span><a class="reference internal" href="class_o_n___interval.html#_CPPv411ON_Interval" title="ON_Interval">ON_Interval</a> <code class="sig-name descname">Domain</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve6DomainEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve9SetDomainEdd">
+<span id="_CPPv3N12ON_PolyCurve9SetDomainEdd"></span><span id="_CPPv2N12ON_PolyCurve9SetDomainEdd"></span><span id="ON_PolyCurve::SetDomain__double.double"></span><span class="target" id="class_o_n___poly_curve_1adfbf2f962ad8f91bf3cdba3c733f2717"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">SetDomain</code><span class="sig-paren">(</span>double <em>t0</em>, double <em>t1</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve9SetDomainEdd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve15ChangeDimensionEi">
+<span id="_CPPv3N12ON_PolyCurve15ChangeDimensionEi"></span><span id="_CPPv2N12ON_PolyCurve15ChangeDimensionEi"></span><span id="ON_PolyCurve::ChangeDimension__i"></span><span class="target" id="class_o_n___poly_curve_1a4ed48c2981d7a13f27957fc8c9935f57"></span>bool <code class="sig-name descname">ChangeDimension</code><span class="sig-paren">(</span>int <em>desired_dimension</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve15ChangeDimensionEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve21ChangeClosedCurveSeamEd">
+<span id="_CPPv3N12ON_PolyCurve21ChangeClosedCurveSeamEd"></span><span id="_CPPv2N12ON_PolyCurve21ChangeClosedCurveSeamEd"></span><span id="ON_PolyCurve::ChangeClosedCurveSeam__double"></span><span class="target" id="class_o_n___poly_curve_1a0a8cedbdc94b5832f37c485e3eb688bd"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">ChangeClosedCurveSeam</code><span class="sig-paren">(</span>double <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve21ChangeClosedCurveSeamEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve9SpanCountEv">
+<span id="_CPPv3NK12ON_PolyCurve9SpanCountEv"></span><span id="_CPPv2NK12ON_PolyCurve9SpanCountEv"></span><span id="ON_PolyCurve::SpanCountC"></span><span class="target" id="class_o_n___poly_curve_1aa89ac9b4b7fbc804952fdd26e1342a86"></span>int <code class="sig-name descname">SpanCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve9SpanCountEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve13GetSpanVectorEPd">
+<span id="_CPPv3NK12ON_PolyCurve13GetSpanVectorEPd"></span><span id="_CPPv2NK12ON_PolyCurve13GetSpanVectorEPd"></span><span id="ON_PolyCurve::GetSpanVector__doublePC"></span><span class="target" id="class_o_n___poly_curve_1a51326291e921a615193dabc9ccd3abae"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">GetSpanVector</code><span class="sig-paren">(</span>double *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve13GetSpanVectorEPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve6DegreeEv">
+<span id="_CPPv3NK12ON_PolyCurve6DegreeEv"></span><span id="_CPPv2NK12ON_PolyCurve6DegreeEv"></span><span id="ON_PolyCurve::DegreeC"></span><span class="target" id="class_o_n___poly_curve_1aa95e2d50c5ddc613b24f528d6e39d1cc"></span>int <code class="sig-name descname">Degree</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve6DegreeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve8IsLinearEd">
+<span id="_CPPv3NK12ON_PolyCurve8IsLinearEd"></span><span id="_CPPv2NK12ON_PolyCurve8IsLinearEd"></span><span id="ON_PolyCurve::IsLinear__doubleC"></span><span class="target" id="class_o_n___poly_curve_1a950638c4886ff5753b61d40330dc70c5"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">IsLinear</code><span class="sig-paren">(</span>double = ON_ZERO_TOLERANCE<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve8IsLinearEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve10IsPolylineEP14ON_SimpleArrayI10ON_3dPointEP14ON_SimpleArrayIdE">
+<span id="_CPPv3NK12ON_PolyCurve10IsPolylineEP14ON_SimpleArrayI10ON_3dPointEP14ON_SimpleArrayIdE"></span><span id="_CPPv2NK12ON_PolyCurve10IsPolylineEP14ON_SimpleArrayI10ON_3dPointEP14ON_SimpleArrayIdE"></span><span id="ON_PolyCurve::IsPolyline__ON_SimpleArray:ON_3dPoint:P.ON_SimpleArray:double:PC"></span><span class="target" id="class_o_n___poly_curve_1aef1f6287509f030d04f88cd03cc9825c"></span>int <code class="sig-name descname">IsPolyline</code><span class="sig-paren">(</span>ON_SimpleArray&lt;<a class="reference internal" href="class_o_n__3d_point.html#_CPPv410ON_3dPoint" title="ON_3dPoint">ON_3dPoint</a>&gt; *<em>pline_points</em> = NULL, ON_SimpleArray&lt;double&gt; *<em>pline_t</em> = NULL<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve10IsPolylineEP14ON_SimpleArrayI10ON_3dPointEP14ON_SimpleArrayIdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve5IsArcEPK8ON_PlaneP6ON_Arcd">
+<span id="_CPPv3NK12ON_PolyCurve5IsArcEPK8ON_PlaneP6ON_Arcd"></span><span id="_CPPv2NK12ON_PolyCurve5IsArcEPK8ON_PlaneP6ON_Arcd"></span><span id="ON_PolyCurve::IsArc__ON_PlaneCP.ON_ArcP.doubleC"></span><span class="target" id="class_o_n___poly_curve_1ad06515bcaf40932b9b0c33bbda5c74c3"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">IsArc</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="class_o_n___plane.html#_CPPv48ON_Plane" title="ON_Plane">ON_Plane</a> * = NULL, <a class="reference internal" href="class_o_n___arc.html#_CPPv46ON_Arc" title="ON_Arc">ON_Arc</a> * = NULL, double = ON_ZERO_TOLERANCE<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve5IsArcEPK8ON_PlaneP6ON_Arcd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve8IsPlanarEP8ON_Planed">
+<span id="_CPPv3NK12ON_PolyCurve8IsPlanarEP8ON_Planed"></span><span id="_CPPv2NK12ON_PolyCurve8IsPlanarEP8ON_Planed"></span><span id="ON_PolyCurve::IsPlanar__ON_PlaneP.doubleC"></span><span class="target" id="class_o_n___poly_curve_1aafc6e6da719dc2c5fa13f7fb40221790"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">IsPlanar</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___plane.html#_CPPv48ON_Plane" title="ON_Plane">ON_Plane</a> * = NULL, double = ON_ZERO_TOLERANCE<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve8IsPlanarEP8ON_Planed" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve9IsInPlaneERK8ON_Planed">
+<span id="_CPPv3NK12ON_PolyCurve9IsInPlaneERK8ON_Planed"></span><span id="_CPPv2NK12ON_PolyCurve9IsInPlaneERK8ON_Planed"></span><span id="ON_PolyCurve::IsInPlane__ON_PlaneCR.doubleC"></span><span class="target" id="class_o_n___poly_curve_1a3addf2e8e5be3733c0aae4005defd143"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">IsInPlane</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="class_o_n___plane.html#_CPPv48ON_Plane" title="ON_Plane">ON_Plane</a>&amp;, double = ON_ZERO_TOLERANCE<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve9IsInPlaneERK8ON_Planed" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve8IsClosedEv">
+<span id="_CPPv3NK12ON_PolyCurve8IsClosedEv"></span><span id="_CPPv2NK12ON_PolyCurve8IsClosedEv"></span><span id="ON_PolyCurve::IsClosed__voidC"></span><span class="target" id="class_o_n___poly_curve_1adcd518dadf64f5f0a870d5c33775d329"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">IsClosed</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve8IsClosedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve10IsPeriodicEv">
+<span id="_CPPv3NK12ON_PolyCurve10IsPeriodicEv"></span><span id="_CPPv2NK12ON_PolyCurve10IsPeriodicEv"></span><span id="ON_PolyCurve::IsPeriodic__voidC"></span><span class="target" id="class_o_n___poly_curve_1a2f1052f1fc533ac2febf3056d65aa3c7"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">IsPeriodic</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve10IsPeriodicEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve20GetNextDiscontinuityEN2ON10continuityEddPdPiPidd">
+<span id="_CPPv3NK12ON_PolyCurve20GetNextDiscontinuityEN2ON10continuityEddPdPiPidd"></span><span id="_CPPv2NK12ON_PolyCurve20GetNextDiscontinuityEN2ON10continuityEddPdPiPidd"></span><span id="ON_PolyCurve::GetNextDiscontinuity__ON::continuity.double.double.doubleP.iP.iP.double.doubleC"></span><span class="target" id="class_o_n___poly_curve_1a6688352a521f48098d4ea1829a9fde82"></span>bool <code class="sig-name descname">GetNextDiscontinuity</code><span class="sig-paren">(</span>ON::continuity <em>c</em>, double <em>t0</em>, double <em>t1</em>, double *<em>t</em>, int *<em>hint</em> = NULL, int *<em>dtype</em> = NULL, double <em>cos_angle_tolerance</em> = ON_DEFAULT_ANGLE_TOLERANCE_COSINE, double <em>curvature_tolerance</em> = ON_SQRT_EPSILON<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve20GetNextDiscontinuityEN2ON10continuityEddPdPiPidd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve12IsContinuousEN2ON10continuityEdPiddddd">
+<span id="_CPPv3NK12ON_PolyCurve12IsContinuousEN2ON10continuityEdPiddddd"></span><span id="_CPPv2NK12ON_PolyCurve12IsContinuousEN2ON10continuityEdPiddddd"></span><span id="ON_PolyCurve::IsContinuous__ON::continuity.double.iP.double.double.double.double.doubleC"></span><span class="target" id="class_o_n___poly_curve_1aaf50d9d72c1fb419b6fd7b985efbfa64"></span>bool <code class="sig-name descname">IsContinuous</code><span class="sig-paren">(</span>ON::continuity <em>c</em>, double <em>t</em>, int *<em>hint</em> = NULL, double <em>point_tolerance</em> = ON_ZERO_TOLERANCE, double <em>d1_tolerance</em> = ON_ZERO_TOLERANCE, double <em>d2_tolerance</em> = ON_ZERO_TOLERANCE, double <em>cos_angle_tolerance</em> = ON_DEFAULT_ANGLE_TOLERANCE_COSINE, double <em>curvature_tolerance</em> = ON_SQRT_EPSILON<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve12IsContinuousEN2ON10continuityEdPiddddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve7ReverseEv">
+<span id="_CPPv3N12ON_PolyCurve7ReverseEv"></span><span id="_CPPv2N12ON_PolyCurve7ReverseEv"></span><span id="ON_PolyCurve::Reverse"></span><span class="target" id="class_o_n___poly_curve_1acedcf2c3e5035e4f7b02b2eebdcf9c4b"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve7ReverseEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve13SetStartPointE10ON_3dPoint">
+<span id="_CPPv3N12ON_PolyCurve13SetStartPointE10ON_3dPoint"></span><span id="_CPPv2N12ON_PolyCurve13SetStartPointE10ON_3dPoint"></span><span id="ON_PolyCurve::SetStartPoint__ON_3dPoint"></span><span class="target" id="class_o_n___poly_curve_1a171306220828f5f29cd0cd06ee8b5e26"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">SetStartPoint</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n__3d_point.html#_CPPv410ON_3dPoint" title="ON_3dPoint">ON_3dPoint</a> <em>start_point</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve13SetStartPointE10ON_3dPoint" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve11SetEndPointE10ON_3dPoint">
+<span id="_CPPv3N12ON_PolyCurve11SetEndPointE10ON_3dPoint"></span><span id="_CPPv2N12ON_PolyCurve11SetEndPointE10ON_3dPoint"></span><span id="ON_PolyCurve::SetEndPoint__ON_3dPoint"></span><span class="target" id="class_o_n___poly_curve_1a06d2d2cfcd98c23d3713584be4ec84de"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">SetEndPoint</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n__3d_point.html#_CPPv410ON_3dPoint" title="ON_3dPoint">ON_3dPoint</a> <em>end_point</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve11SetEndPointE10ON_3dPoint" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve8EvaluateEdiiPdiPi">
+<span id="_CPPv3NK12ON_PolyCurve8EvaluateEdiiPdiPi"></span><span id="_CPPv2NK12ON_PolyCurve8EvaluateEdiiPdiPi"></span><span id="ON_PolyCurve::Evaluate__double.i.i.doubleP.i.iPC"></span><span class="target" id="class_o_n___poly_curve_1a52cae1734376e052f4dd05f739369706"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Evaluate</code><span class="sig-paren">(</span>double, int, int, double *, int = 0, int * = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve8EvaluateEdiiPdiPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve4TrimERK11ON_Interval">
+<span id="_CPPv3N12ON_PolyCurve4TrimERK11ON_Interval"></span><span id="_CPPv2N12ON_PolyCurve4TrimERK11ON_Interval"></span><span id="ON_PolyCurve::Trim__ON_IntervalCR"></span><span class="target" id="class_o_n___poly_curve_1a1aec8ef140c0d54498a306f5f113e196"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Trim</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="class_o_n___interval.html#_CPPv411ON_Interval" title="ON_Interval">ON_Interval</a> &amp;<em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve4TrimERK11ON_Interval" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve6ExtendERK11ON_Interval">
+<span id="_CPPv3N12ON_PolyCurve6ExtendERK11ON_Interval"></span><span id="_CPPv2N12ON_PolyCurve6ExtendERK11ON_Interval"></span><span id="ON_PolyCurve::Extend__ON_IntervalCR"></span><span class="target" id="class_o_n___poly_curve_1a066acc0b89a0d3c1cf48446eaec8dd1c"></span>bool <code class="sig-name descname">Extend</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="class_o_n___interval.html#_CPPv411ON_Interval" title="ON_Interval">ON_Interval</a> &amp;<em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve6ExtendERK11ON_Interval" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve5SplitEdRP8ON_CurveRP8ON_Curve">
+<span id="_CPPv3NK12ON_PolyCurve5SplitEdRP8ON_CurveRP8ON_Curve"></span><span id="_CPPv2NK12ON_PolyCurve5SplitEdRP8ON_CurveRP8ON_Curve"></span><span id="ON_PolyCurve::Split__double.ON_CurvePR.ON_CurvePRC"></span><span class="target" id="class_o_n___poly_curve_1ae68b4c7b2424abdd3d858ead40ff3cda"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Split</code><span class="sig-paren">(</span>double <em>t</em>, <a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *&amp;<em>left_side</em>, <a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *&amp;<em>right_side</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve5SplitEdRP8ON_CurveRP8ON_Curve" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve11GetNurbFormER13ON_NurbsCurvedPK11ON_Interval">
+<span id="_CPPv3NK12ON_PolyCurve11GetNurbFormER13ON_NurbsCurvedPK11ON_Interval"></span><span id="_CPPv2NK12ON_PolyCurve11GetNurbFormER13ON_NurbsCurvedPK11ON_Interval"></span><span id="ON_PolyCurve::GetNurbForm__ON_NurbsCurveR.double.ON_IntervalCPC"></span><span class="target" id="class_o_n___poly_curve_1a6e4889ea0dbfbc9bd6ad4e97c2b15fa1"></span>int <code class="sig-name descname">GetNurbForm</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___nurbs_curve.html#_CPPv413ON_NurbsCurve" title="ON_NurbsCurve">ON_NurbsCurve</a>&amp;, double = 0.0, <em class="property">const</em> <a class="reference internal" href="class_o_n___interval.html#_CPPv411ON_Interval" title="ON_Interval">ON_Interval</a> * = NULL<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve11GetNurbFormER13ON_NurbsCurvedPK11ON_Interval" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve11HasNurbFormEv">
+<span id="_CPPv3NK12ON_PolyCurve11HasNurbFormEv"></span><span id="_CPPv2NK12ON_PolyCurve11HasNurbFormEv"></span><span id="ON_PolyCurve::HasNurbFormC"></span><span class="target" id="class_o_n___poly_curve_1ade74d5a373aa8c1eafc1563d6e2a77bb"></span>int <code class="sig-name descname">HasNurbForm</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve11HasNurbFormEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve38GetCurveParameterFromNurbFormParameterEdPd">
+<span id="_CPPv3NK12ON_PolyCurve38GetCurveParameterFromNurbFormParameterEdPd"></span><span id="_CPPv2NK12ON_PolyCurve38GetCurveParameterFromNurbFormParameterEdPd"></span><span id="ON_PolyCurve::GetCurveParameterFromNurbFormParameter__double.doublePC"></span><span class="target" id="class_o_n___poly_curve_1a6a707e44283c7503bc06dbd00c99df31"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">GetCurveParameterFromNurbFormParameter</code><span class="sig-paren">(</span>double, double *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve38GetCurveParameterFromNurbFormParameterEdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve38GetNurbFormParameterFromCurveParameterEdPd">
+<span id="_CPPv3NK12ON_PolyCurve38GetNurbFormParameterFromCurveParameterEdPd"></span><span id="_CPPv2NK12ON_PolyCurve38GetNurbFormParameterFromCurveParameterEdPd"></span><span id="ON_PolyCurve::GetNurbFormParameterFromCurveParameter__double.doublePC"></span><span class="target" id="class_o_n___poly_curve_1ac50eedc5bfe986891c8bcd2d011f686d"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">GetNurbFormParameterFromCurveParameter</code><span class="sig-paren">(</span>double, double *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve38GetNurbFormParameterFromCurveParameterEdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve5CountEv">
+<span id="_CPPv3NK12ON_PolyCurve5CountEv"></span><span id="_CPPv2NK12ON_PolyCurve5CountEv"></span><span id="ON_PolyCurve::CountC"></span><span class="target" id="class_o_n___poly_curve_1a04db27dcd6d3fc68fecfa8d08239fc7c"></span>int <code class="sig-name descname">Count</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve5CountEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurveixEi">
+<span id="_CPPv3NK12ON_PolyCurveixEi"></span><span id="_CPPv2NK12ON_PolyCurveixEi"></span><span id="ON_PolyCurve::subscript-operator__iC"></span><span class="target" id="class_o_n___poly_curve_1a83936a93b5881ee93098289f6987282c"></span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurveixEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve12SegmentCurveEi">
+<span id="_CPPv3NK12ON_PolyCurve12SegmentCurveEi"></span><span id="_CPPv2NK12ON_PolyCurve12SegmentCurveEi"></span><span id="ON_PolyCurve::SegmentCurve__iC"></span><span class="target" id="class_o_n___poly_curve_1ae80e5325548e2e467811603b5ffec257"></span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<code class="sig-name descname">SegmentCurve</code><span class="sig-paren">(</span>int <em>segment_index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve12SegmentCurveEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve21SegmentCurveParameterEd">
+<span id="_CPPv3NK12ON_PolyCurve21SegmentCurveParameterEd"></span><span id="_CPPv2NK12ON_PolyCurve21SegmentCurveParameterEd"></span><span id="ON_PolyCurve::SegmentCurveParameter__doubleC"></span><span class="target" id="class_o_n___poly_curve_1a9bfb55867e5627d3ee16463a297740a1"></span>double <code class="sig-name descname">SegmentCurveParameter</code><span class="sig-paren">(</span>double <em>polycurve_parameter</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve21SegmentCurveParameterEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve18PolyCurveParameterEid">
+<span id="_CPPv3NK12ON_PolyCurve18PolyCurveParameterEid"></span><span id="_CPPv2NK12ON_PolyCurve18PolyCurveParameterEid"></span><span id="ON_PolyCurve::PolyCurveParameter__i.doubleC"></span><span class="target" id="class_o_n___poly_curve_1a75e2c2beb69948d9fc8fa456a4bfc9e2"></span>double <code class="sig-name descname">PolyCurveParameter</code><span class="sig-paren">(</span>int <em>segment_index</em>, double <em>segmentcurve_parameter</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve18PolyCurveParameterEid" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve13SegmentDomainEi">
+<span id="_CPPv3NK12ON_PolyCurve13SegmentDomainEi"></span><span id="_CPPv2NK12ON_PolyCurve13SegmentDomainEi"></span><span id="ON_PolyCurve::SegmentDomain__iC"></span><span class="target" id="class_o_n___poly_curve_1aadd93731ec17531f636a76a50ddb90c5"></span><a class="reference internal" href="class_o_n___interval.html#_CPPv411ON_Interval" title="ON_Interval">ON_Interval</a> <code class="sig-name descname">SegmentDomain</code><span class="sig-paren">(</span>int <em>segment_index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve13SegmentDomainEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve12SegmentIndexEd">
+<span id="_CPPv3NK12ON_PolyCurve12SegmentIndexEd"></span><span id="_CPPv2NK12ON_PolyCurve12SegmentIndexEd"></span><span id="ON_PolyCurve::SegmentIndex__doubleC"></span><span class="target" id="class_o_n___poly_curve_1ad96424a8574663f659516c1361ad1a2e"></span>int <code class="sig-name descname">SegmentIndex</code><span class="sig-paren">(</span>double <em>polycurve_parameter</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve12SegmentIndexEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve12SegmentIndexE11ON_IntervalPiPi">
+<span id="_CPPv3NK12ON_PolyCurve12SegmentIndexE11ON_IntervalPiPi"></span><span id="_CPPv2NK12ON_PolyCurve12SegmentIndexE11ON_IntervalPiPi"></span><span id="ON_PolyCurve::SegmentIndex__ON_Interval.iP.iPC"></span><span class="target" id="class_o_n___poly_curve_1a033b334429264e99470a7f69dd0fe910"></span>int <code class="sig-name descname">SegmentIndex</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___interval.html#_CPPv411ON_Interval" title="ON_Interval">ON_Interval</a> <em>sub_domain</em>, int *<em>segment_index0</em>, int *<em>segment_index1</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve12SegmentIndexE11ON_IntervalPiPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve17FirstSegmentCurveEv">
+<span id="_CPPv3NK12ON_PolyCurve17FirstSegmentCurveEv"></span><span id="_CPPv2NK12ON_PolyCurve17FirstSegmentCurveEv"></span><span id="ON_PolyCurve::FirstSegmentCurveC"></span><span class="target" id="class_o_n___poly_curve_1abf64c0ce1b1ad4a0188d7af527beba0d"></span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<code class="sig-name descname">FirstSegmentCurve</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve17FirstSegmentCurveEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve16LastSegmentCurveEv">
+<span id="_CPPv3NK12ON_PolyCurve16LastSegmentCurveEv"></span><span id="_CPPv2NK12ON_PolyCurve16LastSegmentCurveEv"></span><span id="ON_PolyCurve::LastSegmentCurveC"></span><span class="target" id="class_o_n___poly_curve_1a46de08b21709241d7309f013a5d7de41"></span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<code class="sig-name descname">LastSegmentCurve</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve16LastSegmentCurveEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve11FindNextGapEi">
+<span id="_CPPv3NK12ON_PolyCurve11FindNextGapEi"></span><span id="_CPPv2NK12ON_PolyCurve11FindNextGapEi"></span><span id="ON_PolyCurve::FindNextGap__iC"></span><span class="target" id="class_o_n___poly_curve_1a55b07891f635832a90b049ce73937da4"></span>int <code class="sig-name descname">FindNextGap</code><span class="sig-paren">(</span>int <em>segment_index0</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve11FindNextGapEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve8HasGapAtEi">
+<span id="_CPPv3NK12ON_PolyCurve8HasGapAtEi"></span><span id="_CPPv2NK12ON_PolyCurve8HasGapAtEi"></span><span id="ON_PolyCurve::HasGapAt__iC"></span><span class="target" id="class_o_n___poly_curve_1abc2ed6d303cd475d1e458dbe29d88d86"></span>bool <code class="sig-name descname">HasGapAt</code><span class="sig-paren">(</span>int <em>segment_index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve8HasGapAtEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n___poly_curve_1a7cf6dbe56a82bd201858313f176e03cf"></span><code class="sig-name descname">ON_DEPRECATED int ON_PolyCurve::HasGap() const</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve8CloseGapEii">
+<span id="_CPPv3N12ON_PolyCurve8CloseGapEii"></span><span id="_CPPv2N12ON_PolyCurve8CloseGapEii"></span><span id="ON_PolyCurve::CloseGap__i.i"></span><span class="target" id="class_o_n___poly_curve_1ad22fad50c89ae6c3c267f240fc6a9f19"></span>bool <code class="sig-name descname">CloseGap</code><span class="sig-paren">(</span>int <em>gap_index</em>, int <em>segments_to_modify</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve8CloseGapEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve9CloseGapsEv">
+<span id="_CPPv3N12ON_PolyCurve9CloseGapsEv"></span><span id="_CPPv2N12ON_PolyCurve9CloseGapsEv"></span><span id="ON_PolyCurve::CloseGaps"></span><span class="target" id="class_o_n___poly_curve_1a71287a7b5eb66440c40f7c8a77cf6d37"></span>int <code class="sig-name descname">CloseGaps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve9CloseGapsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve7ReserveEi">
+<span id="_CPPv3N12ON_PolyCurve7ReserveEi"></span><span id="_CPPv2N12ON_PolyCurve7ReserveEi"></span><span id="ON_PolyCurve::Reserve__i"></span><span class="target" id="class_o_n___poly_curve_1a4cffa6642c6f680205c19fc613cf46fd"></span>void <code class="sig-name descname">Reserve</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve7ReserveEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve7PrependEP8ON_Curve">
+<span id="_CPPv3N12ON_PolyCurve7PrependEP8ON_Curve"></span><span id="_CPPv2N12ON_PolyCurve7PrependEP8ON_Curve"></span><span id="ON_PolyCurve::Prepend__ON_CurveP"></span><span class="target" id="class_o_n___poly_curve_1a2a801d68ffedb257ec9c74ed3a669dbe"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Prepend</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve7PrependEP8ON_Curve" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve6AppendEP8ON_Curve">
+<span id="_CPPv3N12ON_PolyCurve6AppendEP8ON_Curve"></span><span id="_CPPv2N12ON_PolyCurve6AppendEP8ON_Curve"></span><span id="ON_PolyCurve::Append__ON_CurveP"></span><span class="target" id="class_o_n___poly_curve_1aeef34b01b31622f65c518e0051bf49d9"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Append</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve6AppendEP8ON_Curve" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve6InsertEiP8ON_Curve">
+<span id="_CPPv3N12ON_PolyCurve6InsertEiP8ON_Curve"></span><span id="_CPPv2N12ON_PolyCurve6InsertEiP8ON_Curve"></span><span id="ON_PolyCurve::Insert__i.ON_CurveP"></span><span class="target" id="class_o_n___poly_curve_1a8ccfbb4a3fee0886054b1a5ff38a25ea"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Insert</code><span class="sig-paren">(</span>int, <a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve6InsertEiP8ON_Curve" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve15PrependAndMatchEP8ON_Curve">
+<span id="_CPPv3N12ON_PolyCurve15PrependAndMatchEP8ON_Curve"></span><span id="_CPPv2N12ON_PolyCurve15PrependAndMatchEP8ON_Curve"></span><span id="ON_PolyCurve::PrependAndMatch__ON_CurveP"></span><span class="target" id="class_o_n___poly_curve_1abcd97a577725e5345d95c3825a9b3c4d"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">PrependAndMatch</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve15PrependAndMatchEP8ON_Curve" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve14AppendAndMatchEP8ON_Curve">
+<span id="_CPPv3N12ON_PolyCurve14AppendAndMatchEP8ON_Curve"></span><span id="_CPPv2N12ON_PolyCurve14AppendAndMatchEP8ON_Curve"></span><span id="ON_PolyCurve::AppendAndMatch__ON_CurveP"></span><span class="target" id="class_o_n___poly_curve_1ab43fa548074ac0ec98cfd5fecd716c90"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">AppendAndMatch</code><span class="sig-paren">(</span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve14AppendAndMatchEP8ON_Curve" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve6RemoveEv">
+<span id="_CPPv3N12ON_PolyCurve6RemoveEv"></span><span id="_CPPv2N12ON_PolyCurve6RemoveEv"></span><span id="ON_PolyCurve::Remove"></span><span class="target" id="class_o_n___poly_curve_1af47d57a9662512e00a05d790e4d6c777"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve6RemoveEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve6RemoveEi">
+<span id="_CPPv3N12ON_PolyCurve6RemoveEi"></span><span id="_CPPv2N12ON_PolyCurve6RemoveEi"></span><span id="ON_PolyCurve::Remove__i"></span><span class="target" id="class_o_n___poly_curve_1a588c2e8038e9542689a7279ed0681844"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1a7dae47f6f173e34331e9ce112cb11840.html#_CPPv49ON_BOOL32" title="ON_BOOL32">ON_BOOL32</a> <code class="sig-name descname">Remove</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve6RemoveEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve14HarvestSegmentEi">
+<span id="_CPPv3N12ON_PolyCurve14HarvestSegmentEi"></span><span id="_CPPv2N12ON_PolyCurve14HarvestSegmentEi"></span><span id="ON_PolyCurve::HarvestSegment__i"></span><span class="target" id="class_o_n___poly_curve_1ae9034458510db05371a98b8d4d035948"></span><a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<code class="sig-name descname">HarvestSegment</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve14HarvestSegmentEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve8IsNestedEv">
+<span id="_CPPv3NK12ON_PolyCurve8IsNestedEv"></span><span id="_CPPv2NK12ON_PolyCurve8IsNestedEv"></span><span id="ON_PolyCurve::IsNestedC"></span><span class="target" id="class_o_n___poly_curve_1ae5f34bbe221ada57df00702bcce16c0a"></span>bool <code class="sig-name descname">IsNested</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve8IsNestedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve13RemoveNestingEv">
+<span id="_CPPv3N12ON_PolyCurve13RemoveNestingEv"></span><span id="_CPPv2N12ON_PolyCurve13RemoveNestingEv"></span><span id="ON_PolyCurve::RemoveNesting"></span><span class="target" id="class_o_n___poly_curve_1a25085be48ef42186eee005c86c97fd4a"></span>void <code class="sig-name descname">RemoveNesting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve13RemoveNestingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve15RemoveNestingExEv">
+<span id="_CPPv3N12ON_PolyCurve15RemoveNestingExEv"></span><span id="_CPPv2N12ON_PolyCurve15RemoveNestingExEv"></span><span id="ON_PolyCurve::RemoveNestingEx"></span><span class="target" id="class_o_n___poly_curve_1a372e1a81c07f5f0248ba3a0d80b90b1f"></span>bool <code class="sig-name descname">RemoveNestingEx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve15RemoveNestingExEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve29HasSynchronizedSegmentDomainsEv">
+<span id="_CPPv3NK12ON_PolyCurve29HasSynchronizedSegmentDomainsEv"></span><span id="_CPPv2NK12ON_PolyCurve29HasSynchronizedSegmentDomainsEv"></span><span id="ON_PolyCurve::HasSynchronizedSegmentDomainsC"></span><span class="target" id="class_o_n___poly_curve_1a73b2b11e6e9b042bcb296903f432f6a3"></span>bool <code class="sig-name descname">HasSynchronizedSegmentDomains</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve29HasSynchronizedSegmentDomainsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve25SynchronizeSegmentDomainsEv">
+<span id="_CPPv3N12ON_PolyCurve25SynchronizeSegmentDomainsEv"></span><span id="_CPPv2N12ON_PolyCurve25SynchronizeSegmentDomainsEv"></span><span id="ON_PolyCurve::SynchronizeSegmentDomains"></span><span class="target" id="class_o_n___poly_curve_1a48255f631281b81cf8cd6ee1084f1d31"></span>bool <code class="sig-name descname">SynchronizeSegmentDomains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve25SynchronizeSegmentDomainsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve10SetSegmentEiP8ON_Curve">
+<span id="_CPPv3N12ON_PolyCurve10SetSegmentEiP8ON_Curve"></span><span id="_CPPv2N12ON_PolyCurve10SetSegmentEiP8ON_Curve"></span><span id="ON_PolyCurve::SetSegment__i.ON_CurveP"></span><span class="target" id="class_o_n___poly_curve_1a12a5591283572b25c58c709e648da77a"></span>void <code class="sig-name descname">SetSegment</code><span class="sig-paren">(</span>int <em>index</em>, <a class="reference internal" href="class_o_n___curve.html#_CPPv48ON_Curve" title="ON_Curve">ON_Curve</a> *<em>crv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve10SetSegmentEiP8ON_Curve" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N12ON_PolyCurve19SetParameterizationEPKd">
+<span id="_CPPv3N12ON_PolyCurve19SetParameterizationEPKd"></span><span id="_CPPv2N12ON_PolyCurve19SetParameterizationEPKd"></span><span id="ON_PolyCurve::SetParameterization__doubleCP"></span><span class="target" id="class_o_n___poly_curve_1ab0ab877f880488c3eea27170ad1efb9f"></span>bool <code class="sig-name descname">SetParameterization</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ON_PolyCurve19SetParameterizationEPKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve15ParameterSearchEdRib">
+<span id="_CPPv3NK12ON_PolyCurve15ParameterSearchEdRib"></span><span id="_CPPv2NK12ON_PolyCurve15ParameterSearchEdRib"></span><span id="ON_PolyCurve::ParameterSearch__double.iR.bC"></span><span class="target" id="class_o_n___poly_curve_1a1998e4fe2de5666a23374f585b650e05"></span>bool <code class="sig-name descname">ParameterSearch</code><span class="sig-paren">(</span>double <em>t</em>, int &amp;<em>index</em>, bool <em>bEnableSnap</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve15ParameterSearchEdRib" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve13SegmentCurvesEv">
+<span id="_CPPv3NK12ON_PolyCurve13SegmentCurvesEv"></span><span id="_CPPv2NK12ON_PolyCurve13SegmentCurvesEv"></span><span id="ON_PolyCurve::SegmentCurvesC"></span><span class="target" id="class_o_n___poly_curve_1a64ee1299dcd3d564a33e47c7ab450af3"></span><em class="property">const</em> <a class="reference internal" href="class_o_n___curve_array.html#_CPPv413ON_CurveArray" title="ON_CurveArray">ON_CurveArray</a> &amp;<code class="sig-name descname">SegmentCurves</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve13SegmentCurvesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK12ON_PolyCurve17SegmentParametersEv">
+<span id="_CPPv3NK12ON_PolyCurve17SegmentParametersEv"></span><span id="_CPPv2NK12ON_PolyCurve17SegmentParametersEv"></span><span id="ON_PolyCurve::SegmentParametersC"></span><span class="target" id="class_o_n___poly_curve_1a43c1d67ead6d4499bc8b2190efbf7dea"></span><em class="property">const</em> ON_SimpleArray&lt;double&gt; &amp;<code class="sig-name descname">SegmentParameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK12ON_PolyCurve17SegmentParametersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

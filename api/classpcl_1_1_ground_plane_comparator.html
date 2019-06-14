@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class GroundPlaneComparator &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class GroundPlaneComparator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_ground_plane_comparator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-groundplanecomparator">
+<span id="exhale-class-classpcl-1-1-ground-plane-comparator"></span><h1>Template Class GroundPlaneComparator<a class="headerlink" href="#template-class-groundplanecomparator" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_segmentation_include_pcl_segmentation_ground_plane_comparator.h.html#file-pcl-segmentation-include-pcl-segmentation-ground-plane-comparator-h"><span class="std std-ref">File ground_plane_comparator.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Comparator&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_comparator.html#exhale-class-classpcl-1-1-comparator"><span class="std std-ref">Template Class Comparator</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl21GroundPlaneComparatorE">
+<span id="_CPPv3I00EN3pcl21GroundPlaneComparatorE"></span><span id="_CPPv2I00EN3pcl21GroundPlaneComparatorE"></span><span class="target" id="classpcl_1_1_ground_plane_comparator"></span>template&lt;typename <code class="sig-name descname">PointT</code>, typename <code class="sig-name descname">PointNT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">GroundPlaneComparator</code> : <em class="property">public</em> pcl::Comparator&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl21GroundPlaneComparatorE" title="pcl::GroundPlaneComparator::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl21GroundPlaneComparatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_ground_plane_comparator"><span class="std std-ref">GroundPlaneComparator</span></a> is a <a class="reference internal" href="classpcl_1_1_comparator.html#classpcl_1_1_comparator"><span class="std std-ref">Comparator</span></a> for detecting smooth surfaces suitable for driving. </p>
+<p>In conjunction with <a class="reference internal" href="classpcl_1_1_organized_connected_component_segmentation.html#classpcl_1_1_organized_connected_component_segmentation"><span class="std std-ref">OrganizedConnectedComponentSegmentation</span></a>, this allows smooth groundplanes / road surfaces to be segmented from point clouds.</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Alex Trevor </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator10PointCloudE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator10PointCloudE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator10PointCloudE"></span><span id="pcl::GroundPlaneComparator::PointCloud"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1af90baffa9c1e2cb6b0edc0e3bf68ffd7"></span><em class="property">typedef </em>Comparator&lt;PointT&gt;::PointCloud <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator18PointCloudConstPtrE"></span><span id="pcl::GroundPlaneComparator::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a827479f9c67067c06e67268279c25783"></span><em class="property">typedef </em>Comparator&lt;PointT&gt;::PointCloudConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator11PointCloudNE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator11PointCloudNE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator11PointCloudNE"></span><span id="pcl::GroundPlaneComparator::PointCloudN"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a2a81a2d6cc6a0655a13ba0447daf0cfb"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointNT&gt; <code class="sig-name descname">PointCloudN</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator11PointCloudNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator14PointCloudNPtrE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator14PointCloudNPtrE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator14PointCloudNPtrE"></span><span id="pcl::GroundPlaneComparator::PointCloudNPtr"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a1ea4fd0560ffdb2cea6f9ff2341b96c1"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl21GroundPlaneComparator11PointCloudNE" title="pcl::GroundPlaneComparator::PointCloudN">PointCloudN</a>::Ptr <code class="sig-name descname">PointCloudNPtr</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator14PointCloudNPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator19PointCloudNConstPtrE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator19PointCloudNConstPtrE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator19PointCloudNConstPtrE"></span><span id="pcl::GroundPlaneComparator::PointCloudNConstPtr"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a08923246d6323f1f63074aff77bf4f9d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl21GroundPlaneComparator11PointCloudNE" title="pcl::GroundPlaneComparator::PointCloudN">PointCloudN</a>::ConstPtr <code class="sig-name descname">PointCloudNConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator19PointCloudNConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator3PtrE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator3PtrE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator3PtrE"></span><span id="pcl::GroundPlaneComparator::Ptr"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a75868bcb729ed93ce6b178b67eae30ea"></span><em class="property">typedef </em>boost::shared_ptr&lt;GroundPlaneComparator&lt;PointT, PointNT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator8ConstPtrE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator8ConstPtrE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator8ConstPtrE"></span><span id="pcl::GroundPlaneComparator::ConstPtr"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1abd618c9eff4951609f8cf8c38fc7ddda"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> GroundPlaneComparator&lt;PointT, PointNT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator21GroundPlaneComparatorEv">
+<span id="_CPPv3N3pcl21GroundPlaneComparator21GroundPlaneComparatorEv"></span><span id="_CPPv2N3pcl21GroundPlaneComparator21GroundPlaneComparatorEv"></span><span id="pcl::GroundPlaneComparator::GroundPlaneComparator"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a9e80cf6d65aa845b8dd6e13b8a7e011a"></span><code class="sig-name descname">GroundPlaneComparator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator21GroundPlaneComparatorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor for <a class="reference internal" href="#classpcl_1_1_ground_plane_comparator"><span class="std std-ref">GroundPlaneComparator</span></a>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator21GroundPlaneComparatorERN5boost10shared_ptrINSt6vectorIfEEEE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator21GroundPlaneComparatorERN5boost10shared_ptrINSt6vectorIfEEEE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator21GroundPlaneComparatorERN5boost10shared_ptrINSt6vectorIfEEEE"></span><span id="pcl::GroundPlaneComparator::GroundPlaneComparator__boost::shared_ptr:std::vector:float::R"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a83d48d057ffa61066310fce6177fa998"></span><code class="sig-name descname">GroundPlaneComparator</code><span class="sig-paren">(</span>boost::shared_ptr&lt;std::vector&lt;float&gt;&gt; &amp;<em>plane_coeff_d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator21GroundPlaneComparatorERN5boost10shared_ptrINSt6vectorIfEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for <a class="reference internal" href="#classpcl_1_1_ground_plane_comparator"><span class="std std-ref">GroundPlaneComparator</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">plane_coeff_d</span></code>: a reference to a vector of d coefficients of plane equations. Must be the same size as the input cloud and input normals. a, b, and c coefficients are in the input normals. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparatorD0Ev">
+<span id="_CPPv3N3pcl21GroundPlaneComparatorD0Ev"></span><span id="_CPPv2N3pcl21GroundPlaneComparatorD0Ev"></span><span id="pcl::GroundPlaneComparator::~GroundPlaneComparator"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a74ca6fa0843436e5fbaae4db9171d6a3"></span><em class="property">virtual</em> <code class="sig-name descname">~GroundPlaneComparator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparatorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor for <a class="reference internal" href="#classpcl_1_1_ground_plane_comparator"><span class="std std-ref">GroundPlaneComparator</span></a>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator13setInputCloudERK18PointCloudConstPtr">
+<span id="_CPPv3N3pcl21GroundPlaneComparator13setInputCloudERK18PointCloudConstPtr"></span><span id="_CPPv2N3pcl21GroundPlaneComparator13setInputCloudERK18PointCloudConstPtr"></span><span id="pcl::GroundPlaneComparator::setInputCloud__PointCloudConstPtrCR"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1aaec0392b8a90827ad86f76e57b13e628"></span><em class="property">virtual</em> void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl21GroundPlaneComparator18PointCloudConstPtrE" title="pcl::GroundPlaneComparator::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator13setInputCloudERK18PointCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide the input cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the input point cloud. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator15setInputNormalsERK19PointCloudNConstPtr">
+<span id="_CPPv3N3pcl21GroundPlaneComparator15setInputNormalsERK19PointCloudNConstPtr"></span><span id="_CPPv2N3pcl21GroundPlaneComparator15setInputNormalsERK19PointCloudNConstPtr"></span><span id="pcl::GroundPlaneComparator::setInputNormals__PointCloudNConstPtrCR"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a342d7944b0ca7c81f9f39b55f87e7b0a"></span>void <code class="sig-name descname">setInputNormals</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl21GroundPlaneComparator19PointCloudNConstPtrE" title="pcl::GroundPlaneComparator::PointCloudNConstPtr">PointCloudNConstPtr</a> &amp;<em>normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator15setInputNormalsERK19PointCloudNConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input normals. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normals</span></code>: the input normal cloud. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21GroundPlaneComparator15getInputNormalsEv">
+<span id="_CPPv3NK3pcl21GroundPlaneComparator15getInputNormalsEv"></span><span id="_CPPv2NK3pcl21GroundPlaneComparator15getInputNormalsEv"></span><span id="pcl::GroundPlaneComparator::getInputNormalsC"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a4917094b3ac22e069d02bd9011345609"></span><a class="reference internal" href="#_CPPv4N3pcl21GroundPlaneComparator19PointCloudNConstPtrE" title="pcl::GroundPlaneComparator::PointCloudNConstPtr">PointCloudNConstPtr</a> <code class="sig-name descname">getInputNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21GroundPlaneComparator15getInputNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the input normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator14setPlaneCoeffDERN5boost10shared_ptrINSt6vectorIfEEEE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator14setPlaneCoeffDERN5boost10shared_ptrINSt6vectorIfEEEE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator14setPlaneCoeffDERN5boost10shared_ptrINSt6vectorIfEEEE"></span><span id="pcl::GroundPlaneComparator::setPlaneCoeffD__boost::shared_ptr:std::vector:float::R"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a0462119699a82b62e6a97103b732ebb3"></span>void <code class="sig-name descname">setPlaneCoeffD</code><span class="sig-paren">(</span>boost::shared_ptr&lt;std::vector&lt;float&gt;&gt; &amp;<em>plane_coeff_d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator14setPlaneCoeffDERN5boost10shared_ptrINSt6vectorIfEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to a vector of the d-coefficient of the planes’ hessian normal form. </p>
+<p>a, b, and c are provided by the normal cloud. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">plane_coeff_d</span></code>: a pointer to the plane coefficients. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator14setPlaneCoeffDERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator14setPlaneCoeffDERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator14setPlaneCoeffDERNSt6vectorIfEE"></span><span id="pcl::GroundPlaneComparator::setPlaneCoeffD__std::vector:float:R"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a84617b290723756ec60399e272f8ae9c"></span>void <code class="sig-name descname">setPlaneCoeffD</code><span class="sig-paren">(</span>std::vector&lt;float&gt; &amp;<em>plane_coeff_d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator14setPlaneCoeffDERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to a vector of the d-coefficient of the planes’ hessian normal form. </p>
+<p>a, b, and c are provided by the normal cloud. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">plane_coeff_d</span></code>: a pointer to the plane coefficients. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21GroundPlaneComparator14getPlaneCoeffDEv">
+<span id="_CPPv3NK3pcl21GroundPlaneComparator14getPlaneCoeffDEv"></span><span id="_CPPv2NK3pcl21GroundPlaneComparator14getPlaneCoeffDEv"></span><span id="pcl::GroundPlaneComparator::getPlaneCoeffDC"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a4a1a62c797da2117eab1db378efc8886"></span><em class="property">const</em> std::vector&lt;float&gt; &amp;<code class="sig-name descname">getPlaneCoeffD</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21GroundPlaneComparator14getPlaneCoeffDEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the vector of the d-coefficient of the planes’ hessian normal form. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator19setAngularThresholdEf">
+<span id="_CPPv3N3pcl21GroundPlaneComparator19setAngularThresholdEf"></span><span id="_CPPv2N3pcl21GroundPlaneComparator19setAngularThresholdEf"></span><span id="pcl::GroundPlaneComparator::setAngularThreshold__float"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1ae7ea1c7a9d7362b9648afd7b1a7c9b6e"></span><em class="property">virtual</em> void <code class="sig-name descname">setAngularThreshold</code><span class="sig-paren">(</span>float <em>angular_threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator19setAngularThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the tolerance in radians for difference in normal direction between neighboring points, to be considered part of the same plane. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">angular_threshold</span></code>: the tolerance in radians </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator25setGroundAngularThresholdEf">
+<span id="_CPPv3N3pcl21GroundPlaneComparator25setGroundAngularThresholdEf"></span><span id="_CPPv2N3pcl21GroundPlaneComparator25setGroundAngularThresholdEf"></span><span id="pcl::GroundPlaneComparator::setGroundAngularThreshold__float"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a9cdc19f0e96e96e0e192936331e6a25a"></span><em class="property">virtual</em> void <code class="sig-name descname">setGroundAngularThreshold</code><span class="sig-paren">(</span>float <em>angular_threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator25setGroundAngularThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the tolerance in radians for difference in normal direction between a point and the expected ground normal. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">angular_threshold</span></code>: the </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator23setExpectedGroundNormalEN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl21GroundPlaneComparator23setExpectedGroundNormalEN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl21GroundPlaneComparator23setExpectedGroundNormalEN5Eigen8Vector3fE"></span><span id="pcl::GroundPlaneComparator::setExpectedGroundNormal__Eigen::Vector3f"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a171bd615e867ddcb74b429ba33fe96c2"></span>void <code class="sig-name descname">setExpectedGroundNormal</code><span class="sig-paren">(</span>Eigen::Vector3f <em>normal</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator23setExpectedGroundNormalEN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the expected ground plane normal with respect to the sensor. </p>
+<p>Pixels labeled as ground must be within ground_angular_threshold radians of this normal to be labeled as ground. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normal</span></code>: The normal direction of the expected ground plane. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21GroundPlaneComparator19getAngularThresholdEv">
+<span id="_CPPv3NK3pcl21GroundPlaneComparator19getAngularThresholdEv"></span><span id="_CPPv2NK3pcl21GroundPlaneComparator19getAngularThresholdEv"></span><span id="pcl::GroundPlaneComparator::getAngularThresholdC"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1aa24b2167f6b5a27a7f16fbf4eadbb8f8"></span>float <code class="sig-name descname">getAngularThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21GroundPlaneComparator19getAngularThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the angular threshold in radians for difference in normal direction between neighboring points, to be considered part of the same plane. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator20setDistanceThresholdEfb">
+<span id="_CPPv3N3pcl21GroundPlaneComparator20setDistanceThresholdEfb"></span><span id="_CPPv2N3pcl21GroundPlaneComparator20setDistanceThresholdEfb"></span><span id="pcl::GroundPlaneComparator::setDistanceThreshold__float.b"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a427a918c37b5fbe06cfed9d62969ba46"></span>void <code class="sig-name descname">setDistanceThreshold</code><span class="sig-paren">(</span>float <em>distance_threshold</em>, bool <em>depth_dependent</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator20setDistanceThresholdEfb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the tolerance in meters for difference in perpendicular distance (d component of plane equation) to the plane between neighboring points, to be considered part of the same plane. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">distance_threshold</span></code>: the tolerance in meters (at 1m) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_dependent</span></code>: whether to scale the threshold based on range from the sensor (default: false) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21GroundPlaneComparator20getDistanceThresholdEv">
+<span id="_CPPv3NK3pcl21GroundPlaneComparator20getDistanceThresholdEv"></span><span id="_CPPv2NK3pcl21GroundPlaneComparator20getDistanceThresholdEv"></span><span id="pcl::GroundPlaneComparator::getDistanceThresholdC"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a4f0c1ea18efd201018449a14968a213b"></span>float <code class="sig-name descname">getDistanceThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21GroundPlaneComparator20getDistanceThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the distance threshold in meters (d component of plane equation) between neighboring points, to be considered part of the same plane. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21GroundPlaneComparator7compareEii">
+<span id="_CPPv3NK3pcl21GroundPlaneComparator7compareEii"></span><span id="_CPPv2NK3pcl21GroundPlaneComparator7compareEii"></span><span id="pcl::GroundPlaneComparator::compare__i.iC"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a04efd5238f2d7cf5171652a2cc262a65"></span><em class="property">virtual</em> bool <code class="sig-name descname">compare</code><span class="sig-paren">(</span>int <em>idx1</em>, int <em>idx2</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21GroundPlaneComparator7compareEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compare points at two indices by their plane equations. </p>
+<p>True if the angle between the normals is less than the angular threshold, and the difference between the d component of the normals is less than distance threshold, else false <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">idx1</span></code>: The first index for the comparison </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx2</span></code>: The second index for the comparison </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator8normals_E">
+<span id="_CPPv3N3pcl21GroundPlaneComparator8normals_E"></span><span id="_CPPv2N3pcl21GroundPlaneComparator8normals_E"></span><span id="pcl::GroundPlaneComparator::normals___PointCloudNConstPtr"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a7c549660da2c6755b698cb31b136828a"></span><a class="reference internal" href="#_CPPv4N3pcl21GroundPlaneComparator19PointCloudNConstPtrE" title="pcl::GroundPlaneComparator::PointCloudNConstPtr">PointCloudNConstPtr</a> <code class="sig-name descname">normals_</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator8normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator14plane_coeff_d_E">
+<span id="_CPPv3N3pcl21GroundPlaneComparator14plane_coeff_d_E"></span><span id="_CPPv2N3pcl21GroundPlaneComparator14plane_coeff_d_E"></span><span id="pcl::GroundPlaneComparator::plane_coeff_d___boost::shared_ptr:std::vector:float::"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1adcf80523d36ba167d7bfe8da197c9c23"></span>boost::shared_ptr&lt;std::vector&lt;float&gt;&gt; <code class="sig-name descname">plane_coeff_d_</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator14plane_coeff_d_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator18angular_threshold_E">
+<span id="_CPPv3N3pcl21GroundPlaneComparator18angular_threshold_E"></span><span id="_CPPv2N3pcl21GroundPlaneComparator18angular_threshold_E"></span><span id="pcl::GroundPlaneComparator::angular_threshold___float"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1afe50028e6398eaceee263adcc6796fee"></span>float <code class="sig-name descname">angular_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator18angular_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator23road_angular_threshold_E">
+<span id="_CPPv3N3pcl21GroundPlaneComparator23road_angular_threshold_E"></span><span id="_CPPv2N3pcl21GroundPlaneComparator23road_angular_threshold_E"></span><span id="pcl::GroundPlaneComparator::road_angular_threshold___float"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a995a1d1051d25307356326bd211f5a95"></span>float <code class="sig-name descname">road_angular_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator23road_angular_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator19distance_threshold_E">
+<span id="_CPPv3N3pcl21GroundPlaneComparator19distance_threshold_E"></span><span id="_CPPv2N3pcl21GroundPlaneComparator19distance_threshold_E"></span><span id="pcl::GroundPlaneComparator::distance_threshold___float"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1addf09b319f53a8590e8a3cafcaa27dcf"></span>float <code class="sig-name descname">distance_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator19distance_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator16depth_dependent_E">
+<span id="_CPPv3N3pcl21GroundPlaneComparator16depth_dependent_E"></span><span id="_CPPv2N3pcl21GroundPlaneComparator16depth_dependent_E"></span><span id="pcl::GroundPlaneComparator::depth_dependent___b"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a5b77e24278f81ab4f4bd173900d761bb"></span>bool <code class="sig-name descname">depth_dependent_</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator16depth_dependent_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator7z_axis_E">
+<span id="_CPPv3N3pcl21GroundPlaneComparator7z_axis_E"></span><span id="_CPPv2N3pcl21GroundPlaneComparator7z_axis_E"></span><span id="pcl::GroundPlaneComparator::z_axis___Eigen::Vector3f"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a5bfb68e436de84174f339e47a9bc83f5"></span>Eigen::Vector3f <code class="sig-name descname">z_axis_</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator7z_axis_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21GroundPlaneComparator18desired_road_axis_E">
+<span id="_CPPv3N3pcl21GroundPlaneComparator18desired_road_axis_E"></span><span id="_CPPv2N3pcl21GroundPlaneComparator18desired_road_axis_E"></span><span id="pcl::GroundPlaneComparator::desired_road_axis___Eigen::Vector3f"></span><span class="target" id="classpcl_1_1_ground_plane_comparator_1a8b415656f691f0d9466a5fd70515f909"></span>Eigen::Vector3f <code class="sig-name descname">desired_road_axis_</code><a class="headerlink" href="#_CPPv4N3pcl21GroundPlaneComparator18desired_road_axis_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

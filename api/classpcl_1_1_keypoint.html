@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class Keypoint &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class Keypoint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_keypoint.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-keypoint">
+<span id="exhale-class-classpcl-1-1-keypoint"></span><h1>Template Class Keypoint<a class="headerlink" href="#template-class-keypoint" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_2d_include_pcl_2d_keypoint.h.html#file-pcl-2d-include-pcl-2d-keypoint-h"><span class="std std-ref">File keypoint.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PCLBase&lt;</span> <span class="pre">PointInT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_c_l_base.html#exhale-class-classpcl-1-1-p-c-l-base"><span class="std std-ref">Template Class PCLBase</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::AgastKeypoint2DBase&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">pcl::common::IntensityFieldAccessor&lt;</span> <span class="pre">PointInT</span> <span class="pre">&gt;</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_agast_keypoint2_d_base.html#exhale-class-classpcl-1-1-agast-keypoint2-d-base"><span class="std std-ref">Template Class AgastKeypoint2DBase</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::AgastKeypoint2DBase&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">IntensityT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_agast_keypoint2_d_base.html#exhale-class-classpcl-1-1-agast-keypoint2-d-base"><span class="std std-ref">Template Class AgastKeypoint2DBase</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::BriskKeypoint2D&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">IntensityT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_brisk_keypoint2_d.html#exhale-class-classpcl-1-1-brisk-keypoint2-d"><span class="std std-ref">Template Class BriskKeypoint2D</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::HarrisKeypoint2D&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">IntensityT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_harris_keypoint2_d.html#exhale-class-classpcl-1-1-harris-keypoint2-d"><span class="std std-ref">Template Class HarrisKeypoint2D</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::HarrisKeypoint3D&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">NormalT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_harris_keypoint3_d.html#exhale-class-classpcl-1-1-harris-keypoint3-d"><span class="std std-ref">Template Class HarrisKeypoint3D</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::HarrisKeypoint6D&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">NormalT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_harris_keypoint6_d.html#exhale-class-classpcl-1-1-harris-keypoint6-d"><span class="std std-ref">Template Class HarrisKeypoint6D</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::ISSKeypoint3D&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">NormalT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_i_s_s_keypoint3_d.html#exhale-class-classpcl-1-1-i-s-s-keypoint3-d"><span class="std std-ref">Template Class ISSKeypoint3D</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SIFTKeypoint&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_s_i_f_t_keypoint.html#exhale-class-classpcl-1-1-s-i-f-t-keypoint"><span class="std std-ref">Template Class SIFTKeypoint</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SUSANKeypoint&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">NormalT,</span> <span class="pre">IntensityT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_s_u_s_a_n_keypoint.html#exhale-class-classpcl-1-1-s-u-s-a-n-keypoint"><span class="std std-ref">Template Class SUSANKeypoint</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::TrajkovicKeypoint2D&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">IntensityT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_trajkovic_keypoint2_d.html#exhale-class-classpcl-1-1-trajkovic-keypoint2-d"><span class="std std-ref">Template Class TrajkovicKeypoint2D</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::TrajkovicKeypoint3D&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT,</span> <span class="pre">NormalT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_trajkovic_keypoint3_d.html#exhale-class-classpcl-1-1-trajkovic-keypoint3-d"><span class="std std-ref">Template Class TrajkovicKeypoint3D</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl8KeypointE">
+<span id="_CPPv3I00EN3pcl8KeypointE"></span><span id="_CPPv2I00EN3pcl8KeypointE"></span><span class="target" id="classpcl_1_1_keypoint"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">PointOutT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">Keypoint</code> : <em class="property">public</em> pcl::PCLBase&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl8KeypointE" title="pcl::Keypoint::PointInT">PointInT</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl8KeypointE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_keypoint"><span class="std std-ref">Keypoint</span></a></strong> represents the base class for key points. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Bastian Steder </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_agast_keypoint2_d_base.html#classpcl_1_1_agast_keypoint2_d_base"><span class="std std-ref">pcl::AgastKeypoint2DBase&lt; PointInT, PointOutT, pcl::common::IntensityFieldAccessor&lt; PointInT &gt; &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_agast_keypoint2_d_base.html#classpcl_1_1_agast_keypoint2_d_base"><span class="std std-ref">pcl::AgastKeypoint2DBase&lt; PointInT, PointOutT, IntensityT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_brisk_keypoint2_d.html#classpcl_1_1_brisk_keypoint2_d"><span class="std std-ref">pcl::BriskKeypoint2D&lt; PointInT, PointOutT, IntensityT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_harris_keypoint2_d.html#classpcl_1_1_harris_keypoint2_d"><span class="std std-ref">pcl::HarrisKeypoint2D&lt; PointInT, PointOutT, IntensityT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_harris_keypoint3_d.html#classpcl_1_1_harris_keypoint3_d"><span class="std std-ref">pcl::HarrisKeypoint3D&lt; PointInT, PointOutT, NormalT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_harris_keypoint6_d.html#classpcl_1_1_harris_keypoint6_d"><span class="std std-ref">pcl::HarrisKeypoint6D&lt; PointInT, PointOutT, NormalT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_i_s_s_keypoint3_d.html#classpcl_1_1_i_s_s_keypoint3_d"><span class="std std-ref">pcl::ISSKeypoint3D&lt; PointInT, PointOutT, NormalT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_s_i_f_t_keypoint.html#classpcl_1_1_s_i_f_t_keypoint"><span class="std std-ref">pcl::SIFTKeypoint&lt; PointInT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_s_u_s_a_n_keypoint.html#classpcl_1_1_s_u_s_a_n_keypoint"><span class="std std-ref">pcl::SUSANKeypoint&lt; PointInT, PointOutT, NormalT, IntensityT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_trajkovic_keypoint2_d.html#classpcl_1_1_trajkovic_keypoint2_d"><span class="std std-ref">pcl::TrajkovicKeypoint2D&lt; PointInT, PointOutT, IntensityT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_trajkovic_keypoint3_d.html#classpcl_1_1_trajkovic_keypoint3_d"><span class="std std-ref">pcl::TrajkovicKeypoint3D&lt; PointInT, PointOutT, NormalT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint3PtrE">
+<span id="_CPPv3N3pcl8Keypoint3PtrE"></span><span id="_CPPv2N3pcl8Keypoint3PtrE"></span><span id="pcl::Keypoint::Ptr"></span><span class="target" id="classpcl_1_1_keypoint_1ad0fa140c6038e3708a7ef652e5c74caa"></span><em class="property">typedef </em>boost::shared_ptr&lt;Keypoint&lt;PointInT, PointOutT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint8ConstPtrE">
+<span id="_CPPv3N3pcl8Keypoint8ConstPtrE"></span><span id="_CPPv2N3pcl8Keypoint8ConstPtrE"></span><span id="pcl::Keypoint::ConstPtr"></span><span class="target" id="classpcl_1_1_keypoint_1ab6d8033d4e3165919da69c0dfeecb8ae"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> Keypoint&lt;PointInT, PointOutT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint9BaseClassE">
+<span id="_CPPv3N3pcl8Keypoint9BaseClassE"></span><span id="_CPPv2N3pcl8Keypoint9BaseClassE"></span><span id="pcl::Keypoint::BaseClass"></span><span class="target" id="classpcl_1_1_keypoint_1a9eef8be22b648faf7529a03808165cc9"></span><em class="property">typedef </em>PCLBase&lt;PointInT&gt; <code class="sig-name descname">BaseClass</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint9BaseClassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint6KdTreeE">
+<span id="_CPPv3N3pcl8Keypoint6KdTreeE"></span><span id="_CPPv2N3pcl8Keypoint6KdTreeE"></span><span id="pcl::Keypoint::KdTree"></span><span class="target" id="classpcl_1_1_keypoint_1a54c9e8e5960a91c46a9a1fff3eb7ed1f"></span><em class="property">typedef </em>pcl::search::Search&lt;PointInT&gt; <code class="sig-name descname">KdTree</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint6KdTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint9KdTreePtrE">
+<span id="_CPPv3N3pcl8Keypoint9KdTreePtrE"></span><span id="_CPPv2N3pcl8Keypoint9KdTreePtrE"></span><span id="pcl::Keypoint::KdTreePtr"></span><span class="target" id="classpcl_1_1_keypoint_1a7da3079345edc3d3684157309a1e47dd"></span><em class="property">typedef </em>pcl::search::Search&lt;PointInT&gt;::Ptr <code class="sig-name descname">KdTreePtr</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint9KdTreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint12PointCloudInE">
+<span id="_CPPv3N3pcl8Keypoint12PointCloudInE"></span><span id="_CPPv2N3pcl8Keypoint12PointCloudInE"></span><span id="pcl::Keypoint::PointCloudIn"></span><span class="target" id="classpcl_1_1_keypoint_1ac291ff32e78639931cab1113e69a456b"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointInT&gt; <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint15PointCloudInPtrE">
+<span id="_CPPv3N3pcl8Keypoint15PointCloudInPtrE"></span><span id="_CPPv2N3pcl8Keypoint15PointCloudInPtrE"></span><span id="pcl::Keypoint::PointCloudInPtr"></span><span class="target" id="classpcl_1_1_keypoint_1a2e0ec17665234d8f2c30a143222a8eee"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8Keypoint12PointCloudInE" title="pcl::Keypoint::PointCloudIn">PointCloudIn</a>::Ptr <code class="sig-name descname">PointCloudInPtr</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint15PointCloudInPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint20PointCloudInConstPtrE">
+<span id="_CPPv3N3pcl8Keypoint20PointCloudInConstPtrE"></span><span id="_CPPv2N3pcl8Keypoint20PointCloudInConstPtrE"></span><span id="pcl::Keypoint::PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1_keypoint_1a833ca03470dd4383a397e24214ea0709"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8Keypoint12PointCloudInE" title="pcl::Keypoint::PointCloudIn">PointCloudIn</a>::ConstPtr <code class="sig-name descname">PointCloudInConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint20PointCloudInConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint13PointCloudOutE">
+<span id="_CPPv3N3pcl8Keypoint13PointCloudOutE"></span><span id="_CPPv2N3pcl8Keypoint13PointCloudOutE"></span><span id="pcl::Keypoint::PointCloudOut"></span><span class="target" id="classpcl_1_1_keypoint_1a010e393d307e423828232fdd48781240"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointOutT&gt; <code class="sig-name descname">PointCloudOut</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint13PointCloudOutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint12SearchMethodE">
+<span id="_CPPv3N3pcl8Keypoint12SearchMethodE"></span><span id="_CPPv2N3pcl8Keypoint12SearchMethodE"></span><span id="pcl::Keypoint::SearchMethod"></span><span class="target" id="classpcl_1_1_keypoint_1a25a67ec1b8bee8532d9e0947164d44ba"></span><em class="property">typedef </em>boost::function&lt;int<span class="sig-paren">(</span>int, double, std::vector&lt;int&gt;&amp;, std::vector&lt;float&gt;&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">SearchMethod</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint12SearchMethodE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8Keypoint19SearchMethodSurfaceE">
+<span id="_CPPv3N3pcl8Keypoint19SearchMethodSurfaceE"></span><span id="_CPPv2N3pcl8Keypoint19SearchMethodSurfaceE"></span><span id="pcl::Keypoint::SearchMethodSurface"></span><span class="target" id="classpcl_1_1_keypoint_1ac58660587c72beaf0068c4f4656484e6"></span><em class="property">typedef </em>boost::function&lt;int<span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8Keypoint12PointCloudInE" title="pcl::Keypoint::PointCloudIn">PointCloudIn</a> &amp;cloud, int index, double, std::vector&lt;int&gt;&amp;, std::vector&lt;float&gt;&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">SearchMethodSurface</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint19SearchMethodSurfaceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint8KeypointEv">
+<span id="_CPPv3N3pcl8Keypoint8KeypointEv"></span><span id="_CPPv2N3pcl8Keypoint8KeypointEv"></span><span id="pcl::Keypoint::Keypoint"></span><span class="target" id="classpcl_1_1_keypoint_1a06d5bf39feac19b1d5dfa0a3e87caea9"></span><code class="sig-name descname">Keypoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint8KeypointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint12harrisCornerER9ImageTypeR9ImageTypeKfKfKfKf">
+<span id="_CPPv3N3pcl8Keypoint12harrisCornerER9ImageTypeR9ImageTypeKfKfKfKf"></span><span id="_CPPv2N3pcl8Keypoint12harrisCornerER9ImageTypeR9ImageTypeKfKfKfKf"></span><span id="pcl::Keypoint::harrisCorner__ImageTypeR.ImageTypeR.floatC.floatC.floatC.floatC"></span><span class="target" id="classpcl_1_1_keypoint_1ab968a8e4e03374f001f2ad32f71c19f6"></span>void <code class="sig-name descname">harrisCorner</code><span class="sig-paren">(</span>ImageType &amp;<em>output</em>, ImageType &amp;<em>input</em>, <em class="property">const</em> float <em>sigma_d</em>, <em class="property">const</em> float <em>sigma_i</em>, <em class="property">const</em> float <em>alpha</em>, <em class="property">const</em> float <em>thresh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint12harrisCornerER9ImageTypeR9ImageTypeKfKfKfKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint11hessianBlobER9ImageTypeR9ImageTypeKfb">
+<span id="_CPPv3N3pcl8Keypoint11hessianBlobER9ImageTypeR9ImageTypeKfb"></span><span id="_CPPv2N3pcl8Keypoint11hessianBlobER9ImageTypeR9ImageTypeKfb"></span><span id="pcl::Keypoint::hessianBlob__ImageTypeR.ImageTypeR.floatC.b"></span><span class="target" id="classpcl_1_1_keypoint_1a2093e733ffdbeec61011da572f7c1621"></span>void <code class="sig-name descname">hessianBlob</code><span class="sig-paren">(</span>ImageType &amp;<em>output</em>, ImageType &amp;<em>input</em>, <em class="property">const</em> float <em>sigma</em>, bool <em>SCALE</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint11hessianBlobER9ImageTypeR9ImageTypeKfb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint11hessianBlobER9ImageTypeR9ImageTypeKfKfKi">
+<span id="_CPPv3N3pcl8Keypoint11hessianBlobER9ImageTypeR9ImageTypeKfKfKi"></span><span id="_CPPv2N3pcl8Keypoint11hessianBlobER9ImageTypeR9ImageTypeKfKfKi"></span><span id="pcl::Keypoint::hessianBlob__ImageTypeR.ImageTypeR.floatC.floatC.iC"></span><span class="target" id="classpcl_1_1_keypoint_1a7e50c05b60ac259df5c21e7710f93409"></span>void <code class="sig-name descname">hessianBlob</code><span class="sig-paren">(</span>ImageType &amp;<em>output</em>, ImageType &amp;<em>input</em>, <em class="property">const</em> float <em>start_scale</em>, <em class="property">const</em> float <em>scaling_factor</em>, <em class="property">const</em> int <em>num_scales</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint11hessianBlobER9ImageTypeR9ImageTypeKfKfKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint20imageElementMultiplyER9ImageTypeR9ImageTypeR9ImageType">
+<span id="_CPPv3N3pcl8Keypoint20imageElementMultiplyER9ImageTypeR9ImageTypeR9ImageType"></span><span id="_CPPv2N3pcl8Keypoint20imageElementMultiplyER9ImageTypeR9ImageTypeR9ImageType"></span><span id="pcl::Keypoint::imageElementMultiply__ImageTypeR.ImageTypeR.ImageTypeR"></span><span class="target" id="classpcl_1_1_keypoint_1a99462738157103f91e8bfe7075202f7f"></span>void <code class="sig-name descname">imageElementMultiply</code><span class="sig-paren">(</span>ImageType &amp;<em>output</em>, ImageType &amp;<em>input1</em>, ImageType &amp;<em>input2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint20imageElementMultiplyER9ImageTypeR9ImageTypeR9ImageType" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint8KeypointEv">
+<span id="_CPPv3N3pcl8Keypoint8KeypointEv"></span><span id="_CPPv2N3pcl8Keypoint8KeypointEv"></span><span class="target" id="classpcl_1_1_keypoint_1a06d5bf39feac19b1d5dfa0a3e87caea9"></span><code class="sig-name descname">Keypoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8KeypointD0Ev">
+<span id="_CPPv3N3pcl8KeypointD0Ev"></span><span id="_CPPv2N3pcl8KeypointD0Ev"></span><span id="pcl::Keypoint::~Keypoint"></span><span class="target" id="classpcl_1_1_keypoint_1abc3023e139444291b4d155553369b0bd"></span><em class="property">virtual</em> <code class="sig-name descname">~Keypoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8KeypointD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint16setSearchSurfaceERK20PointCloudInConstPtr">
+<span id="_CPPv3N3pcl8Keypoint16setSearchSurfaceERK20PointCloudInConstPtr"></span><span id="_CPPv2N3pcl8Keypoint16setSearchSurfaceERK20PointCloudInConstPtr"></span><span id="pcl::Keypoint::setSearchSurface__PointCloudInConstPtrCR"></span><span class="target" id="classpcl_1_1_keypoint_1a9dbce2da2ea97dcb4f5635df33a129c9"></span><em class="property">virtual</em> void <code class="sig-name descname">setSearchSurface</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8Keypoint20PointCloudInConstPtrE" title="pcl::Keypoint::PointCloudInConstPtr">PointCloudInConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint16setSearchSurfaceERK20PointCloudInConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset that we need to estimate features at every point for. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint16getSearchSurfaceEv">
+<span id="_CPPv3N3pcl8Keypoint16getSearchSurfaceEv"></span><span id="_CPPv2N3pcl8Keypoint16getSearchSurfaceEv"></span><span id="pcl::Keypoint::getSearchSurface"></span><span class="target" id="classpcl_1_1_keypoint_1aa7b3aa0078d09857ed7afbee6b00e07b"></span><a class="reference internal" href="#_CPPv4N3pcl8Keypoint20PointCloudInConstPtrE" title="pcl::Keypoint::PointCloudInConstPtr">PointCloudInConstPtr</a> <code class="sig-name descname">getSearchSurface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint16getSearchSurfaceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the surface point cloud dataset. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint15setSearchMethodERK9KdTreePtr">
+<span id="_CPPv3N3pcl8Keypoint15setSearchMethodERK9KdTreePtr"></span><span id="_CPPv2N3pcl8Keypoint15setSearchMethodERK9KdTreePtr"></span><span id="pcl::Keypoint::setSearchMethod__KdTreePtrCR"></span><span class="target" id="classpcl_1_1_keypoint_1a153d731738fd5966e169e26b61013689"></span>void <code class="sig-name descname">setSearchMethod</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8Keypoint9KdTreePtrE" title="pcl::Keypoint::KdTreePtr">KdTreePtr</a> &amp;<em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint15setSearchMethodERK9KdTreePtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the search object. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tree</span></code>: a pointer to the spatial search object. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint15getSearchMethodEv">
+<span id="_CPPv3N3pcl8Keypoint15getSearchMethodEv"></span><span id="_CPPv2N3pcl8Keypoint15getSearchMethodEv"></span><span id="pcl::Keypoint::getSearchMethod"></span><span class="target" id="classpcl_1_1_keypoint_1a9c5fa8a8d95367a21111efe0b197a3c9"></span><a class="reference internal" href="#_CPPv4N3pcl8Keypoint9KdTreePtrE" title="pcl::Keypoint::KdTreePtr">KdTreePtr</a> <code class="sig-name descname">getSearchMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint15getSearchMethodEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the search method used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint18getSearchParameterEv">
+<span id="_CPPv3N3pcl8Keypoint18getSearchParameterEv"></span><span id="_CPPv2N3pcl8Keypoint18getSearchParameterEv"></span><span id="pcl::Keypoint::getSearchParameter"></span><span class="target" id="classpcl_1_1_keypoint_1addd331bafa986670ef416554728bd6a4"></span>double <code class="sig-name descname">getSearchParameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint18getSearchParameterEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the internal search parameter. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint10setKSearchEi">
+<span id="_CPPv3N3pcl8Keypoint10setKSearchEi"></span><span id="_CPPv2N3pcl8Keypoint10setKSearchEi"></span><span id="pcl::Keypoint::setKSearch__i"></span><span class="target" id="classpcl_1_1_keypoint_1a4de1c1a1545be786c12ec36fea4008df"></span>void <code class="sig-name descname">setKSearch</code><span class="sig-paren">(</span>int <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint10setKSearchEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the number of k nearest neighbors to use for the feature estimation. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>: the number of k-nearest neighbors </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint10getKSearchEv">
+<span id="_CPPv3N3pcl8Keypoint10getKSearchEv"></span><span id="_CPPv2N3pcl8Keypoint10getKSearchEv"></span><span id="pcl::Keypoint::getKSearch"></span><span class="target" id="classpcl_1_1_keypoint_1a9a337c89ee7ce0816b8a677b5d538592"></span>int <code class="sig-name descname">getKSearch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint10getKSearchEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get the number of k nearest neighbors used for the feature estimation. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint15setRadiusSearchEd">
+<span id="_CPPv3N3pcl8Keypoint15setRadiusSearchEd"></span><span id="_CPPv2N3pcl8Keypoint15setRadiusSearchEd"></span><span id="pcl::Keypoint::setRadiusSearch__double"></span><span class="target" id="classpcl_1_1_keypoint_1acb901dd8879ee9a34b3a87d1cb6d6a37"></span>void <code class="sig-name descname">setRadiusSearch</code><span class="sig-paren">(</span>double <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint15setRadiusSearchEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the sphere radius that is to be used for determining the nearest neighbors used for the key point detection. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code>: the sphere radius used as the maximum distance to consider a point a neighbor </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint15getRadiusSearchEv">
+<span id="_CPPv3N3pcl8Keypoint15getRadiusSearchEv"></span><span id="_CPPv2N3pcl8Keypoint15getRadiusSearchEv"></span><span id="pcl::Keypoint::getRadiusSearch"></span><span class="target" id="classpcl_1_1_keypoint_1a9b6fb2953dc9be88c74d95c8446937bb"></span>double <code class="sig-name descname">getRadiusSearch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint15getRadiusSearchEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the sphere radius used for determining the neighbors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint19getKeypointsIndicesEv">
+<span id="_CPPv3N3pcl8Keypoint19getKeypointsIndicesEv"></span><span id="_CPPv2N3pcl8Keypoint19getKeypointsIndicesEv"></span><span id="pcl::Keypoint::getKeypointsIndices"></span><span class="target" id="classpcl_1_1_keypoint_1a3ead3b82282115d4b7e400daee213c2d"></span>pcl::<a class="reference internal" href="typedef_namespacepcl_1a1657df464bdc60d40c792724e44b4e1c.html#_CPPv4N3pcl20PointIndicesConstPtrE" title="pcl::PointIndicesConstPtr">PointIndicesConstPtr</a> <code class="sig-name descname">getKeypointsIndices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint19getKeypointsIndicesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the keypoints indices in the input cloud. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>not all the daughter classes populate the keypoints indices so check emptiness before use. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint7computeER13PointCloudOut">
+<span id="_CPPv3N3pcl8Keypoint7computeER13PointCloudOut"></span><span id="_CPPv2N3pcl8Keypoint7computeER13PointCloudOut"></span><span id="pcl::Keypoint::compute__PointCloudOutR"></span><span class="target" id="classpcl_1_1_keypoint_1a046a7cd11598b06d2076da69a3100e4b"></span>void <code class="sig-name descname">compute</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl8Keypoint13PointCloudOutE" title="pcl::Keypoint::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint7computeER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Base method for key point detection for all points given in &lt;setInputCloud (), setIndices ()&gt; using the surface in setSearchSurface () and the spatial locator in setSearchMethod () </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span></code>: the resultant point cloud model dataset containing the estimated features </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8Keypoint18searchForNeighborsEidRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3NK3pcl8Keypoint18searchForNeighborsEidRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2NK3pcl8Keypoint18searchForNeighborsEidRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::Keypoint::searchForNeighbors__i.double.std::vector:i:R.std::vector:float:RC"></span><span class="target" id="classpcl_1_1_keypoint_1aa327f241d246cec23ca531261f60da3f"></span>int <code class="sig-name descname">searchForNeighbors</code><span class="sig-paren">(</span>int <em>index</em>, double <em>parameter</em>, std::vector&lt;int&gt; &amp;<em>indices</em>, std::vector&lt;float&gt; &amp;<em>distances</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8Keypoint18searchForNeighborsEidRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for k-nearest neighbors using the spatial locator from <em>setSearchmethod</em>, and the given surface from <em>setSearchSurface</em>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: the index of the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameter</span></code>: the search parameter (either k or radius) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indices</span></code>: the resultant vector of indices representing the k-nearest neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distances</span></code>: the resultant vector of distances representing the distances from the query point to the k-nearest neighbors </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint11initComputeEv">
+<span id="_CPPv3N3pcl8Keypoint11initComputeEv"></span><span id="_CPPv2N3pcl8Keypoint11initComputeEv"></span><span id="pcl::Keypoint::initCompute"></span><span class="target" id="classpcl_1_1_keypoint_1a7eeb86d927038a60afabb226429f54db"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8Keypoint11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8Keypoint12getClassNameEv">
+<span id="_CPPv3NK3pcl8Keypoint12getClassNameEv"></span><span id="_CPPv2NK3pcl8Keypoint12getClassNameEv"></span><span id="pcl::Keypoint::getClassNameC"></span><span class="target" id="classpcl_1_1_keypoint_1af2dd9244731bfd903ce4aa73efb996eb"></span><em class="property">const</em> std::string &amp;<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8Keypoint12getClassNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a string representation of the name of this class. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8Keypoint15detectKeypointsER13PointCloudOut">
+<span id="_CPPv3N3pcl8Keypoint15detectKeypointsER13PointCloudOut"></span><span id="_CPPv2N3pcl8Keypoint15detectKeypointsER13PointCloudOut"></span><span id="pcl::Keypoint::detectKeypoints__PointCloudOutR"></span><span class="target" id="classpcl_1_1_keypoint_1abbe80461ac9e3bb7e355b4608d0b4674"></span><em class="property">virtual</em> void <code class="sig-name descname">detectKeypoints</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl8Keypoint13PointCloudOutE" title="pcl::Keypoint::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl8Keypoint15detectKeypointsER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract key point detection method. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl8Keypoint5name_E">
+<span id="_CPPv3N3pcl8Keypoint5name_E"></span><span id="_CPPv2N3pcl8Keypoint5name_E"></span><span id="pcl::Keypoint::name___ss"></span><span class="target" id="classpcl_1_1_keypoint_1aef5710b81d66e6d429a9dfeb41d606ff"></span>std::string <code class="sig-name descname">name_</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint5name_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The key point detection method’s name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8Keypoint14search_method_E">
+<span id="_CPPv3N3pcl8Keypoint14search_method_E"></span><span id="_CPPv2N3pcl8Keypoint14search_method_E"></span><span id="pcl::Keypoint::search_method___SearchMethod"></span><span class="target" id="classpcl_1_1_keypoint_1aa2ee2830db93620925b82bf6b8ffea63"></span><a class="reference internal" href="#_CPPv4N3pcl8Keypoint12SearchMethodE" title="pcl::Keypoint::SearchMethod">SearchMethod</a> <code class="sig-name descname">search_method_</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint14search_method_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The search method template for indices. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8Keypoint22search_method_surface_E">
+<span id="_CPPv3N3pcl8Keypoint22search_method_surface_E"></span><span id="_CPPv2N3pcl8Keypoint22search_method_surface_E"></span><span id="pcl::Keypoint::search_method_surface___SearchMethodSurface"></span><span class="target" id="classpcl_1_1_keypoint_1a642e18edc66cffd15266bf9e7bf20bec"></span><a class="reference internal" href="#_CPPv4N3pcl8Keypoint19SearchMethodSurfaceE" title="pcl::Keypoint::SearchMethodSurface">SearchMethodSurface</a> <code class="sig-name descname">search_method_surface_</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint22search_method_surface_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The search method template for points. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8Keypoint8surface_E">
+<span id="_CPPv3N3pcl8Keypoint8surface_E"></span><span id="_CPPv2N3pcl8Keypoint8surface_E"></span><span id="pcl::Keypoint::surface___PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1_keypoint_1a1998c46514f3f8d8d7665f6b505ca389"></span><a class="reference internal" href="#_CPPv4N3pcl8Keypoint20PointCloudInConstPtrE" title="pcl::Keypoint::PointCloudInConstPtr">PointCloudInConstPtr</a> <code class="sig-name descname">surface_</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint8surface_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An input point cloud describing the surface that is to be used for nearest neighbors estimation. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8Keypoint5tree_E">
+<span id="_CPPv3N3pcl8Keypoint5tree_E"></span><span id="_CPPv2N3pcl8Keypoint5tree_E"></span><span id="pcl::Keypoint::tree___KdTreePtr"></span><span class="target" id="classpcl_1_1_keypoint_1a9bca452f3813c88d994dba18d4a7a1c8"></span><a class="reference internal" href="#_CPPv4N3pcl8Keypoint9KdTreePtrE" title="pcl::Keypoint::KdTreePtr">KdTreePtr</a> <code class="sig-name descname">tree_</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint5tree_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A pointer to the spatial search object. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8Keypoint17search_parameter_E">
+<span id="_CPPv3N3pcl8Keypoint17search_parameter_E"></span><span id="_CPPv2N3pcl8Keypoint17search_parameter_E"></span><span id="pcl::Keypoint::search_parameter___double"></span><span class="target" id="classpcl_1_1_keypoint_1a578368dcf8cacc6770aa5f7e7a306def"></span>double <code class="sig-name descname">search_parameter_</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint17search_parameter_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The actual search parameter (casted from either <em>search_radius_</em> or <em>k_</em>). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8Keypoint14search_radius_E">
+<span id="_CPPv3N3pcl8Keypoint14search_radius_E"></span><span id="_CPPv2N3pcl8Keypoint14search_radius_E"></span><span id="pcl::Keypoint::search_radius___double"></span><span class="target" id="classpcl_1_1_keypoint_1a3bf7980bf7404eb9b5571afbbc2001f5"></span>double <code class="sig-name descname">search_radius_</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint14search_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The nearest neighbors search radius for each point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8Keypoint2k_E">
+<span id="_CPPv3N3pcl8Keypoint2k_E"></span><span id="_CPPv2N3pcl8Keypoint2k_E"></span><span id="pcl::Keypoint::k___i"></span><span class="target" id="classpcl_1_1_keypoint_1a93359dca5b099e843c3cf0d0db1c59e1"></span>int <code class="sig-name descname">k_</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint2k_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of K nearest neighbors to use for each point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8Keypoint18keypoints_indices_E">
+<span id="_CPPv3N3pcl8Keypoint18keypoints_indices_E"></span><span id="_CPPv2N3pcl8Keypoint18keypoints_indices_E"></span><span id="pcl::Keypoint::keypoints_indices___pcl::PointIndicesPtr"></span><span class="target" id="classpcl_1_1_keypoint_1abe8df9e1d66f449bc478cc06f062f209"></span>pcl::<a class="reference internal" href="typedef_namespacepcl_1a53792858d78862a698389664d6720a40.html#_CPPv4N3pcl15PointIndicesPtrE" title="pcl::PointIndicesPtr">PointIndicesPtr</a> <code class="sig-name descname">keypoints_indices_</code><a class="headerlink" href="#_CPPv4N3pcl8Keypoint18keypoints_indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indices of the keypoints in the input cloud. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

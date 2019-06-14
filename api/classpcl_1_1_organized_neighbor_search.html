@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OrganizedNeighborSearch &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OrganizedNeighborSearch</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_organized_neighbor_search.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-organizedneighborsearch">
+<span id="exhale-class-classpcl-1-1-organized-neighbor-search"></span><h1>Template Class OrganizedNeighborSearch<a class="headerlink" href="#template-class-organizedneighborsearch" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_cuda_nn_organized_neighbor_search.h.html#file-pcl-cuda-nn-organized-neighbor-search-h"><span class="std std-ref">File organized_neighbor_search.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate.html#exhale-class-classpcl-1-1-organized-neighbor-search-1-1nearest-neighbor-candidate"><span class="std std-ref">Class OrganizedNeighborSearch::nearestNeighborCandidate</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry.html#exhale-class-classpcl-1-1-organized-neighbor-search-1-1radius-search-loopkup-entry"><span class="std std-ref">Class OrganizedNeighborSearch::radiusSearchLoopkupEntry</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl23OrganizedNeighborSearchE">
+<span id="_CPPv3I0EN3pcl23OrganizedNeighborSearchE"></span><span id="_CPPv2I0EN3pcl23OrganizedNeighborSearchE"></span><span class="target" id="classpcl_1_1_organized_neighbor_search"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">OrganizedNeighborSearch</code><a class="headerlink" href="#_CPPv4I0EN3pcl23OrganizedNeighborSearchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_organized_neighbor_search"><span class="std std-ref">OrganizedNeighborSearch</span></a></strong> class </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class provides neighbor search routines for organized point clouds. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p></p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>typename: PointT: type of point used in pointcloud </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch10PointCloudE">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch10PointCloudE"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch10PointCloudE"></span><span id="pcl::OrganizedNeighborSearch::PointCloud"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1aa1bf698c1a6ef580f06bdcf9a33c476b"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch13PointCloudPtrE">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch13PointCloudPtrE"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch13PointCloudPtrE"></span><span id="pcl::OrganizedNeighborSearch::PointCloudPtr"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1ab529dda47b247453a484126a431c7548"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl23OrganizedNeighborSearch10PointCloudE" title="pcl::OrganizedNeighborSearch::PointCloud">PointCloud</a>&gt; <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch18PointCloudConstPtrE"></span><span id="pcl::OrganizedNeighborSearch::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1ae3d3d8c009fc0eb920cc183d7b4c434e"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl23OrganizedNeighborSearch10PointCloudE" title="pcl::OrganizedNeighborSearch::PointCloud">PointCloud</a>&gt; <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch23OrganizedNeighborSearchEv">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch23OrganizedNeighborSearchEv"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch23OrganizedNeighborSearchEv"></span><span id="pcl::OrganizedNeighborSearch::OrganizedNeighborSearch"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a589ab5372bc7f62215963d8ac9121a6d"></span><code class="sig-name descname">OrganizedNeighborSearch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch23OrganizedNeighborSearchEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_organized_neighbor_search"><span class="std std-ref">OrganizedNeighborSearch</span></a> constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearchD0Ev">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearchD0Ev"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearchD0Ev"></span><span id="pcl::OrganizedNeighborSearch::~OrganizedNeighborSearch"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a23654f9c5afe770f181233d369ce5630"></span><em class="property">virtual</em> <code class="sig-name descname">~OrganizedNeighborSearch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearchD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty deconstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch13setInputCloudERK18PointCloudConstPtr">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch13setInputCloudERK18PointCloudConstPtr"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch13setInputCloudERK18PointCloudConstPtr"></span><span id="pcl::OrganizedNeighborSearch::setInputCloud__PointCloudConstPtrCR"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1adc77da508e5523307f31177b7a57b1f4"></span>void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl23OrganizedNeighborSearch18PointCloudConstPtrE" title="pcl::OrganizedNeighborSearch::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch13setInputCloudERK18PointCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input data set. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud_arg</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch12radiusSearchERK18PointCloudConstPtridRNSt6vectorIiEERNSt6vectorIfEEi">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch12radiusSearchERK18PointCloudConstPtridRNSt6vectorIiEERNSt6vectorIfEEi"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch12radiusSearchERK18PointCloudConstPtridRNSt6vectorIiEERNSt6vectorIfEEi"></span><span id="pcl::OrganizedNeighborSearch::radiusSearch__PointCloudConstPtrCR.i.double.std::vector:i:R.std::vector:float:R.i"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a1222cdf2d1d971ac2d0eae32e7d2afbf"></span>int <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl23OrganizedNeighborSearch18PointCloudConstPtrE" title="pcl::OrganizedNeighborSearch::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud_arg</em>, int <em>index_arg</em>, double <em>radius_arg</em>, std::vector&lt;int&gt; &amp;<em>k_indices_arg</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances_arg</em>, int <em>max_nn_arg</em> = INT_MAX<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch12radiusSearchERK18PointCloudConstPtridRNSt6vectorIiEERNSt6vectorIfEEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for all neighbors of query point that are within a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found in radius </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud_arg</span></code>: the point cloud data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index_arg</span></code>: the index in <em>cloud</em> representing the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">radius_arg</span></code>: the radius of the sphere bounding all of p_q’s neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_indices_arg</span></code>: the resultant indices of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_sqr_distances_arg</span></code>: the resultant squared distances to the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_nn_arg</span></code>: if given, bounds the maximum returned neighbors to this value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl23OrganizedNeighborSearch12radiusSearchEiKdRNSt6vectorIiEERNSt6vectorIfEEi">
+<span id="_CPPv3NK3pcl23OrganizedNeighborSearch12radiusSearchEiKdRNSt6vectorIiEERNSt6vectorIfEEi"></span><span id="_CPPv2NK3pcl23OrganizedNeighborSearch12radiusSearchEiKdRNSt6vectorIiEERNSt6vectorIfEEi"></span><span id="pcl::OrganizedNeighborSearch::radiusSearch__i.doubleC.std::vector:i:R.std::vector:float:R.iC"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a06ae9a29bf5b157b144652f781f8d5c8"></span>int <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span>int <em>index_arg</em>, <em class="property">const</em> double <em>radius_arg</em>, std::vector&lt;int&gt; &amp;<em>k_indices_arg</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances_arg</em>, int <em>max_nn_arg</em> = INT_MAX<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl23OrganizedNeighborSearch12radiusSearchEiKdRNSt6vectorIiEERNSt6vectorIfEEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for all neighbors of query point that are within a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found in radius </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index_arg</span></code>: index representing the query point in the dataset given by <em>setInputCloud</em>. If indices were given in setInputCloud, index will be the position in the indices vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">radius_arg</span></code>: radius of the sphere bounding all of p_q’s neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_indices_arg</span></code>: the resultant indices of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_sqr_distances_arg</span></code>: the resultant squared distances to the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_nn_arg</span></code>: if given, bounds the maximum returned neighbors to this value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl23OrganizedNeighborSearch12radiusSearchERK6PointTKdRNSt6vectorIiEERNSt6vectorIfEEi">
+<span id="_CPPv3NK3pcl23OrganizedNeighborSearch12radiusSearchERK6PointTKdRNSt6vectorIiEERNSt6vectorIfEEi"></span><span id="_CPPv2NK3pcl23OrganizedNeighborSearch12radiusSearchERK6PointTKdRNSt6vectorIiEERNSt6vectorIfEEi"></span><span id="pcl::OrganizedNeighborSearch::radiusSearch__PointTCR.doubleC.std::vector:i:R.std::vector:float:R.iC"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1ade3b8b128fe1ccfdd0ca89baf41b4b30"></span>int <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>p_q_arg</em>, <em class="property">const</em> double <em>radius_arg</em>, std::vector&lt;int&gt; &amp;<em>k_indices_arg</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances_arg</em>, int <em>max_nn_arg</em> = INT_MAX<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl23OrganizedNeighborSearch12radiusSearchERK6PointTKdRNSt6vectorIiEERNSt6vectorIfEEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for all neighbors of query point that are within a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found in radius </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p_q_arg</span></code>: the given query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">radius_arg</span></code>: the radius of the sphere bounding all of p_q’s neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_indices_arg</span></code>: the resultant indices of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_sqr_distances_arg</span></code>: the resultant squared distances to the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_nn_arg</span></code>: if given, bounds the maximum returned neighbors to this value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch14nearestKSearchERK18PointCloudConstPtriiRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch14nearestKSearchERK18PointCloudConstPtriiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch14nearestKSearchERK18PointCloudConstPtriiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::OrganizedNeighborSearch::nearestKSearch__PointCloudConstPtrCR.i.i.std::vector:i:R.std::vector:float:R"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a3c18f38a4aad5fe6c05179906faf14cb"></span>int <code class="sig-name descname">nearestKSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl23OrganizedNeighborSearch18PointCloudConstPtrE" title="pcl::OrganizedNeighborSearch::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud_arg</em>, int <em>index_arg</em>, int <em>k_arg</em>, std::vector&lt;int&gt; &amp;<em>k_indices_arg</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch14nearestKSearchERK18PointCloudConstPtriiRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for k-nearest neighbors at the query point. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud_arg</span></code>: the point cloud data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index_arg</span></code>: the index in <em>cloud</em> representing the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_arg</span></code>: the number of neighbors to search for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_indices_arg</span></code>: the resultant indices of the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_sqr_distances_arg</span></code>: the resultant squared distances to the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch14nearestKSearchEiiRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch14nearestKSearchEiiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch14nearestKSearchEiiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::OrganizedNeighborSearch::nearestKSearch__i.i.std::vector:i:R.std::vector:float:R"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1adcee6032ee08b2b104844b5171d7290e"></span>int <code class="sig-name descname">nearestKSearch</code><span class="sig-paren">(</span>int <em>index_arg</em>, int <em>k_arg</em>, std::vector&lt;int&gt; &amp;<em>k_indices_arg</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch14nearestKSearchEiiRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for k-nearest neighbors at query point. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index_arg</span></code>: index representing the query point in the dataset given by <em>setInputCloud</em>. If indices were given in setInputCloud, index will be the position in the indices vector. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_arg</span></code>: the number of neighbors to search for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_indices_arg</span></code>: the resultant indices of the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_sqr_distances_arg</span></code>: the resultant squared distances to the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::OrganizedNeighborSearch::nearestKSearch__PointTCR.i.std::vector:i:R.std::vector:float:R"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1af62665e1650116663a88042b657fa4c4"></span>int <code class="sig-name descname">nearestKSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>p_q_arg</em>, int <em>k_arg</em>, std::vector&lt;int&gt; &amp;<em>k_indices_arg</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for k-nearest neighbors at given query point. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p_q_arg</span></code>: the given query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_arg</span></code>: the number of neighbors to search for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_indices_arg</span></code>: the resultant indices of the neighboring points (must be resized to k a priori!) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_sqr_distances_arg</span></code>: the resultant squared distances to the neighboring points (must be resized to k a priori!) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl23OrganizedNeighborSearch14getMaxDistanceEv">
+<span id="_CPPv3NK3pcl23OrganizedNeighborSearch14getMaxDistanceEv"></span><span id="_CPPv2NK3pcl23OrganizedNeighborSearch14getMaxDistanceEv"></span><span id="pcl::OrganizedNeighborSearch::getMaxDistanceC"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a5abfa1075ea76fe6d9a3ebf6a1657518"></span>double <code class="sig-name descname">getMaxDistance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl23OrganizedNeighborSearch14getMaxDistanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum allowed distance between the query point and its nearest neighbors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch14setMaxDistanceEd">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch14setMaxDistanceEd"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch14setMaxDistanceEd"></span><span id="pcl::OrganizedNeighborSearch::setMaxDistance__double"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a3ed4f2135493ed0eb717429c0ac633ca"></span>void <code class="sig-name descname">setMaxDistance</code><span class="sig-paren">(</span>double <em>max_dist</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch14setMaxDistanceEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum allowed distance between the query point and its nearest neighbors. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl23OrganizedNeighborSearch15getPointByIndexEKj">
+<span id="_CPPv3NK3pcl23OrganizedNeighborSearch15getPointByIndexEKj"></span><span id="_CPPv2NK3pcl23OrganizedNeighborSearch15getPointByIndexEKj"></span><span id="pcl::OrganizedNeighborSearch::getPointByIndex__unsigned-iCC"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1aeade2b5cd63cb8912b9b6eecf70ef2d7"></span><em class="property">const</em> PointT &amp;<code class="sig-name descname">getPointByIndex</code><span class="sig-paren">(</span><em class="property">const</em> unsigned int <em>index_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl23OrganizedNeighborSearch15getPointByIndexEKj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get point at index from input pointcloud dataset. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>PointT from input pointcloud dataset </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index_arg</span></code>: index representing the point in the dataset given by <em>setInputCloud</em> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch25generateRadiusLookupTableEjj">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch25generateRadiusLookupTableEjj"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch25generateRadiusLookupTableEjj"></span><span id="pcl::OrganizedNeighborSearch::generateRadiusLookupTable__unsigned-i.unsigned-i"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1ad07ad068f472e224feeaa1dd66987d45"></span>void <code class="sig-name descname">generateRadiusLookupTable</code><span class="sig-paren">(</span>unsigned int <em>width</em>, unsigned int <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch25generateRadiusLookupTableEjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generate radius lookup table. </p>
+<p>It is used to subsequentially iterate over points which are close to the search point <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: of organized point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: of organized point cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl23OrganizedNeighborSearch20pointPlaneProjectionERK6PointTRiRi">
+<span id="_CPPv3NK3pcl23OrganizedNeighborSearch20pointPlaneProjectionERK6PointTRiRi"></span><span id="_CPPv2NK3pcl23OrganizedNeighborSearch20pointPlaneProjectionERK6PointTRiRi"></span><span id="pcl::OrganizedNeighborSearch::pointPlaneProjection__PointTCR.iR.iRC"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1ac960c7d74cf9f5aeb2daa1e0469f1cfd"></span>void <code class="sig-name descname">pointPlaneProjection</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, int &amp;<em>xpos</em>, int &amp;<em>ypos</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl23OrganizedNeighborSearch20pointPlaneProjectionERK6PointTRiRi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl23OrganizedNeighborSearch27getProjectedRadiusSearchBoxERK6PointTdRiRiRiRi">
+<span id="_CPPv3NK3pcl23OrganizedNeighborSearch27getProjectedRadiusSearchBoxERK6PointTdRiRiRiRi"></span><span id="_CPPv2NK3pcl23OrganizedNeighborSearch27getProjectedRadiusSearchBoxERK6PointTdRiRiRiRi"></span><span id="pcl::OrganizedNeighborSearch::getProjectedRadiusSearchBox__PointTCR.double.iR.iR.iR.iRC"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a10bc1b0169efbd7271d506a1341e2e17"></span>void <code class="sig-name descname">getProjectedRadiusSearchBox</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point_arg</em>, double <em>squared_radius_arg</em>, int &amp;<em>minX_arg</em>, int &amp;<em>minY_arg</em>, int &amp;<em>maxX_arg</em>, int &amp;<em>maxY_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl23OrganizedNeighborSearch27getProjectedRadiusSearchBoxERK6PointTdRiRiRiRi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch33estimateFocalLengthFromInputCloudEv">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch33estimateFocalLengthFromInputCloudEv"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch33estimateFocalLengthFromInputCloudEv"></span><span id="pcl::OrganizedNeighborSearch::estimateFocalLengthFromInputCloud"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a4ae57825bf5de9592691a43ac0ba1694"></span>void <code class="sig-name descname">estimateFocalLengthFromInputCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch33estimateFocalLengthFromInputCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate focal length parameter that was used during point cloud generation. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl23OrganizedNeighborSearch7getNameEv">
+<span id="_CPPv3NK3pcl23OrganizedNeighborSearch7getNameEv"></span><span id="_CPPv2NK3pcl23OrganizedNeighborSearch7getNameEv"></span><span id="pcl::OrganizedNeighborSearch::getNameC"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a6e280a00b93febd4afa5296f8d32a4fa"></span><em class="property">virtual</em> std::string <code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl23OrganizedNeighborSearch7getNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class getName method. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch6input_E">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch6input_E"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch6input_E"></span><span id="pcl::OrganizedNeighborSearch::input___PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a04f33565203b2bfe3133d1ae931776ff"></span><a class="reference internal" href="#_CPPv4N3pcl23OrganizedNeighborSearch18PointCloudConstPtrE" title="pcl::OrganizedNeighborSearch::PointCloudConstPtr">PointCloudConstPtr</a> <code class="sig-name descname">input_</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch6input_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to input point cloud dataset. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch13max_distance_E">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch13max_distance_E"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch13max_distance_E"></span><span id="pcl::OrganizedNeighborSearch::max_distance___double"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a883b34b66ae54cf081a29ca9cd4e58f1"></span>double <code class="sig-name descname">max_distance_</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch13max_distance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum allowed distance between the query point and its k-neighbors. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch12focalLength_E">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch12focalLength_E"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch12focalLength_E"></span><span id="pcl::OrganizedNeighborSearch::focalLength___double"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1acdf755b364dcfd8ce27f1d4b04ae3792"></span>double <code class="sig-name descname">focalLength_</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch12focalLength_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Global focal length parameter. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch19radiusSearchLookup_E">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch19radiusSearchLookup_E"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch19radiusSearchLookup_E"></span><span id="pcl::OrganizedNeighborSearch::radiusSearchLookup___std::vector:radiusSearchLoopkupEntry:"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1a09469e7eff27436fdba9b751b593eb92"></span>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl23OrganizedNeighborSearch24radiusSearchLoopkupEntryE" title="pcl::OrganizedNeighborSearch::radiusSearchLoopkupEntry">radiusSearchLoopkupEntry</a>&gt; <code class="sig-name descname">radiusSearchLookup_</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch19radiusSearchLookup_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Precalculated radius search lookup vector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch23radiusLookupTableWidth_E">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch23radiusLookupTableWidth_E"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch23radiusLookupTableWidth_E"></span><span id="pcl::OrganizedNeighborSearch::radiusLookupTableWidth___i"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1aca58961b91aa0a8eaf5745e24ba08b9a"></span>int <code class="sig-name descname">radiusLookupTableWidth_</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch23radiusLookupTableWidth_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch24radiusLookupTableHeight_E">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch24radiusLookupTableHeight_E"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch24radiusLookupTableHeight_E"></span><span id="pcl::OrganizedNeighborSearch::radiusLookupTableHeight___i"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1aa4cbc914179a37f58104e6237a024b96"></span>int <code class="sig-name descname">radiusLookupTableHeight_</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch24radiusLookupTableHeight_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch24nearestNeighborCandidateE">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch24nearestNeighborCandidateE"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch24nearestNeighborCandidateE"></span><span id="pcl::OrganizedNeighborSearch::nearestNeighborCandidate"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate"></span><em class="property">class </em><code class="sig-name descname">nearestNeighborCandidate</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch24nearestNeighborCandidateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate.html#classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate"><span class="std std-ref">nearestNeighborCandidate</span></a></strong> entry for the nearest neighbor candidate queue </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class defines entries for the nearest neighbor candidate queue </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate24nearestNeighborCandidateEv">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate24nearestNeighborCandidateEv"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate24nearestNeighborCandidateEv"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate_1aef48045240e2f57551c1e2bcfc466b4e"></span>template&lt;&gt;<br /><code class="sig-name descname">nearestNeighborCandidate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate24nearestNeighborCandidateEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidateD0Ev">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidateD0Ev"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidateD0Ev"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate_1a148bf540c9edfaf79792f6f8710c2602"></span>template&lt;&gt;<br /><code class="sig-name descname">~nearestNeighborCandidate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidateD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty deconstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidateltEbRK24nearestNeighborCandidate">
+<span id="_CPPv3IENK3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidateltERK24nearestNeighborCandidate"></span><span id="_CPPv2IENK3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidateltERK24nearestNeighborCandidate"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate_1af61a2651eb931bc11ff41a4ecf6a8f2a"></span>template&lt;&gt;<br />bool <code class="sig-name descname">operator&lt;</code><span class="sig-paren">(</span><em class="property">const</em> nearestNeighborCandidate &amp;<em>rhs_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidateltEbRK24nearestNeighborCandidate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Operator&lt; for comparing <a class="reference internal" href="classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate.html#classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate"><span class="std std-ref">nearestNeighborCandidate</span></a> instances with each other. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate6index_E">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate6index_E"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate6index_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate_1acf2a10a0b556eb04a5b16799834a16aa"></span>int <code class="sig-name descname">index_</code><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate6index_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate17squared_distance_E">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate17squared_distance_E"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate17squared_distance_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1nearest_neighbor_candidate_1ab8ca61668664c9506c1688e661f268f8"></span>double <code class="sig-name descname">squared_distance_</code><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24nearestNeighborCandidate17squared_distance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl23OrganizedNeighborSearch24radiusSearchLoopkupEntryE">
+<span id="_CPPv3N3pcl23OrganizedNeighborSearch24radiusSearchLoopkupEntryE"></span><span id="_CPPv2N3pcl23OrganizedNeighborSearch24radiusSearchLoopkupEntryE"></span><span id="pcl::OrganizedNeighborSearch::radiusSearchLoopkupEntry"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry"></span><em class="property">class </em><code class="sig-name descname">radiusSearchLoopkupEntry</code><a class="headerlink" href="#_CPPv4N3pcl23OrganizedNeighborSearch24radiusSearchLoopkupEntryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry.html#classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry"><span class="std std-ref">radiusSearchLoopkupEntry</span></a></strong> entry for radius search lookup vector </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class defines entries for the radius search lookup vector </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry24radiusSearchLoopkupEntryEv">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry24radiusSearchLoopkupEntryEv"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry24radiusSearchLoopkupEntryEv"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry_1a9565ce3a5c05bfa99fa58a7755060350"></span>template&lt;&gt;<br /><code class="sig-name descname">radiusSearchLoopkupEntry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry24radiusSearchLoopkupEntryEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntryD0Ev">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntryD0Ev"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntryD0Ev"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry_1a6b5fafad3a90c050ee0d5af4fc05a4a9"></span>template&lt;&gt;<br /><code class="sig-name descname">~radiusSearchLoopkupEntry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntryD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty deconstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry24defineShiftedSearchPointEvii">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry24defineShiftedSearchPointEii"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry24defineShiftedSearchPointEii"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry_1a984659342e302bc857fa2fe1f71a64f2"></span>template&lt;&gt;<br />void <code class="sig-name descname">defineShiftedSearchPoint</code><span class="sig-paren">(</span>int <em>x_shift</em>, int <em>y_shift</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry24defineShiftedSearchPointEvii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Define search point and calculate squared distance. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x_shift</span></code>: shift in x dimension </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_shift</span></code>: shift in y dimension </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntryltEbRK24radiusSearchLoopkupEntry">
+<span id="_CPPv3IENK3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntryltERK24radiusSearchLoopkupEntry"></span><span id="_CPPv2IENK3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntryltERK24radiusSearchLoopkupEntry"></span><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry_1a4624bf279a082e23aa3c1aad07ef81bc"></span>template&lt;&gt;<br />bool <code class="sig-name descname">operator&lt;</code><span class="sig-paren">(</span><em class="property">const</em> radiusSearchLoopkupEntry &amp;<em>rhs_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntryltEbRK24radiusSearchLoopkupEntry" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Operator&lt; for comparing <a class="reference internal" href="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry.html#classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry"><span class="std std-ref">radiusSearchLoopkupEntry</span></a> instances with each other. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry7x_diff_E">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry7x_diff_E"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry7x_diff_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry_1ab495cfc9b64579079a208e0f705c50c3"></span>int <code class="sig-name descname">x_diff_</code><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry7x_diff_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry7y_diff_E">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry7y_diff_E"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry7y_diff_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry_1a2b2664478e0e02a23b6b227e3e138524"></span>int <code class="sig-name descname">y_diff_</code><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry7y_diff_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry17squared_distance_E">
+<span id="_CPPv3IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry17squared_distance_E"></span><span id="_CPPv2IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry17squared_distance_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_organized_neighbor_search_1_1radius_search_loopkup_entry_1a08246e246873dfdab75a287c62e71140"></span>int <code class="sig-name descname">squared_distance_</code><a class="headerlink" href="#_CPPv4IEN3pcl23OrganizedNeighborSearchI6PointTE24radiusSearchLoopkupEntry17squared_distance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

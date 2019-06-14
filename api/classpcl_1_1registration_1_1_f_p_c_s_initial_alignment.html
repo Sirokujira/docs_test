@@ -1,0 +1,942 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class FPCSInitialAlignment &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class FPCSInitialAlignment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1registration_1_1_f_p_c_s_initial_alignment.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-fpcsinitialalignment">
+<span id="exhale-class-classpcl-1-1registration-1-1-f-p-c-s-initial-alignment"></span><h1>Template Class FPCSInitialAlignment<a class="headerlink" href="#template-class-fpcsinitialalignment" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_registration_include_pcl_registration_ia_fpcs.h.html#file-pcl-registration-include-pcl-registration-ia-fpcs-h"><span class="std std-ref">File ia_fpcs.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Registration&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget,</span> <span class="pre">Scalar</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_registration.html#exhale-class-classpcl-1-1-registration"><span class="std std-ref">Template Class Registration</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::registration::KFPCSInitialAlignment&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget,</span> <span class="pre">NormalT,</span> <span class="pre">Scalar</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1registration_1_1_k_f_p_c_s_initial_alignment.html#exhale-class-classpcl-1-1registration-1-1-k-f-p-c-s-initial-alignment"><span class="std std-ref">Template Class KFPCSInitialAlignment</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0000EN3pcl12registration20FPCSInitialAlignmentE">
+<span id="_CPPv3I0000EN3pcl12registration20FPCSInitialAlignmentE"></span><span id="_CPPv2I0000EN3pcl12registration20FPCSInitialAlignmentE"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment"></span>template&lt;typename <code class="sig-name descname">PointSource</code>, typename <code class="sig-name descname">PointTarget</code>, typename <code class="sig-name descname">NormalT</code> = pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>, typename <code class="sig-name descname">Scalar</code> = float&gt;<br /><em class="property">class </em><code class="sig-name descname">FPCSInitialAlignment</code> : <em class="property">public</em> pcl::Registration&lt;<a class="reference internal" href="#_CPPv4I0000EN3pcl12registration20FPCSInitialAlignmentE" title="pcl::registration::FPCSInitialAlignment::PointSource">PointSource</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl12registration20FPCSInitialAlignmentE" title="pcl::registration::FPCSInitialAlignment::PointTarget">PointTarget</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl12registration20FPCSInitialAlignmentE" title="pcl::registration::FPCSInitialAlignment::Scalar">Scalar</a>&gt;<a class="headerlink" href="#_CPPv4I0000EN3pcl12registration20FPCSInitialAlignmentE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1registration_1_1_f_p_c_s_initial_alignment"><span class="std std-ref">FPCSInitialAlignment</span></a> computes corresponding four point congruent sets as described in: “4-points congruent sets for robust pairwise surface registration”, Dror Aiger, Niloy Mitra, Daniel Cohen-Or. </p>
+<p>ACM Transactions on Graphics, vol. 27(3), 2008 <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>P.W.Theiler </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1registration_1_1_k_f_p_c_s_initial_alignment.html#classpcl_1_1registration_1_1_k_f_p_c_s_initial_alignment"><span class="std std-ref">pcl::registration::KFPCSInitialAlignment&lt; PointSource, PointTarget, NormalT, Scalar &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment20FPCSInitialAlignmentEv">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment20FPCSInitialAlignmentEv"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment20FPCSInitialAlignmentEv"></span><span id="pcl::registration::FPCSInitialAlignment::FPCSInitialAlignment"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1aa7d70d10a9c44c2f1ffa575c8c657da6"></span><code class="sig-name descname">FPCSInitialAlignment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment20FPCSInitialAlignmentEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p>Resets the maximum number of iterations to 0 thus forcing an internal computation if not set by the user. Sets the number of RANSAC iterations to 1000 and the standard transformation estimation to <a class="reference internal" href="classpcl_1_1registration_1_1_transformation_estimation3_point.html#classpcl_1_1registration_1_1_transformation_estimation3_point"><span class="std std-ref">TransformationEstimation3Point</span></a>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignmentD0Ev">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignmentD0Ev"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignmentD0Ev"></span><span id="pcl::registration::FPCSInitialAlignment::~FPCSInitialAlignment"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a9db7b47e57d9d8a632576a999c3a3f2c"></span><em class="property">virtual</em> <code class="sig-name descname">~FPCSInitialAlignment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignmentD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment16setTargetIndicesERK10IndicesPtr">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment16setTargetIndicesERK10IndicesPtr"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment16setTargetIndicesERK10IndicesPtr"></span><span id="pcl::registration::FPCSInitialAlignment::setTargetIndices__IndicesPtrCR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ab46e5073a10bc995892851dacfb08b9b"></span>void <code class="sig-name descname">setTargetIndices</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_namespacepcl_1a7f201b2b4e80960afd3ffb2efacc96b3.html#_CPPv4N3pcl10IndicesPtrE" title="pcl::IndicesPtr">IndicesPtr</a> &amp;<em>target_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment16setTargetIndicesERK10IndicesPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the vector of target indices. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target_indices</span></code>: a pointer to the target indices </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment16getTargetIndicesEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment16getTargetIndicesEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment16getTargetIndicesEv"></span><span id="pcl::registration::FPCSInitialAlignment::getTargetIndicesC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a85d2bad3d4e64d1f1ba785811e29e012"></span><a class="reference internal" href="typedef_namespacepcl_1a7f201b2b4e80960afd3ffb2efacc96b3.html#_CPPv4N3pcl10IndicesPtrE" title="pcl::IndicesPtr">IndicesPtr</a> <code class="sig-name descname">getTargetIndices</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment16getTargetIndicesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a pointer to the vector of target indices. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment16setSourceNormalsERK15NormalsConstPtr">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment16setSourceNormalsERK15NormalsConstPtr"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment16setSourceNormalsERK15NormalsConstPtr"></span><span id="pcl::registration::FPCSInitialAlignment::setSourceNormals__NormalsConstPtrCR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a9d5b57625988fd5c3bf4a9d5c21c85c6"></span>void <code class="sig-name descname">setSourceNormals</code><span class="sig-paren">(</span><em class="property">const</em> NormalsConstPtr &amp;<em>source_normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment16setSourceNormalsERK15NormalsConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the normals of the source point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">source_normals</span></code>: pointer to the normals of the source pointer cloud. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment16getSourceNormalsEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment16getSourceNormalsEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment16getSourceNormalsEv"></span><span id="pcl::registration::FPCSInitialAlignment::getSourceNormalsC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1aa0e95c127d6ff418e4984919fb7f1005"></span>NormalsConstPtr <code class="sig-name descname">getSourceNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment16getSourceNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the normals of the source point cloud. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment16setTargetNormalsERK15NormalsConstPtr">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment16setTargetNormalsERK15NormalsConstPtr"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment16setTargetNormalsERK15NormalsConstPtr"></span><span id="pcl::registration::FPCSInitialAlignment::setTargetNormals__NormalsConstPtrCR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a026d369a066582d669a5591a682cc040"></span>void <code class="sig-name descname">setTargetNormals</code><span class="sig-paren">(</span><em class="property">const</em> NormalsConstPtr &amp;<em>target_normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment16setTargetNormalsERK15NormalsConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the normals of the target point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target_normals</span></code>: point to the normals of the target point cloud. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment16getTargetNormalsEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment16getTargetNormalsEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment16getTargetNormalsEv"></span><span id="pcl::registration::FPCSInitialAlignment::getTargetNormalsC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1aa17c6751d2fb08647ffbcbfbbba4e32e"></span>NormalsConstPtr <code class="sig-name descname">getTargetNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment16getTargetNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the normals of the target point cloud. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment18setNumberOfThreadsEi">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment18setNumberOfThreadsEi"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment18setNumberOfThreadsEi"></span><span id="pcl::registration::FPCSInitialAlignment::setNumberOfThreads__i"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ab9b80f921aadde46ed70b43f4532d667"></span>void <code class="sig-name descname">setNumberOfThreads</code><span class="sig-paren">(</span>int <em>nr_threads</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment18setNumberOfThreadsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the number of used threads if OpenMP is activated. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nr_threads</span></code>: the number of used threads </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment18getNumberOfThreadsEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment18getNumberOfThreadsEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment18getNumberOfThreadsEv"></span><span id="pcl::registration::FPCSInitialAlignment::getNumberOfThreadsC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a131f83c6bcfabdba77e755bdb67a5953"></span>int <code class="sig-name descname">getNumberOfThreads</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment18getNumberOfThreadsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the number of threads used if OpenMP is activated. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment8setDeltaEfb">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment8setDeltaEfb"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment8setDeltaEfb"></span><span id="pcl::registration::FPCSInitialAlignment::setDelta__float.b"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1aec7f1feeb435aa54f101d2e7bbd72f21"></span>void <code class="sig-name descname">setDelta</code><span class="sig-paren">(</span>float <em>delta</em>, bool <em>normalize</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment8setDeltaEfb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the constant factor delta which weights the internally calculated parameters. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">delta</span></code>: the weight factor delta </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normalize</span></code>: flag if delta should be normalized according to point cloud density </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment8getDeltaEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment8getDeltaEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment8getDeltaEv"></span><span id="pcl::registration::FPCSInitialAlignment::getDeltaC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ab36ed0e1cc87ec8a08ae2f0bb98025ae"></span>float <code class="sig-name descname">getDelta</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment8getDeltaEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the constant factor delta which weights the internally calculated parameters. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment16setApproxOverlapEf">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment16setApproxOverlapEf"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment16setApproxOverlapEf"></span><span id="pcl::registration::FPCSInitialAlignment::setApproxOverlap__float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1abc0d762f0db804c6cb9bf920d40cc489"></span>void <code class="sig-name descname">setApproxOverlap</code><span class="sig-paren">(</span>float <em>approx_overlap</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment16setApproxOverlapEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the approximate overlap between source and target. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">approx_overlap</span></code>: the estimated overlap </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment16getApproxOverlapEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment16getApproxOverlapEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment16getApproxOverlapEv"></span><span id="pcl::registration::FPCSInitialAlignment::getApproxOverlapC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ab96ec3601da6099b68eaf6f717d065c8"></span>float <code class="sig-name descname">getApproxOverlap</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment16getApproxOverlapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the approximated overlap between source and target. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment17setScoreThresholdEf">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment17setScoreThresholdEf"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment17setScoreThresholdEf"></span><span id="pcl::registration::FPCSInitialAlignment::setScoreThreshold__float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a4fba9748dd98686d0008fbef54a9b5f4"></span>void <code class="sig-name descname">setScoreThreshold</code><span class="sig-paren">(</span>float <em>score_threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment17setScoreThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the scoring threshold used for early finishing the method. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">score_threshold</span></code>: early terminating score criteria </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment17getScoreThresholdEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment17getScoreThresholdEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment17getScoreThresholdEv"></span><span id="pcl::registration::FPCSInitialAlignment::getScoreThresholdC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a78bb7383b970ab1506467cb4f56ad52e"></span>float <code class="sig-name descname">getScoreThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment17getScoreThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the scoring threshold used for early finishing the method. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment18setNumberOfSamplesEi">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment18setNumberOfSamplesEi"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment18setNumberOfSamplesEi"></span><span id="pcl::registration::FPCSInitialAlignment::setNumberOfSamples__i"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a2824fb50e0505f063b34b4b4025d0b3d"></span>void <code class="sig-name descname">setNumberOfSamples</code><span class="sig-paren">(</span>int <em>nr_samples</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment18setNumberOfSamplesEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the number of source samples to use during alignment. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nr_samples</span></code>: the number of source samples </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment18getNumberOfSamplesEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment18getNumberOfSamplesEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment18getNumberOfSamplesEv"></span><span id="pcl::registration::FPCSInitialAlignment::getNumberOfSamplesC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a253131c45e83164d20c55fdab9048381"></span>int <code class="sig-name descname">getNumberOfSamples</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment18getNumberOfSamplesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the number of source samples to use during alignment. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment22setMaxNormalDifferenceEf">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment22setMaxNormalDifferenceEf"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment22setMaxNormalDifferenceEf"></span><span id="pcl::registration::FPCSInitialAlignment::setMaxNormalDifference__float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a5a9a5e68448776b198ca6ab7de3f9a15"></span>void <code class="sig-name descname">setMaxNormalDifference</code><span class="sig-paren">(</span>float <em>max_norm_diff</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment22setMaxNormalDifferenceEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum normal difference between valid point correspondences in degree. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_norm_diff</span></code>: the maximum difference in degree </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment22getMaxNormalDifferenceEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment22getMaxNormalDifferenceEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment22getMaxNormalDifferenceEv"></span><span id="pcl::registration::FPCSInitialAlignment::getMaxNormalDifferenceC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1aaf0bead72f8615e1b2a1c95d9fde56e9"></span>float <code class="sig-name descname">getMaxNormalDifference</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment22getMaxNormalDifferenceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the maximum normal difference between valid point correspondences in degree. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment21setMaxComputationTimeEi">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment21setMaxComputationTimeEi"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment21setMaxComputationTimeEi"></span><span id="pcl::registration::FPCSInitialAlignment::setMaxComputationTime__i"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ab3d8c0104ac8609d0339a93eeecc4122"></span>void <code class="sig-name descname">setMaxComputationTime</code><span class="sig-paren">(</span>int <em>max_runtime</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment21setMaxComputationTimeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum computation time in seconds. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_runtime</span></code>: the maximum runtime of the method in seconds </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment21getMaxComputationTimeEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment21getMaxComputationTimeEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment21getMaxComputationTimeEv"></span><span id="pcl::registration::FPCSInitialAlignment::getMaxComputationTimeC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a8db91266814752951a372d4e5e54dab2"></span>int <code class="sig-name descname">getMaxComputationTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment21getMaxComputationTimeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the maximum computation time in seconds. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration20FPCSInitialAlignment15getFitnessScoreEv">
+<span id="_CPPv3NK3pcl12registration20FPCSInitialAlignment15getFitnessScoreEv"></span><span id="_CPPv2NK3pcl12registration20FPCSInitialAlignment15getFitnessScoreEv"></span><span id="pcl::registration::FPCSInitialAlignment::getFitnessScoreC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a40426ed25237b5919e3a4697a81a8da6"></span>float <code class="sig-name descname">getFitnessScore</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration20FPCSInitialAlignment15getFitnessScoreEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the fitness score of the best scored four-point match. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE"></span><span id="pcl::registration::FPCSInitialAlignment::computeTransformation__PointCloudSourceR.Eigen::Matrix4fCR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ab2c4309ae91b6c3bc6f5480cad22ec67"></span>void <code class="sig-name descname">computeTransformation</code><span class="sig-paren">(</span>PointCloudSource &amp;<em>output</em>, <em class="property">const</em> Eigen::Matrix4f &amp;<em>guess</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Rigid transformation computation method. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span></code>: the transformed input point cloud dataset using the rigid transformation found </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guess</span></code>: The computed transforamtion </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment11initComputeEv">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment11initComputeEv"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment11initComputeEv"></span><span id="pcl::registration::FPCSInitialAlignment::initCompute"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1af9a399e9cc72e413f9ce769ce4896e10"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Internal computation initialization. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment10selectBaseERNSt6vectorIiEERAL2E_f">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment10selectBaseERNSt6vectorIiEERAL2E_f"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment10selectBaseERNSt6vectorIiEERA2_f"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ac34b9f119a6d69a1b7a646bdb8e8dace"></span>int <code class="sig-name descname">selectBase</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>base_indices</em>, float (&amp;<em>ratio</em>)[2]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment10selectBaseERNSt6vectorIiEERAL2E_f" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Select an approximately coplanar set of four points from the source cloud. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 no coplanar four point sets with large enough sampling distance was found</p></li>
+<li><p>= 0 a set of four congruent points was selected </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">base_indices</span></code>: selected source cloud indices, further used as base (B) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">ratio</span></code>: the two diagonal intersection ratios (r1,r2) of the base points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment18selectBaseTriangleERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment18selectBaseTriangleERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment18selectBaseTriangleERNSt6vectorIiEE"></span><span id="pcl::registration::FPCSInitialAlignment::selectBaseTriangle__std::vector:i:R"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a16ab9f8757cec569bb0f38544141df7f"></span>int <code class="sig-name descname">selectBaseTriangle</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>base_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment18selectBaseTriangleERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Select randomly a triplet of points with large point-to-point distances. </p>
+<p>The minimum point sampling distance is calculated based on the estimated point cloud overlap during initialization.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 no triangle with large enough base lines could be selected</p></li>
+<li><p>= 0 base triangle succesully selected </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">base_indices</span></code>: indices of base B </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment9setupBaseERNSt6vectorIiEERAL2E_f">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment9setupBaseERNSt6vectorIiEERAL2E_f"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment9setupBaseERNSt6vectorIiEERA2_f"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a607d3bf724f8304008a8e35a6b0a64c8"></span>void <code class="sig-name descname">setupBase</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>base_indices</em>, float (&amp;<em>ratio</em>)[2]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment9setupBaseERNSt6vectorIiEERAL2E_f" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Setup the base (four coplanar points) by ordering the points and computing intersection ratios and segment to segment distances of base diagonal. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">base_indices</span></code>: indices of base B (will be reordered) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">ratio</span></code>: diagonal intersection ratios of base points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment20segmentToSegmentDistERKNSt6vectorIiEERAL2E_f">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment20segmentToSegmentDistERKNSt6vectorIiEERAL2E_f"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment20segmentToSegmentDistERKNSt6vectorIiEERA2_f"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ac421e4c56100d9e5a2355252eb9a3643"></span>float <code class="sig-name descname">segmentToSegmentDist</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>base_indices</em>, float (&amp;<em>ratio</em>)[2]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment20segmentToSegmentDistERKNSt6vectorIiEERAL2E_f" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate intersection ratios and segment to segment distances of base diagonals. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>quality value of diagonal intersection </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">base_indices</span></code>: indices of base B </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">ratio</span></code>: diagonal intersection ratios of base points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment25bruteForceCorrespondencesEiiRN3pcl15CorrespondencesE">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment25bruteForceCorrespondencesEiiRN3pcl15CorrespondencesE"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment25bruteForceCorrespondencesEiiRN3pcl15CorrespondencesE"></span><span id="pcl::registration::FPCSInitialAlignment::bruteForceCorrespondences__i.i.pcl::CorrespondencesR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a1392b97316249b70eddde0428ca317c9"></span>int <code class="sig-name descname">bruteForceCorrespondences</code><span class="sig-paren">(</span>int <em>idx1</em>, int <em>idx2</em>, pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>pairs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment25bruteForceCorrespondencesEiiRN3pcl15CorrespondencesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for corresponding point pairs given the distance between two base points. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 no corresponding point pair was found</p></li>
+<li><p>= 0 at least one point pair candidate was found </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx1</span></code>: first index of current base segment (in source cloud) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx2</span></code>: second index of current base segment (in source cloud) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pairs</span></code>: resulting point pairs with point-to-point distance close to ref_dist </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment20determineBaseMatchesERKNSt6vectorIiEERNSt6vectorINSt6vectorIiEEEERKN3pcl15CorrespondencesERKN3pcl15CorrespondencesERAL2E_Kf">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment20determineBaseMatchesERKNSt6vectorIiEERNSt6vectorINSt6vectorIiEEEERKN3pcl15CorrespondencesERKN3pcl15CorrespondencesERAL2E_Kf"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment20determineBaseMatchesERKNSt6vectorIiEERNSt6vectorINSt6vectorIiEEEERKN3pcl15CorrespondencesERKN3pcl15CorrespondencesERA2_Kf"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a37b21d4669718973b6ab1aa8936a1704"></span>int <code class="sig-name descname">determineBaseMatches</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>base_indices</em>, std::vector&lt;std::vector&lt;int&gt;&gt; &amp;<em>matches</em>, <em class="property">const</em> pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>pairs_a</em>, <em class="property">const</em> pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>pairs_b</em>, <em class="property">const</em> float (&amp;<em>ratio</em>)[2]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment20determineBaseMatchesERKNSt6vectorIiEERNSt6vectorINSt6vectorIiEEEERKN3pcl15CorrespondencesERKN3pcl15CorrespondencesERAL2E_Kf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determine base matches by combining the point pair candidate and search for coinciding intersection points using the diagonal segment ratios of base B. </p>
+<p>The coincidation threshold is calculated during initialization (coincidation_limit_).</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 no base match could be found</p></li>
+<li><p>= 0 at least one base match was found </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">base_indices</span></code>: indices of base B </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">matches</span></code>: vector of candidate matches w.r.t the base B </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pairs_a</span></code>: point pairs corresponding to points of 1st diagonal of base B </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pairs_b</span></code>: point pairs corresponding to points of 2nd diagonal of base B </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ratio</span></code>: diagonal intersection ratios of base points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment14checkBaseMatchERKNSt6vectorIiEERAL4E_Kf">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment14checkBaseMatchERKNSt6vectorIiEERAL4E_Kf"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment14checkBaseMatchERKNSt6vectorIiEERA4_Kf"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ac6ccba63325f96f5e38fc065b0897ea3"></span>int <code class="sig-name descname">checkBaseMatch</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>match_indices</em>, <em class="property">const</em> float (&amp;<em>ds</em>)[4]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment14checkBaseMatchERKNSt6vectorIiEERAL4E_Kf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if outer rectangle distance of matched points fit with the base rectangle. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 at least one edge of the match M has no corresponding one in the base B</p></li>
+<li><p>= 0 edges of match M fits to the ones of base B </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">match_indices</span></code>: indices of match M </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ds</span></code>: edge lengths of base B </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment13handleMatchesERKNSt6vectorIiEERNSt6vectorINSt6vectorIiEEEER18MatchingCandidates">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment13handleMatchesERKNSt6vectorIiEERNSt6vectorINSt6vectorIiEEEER18MatchingCandidates"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment13handleMatchesERKNSt6vectorIiEERNSt6vectorINSt6vectorIiEEEER18MatchingCandidates"></span><span id="pcl::registration::FPCSInitialAlignment::handleMatches__std::vector:i:CR.std::vector:std::vector:i::R.MatchingCandidatesR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a0d59c76f9a58f59caf2b63e377aca6bb"></span>void <code class="sig-name descname">handleMatches</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>base_indices</em>, std::vector&lt;std::vector&lt;int&gt;&gt; &amp;<em>matches</em>, <a class="reference internal" href="typedef_matching__candidate_8h_1ae9adf797fd09cd09d4cb57fedb56085f.html#_CPPv4N3pcl12registration18MatchingCandidatesE" title="pcl::registration::MatchingCandidates">MatchingCandidates</a> &amp;<em>candidates</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment13handleMatchesERKNSt6vectorIiEERNSt6vectorINSt6vectorIiEEEER18MatchingCandidates" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method to handle current candidate matches. </p>
+<p>Here we validate and evaluate the matches w.r.t the base and store the best fitting match (together with its score and estimated transformation). <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>For forwards compatibility the results are stored in ‘vectors of size 1’.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">base_indices</span></code>: indices of base B </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">matches</span></code>: vector of candidate matches w.r.t the base B. The candidate matches are reordered during this step. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">candidates</span></code>: vector which contains the candidates matches M </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment17linkMatchWithBaseERKNSt6vectorIiEERNSt6vectorIiEERN3pcl15CorrespondencesE">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment17linkMatchWithBaseERKNSt6vectorIiEERNSt6vectorIiEERN3pcl15CorrespondencesE"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment17linkMatchWithBaseERKNSt6vectorIiEERNSt6vectorIiEERN3pcl15CorrespondencesE"></span><span id="pcl::registration::FPCSInitialAlignment::linkMatchWithBase__std::vector:i:CR.std::vector:i:R.pcl::CorrespondencesR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ab5b94e6b02f11c17f4b10af2c89f6228"></span>void <code class="sig-name descname">linkMatchWithBase</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>base_indices</em>, std::vector&lt;int&gt; &amp;<em>match_indices</em>, pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>correspondences</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment17linkMatchWithBaseERKNSt6vectorIiEERNSt6vectorIiEERN3pcl15CorrespondencesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the correspondences between the base B and the match M by using the distance of each point to the centroid of the rectangle. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">base_indices</span></code>: indices of base B </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">match_indices</span></code>: indices of match M </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">correspondences</span></code>: resulting correspondences </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment13validateMatchERKNSt6vectorIiEERKNSt6vectorIiEERKN3pcl15CorrespondencesERN5Eigen8Matrix4fE">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment13validateMatchERKNSt6vectorIiEERKNSt6vectorIiEERKN3pcl15CorrespondencesERN5Eigen8Matrix4fE"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment13validateMatchERKNSt6vectorIiEERKNSt6vectorIiEERKN3pcl15CorrespondencesERN5Eigen8Matrix4fE"></span><span id="pcl::registration::FPCSInitialAlignment::validateMatch__std::vector:i:CR.std::vector:i:CR.pcl::CorrespondencesCR.Eigen::Matrix4fR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ac63173082b064d29ac50cee964ec930e"></span>int <code class="sig-name descname">validateMatch</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>base_indices</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>match_indices</em>, <em class="property">const</em> pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>correspondences</em>, Eigen::Matrix4f &amp;<em>transformation</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment13validateMatchERKNSt6vectorIiEERKNSt6vectorIiEERKN3pcl15CorrespondencesERN5Eigen8Matrix4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Validate the matching by computing the transformation between the source and target based on the four matched points and by comparing the mean square error (MSE) to a threshold. </p>
+<p>The MSE limit was calculated during initialization (max_mse_).</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 MSE bigger than max_mse_</p></li>
+<li><p>= 0 MSE smaller than max_mse_ </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">base_indices</span></code>: indices of base B </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">match_indices</span></code>: indices of match M </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">correspondences</span></code>: corresondences between source and target </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transformation</span></code>: resulting transformation matrix </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment22validateTransformationERN5Eigen8Matrix4fERf">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment22validateTransformationERN5Eigen8Matrix4fERf"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment22validateTransformationERN5Eigen8Matrix4fERf"></span><span id="pcl::registration::FPCSInitialAlignment::validateTransformation__Eigen::Matrix4fR.floatR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a2e628406e7a4bfbc06754fc89da60c2b"></span>int <code class="sig-name descname">validateTransformation</code><span class="sig-paren">(</span>Eigen::Matrix4f &amp;<em>transformation</em>, float &amp;<em>fitness_score</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment22validateTransformationERN5Eigen8Matrix4fERf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Validate the transformation by calculating the number of inliers after transforming the source cloud. </p>
+<p>The resulting fitness score is later used as the decision criteria of the best fitting match.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>fitness score is only updated if the score of the current transformation exceeds the input one. </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 if previous result is better than the current one (score remains)</p></li>
+<li><p>= 0 current result is better than the previous one (score updated) </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transformation</span></code>: updated orientation matrix using all inliers </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">fitness_score</span></code>: current best fitness_score </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment12finalComputeERKNSt6vectorI18MatchingCandidatesEE">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment12finalComputeERKNSt6vectorI18MatchingCandidatesEE"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment12finalComputeERKNSt6vectorI18MatchingCandidatesEE"></span><span id="pcl::registration::FPCSInitialAlignment::finalCompute__std::vector:MatchingCandidates:CR"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a0182f309b73f20835d5ca7356fa167dc"></span>void <code class="sig-name descname">finalCompute</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="typedef_matching__candidate_8h_1ae9adf797fd09cd09d4cb57fedb56085f.html#_CPPv4N3pcl12registration18MatchingCandidatesE" title="pcl::registration::MatchingCandidates">MatchingCandidates</a>&gt; &amp;<em>candidates</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment12finalComputeERKNSt6vectorI18MatchingCandidatesEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Final computation of best match out of vector of best matches. </p>
+<p>To avoid cross thread dependencies during parallel running, a best match for each try was calculated. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>For forwards compatibility the candidates are stored in vectors of ‘vectors of size 1’. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">candidates</span></code>: vector of candidate matches </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment15source_normals_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment15source_normals_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment15source_normals_E"></span><span id="pcl::registration::FPCSInitialAlignment::source_normals___NormalsConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a58a3035634e2177a521437b7242e7e5f"></span>NormalsConstPtr <code class="sig-name descname">source_normals_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment15source_normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Normals of source point cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment15target_normals_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment15target_normals_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment15target_normals_E"></span><span id="pcl::registration::FPCSInitialAlignment::target_normals___NormalsConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a584efd5f1587d8bbdca3b2c5de69b25d"></span>NormalsConstPtr <code class="sig-name descname">target_normals_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment15target_normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Normals of target point cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment11nr_threads_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment11nr_threads_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment11nr_threads_E"></span><span id="pcl::registration::FPCSInitialAlignment::nr_threads___i"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a79ee6d98864fca46bc61903e8b609120"></span>int <code class="sig-name descname">nr_threads_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment11nr_threads_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of threads for parallelization (standard = 1). </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Only used if run compiled with OpenMP. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment15approx_overlap_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment15approx_overlap_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment15approx_overlap_E"></span><span id="pcl::registration::FPCSInitialAlignment::approx_overlap___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a68e2113bbe29d792687e75ba5356c95e"></span>float <code class="sig-name descname">approx_overlap_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment15approx_overlap_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimated overlap between source and target (standard = 0.5). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment6delta_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment6delta_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment6delta_E"></span><span id="pcl::registration::FPCSInitialAlignment::delta___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a220d5b152bbde5a585be5d7f3228fe24"></span>float <code class="sig-name descname">delta_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment6delta_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delta value of 4pcs algorithm (standard = 1.0). </p>
+<p>It can be used as:<ul class="simple">
+<li><p>absolute value (normalization = false), value should represent the point accuracy to ensure finding neighbors between source &lt;-&gt; target</p></li>
+<li><p>relative value (normalization = true), to adjust the internally calculated point accuracy (= point density) </p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment16score_threshold_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment16score_threshold_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment16score_threshold_E"></span><span id="pcl::registration::FPCSInitialAlignment::score_threshold___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ad781377604c1837191309b7e2d7f21be"></span>float <code class="sig-name descname">score_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment16score_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Score threshold to stop calculation with success. </p>
+<p>If not set by the user it is equal to the approximated overlap </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment11nr_samples_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment11nr_samples_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment11nr_samples_E"></span><span id="pcl::registration::FPCSInitialAlignment::nr_samples___i"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a687508b1d693488cbf0d8d44fe88ad27"></span>int <code class="sig-name descname">nr_samples_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment11nr_samples_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of points to uniformly sample the source point cloud. </p>
+<p>(standard = 0 =&gt; full cloud). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment14max_norm_diff_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment14max_norm_diff_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment14max_norm_diff_E"></span><span id="pcl::registration::FPCSInitialAlignment::max_norm_diff___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a86d337480d265ecec717c579f9d31e0b"></span>float <code class="sig-name descname">max_norm_diff_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment14max_norm_diff_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum normal difference of corresponding point pairs in degrees (standard = 90). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment12max_runtime_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment12max_runtime_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment12max_runtime_E"></span><span id="pcl::registration::FPCSInitialAlignment::max_runtime___i"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ad40457d6fb0195815064f07bb391bdb8"></span>int <code class="sig-name descname">max_runtime_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment12max_runtime_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum allowed computation time in seconds (standard = 0 =&gt; ~unlimited). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment14fitness_score_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment14fitness_score_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment14fitness_score_E"></span><span id="pcl::registration::FPCSInitialAlignment::fitness_score___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a93851bad9405a293cc58177956b77858"></span>float <code class="sig-name descname">fitness_score_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment14fitness_score_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Resulting fitness score of the best match. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment9diameter_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment9diameter_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment9diameter_E"></span><span id="pcl::registration::FPCSInitialAlignment::diameter___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a956ffbdaf67cb8620b4d72a238b62e1c"></span>float <code class="sig-name descname">diameter_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment9diameter_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimated diamter of the target point cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment22max_base_diameter_sqr_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment22max_base_diameter_sqr_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment22max_base_diameter_sqr_E"></span><span id="pcl::registration::FPCSInitialAlignment::max_base_diameter_sqr___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a2861efeafe48b0000b9c3f40929a41af"></span>float <code class="sig-name descname">max_base_diameter_sqr_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment22max_base_diameter_sqr_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimated squared metric overlap between source and target. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Internally calculated using the estimated overlap and the extent of the source cloud. It is used to derive the minimum sampling distance of the base points as well as to calculated the number of tries to reliably find a correct match. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment12use_normals_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment12use_normals_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment12use_normals_E"></span><span id="pcl::registration::FPCSInitialAlignment::use_normals___b"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a03fa1f6c89845ab017cf48c04c2b40f4"></span>bool <code class="sig-name descname">use_normals_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment12use_normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use normals flag. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment16normalize_delta_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment16normalize_delta_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment16normalize_delta_E"></span><span id="pcl::registration::FPCSInitialAlignment::normalize_delta___b"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a4e4cdf295813f3638c368db57c94de36"></span>bool <code class="sig-name descname">normalize_delta_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment16normalize_delta_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Normalize delta flag. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment15source_indices_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment15source_indices_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment15source_indices_E"></span><span id="pcl::registration::FPCSInitialAlignment::source_indices___pcl::IndicesPtr"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a6966b3505b739a38525a3aaeaeee99d9"></span>pcl::<a class="reference internal" href="typedef_namespacepcl_1a7f201b2b4e80960afd3ffb2efacc96b3.html#_CPPv4N3pcl10IndicesPtrE" title="pcl::IndicesPtr">IndicesPtr</a> <code class="sig-name descname">source_indices_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment15source_indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A pointer to the vector of source point indices to use after sampling. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment15target_indices_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment15target_indices_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment15target_indices_E"></span><span id="pcl::registration::FPCSInitialAlignment::target_indices___pcl::IndicesPtr"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a59d3bd4a7820b1ae65edf07dc600518e"></span>pcl::<a class="reference internal" href="typedef_namespacepcl_1a7f201b2b4e80960afd3ffb2efacc96b3.html#_CPPv4N3pcl10IndicesPtrE" title="pcl::IndicesPtr">IndicesPtr</a> <code class="sig-name descname">target_indices_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment15target_indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A pointer to the vector of target point indices to use after sampling. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment14max_pair_diff_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment14max_pair_diff_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment14max_pair_diff_E"></span><span id="pcl::registration::FPCSInitialAlignment::max_pair_diff___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1abb0c5e68f41b871eea5c4a0190801aa3"></span>float <code class="sig-name descname">max_pair_diff_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment14max_pair_diff_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximal difference between corresponding point pairs in source and target. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Internally calculated using an estimation of the point density. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment14max_edge_diff_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment14max_edge_diff_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment14max_edge_diff_E"></span><span id="pcl::registration::FPCSInitialAlignment::max_edge_diff___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a0fb2d738ed328e93f65073b0adb4ebbd"></span>float <code class="sig-name descname">max_edge_diff_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment14max_edge_diff_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximal difference between the length of the base edges and valid match edges. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Internally calculated using an estimation of the point density. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment19coincidation_limit_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment19coincidation_limit_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment19coincidation_limit_E"></span><span id="pcl::registration::FPCSInitialAlignment::coincidation_limit___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a29206ec46e704609c2dd41337e17407a"></span>float <code class="sig-name descname">coincidation_limit_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment19coincidation_limit_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximal distance between coinciding intersection points to find valid matches. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Internally calculated using an estimation of the point density. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment8max_mse_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment8max_mse_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment8max_mse_E"></span><span id="pcl::registration::FPCSInitialAlignment::max_mse___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a6828753c00b74ddbc3ffd58dd0028bef"></span>float <code class="sig-name descname">max_mse_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment8max_mse_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximal mean squared errors of a transformation calculated from a candidate match. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Internally calculated using an estimation of the point density. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment20max_inlier_dist_sqr_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment20max_inlier_dist_sqr_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment20max_inlier_dist_sqr_E"></span><span id="pcl::registration::FPCSInitialAlignment::max_inlier_dist_sqr___float"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1a47552016a1a2acb533c95fd43f8b6167"></span>float <code class="sig-name descname">max_inlier_dist_sqr_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment20max_inlier_dist_sqr_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximal squared point distance between source and target points to count as inlier. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Internally calculated using an estimation of the point density. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration20FPCSInitialAlignment12small_error_E">
+<span id="_CPPv3N3pcl12registration20FPCSInitialAlignment12small_error_E"></span><span id="_CPPv2N3pcl12registration20FPCSInitialAlignment12small_error_E"></span><span id="pcl::registration::FPCSInitialAlignment::small_error___floatC"></span><span class="target" id="classpcl_1_1registration_1_1_f_p_c_s_initial_alignment_1ac48c4fb7b4e3dbd410cc016129eb864a"></span><em class="property">const</em> float <code class="sig-name descname">small_error_</code><a class="headerlink" href="#_CPPv4N3pcl12registration20FPCSInitialAlignment12small_error_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Definition of a small error. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

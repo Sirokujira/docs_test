@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OctreePointCloudAdjacencyContainer &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OctreePointCloudAdjacencyContainer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-octreepointcloudadjacencycontainer">
+<span id="exhale-class-classpcl-1-1octree-1-1-octree-point-cloud-adjacency-container"></span><h1>Template Class OctreePointCloudAdjacencyContainer<a class="headerlink" href="#template-class-octreepointcloudadjacencycontainer" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_octree_include_pcl_octree_octree_pointcloud_adjacency_container.h.html#file-pcl-octree-include-pcl-octree-octree-pointcloud-adjacency-container-h"><span class="std std-ref">File octree_pointcloud_adjacency_container.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreeContainerBase</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_base.html#exhale-class-classpcl-1-1octree-1-1-octree-container-base"><span class="std std-ref">Class OctreeContainerBase</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl6octree34OctreePointCloudAdjacencyContainerE">
+<span id="_CPPv3I00EN3pcl6octree34OctreePointCloudAdjacencyContainerE"></span><span id="_CPPv2I00EN3pcl6octree34OctreePointCloudAdjacencyContainerE"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">DataT</code> = <a class="reference internal" href="#_CPPv4I00EN3pcl6octree34OctreePointCloudAdjacencyContainerE" title="pcl::octree::OctreePointCloudAdjacencyContainer::PointInT">PointInT</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">OctreePointCloudAdjacencyContainer</code> : <em class="property">public</em> pcl::octree::<a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_base.html#_CPPv4N3pcl6octree19OctreeContainerBaseE" title="pcl::octree::OctreeContainerBase">OctreeContainerBase</a><a class="headerlink" href="#_CPPv4I00EN3pcl6octree34OctreePointCloudAdjacencyContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Octree</strong> adjacency leaf container class- stores a list of pointers to neighbors, number of points added, and a DataT value </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class implements a leaf node that stores pointers to neighboring leaves </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>This class also has a virtual computeData function, which is called by octreePointCloudAdjacency::addPointsFromInputCloud. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>You should make explicit instantiations of it for your pointtype/datatype combo (if needed) see supervoxel_clustering.hpp for an example of this </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer13NeighborListTE">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer13NeighborListTE"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer13NeighborListTE"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::NeighborListT"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a747b356000cfc8ac35af2aa83d731596"></span><em class="property">typedef </em>std::list&lt;OctreePointCloudAdjacencyContainer *&gt; <code class="sig-name descname">NeighborListT</code><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer13NeighborListTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer14const_iteratorE">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer14const_iteratorE"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer14const_iteratorE"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::const_iterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1ae8b0da331697441d6f18f828f7fa0d95"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer13NeighborListTE" title="pcl::octree::OctreePointCloudAdjacencyContainer::NeighborListT">NeighborListT</a>::const_iterator <code class="sig-name descname">const_iterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer14const_iteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer6cbeginEv">
+<span id="_CPPv3NK3pcl6octree34OctreePointCloudAdjacencyContainer6cbeginEv"></span><span id="_CPPv2NK3pcl6octree34OctreePointCloudAdjacencyContainer6cbeginEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::cbeginC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a3fc15ab34f1e3e567bf466d807bd51ef"></span><a class="reference internal" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer14const_iteratorE" title="pcl::octree::OctreePointCloudAdjacencyContainer::const_iterator">const_iterator</a> <code class="sig-name descname">cbegin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer6cbeginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer4cendEv">
+<span id="_CPPv3NK3pcl6octree34OctreePointCloudAdjacencyContainer4cendEv"></span><span id="_CPPv2NK3pcl6octree34OctreePointCloudAdjacencyContainer4cendEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::cendC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a0ec6ec9e10787425f18615cd0ae525a1"></span><a class="reference internal" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer14const_iteratorE" title="pcl::octree::OctreePointCloudAdjacencyContainer::const_iterator">const_iterator</a> <code class="sig-name descname">cend</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer4cendEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer4sizeEv">
+<span id="_CPPv3NK3pcl6octree34OctreePointCloudAdjacencyContainer4sizeEv"></span><span id="_CPPv2NK3pcl6octree34OctreePointCloudAdjacencyContainer4sizeEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::sizeC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a994702df9b3184172bb52fe97441555e"></span>size_t <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer34OctreePointCloudAdjacencyContainerEv">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer34OctreePointCloudAdjacencyContainerEv"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer34OctreePointCloudAdjacencyContainerEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::OctreePointCloudAdjacencyContainer"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1ac80d47a6ba9071e30b344450d927ac78"></span><code class="sig-name descname">OctreePointCloudAdjacencyContainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer34OctreePointCloudAdjacencyContainerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class initialization. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainerD0Ev">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainerD0Ev"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainerD0Ev"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::~OctreePointCloudAdjacencyContainer"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1af3f817f8a39f773cc37578a49d2fa877"></span><em class="property">virtual</em> <code class="sig-name descname">~OctreePointCloudAdjacencyContainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainerD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty class deconstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer15getNumNeighborsEv">
+<span id="_CPPv3NK3pcl6octree34OctreePointCloudAdjacencyContainer15getNumNeighborsEv"></span><span id="_CPPv2NK3pcl6octree34OctreePointCloudAdjacencyContainer15getNumNeighborsEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::getNumNeighborsC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a8b6b6ac9bd0e5880a738fe414e0932a9"></span>size_t <code class="sig-name descname">getNumNeighbors</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer15getNumNeighborsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the number of neighbors this leaf has. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer15getPointCounterEv">
+<span id="_CPPv3NK3pcl6octree34OctreePointCloudAdjacencyContainer15getPointCounterEv"></span><span id="_CPPv2NK3pcl6octree34OctreePointCloudAdjacencyContainer15getPointCounterEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::getPointCounterC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a7785f89878b20c3f416a904ee63ded76"></span>int <code class="sig-name descname">getPointCounter</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer15getPointCounterEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the number of points contributing to this leaf. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer7getDataEv">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer7getDataEv"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer7getDataEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::getData"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a0a7dc3ff4dab95c9aa899696c961c934"></span>DataT &amp;<code class="sig-name descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer7getDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a reference to the data member to access it without copying. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer7setDataERK5DataT">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer7setDataERK5DataT"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer7setDataERK5DataT"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::setData__DataTCR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1afa27caca139ddf7cf8e37728453b6dc1"></span>void <code class="sig-name descname">setData</code><span class="sig-paren">(</span><em class="property">const</em> DataT &amp;<em>data_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer7setDataERK5DataT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the data member. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data_arg</span></code>: New value for data </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer7getSizeEv">
+<span id="_CPPv3NK3pcl6octree34OctreePointCloudAdjacencyContainer7getSizeEv"></span><span id="_CPPv2NK3pcl6octree34OctreePointCloudAdjacencyContainer7getSizeEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::getSizeC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1af609bce7274c441b395a61efaab24b3b"></span><em class="property">virtual</em> size_t <code class="sig-name descname">getSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer7getSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>virtual method to get size of container </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of points added to leaf node container. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer8iteratorE">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer8iteratorE"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer8iteratorE"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::iterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a46522f8fb1b07d60768f286702577d61"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer13NeighborListTE" title="pcl::octree::OctreePointCloudAdjacencyContainer::NeighborListT">NeighborListT</a>::iterator <code class="sig-name descname">iterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer8iteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer5beginEv">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer5beginEv"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer5beginEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::begin"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a52c4f301d8205642fcf78739e6556b83"></span><a class="reference internal" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer8iteratorE" title="pcl::octree::OctreePointCloudAdjacencyContainer::iterator">iterator</a> <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer5beginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer3endEv">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer3endEv"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer3endEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::end"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a0b4d774fe50808a7bfe6c54f34a3c827"></span><a class="reference internal" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer8iteratorE" title="pcl::octree::OctreePointCloudAdjacencyContainer::iterator">iterator</a> <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer8deepCopyEv">
+<span id="_CPPv3NK3pcl6octree34OctreePointCloudAdjacencyContainer8deepCopyEv"></span><span id="_CPPv2NK3pcl6octree34OctreePointCloudAdjacencyContainer8deepCopyEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::deepCopyC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a2cd484f782ea6f47ce7403c0d4f648d0"></span><em class="property">virtual</em> OctreePointCloudAdjacencyContainer *<code class="sig-name descname">deepCopy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree34OctreePointCloudAdjacencyContainer8deepCopyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>deep copy function </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERK8PointInT">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERK8PointInT"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERK8PointInT"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::addPoint__PointInTCR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a1e5815a680693dbdb157e19adf261b11"></span>void <code class="sig-name descname">addPoint</code><span class="sig-paren">(</span><em class="property">const</em> PointInT&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERK8PointInT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add new point to container- this just counts points. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>To actually store data in the leaves, need to specialize this for your point and data type as in supervoxel_clustering.hpp </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEv">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEv"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::computeData"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1aec030765d20bc88b5017487a10b20251"></span>void <code class="sig-name descname">computeData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Function for working on data added. </p>
+<p>Base implementation does nothing </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer15setPointCounterEi">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer15setPointCounterEi"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer15setPointCounterEi"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::setPointCounter__i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a8f29cc923d730d447cb9badcef2ca452"></span>void <code class="sig-name descname">setPointCounter</code><span class="sig-paren">(</span>int <em>points_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer15setPointCounterEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the number of points contributing to this leaf. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer5resetEv">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer5resetEv"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer5resetEv"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::reset"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1ae1d863e72aeb41a0dc09c4e8a312e91d"></span><em class="property">virtual</em> void <code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer5resetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clear the voxel centroid. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer11addNeighborEP34OctreePointCloudAdjacencyContainer">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer11addNeighborEP34OctreePointCloudAdjacencyContainer"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer11addNeighborEP34OctreePointCloudAdjacencyContainer"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::addNeighbor__OctreePointCloudAdjacencyContainerP"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a27a75bedaed54b1ee2e5697f9a739f15"></span>void <code class="sig-name descname">addNeighbor</code><span class="sig-paren">(</span>OctreePointCloudAdjacencyContainer *<em>neighbor</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer11addNeighborEP34OctreePointCloudAdjacencyContainer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add new neighbor to voxel. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">neighbor</span></code>: the new neighbor to add </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer14removeNeighborEP34OctreePointCloudAdjacencyContainer">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer14removeNeighborEP34OctreePointCloudAdjacencyContainer"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer14removeNeighborEP34OctreePointCloudAdjacencyContainer"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::removeNeighbor__OctreePointCloudAdjacencyContainerP"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a2eca8b819d6a9ee2be9434c64ac1d3cc"></span>void <code class="sig-name descname">removeNeighbor</code><span class="sig-paren">(</span>OctreePointCloudAdjacencyContainer *<em>neighbor</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer14removeNeighborEP34OctreePointCloudAdjacencyContainer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove neighbor from neighbor set. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">neighbor</span></code>: the neighbor to remove </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer12setNeighborsERK13NeighborListT">
+<span id="_CPPv3N3pcl6octree34OctreePointCloudAdjacencyContainer12setNeighborsERK13NeighborListT"></span><span id="_CPPv2N3pcl6octree34OctreePointCloudAdjacencyContainer12setNeighborsERK13NeighborListT"></span><span id="pcl::octree::OctreePointCloudAdjacencyContainer::setNeighbors__NeighborListTCR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a141d9d370217f275fd4c57221688838e"></span>void <code class="sig-name descname">setNeighbors</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer13NeighborListTE" title="pcl::octree::OctreePointCloudAdjacencyContainer::NeighborListT">NeighborListT</a> &amp;<em>neighbor_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree34OctreePointCloudAdjacencyContainer12setNeighborsERK13NeighborListT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the whole neighbor set. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">neighbor_arg</span></code>: the new set </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointEvRKN3pcl11PointXYZRGBE">
+<span id="_CPPv3IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERKN3pcl11PointXYZRGBE"></span><span id="_CPPv2IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERKN3pcl11PointXYZRGBE"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a0ffcff99efddba523ad4a5d659df3722"></span>template&lt;&gt;<br />void <code class="sig-name descname">addPoint</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b.html#_CPPv4N3pcl11PointXYZRGBE" title="pcl::PointXYZRGB">PointXYZRGB</a> &amp;<em>new_point</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointEvRKN3pcl11PointXYZRGBE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointEvRKN3pcl12PointXYZRGBAE">
+<span id="_CPPv3IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERKN3pcl12PointXYZRGBAE"></span><span id="_CPPv2IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERKN3pcl12PointXYZRGBAE"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a34bad58a8282a9966c68f1dc58136a45"></span>template&lt;&gt;<br />void <code class="sig-name descname">addPoint</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b_a.html#_CPPv4N3pcl12PointXYZRGBAE" title="pcl::PointXYZRGBA">PointXYZRGBA</a> &amp;<em>new_point</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointEvRKN3pcl12PointXYZRGBAE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEvv">
+<span id="_CPPv3IEN3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEv"></span><span id="_CPPv2IEN3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEv"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a75e83e9985bfa3bd8639cb6f94685ca5"></span>template&lt;&gt;<br />void <code class="sig-name descname">computeData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEvv">
+<span id="_CPPv3IEN3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEv"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1aaa4c5275a99aaa86b35e6d0586546479"></span>template&lt;&gt;<br />void <code class="sig-name descname">computeData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointEvRKN3pcl8PointXYZE">
+<span id="_CPPv3IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERKN3pcl8PointXYZE"></span><span id="_CPPv2IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointERKN3pcl8PointXYZE"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a487511ab98995a732fc7ed56a5d6354f"></span>template&lt;&gt;<br />void <code class="sig-name descname">addPoint</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> &amp;<em>new_point</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer8addPointEvRKN3pcl8PointXYZE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree34OctreePointCloudAdjacencyContainer11computeDataEvv">
+<span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_adjacency_container_1a4966ce545d5556b5cf35118bfb513d1f"></span>template&lt;&gt;<br />void <code class="sig-name descname">computeData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

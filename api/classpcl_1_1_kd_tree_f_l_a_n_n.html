@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class KdTreeFLANN &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class KdTreeFLANN</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_kd_tree_f_l_a_n_n.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-kdtreeflann">
+<span id="exhale-class-classpcl-1-1-kd-tree-f-l-a-n-n"></span><h1>Template Class KdTreeFLANN<a class="headerlink" href="#template-class-kdtreeflann" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_kdtree_include_pcl_kdtree_kdtree_flann.h.html#file-pcl-kdtree-include-pcl-kdtree-kdtree-flann-h"><span class="std std-ref">File kdtree_flann.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::KdTree&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_kd_tree.html#exhale-class-classpcl-1-1-kd-tree"><span class="std std-ref">Template Class KdTree</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl11KdTreeFLANNE">
+<span id="_CPPv3I00EN3pcl11KdTreeFLANNE"></span><span id="_CPPv2I00EN3pcl11KdTreeFLANNE"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n"></span>template&lt;typename <code class="sig-name descname">PointT</code>, typename <code class="sig-name descname">Dist</code> = flann::<a class="reference internal" href="structflann_1_1_l2___simple.html#_CPPv4I0EN5flann9L2_SimpleE" title="flann::L2_Simple">L2_Simple</a>&lt;float&gt;&gt;<br /><em class="property">class </em><code class="sig-name descname">KdTreeFLANN</code> : <em class="property">public</em> pcl::KdTree&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl11KdTreeFLANNE" title="pcl::KdTreeFLANN::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl11KdTreeFLANNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_kd_tree_f_l_a_n_n"><span class="std std-ref">KdTreeFLANN</span></a> is a generic type of 3D spatial locator using kD-tree structures. </p>
+<p>The class is making use of the FLANN (Fast Library for Approximate Nearest Neighbor) project by Marius Muja and David Lowe.</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Radu B. Rusu, Marius Muja </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl11KdTreeFLANN10PointCloudE">
+<span id="_CPPv3N3pcl11KdTreeFLANN10PointCloudE"></span><span id="_CPPv2N3pcl11KdTreeFLANN10PointCloudE"></span><span id="pcl::KdTreeFLANN::PointCloud"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a587a915d086b7af4c6606ff128a2842d"></span><em class="property">typedef </em>KdTree&lt;PointT&gt;::PointCloud <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11KdTreeFLANN18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl11KdTreeFLANN18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl11KdTreeFLANN18PointCloudConstPtrE"></span><span id="pcl::KdTreeFLANN::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a93df753b052aa80a512b6f9db4037aed"></span><em class="property">typedef </em>KdTree&lt;PointT&gt;::PointCloudConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11KdTreeFLANN10IndicesPtrE">
+<span id="_CPPv3N3pcl11KdTreeFLANN10IndicesPtrE"></span><span id="_CPPv2N3pcl11KdTreeFLANN10IndicesPtrE"></span><span id="pcl::KdTreeFLANN::IndicesPtr"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a0c900233ea4c04d60b53fdf7afe6647f"></span><em class="property">typedef </em>boost::shared_ptr&lt;std::vector&lt;int&gt;&gt; <code class="sig-name descname">IndicesPtr</code><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN10IndicesPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11KdTreeFLANN15IndicesConstPtrE">
+<span id="_CPPv3N3pcl11KdTreeFLANN15IndicesConstPtrE"></span><span id="_CPPv2N3pcl11KdTreeFLANN15IndicesConstPtrE"></span><span id="pcl::KdTreeFLANN::IndicesConstPtr"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a81754d8b7cf12caf7ca63f920fcdcb22"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> std::vector&lt;int&gt;&gt; <code class="sig-name descname">IndicesConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN15IndicesConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11KdTreeFLANN10FLANNIndexE">
+<span id="_CPPv3N3pcl11KdTreeFLANN10FLANNIndexE"></span><span id="_CPPv2N3pcl11KdTreeFLANN10FLANNIndexE"></span><span id="pcl::KdTreeFLANN::FLANNIndex"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1ada9ff8aaeebb5178ea97aa29cee92517"></span><em class="property">typedef </em>flann::<a class="reference internal" href="classflann_1_1_index.html#_CPPv4I0EN5flann5IndexE" title="flann::Index">Index</a>&lt;Dist&gt; <code class="sig-name descname">FLANNIndex</code><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN10FLANNIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11KdTreeFLANN3PtrE">
+<span id="_CPPv3N3pcl11KdTreeFLANN3PtrE"></span><span id="_CPPv2N3pcl11KdTreeFLANN3PtrE"></span><span id="pcl::KdTreeFLANN::Ptr"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a66ab019878132a8b440e4f5b2924fdfe"></span><em class="property">typedef </em>boost::shared_ptr&lt;KdTreeFLANN&lt;PointT, Dist&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11KdTreeFLANN8ConstPtrE">
+<span id="_CPPv3N3pcl11KdTreeFLANN8ConstPtrE"></span><span id="_CPPv2N3pcl11KdTreeFLANN8ConstPtrE"></span><span id="pcl::KdTreeFLANN::ConstPtr"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a6cbc8d19f0d540a6c5bbcb00f21ccf4d"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> KdTreeFLANN&lt;PointT, Dist&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl11KdTreeFLANN11KdTreeFLANNEb">
+<span id="_CPPv3N3pcl11KdTreeFLANN11KdTreeFLANNEb"></span><span id="_CPPv2N3pcl11KdTreeFLANN11KdTreeFLANNEb"></span><span id="pcl::KdTreeFLANN::KdTreeFLANN__b"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1adebe4b1eed5e5e1bc0d1dd085be9a8b7"></span><code class="sig-name descname">KdTreeFLANN</code><span class="sig-paren">(</span>bool <em>sorted</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN11KdTreeFLANNEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default Constructor for <a class="reference internal" href="#classpcl_1_1_kd_tree_f_l_a_n_n"><span class="std std-ref">KdTreeFLANN</span></a>. </p>
+<p><p>By setting sorted to false, the </p>
+<a class="reference internal" href="#classpcl_1_1_kd_tree_f_l_a_n_n_1ab598d8e1220f1292b938e3a66f1ec370"><span class="std std-ref">radiusSearch</span></a> operations will be faster. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sorted</span></code>: set to true if the application that the tree will be used for requires sorted nearest neighbor indices (default). False otherwise.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11KdTreeFLANN11KdTreeFLANNERK11KdTreeFLANNI6PointT4DistE">
+<span id="_CPPv3N3pcl11KdTreeFLANN11KdTreeFLANNERK11KdTreeFLANNI6PointT4DistE"></span><span id="_CPPv2N3pcl11KdTreeFLANN11KdTreeFLANNERK11KdTreeFLANNI6PointT4DistE"></span><span id="pcl::KdTreeFLANN::KdTreeFLANN__KdTreeFLANN:PointT.Dist:CR"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1aff2d210b62c3535991252ec11962bf36"></span><code class="sig-name descname">KdTreeFLANN</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl11KdTreeFLANN11KdTreeFLANNEb" title="pcl::KdTreeFLANN::KdTreeFLANN">KdTreeFLANN</a>&lt;PointT, Dist&gt; &amp;<em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN11KdTreeFLANNERK11KdTreeFLANNI6PointT4DistE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: the tree to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11KdTreeFLANNaSERK11KdTreeFLANNI6PointT4DistE">
+<span id="_CPPv3N3pcl11KdTreeFLANNaSERK11KdTreeFLANNI6PointT4DistE"></span><span id="_CPPv2N3pcl11KdTreeFLANNaSERK11KdTreeFLANNI6PointT4DistE"></span><span id="pcl::KdTreeFLANN::assign-operator__KdTreeFLANN:PointT.Dist:CR"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a1efb7d444c24ea5959c6898afd7dbf9b"></span>KdTreeFLANN&lt;PointT, Dist&gt; &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> KdTreeFLANN&lt;PointT, Dist&gt; &amp;<em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANNaSERK11KdTreeFLANNI6PointT4DistE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy operator. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: the tree to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11KdTreeFLANN10setEpsilonEf">
+<span id="_CPPv3N3pcl11KdTreeFLANN10setEpsilonEf"></span><span id="_CPPv2N3pcl11KdTreeFLANN10setEpsilonEf"></span><span id="pcl::KdTreeFLANN::setEpsilon__float"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a87e5aa1e4c6a23e161712919bef9a1a7"></span>void <code class="sig-name descname">setEpsilon</code><span class="sig-paren">(</span>float <em>eps</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN10setEpsilonEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the search epsilon precision (error bound) for nearest neighbors searches. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">eps</span></code>: precision (error bound) for nearest neighbors searches </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11KdTreeFLANN16setSortedResultsEb">
+<span id="_CPPv3N3pcl11KdTreeFLANN16setSortedResultsEb"></span><span id="_CPPv2N3pcl11KdTreeFLANN16setSortedResultsEb"></span><span id="pcl::KdTreeFLANN::setSortedResults__b"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1ad1af06f3e1a1fb40a2b3858c3edc9038"></span>void <code class="sig-name descname">setSortedResults</code><span class="sig-paren">(</span>bool <em>sorted</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN16setSortedResultsEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11KdTreeFLANN10makeSharedEv">
+<span id="_CPPv3N3pcl11KdTreeFLANN10makeSharedEv"></span><span id="_CPPv2N3pcl11KdTreeFLANN10makeSharedEv"></span><span id="pcl::KdTreeFLANN::makeShared"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a3b2346732b715083bd2559d701d87d6d"></span><a class="reference internal" href="#_CPPv4N3pcl11KdTreeFLANN3PtrE" title="pcl::KdTreeFLANN::Ptr">Ptr</a> <code class="sig-name descname">makeShared</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN10makeSharedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11KdTreeFLANND0Ev">
+<span id="_CPPv3N3pcl11KdTreeFLANND0Ev"></span><span id="_CPPv2N3pcl11KdTreeFLANND0Ev"></span><span id="pcl::KdTreeFLANN::~KdTreeFLANN"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a7266873c887581cd840b07cac1fbe030"></span><em class="property">virtual</em> <code class="sig-name descname">~KdTreeFLANN</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANND0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor for <a class="reference internal" href="#classpcl_1_1_kd_tree_f_l_a_n_n"><span class="std std-ref">KdTreeFLANN</span></a>. </p>
+<p>Deletes all allocated data arrays and destroys the kd-tree structures. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11KdTreeFLANN13setInputCloudERK18PointCloudConstPtrRK15IndicesConstPtr">
+<span id="_CPPv3N3pcl11KdTreeFLANN13setInputCloudERK18PointCloudConstPtrRK15IndicesConstPtr"></span><span id="_CPPv2N3pcl11KdTreeFLANN13setInputCloudERK18PointCloudConstPtrRK15IndicesConstPtr"></span><span id="pcl::KdTreeFLANN::setInputCloud__PointCloudConstPtrCR.IndicesConstPtrCR"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1aba28a792bf0c2026aa0a6a99ed3e32ec"></span>void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl11KdTreeFLANN18PointCloudConstPtrE" title="pcl::KdTreeFLANN::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl11KdTreeFLANN15IndicesConstPtrE" title="pcl::KdTreeFLANN::IndicesConstPtr">IndicesConstPtr</a> &amp;<em>indices</em> = <a class="reference internal" href="#_CPPv4N3pcl11KdTreeFLANN15IndicesConstPtrE" title="pcl::KdTreeFLANN::IndicesConstPtr">IndicesConstPtr</a>()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11KdTreeFLANN13setInputCloudERK18PointCloudConstPtrRK15IndicesConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: the point indices subset that is to be used from <em>cloud</em> - if NULL the whole cloud is used </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11KdTreeFLANN14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3NK3pcl11KdTreeFLANN14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2NK3pcl11KdTreeFLANN14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::KdTreeFLANN::nearestKSearch__PointTCR.i.std::vector:i:R.std::vector:float:RC"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1a9bdbc03758c8d7b3033139e2fb1e6150"></span>int <code class="sig-name descname">nearestKSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, int <em>k</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11KdTreeFLANN14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for k-nearest neighbors for the given query point. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>This method does not do any bounds checking for the input index (i.e., index &gt;= cloud.points.size () || index &lt; 0), and assumes valid (i.e., finite) data.</p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: a given <em>valid</em> (i.e., finite) query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: the number of neighbors to search for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant indices of the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">asserts</span></code>: in debug mode if the index is not between 0 and the maximum number of points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11KdTreeFLANN12radiusSearchERK6PointTdRNSt6vectorIiEERNSt6vectorIfEEj">
+<span id="_CPPv3NK3pcl11KdTreeFLANN12radiusSearchERK6PointTdRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="_CPPv2NK3pcl11KdTreeFLANN12radiusSearchERK6PointTdRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="pcl::KdTreeFLANN::radiusSearch__PointTCR.double.std::vector:i:R.std::vector:float:R.unsigned-iC"></span><span class="target" id="classpcl_1_1_kd_tree_f_l_a_n_n_1ab598d8e1220f1292b938e3a66f1ec370"></span>int <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, double <em>radius</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em>, unsigned int <em>max_nn</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11KdTreeFLANN12radiusSearchERK6PointTdRNSt6vectorIiEERNSt6vectorIfEEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for all the nearest neighbors of the query point in a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>This method does not do any bounds checking for the input index (i.e., index &gt;= cloud.points.size () || index &lt; 0), and assumes valid (i.e., finite) data.</p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found in radius</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: a given <em>valid</em> (i.e., finite) query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the radius of the sphere bounding all of p_q’s neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant indices of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_nn</span></code>: if given, bounds the maximum returned neighbors to this value. If <em>max_nn</em> is set to 0 or to a number higher than the number of points in the input cloud, all neighbors in <em>radius</em> will be returned. </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">asserts</span></code>: in debug mode if the index is not between 0 and the maximum number of points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

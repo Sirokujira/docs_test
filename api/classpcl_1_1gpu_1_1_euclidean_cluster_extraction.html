@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class EuclideanClusterExtraction &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class EuclideanClusterExtraction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1gpu_1_1_euclidean_cluster_extraction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-euclideanclusterextraction">
+<span id="exhale-class-classpcl-1-1gpu-1-1-euclidean-cluster-extraction"></span><h1>Class EuclideanClusterExtraction<a class="headerlink" href="#class-euclideanclusterextraction" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_gpu_segmentation_include_pcl_gpu_segmentation_gpu_extract_clusters.h.html#file-pcl-gpu-segmentation-include-pcl-gpu-segmentation-gpu-extract-clusters-h"><span class="std std-ref">File gpu_extract_clusters.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtractionE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtractionE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtractionE"></span><span id="pcl::gpu::EuclideanClusterExtraction"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction"></span><em class="property">class </em><code class="sig-name descname">EuclideanClusterExtraction</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtractionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1gpu_1_1_euclidean_cluster_extraction"><span class="std std-ref">EuclideanClusterExtraction</span></a></strong> represents a segmentation class for cluster extraction in an Euclidean sense, depending on pcl::gpu::octree </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Koen Buys, Radu Bogdan Rusu </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction9PointTypeE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction9PointTypeE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction9PointTypeE"></span><span id="pcl::gpu::EuclideanClusterExtraction::PointType"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1afca1a1224d998622283e08cac8f3a7e8"></span><em class="property">typedef </em>pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> <code class="sig-name descname">PointType</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction9PointTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction14PointCloudHostE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction14PointCloudHostE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction14PointCloudHostE"></span><span id="pcl::gpu::EuclideanClusterExtraction::PointCloudHost"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1accf22afc0603dfef6f2dba9f65ded746"></span><em class="property">typedef </em>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt; <code class="sig-name descname">PointCloudHost</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction14PointCloudHostE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction17PointCloudHostPtrE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction17PointCloudHostPtrE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction17PointCloudHostPtrE"></span><span id="pcl::gpu::EuclideanClusterExtraction::PointCloudHostPtr"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1ae3a153603292245632899dca13a4789b"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction14PointCloudHostE" title="pcl::gpu::EuclideanClusterExtraction::PointCloudHost">PointCloudHost</a>::Ptr <code class="sig-name descname">PointCloudHostPtr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction17PointCloudHostPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction22PointCloudHostConstPtrE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction22PointCloudHostConstPtrE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction22PointCloudHostConstPtrE"></span><span id="pcl::gpu::EuclideanClusterExtraction::PointCloudHostConstPtr"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1ad7199f5ea3d356b2f0e24f5d90571f82"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction14PointCloudHostE" title="pcl::gpu::EuclideanClusterExtraction::PointCloudHost">PointCloudHost</a>::ConstPtr <code class="sig-name descname">PointCloudHostConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction22PointCloudHostConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction15PointIndicesPtrE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction15PointIndicesPtrE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction15PointIndicesPtrE"></span><span id="pcl::gpu::EuclideanClusterExtraction::PointIndicesPtr"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1afa7e4804a5b38a2249adf78b6bd0b7db"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndices3PtrE" title="pcl::PointIndices::Ptr">Ptr</a> <code class="sig-name descname">PointIndicesPtr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction15PointIndicesPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction20PointIndicesConstPtrE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction20PointIndicesConstPtrE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction20PointIndicesConstPtrE"></span><span id="pcl::gpu::EuclideanClusterExtraction::PointIndicesConstPtr"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a4c0de7543c55c2360c642ba70d54dfed"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndices8ConstPtrE" title="pcl::PointIndices::ConstPtr">ConstPtr</a> <code class="sig-name descname">PointIndicesConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction20PointIndicesConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction7GPUTreeE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction7GPUTreeE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction7GPUTreeE"></span><span id="pcl::gpu::EuclideanClusterExtraction::GPUTree"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1aa8bb5a7ead11fe2fb6f2e90f1cc21e95"></span><em class="property">typedef </em>pcl::gpu::<a class="reference internal" href="classpcl_1_1gpu_1_1_octree.html#_CPPv4N3pcl3gpu6OctreeE" title="pcl::gpu::Octree">Octree</a> <code class="sig-name descname">GPUTree</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction7GPUTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction10GPUTreePtrE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction10GPUTreePtrE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction10GPUTreePtrE"></span><span id="pcl::gpu::EuclideanClusterExtraction::GPUTreePtr"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a353e0aa11c37a201ff146f910a343883"></span><em class="property">typedef </em>pcl::gpu::<a class="reference internal" href="classpcl_1_1gpu_1_1_octree.html#_CPPv4N3pcl3gpu6OctreeE" title="pcl::gpu::Octree">Octree</a>::<a class="reference internal" href="classpcl_1_1gpu_1_1_octree.html#_CPPv4N3pcl3gpu6Octree3PtrE" title="pcl::gpu::Octree::Ptr">Ptr</a> <code class="sig-name descname">GPUTreePtr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction10GPUTreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction11CloudDeviceE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction11CloudDeviceE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction11CloudDeviceE"></span><span id="pcl::gpu::EuclideanClusterExtraction::CloudDevice"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a796d9887df87a60a5b586feea28bed92"></span><em class="property">typedef </em>pcl::gpu::<a class="reference internal" href="classpcl_1_1gpu_1_1_octree.html#_CPPv4N3pcl3gpu6OctreeE" title="pcl::gpu::Octree">Octree</a>::<a class="reference internal" href="classpcl_1_1gpu_1_1_octree.html#_CPPv4N3pcl3gpu6Octree10PointCloudE" title="pcl::gpu::Octree::PointCloud">PointCloud</a> <code class="sig-name descname">CloudDevice</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction11CloudDeviceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction26EuclideanClusterExtractionEv">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction26EuclideanClusterExtractionEv"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction26EuclideanClusterExtractionEv"></span><span id="pcl::gpu::EuclideanClusterExtraction::EuclideanClusterExtraction"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1aada2788e50b364ccbb97e6850d1af3c3"></span><code class="sig-name descname">EuclideanClusterExtraction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction26EuclideanClusterExtractionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction15setSearchMethodER10GPUTreePtr">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction15setSearchMethodER10GPUTreePtr"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction15setSearchMethodER10GPUTreePtr"></span><span id="pcl::gpu::EuclideanClusterExtraction::setSearchMethod__GPUTreePtrR"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a95c549e9549f86d19df8abfbcac0add6"></span>void <code class="sig-name descname">setSearchMethod</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction10GPUTreePtrE" title="pcl::gpu::EuclideanClusterExtraction::GPUTreePtr">GPUTreePtr</a> &amp;<em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction15setSearchMethodER10GPUTreePtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the destructor </p>
+<p>Provide a pointer to the search object. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tree</span></code>: a pointer to the spatial search object. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction15getSearchMethodEv">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction15getSearchMethodEv"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction15getSearchMethodEv"></span><span id="pcl::gpu::EuclideanClusterExtraction::getSearchMethod"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a4517e73e5d5530cf69d1e1a5f8ca6918"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction10GPUTreePtrE" title="pcl::gpu::EuclideanClusterExtraction::GPUTreePtr">GPUTreePtr</a> <code class="sig-name descname">getSearchMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction15getSearchMethodEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the search method used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction19setClusterToleranceEd">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction19setClusterToleranceEd"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction19setClusterToleranceEd"></span><span id="pcl::gpu::EuclideanClusterExtraction::setClusterTolerance__double"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a292d2bc70907745884b5e15a7ffd61f4"></span>void <code class="sig-name descname">setClusterTolerance</code><span class="sig-paren">(</span>double <em>tolerance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction19setClusterToleranceEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the spatial cluster tolerance as a measure in the L2 Euclidean space. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tolerance</span></code>: the spatial cluster tolerance as a measure in the L2 Euclidean space </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction19getClusterToleranceEv">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction19getClusterToleranceEv"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction19getClusterToleranceEv"></span><span id="pcl::gpu::EuclideanClusterExtraction::getClusterTolerance"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a4c4f9e524544756743f03d5c86ef92e1"></span>double <code class="sig-name descname">getClusterTolerance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction19getClusterToleranceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the spatial cluster tolerance as a measure in the L2 Euclidean space. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction17setMinClusterSizeEi">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction17setMinClusterSizeEi"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction17setMinClusterSizeEi"></span><span id="pcl::gpu::EuclideanClusterExtraction::setMinClusterSize__i"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a232fc7f0877a4dd40131471f1c8164b6"></span>void <code class="sig-name descname">setMinClusterSize</code><span class="sig-paren">(</span>int <em>min_cluster_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction17setMinClusterSizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the minimum number of points that a cluster needs to contain in order to be considered valid. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">min_cluster_size</span></code>: the minimum cluster size </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction17getMinClusterSizeEv">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction17getMinClusterSizeEv"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction17getMinClusterSizeEv"></span><span id="pcl::gpu::EuclideanClusterExtraction::getMinClusterSize"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a749098361f3494516e1932a65a079279"></span>int <code class="sig-name descname">getMinClusterSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction17getMinClusterSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the minimum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction17setMaxClusterSizeEi">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction17setMaxClusterSizeEi"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction17setMaxClusterSizeEi"></span><span id="pcl::gpu::EuclideanClusterExtraction::setMaxClusterSize__i"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a7e03de53c8b6b1e8e43454177da35eba"></span>void <code class="sig-name descname">setMaxClusterSize</code><span class="sig-paren">(</span>int <em>max_cluster_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction17setMaxClusterSizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of points that a cluster needs to contain in order to be considered valid. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max_cluster_size</span></code>: the maximum cluster size </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction17getMaxClusterSizeEv">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction17getMaxClusterSizeEv"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction17getMaxClusterSizeEv"></span><span id="pcl::gpu::EuclideanClusterExtraction::getMaxClusterSize"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a3afe1ecff86b57489025736d69548111"></span>int <code class="sig-name descname">getMaxClusterSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction17getMaxClusterSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction8setInputE11CloudDevice">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction8setInputE11CloudDevice"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction8setInputE11CloudDevice"></span><span id="pcl::gpu::EuclideanClusterExtraction::setInput__CloudDevice"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a814a134ff5baf8271bae14a8b62e23a3"></span>void <code class="sig-name descname">setInput</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction11CloudDeviceE" title="pcl::gpu::EuclideanClusterExtraction::CloudDevice">CloudDevice</a> <em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction8setInputE11CloudDevice" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction12setHostCloudE17PointCloudHostPtr">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction12setHostCloudE17PointCloudHostPtr"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction12setHostCloudE17PointCloudHostPtr"></span><span id="pcl::gpu::EuclideanClusterExtraction::setHostCloud__PointCloudHostPtr"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1ab493f28f7dfec4f5cd4c6f7ebf3423aa"></span>void <code class="sig-name descname">setHostCloud</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction17PointCloudHostPtrE" title="pcl::gpu::EuclideanClusterExtraction::PointCloudHostPtr">PointCloudHostPtr</a> <em>host_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction12setHostCloudE17PointCloudHostPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction7extractERNSt6vectorIN3pcl12PointIndicesEEE">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction7extractERNSt6vectorIN3pcl12PointIndicesEEE"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction7extractERNSt6vectorIN3pcl12PointIndicesEEE"></span><span id="pcl::gpu::EuclideanClusterExtraction::extract__std::vector:pcl::PointIndices:R"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1aa26c2aa71ba074f4083bb784e8b3c142"></span>void <code class="sig-name descname">extract</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>&gt; &amp;<em>clusters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction7extractERNSt6vectorIN3pcl12PointIndicesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Cluster extraction in a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> given by &lt;setInputCloud (), setIndices ()&gt; </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">clusters</span></code>: the resultant point clusters </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu26EuclideanClusterExtraction12getClassNameEv">
+<span id="_CPPv3NK3pcl3gpu26EuclideanClusterExtraction12getClassNameEv"></span><span id="_CPPv2NK3pcl3gpu26EuclideanClusterExtraction12getClassNameEv"></span><span id="pcl::gpu::EuclideanClusterExtraction::getClassNameC"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1abb1604d5c5d76a8f312dbe43e948464c"></span><em class="property">virtual</em> std::string <code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu26EuclideanClusterExtraction12getClassNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class getName method. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction6input_E">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction6input_E"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction6input_E"></span><span id="pcl::gpu::EuclideanClusterExtraction::input___CloudDevice"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a7696e24ea2501da78eea60b1a5f53110"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction11CloudDeviceE" title="pcl::gpu::EuclideanClusterExtraction::CloudDevice">CloudDevice</a> <code class="sig-name descname">input_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction6input_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the input cloud on the GPU </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction11host_cloud_E">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction11host_cloud_E"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction11host_cloud_E"></span><span id="pcl::gpu::EuclideanClusterExtraction::host_cloud___PointCloudHostPtr"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a21dd4fdd0c79869c78c592cc5c1fe621"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction17PointCloudHostPtrE" title="pcl::gpu::EuclideanClusterExtraction::PointCloudHostPtr">PointCloudHostPtr</a> <code class="sig-name descname">host_cloud_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction11host_cloud_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the original cloud the Host </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction5tree_E">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction5tree_E"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction5tree_E"></span><span id="pcl::gpu::EuclideanClusterExtraction::tree___GPUTreePtr"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1afa283395168a4d277abf9190c9d536aa"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction10GPUTreePtrE" title="pcl::gpu::EuclideanClusterExtraction::GPUTreePtr">GPUTreePtr</a> <code class="sig-name descname">tree_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction5tree_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A pointer to the spatial search object. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction18cluster_tolerance_E">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction18cluster_tolerance_E"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction18cluster_tolerance_E"></span><span id="pcl::gpu::EuclideanClusterExtraction::cluster_tolerance___double"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a6b53d0688720222882181e18967ca731"></span>double <code class="sig-name descname">cluster_tolerance_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction18cluster_tolerance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The spatial cluster tolerance as a measure in the L2 Euclidean space. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction20min_pts_per_cluster_E">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction20min_pts_per_cluster_E"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction20min_pts_per_cluster_E"></span><span id="pcl::gpu::EuclideanClusterExtraction::min_pts_per_cluster___i"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1a81a359b0267f431fe49e3a8ce69548b7"></span>int <code class="sig-name descname">min_pts_per_cluster_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction20min_pts_per_cluster_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The minimum number of points that a cluster needs to contain in order to be considered valid (default = 1). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu26EuclideanClusterExtraction20max_pts_per_cluster_E">
+<span id="_CPPv3N3pcl3gpu26EuclideanClusterExtraction20max_pts_per_cluster_E"></span><span id="_CPPv2N3pcl3gpu26EuclideanClusterExtraction20max_pts_per_cluster_E"></span><span id="pcl::gpu::EuclideanClusterExtraction::max_pts_per_cluster___i"></span><span class="target" id="classpcl_1_1gpu_1_1_euclidean_cluster_extraction_1ac16cba791c7693efe0c0f62ca753d775"></span>int <code class="sig-name descname">max_pts_per_cluster_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu26EuclideanClusterExtraction20max_pts_per_cluster_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum number of points that a cluster needs to contain in order to be considered valid (default = MAXINT). </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,905 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class ON_wString &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class ON_wString</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/class_o_n__w_string.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-on-wstring">
+<span id="exhale-class-class-o-n-w-string"></span><h1>Class ON_wString<a class="headerlink" href="#class-on-wstring" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_3rdparty_opennurbs_opennurbs_string.h.html#file-pcl-surface-include-pcl-surface-3rdparty-opennurbs-opennurbs-string-h"><span class="std std-ref">File opennurbs_string.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ON_Annotation2Text</span></code> (<a class="reference internal" href="class_o_n___annotation2_text.html#exhale-class-class-o-n-annotation2-text"><span class="std std-ref">Class ON_Annotation2Text</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv410ON_wString">
+<span id="_CPPv310ON_wString"></span><span id="_CPPv210ON_wString"></span><span id="ON_wString"></span><span class="target" id="class_o_n__w_string"></span><em class="property">class </em><code class="sig-name descname">ON_wString</code><a class="headerlink" href="#_CPPv410ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Subclassed by <a class="reference internal" href="class_o_n___annotation2_text.html#class_o_n___annotation2_text"><span class="std std-ref">ON_Annotation2Text</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEv">
+<span id="_CPPv3N10ON_wString10ON_wStringEv"></span><span id="_CPPv2N10ON_wString10ON_wStringEv"></span><span id="ON_wString::ON_wString"></span><span class="target" id="class_o_n__w_string_1a0d76b30dcb7085fce9c7d55a62365c3e"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringERK10ON_wString">
+<span id="_CPPv3N10ON_wString10ON_wStringERK10ON_wString"></span><span id="_CPPv2N10ON_wString10ON_wStringERK10ON_wString"></span><span id="ON_wString::ON_wString__ON_wStringCR"></span><span class="target" id="class_o_n__w_string_1a3ac73383c8947e1bba8f3c526465a467"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N10ON_wString10ON_wStringEv" title="ON_wString::ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringERK9ON_String">
+<span id="_CPPv3N10ON_wString10ON_wStringERK9ON_String"></span><span id="_CPPv2N10ON_wString10ON_wStringERK9ON_String"></span><span id="ON_wString::ON_wString__ON_StringCR"></span><span class="target" id="class_o_n__w_string_1ac8afb39c0734e93944cbca21a042c56e"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="class_o_n___string.html#_CPPv49ON_String" title="ON_String">ON_String</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringERK9ON_String" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEPKc">
+<span id="_CPPv3N10ON_wString10ON_wStringEPKc"></span><span id="_CPPv2N10ON_wString10ON_wStringEPKc"></span><span id="ON_wString::ON_wString__cCP"></span><span class="target" id="class_o_n__w_string_1acaaff42f4137ad5da8178c19aab23adc"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEPKci">
+<span id="_CPPv3N10ON_wString10ON_wStringEPKci"></span><span id="_CPPv2N10ON_wString10ON_wStringEPKci"></span><span id="ON_wString::ON_wString__cCP.i"></span><span class="target" id="class_o_n__w_string_1ac38357a539936da187c75451bca24437"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>src</em>, int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEPKci" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEci">
+<span id="_CPPv3N10ON_wString10ON_wStringEci"></span><span id="_CPPv2N10ON_wString10ON_wStringEci"></span><span id="ON_wString::ON_wString__c.i"></span><span class="target" id="class_o_n__w_string_1a2a6cb8befc57a5cd050ffb179e06db8a"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span>char, int = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEci" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEPKh">
+<span id="_CPPv3N10ON_wString10ON_wStringEPKh"></span><span id="_CPPv2N10ON_wString10ON_wStringEPKh"></span><span id="ON_wString::ON_wString__unsigned-cCP"></span><span class="target" id="class_o_n__w_string_1a91f9267124ad4bf8265300bae4a32a56"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEPKhi">
+<span id="_CPPv3N10ON_wString10ON_wStringEPKhi"></span><span id="_CPPv2N10ON_wString10ON_wStringEPKhi"></span><span id="ON_wString::ON_wString__unsigned-cCP.i"></span><span class="target" id="class_o_n__w_string_1a65596e6a98a0ae06fec2719ac121c839"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<em>src</em>, int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEPKhi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEhi">
+<span id="_CPPv3N10ON_wString10ON_wStringEhi"></span><span id="_CPPv2N10ON_wString10ON_wStringEhi"></span><span id="ON_wString::ON_wString__unsigned-c.i"></span><span class="target" id="class_o_n__w_string_1acb6ad82c67ab9a70defcce6d2b82b483"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span>unsigned char, int = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEhi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEPKw">
+<span id="_CPPv3N10ON_wString10ON_wStringEPKw"></span><span id="_CPPv2N10ON_wString10ON_wStringEPKw"></span><span id="ON_wString::ON_wString__wchar_tCP"></span><span class="target" id="class_o_n__w_string_1a8b3b223968d0b44625f1d01bd15ec6f5"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEPKwi">
+<span id="_CPPv3N10ON_wString10ON_wStringEPKwi"></span><span id="_CPPv2N10ON_wString10ON_wStringEPKwi"></span><span id="ON_wString::ON_wString__wchar_tCP.i"></span><span class="target" id="class_o_n__w_string_1a9d475bf6944616b4f0fb90d2f142c450"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *, int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEPKwi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString10ON_wStringEwi">
+<span id="_CPPv3N10ON_wString10ON_wStringEwi"></span><span id="_CPPv2N10ON_wString10ON_wStringEwi"></span><span id="ON_wString::ON_wString__wchar_t.i"></span><span class="target" id="class_o_n__w_string_1ad008458f39fc745fb182db79ec832a81"></span><code class="sig-name descname">ON_wString</code><span class="sig-paren">(</span>wchar_t, int = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString10ON_wStringEwi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString6CreateEv">
+<span id="_CPPv3N10ON_wString6CreateEv"></span><span id="_CPPv2N10ON_wString6CreateEv"></span><span id="ON_wString::Create"></span><span class="target" id="class_o_n__w_string_1a63edfcd8d8a5744bfe8460d754232b1c"></span>void <code class="sig-name descname">Create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString6CreateEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString7DestroyEv">
+<span id="_CPPv3N10ON_wString7DestroyEv"></span><span id="_CPPv2N10ON_wString7DestroyEv"></span><span id="ON_wString::Destroy"></span><span class="target" id="class_o_n__w_string_1a7e486546afba0094d38da5031341fe25"></span>void <code class="sig-name descname">Destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString7DestroyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString16EmergencyDestroyEv">
+<span id="_CPPv3N10ON_wString16EmergencyDestroyEv"></span><span id="_CPPv2N10ON_wString16EmergencyDestroyEv"></span><span id="ON_wString::EmergencyDestroy"></span><span class="target" id="class_o_n__w_string_1ae6e70a97bd1b3a45ba4196fb32cd055a"></span>void <code class="sig-name descname">EmergencyDestroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString16EmergencyDestroyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString23EnableReferenceCountingEb">
+<span id="_CPPv3N10ON_wString23EnableReferenceCountingEb"></span><span id="_CPPv2N10ON_wString23EnableReferenceCountingEb"></span><span id="ON_wString::EnableReferenceCounting__b"></span><span class="target" id="class_o_n__w_string_1a8c127bd68c7a0b7fb6ef81fce8fb4ab7"></span>void <code class="sig-name descname">EnableReferenceCounting</code><span class="sig-paren">(</span>bool <em>bEnable</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString23EnableReferenceCountingEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString18IsReferenceCountedEv">
+<span id="_CPPv3NK10ON_wString18IsReferenceCountedEv"></span><span id="_CPPv2NK10ON_wString18IsReferenceCountedEv"></span><span id="ON_wString::IsReferenceCountedC"></span><span class="target" id="class_o_n__w_string_1a8e5af3ae7e8551ffce72bbf40db62a6a"></span>bool <code class="sig-name descname">IsReferenceCounted</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString18IsReferenceCountedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString6LengthEv">
+<span id="_CPPv3NK10ON_wString6LengthEv"></span><span id="_CPPv2NK10ON_wString6LengthEv"></span><span id="ON_wString::LengthC"></span><span class="target" id="class_o_n__w_string_1a54018e3adb0ec2a536259d5faa98492b"></span>int <code class="sig-name descname">Length</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString6LengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString7IsEmptyEv">
+<span id="_CPPv3NK10ON_wString7IsEmptyEv"></span><span id="_CPPv2NK10ON_wString7IsEmptyEv"></span><span id="ON_wString::IsEmptyC"></span><span class="target" id="class_o_n__w_string_1a60eb79ea364578193273339513351070"></span>bool <code class="sig-name descname">IsEmpty</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString7IsEmptyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString5EmptyEv">
+<span id="_CPPv3N10ON_wString5EmptyEv"></span><span id="_CPPv2N10ON_wString5EmptyEv"></span><span id="ON_wString::Empty"></span><span class="target" id="class_o_n__w_string_1a702b65a43148e77cfff8d60b73d9bac6"></span>void <code class="sig-name descname">Empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString5EmptyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringixEi">
+<span id="_CPPv3N10ON_wStringixEi"></span><span id="_CPPv2N10ON_wStringixEi"></span><span id="ON_wString::subscript-operator__i"></span><span class="target" id="class_o_n__w_string_1aaa287a809cd1d1eab5a7a48babcdf3d5"></span>wchar_t &amp;<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringixEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringixEi">
+<span id="_CPPv3NK10ON_wStringixEi"></span><span id="_CPPv2NK10ON_wStringixEi"></span><span id="ON_wString::subscript-operator__iC"></span><span class="target" id="class_o_n__w_string_1aad7a80517306f0c2fbba292f0a303eb6"></span>wchar_t <code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringixEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString5GetAtEi">
+<span id="_CPPv3NK10ON_wString5GetAtEi"></span><span id="_CPPv2NK10ON_wString5GetAtEi"></span><span id="ON_wString::GetAt__iC"></span><span class="target" id="class_o_n__w_string_1a4f0665bb507004baeb87a2c548bc4b12"></span>wchar_t <code class="sig-name descname">GetAt</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString5GetAtEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString5SetAtEic">
+<span id="_CPPv3N10ON_wString5SetAtEic"></span><span id="_CPPv2N10ON_wString5SetAtEic"></span><span id="ON_wString::SetAt__i.c"></span><span class="target" id="class_o_n__w_string_1a28b83aee40e92cc705ae3932750a1f83"></span>void <code class="sig-name descname">SetAt</code><span class="sig-paren">(</span>int, char<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString5SetAtEic" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString5SetAtEih">
+<span id="_CPPv3N10ON_wString5SetAtEih"></span><span id="_CPPv2N10ON_wString5SetAtEih"></span><span id="ON_wString::SetAt__i.unsigned-c"></span><span class="target" id="class_o_n__w_string_1a66fe0ec18dd1f1f50f8052251013f644"></span>void <code class="sig-name descname">SetAt</code><span class="sig-paren">(</span>int, unsigned char<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString5SetAtEih" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString5SetAtEiw">
+<span id="_CPPv3N10ON_wString5SetAtEiw"></span><span id="_CPPv2N10ON_wString5SetAtEiw"></span><span id="ON_wString::SetAt__i.wchar_t"></span><span class="target" id="class_o_n__w_string_1ae698eff015c7ecaf17df0d2a71ed11fe"></span>void <code class="sig-name descname">SetAt</code><span class="sig-paren">(</span>int, wchar_t<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString5SetAtEiw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringcvPKwEv">
+<span id="_CPPv3NK10ON_wStringcvPKwEv"></span><span id="_CPPv2NK10ON_wStringcvPKwEv"></span><span id="ON_wString::castto-wchar_tCP-operatorC"></span><span class="target" id="class_o_n__w_string_1a4e061674365b045e012191feb84bccaf"></span><code class="sig-name descname">operator const wchar_t *</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringcvPKwEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringaSERK10ON_wString">
+<span id="_CPPv3N10ON_wStringaSERK10ON_wString"></span><span id="_CPPv2N10ON_wStringaSERK10ON_wString"></span><span id="ON_wString::assign-operator__ON_wStringCR"></span><span class="target" id="class_o_n__w_string_1af471d297bf238af4cd449a11f9ce2ab6"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringaSERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringaSERK9ON_String">
+<span id="_CPPv3N10ON_wStringaSERK9ON_String"></span><span id="_CPPv2N10ON_wStringaSERK9ON_String"></span><span id="ON_wString::assign-operator__ON_StringCR"></span><span class="target" id="class_o_n__w_string_1ae3379fe52ed8427fcdce53e2888244cd"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="class_o_n___string.html#_CPPv49ON_String" title="ON_String">ON_String</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringaSERK9ON_String" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringaSEc">
+<span id="_CPPv3N10ON_wStringaSEc"></span><span id="_CPPv2N10ON_wStringaSEc"></span><span id="ON_wString::assign-operator__c"></span><span class="target" id="class_o_n__w_string_1ada17debb46c23f1ad982bc79513e2d02"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span>char<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringaSEc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringaSEPKc">
+<span id="_CPPv3N10ON_wStringaSEPKc"></span><span id="_CPPv2N10ON_wStringaSEPKc"></span><span id="ON_wString::assign-operator__cCP"></span><span class="target" id="class_o_n__w_string_1a90a1580edff63cdb88b22b38b1e9a875"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringaSEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringaSEh">
+<span id="_CPPv3N10ON_wStringaSEh"></span><span id="_CPPv2N10ON_wStringaSEh"></span><span id="ON_wString::assign-operator__unsigned-c"></span><span class="target" id="class_o_n__w_string_1a282a1b0d8239f9a983f76c8595a0c4b2"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span>unsigned char<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringaSEh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringaSEPKh">
+<span id="_CPPv3N10ON_wStringaSEPKh"></span><span id="_CPPv2N10ON_wStringaSEPKh"></span><span id="ON_wString::assign-operator__unsigned-cCP"></span><span class="target" id="class_o_n__w_string_1a099cbc826801de1eae624868de9b1b3b"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringaSEPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringaSEw">
+<span id="_CPPv3N10ON_wStringaSEw"></span><span id="_CPPv2N10ON_wStringaSEw"></span><span id="ON_wString::assign-operator__wchar_t"></span><span class="target" id="class_o_n__w_string_1a060156a41821c23188b1ffa5313d62af"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span>wchar_t<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringaSEw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringaSEPKw">
+<span id="_CPPv3N10ON_wStringaSEPKw"></span><span id="_CPPv2N10ON_wStringaSEPKw"></span><span id="ON_wString::assign-operator__wchar_tCP"></span><span class="target" id="class_o_n__w_string_1aa7d94350ce93f9f9086a009cd7126091"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringaSEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString6AppendEPKci">
+<span id="_CPPv3N10ON_wString6AppendEPKci"></span><span id="_CPPv2N10ON_wString6AppendEPKci"></span><span id="ON_wString::Append__cCP.i"></span><span class="target" id="class_o_n__w_string_1a4154720a855e9ee00f13e9c7dd33f8c7"></span>void <code class="sig-name descname">Append</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>sUTF8</em>, int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString6AppendEPKci" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString6AppendEPKhi">
+<span id="_CPPv3N10ON_wString6AppendEPKhi"></span><span id="_CPPv2N10ON_wString6AppendEPKhi"></span><span id="ON_wString::Append__unsigned-cCP.i"></span><span class="target" id="class_o_n__w_string_1a1baa33c065967e6db135af5306b4cd52"></span>void <code class="sig-name descname">Append</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<em>sUTF8</em>, int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString6AppendEPKhi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString6AppendEPKwi">
+<span id="_CPPv3N10ON_wString6AppendEPKwi"></span><span id="_CPPv2N10ON_wString6AppendEPKwi"></span><span id="ON_wString::Append__wchar_tCP.i"></span><span class="target" id="class_o_n__w_string_1a0fe39fe38038961f29e7343b921914b5"></span>void <code class="sig-name descname">Append</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *, int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString6AppendEPKwi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringpLERK10ON_wString">
+<span id="_CPPv3N10ON_wStringpLERK10ON_wString"></span><span id="_CPPv2N10ON_wStringpLERK10ON_wString"></span><span id="ON_wString::add-assign-operator__ON_wStringCR"></span><span class="target" id="class_o_n__w_string_1a238992d6ebf83c0265f8a7d98205deac"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringpLERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringpLERK9ON_String">
+<span id="_CPPv3N10ON_wStringpLERK9ON_String"></span><span id="_CPPv2N10ON_wStringpLERK9ON_String"></span><span id="ON_wString::add-assign-operator__ON_StringCR"></span><span class="target" id="class_o_n__w_string_1a2f7323a187b77705e8ff21b65bf0384a"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="class_o_n___string.html#_CPPv49ON_String" title="ON_String">ON_String</a> &amp;<em>sUTF8</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringpLERK9ON_String" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringpLEc">
+<span id="_CPPv3N10ON_wStringpLEc"></span><span id="_CPPv2N10ON_wStringpLEc"></span><span id="ON_wString::add-assign-operator__c"></span><span class="target" id="class_o_n__w_string_1a85f658b0086dea64c655868c315c4523"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span>char<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringpLEc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringpLEh">
+<span id="_CPPv3N10ON_wStringpLEh"></span><span id="_CPPv2N10ON_wStringpLEh"></span><span id="ON_wString::add-assign-operator__unsigned-c"></span><span class="target" id="class_o_n__w_string_1a19369e10313837e9602518ac69add872"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span>unsigned char<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringpLEh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringpLEw">
+<span id="_CPPv3N10ON_wStringpLEw"></span><span id="_CPPv2N10ON_wStringpLEw"></span><span id="ON_wString::add-assign-operator__wchar_t"></span><span class="target" id="class_o_n__w_string_1a270dc3289f78d88d495d3d1e6ea46b14"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span>wchar_t<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringpLEw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringpLEPKc">
+<span id="_CPPv3N10ON_wStringpLEPKc"></span><span id="_CPPv2N10ON_wStringpLEPKc"></span><span id="ON_wString::add-assign-operator__cCP"></span><span class="target" id="class_o_n__w_string_1a4bd9c145cec52ac9671a7ad520d220d7"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>sUTF8</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringpLEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringpLEPKh">
+<span id="_CPPv3N10ON_wStringpLEPKh"></span><span id="_CPPv2N10ON_wStringpLEPKh"></span><span id="ON_wString::add-assign-operator__unsigned-cCP"></span><span class="target" id="class_o_n__w_string_1a873d61b7a2ac35d3f2f011575b6eff06"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<em>sUTF8</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringpLEPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringpLEPKw">
+<span id="_CPPv3N10ON_wStringpLEPKw"></span><span id="_CPPv2N10ON_wStringpLEPKw"></span><span id="ON_wString::add-assign-operator__wchar_tCP"></span><span class="target" id="class_o_n__w_string_1a36218ff0451f0a00facfdbc104db8e1f"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringpLEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringplERK10ON_wString">
+<span id="_CPPv3NK10ON_wStringplERK10ON_wString"></span><span id="_CPPv2NK10ON_wStringplERK10ON_wString"></span><span id="ON_wString::add-operator__ON_wStringCRC"></span><span class="target" id="class_o_n__w_string_1a1f64d7afe20666698ef1b69fc557ecde"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">operator+</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringplERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringplERK9ON_String">
+<span id="_CPPv3NK10ON_wStringplERK9ON_String"></span><span id="_CPPv2NK10ON_wStringplERK9ON_String"></span><span id="ON_wString::add-operator__ON_StringCRC"></span><span class="target" id="class_o_n__w_string_1a5a8a2b8085d83d2a64469e2c252b9f7d"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">operator+</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="class_o_n___string.html#_CPPv49ON_String" title="ON_String">ON_String</a> &amp;<em>sUTF8</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringplERK9ON_String" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringplEc">
+<span id="_CPPv3NK10ON_wStringplEc"></span><span id="_CPPv2NK10ON_wStringplEc"></span><span id="ON_wString::add-operator__cC"></span><span class="target" id="class_o_n__w_string_1a452e7f4bac30e5e86bdb3adb7f4e5770"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">operator+</code><span class="sig-paren">(</span>char<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringplEc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringplEh">
+<span id="_CPPv3NK10ON_wStringplEh"></span><span id="_CPPv2NK10ON_wStringplEh"></span><span id="ON_wString::add-operator__unsigned-cC"></span><span class="target" id="class_o_n__w_string_1a6fea5225bcc8b158e43dff433955b83b"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">operator+</code><span class="sig-paren">(</span>unsigned char<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringplEh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringplEw">
+<span id="_CPPv3NK10ON_wStringplEw"></span><span id="_CPPv2NK10ON_wStringplEw"></span><span id="ON_wString::add-operator__wchar_tC"></span><span class="target" id="class_o_n__w_string_1acc4fc4400b7b0049eb91a7bcb51f2382"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">operator+</code><span class="sig-paren">(</span>wchar_t<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringplEw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringplEPKc">
+<span id="_CPPv3NK10ON_wStringplEPKc"></span><span id="_CPPv2NK10ON_wStringplEPKc"></span><span id="ON_wString::add-operator__cCPC"></span><span class="target" id="class_o_n__w_string_1aaca0bc1aa5bac52915d27968139bcc04"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">operator+</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>sUTF8</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringplEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringplEPKh">
+<span id="_CPPv3NK10ON_wStringplEPKh"></span><span id="_CPPv2NK10ON_wStringplEPKh"></span><span id="ON_wString::add-operator__unsigned-cCPC"></span><span class="target" id="class_o_n__w_string_1ad864685b7ada4f223109a2875d86be40"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">operator+</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<em>sUTF8</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringplEPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringplEPKw">
+<span id="_CPPv3NK10ON_wStringplEPKw"></span><span id="_CPPv2NK10ON_wStringplEPKw"></span><span id="ON_wString::add-operator__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1ac81035fab0f4e906cb23712610b93412"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">operator+</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringplEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringeqERK10ON_wString">
+<span id="_CPPv3NK10ON_wStringeqERK10ON_wString"></span><span id="_CPPv2NK10ON_wStringeqERK10ON_wString"></span><span id="ON_wString::eq-operator__ON_wStringCRC"></span><span class="target" id="class_o_n__w_string_1a1c3f115ec35bcb43b5cde78564182ad5"></span>bool <code class="sig-name descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringeqERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringeqEPKw">
+<span id="_CPPv3NK10ON_wStringeqEPKw"></span><span id="_CPPv2NK10ON_wStringeqEPKw"></span><span id="ON_wString::eq-operator__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1a6d6042516ef283ef6d1f16057dc124c1"></span>bool <code class="sig-name descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringeqEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringneERK10ON_wString">
+<span id="_CPPv3NK10ON_wStringneERK10ON_wString"></span><span id="_CPPv2NK10ON_wStringneERK10ON_wString"></span><span id="ON_wString::neq-operator__ON_wStringCRC"></span><span class="target" id="class_o_n__w_string_1ac874675de24d74169047b5875f2155d3"></span>bool <code class="sig-name descname">operator!=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringneERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringneEPKw">
+<span id="_CPPv3NK10ON_wStringneEPKw"></span><span id="_CPPv2NK10ON_wStringneEPKw"></span><span id="ON_wString::neq-operator__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1afbd1fe86ec6cbc9bbf77c8144c07a246"></span>bool <code class="sig-name descname">operator!=</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringneEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringltERK10ON_wString">
+<span id="_CPPv3NK10ON_wStringltERK10ON_wString"></span><span id="_CPPv2NK10ON_wStringltERK10ON_wString"></span><span id="ON_wString::lt-operator__ON_wStringCRC"></span><span class="target" id="class_o_n__w_string_1a605e5e69aee239975928c0f352c4e340"></span>bool <code class="sig-name descname">operator&lt;</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringltERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringltEPKw">
+<span id="_CPPv3NK10ON_wStringltEPKw"></span><span id="_CPPv2NK10ON_wStringltEPKw"></span><span id="ON_wString::lt-operator__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1a19d90007ca63eea8d00d7d86f1ad2a18"></span>bool <code class="sig-name descname">operator&lt;</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringltEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringgtERK10ON_wString">
+<span id="_CPPv3NK10ON_wStringgtERK10ON_wString"></span><span id="_CPPv2NK10ON_wStringgtERK10ON_wString"></span><span id="ON_wString::gt-operator__ON_wStringCRC"></span><span class="target" id="class_o_n__w_string_1ac85bb95e508533b0da2751f16e21e45f"></span>bool <code class="sig-name descname">operator&gt;</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringgtERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringgtEPKw">
+<span id="_CPPv3NK10ON_wStringgtEPKw"></span><span id="_CPPv2NK10ON_wStringgtEPKw"></span><span id="ON_wString::gt-operator__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1afd2e3b7eabf59f060d72d4ea86613931"></span>bool <code class="sig-name descname">operator&gt;</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringgtEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringleERK10ON_wString">
+<span id="_CPPv3NK10ON_wStringleERK10ON_wString"></span><span id="_CPPv2NK10ON_wStringleERK10ON_wString"></span><span id="ON_wString::lte-operator__ON_wStringCRC"></span><span class="target" id="class_o_n__w_string_1a1f6b0ea266ae2b2b25e7d06170200dcd"></span>bool <code class="sig-name descname">operator&lt;=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringleERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringleEPKw">
+<span id="_CPPv3NK10ON_wStringleEPKw"></span><span id="_CPPv2NK10ON_wStringleEPKw"></span><span id="ON_wString::lte-operator__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1ac339a20ee13ac780f63c64c74cfc050a"></span>bool <code class="sig-name descname">operator&lt;=</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringleEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringgeERK10ON_wString">
+<span id="_CPPv3NK10ON_wStringgeERK10ON_wString"></span><span id="_CPPv2NK10ON_wStringgeERK10ON_wString"></span><span id="ON_wString::gte-operator__ON_wStringCRC"></span><span class="target" id="class_o_n__w_string_1ab507cf8beb5035a96c7fe447c20d7aab"></span>bool <code class="sig-name descname">operator&gt;=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringgeERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wStringgeEPKw">
+<span id="_CPPv3NK10ON_wStringgeEPKw"></span><span id="_CPPv2NK10ON_wStringgeEPKw"></span><span id="ON_wString::gte-operator__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1a679428cae3382bc805018aed544a58c5"></span>bool <code class="sig-name descname">operator&gt;=</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wStringgeEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString7CompareEPKc">
+<span id="_CPPv3NK10ON_wString7CompareEPKc"></span><span id="_CPPv2NK10ON_wString7CompareEPKc"></span><span id="ON_wString::Compare__cCPC"></span><span class="target" id="class_o_n__w_string_1a6d5ac59b7e51c3cf75607f05cb36fc20"></span>int <code class="sig-name descname">Compare</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>sUTF8</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString7CompareEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString7CompareEPKh">
+<span id="_CPPv3NK10ON_wString7CompareEPKh"></span><span id="_CPPv2NK10ON_wString7CompareEPKh"></span><span id="ON_wString::Compare__unsigned-cCPC"></span><span class="target" id="class_o_n__w_string_1a402fe055d45eded16d22b8d8b1df085c"></span>int <code class="sig-name descname">Compare</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<em>sUTF8</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString7CompareEPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString7CompareEPKw">
+<span id="_CPPv3NK10ON_wString7CompareEPKw"></span><span id="_CPPv2NK10ON_wString7CompareEPKw"></span><span id="ON_wString::Compare__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1ad673eeaedde360d54a75be09de99261f"></span>int <code class="sig-name descname">Compare</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString7CompareEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString13CompareNoCaseEPKc">
+<span id="_CPPv3NK10ON_wString13CompareNoCaseEPKc"></span><span id="_CPPv2NK10ON_wString13CompareNoCaseEPKc"></span><span id="ON_wString::CompareNoCase__cCPC"></span><span class="target" id="class_o_n__w_string_1a1f41a15b1198098935f1c8732ed90b75"></span>int <code class="sig-name descname">CompareNoCase</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>sUTF8</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString13CompareNoCaseEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString13CompareNoCaseEPKh">
+<span id="_CPPv3NK10ON_wString13CompareNoCaseEPKh"></span><span id="_CPPv2NK10ON_wString13CompareNoCaseEPKh"></span><span id="ON_wString::CompareNoCase__unsigned-cCPC"></span><span class="target" id="class_o_n__w_string_1a0dc3d21a9f16a19c17e4971d78e68bc0"></span>int <code class="sig-name descname">CompareNoCase</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<em>sUTF8</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString13CompareNoCaseEPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString13CompareNoCaseEPKw">
+<span id="_CPPv3NK10ON_wString13CompareNoCaseEPKw"></span><span id="_CPPv2NK10ON_wString13CompareNoCaseEPKw"></span><span id="ON_wString::CompareNoCase__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1a42e166f06e088d3b7996f3ba9836169b"></span>int <code class="sig-name descname">CompareNoCase</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString13CompareNoCaseEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString13WildCardMatchEPKw">
+<span id="_CPPv3NK10ON_wString13WildCardMatchEPKw"></span><span id="_CPPv2NK10ON_wString13WildCardMatchEPKw"></span><span id="ON_wString::WildCardMatch__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1aa74a0260c92f3f62cd19cecd3299c0f5"></span>bool <code class="sig-name descname">WildCardMatch</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString13WildCardMatchEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString19WildCardMatchNoCaseEPKw">
+<span id="_CPPv3NK10ON_wString19WildCardMatchNoCaseEPKw"></span><span id="_CPPv2NK10ON_wString19WildCardMatchNoCaseEPKw"></span><span id="ON_wString::WildCardMatchNoCase__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1a8441b33405bd6ce53748d0e43addaf19"></span>bool <code class="sig-name descname">WildCardMatchNoCase</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString19WildCardMatchNoCaseEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString7ReplaceEPKwPKw">
+<span id="_CPPv3N10ON_wString7ReplaceEPKwPKw"></span><span id="_CPPv2N10ON_wString7ReplaceEPKwPKw"></span><span id="ON_wString::Replace__wchar_tCP.wchar_tCP"></span><span class="target" id="class_o_n__w_string_1ab769a24e645568d26944d5c7c9db85e9"></span>int <code class="sig-name descname">Replace</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<em>token1</em>, <em class="property">const</em> wchar_t *<em>token2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString7ReplaceEPKwPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString7ReplaceEww">
+<span id="_CPPv3N10ON_wString7ReplaceEww"></span><span id="_CPPv2N10ON_wString7ReplaceEww"></span><span id="ON_wString::Replace__wchar_t.wchar_t"></span><span class="target" id="class_o_n__w_string_1a88db2941e725168106a79d5f852d277c"></span>int <code class="sig-name descname">Replace</code><span class="sig-paren">(</span>wchar_t <em>token1</em>, wchar_t <em>token2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString7ReplaceEww" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString9UrlEncodeEv">
+<span id="_CPPv3N10ON_wString9UrlEncodeEv"></span><span id="_CPPv2N10ON_wString9UrlEncodeEv"></span><span id="ON_wString::UrlEncode"></span><span class="target" id="class_o_n__w_string_1af4b5a7c9781958630182cc61e933674c"></span>void <code class="sig-name descname">UrlEncode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString9UrlEncodeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString9UrlDecodeEv">
+<span id="_CPPv3N10ON_wString9UrlDecodeEv"></span><span id="_CPPv2N10ON_wString9UrlDecodeEv"></span><span id="ON_wString::UrlDecode"></span><span class="target" id="class_o_n__w_string_1af8460ceaf2fd34d0d0be03d9c2be2d2b"></span>bool <code class="sig-name descname">UrlDecode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString9UrlDecodeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString17ReplaceWhiteSpaceEwPKw">
+<span id="_CPPv3N10ON_wString17ReplaceWhiteSpaceEwPKw"></span><span id="_CPPv2N10ON_wString17ReplaceWhiteSpaceEwPKw"></span><span id="ON_wString::ReplaceWhiteSpace__wchar_t.wchar_tCP"></span><span class="target" id="class_o_n__w_string_1a8315b29d93979f3d17a4917099eca093"></span>int <code class="sig-name descname">ReplaceWhiteSpace</code><span class="sig-paren">(</span>wchar_t <em>token</em>, <em class="property">const</em> wchar_t *<em>whitespace</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString17ReplaceWhiteSpaceEwPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString16RemoveWhiteSpaceEPKw">
+<span id="_CPPv3N10ON_wString16RemoveWhiteSpaceEPKw"></span><span id="_CPPv2N10ON_wString16RemoveWhiteSpaceEPKw"></span><span id="ON_wString::RemoveWhiteSpace__wchar_tCP"></span><span class="target" id="class_o_n__w_string_1a99c87d4d150a701f80b21d3b69a38dc7"></span>int <code class="sig-name descname">RemoveWhiteSpace</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<em>whitespace</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString16RemoveWhiteSpaceEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString3MidEii">
+<span id="_CPPv3NK10ON_wString3MidEii"></span><span id="_CPPv2NK10ON_wString3MidEii"></span><span id="ON_wString::Mid__i.iC"></span><span class="target" id="class_o_n__w_string_1a747b2a37d6458d376ba225268570e027"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">Mid</code><span class="sig-paren">(</span>int, int<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString3MidEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString3MidEi">
+<span id="_CPPv3NK10ON_wString3MidEi"></span><span id="_CPPv2NK10ON_wString3MidEi"></span><span id="ON_wString::Mid__iC"></span><span class="target" id="class_o_n__w_string_1a01dfa77d1d01155aef84cba4ee762dca"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">Mid</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString3MidEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString4LeftEi">
+<span id="_CPPv3NK10ON_wString4LeftEi"></span><span id="_CPPv2NK10ON_wString4LeftEi"></span><span id="ON_wString::Left__iC"></span><span class="target" id="class_o_n__w_string_1a11025f30323d5926cb23135eba998fed"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">Left</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString4LeftEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString5RightEi">
+<span id="_CPPv3NK10ON_wString5RightEi"></span><span id="_CPPv2NK10ON_wString5RightEi"></span><span id="ON_wString::Right__iC"></span><span class="target" id="class_o_n__w_string_1a76c0dfd13b58dc345d63edad36d38721"></span><a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> <code class="sig-name descname">Right</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString5RightEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString9MakeUpperEv">
+<span id="_CPPv3N10ON_wString9MakeUpperEv"></span><span id="_CPPv2N10ON_wString9MakeUpperEv"></span><span id="ON_wString::MakeUpper"></span><span class="target" id="class_o_n__w_string_1a6a632d586c8fe3f33252ffd0a76d3955"></span>void <code class="sig-name descname">MakeUpper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString9MakeUpperEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString9MakeLowerEv">
+<span id="_CPPv3N10ON_wString9MakeLowerEv"></span><span id="_CPPv2N10ON_wString9MakeLowerEv"></span><span id="ON_wString::MakeLower"></span><span class="target" id="class_o_n__w_string_1ad5a16776554ded127fb3bdd21bfe1a79"></span>void <code class="sig-name descname">MakeLower</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString9MakeLowerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString11MakeReverseEv">
+<span id="_CPPv3N10ON_wString11MakeReverseEv"></span><span id="_CPPv2N10ON_wString11MakeReverseEv"></span><span id="ON_wString::MakeReverse"></span><span class="target" id="class_o_n__w_string_1a351f0176d24068790c529a53566447e4"></span>void <code class="sig-name descname">MakeReverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString11MakeReverseEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString8TrimLeftEPKw">
+<span id="_CPPv3N10ON_wString8TrimLeftEPKw"></span><span id="_CPPv2N10ON_wString8TrimLeftEPKw"></span><span id="ON_wString::TrimLeft__wchar_tCP"></span><span class="target" id="class_o_n__w_string_1ab7ba27987d32e457eeebfc1ffbc4ad7e"></span>void <code class="sig-name descname">TrimLeft</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t * = NULL<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString8TrimLeftEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString9TrimRightEPKw">
+<span id="_CPPv3N10ON_wString9TrimRightEPKw"></span><span id="_CPPv2N10ON_wString9TrimRightEPKw"></span><span id="ON_wString::TrimRight__wchar_tCP"></span><span class="target" id="class_o_n__w_string_1a1c6f688191cd7958a6bcd713a4535956"></span>void <code class="sig-name descname">TrimRight</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t * = NULL<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString9TrimRightEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString16TrimLeftAndRightEPKw">
+<span id="_CPPv3N10ON_wString16TrimLeftAndRightEPKw"></span><span id="_CPPv2N10ON_wString16TrimLeftAndRightEPKw"></span><span id="ON_wString::TrimLeftAndRight__wchar_tCP"></span><span class="target" id="class_o_n__w_string_1a40fb181c24e3acec33ea4bc48a2a2b1e"></span>void <code class="sig-name descname">TrimLeftAndRight</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t * = NULL<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString16TrimLeftAndRightEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString6RemoveEw">
+<span id="_CPPv3N10ON_wString6RemoveEw"></span><span id="_CPPv2N10ON_wString6RemoveEw"></span><span id="ON_wString::Remove__wchar_t"></span><span class="target" id="class_o_n__w_string_1af68384432b29ad118c08ccefe5f04ef6"></span>int <code class="sig-name descname">Remove</code><span class="sig-paren">(</span>wchar_t <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString6RemoveEw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString4FindEc">
+<span id="_CPPv3NK10ON_wString4FindEc"></span><span id="_CPPv2NK10ON_wString4FindEc"></span><span id="ON_wString::Find__cC"></span><span class="target" id="class_o_n__w_string_1ad3b81525633050ac1849ccad1a6b0780"></span>int <code class="sig-name descname">Find</code><span class="sig-paren">(</span>char<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString4FindEc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString4FindEh">
+<span id="_CPPv3NK10ON_wString4FindEh"></span><span id="_CPPv2NK10ON_wString4FindEh"></span><span id="ON_wString::Find__unsigned-cC"></span><span class="target" id="class_o_n__w_string_1a828618a4acb8d5b82c73aed1416381a8"></span>int <code class="sig-name descname">Find</code><span class="sig-paren">(</span>unsigned char<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString4FindEh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString4FindEw">
+<span id="_CPPv3NK10ON_wString4FindEw"></span><span id="_CPPv2NK10ON_wString4FindEw"></span><span id="ON_wString::Find__wchar_tC"></span><span class="target" id="class_o_n__w_string_1a1e53eb69ea257880912f824d5468124a"></span>int <code class="sig-name descname">Find</code><span class="sig-paren">(</span>wchar_t<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString4FindEw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString11ReverseFindEc">
+<span id="_CPPv3NK10ON_wString11ReverseFindEc"></span><span id="_CPPv2NK10ON_wString11ReverseFindEc"></span><span id="ON_wString::ReverseFind__cC"></span><span class="target" id="class_o_n__w_string_1a6c174719b0d1c20a1868583886469307"></span>int <code class="sig-name descname">ReverseFind</code><span class="sig-paren">(</span>char<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString11ReverseFindEc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString11ReverseFindEh">
+<span id="_CPPv3NK10ON_wString11ReverseFindEh"></span><span id="_CPPv2NK10ON_wString11ReverseFindEh"></span><span id="ON_wString::ReverseFind__unsigned-cC"></span><span class="target" id="class_o_n__w_string_1a145a5a148ac8c73d77784452313e2daa"></span>int <code class="sig-name descname">ReverseFind</code><span class="sig-paren">(</span>unsigned char<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString11ReverseFindEh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString11ReverseFindEw">
+<span id="_CPPv3NK10ON_wString11ReverseFindEw"></span><span id="_CPPv2NK10ON_wString11ReverseFindEw"></span><span id="ON_wString::ReverseFind__wchar_tC"></span><span class="target" id="class_o_n__w_string_1a2dc05a896cb02db83edbed07f82f8cb4"></span>int <code class="sig-name descname">ReverseFind</code><span class="sig-paren">(</span>wchar_t<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString11ReverseFindEw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString4FindEPKc">
+<span id="_CPPv3NK10ON_wString4FindEPKc"></span><span id="_CPPv2NK10ON_wString4FindEPKc"></span><span id="ON_wString::Find__cCPC"></span><span class="target" id="class_o_n__w_string_1ae2f000b84ec56044023ef29c5fb40016"></span>int <code class="sig-name descname">Find</code><span class="sig-paren">(</span><em class="property">const</em> char *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString4FindEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString4FindEPKh">
+<span id="_CPPv3NK10ON_wString4FindEPKh"></span><span id="_CPPv2NK10ON_wString4FindEPKh"></span><span id="ON_wString::Find__unsigned-cCPC"></span><span class="target" id="class_o_n__w_string_1a265306a0965d70a02bf09b6422f2f85a"></span>int <code class="sig-name descname">Find</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString4FindEPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString4FindEPKw">
+<span id="_CPPv3NK10ON_wString4FindEPKw"></span><span id="_CPPv2NK10ON_wString4FindEPKw"></span><span id="ON_wString::Find__wchar_tCPC"></span><span class="target" id="class_o_n__w_string_1a6c6ea81c6e920788e9e87b8c1f593318"></span>int <code class="sig-name descname">Find</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString4FindEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n__w_string_1ae30c0d69db67f333dad40786c2f3c1d5"></span><code class="sig-name descname">void ON_MSC_CDECL ON_wString::Format(const char *, ...)</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n__w_string_1aa6ecc1525db1b92dcc08a262a5d3e978"></span><code class="sig-name descname">void ON_MSC_CDECL ON_wString::Format(const unsigned char *, ...)</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n__w_string_1a7f7db41adf39d7b754b3e56da7897c80"></span><code class="sig-name descname">void ON_MSC_CDECL ON_wString::Format(const wchar_t *, ...)</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString12ReserveArrayE6size_t">
+<span id="_CPPv3N10ON_wString12ReserveArrayE6size_t"></span><span id="_CPPv2N10ON_wString12ReserveArrayE6size_t"></span><span id="ON_wString::ReserveArray__s"></span><span class="target" id="class_o_n__w_string_1a256a4036c9439c2075ae6be9d8fd0af8"></span>void <code class="sig-name descname">ReserveArray</code><span class="sig-paren">(</span>size_t<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString12ReserveArrayE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString11ShrinkArrayEv">
+<span id="_CPPv3N10ON_wString11ShrinkArrayEv"></span><span id="_CPPv2N10ON_wString11ShrinkArrayEv"></span><span id="ON_wString::ShrinkArray"></span><span class="target" id="class_o_n__w_string_1a08db4739ce8c388eac08ea6cec94bba3"></span>void <code class="sig-name descname">ShrinkArray</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString11ShrinkArrayEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString9SetLengthE6size_t">
+<span id="_CPPv3N10ON_wString9SetLengthE6size_t"></span><span id="_CPPv2N10ON_wString9SetLengthE6size_t"></span><span id="ON_wString::SetLength__s"></span><span class="target" id="class_o_n__w_string_1ac9a5920a89724ddd9bf9be11e4ec0d4c"></span>void <code class="sig-name descname">SetLength</code><span class="sig-paren">(</span>size_t<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString9SetLengthE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString5ArrayEv">
+<span id="_CPPv3N10ON_wString5ArrayEv"></span><span id="_CPPv2N10ON_wString5ArrayEv"></span><span id="ON_wString::Array"></span><span class="target" id="class_o_n__w_string_1abf6b5a32152cd5b4b47399ade6ee4c02"></span>wchar_t *<code class="sig-name descname">Array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString5ArrayEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString5ArrayEv">
+<span id="_CPPv3NK10ON_wString5ArrayEv"></span><span id="_CPPv2NK10ON_wString5ArrayEv"></span><span id="ON_wString::ArrayC"></span><span class="target" id="class_o_n__w_string_1ab444fd1486023180a7545fa5bbacf648"></span><em class="property">const</em> wchar_t *<code class="sig-name descname">Array</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString5ArrayEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString6SizeOfEv">
+<span id="_CPPv3NK10ON_wString6SizeOfEv"></span><span id="_CPPv2NK10ON_wString6SizeOfEv"></span><span id="ON_wString::SizeOfC"></span><span class="target" id="class_o_n__w_string_1a3ac009a3f3deca4442c453078108c266"></span>unsigned int <code class="sig-name descname">SizeOf</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString6SizeOfEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString7DataCRCE10ON__UINT32">
+<span id="_CPPv3NK10ON_wString7DataCRCE10ON__UINT32"></span><span id="_CPPv2NK10ON_wString7DataCRCE10ON__UINT32"></span><span id="ON_wString::DataCRC__ON__UINT32C"></span><span class="target" id="class_o_n__w_string_1adb76a629e22ab9c8d1151387832401c8"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1aea03c6f4bab106103ada72c766f7fe5c.html#_CPPv410ON__UINT32" title="ON__UINT32">ON__UINT32</a> <code class="sig-name descname">DataCRC</code><span class="sig-paren">(</span><a class="reference internal" href="typedef_opennurbs__system_8h_1aea03c6f4bab106103ada72c766f7fe5c.html#_CPPv410ON__UINT32" title="ON__UINT32">ON__UINT32</a> <em>current_remainder</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString7DataCRCE10ON__UINT32" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString12DataCRCLowerE10ON__UINT32">
+<span id="_CPPv3NK10ON_wString12DataCRCLowerE10ON__UINT32"></span><span id="_CPPv2NK10ON_wString12DataCRCLowerE10ON__UINT32"></span><span id="ON_wString::DataCRCLower__ON__UINT32C"></span><span class="target" id="class_o_n__w_string_1a6f453a0a48494a09c5ce97cb07605fe7"></span><a class="reference internal" href="typedef_opennurbs__system_8h_1aea03c6f4bab106103ada72c766f7fe5c.html#_CPPv410ON__UINT32" title="ON__UINT32">ON__UINT32</a> <code class="sig-name descname">DataCRCLower</code><span class="sig-paren">(</span><a class="reference internal" href="typedef_opennurbs__system_8h_1aea03c6f4bab106103ada72c766f7fe5c.html#_CPPv410ON__UINT32" title="ON__UINT32">ON__UINT32</a> <em>current_remainder</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString12DataCRCLowerE10ON__UINT32" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wStringD0Ev">
+<span id="_CPPv3N10ON_wStringD0Ev"></span><span id="_CPPv2N10ON_wStringD0Ev"></span><span id="ON_wString::~ON_wString"></span><span class="target" id="class_o_n__w_string_1a78cb3816dd1074d460a7bb4c0d0e64ca"></span><code class="sig-name descname">~ON_wString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wStringD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N10ON_wString9SplitPathEPKcP10ON_wStringP10ON_wStringP10ON_wStringP10ON_wString">
+<span id="_CPPv3N10ON_wString9SplitPathEPKcP10ON_wStringP10ON_wStringP10ON_wStringP10ON_wString"></span><span id="_CPPv2N10ON_wString9SplitPathEPKcP10ON_wStringP10ON_wStringP10ON_wStringP10ON_wString"></span><span id="ON_wString::SplitPath__cCP.ON_wStringP.ON_wStringP.ON_wStringP.ON_wStringP"></span><span class="target" id="class_o_n__w_string_1a4c8a87aee6b2c96c5c6c2a9900b7f56d"></span><em class="property">static</em> void <code class="sig-name descname">SplitPath</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>path</em>, <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> *<em>drive</em>, <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> *<em>dir</em>, <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> *<em>fname</em>, <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> *<em>ext</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString9SplitPathEPKcP10ON_wStringP10ON_wStringP10ON_wStringP10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString9SplitPathEPKwP10ON_wStringP10ON_wStringP10ON_wStringP10ON_wString">
+<span id="_CPPv3N10ON_wString9SplitPathEPKwP10ON_wStringP10ON_wStringP10ON_wStringP10ON_wString"></span><span id="_CPPv2N10ON_wString9SplitPathEPKwP10ON_wStringP10ON_wStringP10ON_wStringP10ON_wString"></span><span id="ON_wString::SplitPath__wchar_tCP.ON_wStringP.ON_wStringP.ON_wStringP.ON_wStringP"></span><span class="target" id="class_o_n__w_string_1aa53707abea8565352078b1616ee3d47c"></span><em class="property">static</em> void <code class="sig-name descname">SplitPath</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<em>path</em>, <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> *<em>drive</em>, <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> *<em>dir</em>, <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> *<em>fname</em>, <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a> *<em>ext</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString9SplitPathEPKwP10ON_wStringP10ON_wStringP10ON_wStringP10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK10ON_wString6HeaderEv">
+<span id="_CPPv3NK10ON_wString6HeaderEv"></span><span id="_CPPv2NK10ON_wString6HeaderEv"></span><span id="ON_wString::HeaderC"></span><span class="target" id="class_o_n__w_string_1a722e0dcf3df2ba29b222cab7df280ca5"></span><em class="property">struct</em> ON_wStringHeader *<code class="sig-name descname">Header</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK10ON_wString6HeaderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString11CreateArrayEi">
+<span id="_CPPv3N10ON_wString11CreateArrayEi"></span><span id="_CPPv2N10ON_wString11CreateArrayEi"></span><span id="ON_wString::CreateArray__i"></span><span class="target" id="class_o_n__w_string_1a0156f6806fd29a2240a11b075b44cf8c"></span>void <code class="sig-name descname">CreateArray</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString11CreateArrayEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString9CopyArrayEv">
+<span id="_CPPv3N10ON_wString9CopyArrayEv"></span><span id="_CPPv2N10ON_wString9CopyArrayEv"></span><span id="ON_wString::CopyArray"></span><span class="target" id="class_o_n__w_string_1aab104f4eab4bebe4db043425fdff04bc"></span>void <code class="sig-name descname">CopyArray</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString9CopyArrayEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString11CopyToArrayERK10ON_wString">
+<span id="_CPPv3N10ON_wString11CopyToArrayERK10ON_wString"></span><span id="_CPPv2N10ON_wString11CopyToArrayERK10ON_wString"></span><span id="ON_wString::CopyToArray__ON_wStringCR"></span><span class="target" id="class_o_n__w_string_1aa2c366c6386359aa0e77f1d50d30cb6d"></span>void <code class="sig-name descname">CopyToArray</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString11CopyToArrayERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString11CopyToArrayEiPKc">
+<span id="_CPPv3N10ON_wString11CopyToArrayEiPKc"></span><span id="_CPPv2N10ON_wString11CopyToArrayEiPKc"></span><span id="ON_wString::CopyToArray__i.cCP"></span><span class="target" id="class_o_n__w_string_1a90c015817428ce4322df332065bb1e29"></span>void <code class="sig-name descname">CopyToArray</code><span class="sig-paren">(</span>int, <em class="property">const</em> char *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString11CopyToArrayEiPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString11CopyToArrayEiPKh">
+<span id="_CPPv3N10ON_wString11CopyToArrayEiPKh"></span><span id="_CPPv2N10ON_wString11CopyToArrayEiPKh"></span><span id="ON_wString::CopyToArray__i.unsigned-cCP"></span><span class="target" id="class_o_n__w_string_1a24288fceaf6d8139e80bfa966dd8c995"></span>void <code class="sig-name descname">CopyToArray</code><span class="sig-paren">(</span>int, <em class="property">const</em> unsigned char *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString11CopyToArrayEiPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString11CopyToArrayEiPKw">
+<span id="_CPPv3N10ON_wString11CopyToArrayEiPKw"></span><span id="_CPPv2N10ON_wString11CopyToArrayEiPKw"></span><span id="ON_wString::CopyToArray__i.wchar_tCP"></span><span class="target" id="class_o_n__w_string_1a8efc5ab5e20dd9b4d0942b10dffec19c"></span>void <code class="sig-name descname">CopyToArray</code><span class="sig-paren">(</span>int, <em class="property">const</em> wchar_t *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString11CopyToArrayEiPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString13AppendToArrayERK10ON_wString">
+<span id="_CPPv3N10ON_wString13AppendToArrayERK10ON_wString"></span><span id="_CPPv2N10ON_wString13AppendToArrayERK10ON_wString"></span><span id="ON_wString::AppendToArray__ON_wStringCR"></span><span class="target" id="class_o_n__w_string_1adf9b10205b146008d7e3c7a0c1bd2fda"></span>void <code class="sig-name descname">AppendToArray</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv410ON_wString" title="ON_wString">ON_wString</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString13AppendToArrayERK10ON_wString" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString13AppendToArrayEiPKc">
+<span id="_CPPv3N10ON_wString13AppendToArrayEiPKc"></span><span id="_CPPv2N10ON_wString13AppendToArrayEiPKc"></span><span id="ON_wString::AppendToArray__i.cCP"></span><span class="target" id="class_o_n__w_string_1a627901c6bf7a4e349f894d0324444ccf"></span>void <code class="sig-name descname">AppendToArray</code><span class="sig-paren">(</span>int, <em class="property">const</em> char *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString13AppendToArrayEiPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString13AppendToArrayEiPKh">
+<span id="_CPPv3N10ON_wString13AppendToArrayEiPKh"></span><span id="_CPPv2N10ON_wString13AppendToArrayEiPKh"></span><span id="ON_wString::AppendToArray__i.unsigned-cCP"></span><span class="target" id="class_o_n__w_string_1a8447315a3ba6421ee000ebf0bfd0017a"></span>void <code class="sig-name descname">AppendToArray</code><span class="sig-paren">(</span>int, <em class="property">const</em> unsigned char *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString13AppendToArrayEiPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString13AppendToArrayEiPKw">
+<span id="_CPPv3N10ON_wString13AppendToArrayEiPKw"></span><span id="_CPPv2N10ON_wString13AppendToArrayEiPKw"></span><span id="ON_wString::AppendToArray__i.wchar_tCP"></span><span class="target" id="class_o_n__w_string_1a0e6ab4cd8bc0331326d8b54d0c6f5432"></span>void <code class="sig-name descname">AppendToArray</code><span class="sig-paren">(</span>int, <em class="property">const</em> wchar_t *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString13AppendToArrayEiPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N10ON_wString3m_sE">
+<span id="_CPPv3N10ON_wString3m_sE"></span><span id="_CPPv2N10ON_wString3m_sE"></span><span id="ON_wString::m_s__wchar_tP"></span><span class="target" id="class_o_n__w_string_1a065685347425145d15f6b26fe5769449"></span>wchar_t *<code class="sig-name descname">m_s</code><a class="headerlink" href="#_CPPv4N10ON_wString3m_sE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N10ON_wString6LengthEPKc">
+<span id="_CPPv3N10ON_wString6LengthEPKc"></span><span id="_CPPv2N10ON_wString6LengthEPKc"></span><span id="ON_wString::Length__cCP"></span><span class="target" id="class_o_n__w_string_1a7758fe3f213a6959cea2b366eaed76bb"></span><em class="property">static</em> int <code class="sig-name descname">Length</code><span class="sig-paren">(</span><em class="property">const</em> char *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString6LengthEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString6LengthEPKh">
+<span id="_CPPv3N10ON_wString6LengthEPKh"></span><span id="_CPPv2N10ON_wString6LengthEPKh"></span><span id="ON_wString::Length__unsigned-cCP"></span><span class="target" id="class_o_n__w_string_1abcd4a14c4f2d83e92d8a84423edb4ca7"></span><em class="property">static</em> int <code class="sig-name descname">Length</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString6LengthEPKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N10ON_wString6LengthEPKw">
+<span id="_CPPv3N10ON_wString6LengthEPKw"></span><span id="_CPPv2N10ON_wString6LengthEPKw"></span><span id="ON_wString::Length__wchar_tCP"></span><span class="target" id="class_o_n__w_string_1a96a8801342a0d5f69f84f7e4d29bc8e7"></span><em class="property">static</em> int <code class="sig-name descname">Length</code><span class="sig-paren">(</span><em class="property">const</em> wchar_t *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10ON_wString6LengthEPKw" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

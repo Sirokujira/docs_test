@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class NearestPairPointCloudCoherence &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class NearestPairPointCloudCoherence</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-nearestpairpointcloudcoherence">
+<span id="exhale-class-classpcl-1-1tracking-1-1-nearest-pair-point-cloud-coherence"></span><h1>Template Class NearestPairPointCloudCoherence<a class="headerlink" href="#template-class-nearestpairpointcloudcoherence" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_tracking_include_pcl_tracking_nearest_pair_point_cloud_coherence.h.html#file-pcl-tracking-include-pcl-tracking-nearest-pair-point-cloud-coherence-h"><span class="std std-ref">File nearest_pair_point_cloud_coherence.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::tracking::PointCloudCoherence&lt;</span> <span class="pre">PointInT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1tracking_1_1_point_cloud_coherence.html#exhale-class-classpcl-1-1tracking-1-1-point-cloud-coherence"><span class="std std-ref">Template Class PointCloudCoherence</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::tracking::ApproxNearestPairPointCloudCoherence&lt;</span> <span class="pre">PointInT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1tracking_1_1_approx_nearest_pair_point_cloud_coherence.html#exhale-class-classpcl-1-1tracking-1-1-approx-nearest-pair-point-cloud-coherence"><span class="std std-ref">Template Class ApproxNearestPairPointCloudCoherence</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl8tracking30NearestPairPointCloudCoherenceE">
+<span id="_CPPv3I0EN3pcl8tracking30NearestPairPointCloudCoherenceE"></span><span id="_CPPv2I0EN3pcl8tracking30NearestPairPointCloudCoherenceE"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence"></span>template&lt;typename <code class="sig-name descname">PointInT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">NearestPairPointCloudCoherence</code> : <em class="property">public</em> pcl::tracking::PointCloudCoherence&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl8tracking30NearestPairPointCloudCoherenceE" title="pcl::tracking::NearestPairPointCloudCoherence::PointInT">PointInT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl8tracking30NearestPairPointCloudCoherenceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence"><span class="std std-ref">NearestPairPointCloudCoherence</span></a></strong> computes coherence between two pointclouds using the nearest point pairs. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Ryohei Ueda </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1tracking_1_1_approx_nearest_pair_point_cloud_coherence.html#classpcl_1_1tracking_1_1_approx_nearest_pair_point_cloud_coherence"><span class="std std-ref">pcl::tracking::ApproxNearestPairPointCloudCoherence&lt; PointInT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence17PointCoherencePtrE">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence17PointCoherencePtrE"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence17PointCoherencePtrE"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::PointCoherencePtr"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1ab56e7640ff6879c03935d0fefc155ad3"></span><em class="property">typedef </em>PointCloudCoherence&lt;PointInT&gt;::PointCoherencePtr <code class="sig-name descname">PointCoherencePtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence17PointCoherencePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence20PointCloudInConstPtrE">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence20PointCloudInConstPtrE"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence20PointCloudInConstPtrE"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a1f30d3c49659754e6dcb2c22aae72e02"></span><em class="property">typedef </em>PointCloudCoherence&lt;PointInT&gt;::PointCloudInConstPtr <code class="sig-name descname">PointCloudInConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence20PointCloudInConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence9BaseClassE">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence9BaseClassE"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence9BaseClassE"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::BaseClass"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a78685e7e9ab9270eb3e40cdfd239be94"></span><em class="property">typedef </em>PointCloudCoherence&lt;PointInT&gt; <code class="sig-name descname">BaseClass</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence9BaseClassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence3PtrE">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence3PtrE"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence3PtrE"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::Ptr"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a49ba7af8463e17da4158bf10908620c6"></span><em class="property">typedef </em>boost::shared_ptr&lt;NearestPairPointCloudCoherence&lt;PointInT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence8ConstPtrE">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence8ConstPtrE"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence8ConstPtrE"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::ConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1abfb25869cc2f17ca196627af4499a889"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> NearestPairPointCloudCoherence&lt;PointInT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence9SearchPtrE">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence9SearchPtrE"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence9SearchPtrE"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::SearchPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a6f2c7aecbe205a92d4461509470f10a9"></span><em class="property">typedef </em>boost::shared_ptr&lt;pcl::search::Search&lt;PointInT&gt;&gt; <code class="sig-name descname">SearchPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence9SearchPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence14SearchConstPtrE">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence14SearchConstPtrE"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence14SearchConstPtrE"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::SearchConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a9e7f7fc5645ea120354ae728fae4916d"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> pcl::search::Search&lt;PointInT&gt;&gt; <code class="sig-name descname">SearchConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence14SearchConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence30NearestPairPointCloudCoherenceEv">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence30NearestPairPointCloudCoherenceEv"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence30NearestPairPointCloudCoherenceEv"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::NearestPairPointCloudCoherence"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a918cf3242cc56b7e5a112710adba1841"></span><code class="sig-name descname">NearestPairPointCloudCoherence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence30NearestPairPointCloudCoherenceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>empty constructor </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence15setSearchMethodERK9SearchPtr">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence15setSearchMethodERK9SearchPtr"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence15setSearchMethodERK9SearchPtr"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::setSearchMethod__SearchPtrCR"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1aef4c8d68f6ce513c1e88a3b92ef653ca"></span>void <code class="sig-name descname">setSearchMethod</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence9SearchPtrE" title="pcl::tracking::NearestPairPointCloudCoherence::SearchPtr">SearchPtr</a> &amp;<em>search</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence15setSearchMethodERK9SearchPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to a dataset to add additional information to estimate the features for every point in the input dataset. </p>
+<p>This is optional, if this is not set, it will only use the data in the input cloud to estimate the features. This is useful when you only need to compute the features for a downsampled cloud. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">search</span></code>: a pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence15getSearchMethodEv">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence15getSearchMethodEv"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence15getSearchMethodEv"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::getSearchMethod"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a8fc929c60e8aa9bc7f4f303105d74865"></span><a class="reference internal" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence9SearchPtrE" title="pcl::tracking::NearestPairPointCloudCoherence::SearchPtr">SearchPtr</a> <code class="sig-name descname">getSearchMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence15getSearchMethodEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the point cloud dataset. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence14setTargetCloudERK20PointCloudInConstPtr">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence14setTargetCloudERK20PointCloudInConstPtr"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence14setTargetCloudERK20PointCloudInConstPtr"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::setTargetCloud__PointCloudInConstPtrCR"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a6a49729c55764c6d9dcdd5d9e965d725"></span><em class="property">virtual</em> void <code class="sig-name descname">setTargetCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence20PointCloudInConstPtrE" title="pcl::tracking::NearestPairPointCloudCoherence::PointCloudInConstPtr">PointCloudInConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence14setTargetCloudERK20PointCloudInConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>add a <a class="reference internal" href="classpcl_1_1tracking_1_1_point_coherence.html#classpcl_1_1tracking_1_1_point_coherence"><span class="std std-ref">PointCoherence</span></a> to the <a class="reference internal" href="classpcl_1_1tracking_1_1_point_cloud_coherence.html#classpcl_1_1tracking_1_1_point_cloud_coherence"><span class="std std-ref">PointCloudCoherence</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: coherence a pointer to <a class="reference internal" href="classpcl_1_1tracking_1_1_point_coherence.html#classpcl_1_1tracking_1_1_point_coherence"><span class="std std-ref">PointCoherence</span></a>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence18setMaximumDistanceEd">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence18setMaximumDistanceEd"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence18setMaximumDistanceEd"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::setMaximumDistance__double"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a56c64e491dc5776b40731ec43fcb1965"></span>void <code class="sig-name descname">setMaximumDistance</code><span class="sig-paren">(</span>double <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence18setMaximumDistanceEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>set maximum distance to be taken into account. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">val</span></code>: maximum distance. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence11initComputeEv">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence11initComputeEv"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence11initComputeEv"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::initCompute"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a676b95c2560682c94e6198fb20fa19fd"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method should get called before starting the actual computation. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence16computeCoherenceERK20PointCloudInConstPtrRK15IndicesConstPtrRf">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence16computeCoherenceERK20PointCloudInConstPtrRK15IndicesConstPtrRf"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence16computeCoherenceERK20PointCloudInConstPtrRK15IndicesConstPtrRf"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::computeCoherence__PointCloudInConstPtrCR.IndicesConstPtrCR.floatR"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1ab51c0ee60eba3ace63c94eab0a8d2f9d"></span>void <code class="sig-name descname">computeCoherence</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence20PointCloudInConstPtrE" title="pcl::tracking::NearestPairPointCloudCoherence::PointCloudInConstPtr">PointCloudInConstPtr</a> &amp;<em>cloud</em>, <em class="property">const</em> <a class="reference internal" href="typedef_namespacepcl_1a1a48d153c544c5c15586061cb62ba77d.html#_CPPv4N3pcl15IndicesConstPtrE" title="pcl::IndicesConstPtr">IndicesConstPtr</a> &amp;<em>indices</em>, float &amp;<em>w_j</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence16computeCoherenceERK20PointCloudInConstPtrRK15IndicesConstPtrRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>compute the nearest pairs and compute coherence using point_coherences_ </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence11new_target_E">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence11new_target_E"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence11new_target_E"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::new_target___b"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a041c513e42f5c6c1824a794e91eb2998"></span>bool <code class="sig-name descname">new_target_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence11new_target_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A flag which is true if target_input_ is updated. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence7search_E">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence7search_E"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence7search_E"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::search___SearchPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1afe770c234ebf78e33db0a29d76f0f797"></span><a class="reference internal" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence9SearchPtrE" title="pcl::tracking::NearestPairPointCloudCoherence::SearchPtr">SearchPtr</a> <code class="sig-name descname">search_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence7search_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A pointer to the spatial search object. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence17maximum_distance_E">
+<span id="_CPPv3N3pcl8tracking30NearestPairPointCloudCoherence17maximum_distance_E"></span><span id="_CPPv2N3pcl8tracking30NearestPairPointCloudCoherence17maximum_distance_E"></span><span id="pcl::tracking::NearestPairPointCloudCoherence::maximum_distance___double"></span><span class="target" id="classpcl_1_1tracking_1_1_nearest_pair_point_cloud_coherence_1a9829d932f75defd159e1588fabf6408d"></span>double <code class="sig-name descname">maximum_distance_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking30NearestPairPointCloudCoherence17maximum_distance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>max of distance for points to be taken into account </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

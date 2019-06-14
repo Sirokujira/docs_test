@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class Octree &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class Octree</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1gpu_1_1_octree.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-octree">
+<span id="exhale-class-classpcl-1-1gpu-1-1-octree"></span><h1>Class Octree<a class="headerlink" href="#class-octree" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_gpu_octree_include_pcl_gpu_octree_octree.hpp.html#file-pcl-gpu-octree-include-pcl-gpu-octree-octree-hpp"><span class="std std-ref">File octree.hpp</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl3gpu6OctreeE">
+<span id="_CPPv3N3pcl3gpu6OctreeE"></span><span id="_CPPv2N3pcl3gpu6OctreeE"></span><span id="pcl::gpu::Octree"></span><span class="target" id="classpcl_1_1gpu_1_1_octree"></span><em class="property">class </em><code class="sig-name descname">Octree</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6OctreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1gpu_1_1_octree"><span class="std std-ref">Octree</span></a> implementation on GPU. </p>
+<p>It suppors parallel building and parallel batch search as well . <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Anaoly Baksheev, Itseez, <a class="reference external" href="mailto:myname&#46;mysurname&#37;&#52;&#48;mycompany&#46;com">myname<span>&#46;</span>mysurname<span>&#64;</span>mycompany<span>&#46;</span>com</a> </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6Octree3PtrE">
+<span id="_CPPv3N3pcl3gpu6Octree3PtrE"></span><span id="_CPPv2N3pcl3gpu6Octree3PtrE"></span><span id="pcl::gpu::Octree::Ptr"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1aaef633c03e07b4ccf653afa6f314be75"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu6OctreeE" title="pcl::gpu::Octree">Octree</a>&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Types. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6Octree9PointTypeE">
+<span id="_CPPv3N3pcl3gpu6Octree9PointTypeE"></span><span id="_CPPv2N3pcl3gpu6Octree9PointTypeE"></span><span id="pcl::gpu::Octree::PointType"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1aefdc3bedd2526f69052cef1541c73019"></span><em class="property">typedef </em>pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> <code class="sig-name descname">PointType</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree9PointTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point typwe supported. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6Octree10PointCloudE">
+<span id="_CPPv3N3pcl3gpu6Octree10PointCloudE"></span><span id="_CPPv2N3pcl3gpu6Octree10PointCloudE"></span><span id="pcl::gpu::Octree::PointCloud"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a2584f9e71b717c8c891415199661a2c3"></span><em class="property">typedef </em>DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree9PointTypeE" title="pcl::gpu::Octree::PointType">PointType</a>&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point cloud supported. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6Octree7QueriesE">
+<span id="_CPPv3N3pcl3gpu6Octree7QueriesE"></span><span id="_CPPv2N3pcl3gpu6Octree7QueriesE"></span><span id="pcl::gpu::Octree::Queries"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1ace4601c42e12b649d165f7fb8ec23f13"></span><em class="property">typedef </em>DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree9PointTypeE" title="pcl::gpu::Octree::PointType">PointType</a>&gt; <code class="sig-name descname">Queries</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree7QueriesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point Batch query cloud type. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6Octree8RadiusesE">
+<span id="_CPPv3N3pcl3gpu6Octree8RadiusesE"></span><span id="_CPPv2N3pcl3gpu6Octree8RadiusesE"></span><span id="pcl::gpu::Octree::Radiuses"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a8361a7ba440cf6357ccdb0af72d4e7d6"></span><em class="property">typedef </em>DeviceArray&lt;float&gt; <code class="sig-name descname">Radiuses</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree8RadiusesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point Radiuses for batch query. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6Octree7IndicesE">
+<span id="_CPPv3N3pcl3gpu6Octree7IndicesE"></span><span id="_CPPv2N3pcl3gpu6Octree7IndicesE"></span><span id="pcl::gpu::Octree::Indices"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a6cc45fda594a62506d313e6e0e4fae42"></span><em class="property">typedef </em>DeviceArray&lt;int&gt; <code class="sig-name descname">Indices</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree7IndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point Indices for batch query. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6Octree14ResultSqrDistsE">
+<span id="_CPPv3N3pcl3gpu6Octree14ResultSqrDistsE"></span><span id="_CPPv2N3pcl3gpu6Octree14ResultSqrDistsE"></span><span id="pcl::gpu::Octree::ResultSqrDists"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a625a0a28448f3c4a988d914483e2bbc3"></span><em class="property">typedef </em>DeviceArray&lt;float&gt; <code class="sig-name descname">ResultSqrDists</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree14ResultSqrDistsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point Sqrt distances array type. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6Octree6OctreeEv">
+<span id="_CPPv3N3pcl3gpu6Octree6OctreeEv"></span><span id="_CPPv2N3pcl3gpu6Octree6OctreeEv"></span><span id="pcl::gpu::Octree::Octree"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1aa53266305b1eeffb82a885e2560637a4"></span><code class="sig-name descname">Octree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree6OctreeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6OctreeD0Ev">
+<span id="_CPPv3N3pcl3gpu6OctreeD0Ev"></span><span id="_CPPv2N3pcl3gpu6OctreeD0Ev"></span><span id="pcl::gpu::Octree::~Octree"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a5758ce6fbd36ba187c96249e44337f5e"></span><em class="property">virtual</em> <code class="sig-name descname">~Octree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6OctreeD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Denstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6Octree8setCloudERK10PointCloud">
+<span id="_CPPv3N3pcl3gpu6Octree8setCloudERK10PointCloud"></span><span id="_CPPv2N3pcl3gpu6Octree8setCloudERK10PointCloud"></span><span id="pcl::gpu::Octree::setCloud__PointCloudCR"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a95840cd806f83595d79956e72d1c3e20"></span>void <code class="sig-name descname">setCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree10PointCloudE" title="pcl::gpu::Octree::PointCloud">PointCloud</a> &amp;<em>cloud_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree8setCloudERK10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets cloud for which octree is built. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6Octree5buildEv">
+<span id="_CPPv3N3pcl3gpu6Octree5buildEv"></span><span id="_CPPv2N3pcl3gpu6Octree5buildEv"></span><span id="pcl::gpu::Octree::build"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1ad7d90421b68df2f155aa9119d561c1d4"></span>void <code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree5buildEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs parallel octree building. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6Octree7isBuiltEv">
+<span id="_CPPv3N3pcl3gpu6Octree7isBuiltEv"></span><span id="_CPPv2N3pcl3gpu6Octree7isBuiltEv"></span><span id="pcl::gpu::Octree::isBuilt"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1aed28b9aacd254a421bacfaf775d03ec5"></span>bool <code class="sig-name descname">isBuilt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree7isBuiltEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if tree has been built. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6Octree16internalDownloadEv">
+<span id="_CPPv3N3pcl3gpu6Octree16internalDownloadEv"></span><span id="_CPPv2N3pcl3gpu6Octree16internalDownloadEv"></span><span id="pcl::gpu::Octree::internalDownload"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a5a04460da9927a707dcf02699bc77a5b"></span>void <code class="sig-name descname">internalDownload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree16internalDownloadEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Downloads <a class="reference internal" href="#classpcl_1_1gpu_1_1_octree"><span class="std std-ref">Octree</span></a> from GPU to search using CPU function. </p>
+<p>It use useful for single (not-batch) search </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6Octree16radiusSearchHostERK9PointTypefRNSt6vectorIiEEi">
+<span id="_CPPv3N3pcl3gpu6Octree16radiusSearchHostERK9PointTypefRNSt6vectorIiEEi"></span><span id="_CPPv2N3pcl3gpu6Octree16radiusSearchHostERK9PointTypefRNSt6vectorIiEEi"></span><span id="pcl::gpu::Octree::radiusSearchHost__PointTypeCR.float.std::vector:i:R.i"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1aa2ff38af8197107a5ce362df39869f20"></span>void <code class="sig-name descname">radiusSearchHost</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree9PointTypeE" title="pcl::gpu::Octree::PointType">PointType</a> &amp;<em>center</em>, float <em>radius</em>, std::vector&lt;int&gt; &amp;<em>out</em>, int <em>max_nn</em> = INT_MAX<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree16radiusSearchHostERK9PointTypefRNSt6vectorIiEEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs search of all points within given radius on CPU. </p>
+<p>It call <em>internalDownload</em> if necessary <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">center</span></code>: center of sphere </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: radious of sphere </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out</span></code>: indeces of points within give sphere </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_nn</span></code>: maximum numver of results returned </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6Octree23approxNearestSearchHostERK9PointTypeRiRf">
+<span id="_CPPv3N3pcl3gpu6Octree23approxNearestSearchHostERK9PointTypeRiRf"></span><span id="_CPPv2N3pcl3gpu6Octree23approxNearestSearchHostERK9PointTypeRiRf"></span><span id="pcl::gpu::Octree::approxNearestSearchHost__PointTypeCR.iR.floatR"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1ac41094b3ee693ebcfdaafb050a4026bc"></span>void <code class="sig-name descname">approxNearestSearchHost</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree9PointTypeE" title="pcl::gpu::Octree::PointType">PointType</a> &amp;<em>query</em>, int &amp;<em>out_index</em>, float &amp;<em>sqr_dist</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree23approxNearestSearchHostERK9PointTypeRiRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs approximate nearest neighbor search on CPU. </p>
+<p>It call <em>internalDownload</em> if necessary <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">query</span></code>: 3D point for which neighbour is be fetched </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out_index</span></code>: neighbour index </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">sqr_dist</span></code>: square distance to the neighbour returned </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6Octree12radiusSearchERK7QueriesfiR15NeighborIndices">
+<span id="_CPPv3NK3pcl3gpu6Octree12radiusSearchERK7QueriesfiR15NeighborIndices"></span><span id="_CPPv2NK3pcl3gpu6Octree12radiusSearchERK7QueriesfiR15NeighborIndices"></span><span id="pcl::gpu::Octree::radiusSearch__QueriesCR.float.i.NeighborIndicesRC"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1af6ce56dd79bdee021fa71b8a17694d76"></span>void <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree7QueriesE" title="pcl::gpu::Octree::Queries">Queries</a> &amp;<em>centers</em>, float <em>radius</em>, int <em>max_results</em>, <a class="reference internal" href="structpcl_1_1gpu_1_1_neighbor_indices.html#_CPPv4N3pcl3gpu15NeighborIndicesE" title="pcl::gpu::NeighborIndices">NeighborIndices</a> &amp;<em>result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6Octree12radiusSearchERK7QueriesfiR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs batch radius search on GPU. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">centers</span></code>: array of centers </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: radius for all queries </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_results</span></code>: max number of returned points for each querey </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">result</span></code>: results packed to single array </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6Octree12radiusSearchERK7QueriesRK8RadiusesiR15NeighborIndices">
+<span id="_CPPv3NK3pcl3gpu6Octree12radiusSearchERK7QueriesRK8RadiusesiR15NeighborIndices"></span><span id="_CPPv2NK3pcl3gpu6Octree12radiusSearchERK7QueriesRK8RadiusesiR15NeighborIndices"></span><span id="pcl::gpu::Octree::radiusSearch__QueriesCR.RadiusesCR.i.NeighborIndicesRC"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1ad0f2ef1712c6d39b47fe3429ef8bb85e"></span>void <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree7QueriesE" title="pcl::gpu::Octree::Queries">Queries</a> &amp;<em>centers</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree8RadiusesE" title="pcl::gpu::Octree::Radiuses">Radiuses</a> &amp;<em>radiuses</em>, int <em>max_results</em>, <a class="reference internal" href="structpcl_1_1gpu_1_1_neighbor_indices.html#_CPPv4N3pcl3gpu15NeighborIndicesE" title="pcl::gpu::NeighborIndices">NeighborIndices</a> &amp;<em>result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6Octree12radiusSearchERK7QueriesRK8RadiusesiR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs batch radius search on GPU. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">centers</span></code>: array of centers </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radiuses</span></code>: array of radiuses </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_results</span></code>: max number of returned points for each querey </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">result</span></code>: results packed to single array </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6Octree12radiusSearchERK7QueriesRK7IndicesfiR15NeighborIndices">
+<span id="_CPPv3NK3pcl3gpu6Octree12radiusSearchERK7QueriesRK7IndicesfiR15NeighborIndices"></span><span id="_CPPv2NK3pcl3gpu6Octree12radiusSearchERK7QueriesRK7IndicesfiR15NeighborIndices"></span><span id="pcl::gpu::Octree::radiusSearch__QueriesCR.IndicesCR.float.i.NeighborIndicesRC"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a9d3b9a8467137c7898bcf8a63ad69f7e"></span>void <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree7QueriesE" title="pcl::gpu::Octree::Queries">Queries</a> &amp;<em>centers</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree7IndicesE" title="pcl::gpu::Octree::Indices">Indices</a> &amp;<em>indices</em>, float <em>radius</em>, int <em>max_results</em>, <a class="reference internal" href="structpcl_1_1gpu_1_1_neighbor_indices.html#_CPPv4N3pcl3gpu15NeighborIndicesE" title="pcl::gpu::NeighborIndices">NeighborIndices</a> &amp;<em>result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6Octree12radiusSearchERK7QueriesRK7IndicesfiR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs batch radius search on GPU. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">centers</span></code>: array of centers </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: indices for centers array (only for these points search is performed) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: radius for all queries </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_results</span></code>: max number of returned points for each querey </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">result</span></code>: results packed to single array </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6Octree19approxNearestSearchERK7QueriesR15NeighborIndices">
+<span id="_CPPv3NK3pcl3gpu6Octree19approxNearestSearchERK7QueriesR15NeighborIndices"></span><span id="_CPPv2NK3pcl3gpu6Octree19approxNearestSearchERK7QueriesR15NeighborIndices"></span><span id="pcl::gpu::Octree::approxNearestSearch__QueriesCR.NeighborIndicesRC"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a6f8d000384e2c4df3d6fa50a41d922f4"></span>void <code class="sig-name descname">approxNearestSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree7QueriesE" title="pcl::gpu::Octree::Queries">Queries</a> &amp;<em>queries</em>, <a class="reference internal" href="structpcl_1_1gpu_1_1_neighbor_indices.html#_CPPv4N3pcl3gpu15NeighborIndicesE" title="pcl::gpu::NeighborIndices">NeighborIndices</a> &amp;<em>result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6Octree19approxNearestSearchERK7QueriesR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Batch approximate nearest search on GPU. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">queries</span></code>: array of centers </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">result</span></code>: array of results ( one index for each query ) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6Octree19nearestKSearchBatchERK7QueriesiR15NeighborIndices">
+<span id="_CPPv3NK3pcl3gpu6Octree19nearestKSearchBatchERK7QueriesiR15NeighborIndices"></span><span id="_CPPv2NK3pcl3gpu6Octree19nearestKSearchBatchERK7QueriesiR15NeighborIndices"></span><span id="pcl::gpu::Octree::nearestKSearchBatch__QueriesCR.i.NeighborIndicesRC"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1aea2387c273c96c66ddbc86b2f7093651"></span>void <code class="sig-name descname">nearestKSearchBatch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree7QueriesE" title="pcl::gpu::Octree::Queries">Queries</a> &amp;<em>queries</em>, int <em>k</em>, <a class="reference internal" href="structpcl_1_1gpu_1_1_neighbor_indices.html#_CPPv4N3pcl3gpu15NeighborIndicesE" title="pcl::gpu::NeighborIndices">NeighborIndices</a> &amp;<em>results</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6Octree19nearestKSearchBatchERK7QueriesiR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Batch exact k-nearest search on GPU for k == 1 only! </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">queries</span></code>: array of centers </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: number of neighbors (only k == 1 is supported) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">results</span></code>: array of results </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6Octree5clearEv">
+<span id="_CPPv3N3pcl3gpu6Octree5clearEv"></span><span id="_CPPv2N3pcl3gpu6Octree5clearEv"></span><span id="pcl::gpu::Octree::clear"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1a9855f3324f5d796f57d8bb44b640a54d"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Desroys octree and release all resources. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6Octree6cloud_E">
+<span id="_CPPv3N3pcl3gpu6Octree6cloud_E"></span><span id="_CPPv2N3pcl3gpu6Octree6cloud_E"></span><span id="pcl::gpu::Octree::cloud___PointCloudCP"></span><span class="target" id="classpcl_1_1gpu_1_1_octree_1ab8d9439cb3e10fce0b62a9836d7f3787"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6Octree10PointCloudE" title="pcl::gpu::Octree::PointCloud">PointCloud</a> *<code class="sig-name descname">cloud_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6Octree6cloud_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

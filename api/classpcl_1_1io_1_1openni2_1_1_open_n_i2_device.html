@@ -1,0 +1,741 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class OpenNI2Device &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class OpenNI2Device</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1io_1_1openni2_1_1_open_n_i2_device.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-openni2device">
+<span id="exhale-class-classpcl-1-1io-1-1openni2-1-1-open-n-i2-device"></span><h1>Class OpenNI2Device<a class="headerlink" href="#class-openni2device" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_openni2_openni2_device.h.html#file-pcl-io-include-pcl-io-openni2-openni2-device-h"><span class="std std-ref">File openni2_device.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2DeviceE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2DeviceE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2DeviceE"></span><span id="pcl::io::openni2::OpenNI2Device"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device"></span><em class="property">class </em><code class="sig-name descname">OpenNI2Device</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2DeviceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device21ImageCallbackFunctionE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device21ImageCallbackFunctionE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device21ImageCallbackFunctionE"></span><span id="pcl::io::openni2::OpenNI2Device::ImageCallbackFunction"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a1d0dcbd94c091e44f27c97d90a229c3c"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>boost::shared_ptr&lt;<a class="reference internal" href="typedef_openni2__device_8h_1a6625b108e8fb7155cb724082f05b9820.html#_CPPv4N3pcl2io7openni25ImageE" title="pcl::io::openni2::Image">Image</a>&gt;, void *cookie<span class="sig-paren">)</span>&gt; <code class="sig-name descname">ImageCallbackFunction</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device21ImageCallbackFunctionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device26DepthImageCallbackFunctionE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device26DepthImageCallbackFunctionE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device26DepthImageCallbackFunctionE"></span><span id="pcl::io::openni2::OpenNI2Device::DepthImageCallbackFunction"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1af876e6dbb825c65ec2a2e70e25b277d4"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>boost::shared_ptr&lt;<a class="reference internal" href="typedef_openni2__device_8h_1ab48f9586e53f7e9b3050a9bd2e2dd838.html#_CPPv4N3pcl2io7openni210DepthImageE" title="pcl::io::openni2::DepthImage">DepthImage</a>&gt;, void *cookie<span class="sig-paren">)</span>&gt; <code class="sig-name descname">DepthImageCallbackFunction</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device26DepthImageCallbackFunctionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device23IRImageCallbackFunctionE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device23IRImageCallbackFunctionE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device23IRImageCallbackFunctionE"></span><span id="pcl::io::openni2::OpenNI2Device::IRImageCallbackFunction"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a931c53ad6a987435aec604e90904166e"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>boost::shared_ptr&lt;<a class="reference internal" href="typedef_openni2__device_8h_1ab04570112bf0c10b4afa44afe6c5fa3a.html#_CPPv4N3pcl2io7openni27IRImageE" title="pcl::io::openni2::IRImage">IRImage</a>&gt;, void *cookie<span class="sig-paren">)</span>&gt; <code class="sig-name descname">IRImageCallbackFunction</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device23IRImageCallbackFunctionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device14CallbackHandleE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device14CallbackHandleE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device14CallbackHandleE"></span><span id="pcl::io::openni2::OpenNI2Device::CallbackHandle"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a246536b40f73bd4fb70a74fdff905eb7"></span><em class="property">typedef </em>unsigned <code class="sig-name descname">CallbackHandle</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device14CallbackHandleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device22StreamCallbackFunctionE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device22StreamCallbackFunctionE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device22StreamCallbackFunctionE"></span><span id="pcl::io::openni2::OpenNI2Device::StreamCallbackFunction"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a41b713ba6f607193b7abfd9fa0ed48b1"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>openni::VideoStream &amp;stream<span class="sig-paren">)</span>&gt; <code class="sig-name descname">StreamCallbackFunction</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device22StreamCallbackFunctionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device13OpenNI2DeviceERKNSt6stringE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device13OpenNI2DeviceERKNSt6stringE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device13OpenNI2DeviceERKNSt6stringE"></span><span id="pcl::io::openni2::OpenNI2Device::OpenNI2Device__ssCR"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a302a2993b81be238244c4bf051b2f8e8"></span><code class="sig-name descname">OpenNI2Device</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>device_URI</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device13OpenNI2DeviceERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2DeviceD0Ev">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2DeviceD0Ev"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2DeviceD0Ev"></span><span id="pcl::io::openni2::OpenNI2Device::~OpenNI2Device"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ac870ee47b19afac5fccb9fba408cc720"></span><em class="property">virtual</em> <code class="sig-name descname">~OpenNI2Device</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2DeviceD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device6getUriEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device6getUriEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device6getUriEv"></span><span id="pcl::io::openni2::OpenNI2Device::getUriC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a0d02d73d0925bd163792ee21ca5a84bd"></span><em class="property">const</em> std::string <code class="sig-name descname">getUri</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device6getUriEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device9getVendorEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device9getVendorEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device9getVendorEv"></span><span id="pcl::io::openni2::OpenNI2Device::getVendorC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1afff5f920bfaf4ca7662c8ed3cd8c173a"></span><em class="property">const</em> std::string <code class="sig-name descname">getVendor</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device9getVendorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device7getNameEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device7getNameEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device7getNameEv"></span><span id="pcl::io::openni2::OpenNI2Device::getNameC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a56317640b969eb8a78701f9a056e8f0e"></span><em class="property">const</em> std::string <code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device7getNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device14getUsbVendorIdEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device14getUsbVendorIdEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device14getUsbVendorIdEv"></span><span id="pcl::io::openni2::OpenNI2Device::getUsbVendorIdC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a0850e0d71a28f3dbef283f9ac8b3b73a"></span>uint16_t <code class="sig-name descname">getUsbVendorId</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device14getUsbVendorIdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device15getUsbProductIdEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device15getUsbProductIdEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device15getUsbProductIdEv"></span><span id="pcl::io::openni2::OpenNI2Device::getUsbProductIdC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a7ac6c6f1a396ab8c15fef44c78dbee74"></span>uint16_t <code class="sig-name descname">getUsbProductId</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device15getUsbProductIdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device11getStringIDEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device11getStringIDEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device11getStringIDEv"></span><span id="pcl::io::openni2::OpenNI2Device::getStringIDC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ae7afdb3a098201f71a62b52c71f9e9c5"></span><em class="property">const</em> std::string <code class="sig-name descname">getStringID</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device11getStringIDEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device7isValidEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device7isValidEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device7isValidEv"></span><span id="pcl::io::openni2::OpenNI2Device::isValidC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a435696fbbb7b123fd95e9f4a1b000768"></span>bool <code class="sig-name descname">isValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device7isValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device11hasIRSensorEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device11hasIRSensorEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device11hasIRSensorEv"></span><span id="pcl::io::openni2::OpenNI2Device::hasIRSensorC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a451d27f057885df8585c709dce68d35c"></span>bool <code class="sig-name descname">hasIRSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device11hasIRSensorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device14hasColorSensorEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device14hasColorSensorEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device14hasColorSensorEv"></span><span id="pcl::io::openni2::OpenNI2Device::hasColorSensorC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1af6b0a4d3afe3d096fd2598a93ee979e4"></span>bool <code class="sig-name descname">hasColorSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device14hasColorSensorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device14hasDepthSensorEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device14hasDepthSensorEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device14hasDepthSensorEv"></span><span id="pcl::io::openni2::OpenNI2Device::hasDepthSensorC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ac8d886044f3033eb2974064c5f052539"></span>bool <code class="sig-name descname">hasDepthSensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device14hasDepthSensorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device13startIRStreamEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device13startIRStreamEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device13startIRStreamEv"></span><span id="pcl::io::openni2::OpenNI2Device::startIRStream"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1adef68a432357dfd8be5ccd3848aa4f19"></span>void <code class="sig-name descname">startIRStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device13startIRStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device16startColorStreamEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device16startColorStreamEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device16startColorStreamEv"></span><span id="pcl::io::openni2::OpenNI2Device::startColorStream"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1abd3a123e8e2e8a5ea109551e9a83f454"></span>void <code class="sig-name descname">startColorStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device16startColorStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device16startDepthStreamEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device16startDepthStreamEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device16startDepthStreamEv"></span><span id="pcl::io::openni2::OpenNI2Device::startDepthStream"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a960da8bcbe9518b29627937d87e758ae"></span>void <code class="sig-name descname">startDepthStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device16startDepthStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device14stopAllStreamsEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device14stopAllStreamsEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device14stopAllStreamsEv"></span><span id="pcl::io::openni2::OpenNI2Device::stopAllStreams"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a6f456e7ca02c70face37edc9bd430546"></span>void <code class="sig-name descname">stopAllStreams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device14stopAllStreamsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device12stopIRStreamEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device12stopIRStreamEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device12stopIRStreamEv"></span><span id="pcl::io::openni2::OpenNI2Device::stopIRStream"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a99215a0f09267bee50ed19c6aadc446f"></span>void <code class="sig-name descname">stopIRStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device12stopIRStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device15stopColorStreamEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device15stopColorStreamEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device15stopColorStreamEv"></span><span id="pcl::io::openni2::OpenNI2Device::stopColorStream"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a0a2d0e941ef294dc4feb4097eba9a356"></span>void <code class="sig-name descname">stopColorStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device15stopColorStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device15stopDepthStreamEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device15stopDepthStreamEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device15stopDepthStreamEv"></span><span id="pcl::io::openni2::OpenNI2Device::stopDepthStream"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ac2a94ecad0ae5105fe6d151e52df96ba"></span>void <code class="sig-name descname">stopDepthStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device15stopDepthStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17isIRStreamStartedEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17isIRStreamStartedEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17isIRStreamStartedEv"></span><span id="pcl::io::openni2::OpenNI2Device::isIRStreamStarted"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a0c1da55e06c738fe358dd12dbd840c08"></span>bool <code class="sig-name descname">isIRStreamStarted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17isIRStreamStartedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device20isColorStreamStartedEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device20isColorStreamStartedEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device20isColorStreamStartedEv"></span><span id="pcl::io::openni2::OpenNI2Device::isColorStreamStarted"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1aa984e09885da2374c8e454aed856b3bb"></span>bool <code class="sig-name descname">isColorStreamStarted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device20isColorStreamStartedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device20isDepthStreamStartedEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device20isDepthStreamStartedEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device20isDepthStreamStartedEv"></span><span id="pcl::io::openni2::OpenNI2Device::isDepthStreamStarted"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a53e2fdb71f8f5ac01dc5cb52d93d1c7e"></span>bool <code class="sig-name descname">isDepthStreamStarted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device20isDepthStreamStartedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device32isImageRegistrationModeSupportedEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device32isImageRegistrationModeSupportedEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device32isImageRegistrationModeSupportedEv"></span><span id="pcl::io::openni2::OpenNI2Device::isImageRegistrationModeSupportedC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a86ea5c360c5f67c4084ebe2f81029f2c"></span>bool <code class="sig-name descname">isImageRegistrationModeSupported</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device32isImageRegistrationModeSupportedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device24setImageRegistrationModeEb">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device24setImageRegistrationModeEb"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device24setImageRegistrationModeEb"></span><span id="pcl::io::openni2::OpenNI2Device::setImageRegistrationMode__b"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a7fc18c79af73745dcfba8d752b90b55d"></span>void <code class="sig-name descname">setImageRegistrationMode</code><span class="sig-paren">(</span>bool <em>enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device24setImageRegistrationModeEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device17isDepthRegisteredEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device17isDepthRegisteredEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device17isDepthRegisteredEv"></span><span id="pcl::io::openni2::OpenNI2Device::isDepthRegisteredC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1aa0d6f5bfbf071999a1614b7cdb45f71f"></span>bool <code class="sig-name descname">isDepthRegistered</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device17isDepthRegisteredEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device14getIRVideoModeEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device14getIRVideoModeEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device14getIRVideoModeEv"></span><span id="pcl::io::openni2::OpenNI2Device::getIRVideoMode"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1affc20bf294303d8f31ab362f2b82779d"></span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> <code class="sig-name descname">getIRVideoMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device14getIRVideoModeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17getColorVideoModeEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17getColorVideoModeEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17getColorVideoModeEv"></span><span id="pcl::io::openni2::OpenNI2Device::getColorVideoMode"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a9443872cbed6d1f6450d626fccb13fa0"></span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> <code class="sig-name descname">getColorVideoMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17getColorVideoModeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17getDepthVideoModeEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17getDepthVideoModeEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17getDepthVideoModeEv"></span><span id="pcl::io::openni2::OpenNI2Device::getDepthVideoMode"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a2911579f8babc4853e06e4d5cf73b75d"></span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> <code class="sig-name descname">getDepthVideoMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17getDepthVideoModeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device24getSupportedIRVideoModesEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device24getSupportedIRVideoModesEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device24getSupportedIRVideoModesEv"></span><span id="pcl::io::openni2::OpenNI2Device::getSupportedIRVideoModesC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a94f4f056b8097a27bdb246fc3ad01c18"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a>&gt; &amp;<code class="sig-name descname">getSupportedIRVideoModes</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device24getSupportedIRVideoModesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device27getSupportedColorVideoModesEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device27getSupportedColorVideoModesEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device27getSupportedColorVideoModesEv"></span><span id="pcl::io::openni2::OpenNI2Device::getSupportedColorVideoModesC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a2293f8b172cbe94fb270b22d11a5b3ee"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a>&gt; &amp;<code class="sig-name descname">getSupportedColorVideoModes</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device27getSupportedColorVideoModesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device27getSupportedDepthVideoModesEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device27getSupportedDepthVideoModesEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device27getSupportedDepthVideoModesEv"></span><span id="pcl::io::openni2::OpenNI2Device::getSupportedDepthVideoModesC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1aecdb4d786d6d57c1841526d4335d3a54"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a>&gt; &amp;<code class="sig-name descname">getSupportedDepthVideoModes</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device27getSupportedDepthVideoModesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device22isIRVideoModeSupportedERK16OpenNI2VideoMode">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device22isIRVideoModeSupportedERK16OpenNI2VideoMode"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device22isIRVideoModeSupportedERK16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::isIRVideoModeSupported__OpenNI2VideoModeCRC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1acccf0390dda2714f0b0ee7e93abe585d"></span>bool <code class="sig-name descname">isIRVideoModeSupported</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>video_mode</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device22isIRVideoModeSupportedERK16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device25isColorVideoModeSupportedERK16OpenNI2VideoMode">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device25isColorVideoModeSupportedERK16OpenNI2VideoMode"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device25isColorVideoModeSupportedERK16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::isColorVideoModeSupported__OpenNI2VideoModeCRC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a2833956960121ec14be54705a178c044"></span>bool <code class="sig-name descname">isColorVideoModeSupported</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>video_mode</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device25isColorVideoModeSupportedERK16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device25isDepthVideoModeSupportedERK16OpenNI2VideoMode">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device25isDepthVideoModeSupportedERK16OpenNI2VideoMode"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device25isDepthVideoModeSupportedERK16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::isDepthVideoModeSupported__OpenNI2VideoModeCRC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1aa0d6ebc002ee08171f3ba032e62d2dda"></span>bool <code class="sig-name descname">isDepthVideoModeSupported</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>video_mode</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device25isDepthVideoModeSupportedERK16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device20findCompatibleIRModeERK16OpenNI2VideoModeR16OpenNI2VideoMode">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device20findCompatibleIRModeERK16OpenNI2VideoModeR16OpenNI2VideoMode"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device20findCompatibleIRModeERK16OpenNI2VideoModeR16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::findCompatibleIRMode__OpenNI2VideoModeCR.OpenNI2VideoModeRC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a5ea486b94a552ec0b2161209ace7e9f1"></span>bool <code class="sig-name descname">findCompatibleIRMode</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>requested_mode</em>, <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>actual_mode</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device20findCompatibleIRModeERK16OpenNI2VideoModeR16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device23findCompatibleColorModeERK16OpenNI2VideoModeR16OpenNI2VideoMode">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device23findCompatibleColorModeERK16OpenNI2VideoModeR16OpenNI2VideoMode"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device23findCompatibleColorModeERK16OpenNI2VideoModeR16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::findCompatibleColorMode__OpenNI2VideoModeCR.OpenNI2VideoModeRC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a7588063a14aa0d1c4a5cf53261633523"></span>bool <code class="sig-name descname">findCompatibleColorMode</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>requested_mode</em>, <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>actual_mode</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device23findCompatibleColorModeERK16OpenNI2VideoModeR16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device23findCompatibleDepthModeERK16OpenNI2VideoModeR16OpenNI2VideoMode">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device23findCompatibleDepthModeERK16OpenNI2VideoModeR16OpenNI2VideoMode"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device23findCompatibleDepthModeERK16OpenNI2VideoModeR16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::findCompatibleDepthMode__OpenNI2VideoModeCR.OpenNI2VideoModeRC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a5003640531befa1a92faba2bd208ca58"></span>bool <code class="sig-name descname">findCompatibleDepthMode</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>requested_mode</em>, <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>actual_mode</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device23findCompatibleDepthModeERK16OpenNI2VideoModeR16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device14setIRVideoModeERK16OpenNI2VideoMode">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device14setIRVideoModeERK16OpenNI2VideoMode"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device14setIRVideoModeERK16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::setIRVideoMode__OpenNI2VideoModeCR"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a5eaac0c6b1c5929a794ba180d1c9da6e"></span>void <code class="sig-name descname">setIRVideoMode</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>video_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device14setIRVideoModeERK16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17setColorVideoModeERK16OpenNI2VideoMode">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17setColorVideoModeERK16OpenNI2VideoMode"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17setColorVideoModeERK16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::setColorVideoMode__OpenNI2VideoModeCR"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a7aba10edc86974cae517148b631e11f6"></span>void <code class="sig-name descname">setColorVideoMode</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>video_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17setColorVideoModeERK16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17setDepthVideoModeERK16OpenNI2VideoMode">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17setDepthVideoModeERK16OpenNI2VideoMode"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17setDepthVideoModeERK16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::setDepthVideoMode__OpenNI2VideoModeCR"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a6b5ec272f5894f647a863010a72aab31"></span>void <code class="sig-name descname">setDepthVideoMode</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>video_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17setDepthVideoModeERK16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device16getDefaultIRModeEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device16getDefaultIRModeEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device16getDefaultIRModeEv"></span><span id="pcl::io::openni2::OpenNI2Device::getDefaultIRModeC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ab971c93de1d8fa49c544093f98c8a1eb"></span><a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> <code class="sig-name descname">getDefaultIRMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device16getDefaultIRModeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device19getDefaultColorModeEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device19getDefaultColorModeEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device19getDefaultColorModeEv"></span><span id="pcl::io::openni2::OpenNI2Device::getDefaultColorModeC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a6609d10246c618eb3e225de604717b04"></span><a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> <code class="sig-name descname">getDefaultColorMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device19getDefaultColorModeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device19getDefaultDepthModeEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device19getDefaultDepthModeEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device19getDefaultDepthModeEv"></span><span id="pcl::io::openni2::OpenNI2Device::getDefaultDepthModeC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a846e05ce02591cda8a8d6ce752b2e3f4"></span><a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> <code class="sig-name descname">getDefaultDepthMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device19getDefaultDepthModeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device16getIRFocalLengthEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device16getIRFocalLengthEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device16getIRFocalLengthEv"></span><span id="pcl::io::openni2::OpenNI2Device::getIRFocalLengthC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a144c17cf39a7924e330db97b039947ec"></span>float <code class="sig-name descname">getIRFocalLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device16getIRFocalLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device19getColorFocalLengthEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device19getColorFocalLengthEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device19getColorFocalLengthEv"></span><span id="pcl::io::openni2::OpenNI2Device::getColorFocalLengthC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a67ab84bdcdbc191340b11d112d76fe01"></span>float <code class="sig-name descname">getColorFocalLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device19getColorFocalLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device19getDepthFocalLengthEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device19getDepthFocalLengthEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device19getDepthFocalLengthEv"></span><span id="pcl::io::openni2::OpenNI2Device::getDepthFocalLengthC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1aaf5b11e6ce074445ffda3b2e31d1100f"></span>float <code class="sig-name descname">getDepthFocalLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device19getDepthFocalLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device11getBaselineEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device11getBaselineEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device11getBaselineEv"></span><span id="pcl::io::openni2::OpenNI2Device::getBaseline"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a04d3eb06d847cafef33d0fa10d839aa2"></span>float <code class="sig-name descname">getBaseline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device11getBaselineEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device14getShadowValueEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device14getShadowValueEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device14getShadowValueEv"></span><span id="pcl::io::openni2::OpenNI2Device::getShadowValue"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1af5c873d5f91ac31560fa6f995896b649"></span>uint64_t <code class="sig-name descname">getShadowValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device14getShadowValueEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device15setAutoExposureEb">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device15setAutoExposureEb"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device15setAutoExposureEb"></span><span id="pcl::io::openni2::OpenNI2Device::setAutoExposure__b"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1aad571f0ed1febfc6127c1667bff7d575"></span>void <code class="sig-name descname">setAutoExposure</code><span class="sig-paren">(</span>bool <em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device15setAutoExposureEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device19setAutoWhiteBalanceEb">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device19setAutoWhiteBalanceEb"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device19setAutoWhiteBalanceEb"></span><span id="pcl::io::openni2::OpenNI2Device::setAutoWhiteBalance__b"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a54cb7442fe071aeb1d88cbac8c1fb1b7"></span>void <code class="sig-name descname">setAutoWhiteBalance</code><span class="sig-paren">(</span>bool <em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device19setAutoWhiteBalanceEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device14isSynchronizedEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device14isSynchronizedEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device14isSynchronizedEv"></span><span id="pcl::io::openni2::OpenNI2Device::isSynchronized"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1af3534244bc1c527f03c5fefcf7d2131b"></span>bool <code class="sig-name descname">isSynchronized</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device14isSynchronizedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device26isSynchronizationSupportedEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device26isSynchronizationSupportedEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device26isSynchronizationSupportedEv"></span><span id="pcl::io::openni2::OpenNI2Device::isSynchronizationSupported"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a2df110c076be5802a4ba63c1f03bd742"></span>bool <code class="sig-name descname">isSynchronizationSupported</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device26isSynchronizationSupportedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device6isFileEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device6isFileEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device6isFileEv"></span><span id="pcl::io::openni2::OpenNI2Device::isFile"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ad1a3ed914baac494159cc34de5517459"></span>bool <code class="sig-name descname">isFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device6isFileEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device18setSynchronizationEb">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device18setSynchronizationEb"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device18setSynchronizationEb"></span><span id="pcl::io::openni2::OpenNI2Device::setSynchronization__b"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a8f3b9270ca721fd549d25905fde3739f"></span>void <code class="sig-name descname">setSynchronization</code><span class="sig-paren">(</span>bool <em>enableSync</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device18setSynchronizationEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device15getAutoExposureEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device15getAutoExposureEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device15getAutoExposureEv"></span><span id="pcl::io::openni2::OpenNI2Device::getAutoExposureC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ab886b28858129ae18ea6e1ed3df2acd4"></span>bool <code class="sig-name descname">getAutoExposure</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device15getAutoExposureEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device19getAutoWhiteBalanceEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device19getAutoWhiteBalanceEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device19getAutoWhiteBalanceEv"></span><span id="pcl::io::openni2::OpenNI2Device::getAutoWhiteBalanceC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a8484c0b2ce81c66e27ccbff7eca0c294"></span>bool <code class="sig-name descname">getAutoWhiteBalance</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device19getAutoWhiteBalanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17setUseDeviceTimerEb">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17setUseDeviceTimerEb"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17setUseDeviceTimerEb"></span><span id="pcl::io::openni2::OpenNI2Device::setUseDeviceTimer__b"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a971f972dd264398860718778658fb11c"></span>void <code class="sig-name descname">setUseDeviceTimer</code><span class="sig-paren">(</span>bool <em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17setUseDeviceTimerEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device18getDepthFrameCountEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device18getDepthFrameCountEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device18getDepthFrameCountEv"></span><span id="pcl::io::openni2::OpenNI2Device::getDepthFrameCount"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ae1df11ae0b66e645ab3502d77ae46dda"></span>int <code class="sig-name descname">getDepthFrameCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device18getDepthFrameCountEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get absolute number of depth frames in the current stream. </p>
+<p>This function returns 0 if the current device is not a file stream or if the current mode has no depth stream. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device18getColorFrameCountEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device18getColorFrameCountEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device18getColorFrameCountEv"></span><span id="pcl::io::openni2::OpenNI2Device::getColorFrameCount"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a32bc2fe737a8473cfe4cf124224dbaa8"></span>int <code class="sig-name descname">getColorFrameCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device18getColorFrameCountEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get absolute number of color frames in the current stream. </p>
+<p>This function returns 0 if the current device is not a file stream or if the current mode has no color stream. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device15getIRFrameCountEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device15getIRFrameCountEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device15getIRFrameCountEv"></span><span id="pcl::io::openni2::OpenNI2Device::getIRFrameCount"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a4042032a47d173b2e43c8c1e71244c36"></span>int <code class="sig-name descname">getIRFrameCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device15getIRFrameCountEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get absolute number of ir frames in the current stream. </p>
+<p>This function returns 0 if the current device is not a file stream or if the current mode has no ir stream. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device16setPlaybackSpeedEd">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device16setPlaybackSpeedEd"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device16setPlaybackSpeedEd"></span><span id="pcl::io::openni2::OpenNI2Device::setPlaybackSpeed__double"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ad7a43a816c270d934e6410f434d644cf"></span>bool <code class="sig-name descname">setPlaybackSpeed</code><span class="sig-paren">(</span>double <em>speed</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device16setPlaybackSpeedEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the playback speed if the device is an recorded stream. </p>
+<p>If setting the device playback speed fails, because the device is no recorded stream or any other reason this function returns false. Otherwise true is returned. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True on success, false otherwise. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">speed</span></code>: The playback speed factor 1.0 means the same speed as recorded, 0.5 half the speed, 2.0 double speed and so on. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device16setColorCallbackE22StreamCallbackFunction">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device16setColorCallbackE22StreamCallbackFunction"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device16setColorCallbackE22StreamCallbackFunction"></span><span id="pcl::io::openni2::OpenNI2Device::setColorCallback__StreamCallbackFunction"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ac2d47e20e0cc731eff875cf1f830cb45"></span>void <code class="sig-name descname">setColorCallback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl2io7openni213OpenNI2Device22StreamCallbackFunctionE" title="pcl::io::openni2::OpenNI2Device::StreamCallbackFunction">StreamCallbackFunction</a> <em>color_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device16setColorCallbackE22StreamCallbackFunction" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device16setDepthCallbackE22StreamCallbackFunction">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device16setDepthCallbackE22StreamCallbackFunction"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device16setDepthCallbackE22StreamCallbackFunction"></span><span id="pcl::io::openni2::OpenNI2Device::setDepthCallback__StreamCallbackFunction"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a5ee02e1d2f964ac989c80c4e21f3c04e"></span>void <code class="sig-name descname">setDepthCallback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl2io7openni213OpenNI2Device22StreamCallbackFunctionE" title="pcl::io::openni2::OpenNI2Device::StreamCallbackFunction">StreamCallbackFunction</a> <em>depth_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device16setDepthCallbackE22StreamCallbackFunction" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device13setIRCallbackE22StreamCallbackFunction">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device13setIRCallbackE22StreamCallbackFunction"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device13setIRCallbackE22StreamCallbackFunction"></span><span id="pcl::io::openni2::OpenNI2Device::setIRCallback__StreamCallbackFunction"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1abce39345e046575136573d55b639f1f8"></span>void <code class="sig-name descname">setIRCallback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl2io7openni213OpenNI2Device22StreamCallbackFunctionE" title="pcl::io::openni2::OpenNI2Device::StreamCallbackFunction">StreamCallbackFunction</a> <em>ir_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device13setIRCallbackE22StreamCallbackFunction" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device8shutdownEv">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device8shutdownEv"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device8shutdownEv"></span><span id="pcl::io::openni2::OpenNI2Device::shutdown"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a54e35426458d115023b3fdf4f475dde5"></span>void <code class="sig-name descname">shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device8shutdownEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device16getIRVideoStreamEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device16getIRVideoStreamEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device16getIRVideoStreamEv"></span><span id="pcl::io::openni2::OpenNI2Device::getIRVideoStreamC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a649653be4fd68b20cec90b6c1e9e50b5"></span>boost::shared_ptr&lt;openni::VideoStream&gt; <code class="sig-name descname">getIRVideoStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device16getIRVideoStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device19getColorVideoStreamEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device19getColorVideoStreamEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device19getColorVideoStreamEv"></span><span id="pcl::io::openni2::OpenNI2Device::getColorVideoStreamC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a83f6243fa9f14b01a767dbf509eea6e8"></span>boost::shared_ptr&lt;openni::VideoStream&gt; <code class="sig-name descname">getColorVideoStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device19getColorVideoStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device19getDepthVideoStreamEv">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device19getDepthVideoStreamEv"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device19getDepthVideoStreamEv"></span><span id="pcl::io::openni2::OpenNI2Device::getDepthVideoStreamC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ae116ab330994d29b0eb0a36b7d102f59"></span>boost::shared_ptr&lt;openni::VideoStream&gt; <code class="sig-name descname">getDepthVideoStream</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device19getDepthVideoStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17processColorFrameERN6openni11VideoStreamE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17processColorFrameERN6openni11VideoStreamE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17processColorFrameERN6openni11VideoStreamE"></span><span id="pcl::io::openni2::OpenNI2Device::processColorFrame__openni::VideoStreamR"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a080c8c62102b1ccc3c8b776035c13389"></span>void <code class="sig-name descname">processColorFrame</code><span class="sig-paren">(</span>openni::VideoStream &amp;<em>stream</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17processColorFrameERN6openni11VideoStreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17processDepthFrameERN6openni11VideoStreamE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17processDepthFrameERN6openni11VideoStreamE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17processDepthFrameERN6openni11VideoStreamE"></span><span id="pcl::io::openni2::OpenNI2Device::processDepthFrame__openni::VideoStreamR"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a185cdc75a620f2bc328f3e6c4d7ed0b4"></span>void <code class="sig-name descname">processDepthFrame</code><span class="sig-paren">(</span>openni::VideoStream &amp;<em>stream</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17processDepthFrameERN6openni11VideoStreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device14processIRFrameERN6openni11VideoStreamE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device14processIRFrameERN6openni11VideoStreamE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device14processIRFrameERN6openni11VideoStreamE"></span><span id="pcl::io::openni2::OpenNI2Device::processIRFrame__openni::VideoStreamR"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ab67c3fc49ca77fdd7d581d8e5b63a0e2"></span>void <code class="sig-name descname">processIRFrame</code><span class="sig-paren">(</span>openni::VideoStream &amp;<em>stream</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device14processIRFrameERN6openni11VideoStreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device23findCompatibleVideoModeEKNSt6vectorI16OpenNI2VideoModeEERK16OpenNI2VideoModeR16OpenNI2VideoMode">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device23findCompatibleVideoModeEKNSt6vectorI16OpenNI2VideoModeEERK16OpenNI2VideoModeR16OpenNI2VideoMode"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device23findCompatibleVideoModeEKNSt6vectorI16OpenNI2VideoModeEERK16OpenNI2VideoModeR16OpenNI2VideoMode"></span><span id="pcl::io::openni2::OpenNI2Device::findCompatibleVideoMode__std::vector:OpenNI2VideoMode:C.OpenNI2VideoModeCR.OpenNI2VideoModeRC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1abc33b25ed94f0e5f26dad73e0305125d"></span>bool <code class="sig-name descname">findCompatibleVideoMode</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a>&gt; <em>supportedModes</em>, <em class="property">const</em> <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>output_mode</em>, <a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a> &amp;<em>mode</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device23findCompatibleVideoModeEKNSt6vectorI16OpenNI2VideoModeEERK16OpenNI2VideoModeR16OpenNI2VideoMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io7openni213OpenNI2Device17resizingSupportedE6size_t6size_t6size_t6size_t">
+<span id="_CPPv3NK3pcl2io7openni213OpenNI2Device17resizingSupportedE6size_t6size_t6size_t6size_t"></span><span id="_CPPv2NK3pcl2io7openni213OpenNI2Device17resizingSupportedE6size_t6size_t6size_t6size_t"></span><span id="pcl::io::openni2::OpenNI2Device::resizingSupported__s.s.s.sC"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ae1a34618163345b6ba65b0843fe56503"></span>bool <code class="sig-name descname">resizingSupported</code><span class="sig-paren">(</span>size_t <em>input_width</em>, size_t <em>input_height</em>, size_t <em>output_width</em>, size_t <em>output_height</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io7openni213OpenNI2Device17resizingSupportedE6size_t6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device14openni_device_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device14openni_device_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device14openni_device_E"></span><span id="pcl::io::openni2::OpenNI2Device::openni_device___boost::shared_ptr:openni::Device:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a070ee620c733de13dc663707eddc870a"></span>boost::shared_ptr&lt;openni::Device&gt; <code class="sig-name descname">openni_device_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device14openni_device_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device12device_info_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device12device_info_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device12device_info_E"></span><span id="pcl::io::openni2::OpenNI2Device::device_info___boost::shared_ptr:openni::DeviceInfo:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a96ce77fac1742f7178e9ad6bbb35bc18"></span>boost::shared_ptr&lt;openni::DeviceInfo&gt; <code class="sig-name descname">device_info_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device12device_info_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17ir_frame_listenerE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17ir_frame_listenerE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17ir_frame_listenerE"></span><span id="pcl::io::openni2::OpenNI2Device::ir_frame_listener__boost::shared_ptr:OpenNI2FrameListener:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a17874e5d36d8ce7e82f9f18816c2fb30"></span>boost::shared_ptr&lt;<a class="reference internal" href="classpcl_1_1io_1_1openni2_1_1_open_n_i2_frame_listener.html#_CPPv4N3pcl2io7openni220OpenNI2FrameListenerE" title="pcl::io::openni2::OpenNI2FrameListener">OpenNI2FrameListener</a>&gt; <code class="sig-name descname">ir_frame_listener</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17ir_frame_listenerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device20color_frame_listenerE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device20color_frame_listenerE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device20color_frame_listenerE"></span><span id="pcl::io::openni2::OpenNI2Device::color_frame_listener__boost::shared_ptr:OpenNI2FrameListener:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a625552681fcdbbb70370963b8577a0b7"></span>boost::shared_ptr&lt;<a class="reference internal" href="classpcl_1_1io_1_1openni2_1_1_open_n_i2_frame_listener.html#_CPPv4N3pcl2io7openni220OpenNI2FrameListenerE" title="pcl::io::openni2::OpenNI2FrameListener">OpenNI2FrameListener</a>&gt; <code class="sig-name descname">color_frame_listener</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device20color_frame_listenerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device20depth_frame_listenerE">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device20depth_frame_listenerE"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device20depth_frame_listenerE"></span><span id="pcl::io::openni2::OpenNI2Device::depth_frame_listener__boost::shared_ptr:OpenNI2FrameListener:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a7cbb6d9730cdcf17b5e140167eda6e23"></span>boost::shared_ptr&lt;<a class="reference internal" href="classpcl_1_1io_1_1openni2_1_1_open_n_i2_frame_listener.html#_CPPv4N3pcl2io7openni220OpenNI2FrameListenerE" title="pcl::io::openni2::OpenNI2FrameListener">OpenNI2FrameListener</a>&gt; <code class="sig-name descname">depth_frame_listener</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device20depth_frame_listenerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device16ir_video_stream_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device16ir_video_stream_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device16ir_video_stream_E"></span><span id="pcl::io::openni2::OpenNI2Device::ir_video_stream___boost::shared_ptr:openni::VideoStream:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a0f7fa0abceefdb9df6ad6984f5b1808e"></span>boost::shared_ptr&lt;openni::VideoStream&gt; <code class="sig-name descname">ir_video_stream_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device16ir_video_stream_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device19color_video_stream_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device19color_video_stream_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device19color_video_stream_E"></span><span id="pcl::io::openni2::OpenNI2Device::color_video_stream___boost::shared_ptr:openni::VideoStream:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1accf669539ed4d1cb9fa91f27cc607da2"></span>boost::shared_ptr&lt;openni::VideoStream&gt; <code class="sig-name descname">color_video_stream_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device19color_video_stream_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device19depth_video_stream_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device19depth_video_stream_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device19depth_video_stream_E"></span><span id="pcl::io::openni2::OpenNI2Device::depth_video_stream___boost::shared_ptr:openni::VideoStream:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a8e21dbd13e2670ec75bdc4cb56040bbc"></span>boost::shared_ptr&lt;openni::VideoStream&gt; <code class="sig-name descname">depth_video_stream_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device19depth_video_stream_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device15ir_video_modes_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device15ir_video_modes_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device15ir_video_modes_E"></span><span id="pcl::io::openni2::OpenNI2Device::ir_video_modes___std::vector:OpenNI2VideoMode:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a7a18f2fa2ff38a4c206603c53a845e60"></span>std::vector&lt;<a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a>&gt; <code class="sig-name descname">ir_video_modes_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device15ir_video_modes_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device18color_video_modes_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device18color_video_modes_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device18color_video_modes_E"></span><span id="pcl::io::openni2::OpenNI2Device::color_video_modes___std::vector:OpenNI2VideoMode:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1aa2f13296c3902656673bc42ea1f666a1"></span>std::vector&lt;<a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a>&gt; <code class="sig-name descname">color_video_modes_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device18color_video_modes_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device18depth_video_modes_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device18depth_video_modes_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device18depth_video_modes_E"></span><span id="pcl::io::openni2::OpenNI2Device::depth_video_modes___std::vector:OpenNI2VideoMode:"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a37a37356aca2d4111c9223faf758338a"></span>std::vector&lt;<a class="reference internal" href="structpcl_1_1io_1_1openni2_1_1_open_n_i2_video_mode.html#_CPPv4N3pcl2io7openni216OpenNI2VideoModeE" title="pcl::io::openni2::OpenNI2VideoMode">OpenNI2VideoMode</a>&gt; <code class="sig-name descname">depth_video_modes_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device18depth_video_modes_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device17ir_video_started_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device17ir_video_started_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device17ir_video_started_E"></span><span id="pcl::io::openni2::OpenNI2Device::ir_video_started___b"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1acf5977d6962e1f8b21ac13666d3c07b0"></span>bool <code class="sig-name descname">ir_video_started_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device17ir_video_started_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device20color_video_started_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device20color_video_started_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device20color_video_started_E"></span><span id="pcl::io::openni2::OpenNI2Device::color_video_started___b"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1ad38d8a201d87354fc53e4c0cad643415"></span>bool <code class="sig-name descname">color_video_started_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device20color_video_started_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device20depth_video_started_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device20depth_video_started_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device20depth_video_started_E"></span><span id="pcl::io::openni2::OpenNI2Device::depth_video_started___b"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a2cc0b975e7cd83bb077b16abadb4b76a"></span>bool <code class="sig-name descname">depth_video_started_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device20depth_video_started_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device9baseline_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device9baseline_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device9baseline_E"></span><span id="pcl::io::openni2::OpenNI2Device::baseline___float"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1a0de7de9e224b231dbdaa20c91b756b7f"></span>float <code class="sig-name descname">baseline_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device9baseline_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>distance between the projector and the IR camera in meters </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device13shadow_value_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device13shadow_value_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device13shadow_value_E"></span><span id="pcl::io::openni2::OpenNI2Device::shadow_value___uint64_t"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1abc322fc119424b85de233e86611f594c"></span>uint64_t <code class="sig-name descname">shadow_value_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device13shadow_value_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the value for shadow (occluded pixels) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io7openni213OpenNI2Device16no_sample_value_E">
+<span id="_CPPv3N3pcl2io7openni213OpenNI2Device16no_sample_value_E"></span><span id="_CPPv2N3pcl2io7openni213OpenNI2Device16no_sample_value_E"></span><span id="pcl::io::openni2::OpenNI2Device::no_sample_value___uint64_t"></span><span class="target" id="classpcl_1_1io_1_1openni2_1_1_open_n_i2_device_1abefea8de6e312b1d99972e1ec0be26ca"></span>uint64_t <code class="sig-name descname">no_sample_value_</code><a class="headerlink" href="#_CPPv4N3pcl2io7openni213OpenNI2Device16no_sample_value_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>the value for pixels without a valid disparity measurement </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

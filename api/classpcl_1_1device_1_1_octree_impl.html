@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class OctreeImpl &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class OctreeImpl</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1device_1_1_octree_impl.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-octreeimpl">
+<span id="exhale-class-classpcl-1-1device-1-1-octree-impl"></span><h1>Class OctreeImpl<a class="headerlink" href="#class-octreeimpl" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_gpu_octree_src_internal.hpp.html#file-pcl-gpu-octree-src-internal-hpp"><span class="std std-ref">File internal.hpp</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host.html#exhale-struct-structpcl-1-1device-1-1-octree-impl-1-1-octree-data-host"><span class="std std-ref">Struct OctreeImpl::OctreeDataHost</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl6device10OctreeImplE">
+<span id="_CPPv3N3pcl6device10OctreeImplE"></span><span id="_CPPv2N3pcl6device10OctreeImplE"></span><span id="pcl::device::OctreeImpl"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl"></span><em class="property">class </em><code class="sig-name descname">OctreeImpl</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImplE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl9PointTypeE">
+<span id="_CPPv3N3pcl6device10OctreeImpl9PointTypeE"></span><span id="_CPPv2N3pcl6device10OctreeImpl9PointTypeE"></span><span id="pcl::device::OctreeImpl::PointType"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a1ef292ac6ef4ce5defc72fa9c97500b3"></span><em class="property">typedef </em>float4 <code class="sig-name descname">PointType</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl9PointTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl10PointArrayE">
+<span id="_CPPv3N3pcl6device10OctreeImpl10PointArrayE"></span><span id="_CPPv2N3pcl6device10OctreeImpl10PointArrayE"></span><span id="pcl::device::OctreeImpl::PointArray"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1af619f4e4c3fe50313c2a025b0fa85da6"></span><em class="property">typedef </em>DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl9PointTypeE" title="pcl::device::OctreeImpl::PointType">PointType</a>&gt; <code class="sig-name descname">PointArray</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl10PointArrayE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl10PointCloudE">
+<span id="_CPPv3N3pcl6device10OctreeImpl10PointCloudE"></span><span id="_CPPv2N3pcl6device10OctreeImpl10PointCloudE"></span><span id="pcl::device::OctreeImpl::PointCloud"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a15040adcc033ab8df45ed21adec4fc17"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl10PointArrayE" title="pcl::device::OctreeImpl::PointArray">PointArray</a> <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl7QueriesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl7QueriesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl7QueriesE"></span><span id="pcl::device::OctreeImpl::Queries"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a8bd1110e4bd557fe094ae885d392a0d9"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl10PointArrayE" title="pcl::device::OctreeImpl::PointArray">PointArray</a> <code class="sig-name descname">Queries</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl7QueriesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl8RadiusesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl8RadiusesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl8RadiusesE"></span><span id="pcl::device::OctreeImpl::Radiuses"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a252703275caa12b42f911f182e838002"></span><em class="property">typedef </em>DeviceArray&lt;float&gt; <code class="sig-name descname">Radiuses</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl8RadiusesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl11BatchResultE">
+<span id="_CPPv3N3pcl6device10OctreeImpl11BatchResultE"></span><span id="_CPPv2N3pcl6device10OctreeImpl11BatchResultE"></span><span id="pcl::device::OctreeImpl::BatchResult"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1aadb4d58587a2eee25dce79ca9041e815"></span><em class="property">typedef </em>DeviceArray&lt;int&gt; <code class="sig-name descname">BatchResult</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl11BatchResultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl16BatchResultSizesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl16BatchResultSizesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl16BatchResultSizesE"></span><span id="pcl::device::OctreeImpl::BatchResultSizes"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a2d013dbf9b16d7a58dcc3601a5cf37f9"></span><em class="property">typedef </em>DeviceArray&lt;int&gt; <code class="sig-name descname">BatchResultSizes</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl16BatchResultSizesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl19BatchResultSqrDistsE">
+<span id="_CPPv3N3pcl6device10OctreeImpl19BatchResultSqrDistsE"></span><span id="_CPPv2N3pcl6device10OctreeImpl19BatchResultSqrDistsE"></span><span id="pcl::device::OctreeImpl::BatchResultSqrDists"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a3ceed1d15fb4f5b4f03da84bccfc0cc2"></span><em class="property">typedef </em>DeviceArray&lt;float&gt; <code class="sig-name descname">BatchResultSqrDists</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl19BatchResultSqrDistsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl7IndicesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl7IndicesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl7IndicesE"></span><span id="pcl::device::OctreeImpl::Indices"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a16afc94f190dc79a5527cc5292c47398"></span><em class="property">typedef </em>DeviceArray&lt;int&gt; <code class="sig-name descname">Indices</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl7IndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6device10OctreeImpl15NeighborIndicesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl15NeighborIndicesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl15NeighborIndicesE"></span><span id="pcl::device::OctreeImpl::NeighborIndices"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1ab71fb6965409020d6605b60bb70bf39e"></span><em class="property">typedef </em>pcl::gpu::<a class="reference internal" href="structpcl_1_1gpu_1_1_neighbor_indices.html#_CPPv4N3pcl3gpu15NeighborIndicesE" title="pcl::gpu::NeighborIndices">NeighborIndices</a> <code class="sig-name descname">NeighborIndices</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl15NeighborIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6device10OctreeImpl10OctreeImplEv">
+<span id="_CPPv3N3pcl6device10OctreeImpl10OctreeImplEv"></span><span id="_CPPv2N3pcl6device10OctreeImpl10OctreeImplEv"></span><span id="pcl::device::OctreeImpl::OctreeImpl"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a8c2a5fdc9dc05808f711f38e39066279"></span><code class="sig-name descname">OctreeImpl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl10OctreeImplEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6device10OctreeImplD0Ev">
+<span id="_CPPv3N3pcl6device10OctreeImplD0Ev"></span><span id="_CPPv2N3pcl6device10OctreeImplD0Ev"></span><span id="pcl::device::OctreeImpl::~OctreeImpl"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a379fb395eb3f7b8e8c075cb6668cf70c"></span><code class="sig-name descname">~OctreeImpl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImplD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6device10OctreeImpl8setCloudERK10PointCloud">
+<span id="_CPPv3N3pcl6device10OctreeImpl8setCloudERK10PointCloud"></span><span id="_CPPv2N3pcl6device10OctreeImpl8setCloudERK10PointCloud"></span><span id="pcl::device::OctreeImpl::setCloud__PointCloudCR"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1abe13017a1489523a50bb21a126210ed7"></span>void <code class="sig-name descname">setCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl10PointCloudE" title="pcl::device::OctreeImpl::PointCloud">PointCloud</a> &amp;<em>input_points</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl8setCloudERK10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6device10OctreeImpl5buildEv">
+<span id="_CPPv3N3pcl6device10OctreeImpl5buildEv"></span><span id="_CPPv2N3pcl6device10OctreeImpl5buildEv"></span><span id="pcl::device::OctreeImpl::build"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a84d114e47a9a9d26874981a91e0feb92"></span>void <code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl5buildEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6device10OctreeImpl16radiusSearchHostERK9PointTypefRNSt6vectorIiEEi">
+<span id="_CPPv3NK3pcl6device10OctreeImpl16radiusSearchHostERK9PointTypefRNSt6vectorIiEEi"></span><span id="_CPPv2NK3pcl6device10OctreeImpl16radiusSearchHostERK9PointTypefRNSt6vectorIiEEi"></span><span id="pcl::device::OctreeImpl::radiusSearchHost__PointTypeCR.float.std::vector:i:R.iC"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a8d0f914c1f9e24928b04f422082e14dd"></span>void <code class="sig-name descname">radiusSearchHost</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl9PointTypeE" title="pcl::device::OctreeImpl::PointType">PointType</a> &amp;<em>center</em>, float <em>radius</em>, std::vector&lt;int&gt; &amp;<em>out</em>, int <em>max_nn</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6device10OctreeImpl16radiusSearchHostERK9PointTypefRNSt6vectorIiEEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6device10OctreeImpl23approxNearestSearchHostERK9PointTypeRiRf">
+<span id="_CPPv3NK3pcl6device10OctreeImpl23approxNearestSearchHostERK9PointTypeRiRf"></span><span id="_CPPv2NK3pcl6device10OctreeImpl23approxNearestSearchHostERK9PointTypeRiRf"></span><span id="pcl::device::OctreeImpl::approxNearestSearchHost__PointTypeCR.iR.floatRC"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1ad449d776ded85c944aaf8786019a5428"></span>void <code class="sig-name descname">approxNearestSearchHost</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl9PointTypeE" title="pcl::device::OctreeImpl::PointType">PointType</a> &amp;<em>query</em>, int &amp;<em>out_index</em>, float &amp;<em>sqr_dist</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6device10OctreeImpl23approxNearestSearchHostERK9PointTypeRiRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6device10OctreeImpl12radiusSearchERK7QueriesfR15NeighborIndices">
+<span id="_CPPv3N3pcl6device10OctreeImpl12radiusSearchERK7QueriesfR15NeighborIndices"></span><span id="_CPPv2N3pcl6device10OctreeImpl12radiusSearchERK7QueriesfR15NeighborIndices"></span><span id="pcl::device::OctreeImpl::radiusSearch__QueriesCR.float.NeighborIndicesR"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a245ef612fe881d773b32f60d603fb67b"></span>void <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl7QueriesE" title="pcl::device::OctreeImpl::Queries">Queries</a> &amp;<em>queries</em>, float <em>radius</em>, <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl15NeighborIndicesE" title="pcl::device::OctreeImpl::NeighborIndices">NeighborIndices</a> &amp;<em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl12radiusSearchERK7QueriesfR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6device10OctreeImpl12radiusSearchERK7QueriesRK8RadiusesR15NeighborIndices">
+<span id="_CPPv3N3pcl6device10OctreeImpl12radiusSearchERK7QueriesRK8RadiusesR15NeighborIndices"></span><span id="_CPPv2N3pcl6device10OctreeImpl12radiusSearchERK7QueriesRK8RadiusesR15NeighborIndices"></span><span id="pcl::device::OctreeImpl::radiusSearch__QueriesCR.RadiusesCR.NeighborIndicesR"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1ad96fe957b844534dfb3134eee6601115"></span>void <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl7QueriesE" title="pcl::device::OctreeImpl::Queries">Queries</a> &amp;<em>queries</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl8RadiusesE" title="pcl::device::OctreeImpl::Radiuses">Radiuses</a> &amp;<em>radiuses</em>, <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl15NeighborIndicesE" title="pcl::device::OctreeImpl::NeighborIndices">NeighborIndices</a> &amp;<em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl12radiusSearchERK7QueriesRK8RadiusesR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6device10OctreeImpl12radiusSearchERK7QueriesRK7IndicesfR15NeighborIndices">
+<span id="_CPPv3N3pcl6device10OctreeImpl12radiusSearchERK7QueriesRK7IndicesfR15NeighborIndices"></span><span id="_CPPv2N3pcl6device10OctreeImpl12radiusSearchERK7QueriesRK7IndicesfR15NeighborIndices"></span><span id="pcl::device::OctreeImpl::radiusSearch__QueriesCR.IndicesCR.float.NeighborIndicesR"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1ae6eea4cff146e0cb1a00cd14b1685691"></span>void <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl7QueriesE" title="pcl::device::OctreeImpl::Queries">Queries</a> &amp;<em>queries</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl7IndicesE" title="pcl::device::OctreeImpl::Indices">Indices</a> &amp;<em>indices</em>, float <em>radius</em>, <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl15NeighborIndicesE" title="pcl::device::OctreeImpl::NeighborIndices">NeighborIndices</a> &amp;<em>results</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl12radiusSearchERK7QueriesRK7IndicesfR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6device10OctreeImpl19approxNearestSearchERK7QueriesR15NeighborIndices">
+<span id="_CPPv3NK3pcl6device10OctreeImpl19approxNearestSearchERK7QueriesR15NeighborIndices"></span><span id="_CPPv2NK3pcl6device10OctreeImpl19approxNearestSearchERK7QueriesR15NeighborIndices"></span><span id="pcl::device::OctreeImpl::approxNearestSearch__QueriesCR.NeighborIndicesRC"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a8f2d0eb4b78b0fac17dedbfef33ac04a"></span>void <code class="sig-name descname">approxNearestSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl7QueriesE" title="pcl::device::OctreeImpl::Queries">Queries</a> &amp;<em>queries</em>, <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl15NeighborIndicesE" title="pcl::device::OctreeImpl::NeighborIndices">NeighborIndices</a> &amp;<em>results</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6device10OctreeImpl19approxNearestSearchERK7QueriesR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6device10OctreeImpl19nearestKSearchBatchERK7QueriesiR15NeighborIndices">
+<span id="_CPPv3NK3pcl6device10OctreeImpl19nearestKSearchBatchERK7QueriesiR15NeighborIndices"></span><span id="_CPPv2NK3pcl6device10OctreeImpl19nearestKSearchBatchERK7QueriesiR15NeighborIndices"></span><span id="pcl::device::OctreeImpl::nearestKSearchBatch__QueriesCR.i.NeighborIndicesRC"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1af933022ec453df23e115508f3fcf2221"></span>void <code class="sig-name descname">nearestKSearchBatch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl7QueriesE" title="pcl::device::OctreeImpl::Queries">Queries</a> &amp;<em>queries</em>, int <em>k</em>, <a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl15NeighborIndicesE" title="pcl::device::OctreeImpl::NeighborIndices">NeighborIndices</a> &amp;<em>results</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6device10OctreeImpl19nearestKSearchBatchERK7QueriesiR15NeighborIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6device10OctreeImpl16internalDownloadEv">
+<span id="_CPPv3N3pcl6device10OctreeImpl16internalDownloadEv"></span><span id="_CPPv2N3pcl6device10OctreeImpl16internalDownloadEv"></span><span id="pcl::device::OctreeImpl::internalDownload"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1aa848bacf3dd83d1873132f0861eaeb62"></span>void <code class="sig-name descname">internalDownload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl16internalDownloadEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl6pointsE">
+<span id="_CPPv3N3pcl6device10OctreeImpl6pointsE"></span><span id="_CPPv2N3pcl6device10OctreeImpl6pointsE"></span><span id="pcl::device::OctreeImpl::points__PointCloud"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a2e5e4994c79d546ad6eb2748ddc05c58"></span><a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl10PointCloudE" title="pcl::device::OctreeImpl::PointCloud">PointCloud</a> <code class="sig-name descname">points</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl6pointsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl13points_sortedE">
+<span id="_CPPv3N3pcl6device10OctreeImpl13points_sortedE"></span><span id="_CPPv2N3pcl6device10OctreeImpl13points_sortedE"></span><span id="pcl::device::OctreeImpl::points_sorted__DeviceArray2D:float:"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a2fb6c09ba94671d184b2b5df882f5e8d"></span>DeviceArray2D&lt;float&gt; <code class="sig-name descname">points_sorted</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl13points_sortedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl5codesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl5codesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl5codesE"></span><span id="pcl::device::OctreeImpl::codes__DeviceArray:i:"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a742d0d8307f43d640fce1a0708cc5f52"></span>DeviceArray&lt;int&gt; <code class="sig-name descname">codes</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl5codesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl7indicesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl7indicesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl7indicesE"></span><span id="pcl::device::OctreeImpl::indices__DeviceArray:i:"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1ad15f8145c2f7f3235dafcf7c79f86d49"></span>DeviceArray&lt;int&gt; <code class="sig-name descname">indices</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl7indicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl12octreeGlobalE">
+<span id="_CPPv3N3pcl6device10OctreeImpl12octreeGlobalE"></span><span id="_CPPv2N3pcl6device10OctreeImpl12octreeGlobalE"></span><span id="pcl::device::OctreeImpl::octreeGlobal__OctreeGlobalWithBox"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a11a9b3fd1c797c5419a665b5187effdd"></span><a class="reference internal" href="structpcl_1_1device_1_1_octree_global_with_box.html#_CPPv4N3pcl6device19OctreeGlobalWithBoxE" title="pcl::device::OctreeGlobalWithBox">OctreeGlobalWithBox</a> <code class="sig-name descname">octreeGlobal</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl12octreeGlobalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl7storageE">
+<span id="_CPPv3N3pcl6device10OctreeImpl7storageE"></span><span id="_CPPv2N3pcl6device10OctreeImpl7storageE"></span><span id="pcl::device::OctreeImpl::storage__DeviceArray2D:i:"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a98c071b5cf5beb25289c57703c4bb85f"></span>DeviceArray2D&lt;int&gt; <code class="sig-name descname">storage</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl7storageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl11host_octreeE">
+<span id="_CPPv3N3pcl6device10OctreeImpl11host_octreeE"></span><span id="_CPPv2N3pcl6device10OctreeImpl11host_octreeE"></span><span id="pcl::device::OctreeImpl::host_octree__pcl::device::OctreeImpl::OctreeDataHost"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1ab4c373e56987392c3f202703f9d5d158"></span><em class="property">struct</em> pcl::device::<a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImplE" title="pcl::device::OctreeImpl">OctreeImpl</a>::<a class="reference internal" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHostE" title="pcl::device::OctreeImpl::OctreeDataHost">OctreeDataHost</a> <code class="sig-name descname">host_octree</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl11host_octreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6device10OctreeImpl25get_gpu_arch_compiled_forERiRi">
+<span id="_CPPv3N3pcl6device10OctreeImpl25get_gpu_arch_compiled_forERiRi"></span><span id="_CPPv2N3pcl6device10OctreeImpl25get_gpu_arch_compiled_forERiRi"></span><span id="pcl::device::OctreeImpl::get_gpu_arch_compiled_for__iR.iR"></span><span class="target" id="classpcl_1_1device_1_1_octree_impl_1a791663cb86534864b9806c3d1901b3a2"></span><em class="property">static</em> void <code class="sig-name descname">get_gpu_arch_compiled_for</code><span class="sig-paren">(</span>int &amp;<em>bin</em>, int &amp;<em>ptr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl25get_gpu_arch_compiled_forERiRi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl6device10OctreeImpl14OctreeDataHostE">
+<span id="_CPPv3N3pcl6device10OctreeImpl14OctreeDataHostE"></span><span id="_CPPv2N3pcl6device10OctreeImpl14OctreeDataHostE"></span><span id="pcl::device::OctreeImpl::OctreeDataHost"></span><span class="target" id="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host"></span><em class="property">struct </em><code class="sig-name descname">OctreeDataHost</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHostE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost5nodesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl14OctreeDataHost5nodesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl14OctreeDataHost5nodesE"></span><span id="pcl::device::OctreeImpl::OctreeDataHost::nodes__std::vector:i:"></span><span class="target" id="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host_1a764a451b95e68247231294ea22061ce3"></span>std::vector&lt;int&gt; <code class="sig-name descname">nodes</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost5nodesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost5codesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl14OctreeDataHost5codesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl14OctreeDataHost5codesE"></span><span id="pcl::device::OctreeImpl::OctreeDataHost::codes__std::vector:i:"></span><span class="target" id="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host_1a8f6fc2b7ceef7017082cb0de1d725b67"></span>std::vector&lt;int&gt; <code class="sig-name descname">codes</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost5codesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost4begsE">
+<span id="_CPPv3N3pcl6device10OctreeImpl14OctreeDataHost4begsE"></span><span id="_CPPv2N3pcl6device10OctreeImpl14OctreeDataHost4begsE"></span><span id="pcl::device::OctreeImpl::OctreeDataHost::begs__std::vector:i:"></span><span class="target" id="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host_1ab582fbbe8933cca6122d5605ba15f452"></span>std::vector&lt;int&gt; <code class="sig-name descname">begs</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost4begsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost4endsE">
+<span id="_CPPv3N3pcl6device10OctreeImpl14OctreeDataHost4endsE"></span><span id="_CPPv2N3pcl6device10OctreeImpl14OctreeDataHost4endsE"></span><span id="pcl::device::OctreeImpl::OctreeDataHost::ends__std::vector:i:"></span><span class="target" id="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host_1a8e31ab0fc61e25f26cd13ec5038833c2"></span>std::vector&lt;int&gt; <code class="sig-name descname">ends</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost4endsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost7indicesE">
+<span id="_CPPv3N3pcl6device10OctreeImpl14OctreeDataHost7indicesE"></span><span id="_CPPv2N3pcl6device10OctreeImpl14OctreeDataHost7indicesE"></span><span id="pcl::device::OctreeImpl::OctreeDataHost::indices__std::vector:i:"></span><span class="target" id="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host_1acd6f2bc542dd44c90503861ad7785783"></span>std::vector&lt;int&gt; <code class="sig-name descname">indices</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost7indicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost13points_sortedE">
+<span id="_CPPv3N3pcl6device10OctreeImpl14OctreeDataHost13points_sortedE"></span><span id="_CPPv2N3pcl6device10OctreeImpl14OctreeDataHost13points_sortedE"></span><span id="pcl::device::OctreeImpl::OctreeDataHost::points_sorted__std::vector:float:"></span><span class="target" id="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host_1ae90b9ed2555cc96b1479cc5224b51491"></span>std::vector&lt;float&gt; <code class="sig-name descname">points_sorted</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost13points_sortedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost18points_sorted_stepE">
+<span id="_CPPv3N3pcl6device10OctreeImpl14OctreeDataHost18points_sorted_stepE"></span><span id="_CPPv2N3pcl6device10OctreeImpl14OctreeDataHost18points_sorted_stepE"></span><span id="pcl::device::OctreeImpl::OctreeDataHost::points_sorted_step__i"></span><span class="target" id="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host_1a87997df170ba6258c19847b7925294e4"></span>int <code class="sig-name descname">points_sorted_step</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost18points_sorted_stepE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost10downloadedE">
+<span id="_CPPv3N3pcl6device10OctreeImpl14OctreeDataHost10downloadedE"></span><span id="_CPPv2N3pcl6device10OctreeImpl14OctreeDataHost10downloadedE"></span><span id="pcl::device::OctreeImpl::OctreeDataHost::downloaded__i"></span><span class="target" id="structpcl_1_1device_1_1_octree_impl_1_1_octree_data_host_1a4a574aff2451f6f6ed7e85fc80fa8e84"></span>int <code class="sig-name descname">downloaded</code><a class="headerlink" href="#_CPPv4N3pcl6device10OctreeImpl14OctreeDataHost10downloadedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

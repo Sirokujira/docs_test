@@ -1,0 +1,766 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OrganizedFastMesh &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OrganizedFastMesh</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_organized_fast_mesh.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-organizedfastmesh">
+<span id="exhale-class-classpcl-1-1-organized-fast-mesh"></span><h1>Template Class OrganizedFastMesh<a class="headerlink" href="#template-class-organizedfastmesh" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_organized_fast_mesh.h.html#file-pcl-surface-include-pcl-surface-organized-fast-mesh-h"><span class="std std-ref">File organized_fast_mesh.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::MeshConstruction&lt;</span> <span class="pre">PointInT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_mesh_construction.html#exhale-class-classpcl-1-1-mesh-construction"><span class="std std-ref">Template Class MeshConstruction</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl17OrganizedFastMeshE">
+<span id="_CPPv3I0EN3pcl17OrganizedFastMeshE"></span><span id="_CPPv2I0EN3pcl17OrganizedFastMeshE"></span><span class="target" id="classpcl_1_1_organized_fast_mesh"></span>template&lt;typename <code class="sig-name descname">PointInT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">OrganizedFastMesh</code> : <em class="property">public</em> pcl::MeshConstruction&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl17OrganizedFastMeshE" title="pcl::OrganizedFastMesh::PointInT">PointInT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl17OrganizedFastMeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simple triangulation/surface reconstruction for organized point clouds. </p>
+<p>Neighboring points (pixels in image space) are connected to construct a triangular (or quad) mesh.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>If you use this code in any academic work, please cite: D. Holz and S. Behnke. Fast Range Image Segmentation and Smoothing using Approximate Surface Reconstruction and Region Growing. In Proceedings of the 12th International Conference on Intelligent Autonomous Systems (IAS), Jeju Island, Korea, June 26-29 2012. <a class="reference external" href="http://purl.org/holz/papers/holz_2012_ias.pdf">http://purl.org/holz/papers/holz_2012_ias.pdf</a></p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Dirk Holz, Radu B. Rusu </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh17TriangulationTypeE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh17TriangulationTypeE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh17TriangulationTypeE"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ab3a2736225e816e798509a13d47f7529"></span><em class="property">enum </em><code class="sig-name descname">TriangulationType</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh17TriangulationTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh18TRIANGLE_RIGHT_CUTE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh18TRIANGLE_RIGHT_CUTE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh18TRIANGLE_RIGHT_CUTE"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ab3a2736225e816e798509a13d47f7529a39b64cedf81d7a7d06f9349f1c0dc65a"></span><code class="sig-name descname">TRIANGLE_RIGHT_CUT</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh18TRIANGLE_RIGHT_CUTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh17TRIANGLE_LEFT_CUTE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh17TRIANGLE_LEFT_CUTE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh17TRIANGLE_LEFT_CUTE"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ab3a2736225e816e798509a13d47f7529a358358c050e2a853cf90e342ebb46ae8"></span><code class="sig-name descname">TRIANGLE_LEFT_CUT</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh17TRIANGLE_LEFT_CUTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh21TRIANGLE_ADAPTIVE_CUTE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh21TRIANGLE_ADAPTIVE_CUTE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh21TRIANGLE_ADAPTIVE_CUTE"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ab3a2736225e816e798509a13d47f7529a28163b50620f84122e02a7446e5f94d9"></span><code class="sig-name descname">TRIANGLE_ADAPTIVE_CUT</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh21TRIANGLE_ADAPTIVE_CUTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh9QUAD_MESHE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh9QUAD_MESHE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh9QUAD_MESHE"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ab3a2736225e816e798509a13d47f7529abd64b380dbd5c33c00384af5348bfcfe"></span><code class="sig-name descname">QUAD_MESH</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh9QUAD_MESHE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh3PtrE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh3PtrE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh3PtrE"></span><span id="pcl::OrganizedFastMesh::Ptr"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a5ed41996f8acac65b4fd74a2d0bbd320"></span><em class="property">typedef </em>boost::shared_ptr&lt;OrganizedFastMesh&lt;PointInT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh8ConstPtrE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh8ConstPtrE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh8ConstPtrE"></span><span id="pcl::OrganizedFastMesh::ConstPtr"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a7991ca191f9ebe074c8f035ea907dba6"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> OrganizedFastMesh&lt;PointInT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh13PointCloudPtrE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh13PointCloudPtrE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh13PointCloudPtrE"></span><span id="pcl::OrganizedFastMesh::PointCloudPtr"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ad98cceb9d4167956cc2879ac2d56f81a"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointInT&gt;::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh8PolygonsE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh8PolygonsE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh8PolygonsE"></span><span id="pcl::OrganizedFastMesh::Polygons"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a6dcd79bb020bc7088e853bf0d54bcb2a"></span><em class="property">typedef </em>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; <code class="sig-name descname">Polygons</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh8PolygonsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh17OrganizedFastMeshEv">
+<span id="_CPPv3N3pcl17OrganizedFastMesh17OrganizedFastMeshEv"></span><span id="_CPPv2N3pcl17OrganizedFastMesh17OrganizedFastMeshEv"></span><span id="pcl::OrganizedFastMesh::OrganizedFastMesh"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a58e1b0c042232642a82ec8b27d90386b"></span><code class="sig-name descname">OrganizedFastMesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh17OrganizedFastMeshEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p>Triangulation type defaults to <em>QUAD_MESH</em>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMeshD0Ev">
+<span id="_CPPv3N3pcl17OrganizedFastMeshD0Ev"></span><span id="_CPPv2N3pcl17OrganizedFastMeshD0Ev"></span><span id="pcl::OrganizedFastMesh::~OrganizedFastMesh"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a5baedcee7cdab78236ce2027a8137cb7"></span><em class="property">virtual</em> <code class="sig-name descname">~OrganizedFastMesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMeshD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh16setMaxEdgeLengthEfff">
+<span id="_CPPv3N3pcl17OrganizedFastMesh16setMaxEdgeLengthEfff"></span><span id="_CPPv2N3pcl17OrganizedFastMesh16setMaxEdgeLengthEfff"></span><span id="pcl::OrganizedFastMesh::setMaxEdgeLength__float.float.float"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a87789a49d6f735267bda67f6701ad206"></span>void <code class="sig-name descname">setMaxEdgeLength</code><span class="sig-paren">(</span>float <em>a</em>, float <em>b</em> = 0.0f, float <em>c</em> = 0.0f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh16setMaxEdgeLengthEfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set a maximum edge length. </p>
+<p>Using not only the scalar <em>a</em>, but also <em>b</em> and <em>c</em>, allows for using a distance threshold in the form of: threshold(x) = c*x*x + b*x + a <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: scalar coefficient of the (distance-dependent polynom) threshold </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">b</span></code>: linear coefficient of the (distance-dependent polynom) threshold </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c</span></code>: quadratic coefficient of the (distance-dependent polynom) threshold </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh18unsetMaxEdgeLengthEv">
+<span id="_CPPv3N3pcl17OrganizedFastMesh18unsetMaxEdgeLengthEv"></span><span id="_CPPv2N3pcl17OrganizedFastMesh18unsetMaxEdgeLengthEv"></span><span id="pcl::OrganizedFastMesh::unsetMaxEdgeLength"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ae9dd6191e3f466c5750e58842d88f21d"></span>void <code class="sig-name descname">unsetMaxEdgeLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh18unsetMaxEdgeLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh20setTrianglePixelSizeEi">
+<span id="_CPPv3N3pcl17OrganizedFastMesh20setTrianglePixelSizeEi"></span><span id="_CPPv2N3pcl17OrganizedFastMesh20setTrianglePixelSizeEi"></span><span id="pcl::OrganizedFastMesh::setTrianglePixelSize__i"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a745e7170a11c9860dd8920e8d212db07"></span>void <code class="sig-name descname">setTrianglePixelSize</code><span class="sig-paren">(</span>int <em>triangle_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh20setTrianglePixelSizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the edge length (in pixels) used for constructing the fixed mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">triangle_size</span></code>: edge length in pixels (Default: 1 = neighboring pixels are connected) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh24setTrianglePixelSizeRowsEi">
+<span id="_CPPv3N3pcl17OrganizedFastMesh24setTrianglePixelSizeRowsEi"></span><span id="_CPPv2N3pcl17OrganizedFastMesh24setTrianglePixelSizeRowsEi"></span><span id="pcl::OrganizedFastMesh::setTrianglePixelSizeRows__i"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a8c9540f2e18be8d72d6fb11d912bd22c"></span>void <code class="sig-name descname">setTrianglePixelSizeRows</code><span class="sig-paren">(</span>int <em>triangle_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh24setTrianglePixelSizeRowsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the edge length (in pixels) used for iterating over rows when constructing the fixed mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">triangle_size</span></code>: edge length in pixels (Default: 1 = neighboring pixels are connected) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh27setTrianglePixelSizeColumnsEi">
+<span id="_CPPv3N3pcl17OrganizedFastMesh27setTrianglePixelSizeColumnsEi"></span><span id="_CPPv2N3pcl17OrganizedFastMesh27setTrianglePixelSizeColumnsEi"></span><span id="pcl::OrganizedFastMesh::setTrianglePixelSizeColumns__i"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ab8fa19a842373ed2732360c02344d584"></span>void <code class="sig-name descname">setTrianglePixelSizeColumns</code><span class="sig-paren">(</span>int <em>triangle_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh27setTrianglePixelSizeColumnsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the edge length (in pixels) used for iterating over columns when constructing the fixed mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">triangle_size</span></code>: edge length in pixels (Default: 1 = neighboring pixels are connected) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh20setTriangulationTypeE17TriangulationType">
+<span id="_CPPv3N3pcl17OrganizedFastMesh20setTriangulationTypeE17TriangulationType"></span><span id="_CPPv2N3pcl17OrganizedFastMesh20setTriangulationTypeE17TriangulationType"></span><span id="pcl::OrganizedFastMesh::setTriangulationType__TriangulationType"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a6ed920ebda18de0896470da943bc7cc5"></span>void <code class="sig-name descname">setTriangulationType</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl17OrganizedFastMesh17TriangulationTypeE" title="pcl::OrganizedFastMesh::TriangulationType">TriangulationType</a> <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh20setTriangulationTypeE17TriangulationType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the triangulation type (see <em>TriangulationType</em>) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">type</span></code>: quad mesh, triangle mesh with fixed left, right cut, or adaptive cut (splits a quad w.r.t. the depth (z) of the points) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh12setViewpointERKN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh12setViewpointERKN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh12setViewpointERKN5Eigen8Vector3fE"></span><span id="pcl::OrganizedFastMesh::setViewpoint__Eigen::Vector3fCR"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a574d4db8bcd96173c6b48eb7bc49ad4f"></span>void <code class="sig-name descname">setViewpoint</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3f &amp;<em>viewpoint</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh12setViewpointERKN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the viewpoint from where the input point cloud has been acquired. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">viewpoint</span></code>: Vector containing the viewpoint coordinates (in the coordinate system of the data) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl17OrganizedFastMesh12getViewpointEv">
+<span id="_CPPv3NK3pcl17OrganizedFastMesh12getViewpointEv"></span><span id="_CPPv2NK3pcl17OrganizedFastMesh12getViewpointEv"></span><span id="pcl::OrganizedFastMesh::getViewpointC"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a9baf96b8397f2dd15d797e594b9e4240"></span><em class="property">const</em> Eigen::Vector3f &amp;<code class="sig-name descname">getViewpoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl17OrganizedFastMesh12getViewpointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the viewpoint from where the input point cloud has been acquired. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh18storeShadowedFacesEb">
+<span id="_CPPv3N3pcl17OrganizedFastMesh18storeShadowedFacesEb"></span><span id="_CPPv2N3pcl17OrganizedFastMesh18storeShadowedFacesEb"></span><span id="pcl::OrganizedFastMesh::storeShadowedFaces__b"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a58ce299182a05909db539a1d84f93ee5"></span>void <code class="sig-name descname">storeShadowedFaces</code><span class="sig-paren">(</span>bool <em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh18storeShadowedFacesEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Store shadowed faces or not. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">enable</span></code>: set to true to store shadowed faces </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh17setAngleToleranceEf">
+<span id="_CPPv3N3pcl17OrganizedFastMesh17setAngleToleranceEf"></span><span id="_CPPv2N3pcl17OrganizedFastMesh17setAngleToleranceEf"></span><span id="pcl::OrganizedFastMesh::setAngleTolerance__float"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ac2420fca246de67861071dadf39d7e63"></span>void <code class="sig-name descname">setAngleTolerance</code><span class="sig-paren">(</span>float <em>angle_tolerance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh17setAngleToleranceEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the angle tolerance used for checking whether or not an edge is occluded. </p>
+<p>Standard values are 5deg to 15deg (input in rad!). Set a value smaller than zero to disable the check for shadowed edges. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">angle_tolerance</span></code>: Angle tolerance (in rad). Set a value &lt;0 to disable. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh20setDistanceToleranceEfb">
+<span id="_CPPv3N3pcl17OrganizedFastMesh20setDistanceToleranceEfb"></span><span id="_CPPv2N3pcl17OrganizedFastMesh20setDistanceToleranceEfb"></span><span id="pcl::OrganizedFastMesh::setDistanceTolerance__float.b"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1aa3940a231cb7bb4b6a7f7d239f71fafa"></span>void <code class="sig-name descname">setDistanceTolerance</code><span class="sig-paren">(</span>float <em>distance_tolerance</em>, bool <em>depth_dependent</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh20setDistanceToleranceEfb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh18useDepthAsDistanceEb">
+<span id="_CPPv3N3pcl17OrganizedFastMesh18useDepthAsDistanceEb"></span><span id="_CPPv2N3pcl17OrganizedFastMesh18useDepthAsDistanceEb"></span><span id="pcl::OrganizedFastMesh::useDepthAsDistance__b"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a362926b64c94d53abb6363f9b916df63"></span>void <code class="sig-name descname">useDepthAsDistance</code><span class="sig-paren">(</span>bool <em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh18useDepthAsDistanceEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use the points’ depths (z-coordinates) instead of measured distances (points’ distances to the viewpoint). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">enable</span></code>: Set to true skips comptations and further speeds up computation by using depth instead of computing distance. false to disable. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh19reconstructPolygonsERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh19reconstructPolygonsERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh19reconstructPolygonsERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::OrganizedFastMesh::reconstructPolygons__std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a5fee6d23c77a2e4f193d2707d94ca2cd"></span>void <code class="sig-name descname">reconstructPolygons</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh19reconstructPolygonsERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Perform the actual polygonal reconstruction. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant polygons </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh21performReconstructionERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh21performReconstructionERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh21performReconstructionERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::OrganizedFastMesh::performReconstruction__std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1af66bbf2fa9e28aebd2af2e308bf140da"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh21performReconstructionERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create the surface. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh21performReconstructionERN3pcl11PolygonMeshE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh21performReconstructionERN3pcl11PolygonMeshE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh21performReconstructionERN3pcl11PolygonMeshE"></span><span id="pcl::OrganizedFastMesh::performReconstruction__pcl::PolygonMeshR"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ad9d74d4e6627057633ab3d4afb2b14ca"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_polygon_mesh.html#_CPPv4N3pcl11PolygonMeshE" title="pcl::PolygonMesh">PolygonMesh</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh21performReconstructionERN3pcl11PolygonMeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create the surface. </p>
+<p>Simply uses image indices to create an initial polygonal mesh for organized point clouds. <em>indices_</em> are ignored!</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant polygonal mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh11addTriangleEiiiiRNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh11addTriangleEiiiiRNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh11addTriangleEiiiiRNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::OrganizedFastMesh::addTriangle__i.i.i.i.std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a0a851476fa47e32fb39105d88000552f"></span>void <code class="sig-name descname">addTriangle</code><span class="sig-paren">(</span>int <em>a</em>, int <em>b</em>, int <em>c</em>, int <em>idx</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh11addTriangleEiiiiRNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a new triangle to the current polygon mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: index of the first vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">b</span></code>: index of the second vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c</span></code>: index of the third vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx</span></code>: the index in the set of polygon vertices (assumes <em>idx</em> is valid in <em>polygons</em>) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the polygon mesh to be updated </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh7addQuadEiiiiiRNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh7addQuadEiiiiiRNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh7addQuadEiiiiiRNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::OrganizedFastMesh::addQuad__i.i.i.i.i.std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a5d65d8b8d6f87d86ce99237d7be43838"></span>void <code class="sig-name descname">addQuad</code><span class="sig-paren">(</span>int <em>a</em>, int <em>b</em>, int <em>c</em>, int <em>d</em>, int <em>idx</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh7addQuadEiiiiiRNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a new quad to the current polygon mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: index of the first vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">b</span></code>: index of the second vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c</span></code>: index of the third vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">d</span></code>: index of the fourth vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx</span></code>: the index in the set of polygon vertices (assumes <em>idx</em> is valid in <em>polygons</em>) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the polygon mesh to be updated </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh14resetPointDataERKiRN3pcl11PolygonMeshERKfiii">
+<span id="_CPPv3N3pcl17OrganizedFastMesh14resetPointDataERKiRN3pcl11PolygonMeshERKfiii"></span><span id="_CPPv2N3pcl17OrganizedFastMesh14resetPointDataERKiRN3pcl11PolygonMeshERKfiii"></span><span id="pcl::OrganizedFastMesh::resetPointData__iCR.pcl::PolygonMeshR.floatCR.i.i.i"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1afdec586da3f519619384964dd61e8ef6"></span>void <code class="sig-name descname">resetPointData</code><span class="sig-paren">(</span><em class="property">const</em> int &amp;<em>point_index</em>, pcl::<a class="reference internal" href="structpcl_1_1_polygon_mesh.html#_CPPv4N3pcl11PolygonMeshE" title="pcl::PolygonMesh">PolygonMesh</a> &amp;<em>mesh</em>, <em class="property">const</em> float &amp;<em>value</em> = 0.0f, int <em>field_x_idx</em> = 0, int <em>field_y_idx</em> = 1, int <em>field_z_idx</em> = 2<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh14resetPointDataERKiRN3pcl11PolygonMeshERKfiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set (all) coordinates of a particular point to the specified value. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point_index</span></code>: index of point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">mesh</span></code>: to modify </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">value</span></code>: value to use when re-setting </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">field_x_idx</span></code>: the X coordinate of the point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">field_y_idx</span></code>: the Y coordinate of the point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">field_z_idx</span></code>: the Z coordinate of the point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh10isShadowedERK8PointInTRK8PointInT">
+<span id="_CPPv3N3pcl17OrganizedFastMesh10isShadowedERK8PointInTRK8PointInT"></span><span id="_CPPv2N3pcl17OrganizedFastMesh10isShadowedERK8PointInTRK8PointInT"></span><span id="pcl::OrganizedFastMesh::isShadowed__PointInTCR.PointInTCR"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ad27fb6b497795338f4eab1d7103dfb1d"></span>bool <code class="sig-name descname">isShadowed</code><span class="sig-paren">(</span><em class="property">const</em> PointInT &amp;<em>point_a</em>, <em class="property">const</em> PointInT &amp;<em>point_b</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh10isShadowedERK8PointInTRK8PointInT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a point is shadowed by another point. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point_a</span></code>: the first point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point_b</span></code>: the second point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh15isValidTriangleERKiRKiRKi">
+<span id="_CPPv3N3pcl17OrganizedFastMesh15isValidTriangleERKiRKiRKi"></span><span id="_CPPv2N3pcl17OrganizedFastMesh15isValidTriangleERKiRKiRKi"></span><span id="pcl::OrganizedFastMesh::isValidTriangle__iCR.iCR.iCR"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a6430900529656933de06c2cc84554c15"></span>bool <code class="sig-name descname">isValidTriangle</code><span class="sig-paren">(</span><em class="property">const</em> int &amp;<em>a</em>, <em class="property">const</em> int &amp;<em>b</em>, <em class="property">const</em> int &amp;<em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh15isValidTriangleERKiRKiRKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a triangle is valid. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: index of the first vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">b</span></code>: index of the second vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c</span></code>: index of the third vertex </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh18isShadowedTriangleERKiRKiRKi">
+<span id="_CPPv3N3pcl17OrganizedFastMesh18isShadowedTriangleERKiRKiRKi"></span><span id="_CPPv2N3pcl17OrganizedFastMesh18isShadowedTriangleERKiRKiRKi"></span><span id="pcl::OrganizedFastMesh::isShadowedTriangle__iCR.iCR.iCR"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1aac570e3fcd088203cfabe6b929b895eb"></span>bool <code class="sig-name descname">isShadowedTriangle</code><span class="sig-paren">(</span><em class="property">const</em> int &amp;<em>a</em>, <em class="property">const</em> int &amp;<em>b</em>, <em class="property">const</em> int &amp;<em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh18isShadowedTriangleERKiRKiRKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a triangle is shadowed. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: index of the first vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">b</span></code>: index of the second vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c</span></code>: index of the third vertex </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh11isValidQuadERKiRKiRKiRKi">
+<span id="_CPPv3N3pcl17OrganizedFastMesh11isValidQuadERKiRKiRKiRKi"></span><span id="_CPPv2N3pcl17OrganizedFastMesh11isValidQuadERKiRKiRKiRKi"></span><span id="pcl::OrganizedFastMesh::isValidQuad__iCR.iCR.iCR.iCR"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a26da7a6e9d9198f3a89296a6a9339f4d"></span>bool <code class="sig-name descname">isValidQuad</code><span class="sig-paren">(</span><em class="property">const</em> int &amp;<em>a</em>, <em class="property">const</em> int &amp;<em>b</em>, <em class="property">const</em> int &amp;<em>c</em>, <em class="property">const</em> int &amp;<em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh11isValidQuadERKiRKiRKiRKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a quad is valid. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: index of the first vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">b</span></code>: index of the second vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c</span></code>: index of the third vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">d</span></code>: index of the fourth vertex </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh14isShadowedQuadERKiRKiRKiRKi">
+<span id="_CPPv3N3pcl17OrganizedFastMesh14isShadowedQuadERKiRKiRKiRKi"></span><span id="_CPPv2N3pcl17OrganizedFastMesh14isShadowedQuadERKiRKiRKiRKi"></span><span id="pcl::OrganizedFastMesh::isShadowedQuad__iCR.iCR.iCR.iCR"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a0b6e21a32c58df67445d2ce10f44e257"></span>bool <code class="sig-name descname">isShadowedQuad</code><span class="sig-paren">(</span><em class="property">const</em> int &amp;<em>a</em>, <em class="property">const</em> int &amp;<em>b</em>, <em class="property">const</em> int &amp;<em>c</em>, <em class="property">const</em> int &amp;<em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh14isShadowedQuadERKiRKiRKiRKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a triangle is shadowed. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: index of the first vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">b</span></code>: index of the second vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c</span></code>: index of the third vertex </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">d</span></code>: index of the fourth vertex </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh12makeQuadMeshERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh12makeQuadMeshERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh12makeQuadMeshERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::OrganizedFastMesh::makeQuadMesh__std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a370af0c043d7324913d00721461fede0"></span>void <code class="sig-name descname">makeQuadMesh</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh12makeQuadMeshERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a quad mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh16makeRightCutMeshERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh16makeRightCutMeshERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh16makeRightCutMeshERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::OrganizedFastMesh::makeRightCutMesh__std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a104c0c0b8d68a948db79edda93a6abf5"></span>void <code class="sig-name descname">makeRightCutMesh</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh16makeRightCutMeshERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a right cut mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh15makeLeftCutMeshERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh15makeLeftCutMeshERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh15makeLeftCutMeshERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::OrganizedFastMesh::makeLeftCutMesh__std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1af5df7632921a3a688a1b896f18199a3d"></span>void <code class="sig-name descname">makeLeftCutMesh</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh15makeLeftCutMeshERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a left cut mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh19makeAdaptiveCutMeshERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl17OrganizedFastMesh19makeAdaptiveCutMeshERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl17OrganizedFastMesh19makeAdaptiveCutMeshERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::OrganizedFastMesh::makeAdaptiveCutMesh__std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ae78e35fa74dac20aa4705cd793f00d1d"></span>void <code class="sig-name descname">makeAdaptiveCutMesh</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh19makeAdaptiveCutMeshERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create an adaptive cut mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh18max_edge_length_a_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh18max_edge_length_a_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh18max_edge_length_a_E"></span><span id="pcl::OrganizedFastMesh::max_edge_length_a___float"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a6c068309f5707a054eefe8c9b45eeffd"></span>float <code class="sig-name descname">max_edge_length_a_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh18max_edge_length_a_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>max length of edge, scalar component </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh18max_edge_length_b_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh18max_edge_length_b_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh18max_edge_length_b_E"></span><span id="pcl::OrganizedFastMesh::max_edge_length_b___float"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a43611c421b22a850a992bd97c71bb230"></span>float <code class="sig-name descname">max_edge_length_b_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh18max_edge_length_b_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>max length of edge, scalar component </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh18max_edge_length_c_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh18max_edge_length_c_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh18max_edge_length_c_E"></span><span id="pcl::OrganizedFastMesh::max_edge_length_c___float"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ab0807e04e362b70a33cdec9e54de1999"></span>float <code class="sig-name descname">max_edge_length_c_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh18max_edge_length_c_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>max length of edge, scalar component </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh20max_edge_length_set_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh20max_edge_length_set_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh20max_edge_length_set_E"></span><span id="pcl::OrganizedFastMesh::max_edge_length_set___b"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a84e3fe5b06ba7b029a02d2030e32616d"></span>bool <code class="sig-name descname">max_edge_length_set_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh20max_edge_length_set_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>flag whether or not edges are limited in length </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh31max_edge_length_dist_dependent_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh31max_edge_length_dist_dependent_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh31max_edge_length_dist_dependent_E"></span><span id="pcl::OrganizedFastMesh::max_edge_length_dist_dependent___b"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a6d92b9a626f91f9bd03ca1e2358b0309"></span>bool <code class="sig-name descname">max_edge_length_dist_dependent_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh31max_edge_length_dist_dependent_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>flag whether or not max edge length is distance dependent. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh25triangle_pixel_size_rows_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh25triangle_pixel_size_rows_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh25triangle_pixel_size_rows_E"></span><span id="pcl::OrganizedFastMesh::triangle_pixel_size_rows___i"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a86b0075b9460f81f18f7520da3b7665f"></span>int <code class="sig-name descname">triangle_pixel_size_rows_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh25triangle_pixel_size_rows_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>size of triangle edges (in pixels) for iterating over rows. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh28triangle_pixel_size_columns_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh28triangle_pixel_size_columns_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh28triangle_pixel_size_columns_E"></span><span id="pcl::OrganizedFastMesh::triangle_pixel_size_columns___i"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a572925f0cf2df7d64d36d97bd48fc69d"></span>int <code class="sig-name descname">triangle_pixel_size_columns_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh28triangle_pixel_size_columns_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>size of triangle edges (in pixels) for iterating over columns </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh19triangulation_type_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh19triangulation_type_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh19triangulation_type_E"></span><span id="pcl::OrganizedFastMesh::triangulation_type___TriangulationType"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1ade2419a6deb03a67958f147fd6862329"></span><a class="reference internal" href="#_CPPv4N3pcl17OrganizedFastMesh17TriangulationTypeE" title="pcl::OrganizedFastMesh::TriangulationType">TriangulationType</a> <code class="sig-name descname">triangulation_type_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh19triangulation_type_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type of meshing scheme (quads vs. </p>
+<p>triangles, left cut vs. right cut … </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh10viewpoint_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh10viewpoint_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh10viewpoint_E"></span><span id="pcl::OrganizedFastMesh::viewpoint___Eigen::Vector3f"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a4b106586bcaa65b4b0b7cfdb9c5e3ec4"></span>Eigen::Vector3f <code class="sig-name descname">viewpoint_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh10viewpoint_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Viewpoint from which the point cloud has been acquired (in the same coordinate frame as the data). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh21store_shadowed_faces_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh21store_shadowed_faces_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh21store_shadowed_faces_E"></span><span id="pcl::OrganizedFastMesh::store_shadowed_faces___b"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a95887dcb79e61e9f9080f03052d6b95e"></span>bool <code class="sig-name descname">store_shadowed_faces_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh21store_shadowed_faces_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether or not shadowed faces are stored, e.g., for exploration. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh20cos_angle_tolerance_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh20cos_angle_tolerance_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh20cos_angle_tolerance_E"></span><span id="pcl::OrganizedFastMesh::cos_angle_tolerance___float"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a4bd9daace3f6b7e61dacac8486db32da"></span>float <code class="sig-name descname">cos_angle_tolerance_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh20cos_angle_tolerance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>(Cosine of the) angle tolerance used when checking whether or not an edge between two points is shadowed. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh19distance_tolerance_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh19distance_tolerance_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh19distance_tolerance_E"></span><span id="pcl::OrganizedFastMesh::distance_tolerance___float"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a1a729eb83f0714852e38744579aba65a"></span>float <code class="sig-name descname">distance_tolerance_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh19distance_tolerance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>distance tolerance for filtering out shadowed/occluded edges </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh19distance_dependent_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh19distance_dependent_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh19distance_dependent_E"></span><span id="pcl::OrganizedFastMesh::distance_dependent___b"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a8eda71fcd93976b2c8504f3822eb67eb"></span>bool <code class="sig-name descname">distance_dependent_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh19distance_dependent_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>flag whether or not <em>distance_tolerance_</em> is distance dependent (multiplied by the squared distance to the point) or not. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl17OrganizedFastMesh22use_depth_as_distance_E">
+<span id="_CPPv3N3pcl17OrganizedFastMesh22use_depth_as_distance_E"></span><span id="_CPPv2N3pcl17OrganizedFastMesh22use_depth_as_distance_E"></span><span id="pcl::OrganizedFastMesh::use_depth_as_distance___b"></span><span class="target" id="classpcl_1_1_organized_fast_mesh_1a35a2411ca7cdc90058674c07a6aa8573"></span>bool <code class="sig-name descname">use_depth_as_distance_</code><a class="headerlink" href="#_CPPv4N3pcl17OrganizedFastMesh22use_depth_as_distance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>flag whether or not the points’ depths are used instead of measured distances (points’ distances to the viewpoint). </p>
+<p>This flag may be set using useDepthAsDistance(true) for (RGB-)Depth cameras to skip computations and gain additional speed up. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

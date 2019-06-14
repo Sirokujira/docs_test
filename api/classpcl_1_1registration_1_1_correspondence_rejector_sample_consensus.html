@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class CorrespondenceRejectorSampleConsensus &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class CorrespondenceRejectorSampleConsensus</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-correspondencerejectorsampleconsensus">
+<span id="exhale-class-classpcl-1-1registration-1-1-correspondence-rejector-sample-consensus"></span><h1>Template Class CorrespondenceRejectorSampleConsensus<a class="headerlink" href="#template-class-correspondencerejectorsampleconsensus" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_registration_include_pcl_registration_correspondence_rejection_sample_consensus.h.html#file-pcl-registration-include-pcl-registration-correspondence-rejection-sample-consensus-h"><span class="std std-ref">File correspondence_rejection_sample_consensus.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::registration::CorrespondenceRejector</span></code> (<a class="reference internal" href="classpcl_1_1registration_1_1_correspondence_rejector.html#exhale-class-classpcl-1-1registration-1-1-correspondence-rejector"><span class="std std-ref">Class CorrespondenceRejector</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::registration::CorrespondenceRejectorSampleConsensus2D&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus2_d.html#exhale-class-classpcl-1-1registration-1-1-correspondence-rejector-sample-consensus2-d"><span class="std std-ref">Template Class CorrespondenceRejectorSampleConsensus2D</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl12registration37CorrespondenceRejectorSampleConsensusE">
+<span id="_CPPv3I0EN3pcl12registration37CorrespondenceRejectorSampleConsensusE"></span><span id="_CPPv2I0EN3pcl12registration37CorrespondenceRejectorSampleConsensusE"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">CorrespondenceRejectorSampleConsensus</code> : <em class="property">public</em> pcl::registration::<a class="reference internal" href="classpcl_1_1registration_1_1_correspondence_rejector.html#_CPPv4N3pcl12registration22CorrespondenceRejectorE" title="pcl::registration::CorrespondenceRejector">CorrespondenceRejector</a><a class="headerlink" href="#_CPPv4I0EN3pcl12registration37CorrespondenceRejectorSampleConsensusE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus"><span class="std std-ref">CorrespondenceRejectorSampleConsensus</span></a> implements a correspondence rejection using Random Sample Consensus to identify inliers (and reject outliers) </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Dirk Holz </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus2_d.html#classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus2_d"><span class="std std-ref">pcl::registration::CorrespondenceRejectorSampleConsensus2D&lt; PointT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus3PtrE">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus3PtrE"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus3PtrE"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::Ptr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1aa68eb44d3841b33923f9fdb0c447414a"></span><em class="property">typedef </em>boost::shared_ptr&lt;CorrespondenceRejectorSampleConsensus&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus8ConstPtrE">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus8ConstPtrE"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus8ConstPtrE"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::ConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1aca8b974dfc35d3f65cc12fa550e52d7c"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> CorrespondenceRejectorSampleConsensus&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus37CorrespondenceRejectorSampleConsensusEv">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus37CorrespondenceRejectorSampleConsensusEv"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus37CorrespondenceRejectorSampleConsensusEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::CorrespondenceRejectorSampleConsensus"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1aaa1d22adcc0770ba490d63c000a80745"></span><code class="sig-name descname">CorrespondenceRejectorSampleConsensus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus37CorrespondenceRejectorSampleConsensusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+<p>Sets the inlier threshold to 5cm (0.05m), and the maximum number of iterations to 1000. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensusD0Ev">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensusD0Ev"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensusD0Ev"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::~CorrespondenceRejectorSampleConsensus"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1aac049e0c3ed7ae001505766ad642b1e8"></span><em class="property">virtual</em> <code class="sig-name descname">~CorrespondenceRejectorSampleConsensus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensusD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus27getRemainingCorrespondencesERKN3pcl15CorrespondencesERN3pcl15CorrespondencesE">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus27getRemainingCorrespondencesERKN3pcl15CorrespondencesERN3pcl15CorrespondencesE"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus27getRemainingCorrespondencesERKN3pcl15CorrespondencesERN3pcl15CorrespondencesE"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::getRemainingCorrespondences__pcl::CorrespondencesCR.pcl::CorrespondencesR"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a2aaf796cecda8778814f114c54026570"></span>void <code class="sig-name descname">getRemainingCorrespondences</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>original_correspondences</em>, pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>remaining_correspondences</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus27getRemainingCorrespondencesERKN3pcl15CorrespondencesERN3pcl15CorrespondencesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a list of valid correspondences after rejection from the original set of correspondences. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">original_correspondences</span></code>: the set of initial correspondences given </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">remaining_correspondences</span></code>: the resultant filtered set of remaining correspondences </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14setInputSourceERK18PointCloudConstPtr">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus14setInputSourceERK18PointCloudConstPtr"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus14setInputSourceERK18PointCloudConstPtr"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::setInputSource__PointCloudConstPtrCR"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a0ade3619194ea442ea9bd819762e63d0"></span><em class="property">virtual</em> void <code class="sig-name descname">setInputSource</code><span class="sig-paren">(</span><em class="property">const</em> PointCloudConstPtr &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14setInputSourceERK18PointCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a source point cloud dataset (must contain XYZ data!) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: a cloud containing XYZ data </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14getInputSourceEv">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus14getInputSourceEv"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus14getInputSourceEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::getInputSource"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1ab49081cebce1c204c25dcacf5c8f2a3b"></span>PointCloudConstPtr <em class="property">const</em> <code class="sig-name descname">getInputSource</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14getInputSourceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the input point cloud dataset target. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14setInputTargetERK18PointCloudConstPtr">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus14setInputTargetERK18PointCloudConstPtr"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus14setInputTargetERK18PointCloudConstPtr"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::setInputTarget__PointCloudConstPtrCR"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a42faaefd43eaf43b32efe0b1722a3d98"></span><em class="property">virtual</em> void <code class="sig-name descname">setInputTarget</code><span class="sig-paren">(</span><em class="property">const</em> PointCloudConstPtr &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14setInputTargetERK18PointCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a target point cloud dataset (must contain XYZ data!) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: a cloud containing XYZ data </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14getInputTargetEv">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus14getInputTargetEv"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus14getInputTargetEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::getInputTarget"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1aba38b8207d7de0e9bf524989375228bb"></span>PointCloudConstPtr <em class="property">const</em> <code class="sig-name descname">getInputTarget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14getInputTargetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the input point cloud dataset target. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration37CorrespondenceRejectorSampleConsensus20requiresSourcePointsEv">
+<span id="_CPPv3NK3pcl12registration37CorrespondenceRejectorSampleConsensus20requiresSourcePointsEv"></span><span id="_CPPv2NK3pcl12registration37CorrespondenceRejectorSampleConsensus20requiresSourcePointsEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::requiresSourcePointsC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a9fee603842fbb8711d88ed2187c9212b"></span>bool <code class="sig-name descname">requiresSourcePoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration37CorrespondenceRejectorSampleConsensus20requiresSourcePointsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See if this rejector requires source points. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus15setSourcePointsEN3pcl14PCLPointCloud28ConstPtrE">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus15setSourcePointsEN3pcl14PCLPointCloud28ConstPtrE"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus15setSourcePointsEN3pcl14PCLPointCloud28ConstPtrE"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::setSourcePoints__pcl::PCLPointCloud2::ConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a02c8f8bf4ceb74c9c78aad5b4b0e84f1"></span>void <code class="sig-name descname">setSourcePoints</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud28ConstPtrE" title="pcl::PCLPointCloud2::ConstPtr">ConstPtr</a> <em>cloud2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus15setSourcePointsEN3pcl14PCLPointCloud28ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Blob method for setting the source cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration37CorrespondenceRejectorSampleConsensus20requiresTargetPointsEv">
+<span id="_CPPv3NK3pcl12registration37CorrespondenceRejectorSampleConsensus20requiresTargetPointsEv"></span><span id="_CPPv2NK3pcl12registration37CorrespondenceRejectorSampleConsensus20requiresTargetPointsEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::requiresTargetPointsC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a365645ecdf7a1642bb4db927b71e9240"></span>bool <code class="sig-name descname">requiresTargetPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration37CorrespondenceRejectorSampleConsensus20requiresTargetPointsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See if this rejector requires a target cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus15setTargetPointsEN3pcl14PCLPointCloud28ConstPtrE">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus15setTargetPointsEN3pcl14PCLPointCloud28ConstPtrE"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus15setTargetPointsEN3pcl14PCLPointCloud28ConstPtrE"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::setTargetPoints__pcl::PCLPointCloud2::ConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a96e6bbc7ad3b19b4f33f60d3748a36e7"></span>void <code class="sig-name descname">setTargetPoints</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud28ConstPtrE" title="pcl::PCLPointCloud2::ConstPtr">ConstPtr</a> <em>cloud2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus15setTargetPointsEN3pcl14PCLPointCloud28ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method for setting the target cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus18setInlierThresholdEd">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus18setInlierThresholdEd"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus18setInlierThresholdEd"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::setInlierThreshold__double"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a48a908a4f76abe9b09d245e295bc00e2"></span>void <code class="sig-name descname">setInlierThreshold</code><span class="sig-paren">(</span>double <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus18setInlierThresholdEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum distance between corresponding points. </p>
+<p>Correspondences with distances below the threshold are considered as inliers. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: Distance threshold in the same dimension as source and target data sets. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus18getInlierThresholdEv">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus18getInlierThresholdEv"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus18getInlierThresholdEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::getInlierThreshold"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a0923e654979f143451b724300e591829"></span>double <code class="sig-name descname">getInlierThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus18getInlierThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum distance between corresponding points. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Distance threshold in the same dimension as source and target data sets. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus20setMaximumIterationsEi">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus20setMaximumIterationsEi"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus20setMaximumIterationsEi"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::setMaximumIterations__i"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a49fa9e17ad1e371c4b5db9766d598349"></span>void <code class="sig-name descname">setMaximumIterations</code><span class="sig-paren">(</span>int <em>max_iterations</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus20setMaximumIterationsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of iterations. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_iterations</span></code>: Maximum number if iterations to run </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus20getMaximumIterationsEv">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus20getMaximumIterationsEv"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus20getMaximumIterationsEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::getMaximumIterations"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1aa086670c0dec609354fcb5f02746ee8f"></span>int <code class="sig-name descname">getMaximumIterations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus20getMaximumIterationsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum number of iterations. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>max_iterations Maximum number if iterations to run </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus21getBestTransformationEv">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus21getBestTransformationEv"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus21getBestTransformationEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::getBestTransformation"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a1542fc4a3d5d6c82485a321864a027af"></span>Eigen::Matrix4f <code class="sig-name descname">getBestTransformation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus21getBestTransformationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the best transformation after RANSAC rejection. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The homogeneous 4x4 transformation yielding the largest number of inliers. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14setRefineModelEKb">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus14setRefineModelEKb"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus14setRefineModelEKb"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::setRefineModel__bC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1ad51df1b8798951557863082feabcc0b8"></span>void <code class="sig-name descname">setRefineModel</code><span class="sig-paren">(</span><em class="property">const</em> bool <em>refine</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14setRefineModelEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify whether the model should be refined internally using the variance of the inliers. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">refine</span></code>: true if the model should be refined, false otherwise </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration37CorrespondenceRejectorSampleConsensus14getRefineModelEv">
+<span id="_CPPv3NK3pcl12registration37CorrespondenceRejectorSampleConsensus14getRefineModelEv"></span><span id="_CPPv2NK3pcl12registration37CorrespondenceRejectorSampleConsensus14getRefineModelEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::getRefineModelC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a9c435f892376eb27f1e56b0f331e91ca"></span>bool <code class="sig-name descname">getRefineModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration37CorrespondenceRejectorSampleConsensus14getRefineModelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the internal refine parameter value as set by the user using setRefineModel. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus17getInliersIndicesERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus17getInliersIndicesERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus17getInliersIndicesERNSt6vectorIiEE"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::getInliersIndices__std::vector:i:R"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a09e5739be1169a311fae7408e12cb359"></span>void <code class="sig-name descname">getInliersIndices</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>inlier_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus17getInliersIndicesERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the inlier indices found by the correspondence rejector. </p>
+<p>This information is only saved if setSaveInliers(true) was called in advance. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">inlier_indices</span></code>: Indices for the inliers </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14setSaveInliersEb">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus14setSaveInliersEb"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus14setSaveInliersEb"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::setSaveInliers__b"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a856f38d7b293a9acbd019c95cbffa124"></span>void <code class="sig-name descname">setSaveInliers</code><span class="sig-paren">(</span>bool <em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14setSaveInliersEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set whether to save inliers or not. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">s</span></code>: True to save inliers / False otherwise </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14getSaveInliersEv">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus14getSaveInliersEv"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus14getSaveInliersEv"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::getSaveInliers"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a377dcf34beb9b60fc22dd76a5a7336ad"></span>bool <code class="sig-name descname">getSaveInliers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14getSaveInliersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get whether the rejector is configured to save inliers. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration22CorrespondenceRejector12getClassNameEv">
+<span id="_CPPv3N3pcl12registration22CorrespondenceRejector12getClassNameEv"></span><span id="_CPPv2N3pcl12registration22CorrespondenceRejector12getClassNameEv"></span><span id="pcl::registration::CorrespondenceRejector::getClassName"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1aa5996af869d7aaa6b8b8dc156038dd3f"></span><em class="property">const</em> std::string &amp;<code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration22CorrespondenceRejector12getClassNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a string representation of the name of this class. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration22CorrespondenceRejector22input_correspondences_E">
+<span id="_CPPv3N3pcl12registration22CorrespondenceRejector22input_correspondences_E"></span><span id="_CPPv2N3pcl12registration22CorrespondenceRejector22input_correspondences_E"></span><span id="pcl::registration::CorrespondenceRejector::input_correspondences___CorrespondencesConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a74d516ca516f7421fd86a53dec1a57b1"></span><a class="reference internal" href="typedef_namespacepcl_1af92455681166fe784da760c485d0a15e.html#_CPPv4N3pcl23CorrespondencesConstPtrE" title="pcl::CorrespondencesConstPtr">CorrespondencesConstPtr</a> <code class="sig-name descname">input_correspondences_</code><br /></dt>
+<dd><p>The input correspondences. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration22CorrespondenceRejector15rejection_name_E">
+<span id="_CPPv3N3pcl12registration22CorrespondenceRejector15rejection_name_E"></span><span id="_CPPv2N3pcl12registration22CorrespondenceRejector15rejection_name_E"></span><span id="pcl::registration::CorrespondenceRejector::rejection_name___ss"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1ab97eb70d3661574301fe1f978576726d"></span>std::string <code class="sig-name descname">rejection_name_</code><br /></dt>
+<dd><p>The name of the rejection method. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14applyRejectionERN3pcl15CorrespondencesE">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus14applyRejectionERN3pcl15CorrespondencesE"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus14applyRejectionERN3pcl15CorrespondencesE"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::applyRejection__pcl::CorrespondencesR"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a4178793e09de5b7a197045d144204394"></span>void <code class="sig-name descname">applyRejection</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>correspondences</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus14applyRejectionERN3pcl15CorrespondencesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Apply the rejection algorithm. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">correspondences</span></code>: the set of resultant correspondences. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus17inlier_threshold_E">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus17inlier_threshold_E"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus17inlier_threshold_E"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::inlier_threshold___double"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a95936e127259e1b42af381016c930618"></span>double <code class="sig-name descname">inlier_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus17inlier_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus15max_iterations_E">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus15max_iterations_E"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus15max_iterations_E"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::max_iterations___i"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a0cef39ee766b8f8e26dfe2bc4829c84b"></span>int <code class="sig-name descname">max_iterations_</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus15max_iterations_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus6input_E">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus6input_E"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus6input_E"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::input___PointCloudConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1aba52339edb21c73dc81caced4a5fda2d"></span>PointCloudConstPtr <code class="sig-name descname">input_</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus6input_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus18input_transformed_E">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus18input_transformed_E"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus18input_transformed_E"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::input_transformed___PointCloudPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1aa1196d1170764b3fb8278eb0eb9ab02d"></span>PointCloudPtr <code class="sig-name descname">input_transformed_</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus18input_transformed_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus7target_E">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus7target_E"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus7target_E"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::target___PointCloudConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1acee91563ee30b2bd5d032a8deeda7233"></span>PointCloudConstPtr <code class="sig-name descname">target_</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus7target_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus20best_transformation_E">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus20best_transformation_E"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus20best_transformation_E"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::best_transformation___Eigen::Matrix4f"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a2d681a74b7d4c1c23a6f5cc5d57a1f5a"></span>Eigen::Matrix4f <code class="sig-name descname">best_transformation_</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus20best_transformation_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus7refine_E">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus7refine_E"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus7refine_E"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::refine___b"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a17af2df1ba1fa21a19df67c1df3b811a"></span>bool <code class="sig-name descname">refine_</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus7refine_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus15inlier_indices_E">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus15inlier_indices_E"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus15inlier_indices_E"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::inlier_indices___std::vector:i:"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1afe6ed3a0fa2ef3a886c9ae6191fccb73"></span>std::vector&lt;int&gt; <code class="sig-name descname">inlier_indices_</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus15inlier_indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus13save_inliers_E">
+<span id="_CPPv3N3pcl12registration37CorrespondenceRejectorSampleConsensus13save_inliers_E"></span><span id="_CPPv2N3pcl12registration37CorrespondenceRejectorSampleConsensus13save_inliers_E"></span><span id="pcl::registration::CorrespondenceRejectorSampleConsensus::save_inliers___b"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus_1a53116fc300bb89d1ff505b5d6e8ffb20"></span>bool <code class="sig-name descname">save_inliers_</code><a class="headerlink" href="#_CPPv4N3pcl12registration37CorrespondenceRejectorSampleConsensus13save_inliers_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

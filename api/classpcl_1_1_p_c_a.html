@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class PCA &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class PCA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_p_c_a.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-pca">
+<span id="exhale-class-classpcl-1-1-p-c-a"></span><h1>Template Class PCA<a class="headerlink" href="#template-class-pca" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_common_include_pcl_common_pca.h.html#file-pcl-common-include-pcl-common-pca-h"><span class="std std-ref">File pca.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PCLBase&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_c_l_base.html#exhale-class-classpcl-1-1-p-c-l-base"><span class="std std-ref">Template Class PCLBase</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl3PCAE">
+<span id="_CPPv3I0EN3pcl3PCAE"></span><span id="_CPPv2I0EN3pcl3PCAE"></span><span class="target" id="classpcl_1_1_p_c_a"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">PCA</code> : <em class="property">public</em> pcl::PCLBase&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl3PCAE" title="pcl::PCA::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl3PCAE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Principal Component analysis (<a class="reference internal" href="#classpcl_1_1_p_c_a"><span class="std std-ref">PCA</span></a>) class. </p>
+<p><p> Principal components are extracted by singular values decomposition on the covariance matrix of the centered input cloud. Available data after pca computation are the mean of the input data, the eigenvalues (in descending order) and corresponding eigenvectors.</p>
+<p>Other methods allow projection in the eigenspace, reconstruction from eigenspace and update of the eigenspace with a new datum (according Matej Artec, Matjaz Jogan and Ales Leonardis: “Incremental PCA for On-line Visual Learning and Recognition”).</p>
+</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Nizar Sallem </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl3PCA4FLAGE">
+<span id="_CPPv3N3pcl3PCA4FLAGE"></span><span id="_CPPv2N3pcl3PCA4FLAGE"></span><span class="target" id="classpcl_1_1_p_c_a_1a1bd3197d4c429c7cba4adea98602c66c"></span><em class="property">enum </em><code class="sig-name descname">FLAG</code><a class="headerlink" href="#_CPPv4N3pcl3PCA4FLAGE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Updating method flag. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl3PCA8increaseE">
+<span id="_CPPv3N3pcl3PCA8increaseE"></span><span id="_CPPv2N3pcl3PCA8increaseE"></span><span class="target" id="classpcl_1_1_p_c_a_1a1bd3197d4c429c7cba4adea98602c66ca8cd62ecad342aa4f3b6c52e8cf008bed"></span><code class="sig-name descname">increase</code><a class="headerlink" href="#_CPPv4N3pcl3PCA8increaseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>keep the new basis vectors if possible </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl3PCA8preserveE">
+<span id="_CPPv3N3pcl3PCA8preserveE"></span><span id="_CPPv2N3pcl3PCA8preserveE"></span><span class="target" id="classpcl_1_1_p_c_a_1a1bd3197d4c429c7cba4adea98602c66ca1e6a3535f703ae9d2b1e689c290acd38"></span><code class="sig-name descname">preserve</code><a class="headerlink" href="#_CPPv4N3pcl3PCA8preserveE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>preserve subspace dimension </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3PCA4BaseE">
+<span id="_CPPv3N3pcl3PCA4BaseE"></span><span id="_CPPv2N3pcl3PCA4BaseE"></span><span id="pcl::PCA::Base"></span><span class="target" id="classpcl_1_1_p_c_a_1a8343facb4443a160527bb7abb579e392"></span><em class="property">typedef </em>pcl::PCLBase&lt;PointT&gt; <code class="sig-name descname">Base</code><a class="headerlink" href="#_CPPv4N3pcl3PCA4BaseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3PCA10PointCloudE">
+<span id="_CPPv3N3pcl3PCA10PointCloudE"></span><span id="_CPPv2N3pcl3PCA10PointCloudE"></span><span id="pcl::PCA::PointCloud"></span><span class="target" id="classpcl_1_1_p_c_a_1aeb507d108b229cf1ae5daf3637e9cf2f"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl3PCA4BaseE" title="pcl::PCA::Base">Base</a>::PointCloud <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl3PCA10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3PCA13PointCloudPtrE">
+<span id="_CPPv3N3pcl3PCA13PointCloudPtrE"></span><span id="_CPPv2N3pcl3PCA13PointCloudPtrE"></span><span id="pcl::PCA::PointCloudPtr"></span><span class="target" id="classpcl_1_1_p_c_a_1a9cf9905d3b6a546001a5c13fc204cbf6"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl3PCA4BaseE" title="pcl::PCA::Base">Base</a>::PointCloudPtr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl3PCA13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3PCA18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl3PCA18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl3PCA18PointCloudConstPtrE"></span><span id="pcl::PCA::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_p_c_a_1ad356f07d3fb3e3563f70cf1ef3b46e4d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl3PCA4BaseE" title="pcl::PCA::Base">Base</a>::PointCloudConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl3PCA18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3PCA15PointIndicesPtrE">
+<span id="_CPPv3N3pcl3PCA15PointIndicesPtrE"></span><span id="_CPPv2N3pcl3PCA15PointIndicesPtrE"></span><span id="pcl::PCA::PointIndicesPtr"></span><span class="target" id="classpcl_1_1_p_c_a_1a3a2e00295e833a6ea74f105d26df7f3c"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl3PCA4BaseE" title="pcl::PCA::Base">Base</a>::PointIndicesPtr <code class="sig-name descname">PointIndicesPtr</code><a class="headerlink" href="#_CPPv4N3pcl3PCA15PointIndicesPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3PCA20PointIndicesConstPtrE">
+<span id="_CPPv3N3pcl3PCA20PointIndicesConstPtrE"></span><span id="_CPPv2N3pcl3PCA20PointIndicesConstPtrE"></span><span id="pcl::PCA::PointIndicesConstPtr"></span><span class="target" id="classpcl_1_1_p_c_a_1a89d673753e30ca9a99092c23b5a6aba9"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl3PCA4BaseE" title="pcl::PCA::Base">Base</a>::PointIndicesConstPtr <code class="sig-name descname">PointIndicesConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl3PCA20PointIndicesConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA3PCAEb">
+<span id="_CPPv3N3pcl3PCA3PCAEb"></span><span id="_CPPv2N3pcl3PCA3PCAEb"></span><span id="pcl::PCA::PCA__b"></span><span class="target" id="classpcl_1_1_p_c_a_1ab56671f77a7391de05435bb7a39c9458"></span><code class="sig-name descname">PCA</code><span class="sig-paren">(</span>bool <em>basis_only</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA3PCAEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">basis_only</span></code>: flag to compute only the <a class="reference internal" href="#classpcl_1_1_p_c_a"><span class="std std-ref">PCA</span></a> basis </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA3PCAERK3PCA">
+<span id="_CPPv3N3pcl3PCA3PCAERK3PCA"></span><span id="_CPPv2N3pcl3PCA3PCAERK3PCA"></span><span id="pcl::PCA::PCA__PCACR"></span><span class="target" id="classpcl_1_1_p_c_a_1abce932ef52ce6d5ca738b2815f55dbfb"></span><code class="sig-name descname">PCA</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3PCA3PCAEb" title="pcl::PCA::PCA">PCA</a> <em class="property">const</em> &amp;<em>pca</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA3PCAERK3PCA" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pca</span></code>: <a class="reference internal" href="#classpcl_1_1_p_c_a"><span class="std std-ref">PCA</span></a> object </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCAaSERK3PCA">
+<span id="_CPPv3N3pcl3PCAaSERK3PCA"></span><span id="_CPPv2N3pcl3PCAaSERK3PCA"></span><span id="pcl::PCA::assign-operator__PCACR"></span><span class="target" id="classpcl_1_1_p_c_a_1a2f56db5cbe6cc785fbad9ddff3703312"></span>PCA &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span>PCA <em class="property">const</em> &amp;<em>pca</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCAaSERK3PCA" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Assignment operator. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pca</span></code>: <a class="reference internal" href="#classpcl_1_1_p_c_a"><span class="std std-ref">PCA</span></a> object </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA13setInputCloudERK18PointCloudConstPtr">
+<span id="_CPPv3N3pcl3PCA13setInputCloudERK18PointCloudConstPtr"></span><span id="_CPPv2N3pcl3PCA13setInputCloudERK18PointCloudConstPtr"></span><span id="pcl::PCA::setInputCloud__PointCloudConstPtrCR"></span><span class="target" id="classpcl_1_1_p_c_a_1aca4254c3969ff8cd2213d90cf30e95b3"></span>void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3PCA18PointCloudConstPtrE" title="pcl::PCA::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA13setInputCloudERK18PointCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA10setIndicesERK10IndicesPtr">
+<span id="_CPPv3N3pcl3PCA10setIndicesERK10IndicesPtr"></span><span id="_CPPv2N3pcl3PCA10setIndicesERK10IndicesPtr"></span><span id="pcl::PCA::setIndices__IndicesPtrCR"></span><span class="target" id="classpcl_1_1_p_c_a_1a6e82eaa51d7a49ce5f2ac7bed8b1be84"></span><em class="property">virtual</em> void <code class="sig-name descname">setIndices</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_namespacepcl_1a7f201b2b4e80960afd3ffb2efacc96b3.html#_CPPv4N3pcl10IndicesPtrE" title="pcl::IndicesPtr">IndicesPtr</a> &amp;<em>indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA10setIndicesERK10IndicesPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the vector of indices that represents the input data. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: a pointer to the indices that represent the input data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA10setIndicesERK15IndicesConstPtr">
+<span id="_CPPv3N3pcl3PCA10setIndicesERK15IndicesConstPtr"></span><span id="_CPPv2N3pcl3PCA10setIndicesERK15IndicesConstPtr"></span><span id="pcl::PCA::setIndices__IndicesConstPtrCR"></span><span class="target" id="classpcl_1_1_p_c_a_1acb2035721451625eb16df8887864c90e"></span><em class="property">virtual</em> void <code class="sig-name descname">setIndices</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_namespacepcl_1a1a48d153c544c5c15586061cb62ba77d.html#_CPPv4N3pcl15IndicesConstPtrE" title="pcl::IndicesConstPtr">IndicesConstPtr</a> &amp;<em>indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA10setIndicesERK15IndicesConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the vector of indices that represents the input data. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: a pointer to the indices that represent the input data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA10setIndicesERK20PointIndicesConstPtr">
+<span id="_CPPv3N3pcl3PCA10setIndicesERK20PointIndicesConstPtr"></span><span id="_CPPv2N3pcl3PCA10setIndicesERK20PointIndicesConstPtr"></span><span id="pcl::PCA::setIndices__PointIndicesConstPtrCR"></span><span class="target" id="classpcl_1_1_p_c_a_1a71f16847e70728414581f5ca11bc9a0f"></span><em class="property">virtual</em> void <code class="sig-name descname">setIndices</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3PCA20PointIndicesConstPtrE" title="pcl::PCA::PointIndicesConstPtr">PointIndicesConstPtr</a> &amp;<em>indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA10setIndicesERK20PointIndicesConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the vector of indices that represents the input data. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: a pointer to the indices that represent the input data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA10setIndicesE6size_t6size_t6size_t6size_t">
+<span id="_CPPv3N3pcl3PCA10setIndicesE6size_t6size_t6size_t6size_t"></span><span id="_CPPv2N3pcl3PCA10setIndicesE6size_t6size_t6size_t6size_t"></span><span id="pcl::PCA::setIndices__s.s.s.s"></span><span class="target" id="classpcl_1_1_p_c_a_1a11e20c2e4a123230ab4796f6fda74289"></span><em class="property">virtual</em> void <code class="sig-name descname">setIndices</code><span class="sig-paren">(</span>size_t <em>row_start</em>, size_t <em>col_start</em>, size_t <em>nb_rows</em>, size_t <em>nb_cols</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA10setIndicesE6size_t6size_t6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the indices for the points laying within an interest region of the point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>you shouldn’t call this method on unorganized point clouds! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">row_start</span></code>: the offset on rows </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">col_start</span></code>: the offset on columns </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nb_rows</span></code>: the number of rows to be considered row_start included </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nb_cols</span></code>: the number of columns to be considered col_start included </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA7getMeanEv">
+<span id="_CPPv3N3pcl3PCA7getMeanEv"></span><span id="_CPPv2N3pcl3PCA7getMeanEv"></span><span id="pcl::PCA::getMean"></span><span class="target" id="classpcl_1_1_p_c_a_1a1871f8848d52dacaa870223664c0219f"></span>Eigen::Vector4f &amp;<code class="sig-name descname">getMean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA7getMeanEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mean accessor. </p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA15getEigenVectorsEv">
+<span id="_CPPv3N3pcl3PCA15getEigenVectorsEv"></span><span id="_CPPv2N3pcl3PCA15getEigenVectorsEv"></span><span id="pcl::PCA::getEigenVectors"></span><span class="target" id="classpcl_1_1_p_c_a_1ad77043ebdf4629fae8b280c7c4840519"></span>Eigen::Matrix3f &amp;<code class="sig-name descname">getEigenVectors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA15getEigenVectorsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Eigen Vectors accessor. </p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA14getEigenValuesEv">
+<span id="_CPPv3N3pcl3PCA14getEigenValuesEv"></span><span id="_CPPv2N3pcl3PCA14getEigenValuesEv"></span><span id="pcl::PCA::getEigenValues"></span><span class="target" id="classpcl_1_1_p_c_a_1a30259b4feb05d2572be2686b05c733df"></span>Eigen::Vector3f &amp;<code class="sig-name descname">getEigenValues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA14getEigenValuesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Eigen Values accessor. </p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA15getCoefficientsEv">
+<span id="_CPPv3N3pcl3PCA15getCoefficientsEv"></span><span id="_CPPv2N3pcl3PCA15getCoefficientsEv"></span><span id="pcl::PCA::getCoefficients"></span><span class="target" id="classpcl_1_1_p_c_a_1ab11ef9e3f214f7a5decf44f67fb8e127"></span>Eigen::MatrixXf &amp;<code class="sig-name descname">getCoefficients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA15getCoefficientsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Coefficients accessor. </p>
+<p><dl class="simple">
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA6updateERK6PointT4FLAG">
+<span id="_CPPv3N3pcl3PCA6updateERK6PointT4FLAG"></span><span id="_CPPv2N3pcl3PCA6updateERK6PointT4FLAG"></span><span id="pcl::PCA::update__PointTCR.FLAG"></span><span class="target" id="classpcl_1_1_p_c_a_1a37bab033d160cd2bb6f884b6970ba6b8"></span>void <code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>input</em>, <a class="reference internal" href="#_CPPv4N3pcl3PCA4FLAGE" title="pcl::PCA::FLAG">FLAG</a> <em>flag</em> = <a class="reference internal" href="#_CPPv4N3pcl3PCA8preserveE" title="pcl::PCA::preserve">preserve</a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA6updateERK6PointT4FLAG" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>update <a class="reference internal" href="#classpcl_1_1_p_c_a"><span class="std std-ref">PCA</span></a> with a new point </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">flag</span></code>: update flag </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA7projectERK6PointTR6PointT">
+<span id="_CPPv3N3pcl3PCA7projectERK6PointTR6PointT"></span><span id="_CPPv2N3pcl3PCA7projectERK6PointTR6PointT"></span><span id="pcl::PCA::project__PointTCR.PointTR"></span><span class="target" id="classpcl_1_1_p_c_a_1a2d9b2c0c5ae7555552c48465134cfcb3"></span>void <code class="sig-name descname">project</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>input</em>, PointT &amp;<em>projection</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA7projectERK6PointTR6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project point on the eigenspace. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: point from original dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">projection</span></code>: the point in eigen vectors space </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA7projectERK10PointCloudR10PointCloud">
+<span id="_CPPv3N3pcl3PCA7projectERK10PointCloudR10PointCloud"></span><span id="_CPPv2N3pcl3PCA7projectERK10PointCloudR10PointCloud"></span><span id="pcl::PCA::project__PointCloudCR.PointCloudR"></span><span class="target" id="classpcl_1_1_p_c_a_1a5d054b21391dacdedeb8a9a375d50e5a"></span>void <code class="sig-name descname">project</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3PCA10PointCloudE" title="pcl::PCA::PointCloud">PointCloud</a> &amp;<em>input</em>, <a class="reference internal" href="#_CPPv4N3pcl3PCA10PointCloudE" title="pcl::PCA::PointCloud">PointCloud</a> &amp;<em>projection</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA7projectERK10PointCloudR10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project cloud on the eigenspace. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: cloud from original dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">projection</span></code>: the cloud in eigen vectors space </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA11reconstructERK6PointTR6PointT">
+<span id="_CPPv3N3pcl3PCA11reconstructERK6PointTR6PointT"></span><span id="_CPPv2N3pcl3PCA11reconstructERK6PointTR6PointT"></span><span id="pcl::PCA::reconstruct__PointTCR.PointTR"></span><span class="target" id="classpcl_1_1_p_c_a_1af478ebeb7cd64e513fd0168d583186c3"></span>void <code class="sig-name descname">reconstruct</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>projection</em>, PointT &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA11reconstructERK6PointTR6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reconstruct point from its projection. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">projection</span></code>: point from eigenvector space </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">input</span></code>: reconstructed point </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3PCA11reconstructERK10PointCloudR10PointCloud">
+<span id="_CPPv3N3pcl3PCA11reconstructERK10PointCloudR10PointCloud"></span><span id="_CPPv2N3pcl3PCA11reconstructERK10PointCloudR10PointCloud"></span><span id="pcl::PCA::reconstruct__PointCloudCR.PointCloudR"></span><span class="target" id="classpcl_1_1_p_c_a_1aaf720ec4b22838f9045026ed304779df"></span>void <code class="sig-name descname">reconstruct</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3PCA10PointCloudE" title="pcl::PCA::PointCloud">PointCloud</a> &amp;<em>projection</em>, <a class="reference internal" href="#_CPPv4N3pcl3PCA10PointCloudE" title="pcl::PCA::PointCloud">PointCloud</a> &amp;<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3PCA11reconstructERK10PointCloudR10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reconstruct cloud from its projection. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">projection</span></code>: cloud from eigenvector space </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">input</span></code>: reconstructed cloud </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7PCLBase11initComputeEv">
+<span id="_CPPv3N3pcl7PCLBase11initComputeEv"></span><span id="_CPPv2N3pcl7PCLBase11initComputeEv"></span><span id="pcl::PCLBase::initCompute"></span><span class="target" id="classpcl_1_1_p_c_a_1acceb20854934f4cf77e266eb5a44d4f0"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>This method should get called before starting the actual computation. </p>
+<p>Internally, initCompute() does the following:<ul class="simple">
+<li><p>checks if an input dataset is given, and returns false otherwise</p></li>
+<li><p>checks whether a set of input indices has been given. Returns true if yes.</p></li>
+<li><p>if no input indices have been given, a fake set is created, which will be used until:<ul>
+<li><p>either a new set is given via <a class="reference internal" href="#classpcl_1_1_p_c_a_1a6e82eaa51d7a49ce5f2ac7bed8b1be84"><span class="std std-ref">setIndices()</span></a>, or</p></li>
+<li><p>a new cloud is given that has a different set of points. This will trigger an update on the set of fake indices </p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7PCLBase13setInputCloudEv">
+<span id="_CPPv3N3pcl7PCLBase13setInputCloudEv"></span><span id="_CPPv2N3pcl7PCLBase13setInputCloudEv"></span><span id="pcl::PCLBase::setInputCloud"></span><span class="target" id="classpcl_1_1_p_c_a_1a1952d7101f3942bac3b69ed55c1ca7ea"></span>void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7PCLBase13setInputCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl7PCLBase6input_E">
+<span id="_CPPv3N3pcl7PCLBase6input_E"></span><span id="_CPPv2N3pcl7PCLBase6input_E"></span><span id="pcl::PCLBase::input___PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_p_c_a_1a09c70d8e06e3fb4f07903fe6f8d67869"></span><a class="reference internal" href="classpcl_1_1_p_c_l_base.html#_CPPv4N3pcl7PCLBase18PointCloudConstPtrE" title="pcl::PCLBase::PointCloudConstPtr">PointCloudConstPtr</a> <code class="sig-name descname">input_</code><br /></dt>
+<dd><p>The input point cloud dataset. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7PCLBase8indices_E">
+<span id="_CPPv3N3pcl7PCLBase8indices_E"></span><span id="_CPPv2N3pcl7PCLBase8indices_E"></span><span id="pcl::PCLBase::indices___IndicesPtr"></span><span class="target" id="classpcl_1_1_p_c_a_1aaee847c8a517ebf365bad2cb182a6626"></span><a class="reference internal" href="typedef_namespacepcl_1a7f201b2b4e80960afd3ffb2efacc96b3.html#_CPPv4N3pcl10IndicesPtrE" title="pcl::IndicesPtr">IndicesPtr</a> <code class="sig-name descname">indices_</code><br /></dt>
+<dd><p>A pointer to the vector of point indices to use. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

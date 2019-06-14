@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class PoseClassRegressionVarianceStatsEstimator &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class PoseClassRegressionVarianceStatsEstimator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-poseclassregressionvariancestatsestimator">
+<span id="exhale-class-classpcl-1-1face-detection-1-1-pose-class-regression-variance-stats-estimator"></span><h1>Template Class PoseClassRegressionVarianceStatsEstimator<a class="headerlink" href="#template-class-poseclassregressionvariancestatsestimator" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_recognition_include_pcl_recognition_face_detection_rf_face_utils.h.html#file-pcl-recognition-include-pcl-recognition-face-detection-rf-face-utils-h"><span class="std std-ref">File rf_face_utils.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::StatsEstimator&lt;</span> <span class="pre">LabelDataType,</span> <span class="pre">NodeType,</span> <span class="pre">DataSet,</span> <span class="pre">ExampleIndex</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_stats_estimator.html#exhale-class-classpcl-1-1-stats-estimator"><span class="std std-ref">Template Class StatsEstimator</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0000EN3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorE">
+<span id="_CPPv3I0000EN3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorE"></span><span id="_CPPv2I0000EN3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorE"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator"></span>template&lt;class <code class="sig-name descname">LabelDataType</code>, class <code class="sig-name descname">NodeType</code>, class <code class="sig-name descname">DataSet</code>, class <code class="sig-name descname">ExampleIndex</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">PoseClassRegressionVarianceStatsEstimator</code> : <em class="property">public</em> pcl::StatsEstimator&lt;<a class="reference internal" href="#_CPPv4I0000EN3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorE" title="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::LabelDataType">LabelDataType</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorE" title="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::NodeType">NodeType</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorE" title="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::DataSet">DataSet</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorE" title="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::ExampleIndex">ExampleIndex</a>&gt;<a class="headerlink" href="#_CPPv4I0000EN3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Statistics estimator for regression trees which optimizes information gain and pose parameters error. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator41PoseClassRegressionVarianceStatsEstimatorEP15BranchEstimator">
+<span id="_CPPv3N3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator41PoseClassRegressionVarianceStatsEstimatorEP15BranchEstimator"></span><span id="_CPPv2N3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator41PoseClassRegressionVarianceStatsEstimatorEP15BranchEstimator"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::PoseClassRegressionVarianceStatsEstimator__BranchEstimatorP"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1a437ef68ac62fe7af67c98d69585dcdc7"></span><code class="sig-name descname">PoseClassRegressionVarianceStatsEstimator</code><span class="sig-paren">(</span><a class="reference internal" href="classpcl_1_1_branch_estimator.html#_CPPv4N3pcl15BranchEstimatorE" title="pcl::BranchEstimator">BranchEstimator</a> *<em>branch_estimator</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator41PoseClassRegressionVarianceStatsEstimatorEP15BranchEstimator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorD0Ev">
+<span id="_CPPv3N3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorD0Ev"></span><span id="_CPPv2N3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorD0Ev"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::~PoseClassRegressionVarianceStatsEstimator"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1aba50205ec09702af045e369a0d85d849"></span><em class="property">virtual</em> <code class="sig-name descname">~PoseClassRegressionVarianceStatsEstimator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14face_detection41PoseClassRegressionVarianceStatsEstimatorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator16getNumOfBranchesEv">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator16getNumOfBranchesEv"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator16getNumOfBranchesEv"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::getNumOfBranchesC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1a33a428f0478566c3b75f2d14c28039b7"></span>size_t <code class="sig-name descname">getNumOfBranches</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator16getNumOfBranchesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the number of branches the corresponding tree has. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator14getLabelOfNodeER8NodeType">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator14getLabelOfNodeER8NodeType"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator14getLabelOfNodeER8NodeType"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::getLabelOfNode__NodeTypeRC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1af483f527511dd87173ff5c4dd130340e"></span>LabelDataType <code class="sig-name descname">getLabelOfNode</code><span class="sig-paren">(</span>NodeType &amp;<em>node</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator14getLabelOfNodeER8NodeType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the label of the specified node. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">node</span></code>: The node which label is returned. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator30computeMeanAndCovarianceOffsetER7DataSetRNSt6vectorI12ExampleIndexEERN5Eigen8Matrix3dERN5Eigen8Vector3dE">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator30computeMeanAndCovarianceOffsetER7DataSetRNSt6vectorI12ExampleIndexEERN5Eigen8Matrix3dERN5Eigen8Vector3dE"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator30computeMeanAndCovarianceOffsetER7DataSetRNSt6vectorI12ExampleIndexEERN5Eigen8Matrix3dERN5Eigen8Vector3dE"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::computeMeanAndCovarianceOffset__DataSetR.std::vector:ExampleIndex:R.Eigen::Matrix3dR.Eigen::Vector3dRC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1a67ca30186cf7469d8cfb13f7ed71f51b"></span>unsigned int <code class="sig-name descname">computeMeanAndCovarianceOffset</code><span class="sig-paren">(</span>DataSet &amp;<em>data_set</em>, std::vector&lt;ExampleIndex&gt; &amp;<em>examples</em>, Eigen::Matrix3d &amp;<em>covariance_matrix</em>, Eigen::Vector3d &amp;<em>centroid</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator30computeMeanAndCovarianceOffsetER7DataSetRNSt6vectorI12ExampleIndexEERN5Eigen8Matrix3dERN5Eigen8Vector3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the covariance matrix for translation offsets. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data_set</span></code>: The corresponding data set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">examples</span></code>: A set of examples from the dataset. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">covariance_matrix</span></code>: The covariance matrix. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">centroid</span></code>: The mean of the data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator30computeMeanAndCovarianceAnglesER7DataSetRNSt6vectorI12ExampleIndexEERN5Eigen8Matrix3dERN5Eigen8Vector3dE">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator30computeMeanAndCovarianceAnglesER7DataSetRNSt6vectorI12ExampleIndexEERN5Eigen8Matrix3dERN5Eigen8Vector3dE"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator30computeMeanAndCovarianceAnglesER7DataSetRNSt6vectorI12ExampleIndexEERN5Eigen8Matrix3dERN5Eigen8Vector3dE"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::computeMeanAndCovarianceAngles__DataSetR.std::vector:ExampleIndex:R.Eigen::Matrix3dR.Eigen::Vector3dRC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1a1ecad7c6e8235d22d9dded01a7b39f9e"></span>unsigned int <code class="sig-name descname">computeMeanAndCovarianceAngles</code><span class="sig-paren">(</span>DataSet &amp;<em>data_set</em>, std::vector&lt;ExampleIndex&gt; &amp;<em>examples</em>, Eigen::Matrix3d &amp;<em>covariance_matrix</em>, Eigen::Vector3d &amp;<em>centroid</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator30computeMeanAndCovarianceAnglesER7DataSetRNSt6vectorI12ExampleIndexEERN5Eigen8Matrix3dERN5Eigen8Vector3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the covariance matrix for rotation values. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data_set</span></code>: The corresponding data set. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">examples</span></code>: A set of examples from the dataset. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">covariance_matrix</span></code>: The covariance matrix. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">centroid</span></code>: The mean of the data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator22computeInformationGainER7DataSetRNSt6vectorI12ExampleIndexEERNSt6vectorI13LabelDataTypeEERNSt6vectorIfEERNSt6vectorIhEEKf">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator22computeInformationGainER7DataSetRNSt6vectorI12ExampleIndexEERNSt6vectorI13LabelDataTypeEERNSt6vectorIfEERNSt6vectorIhEEKf"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator22computeInformationGainER7DataSetRNSt6vectorI12ExampleIndexEERNSt6vectorI13LabelDataTypeEERNSt6vectorIfEERNSt6vectorIhEEKf"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::computeInformationGain__DataSetR.std::vector:ExampleIndex:R.std::vector:LabelDataType:R.std::vector:float:R.std::vector:unsigned-c:R.floatCC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1a99c1a899a7a6336508dc54b4d2445229"></span>float <code class="sig-name descname">computeInformationGain</code><span class="sig-paren">(</span>DataSet &amp;<em>data_set</em>, std::vector&lt;ExampleIndex&gt; &amp;<em>examples</em>, std::vector&lt;LabelDataType&gt; &amp;<em>label_data</em>, std::vector&lt;float&gt; &amp;<em>results</em>, std::vector&lt;unsigned char&gt; &amp;<em>flags</em>, <em class="property">const</em> float <em>threshold</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator22computeInformationGainER7DataSetRNSt6vectorI12ExampleIndexEERNSt6vectorI13LabelDataTypeEERNSt6vectorIfEERNSt6vectorIhEEKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the information gain obtained by the specified threshold. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data_set</span></code>: The data set corresponding to the supplied result data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">examples</span></code>: The examples used for extracting the supplied result data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">label_data</span></code>: The label data corresponding to the specified examples. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">results</span></code>: The results computed using the specified examples. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">flags</span></code>: The flags corresponding to the results. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: The threshold for which the information gain is computed. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator20computeBranchIndicesERNSt6vectorIfEERNSt6vectorIhEEKfRNSt6vectorIhEE">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator20computeBranchIndicesERNSt6vectorIfEERNSt6vectorIhEEKfRNSt6vectorIhEE"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator20computeBranchIndicesERNSt6vectorIfEERNSt6vectorIhEEKfRNSt6vectorIhEE"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::computeBranchIndices__std::vector:float:R.std::vector:unsigned-c:R.floatC.std::vector:unsigned-c:RC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1a4bd8fe3020b0adb041b68bcb01477dd8"></span>void <code class="sig-name descname">computeBranchIndices</code><span class="sig-paren">(</span>std::vector&lt;float&gt; &amp;<em>results</em>, std::vector&lt;unsigned char&gt; &amp;<em>flags</em>, <em class="property">const</em> float <em>threshold</em>, std::vector&lt;unsigned char&gt; &amp;<em>branch_indices</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator20computeBranchIndicesERNSt6vectorIfEERNSt6vectorIhEEKfRNSt6vectorIhEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the branch indices for all supplied results. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">results</span></code>: The results the branch indices will be computed for. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">flags</span></code>: The flags corresponding to the specified results. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: The threshold used to compute the branch indices. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">branch_indices</span></code>: The destination for the computed branch indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator18computeBranchIndexEKfKhKfRh">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator18computeBranchIndexEKfKhKfRh"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator18computeBranchIndexEKfKhKfRh"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::computeBranchIndex__floatC.unsigned-cC.floatC.unsigned-cRC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1a5f5d4b1e73621420129b70c12f7b375a"></span>void <code class="sig-name descname">computeBranchIndex</code><span class="sig-paren">(</span><em class="property">const</em> float <em>result</em>, <em class="property">const</em> unsigned char <em>flag</em>, <em class="property">const</em> float <em>threshold</em>, unsigned char &amp;<em>branch_index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator18computeBranchIndexEKfKhKfRh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the branch index for the specified result. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">result</span></code>: The result the branch index will be computed for. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">flag</span></code>: The flag corresponding to the specified result. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: The threshold used to compute the branch index. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">branch_index</span></code>: The destination for the computed branch index. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator22computeAndSetNodeStatsER7DataSetRNSt6vectorI12ExampleIndexEERNSt6vectorI13LabelDataTypeEER8NodeType">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator22computeAndSetNodeStatsER7DataSetRNSt6vectorI12ExampleIndexEERNSt6vectorI13LabelDataTypeEER8NodeType"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator22computeAndSetNodeStatsER7DataSetRNSt6vectorI12ExampleIndexEERNSt6vectorI13LabelDataTypeEER8NodeType"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::computeAndSetNodeStats__DataSetR.std::vector:ExampleIndex:R.std::vector:LabelDataType:R.NodeTypeRC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1aa27bf41909f401c9aaaea96693eba5fb"></span>void <code class="sig-name descname">computeAndSetNodeStats</code><span class="sig-paren">(</span>DataSet &amp;<em>data_set</em>, std::vector&lt;ExampleIndex&gt; &amp;<em>examples</em>, std::vector&lt;LabelDataType&gt; &amp;<em>label_data</em>, NodeType &amp;<em>node</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator22computeAndSetNodeStatsER7DataSetRNSt6vectorI12ExampleIndexEERNSt6vectorI13LabelDataTypeEER8NodeType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes and sets the statistics for a node. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data_set</span></code>: The data set which is evaluated. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">examples</span></code>: The examples which define which parts of the data set are used for evaluation. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">label_data</span></code>: The label_data corresponding to the examples. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">node</span></code>: The destination node for the statistics. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator37generateCodeForBranchIndexComputationER8NodeTypeRNSt7ostreamE">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator37generateCodeForBranchIndexComputationER8NodeTypeRNSt7ostreamE"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator37generateCodeForBranchIndexComputationER8NodeTypeRNSt7ostreamE"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::generateCodeForBranchIndexComputation__NodeTypeR.osRC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1a965ac0738f571aae26a3f52ccbf26f8f"></span>void <code class="sig-name descname">generateCodeForBranchIndexComputation</code><span class="sig-paren">(</span>NodeType&amp;, std::ostream &amp;<em>stream</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator37generateCodeForBranchIndexComputationER8NodeTypeRNSt7ostreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates code for branch index computation. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">stream</span></code>: The destination for the generated code. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator21generateCodeForOutputER8NodeTypeRNSt7ostreamE">
+<span id="_CPPv3NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator21generateCodeForOutputER8NodeTypeRNSt7ostreamE"></span><span id="_CPPv2NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator21generateCodeForOutputER8NodeTypeRNSt7ostreamE"></span><span id="pcl::face_detection::PoseClassRegressionVarianceStatsEstimator::generateCodeForOutput__NodeTypeR.osRC"></span><span class="target" id="classpcl_1_1face__detection_1_1_pose_class_regression_variance_stats_estimator_1a387f6dafb7ca51c20793fab106b202e1"></span>void <code class="sig-name descname">generateCodeForOutput</code><span class="sig-paren">(</span>NodeType&amp;, std::ostream &amp;<em>stream</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14face_detection41PoseClassRegressionVarianceStatsEstimator21generateCodeForOutputER8NodeTypeRNSt7ostreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates code for label output. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">stream</span></code>: The destination for the generated code. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

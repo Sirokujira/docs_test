@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class CorrespondenceEstimationBackProjection &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class CorrespondenceEstimationBackProjection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1registration_1_1_correspondence_estimation_back_projection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-correspondenceestimationbackprojection">
+<span id="exhale-class-classpcl-1-1registration-1-1-correspondence-estimation-back-projection"></span><h1>Template Class CorrespondenceEstimationBackProjection<a class="headerlink" href="#template-class-correspondenceestimationbackprojection" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_registration_include_pcl_registration_correspondence_estimation_backprojection.h.html#file-pcl-registration-include-pcl-registration-correspondence-estimation-backprojection-h"><span class="std std-ref">File correspondence_estimation_backprojection.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::registration::CorrespondenceEstimationBase&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget,</span> <span class="pre">Scalar</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1registration_1_1_correspondence_estimation_base.html#exhale-class-classpcl-1-1registration-1-1-correspondence-estimation-base"><span class="std std-ref">Template Class CorrespondenceEstimationBase</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0000EN3pcl12registration38CorrespondenceEstimationBackProjectionE">
+<span id="_CPPv3I0000EN3pcl12registration38CorrespondenceEstimationBackProjectionE"></span><span id="_CPPv2I0000EN3pcl12registration38CorrespondenceEstimationBackProjectionE"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection"></span>template&lt;typename <code class="sig-name descname">PointSource</code>, typename <code class="sig-name descname">PointTarget</code>, typename <code class="sig-name descname">NormalT</code>, typename <code class="sig-name descname">Scalar</code> = float&gt;<br /><em class="property">class </em><code class="sig-name descname">CorrespondenceEstimationBackProjection</code> : <em class="property">public</em> pcl::registration::CorrespondenceEstimationBase&lt;<a class="reference internal" href="#_CPPv4I0000EN3pcl12registration38CorrespondenceEstimationBackProjectionE" title="pcl::registration::CorrespondenceEstimationBackProjection::PointSource">PointSource</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl12registration38CorrespondenceEstimationBackProjectionE" title="pcl::registration::CorrespondenceEstimationBackProjection::PointTarget">PointTarget</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl12registration38CorrespondenceEstimationBackProjectionE" title="pcl::registration::CorrespondenceEstimationBackProjection::Scalar">Scalar</a>&gt;<a class="headerlink" href="#_CPPv4I0000EN3pcl12registration38CorrespondenceEstimationBackProjectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>CorrespondenceEstimationBackprojection</strong> computes correspondences as points in the target cloud which have minimum </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection3PtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection3PtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection3PtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::Ptr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a2967289e696620af4fb3cbd0e55a0050"></span><em class="property">typedef </em>boost::shared_ptr&lt;CorrespondenceEstimationBackProjection&lt;PointSource, PointTarget, <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>, Scalar&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection8ConstPtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection8ConstPtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection8ConstPtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::ConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a4614d1dea7eefa423ed575b617a17046"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> CorrespondenceEstimationBackProjection&lt;PointSource, PointTarget, <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>, Scalar&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection6KdTreeE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection6KdTreeE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection6KdTreeE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::KdTree"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a0ef2ae079d97e8e8beecdb027f771bb2"></span><em class="property">typedef </em>pcl::search::KdTree&lt;PointTarget&gt; <code class="sig-name descname">KdTree</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection6KdTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection9KdTreePtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection9KdTreePtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection9KdTreePtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::KdTreePtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1acd7014d02126f973ff01f1fe470930b2"></span><em class="property">typedef </em>pcl::search::KdTree&lt;PointTarget&gt;::Ptr <code class="sig-name descname">KdTreePtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection9KdTreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudSourceE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudSourceE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudSourceE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudSource"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a20aa93a688bb34e9f5ec9b065d88f69e"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointSource&gt; <code class="sig-name descname">PointCloudSource</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudSourceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection19PointCloudSourcePtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection19PointCloudSourcePtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection19PointCloudSourcePtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudSourcePtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a4e987903b8be925cfc576fe57fc60b42"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudSourceE" title="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudSource">PointCloudSource</a>::Ptr <code class="sig-name descname">PointCloudSourcePtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection19PointCloudSourcePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection24PointCloudSourceConstPtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection24PointCloudSourceConstPtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection24PointCloudSourceConstPtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudSourceConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a7cb6b59603ac4e2ff819a6bda4215964"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudSourceE" title="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudSource">PointCloudSource</a>::ConstPtr <code class="sig-name descname">PointCloudSourceConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection24PointCloudSourceConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudTargetE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudTargetE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudTargetE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudTarget"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a39fe041208dc530d1790587a68c8cc7c"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointTarget&gt; <code class="sig-name descname">PointCloudTarget</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudTargetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection19PointCloudTargetPtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection19PointCloudTargetPtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection19PointCloudTargetPtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudTargetPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1ad6647b7ea82aabe70b9645a30750eadf"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudTargetE" title="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudTarget">PointCloudTarget</a>::Ptr <code class="sig-name descname">PointCloudTargetPtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection19PointCloudTargetPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection24PointCloudTargetConstPtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection24PointCloudTargetConstPtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection24PointCloudTargetConstPtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudTargetConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1abbf00e2553bd4edb049d140620822a4f"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16PointCloudTargetE" title="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudTarget">PointCloudTarget</a>::ConstPtr <code class="sig-name descname">PointCloudTargetConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection24PointCloudTargetConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection17PointCloudNormalsE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection17PointCloudNormalsE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection17PointCloudNormalsE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudNormals"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a563cf9e3735d6b52d7c12de950f89874"></span><em class="property">typedef </em>pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt; <code class="sig-name descname">PointCloudNormals</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection17PointCloudNormalsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection10NormalsPtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection10NormalsPtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection10NormalsPtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::NormalsPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a3d53c5dd92655e329b670b9e8221cc7b"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection17PointCloudNormalsE" title="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudNormals">PointCloudNormals</a>::Ptr <code class="sig-name descname">NormalsPtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection10NormalsPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection15NormalsConstPtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection15NormalsConstPtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection15NormalsConstPtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::NormalsConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a4c25c2bc6208763fe819a8dc81a65915"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection17PointCloudNormalsE" title="pcl::registration::CorrespondenceEstimationBackProjection::PointCloudNormals">PointCloudNormals</a>::ConstPtr <code class="sig-name descname">NormalsConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection15NormalsConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection38CorrespondenceEstimationBackProjectionEv">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection38CorrespondenceEstimationBackProjectionEv"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection38CorrespondenceEstimationBackProjectionEv"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::CorrespondenceEstimationBackProjection"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a4a95fbc89e03abdf091cd65c57072197"></span><code class="sig-name descname">CorrespondenceEstimationBackProjection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection38CorrespondenceEstimationBackProjectionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Sets the number of neighbors to be considered in the target point cloud (k_) to 10. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjectionD0Ev">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjectionD0Ev"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjectionD0Ev"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::~CorrespondenceEstimationBackProjection"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a5d5da411ce8a2a4503b303ecca7a5c64"></span><em class="property">virtual</em> <code class="sig-name descname">~CorrespondenceEstimationBackProjection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjectionD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16setSourceNormalsERK15NormalsConstPtr">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection16setSourceNormalsERK15NormalsConstPtr"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection16setSourceNormalsERK15NormalsConstPtr"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::setSourceNormals__NormalsConstPtrCR"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a0fe147195ce9a4c339a391d4f28c9f7d"></span>void <code class="sig-name descname">setSourceNormals</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection15NormalsConstPtrE" title="pcl::registration::CorrespondenceEstimationBackProjection::NormalsConstPtr">NormalsConstPtr</a> &amp;<em>normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16setSourceNormalsERK15NormalsConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the normals computed on the source point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normals</span></code>: the normals computed for the source cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection16getSourceNormalsEv">
+<span id="_CPPv3NK3pcl12registration38CorrespondenceEstimationBackProjection16getSourceNormalsEv"></span><span id="_CPPv2NK3pcl12registration38CorrespondenceEstimationBackProjection16getSourceNormalsEv"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::getSourceNormalsC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a6e0c007e347fc67439084bb66b900ea6"></span><a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection15NormalsConstPtrE" title="pcl::registration::CorrespondenceEstimationBackProjection::NormalsConstPtr">NormalsConstPtr</a> <code class="sig-name descname">getSourceNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection16getSourceNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the normals of the source point cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16setTargetNormalsERK15NormalsConstPtr">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection16setTargetNormalsERK15NormalsConstPtr"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection16setTargetNormalsERK15NormalsConstPtr"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::setTargetNormals__NormalsConstPtrCR"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1af5ad223e9fd91285f758bdb087f96cae"></span>void <code class="sig-name descname">setTargetNormals</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection15NormalsConstPtrE" title="pcl::registration::CorrespondenceEstimationBackProjection::NormalsConstPtr">NormalsConstPtr</a> &amp;<em>normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16setTargetNormalsERK15NormalsConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the normals computed on the target point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normals</span></code>: the normals computed for the target cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection16getTargetNormalsEv">
+<span id="_CPPv3NK3pcl12registration38CorrespondenceEstimationBackProjection16getTargetNormalsEv"></span><span id="_CPPv2NK3pcl12registration38CorrespondenceEstimationBackProjection16getTargetNormalsEv"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::getTargetNormalsC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1ac906ffc854032d605e5cc886ff49e128"></span><a class="reference internal" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection15NormalsConstPtrE" title="pcl::registration::CorrespondenceEstimationBackProjection::NormalsConstPtr">NormalsConstPtr</a> <code class="sig-name descname">getTargetNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection16getTargetNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the normals of the target point cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection21requiresSourceNormalsEv">
+<span id="_CPPv3NK3pcl12registration38CorrespondenceEstimationBackProjection21requiresSourceNormalsEv"></span><span id="_CPPv2NK3pcl12registration38CorrespondenceEstimationBackProjection21requiresSourceNormalsEv"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::requiresSourceNormalsC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1ad699510ea202b3f200af844d496f56dd"></span>bool <code class="sig-name descname">requiresSourceNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection21requiresSourceNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See if this rejector requires source normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16setSourceNormalsEN3pcl14PCLPointCloud28ConstPtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection16setSourceNormalsEN3pcl14PCLPointCloud28ConstPtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection16setSourceNormalsEN3pcl14PCLPointCloud28ConstPtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::setSourceNormals__pcl::PCLPointCloud2::ConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a5e736f56018d464cafbbcfdadd6440d7"></span>void <code class="sig-name descname">setSourceNormals</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud28ConstPtrE" title="pcl::PCLPointCloud2::ConstPtr">ConstPtr</a> <em>cloud2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16setSourceNormalsEN3pcl14PCLPointCloud28ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Blob method for setting the source normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection21requiresTargetNormalsEv">
+<span id="_CPPv3NK3pcl12registration38CorrespondenceEstimationBackProjection21requiresTargetNormalsEv"></span><span id="_CPPv2NK3pcl12registration38CorrespondenceEstimationBackProjection21requiresTargetNormalsEv"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::requiresTargetNormalsC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a4cb222837b02a82d0f95703771ff81e0"></span>bool <code class="sig-name descname">requiresTargetNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection21requiresTargetNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See if this rejector requires target normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16setTargetNormalsEN3pcl14PCLPointCloud28ConstPtrE">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection16setTargetNormalsEN3pcl14PCLPointCloud28ConstPtrE"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection16setTargetNormalsEN3pcl14PCLPointCloud28ConstPtrE"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::setTargetNormals__pcl::PCLPointCloud2::ConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a229ea9f6f8190bdc91a14ed48464fa60"></span>void <code class="sig-name descname">setTargetNormals</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud28ConstPtrE" title="pcl::PCLPointCloud2::ConstPtr">ConstPtr</a> <em>cloud2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection16setTargetNormalsEN3pcl14PCLPointCloud28ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method for setting the target normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection24determineCorrespondencesERN3pcl15CorrespondencesEd">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection24determineCorrespondencesERN3pcl15CorrespondencesEd"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection24determineCorrespondencesERN3pcl15CorrespondencesEd"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::determineCorrespondences__pcl::CorrespondencesR.double"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1ae3558f5a43c65e34c156fbdb504297f2"></span>void <code class="sig-name descname">determineCorrespondences</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>correspondences</em>, double <em>max_distance</em> = std::numeric_limits&lt;double&gt;::max()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection24determineCorrespondencesERN3pcl15CorrespondencesEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determine the correspondences between input and target cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">correspondences</span></code>: the found correspondences (index of query point, index of target point, distance) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_distance</span></code>: maximum distance between the normal on the source point cloud and the corresponding point in the target point cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection34determineReciprocalCorrespondencesERN3pcl15CorrespondencesEd">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection34determineReciprocalCorrespondencesERN3pcl15CorrespondencesEd"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection34determineReciprocalCorrespondencesERN3pcl15CorrespondencesEd"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::determineReciprocalCorrespondences__pcl::CorrespondencesR.double"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1ac93571106a92354458eb99050748cd17"></span>void <code class="sig-name descname">determineReciprocalCorrespondences</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>correspondences</em>, double <em>max_distance</em> = std::numeric_limits&lt;double&gt;::max()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection34determineReciprocalCorrespondencesERN3pcl15CorrespondencesEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Determine the reciprocal correspondences between input and target cloud. </p>
+<p>A correspondence is considered reciprocal if both Src_i has Tgt_i as a correspondence, and Tgt_i has Src_i as one.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">correspondences</span></code>: the found correspondences (index of query and target point, distance) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_distance</span></code>: maximum allowed distance between correspondences </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection10setKSearchEj">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection10setKSearchEj"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection10setKSearchEj"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::setKSearch__unsigned-i"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a9ef99652e146f4fa8ef05e13159f6232"></span>void <code class="sig-name descname">setKSearch</code><span class="sig-paren">(</span>unsigned int <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection10setKSearchEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the number of nearest neighbours to be considered in the target point cloud. </p>
+<p>By default, we use k = 10 nearest neighbors.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: the number of nearest neighbours to be considered </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection10getKSearchEv">
+<span id="_CPPv3NK3pcl12registration38CorrespondenceEstimationBackProjection10getKSearchEv"></span><span id="_CPPv2NK3pcl12registration38CorrespondenceEstimationBackProjection10getKSearchEv"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::getKSearchC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1ac8094f857d16a92f664fbd91aac4b615"></span>unsigned int <code class="sig-name descname">getKSearch</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection10getKSearchEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of nearest neighbours considered in the target point cloud for computing correspondences. </p>
+<p>By default we use k = 10 nearest neighbors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection5cloneEv">
+<span id="_CPPv3NK3pcl12registration38CorrespondenceEstimationBackProjection5cloneEv"></span><span id="_CPPv2NK3pcl12registration38CorrespondenceEstimationBackProjection5cloneEv"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::cloneC"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1acf73d604c77f78ef43faee7545db5b27"></span><em class="property">virtual</em> boost::shared_ptr&lt;CorrespondenceEstimationBase&lt;PointSource, PointTarget, Scalar&gt;&gt; <code class="sig-name descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration38CorrespondenceEstimationBackProjection5cloneEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clone and cast to <a class="reference internal" href="classpcl_1_1registration_1_1_correspondence_estimation_base.html#classpcl_1_1registration_1_1_correspondence_estimation_base"><span class="std std-ref">CorrespondenceEstimationBase</span></a>. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection11initComputeEv">
+<span id="_CPPv3N3pcl12registration38CorrespondenceEstimationBackProjection11initComputeEv"></span><span id="_CPPv2N3pcl12registration38CorrespondenceEstimationBackProjection11initComputeEv"></span><span id="pcl::registration::CorrespondenceEstimationBackProjection::initCompute"></span><span class="target" id="classpcl_1_1registration_1_1_correspondence_estimation_back_projection_1a46cc636b2987df9b08fb1d5500e64d4b"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration38CorrespondenceEstimationBackProjection11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Internal computation initialization. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

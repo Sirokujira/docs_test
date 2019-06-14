@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class GeneralizedIterativeClosestPoint &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class GeneralizedIterativeClosestPoint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_generalized_iterative_closest_point.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-generalizediterativeclosestpoint">
+<span id="exhale-class-classpcl-1-1-generalized-iterative-closest-point"></span><h1>Template Class GeneralizedIterativeClosestPoint<a class="headerlink" href="#template-class-generalizediterativeclosestpoint" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_registration_include_pcl_registration_gicp.h.html#file-pcl-registration-include-pcl-registration-gicp-h"><span class="std std-ref">File gicp.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_generalized_iterative_closest_point_1_1_optimization_functor_with_indices.html#exhale-struct-structpcl-1-1-generalized-iterative-closest-point-1-1-optimization-functor-with-indices"><span class="std std-ref">Struct GeneralizedIterativeClosestPoint::OptimizationFunctorWithIndices</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::IterativeClosestPoint&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_iterative_closest_point.html#exhale-class-classpcl-1-1-iterative-closest-point"><span class="std std-ref">Template Class IterativeClosestPoint</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl32GeneralizedIterativeClosestPointE">
+<span id="_CPPv3I00EN3pcl32GeneralizedIterativeClosestPointE"></span><span id="_CPPv2I00EN3pcl32GeneralizedIterativeClosestPointE"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point"></span>template&lt;typename <code class="sig-name descname">PointSource</code>, typename <code class="sig-name descname">PointTarget</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">GeneralizedIterativeClosestPoint</code> : <em class="property">public</em> pcl::IterativeClosestPoint&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl32GeneralizedIterativeClosestPointE" title="pcl::GeneralizedIterativeClosestPoint::PointSource">PointSource</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl32GeneralizedIterativeClosestPointE" title="pcl::GeneralizedIterativeClosestPoint::PointTarget">PointTarget</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl32GeneralizedIterativeClosestPointE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_generalized_iterative_closest_point"><span class="std std-ref">GeneralizedIterativeClosestPoint</span></a> is an ICP variant that implements the generalized iterative closest point algorithm as described by Alex Segal et al. </p>
+<p>in <a class="reference external" href="http://www.robots.ox.ac.uk/~avsegal/resources/papers/Generalized_ICP.pdf">http://www.robots.ox.ac.uk/~avsegal/resources/papers/Generalized_ICP.pdf</a> The approach is based on using anistropic cost functions to optimize the alignment after closest point assignments have been made. The original code uses GSL and ANN while in ours we use an eigen mapped <a class="reference internal" href="class_b_f_g_s.html#class_b_f_g_s"><span class="std std-ref">BFGS</span></a> and FLANN. <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Nizar Sallem </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudSourceE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint16PointCloudSourceE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint16PointCloudSourceE"></span><span id="pcl::GeneralizedIterativeClosestPoint::PointCloudSource"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1ae8f5493dc5c662a484e2d2ffb5336b06"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointSource&gt; <code class="sig-name descname">PointCloudSource</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudSourceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint19PointCloudSourcePtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint19PointCloudSourcePtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint19PointCloudSourcePtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::PointCloudSourcePtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1acafa159a6630c6d3613f24312740e4be"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudSourceE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudSource">PointCloudSource</a>::Ptr <code class="sig-name descname">PointCloudSourcePtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint19PointCloudSourcePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint24PointCloudSourceConstPtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint24PointCloudSourceConstPtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint24PointCloudSourceConstPtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::PointCloudSourceConstPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a680c9b75d4222ad3a577200a1d9323d3"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudSourceE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudSource">PointCloudSource</a>::ConstPtr <code class="sig-name descname">PointCloudSourceConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint24PointCloudSourceConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudTargetE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint16PointCloudTargetE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint16PointCloudTargetE"></span><span id="pcl::GeneralizedIterativeClosestPoint::PointCloudTarget"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a05e28c8813b1135048004ed1cf0a3de6"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointTarget&gt; <code class="sig-name descname">PointCloudTarget</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudTargetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint19PointCloudTargetPtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint19PointCloudTargetPtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint19PointCloudTargetPtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::PointCloudTargetPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a0f4c48255ed9da95516df4c96305d5b0"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudTargetE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudTarget">PointCloudTarget</a>::Ptr <code class="sig-name descname">PointCloudTargetPtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint19PointCloudTargetPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint24PointCloudTargetConstPtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint24PointCloudTargetConstPtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint24PointCloudTargetConstPtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::PointCloudTargetConstPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a71c19800bb5afcb30e5e262372035b25"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudTargetE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudTarget">PointCloudTarget</a>::ConstPtr <code class="sig-name descname">PointCloudTargetConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint24PointCloudTargetConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint15PointIndicesPtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint15PointIndicesPtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint15PointIndicesPtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::PointIndicesPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1afc8c01d2add059f02af27d457f6e2821"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndices3PtrE" title="pcl::PointIndices::Ptr">Ptr</a> <code class="sig-name descname">PointIndicesPtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint15PointIndicesPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint20PointIndicesConstPtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint20PointIndicesConstPtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint20PointIndicesConstPtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::PointIndicesConstPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a09441919da2128e11ab00b0298652879"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndices8ConstPtrE" title="pcl::PointIndices::ConstPtr">ConstPtr</a> <code class="sig-name descname">PointIndicesConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint20PointIndicesConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint14MatricesVectorE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint14MatricesVectorE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint14MatricesVectorE"></span><span id="pcl::GeneralizedIterativeClosestPoint::MatricesVector"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a1cb684391eac60369817cc128fd00f2b"></span><em class="property">typedef </em>std::vector&lt;Eigen::Matrix3d, Eigen::aligned_allocator&lt;Eigen::Matrix3d&gt;&gt; <code class="sig-name descname">MatricesVector</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint14MatricesVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint17MatricesVectorPtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint17MatricesVectorPtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint17MatricesVectorPtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::MatricesVectorPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a4a46a31de58ad5e503ccd88cc2d4804b"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint14MatricesVectorE" title="pcl::GeneralizedIterativeClosestPoint::MatricesVector">MatricesVector</a>&gt; <code class="sig-name descname">MatricesVectorPtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint17MatricesVectorPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint22MatricesVectorConstPtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint22MatricesVectorConstPtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint22MatricesVectorConstPtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::MatricesVectorConstPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a0587774642a8b222926713de834d2b00"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint14MatricesVectorE" title="pcl::GeneralizedIterativeClosestPoint::MatricesVector">MatricesVector</a>&gt; <code class="sig-name descname">MatricesVectorConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint22MatricesVectorConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint11InputKdTreeE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint11InputKdTreeE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint11InputKdTreeE"></span><span id="pcl::GeneralizedIterativeClosestPoint::InputKdTree"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1ad0cb6d768309bb78296db6aad55f9d9d"></span><em class="property">typedef </em>Registration&lt;PointSource, PointTarget&gt;::KdTree <code class="sig-name descname">InputKdTree</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint11InputKdTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint14InputKdTreePtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint14InputKdTreePtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint14InputKdTreePtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::InputKdTreePtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a63050e2cd839a035369aa74d6d61fb5e"></span><em class="property">typedef </em>Registration&lt;PointSource, PointTarget&gt;::KdTreePtr <code class="sig-name descname">InputKdTreePtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint14InputKdTreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint3PtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint3PtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint3PtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::Ptr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1aef617be049aabdb9acd8695a52039a7b"></span><em class="property">typedef </em>boost::shared_ptr&lt;GeneralizedIterativeClosestPoint&lt;PointSource, PointTarget&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint8ConstPtrE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint8ConstPtrE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint8ConstPtrE"></span><span id="pcl::GeneralizedIterativeClosestPoint::ConstPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1aebe2d9dcb4001a5bb5c11b961c27e5e3"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> GeneralizedIterativeClosestPoint&lt;PointSource, PointTarget&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint8Vector6dE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint8Vector6dE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint8Vector6dE"></span><span id="pcl::GeneralizedIterativeClosestPoint::Vector6d"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1aa1b9067f02067178005d1c1770c9acb1"></span><em class="property">typedef </em>Eigen::Matrix&lt;double, 6, 1&gt; <code class="sig-name descname">Vector6d</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint8Vector6dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint32GeneralizedIterativeClosestPointEv">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint32GeneralizedIterativeClosestPointEv"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint32GeneralizedIterativeClosestPointEv"></span><span id="pcl::GeneralizedIterativeClosestPoint::GeneralizedIterativeClosestPoint"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a350789e9f794898b82a324ae9c0707b2"></span><code class="sig-name descname">GeneralizedIterativeClosestPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint32GeneralizedIterativeClosestPointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint14setInputSourceERK24PointCloudSourceConstPtr">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint14setInputSourceERK24PointCloudSourceConstPtr"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint14setInputSourceERK24PointCloudSourceConstPtr"></span><span id="pcl::GeneralizedIterativeClosestPoint::setInputSource__PointCloudSourceConstPtrCR"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1ae467fc33cda4a4b26ddf25694669bd6a"></span>void <code class="sig-name descname">setInputSource</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint24PointCloudSourceConstPtrE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudSourceConstPtr">PointCloudSourceConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint14setInputSourceERK24PointCloudSourceConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint20setSourceCovariancesERK17MatricesVectorPtr">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint20setSourceCovariancesERK17MatricesVectorPtr"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint20setSourceCovariancesERK17MatricesVectorPtr"></span><span id="pcl::GeneralizedIterativeClosestPoint::setSourceCovariances__MatricesVectorPtrCR"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1aa920a3d264658fd800283c4782eeba22"></span>void <code class="sig-name descname">setSourceCovariances</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint17MatricesVectorPtrE" title="pcl::GeneralizedIterativeClosestPoint::MatricesVectorPtr">MatricesVectorPtr</a> &amp;<em>covariances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint20setSourceCovariancesERK17MatricesVectorPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the covariances of the input source (if computed externally!). </p>
+<p>If not set, <a class="reference internal" href="#classpcl_1_1_generalized_iterative_closest_point"><span class="std std-ref">GeneralizedIterativeClosestPoint</span></a> will compute the covariances itself. Make sure to set the covariances AFTER setting the input source point cloud (setting the input source point cloud will reset the covariances). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target</span></code>: the input point cloud target </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint14setInputTargetERK24PointCloudTargetConstPtr">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint14setInputTargetERK24PointCloudTargetConstPtr"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint14setInputTargetERK24PointCloudTargetConstPtr"></span><span id="pcl::GeneralizedIterativeClosestPoint::setInputTarget__PointCloudTargetConstPtrCR"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a840fecfc709ee6dc09c854b8043653e4"></span>void <code class="sig-name descname">setInputTarget</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint24PointCloudTargetConstPtrE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudTargetConstPtr">PointCloudTargetConstPtr</a> &amp;<em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint14setInputTargetERK24PointCloudTargetConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input target (e.g., the point cloud that we want to align the input source to) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target</span></code>: the input point cloud target </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint20setTargetCovariancesERK17MatricesVectorPtr">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint20setTargetCovariancesERK17MatricesVectorPtr"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint20setTargetCovariancesERK17MatricesVectorPtr"></span><span id="pcl::GeneralizedIterativeClosestPoint::setTargetCovariances__MatricesVectorPtrCR"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a1d8352c40e90294c35c581cd1075e0be"></span>void <code class="sig-name descname">setTargetCovariances</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint17MatricesVectorPtrE" title="pcl::GeneralizedIterativeClosestPoint::MatricesVectorPtr">MatricesVectorPtr</a> &amp;<em>covariances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint20setTargetCovariancesERK17MatricesVectorPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the covariances of the input target (if computed externally!). </p>
+<p>If not set, <a class="reference internal" href="#classpcl_1_1_generalized_iterative_closest_point"><span class="std std-ref">GeneralizedIterativeClosestPoint</span></a> will compute the covariances itself. Make sure to set the covariances AFTER setting the input source point cloud (setting the input source point cloud will reset the covariances). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target</span></code>: the input point cloud target </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint31estimateRigidTransformationBFGSERK16PointCloudSourceRKNSt6vectorIiEERK16PointCloudTargetRKNSt6vectorIiEERN5Eigen8Matrix4fE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint31estimateRigidTransformationBFGSERK16PointCloudSourceRKNSt6vectorIiEERK16PointCloudTargetRKNSt6vectorIiEERN5Eigen8Matrix4fE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint31estimateRigidTransformationBFGSERK16PointCloudSourceRKNSt6vectorIiEERK16PointCloudTargetRKNSt6vectorIiEERN5Eigen8Matrix4fE"></span><span id="pcl::GeneralizedIterativeClosestPoint::estimateRigidTransformationBFGS__PointCloudSourceCR.std::vector:i:CR.PointCloudTargetCR.std::vector:i:CR.Eigen::Matrix4fR"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1aea02526ff54e350a6335d27490d81ca4"></span>void <code class="sig-name descname">estimateRigidTransformationBFGS</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudSourceE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudSource">PointCloudSource</a> &amp;<em>cloud_src</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices_src</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudTargetE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudTarget">PointCloudTarget</a> &amp;<em>cloud_tgt</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices_tgt</em>, Eigen::Matrix4f &amp;<em>transformation_matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint31estimateRigidTransformationBFGSERK16PointCloudSourceRKNSt6vectorIiEERK16PointCloudTargetRKNSt6vectorIiEERN5Eigen8Matrix4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate a rigid rotation transformation between a source and a target point cloud using an iterative non-linear Levenberg-Marquardt approach. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_src</span></code>: the source point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices_src</span></code>: the vector of indices describing the points of interest in <em>cloud_src</em> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_tgt</span></code>: the target point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices_tgt</span></code>: the vector of indices describing the correspondences of the interest points from <em>indices_src</em> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transformation_matrix</span></code>: the resultant transformation matrix </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl32GeneralizedIterativeClosestPoint11mahalanobisE6size_t">
+<span id="_CPPv3NK3pcl32GeneralizedIterativeClosestPoint11mahalanobisE6size_t"></span><span id="_CPPv2NK3pcl32GeneralizedIterativeClosestPoint11mahalanobisE6size_t"></span><span id="pcl::GeneralizedIterativeClosestPoint::mahalanobis__sC"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1ad095300e41f27b087fbace58aa2500fa"></span><em class="property">const</em> Eigen::Matrix3d &amp;<code class="sig-name descname">mahalanobis</code><span class="sig-paren">(</span>size_t <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl32GeneralizedIterativeClosestPoint11mahalanobisE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Mahalanobis distance matrix for the given point index </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl32GeneralizedIterativeClosestPoint18computeRDerivativeERK8Vector6dRKN5Eigen8Matrix3dER8Vector6d">
+<span id="_CPPv3NK3pcl32GeneralizedIterativeClosestPoint18computeRDerivativeERK8Vector6dRKN5Eigen8Matrix3dER8Vector6d"></span><span id="_CPPv2NK3pcl32GeneralizedIterativeClosestPoint18computeRDerivativeERK8Vector6dRKN5Eigen8Matrix3dER8Vector6d"></span><span id="pcl::GeneralizedIterativeClosestPoint::computeRDerivative__Vector6dCR.Eigen::Matrix3dCR.Vector6dRC"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1acce93f0ea69ea9d9798529cc6e1083e0"></span>void <code class="sig-name descname">computeRDerivative</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint8Vector6dE" title="pcl::GeneralizedIterativeClosestPoint::Vector6d">Vector6d</a> &amp;<em>x</em>, <em class="property">const</em> Eigen::Matrix3d &amp;<em>R</em>, <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint8Vector6dE" title="pcl::GeneralizedIterativeClosestPoint::Vector6d">Vector6d</a> &amp;<em>g</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl32GeneralizedIterativeClosestPoint18computeRDerivativeERK8Vector6dRKN5Eigen8Matrix3dER8Vector6d" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes rotation matrix derivative. </p>
+<p>rotation matrix is obtainded from rotation angles x[3], x[4] and x[5] <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>d/d_rx, d/d_ry and d/d_rz respectively in g[3], g[4] and g[5] param x array representing 3D transformation param R rotation matrix param g gradient vector </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint18setRotationEpsilonEd">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint18setRotationEpsilonEd"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint18setRotationEpsilonEd"></span><span id="pcl::GeneralizedIterativeClosestPoint::setRotationEpsilon__double"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1acd53ca930d9019dab949c514f5857cb9"></span>void <code class="sig-name descname">setRotationEpsilon</code><span class="sig-paren">(</span>double <em>epsilon</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint18setRotationEpsilonEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the rotation epsilon (maximum allowable difference between two consecutive rotations) in order for an optimization to be considered as having converged to the final solution. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">epsilon</span></code>: the rotation epsilon </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint18getRotationEpsilonEv">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint18getRotationEpsilonEv"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint18getRotationEpsilonEv"></span><span id="pcl::GeneralizedIterativeClosestPoint::getRotationEpsilon"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a88a41b7025330a67f4c2eb2b90789a76"></span>double <code class="sig-name descname">getRotationEpsilon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint18getRotationEpsilonEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the rotation epsilon (maximum allowable difference between two consecutive rotations) as set by the user. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint27setCorrespondenceRandomnessEi">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint27setCorrespondenceRandomnessEi"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint27setCorrespondenceRandomnessEi"></span><span id="pcl::GeneralizedIterativeClosestPoint::setCorrespondenceRandomness__i"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1ab3a88c2be49568e9562f84309a8c0121"></span>void <code class="sig-name descname">setCorrespondenceRandomness</code><span class="sig-paren">(</span>int <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint27setCorrespondenceRandomnessEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the number of neighbors used when selecting a point neighbourhood to compute covariances. </p>
+<p>A higher value will bring more accurate covariance matrix but will make covariances computation slower. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>: the number of neighbors to use when computing covariances </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint27getCorrespondenceRandomnessEv">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint27getCorrespondenceRandomnessEv"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint27getCorrespondenceRandomnessEv"></span><span id="pcl::GeneralizedIterativeClosestPoint::getCorrespondenceRandomness"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a91afd9ac812760e0440dfe56b4ad84a5"></span>int <code class="sig-name descname">getCorrespondenceRandomness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint27getCorrespondenceRandomnessEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of neighbors used when computing covariances as set by the user. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint29setMaximumOptimizerIterationsEi">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint29setMaximumOptimizerIterationsEi"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint29setMaximumOptimizerIterationsEi"></span><span id="pcl::GeneralizedIterativeClosestPoint::setMaximumOptimizerIterations__i"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a5d20ad4c1291318137955b78aace359b"></span>void <code class="sig-name descname">setMaximumOptimizerIterations</code><span class="sig-paren">(</span>int <em>max</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint29setMaximumOptimizerIterationsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>set maximum number of iterations at the optimization step </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max</span></code>: maximum number of iterations for the optimizer </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint29getMaximumOptimizerIterationsEv">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint29getMaximumOptimizerIterationsEv"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint29getMaximumOptimizerIterationsEv"></span><span id="pcl::GeneralizedIterativeClosestPoint::getMaximumOptimizerIterations"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a075bc110401111586252433c747a0490"></span>int <code class="sig-name descname">getMaximumOptimizerIterations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint29getMaximumOptimizerIterationsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>maximum number of iterations at the optimization step </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl32GeneralizedIterativeClosestPoint18computeCovariancesEvN3pcl10PointCloudI6PointTE8ConstPtrEKN3pcl6search6KdTreeI6PointTE3PtrER14MatricesVector">
+<span id="_CPPv3I0EN3pcl32GeneralizedIterativeClosestPoint18computeCovariancesEN3pcl10PointCloudI6PointTE8ConstPtrEKN3pcl6search6KdTreeI6PointTE3PtrER14MatricesVector"></span><span id="_CPPv2I0EN3pcl32GeneralizedIterativeClosestPoint18computeCovariancesEN3pcl10PointCloudI6PointTE8ConstPtrEKN3pcl6search6KdTreeI6PointTE3PtrER14MatricesVector"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a4307aa8507e98a86183d3ba4cb5400d0"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br />void <code class="sig-name descname">computeCovariances</code><span class="sig-paren">(</span><em class="property">typename</em> pcl::PointCloud&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl32GeneralizedIterativeClosestPoint18computeCovariancesEvN3pcl10PointCloudI6PointTE8ConstPtrEKN3pcl6search6KdTreeI6PointTE3PtrER14MatricesVector" title="pcl::GeneralizedIterativeClosestPoint::computeCovariances::PointT">PointT</a>&gt;::ConstPtr <em>cloud</em>, <em class="property">const</em> <em class="property">typename</em> pcl::search::KdTree&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl32GeneralizedIterativeClosestPoint18computeCovariancesEvN3pcl10PointCloudI6PointTE8ConstPtrEKN3pcl6search6KdTreeI6PointTE3PtrER14MatricesVector" title="pcl::GeneralizedIterativeClosestPoint::computeCovariances::PointT">PointT</a>&gt;::Ptr <em>tree</em>, <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint14MatricesVectorE" title="pcl::GeneralizedIterativeClosestPoint::MatricesVector">MatricesVector</a> &amp;<em>cloud_covariances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl32GeneralizedIterativeClosestPoint18computeCovariancesEvN3pcl10PointCloudI6PointTE8ConstPtrEKN3pcl6search6KdTreeI6PointTE3PtrER14MatricesVector" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>compute points covariances matrices according to the K nearest neighbors. </p>
+<p>K is set via <a class="reference internal" href="#classpcl_1_1_generalized_iterative_closest_point_1ab3a88c2be49568e9562f84309a8c0121"><span class="std std-ref">setCorrespondenceRandomness()</span></a> method. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span></code>: pointer to point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tree</span></code>: KD tree performer for nearest neighbors search </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud_covariances</span></code>: covariances matrices for each point in the cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl32GeneralizedIterativeClosestPoint17matricesInnerProdERKN5Eigen8MatrixXdERKN5Eigen8MatrixXdE">
+<span id="_CPPv3NK3pcl32GeneralizedIterativeClosestPoint17matricesInnerProdERKN5Eigen8MatrixXdERKN5Eigen8MatrixXdE"></span><span id="_CPPv2NK3pcl32GeneralizedIterativeClosestPoint17matricesInnerProdERKN5Eigen8MatrixXdERKN5Eigen8MatrixXdE"></span><span id="pcl::GeneralizedIterativeClosestPoint::matricesInnerProd__Eigen::MatrixXdCR.Eigen::MatrixXdCRC"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1acb1a500edb1a2ed18a06e693694c2a44"></span>double <code class="sig-name descname">matricesInnerProd</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::MatrixXd &amp;<em>mat1</em>, <em class="property">const</em> Eigen::MatrixXd &amp;<em>mat2</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl32GeneralizedIterativeClosestPoint17matricesInnerProdERKN5Eigen8MatrixXdERKN5Eigen8MatrixXdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>trace of mat1^t . mat2 </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mat1</span></code>: matrix of dimension nxm </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mat2</span></code>: matrix of dimension nxp </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE"></span><span id="pcl::GeneralizedIterativeClosestPoint::computeTransformation__PointCloudSourceR.Eigen::Matrix4fCR"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a21e902199045b4835c78bed15a3b7367"></span>void <code class="sig-name descname">computeTransformation</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudSourceE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudSource">PointCloudSource</a> &amp;<em>output</em>, <em class="property">const</em> Eigen::Matrix4f &amp;<em>guess</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Rigid transformation computation method with initial guess. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span></code>: the transformed input point cloud dataset using the rigid transformation found </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guess</span></code>: the initial guess of the transformation to compute </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint18searchForNeighborsERK11PointSourceRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint18searchForNeighborsERK11PointSourceRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint18searchForNeighborsERK11PointSourceRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::GeneralizedIterativeClosestPoint::searchForNeighbors__PointSourceCR.std::vector:i:R.std::vector:float:R"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1ae379911827eaacf4ce6d1c6f1dcdb0b6"></span>bool <code class="sig-name descname">searchForNeighbors</code><span class="sig-paren">(</span><em class="property">const</em> PointSource &amp;<em>query</em>, std::vector&lt;int&gt; &amp;<em>index</em>, std::vector&lt;float&gt; &amp;<em>distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint18searchForNeighborsERK11PointSourceRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for the closest nearest neighbor of a given point. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">query</span></code>: the point to search a nearest neighbour for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: vector of size 1 to store the index of the nearest neighbour found </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distance</span></code>: vector of size 1 to store the distance to nearest neighbour found </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl32GeneralizedIterativeClosestPoint10applyStateERN5Eigen8Matrix4fERK8Vector6d">
+<span id="_CPPv3NK3pcl32GeneralizedIterativeClosestPoint10applyStateERN5Eigen8Matrix4fERK8Vector6d"></span><span id="_CPPv2NK3pcl32GeneralizedIterativeClosestPoint10applyStateERN5Eigen8Matrix4fERK8Vector6d"></span><span id="pcl::GeneralizedIterativeClosestPoint::applyState__Eigen::Matrix4fR.Vector6dCRC"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a52623ea7fd4588948e7c9f555f25b5c8"></span>void <code class="sig-name descname">applyState</code><span class="sig-paren">(</span>Eigen::Matrix4f &amp;<em>t</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint8Vector6dE" title="pcl::GeneralizedIterativeClosestPoint::Vector6d">Vector6d</a> &amp;<em>x</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl32GeneralizedIterativeClosestPoint10applyStateERN5Eigen8Matrix4fERK8Vector6d" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>compute transformation matrix from transformation matrix </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint18k_correspondences_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint18k_correspondences_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint18k_correspondences_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::k_correspondences___i"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a53aa249cc286ecc5e2c8889970c3659d"></span>int <code class="sig-name descname">k_correspondences_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint18k_correspondences_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of neighbors used for covariances computation. </p>
+<p>default: 20 </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint13gicp_epsilon_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint13gicp_epsilon_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint13gicp_epsilon_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::gicp_epsilon___double"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a6905fe14a36c11adb4f0f8d90641561e"></span>double <code class="sig-name descname">gicp_epsilon_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint13gicp_epsilon_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The epsilon constant for gicp paper; this is NOT the convergence tolerance default: 0.001. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint17rotation_epsilon_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint17rotation_epsilon_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint17rotation_epsilon_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::rotation_epsilon___double"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a6b3c435a32ae28d6c4bee571d4c675f3"></span>double <code class="sig-name descname">rotation_epsilon_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint17rotation_epsilon_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The epsilon constant for rotation error. </p>
+<p>(In GICP the transformation epsilon is split in rotation part and translation part). default: 2e-3 </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint20base_transformation_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint20base_transformation_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint20base_transformation_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::base_transformation___Eigen::Matrix4f"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1af6c01fd53acacf1a488546ad2def4821"></span>Eigen::Matrix4f <code class="sig-name descname">base_transformation_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint20base_transformation_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>base transformation </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint8tmp_src_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint8tmp_src_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint8tmp_src_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::tmp_src___PointCloudSourceCP"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a186170fb2130cdca3e0f5ef8848a78b6"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudSourceE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudSource">PointCloudSource</a> *<code class="sig-name descname">tmp_src_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint8tmp_src_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Temporary pointer to the source dataset. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint8tmp_tgt_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint8tmp_tgt_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint8tmp_tgt_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::tmp_tgt___PointCloudTargetCP"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a7c1850fa0ac8df790aa9791a8d0f4343"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint16PointCloudTargetE" title="pcl::GeneralizedIterativeClosestPoint::PointCloudTarget">PointCloudTarget</a> *<code class="sig-name descname">tmp_tgt_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint8tmp_tgt_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Temporary pointer to the target dataset. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint12tmp_idx_src_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint12tmp_idx_src_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint12tmp_idx_src_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::tmp_idx_src___std::vector:i:CP"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1aebed534fc98c098ef8b0d0abaef720fd"></span><em class="property">const</em> std::vector&lt;int&gt; *<code class="sig-name descname">tmp_idx_src_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint12tmp_idx_src_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Temporary pointer to the source dataset indices. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint12tmp_idx_tgt_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint12tmp_idx_tgt_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint12tmp_idx_tgt_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::tmp_idx_tgt___std::vector:i:CP"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1acd1d3d3abcca095774c1d2a7d1a24941"></span><em class="property">const</em> std::vector&lt;int&gt; *<code class="sig-name descname">tmp_idx_tgt_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint12tmp_idx_tgt_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Temporary pointer to the target dataset indices. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint18input_covariances_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint18input_covariances_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint18input_covariances_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::input_covariances___MatricesVectorPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1ac86cb83cfcca7d2a5664369dbc0f210c"></span><a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint17MatricesVectorPtrE" title="pcl::GeneralizedIterativeClosestPoint::MatricesVectorPtr">MatricesVectorPtr</a> <code class="sig-name descname">input_covariances_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint18input_covariances_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Input cloud points covariances. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint19target_covariances_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint19target_covariances_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint19target_covariances_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::target_covariances___MatricesVectorPtr"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a81ed891465b173c8ee3e22cea593de3c"></span><a class="reference internal" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint17MatricesVectorPtrE" title="pcl::GeneralizedIterativeClosestPoint::MatricesVectorPtr">MatricesVectorPtr</a> <code class="sig-name descname">target_covariances_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint19target_covariances_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Target cloud points covariances. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint12mahalanobis_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint12mahalanobis_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint12mahalanobis_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::mahalanobis___std::vector:Eigen::Matrix3d:"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a42077263d639013b40d73f672a104b09"></span>std::vector&lt;Eigen::Matrix3d&gt; <code class="sig-name descname">mahalanobis_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint12mahalanobis_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mahalanobis matrices holder. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint21max_inner_iterations_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint21max_inner_iterations_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint21max_inner_iterations_E"></span><span id="pcl::GeneralizedIterativeClosestPoint::max_inner_iterations___i"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1a228333faefeb99a185b285aced8d0c68"></span>int <code class="sig-name descname">max_inner_iterations_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint21max_inner_iterations_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>maximum number of optimizations </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint32rigid_transformation_estimation_E">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint32rigid_transformation_estimation_E"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint32rigid_transformation_estimation_E"></span><span class="target" id="classpcl_1_1_generalized_iterative_closest_point_1acc1b5a423b0dc13c0238e63c2fb87741"></span>boost::function&lt;void<span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;PointSource&gt; &amp;cloud_src, <em class="property">const</em> std::vector&lt;int&gt; &amp;src_indices, <em class="property">const</em> pcl::PointCloud&lt;PointTarget&gt; &amp;cloud_tgt, <em class="property">const</em> std::vector&lt;int&gt; &amp;tgt_indices, Eigen::Matrix4f &amp;transformation_matrix<span class="sig-paren">)</span>&gt; <code class="sig-name descname">rigid_transformation_estimation_</code><a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint32rigid_transformation_estimation_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl32GeneralizedIterativeClosestPoint30OptimizationFunctorWithIndicesE">
+<span id="_CPPv3N3pcl32GeneralizedIterativeClosestPoint30OptimizationFunctorWithIndicesE"></span><span id="_CPPv2N3pcl32GeneralizedIterativeClosestPoint30OptimizationFunctorWithIndicesE"></span><span id="pcl::GeneralizedIterativeClosestPoint::OptimizationFunctorWithIndices"></span><span class="target" id="structpcl_1_1_generalized_iterative_closest_point_1_1_optimization_functor_with_indices"></span><em class="property">struct </em><code class="sig-name descname">OptimizationFunctorWithIndices</code> : <em class="property">public</em> BFGSDummyFunctor&lt;double, 6&gt;<a class="headerlink" href="#_CPPv4N3pcl32GeneralizedIterativeClosestPoint30OptimizationFunctorWithIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>optimization functor structure </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesEPK32GeneralizedIterativeClosestPoint">
+<span id="_CPPv3IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesEPK32GeneralizedIterativeClosestPoint"></span><span id="_CPPv2IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesEPK32GeneralizedIterativeClosestPoint"></span><span class="target" id="structpcl_1_1_generalized_iterative_closest_point_1_1_optimization_functor_with_indices_1ae18d6bf00670dc446886c661aa9873ac"></span>template&lt;&gt;<br /><code class="sig-name descname">OptimizationFunctorWithIndices</code><span class="sig-paren">(</span><em class="property">const</em> GeneralizedIterativeClosestPoint *<em>gicp</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesEPK32GeneralizedIterativeClosestPoint" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndicesclEdRK8Vector6d">
+<span id="_CPPv3IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndicesclERK8Vector6d"></span><span id="_CPPv2IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndicesclERK8Vector6d"></span><span class="target" id="structpcl_1_1_generalized_iterative_closest_point_1_1_optimization_functor_with_indices_1acada04539ab01d5a07b5138c98cc00f1"></span>template&lt;&gt;<br />double <code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> Vector6d &amp;<em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndicesclEdRK8Vector6d" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices2dfEvRK8Vector6dR8Vector6d">
+<span id="_CPPv3IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices2dfERK8Vector6dR8Vector6d"></span><span id="_CPPv2IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices2dfERK8Vector6dR8Vector6d"></span><span class="target" id="structpcl_1_1_generalized_iterative_closest_point_1_1_optimization_functor_with_indices_1ab974d99615f93ecbc82abc75ca787aa4"></span>template&lt;&gt;<br />void <code class="sig-name descname">df</code><span class="sig-paren">(</span><em class="property">const</em> Vector6d &amp;<em>x</em>, Vector6d &amp;<em>df</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices2dfEvRK8Vector6dR8Vector6d" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices3fdfEvRK8Vector6dRdR8Vector6d">
+<span id="_CPPv3IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices3fdfERK8Vector6dRdR8Vector6d"></span><span id="_CPPv2IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices3fdfERK8Vector6dRdR8Vector6d"></span><span class="target" id="structpcl_1_1_generalized_iterative_closest_point_1_1_optimization_functor_with_indices_1acc017f2af245a46d32aff5e3a1cec499"></span>template&lt;&gt;<br />void <code class="sig-name descname">fdf</code><span class="sig-paren">(</span><em class="property">const</em> Vector6d &amp;<em>x</em>, double &amp;<em>f</em>, Vector6d &amp;<em>df</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices3fdfEvRK8Vector6dRdR8Vector6d" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices5gicp_E">
+<span id="_CPPv3IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices5gicp_E"></span><span id="_CPPv2IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices5gicp_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_generalized_iterative_closest_point_1_1_optimization_functor_with_indices_1aef1e2362848a5a79f06899f0d0194f83"></span><em class="property">const</em> GeneralizedIterativeClosestPoint *<code class="sig-name descname">gicp_</code><a class="headerlink" href="#_CPPv4IEN3pcl32GeneralizedIterativeClosestPointI11PointSource11PointTargetE30OptimizationFunctorWithIndices5gicp_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

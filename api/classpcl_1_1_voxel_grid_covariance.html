@@ -1,0 +1,776 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class VoxelGridCovariance &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class VoxelGridCovariance</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_voxel_grid_covariance.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-voxelgridcovariance">
+<span id="exhale-class-classpcl-1-1-voxel-grid-covariance"></span><h1>Template Class VoxelGridCovariance<a class="headerlink" href="#template-class-voxelgridcovariance" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_filters_include_pcl_filters_voxel_grid_covariance.h.html#file-pcl-filters-include-pcl-filters-voxel-grid-covariance-h"><span class="std std-ref">File voxel_grid_covariance.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#exhale-struct-structpcl-1-1-voxel-grid-covariance-1-1-leaf"><span class="std std-ref">Struct VoxelGridCovariance::Leaf</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::VoxelGrid&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_voxel_grid.html#exhale-class-classpcl-1-1-voxel-grid"><span class="std std-ref">Template Class VoxelGrid</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl19VoxelGridCovarianceE">
+<span id="_CPPv3I0EN3pcl19VoxelGridCovarianceE"></span><span id="_CPPv2I0EN3pcl19VoxelGridCovarianceE"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">VoxelGridCovariance</code> : <em class="property">public</em> pcl::VoxelGrid&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl19VoxelGridCovarianceE" title="pcl::VoxelGridCovariance::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl19VoxelGridCovarianceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A searchable voxel strucure containing the mean and covariance of the data. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>For more information please see <strong>Magnusson, M. (2009). The Three-Dimensional Normal-Distributions Transform — an Efﬁcient Representation for <a class="reference internal" href="classpcl_1_1_registration.html#classpcl_1_1_registration"><span class="std std-ref">Registration</span></a>, Surface Analysis, and Loop Detection. PhD thesis, Orebro University. Orebro Studies in Technology 36</strong> </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Brian Okorn (Space and Naval Warfare Systems Center Pacific) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance3PtrE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance3PtrE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance3PtrE"></span><span id="pcl::VoxelGridCovariance::Ptr"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1aad036c5dd01cdc87750c7adb923c1694"></span><em class="property">typedef </em>boost::shared_ptr&lt;VoxelGrid&lt;PointT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance8ConstPtrE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance8ConstPtrE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance8ConstPtrE"></span><span id="pcl::VoxelGridCovariance::ConstPtr"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a0626f84f4723bdf69ae30fbf17f4c45a"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> VoxelGrid&lt;PointT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance7LeafPtrE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance7LeafPtrE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance7LeafPtrE"></span><span id="pcl::VoxelGridCovariance::LeafPtr"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1ab0bd38d342ecd82dac27f97e109ddf0a"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance4LeafE" title="pcl::VoxelGridCovariance::Leaf">Leaf</a> *<code class="sig-name descname">LeafPtr</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance7LeafPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to <a class="reference internal" href="#classpcl_1_1_voxel_grid_covariance"><span class="std std-ref">VoxelGridCovariance</span></a> leaf structure. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance12LeafConstPtrE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance12LeafConstPtrE"></span><span id="pcl::VoxelGridCovariance::LeafConstPtr"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a7cd5f4e0a702dfd45de8654f1a008c91"></span><em class="property">typedef </em><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance4LeafE" title="pcl::VoxelGridCovariance::Leaf">Leaf</a> *<code class="sig-name descname">LeafConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Const pointer to <a class="reference internal" href="#classpcl_1_1_voxel_grid_covariance"><span class="std std-ref">VoxelGridCovariance</span></a> leaf structure. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance19VoxelGridCovarianceEv">
+<span id="_CPPv3N3pcl19VoxelGridCovariance19VoxelGridCovarianceEv"></span><span id="_CPPv2N3pcl19VoxelGridCovariance19VoxelGridCovarianceEv"></span><span id="pcl::VoxelGridCovariance::VoxelGridCovariance"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1abf48747b6e9e08d0c4d6e8a58e1d4626"></span><code class="sig-name descname">VoxelGridCovariance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance19VoxelGridCovarianceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p>Sets <a class="reference internal" href="classpcl_1_1_voxel_grid.html#classpcl_1_1_voxel_grid_1ad6e7aa7d90c1b75ab43d38c48dcff799"><span class="std std-ref">leaf_size_</span></a> to 0 and <a class="reference internal" href="#classpcl_1_1_voxel_grid_covariance_1a709ed82c98db5808339c0a2ee7f8506d"><span class="std std-ref">searchable_</span></a> to false. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance19setMinPointPerVoxelEi">
+<span id="_CPPv3N3pcl19VoxelGridCovariance19setMinPointPerVoxelEi"></span><span id="_CPPv2N3pcl19VoxelGridCovariance19setMinPointPerVoxelEi"></span><span id="pcl::VoxelGridCovariance::setMinPointPerVoxel__i"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a50572b27b4087e87dfc1087795210f3c"></span>void <code class="sig-name descname">setMinPointPerVoxel</code><span class="sig-paren">(</span>int <em>min_points_per_voxel</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance19setMinPointPerVoxelEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the minimum number of points required for a cell to be used (must be 3 or greater for covariance calculation). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_points_per_voxel</span></code>: the minimum number of points for required for a voxel to be used </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance19getMinPointPerVoxelEv">
+<span id="_CPPv3N3pcl19VoxelGridCovariance19getMinPointPerVoxelEv"></span><span id="_CPPv2N3pcl19VoxelGridCovariance19getMinPointPerVoxelEv"></span><span id="pcl::VoxelGridCovariance::getMinPointPerVoxel"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1ac1af39542299266ef3cf8a1d1ca4ea4b"></span>int <code class="sig-name descname">getMinPointPerVoxel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance19getMinPointPerVoxelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the minimum number of points required for a cell to be used. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the minimum number of points for required for a voxel to be used </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance28setCovEigValueInflationRatioEd">
+<span id="_CPPv3N3pcl19VoxelGridCovariance28setCovEigValueInflationRatioEd"></span><span id="_CPPv2N3pcl19VoxelGridCovariance28setCovEigValueInflationRatioEd"></span><span id="pcl::VoxelGridCovariance::setCovEigValueInflationRatio__double"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1ac037ac44ecd562b521de4f90621830fe"></span>void <code class="sig-name descname">setCovEigValueInflationRatio</code><span class="sig-paren">(</span>double <em>min_covar_eigvalue_mult</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance28setCovEigValueInflationRatioEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the minimum allowable ratio between eigenvalues to prevent singular covariance matrices. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_covar_eigvalue_mult</span></code>: the minimum allowable ratio between eigenvalues </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance28getCovEigValueInflationRatioEv">
+<span id="_CPPv3N3pcl19VoxelGridCovariance28getCovEigValueInflationRatioEv"></span><span id="_CPPv2N3pcl19VoxelGridCovariance28getCovEigValueInflationRatioEv"></span><span id="pcl::VoxelGridCovariance::getCovEigValueInflationRatio"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a17fa62e127bacf0f286a49cafd3bfc65"></span>double <code class="sig-name descname">getCovEigValueInflationRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance28getCovEigValueInflationRatioEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the minimum allowable ratio between eigenvalues to prevent singular covariance matrices. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the minimum allowable ratio between eigenvalues </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance6filterER10PointCloudb">
+<span id="_CPPv3N3pcl19VoxelGridCovariance6filterER10PointCloudb"></span><span id="_CPPv2N3pcl19VoxelGridCovariance6filterER10PointCloudb"></span><span id="pcl::VoxelGridCovariance::filter__PointCloudR.b"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a6612d6ae521e766fee6a4e2bf833f643"></span>void <code class="sig-name descname">filter</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance10PointCloudE" title="pcl::VoxelGridCovariance::PointCloud">PointCloud</a> &amp;<em>output</em>, bool <em>searchable</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance6filterER10PointCloudb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_filter.html#classpcl_1_1_filter"><span class="std std-ref">Filter</span></a> cloud and initializes voxel structure. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: cloud containing centroids of voxels containing a sufficient number of points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">searchable</span></code>: flag if voxel structure is searchable, if true then kdtree is built </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance6filterEb">
+<span id="_CPPv3N3pcl19VoxelGridCovariance6filterEb"></span><span id="_CPPv2N3pcl19VoxelGridCovariance6filterEb"></span><span id="pcl::VoxelGridCovariance::filter__b"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1aa804ee4e6a37ae37316802ffc88da8c5"></span>void <code class="sig-name descname">filter</code><span class="sig-paren">(</span>bool <em>searchable</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance6filterEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initializes voxel structure. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">searchable</span></code>: flag if voxel structure is searchable, if true then kdtree is built </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance7getLeafEi">
+<span id="_CPPv3N3pcl19VoxelGridCovariance7getLeafEi"></span><span id="_CPPv2N3pcl19VoxelGridCovariance7getLeafEi"></span><span id="pcl::VoxelGridCovariance::getLeaf__i"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a28f61978dec5e19460f3797d21246516"></span><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE" title="pcl::VoxelGridCovariance::LeafConstPtr">LeafConstPtr</a> <code class="sig-name descname">getLeaf</code><span class="sig-paren">(</span>int <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance7getLeafEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the voxel containing point p. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>const pointer to leaf structure </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the leaf structure node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance7getLeafER6PointT">
+<span id="_CPPv3N3pcl19VoxelGridCovariance7getLeafER6PointT"></span><span id="_CPPv2N3pcl19VoxelGridCovariance7getLeafER6PointT"></span><span id="pcl::VoxelGridCovariance::getLeaf__PointTR"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1affd4b96b7686ed76c1325aa059cf692f"></span><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE" title="pcl::VoxelGridCovariance::LeafConstPtr">LeafConstPtr</a> <code class="sig-name descname">getLeaf</code><span class="sig-paren">(</span>PointT &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance7getLeafER6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the voxel containing point p. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>const pointer to leaf structure </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p</span></code>: the point to get the leaf structure at </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance7getLeafERN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance7getLeafERN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance7getLeafERN5Eigen8Vector3fE"></span><span id="pcl::VoxelGridCovariance::getLeaf__Eigen::Vector3fR"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a601a5a50e9f9f4f5f5901fc4cd3302f7"></span><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE" title="pcl::VoxelGridCovariance::LeafConstPtr">LeafConstPtr</a> <code class="sig-name descname">getLeaf</code><span class="sig-paren">(</span>Eigen::Vector3f &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance7getLeafERN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the voxel containing point p. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>const pointer to leaf structure </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p</span></code>: the point to get the leaf structure at </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance22getNeighborhoodAtPointERK6PointTRNSt6vectorI12LeafConstPtrEE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance22getNeighborhoodAtPointERK6PointTRNSt6vectorI12LeafConstPtrEE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance22getNeighborhoodAtPointERK6PointTRNSt6vectorI12LeafConstPtrEE"></span><span id="pcl::VoxelGridCovariance::getNeighborhoodAtPoint__PointTCR.std::vector:LeafConstPtr:R"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1ab24846085f7bd621a6edf415b0226679"></span>int <code class="sig-name descname">getNeighborhoodAtPoint</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>reference_point</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE" title="pcl::VoxelGridCovariance::LeafConstPtr">LeafConstPtr</a>&gt; &amp;<em>neighbors</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance22getNeighborhoodAtPointERK6PointTRNSt6vectorI12LeafConstPtrEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the voxels surrounding point p, not including the voxel containing point p. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Only voxels containing a sufficient number of points are used (slower than radius search in practice). </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">reference_point</span></code>: the point to get the leaf structure at </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">neighbors</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance9getLeavesEv">
+<span id="_CPPv3N3pcl19VoxelGridCovariance9getLeavesEv"></span><span id="_CPPv2N3pcl19VoxelGridCovariance9getLeavesEv"></span><span id="pcl::VoxelGridCovariance::getLeaves"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1aba599d866b3289dd51e2618e71d889a0"></span><em class="property">const</em> std::map&lt;size_t, <a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance4LeafE" title="pcl::VoxelGridCovariance::Leaf">Leaf</a>&gt; &amp;<code class="sig-name descname">getLeaves</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance9getLeavesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the leaf structure map. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a map contataining all leaves </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance12getCentroidsEv">
+<span id="_CPPv3N3pcl19VoxelGridCovariance12getCentroidsEv"></span><span id="_CPPv2N3pcl19VoxelGridCovariance12getCentroidsEv"></span><span id="pcl::VoxelGridCovariance::getCentroids"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1ad940a60fb5c83b07869808c297cebab2"></span><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance13PointCloudPtrE" title="pcl::VoxelGridCovariance::PointCloudPtr">PointCloudPtr</a> <code class="sig-name descname">getCentroids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance12getCentroidsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointcloud containing the voxel centroids. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Only voxels containing a sufficient number of points are used. </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>a map contataining all leaves </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance15getDisplayCloudERN3pcl10PointCloudI8PointXYZEE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance15getDisplayCloudERN3pcl10PointCloudI8PointXYZEE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance15getDisplayCloudERN3pcl10PointCloudI8PointXYZEE"></span><span id="pcl::VoxelGridCovariance::getDisplayCloud__pcl::PointCloud:PointXYZ:R"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1accf21aea709481f32a3ab000efde490f"></span>void <code class="sig-name descname">getDisplayCloud</code><span class="sig-paren">(</span>pcl::PointCloud&lt;<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt; &amp;<em>cell_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance15getDisplayCloudERN3pcl10PointCloudI8PointXYZEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a cloud to visualize each voxels normal distribution. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cell_cloud</span></code>: a cloud created by sampling the normal distributions of each voxel </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance14nearestKSearchERK6PointTiRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance14nearestKSearchERK6PointTiRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance14nearestKSearchERK6PointTiRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEE"></span><span id="pcl::VoxelGridCovariance::nearestKSearch__PointTCR.i.std::vector:LeafConstPtr:R.std::vector:float:R"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a934c7720a7e95ad391af73691fc944b5"></span>int <code class="sig-name descname">nearestKSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, int <em>k</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE" title="pcl::VoxelGridCovariance::LeafConstPtr">LeafConstPtr</a>&gt; &amp;<em>k_leaves</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance14nearestKSearchERK6PointTiRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for the k-nearest occupied voxels for the given query point. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Only voxels containing a sufficient number of points are used. </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: the given query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: the number of neighbors to search for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_leaves</span></code>: the resultant leaves of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance14nearestKSearchERK10PointCloudiiRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance14nearestKSearchERK10PointCloudiiRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance14nearestKSearchERK10PointCloudiiRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEE"></span><span id="pcl::VoxelGridCovariance::nearestKSearch__PointCloudCR.i.i.std::vector:LeafConstPtr:R.std::vector:float:R"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a34fef3799cca9e6bac062d1df4d53a5f"></span>int <code class="sig-name descname">nearestKSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance10PointCloudE" title="pcl::VoxelGridCovariance::PointCloud">PointCloud</a> &amp;<em>cloud</em>, int <em>index</em>, int <em>k</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE" title="pcl::VoxelGridCovariance::LeafConstPtr">LeafConstPtr</a>&gt; &amp;<em>k_leaves</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance14nearestKSearchERK10PointCloudiiRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for the k-nearest occupied voxels for the given query point. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Only voxels containing a sufficient number of points are used. </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the given query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: the number of neighbors to search for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_leaves</span></code>: the resultant leaves of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance12radiusSearchERK6PointTdRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEEj">
+<span id="_CPPv3N3pcl19VoxelGridCovariance12radiusSearchERK6PointTdRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEEj"></span><span id="_CPPv2N3pcl19VoxelGridCovariance12radiusSearchERK6PointTdRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEEj"></span><span id="pcl::VoxelGridCovariance::radiusSearch__PointTCR.double.std::vector:LeafConstPtr:R.std::vector:float:R.unsigned-i"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a5d605050ddda36d46f286a10469e26c1"></span>int <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, double <em>radius</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE" title="pcl::VoxelGridCovariance::LeafConstPtr">LeafConstPtr</a>&gt; &amp;<em>k_leaves</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em>, unsigned int <em>max_nn</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance12radiusSearchERK6PointTdRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for all the nearest occupied voxels of the query point in a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Only voxels containing a sufficient number of points are used. </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: the given query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the radius of the sphere bounding all of p_q’s neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_leaves</span></code>: the resultant leaves of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_nn</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance12radiusSearchERK10PointCloudidRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEEj">
+<span id="_CPPv3N3pcl19VoxelGridCovariance12radiusSearchERK10PointCloudidRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEEj"></span><span id="_CPPv2N3pcl19VoxelGridCovariance12radiusSearchERK10PointCloudidRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEEj"></span><span id="pcl::VoxelGridCovariance::radiusSearch__PointCloudCR.i.double.std::vector:LeafConstPtr:R.std::vector:float:R.unsigned-i"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a6be928c24b72e60e272a755c91ddcf62"></span>int <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance10PointCloudE" title="pcl::VoxelGridCovariance::PointCloud">PointCloud</a> &amp;<em>cloud</em>, int <em>index</em>, double <em>radius</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance12LeafConstPtrE" title="pcl::VoxelGridCovariance::LeafConstPtr">LeafConstPtr</a>&gt; &amp;<em>k_leaves</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em>, unsigned int <em>max_nn</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance12radiusSearchERK10PointCloudidRNSt6vectorI12LeafConstPtrEERNSt6vectorIfEEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for all the nearest occupied voxels of the query point in a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Only voxels containing a sufficient number of points are used. </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the given query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: a valid index in cloud representing a valid (i.e., finite) query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the radius of the sphere bounding all of p_q’s neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_leaves</span></code>: the resultant leaves of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_nn</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance9FieldListE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance9FieldListE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance9FieldListE"></span><span id="pcl::VoxelGridCovariance::FieldList"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a05a67de9a84514d546209e826eb5778c"></span><em class="property">typedef </em>pcl::traits::<a class="reference internal" href="structpcl_1_1traits_1_1field_list.html#_CPPv4I0EN3pcl6traits9fieldListE" title="pcl::traits::fieldList">fieldList</a>&lt;PointT&gt;::type <code class="sig-name descname">FieldList</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance9FieldListE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance10PointCloudE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance10PointCloudE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance10PointCloudE"></span><span id="pcl::VoxelGridCovariance::PointCloud"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1af24527f4d25d77f0ec14ef427bf549e3"></span><em class="property">typedef </em>Filter&lt;PointT&gt;::PointCloud <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance13PointCloudPtrE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance13PointCloudPtrE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance13PointCloudPtrE"></span><span id="pcl::VoxelGridCovariance::PointCloudPtr"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a4e27ada2836d0669e4d5b166505f43ec"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance10PointCloudE" title="pcl::VoxelGridCovariance::PointCloud">PointCloud</a>::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance18PointCloudConstPtrE"></span><span id="pcl::VoxelGridCovariance::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1aee97591edae50c4ac627e638c61671ff"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance10PointCloudE" title="pcl::VoxelGridCovariance::PointCloud">PointCloud</a>::ConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance11applyFilterER10PointCloud">
+<span id="_CPPv3N3pcl19VoxelGridCovariance11applyFilterER10PointCloud"></span><span id="_CPPv2N3pcl19VoxelGridCovariance11applyFilterER10PointCloud"></span><span id="pcl::VoxelGridCovariance::applyFilter__PointCloudR"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a1a4a22ba39ce7c83f76d7f31c292733c"></span>void <code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance10PointCloudE" title="pcl::VoxelGridCovariance::PointCloud">PointCloud</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance11applyFilterER10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_filter.html#classpcl_1_1_filter"><span class="std std-ref">Filter</span></a> cloud and initializes voxel structure. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: cloud containing centroids of voxels containing a sufficient number of points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance11searchable_E">
+<span id="_CPPv3N3pcl19VoxelGridCovariance11searchable_E"></span><span id="_CPPv2N3pcl19VoxelGridCovariance11searchable_E"></span><span id="pcl::VoxelGridCovariance::searchable___b"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a709ed82c98db5808339c0a2ee7f8506d"></span>bool <code class="sig-name descname">searchable_</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance11searchable_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Flag to determine if voxel structure is searchable. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance21min_points_per_voxel_E">
+<span id="_CPPv3N3pcl19VoxelGridCovariance21min_points_per_voxel_E"></span><span id="_CPPv2N3pcl19VoxelGridCovariance21min_points_per_voxel_E"></span><span id="pcl::VoxelGridCovariance::min_points_per_voxel___i"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a2c8c7f9e031324133226e97af247ecae"></span>int <code class="sig-name descname">min_points_per_voxel_</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance21min_points_per_voxel_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Minimum points contained with in a voxel to allow it to be usable. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance24min_covar_eigvalue_mult_E">
+<span id="_CPPv3N3pcl19VoxelGridCovariance24min_covar_eigvalue_mult_E"></span><span id="_CPPv2N3pcl19VoxelGridCovariance24min_covar_eigvalue_mult_E"></span><span id="pcl::VoxelGridCovariance::min_covar_eigvalue_mult___double"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a78fec26d820ccd1999d326878adcf216"></span>double <code class="sig-name descname">min_covar_eigvalue_mult_</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance24min_covar_eigvalue_mult_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Minimum allowable ratio between eigenvalues to prevent singular covariance matrices. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance7leaves_E">
+<span id="_CPPv3N3pcl19VoxelGridCovariance7leaves_E"></span><span id="_CPPv2N3pcl19VoxelGridCovariance7leaves_E"></span><span id="pcl::VoxelGridCovariance::leaves___std::map:s.Leaf:"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1ae820b8e9fdb10162508e7390a556b7ea"></span>std::map&lt;size_t, <a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance4LeafE" title="pcl::VoxelGridCovariance::Leaf">Leaf</a>&gt; <code class="sig-name descname">leaves_</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance7leaves_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Voxel structure containing all leaf nodes (includes voxels with less than a sufficient number of points). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance16voxel_centroids_E">
+<span id="_CPPv3N3pcl19VoxelGridCovariance16voxel_centroids_E"></span><span id="_CPPv2N3pcl19VoxelGridCovariance16voxel_centroids_E"></span><span id="pcl::VoxelGridCovariance::voxel_centroids___PointCloudPtr"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a47e3520b0631c9d8897717eddb9e8900"></span><a class="reference internal" href="#_CPPv4N3pcl19VoxelGridCovariance13PointCloudPtrE" title="pcl::VoxelGridCovariance::PointCloudPtr">PointCloudPtr</a> <code class="sig-name descname">voxel_centroids_</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance16voxel_centroids_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point cloud containing centroids of voxels containing atleast minimum number of points. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance29voxel_centroids_leaf_indices_E">
+<span id="_CPPv3N3pcl19VoxelGridCovariance29voxel_centroids_leaf_indices_E"></span><span id="_CPPv2N3pcl19VoxelGridCovariance29voxel_centroids_leaf_indices_E"></span><span id="pcl::VoxelGridCovariance::voxel_centroids_leaf_indices___std::vector:i:"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1acabc11ab782a3426a9e5bb80c31ca898"></span>std::vector&lt;int&gt; <code class="sig-name descname">voxel_centroids_leaf_indices_</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance29voxel_centroids_leaf_indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indices of leaf structurs associated with each point in <a class="reference internal" href="#classpcl_1_1_voxel_grid_covariance_1a47e3520b0631c9d8897717eddb9e8900"><span class="std std-ref">voxel_centroids_</span></a> (used for searching). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance7kdtree_E">
+<span id="_CPPv3N3pcl19VoxelGridCovariance7kdtree_E"></span><span id="_CPPv2N3pcl19VoxelGridCovariance7kdtree_E"></span><span id="pcl::VoxelGridCovariance::kdtree___KdTreeFLANN:PointT:"></span><span class="target" id="classpcl_1_1_voxel_grid_covariance_1a7f030fa636b18e46a77046923024242e"></span>KdTreeFLANN&lt;PointT&gt; <code class="sig-name descname">kdtree_</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance7kdtree_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_kd_tree.html#classpcl_1_1_kd_tree"><span class="std std-ref">KdTree</span></a> generated using <a class="reference internal" href="#classpcl_1_1_voxel_grid_covariance_1a47e3520b0631c9d8897717eddb9e8900"><span class="std std-ref">voxel_centroids_</span></a> (used for searching). </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl19VoxelGridCovariance4LeafE">
+<span id="_CPPv3N3pcl19VoxelGridCovariance4LeafE"></span><span id="_CPPv2N3pcl19VoxelGridCovariance4LeafE"></span><span id="pcl::VoxelGridCovariance::Leaf"></span><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf"></span><em class="property">struct </em><code class="sig-name descname">Leaf</code><a class="headerlink" href="#_CPPv4N3pcl19VoxelGridCovariance4LeafE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simple structure to hold a centroid, covarince and the number of points in a leaf. </p>
+<p>Inverse covariance, eigen vectors and engen values are precomputed. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf4LeafEv">
+<span id="_CPPv3IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf4LeafEv"></span><span id="_CPPv2IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf4LeafEv"></span><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a886049061b877300a4fab9f1b618319c"></span>template&lt;&gt;<br /><code class="sig-name descname">Leaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf4LeafEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p>Sets <a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a249ed9fec9f58d966fc92b6b430f92a4"><span class="std std-ref">nr_points</span></a>, <a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a4eb7363a5ffdea8d03d0ecb29e8f38c6"><span class="std std-ref">icov_</span></a>, <a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a449f5f30f9c5688cd353968672a33967"><span class="std std-ref">mean_</span></a> and <a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a8befc2802cce61b05fa4f79f31374b70"><span class="std std-ref">evals_</span></a> to 0 and <a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#structpcl_1_1_voxel_grid_covariance_1_1_leaf_1adbd892d56494c005fc5ab845a09ddca1"><span class="std std-ref">cov_</span></a> and <a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#structpcl_1_1_voxel_grid_covariance_1_1_leaf_1af80a8459da43812adf10cfba4c5293ed"><span class="std std-ref">evecs_</span></a> to the identity matrix </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf6getCovEN5Eigen8Matrix3dEv">
+<span id="_CPPv3IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf6getCovEv"></span><span id="_CPPv2IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf6getCovEv"></span><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a54f413027a70f6c6b5b9fee11491cb8f"></span>template&lt;&gt;<br />Eigen::Matrix3d <code class="sig-name descname">getCov</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf6getCovEN5Eigen8Matrix3dEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the voxel covariance. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>covariance matrix </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf13getInverseCovEN5Eigen8Matrix3dEv">
+<span id="_CPPv3IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf13getInverseCovEv"></span><span id="_CPPv2IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf13getInverseCovEv"></span><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a739478612c073535800e0fed394a15a3"></span>template&lt;&gt;<br />Eigen::Matrix3d <code class="sig-name descname">getInverseCov</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf13getInverseCovEN5Eigen8Matrix3dEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the inverse of the voxel covariance. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>inverse covariance matrix </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf7getMeanEN5Eigen8Vector3dEv">
+<span id="_CPPv3IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf7getMeanEv"></span><span id="_CPPv2IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf7getMeanEv"></span><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1aa05a0541f45e19383c94d70df692cf7c"></span>template&lt;&gt;<br />Eigen::Vector3d <code class="sig-name descname">getMean</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf7getMeanEN5Eigen8Vector3dEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the voxel centroid. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>centroid </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf8getEvecsEN5Eigen8Matrix3dEv">
+<span id="_CPPv3IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf8getEvecsEv"></span><span id="_CPPv2IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf8getEvecsEv"></span><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a1d375e78ecc706179302f4571f72cf5e"></span>template&lt;&gt;<br />Eigen::Matrix3d <code class="sig-name descname">getEvecs</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf8getEvecsEN5Eigen8Matrix3dEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the eigen vectors of the voxel covariance. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Order corresponds with <a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a5c67f1eb21eec13603ff961f8aaf33c2"><span class="std std-ref">getEvals</span></a> </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>matrix whose columns contain eigen vectors </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf8getEvalsEN5Eigen8Vector3dEv">
+<span id="_CPPv3IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf8getEvalsEv"></span><span id="_CPPv2IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf8getEvalsEv"></span><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a5c67f1eb21eec13603ff961f8aaf33c2"></span>template&lt;&gt;<br />Eigen::Vector3d <code class="sig-name descname">getEvals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf8getEvalsEN5Eigen8Vector3dEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the eigen values of the voxel covariance. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Order corresponds with <a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a1d375e78ecc706179302f4571f72cf5e"><span class="std std-ref">getEvecs</span></a> </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>vector of eigen values </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf13getPointCountEiv">
+<span id="_CPPv3IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf13getPointCountEv"></span><span id="_CPPv2IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf13getPointCountEv"></span><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1ac67ae7009095cfccd297f21196e1b417"></span>template&lt;&gt;<br />int <code class="sig-name descname">getPointCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19VoxelGridCovarianceI6PointTE4Leaf13getPointCountEiv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of points contained by this voxel. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of points </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf9nr_pointsE">
+<span id="_CPPv3IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf9nr_pointsE"></span><span id="_CPPv2IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf9nr_pointsE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a249ed9fec9f58d966fc92b6b430f92a4"></span>int <code class="sig-name descname">nr_points</code><a class="headerlink" href="#_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf9nr_pointsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of points contained by voxel. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf5mean_E">
+<span id="_CPPv3IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf5mean_E"></span><span id="_CPPv2IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf5mean_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a449f5f30f9c5688cd353968672a33967"></span>Eigen::Vector3d <code class="sig-name descname">mean_</code><a class="headerlink" href="#_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf5mean_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>3D voxel centroid </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf8centroidE">
+<span id="_CPPv3IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf8centroidE"></span><span id="_CPPv2IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf8centroidE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a7163de36e5c92f581b2679e5de2ccf9f"></span>Eigen::VectorXf <code class="sig-name descname">centroid</code><a class="headerlink" href="#_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf8centroidE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Nd voxel centroid. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Differs from <a class="reference internal" href="structpcl_1_1_voxel_grid_covariance_1_1_leaf.html#structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a449f5f30f9c5688cd353968672a33967"><span class="std std-ref">mean_</span></a> when color data is used </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf4cov_E">
+<span id="_CPPv3IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf4cov_E"></span><span id="_CPPv2IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf4cov_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1adbd892d56494c005fc5ab845a09ddca1"></span>Eigen::Matrix3d <code class="sig-name descname">cov_</code><a class="headerlink" href="#_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf4cov_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Voxel covariance matrix. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf5icov_E">
+<span id="_CPPv3IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf5icov_E"></span><span id="_CPPv2IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf5icov_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a4eb7363a5ffdea8d03d0ecb29e8f38c6"></span>Eigen::Matrix3d <code class="sig-name descname">icov_</code><a class="headerlink" href="#_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf5icov_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inverse of voxel covariance matrix. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf6evecs_E">
+<span id="_CPPv3IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf6evecs_E"></span><span id="_CPPv2IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf6evecs_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1af80a8459da43812adf10cfba4c5293ed"></span>Eigen::Matrix3d <code class="sig-name descname">evecs_</code><a class="headerlink" href="#_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf6evecs_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Eigen vectors of voxel covariance matrix. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf6evals_E">
+<span id="_CPPv3IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf6evals_E"></span><span id="_CPPv2IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf6evals_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_voxel_grid_covariance_1_1_leaf_1a8befc2802cce61b05fa4f79f31374b70"></span>Eigen::Vector3d <code class="sig-name descname">evals_</code><a class="headerlink" href="#_CPPv4IEN3pcl19VoxelGridCovarianceI6PointTE4Leaf6evals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Eigen values of voxel covariance matrix. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

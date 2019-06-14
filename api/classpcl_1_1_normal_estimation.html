@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class NormalEstimation &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class NormalEstimation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_normal_estimation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-normalestimation">
+<span id="exhale-class-classpcl-1-1-normal-estimation"></span><h1>Template Class NormalEstimation<a class="headerlink" href="#template-class-normalestimation" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_features_include_pcl_features_normal_3d.h.html#file-pcl-features-include-pcl-features-normal-3d-h"><span class="std std-ref">File normal_3d.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Feature&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_feature.html#exhale-class-classpcl-1-1-feature"><span class="std std-ref">Template Class Feature</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::NormalEstimationOMP&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_normal_estimation_o_m_p.html#exhale-class-classpcl-1-1-normal-estimation-o-m-p"><span class="std std-ref">Template Class NormalEstimationOMP</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl16NormalEstimationE">
+<span id="_CPPv3I00EN3pcl16NormalEstimationE"></span><span id="_CPPv2I00EN3pcl16NormalEstimationE"></span><span class="target" id="classpcl_1_1_normal_estimation"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">PointOutT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">NormalEstimation</code> : <em class="property">public</em> pcl::Feature&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl16NormalEstimationE" title="pcl::NormalEstimation::PointInT">PointInT</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl16NormalEstimationE" title="pcl::NormalEstimation::PointOutT">PointOutT</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl16NormalEstimationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_normal_estimation"><span class="std std-ref">NormalEstimation</span></a> estimates local surface properties (surface normals and curvatures)at each 3D point. </p>
+<p>If PointOutT is specified as <a class="reference internal" href="structpcl_1_1_normal.html#structpcl_1_1_normal"><span class="std std-ref">pcl::Normal</span></a>, the normal is stored in the first 3 components (0-2), and the curvature is stored in component 3.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The code is stateful as we do not expect this class to be multicore parallelized. Please look at <a class="reference internal" href="classpcl_1_1_normal_estimation_o_m_p.html#classpcl_1_1_normal_estimation_o_m_p"><span class="std std-ref">NormalEstimationOMP</span></a> for a parallel implementation. </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Radu B. Rusu </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_normal_estimation_o_m_p.html#classpcl_1_1_normal_estimation_o_m_p"><span class="std std-ref">pcl::NormalEstimationOMP&lt; PointInT, PointOutT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl16NormalEstimation3PtrE">
+<span id="_CPPv3N3pcl16NormalEstimation3PtrE"></span><span id="_CPPv2N3pcl16NormalEstimation3PtrE"></span><span id="pcl::NormalEstimation::Ptr"></span><span class="target" id="classpcl_1_1_normal_estimation_1a800fb2b4d41ecf15e46e9a232a85db69"></span><em class="property">typedef </em>boost::shared_ptr&lt;NormalEstimation&lt;PointInT, PointOutT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16NormalEstimation8ConstPtrE">
+<span id="_CPPv3N3pcl16NormalEstimation8ConstPtrE"></span><span id="_CPPv2N3pcl16NormalEstimation8ConstPtrE"></span><span id="pcl::NormalEstimation::ConstPtr"></span><span class="target" id="classpcl_1_1_normal_estimation_1a486d9a2665ad8a968f1d616408d0bdd0"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> NormalEstimation&lt;PointInT, PointOutT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16NormalEstimation13PointCloudOutE">
+<span id="_CPPv3N3pcl16NormalEstimation13PointCloudOutE"></span><span id="_CPPv2N3pcl16NormalEstimation13PointCloudOutE"></span><span id="pcl::NormalEstimation::PointCloudOut"></span><span class="target" id="classpcl_1_1_normal_estimation_1a3c4d6365b5af34d204f7cee6c217a9af"></span><em class="property">typedef </em>Feature&lt;PointInT, PointOutT&gt;::PointCloudOut <code class="sig-name descname">PointCloudOut</code><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation13PointCloudOutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16NormalEstimation18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl16NormalEstimation18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl16NormalEstimation18PointCloudConstPtrE"></span><span id="pcl::NormalEstimation::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_normal_estimation_1a0c390f9b4cd9c928222dbcd70d40240e"></span><em class="property">typedef </em>Feature&lt;PointInT, PointOutT&gt;::PointCloudConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl16NormalEstimation16NormalEstimationEv">
+<span id="_CPPv3N3pcl16NormalEstimation16NormalEstimationEv"></span><span id="_CPPv2N3pcl16NormalEstimation16NormalEstimationEv"></span><span id="pcl::NormalEstimation::NormalEstimation"></span><span class="target" id="classpcl_1_1_normal_estimation_1a03cd56f79d35ea7202c3eda764c6d085"></span><code class="sig-name descname">NormalEstimation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation16NormalEstimationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16NormalEstimationD0Ev">
+<span id="_CPPv3N3pcl16NormalEstimationD0Ev"></span><span id="_CPPv2N3pcl16NormalEstimationD0Ev"></span><span id="pcl::NormalEstimation::~NormalEstimation"></span><span class="target" id="classpcl_1_1_normal_estimation_1ac09f7d03d9407bbe3317add0f7c68233"></span><em class="property">virtual</em> <code class="sig-name descname">~NormalEstimation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimationD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16NormalEstimation18computePointNormalERKN3pcl10PointCloudI8PointInTEERKNSt6vectorIiEERN5Eigen8Vector4fERf">
+<span id="_CPPv3N3pcl16NormalEstimation18computePointNormalERKN3pcl10PointCloudI8PointInTEERKNSt6vectorIiEERN5Eigen8Vector4fERf"></span><span id="_CPPv2N3pcl16NormalEstimation18computePointNormalERKN3pcl10PointCloudI8PointInTEERKNSt6vectorIiEERN5Eigen8Vector4fERf"></span><span id="pcl::NormalEstimation::computePointNormal__pcl::PointCloud:PointInT:CR.std::vector:i:CR.Eigen::Vector4fR.floatR"></span><span class="target" id="classpcl_1_1_normal_estimation_1abd83b3241b46704f1ffc424dee2aa031"></span>bool <code class="sig-name descname">computePointNormal</code><span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;PointInT&gt; &amp;<em>cloud</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices</em>, Eigen::Vector4f &amp;<em>plane_parameters</em>, float &amp;<em>curvature</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation18computePointNormalERKN3pcl10PointCloudI8PointInTEERKNSt6vectorIiEERN5Eigen8Vector4fERf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the Least-Squares plane fit for a given set of points, using their indices, and return the estimated plane parameters together with the surface curvature. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span></code>: the input point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indices</span></code>: the point cloud indices that need to be used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plane_parameters</span></code>: the plane parameters as: a, b, c, d (ax + by + cz + d = 0) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curvature</span></code>: the estimated surface curvature as a measure of <div class="math">
+<p><span class="math">\lambda_0 / (\lambda_0 + \lambda_1 + \lambda_2)</span></p>
+</div> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16NormalEstimation18computePointNormalERKN3pcl10PointCloudI8PointInTEERKNSt6vectorIiEERfRfRfRf">
+<span id="_CPPv3N3pcl16NormalEstimation18computePointNormalERKN3pcl10PointCloudI8PointInTEERKNSt6vectorIiEERfRfRfRf"></span><span id="_CPPv2N3pcl16NormalEstimation18computePointNormalERKN3pcl10PointCloudI8PointInTEERKNSt6vectorIiEERfRfRfRf"></span><span id="pcl::NormalEstimation::computePointNormal__pcl::PointCloud:PointInT:CR.std::vector:i:CR.floatR.floatR.floatR.floatR"></span><span class="target" id="classpcl_1_1_normal_estimation_1a819fe2980b5e532780209b75f17d02ff"></span>bool <code class="sig-name descname">computePointNormal</code><span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;PointInT&gt; &amp;<em>cloud</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices</em>, float &amp;<em>nx</em>, float &amp;<em>ny</em>, float &amp;<em>nz</em>, float &amp;<em>curvature</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation18computePointNormalERKN3pcl10PointCloudI8PointInTEERKNSt6vectorIiEERfRfRfRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the Least-Squares plane fit for a given set of points, using their indices, and return the estimated plane parameters together with the surface curvature. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span></code>: the input point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">indices</span></code>: the point cloud indices that need to be used </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx</span></code>: the resultant X component of the plane normal </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ny</span></code>: the resultant Y component of the plane normal </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nz</span></code>: the resultant Z component of the plane normal </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curvature</span></code>: the estimated surface curvature as a measure of <div class="math">
+<p><span class="math">\lambda_0 / (\lambda_0 + \lambda_1 + \lambda_2)</span></p>
+</div> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16NormalEstimation13setInputCloudERK18PointCloudConstPtr">
+<span id="_CPPv3N3pcl16NormalEstimation13setInputCloudERK18PointCloudConstPtr"></span><span id="_CPPv2N3pcl16NormalEstimation13setInputCloudERK18PointCloudConstPtr"></span><span id="pcl::NormalEstimation::setInputCloud__PointCloudConstPtrCR"></span><span class="target" id="classpcl_1_1_normal_estimation_1ac92dbbea9d923754b3d87d981a6bd131"></span><em class="property">virtual</em> void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl16NormalEstimation18PointCloudConstPtrE" title="pcl::NormalEstimation::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation13setInputCloudERK18PointCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16NormalEstimation12setViewPointEfff">
+<span id="_CPPv3N3pcl16NormalEstimation12setViewPointEfff"></span><span id="_CPPv2N3pcl16NormalEstimation12setViewPointEfff"></span><span id="pcl::NormalEstimation::setViewPoint__float.float.float"></span><span class="target" id="classpcl_1_1_normal_estimation_1a215cb3a84f03a4346556219121fce8e5"></span>void <code class="sig-name descname">setViewPoint</code><span class="sig-paren">(</span>float <em>vpx</em>, float <em>vpy</em>, float <em>vpz</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation12setViewPointEfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the viewpoint. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vpx</span></code>: the X coordinate of the viewpoint </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vpy</span></code>: the Y coordinate of the viewpoint </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vpz</span></code>: the Z coordinate of the viewpoint </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16NormalEstimation12getViewPointERfRfRf">
+<span id="_CPPv3N3pcl16NormalEstimation12getViewPointERfRfRf"></span><span id="_CPPv2N3pcl16NormalEstimation12getViewPointERfRfRf"></span><span id="pcl::NormalEstimation::getViewPoint__floatR.floatR.floatR"></span><span class="target" id="classpcl_1_1_normal_estimation_1acaa46c32b817cbd5ff6120d9e04326e6"></span>void <code class="sig-name descname">getViewPoint</code><span class="sig-paren">(</span>float &amp;<em>vpx</em>, float &amp;<em>vpy</em>, float &amp;<em>vpz</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation12getViewPointERfRfRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the viewpoint. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>this method returns the currently used viewpoint for normal flipping. If the viewpoint is set manually using the setViewPoint method, this method will return the set view point coordinates. If an input cloud is set, it will return the sensor origin otherwise it will return the origin (0, 0, 0) </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">vpx</span></code>: x-coordinate of the view point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">vpy</span></code>: y-coordinate of the view point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">vpz</span></code>: z-coordinate of the view point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16NormalEstimation26useSensorOriginAsViewPointEv">
+<span id="_CPPv3N3pcl16NormalEstimation26useSensorOriginAsViewPointEv"></span><span id="_CPPv2N3pcl16NormalEstimation26useSensorOriginAsViewPointEv"></span><span id="pcl::NormalEstimation::useSensorOriginAsViewPoint"></span><span class="target" id="classpcl_1_1_normal_estimation_1ab9bb23cd42dbb1d7bbbcde41b678fda4"></span>void <code class="sig-name descname">useSensorOriginAsViewPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation26useSensorOriginAsViewPointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>sets whether the sensor origin or a user given viewpoint should be used. </p>
+<p>After this method, the normal estimation method uses the sensor origin of the input cloud. to use a user defined view point, use the method setViewPoint </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl16NormalEstimation14computeFeatureER13PointCloudOut">
+<span id="_CPPv3N3pcl16NormalEstimation14computeFeatureER13PointCloudOut"></span><span id="_CPPv2N3pcl16NormalEstimation14computeFeatureER13PointCloudOut"></span><span id="pcl::NormalEstimation::computeFeature__PointCloudOutR"></span><span class="target" id="classpcl_1_1_normal_estimation_1ab92b273e74599e5995a892c188314347"></span>void <code class="sig-name descname">computeFeature</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16NormalEstimation13PointCloudOutE" title="pcl::NormalEstimation::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation14computeFeatureER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate normals for all points given in &lt;setInputCloud (), setIndices ()&gt; using the surface in setSearchSurface () and the spatial locator in setSearchMethod () </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>In situations where not enough neighbors are found, the normal and curvature values are set to NaN. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span></code>: the resultant point cloud model dataset that contains surface normals and curvatures </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl16NormalEstimation4vpx_E">
+<span id="_CPPv3N3pcl16NormalEstimation4vpx_E"></span><span id="_CPPv2N3pcl16NormalEstimation4vpx_E"></span><span id="pcl::NormalEstimation::vpx___float"></span><span class="target" id="classpcl_1_1_normal_estimation_1a972e9847b30c5baf8738c5956e321370"></span>float <code class="sig-name descname">vpx_</code><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation4vpx_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Values describing the viewpoint (“pinhole” camera model assumed). </p>
+<p>For per point viewpoints, inherit from <a class="reference internal" href="#classpcl_1_1_normal_estimation"><span class="std std-ref">NormalEstimation</span></a> and provide your own computeFeature (). By default, the viewpoint is set to 0,0,0. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16NormalEstimation4vpy_E">
+<span id="_CPPv3N3pcl16NormalEstimation4vpy_E"></span><span id="_CPPv2N3pcl16NormalEstimation4vpy_E"></span><span id="pcl::NormalEstimation::vpy___float"></span><span class="target" id="classpcl_1_1_normal_estimation_1ac54d5fd81ba7ba8c6017a80be58984ce"></span>float <code class="sig-name descname">vpy_</code><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation4vpy_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16NormalEstimation4vpz_E">
+<span id="_CPPv3N3pcl16NormalEstimation4vpz_E"></span><span id="_CPPv2N3pcl16NormalEstimation4vpz_E"></span><span id="pcl::NormalEstimation::vpz___float"></span><span class="target" id="classpcl_1_1_normal_estimation_1a1b4f6247c470a99920ba0bbdf8316b4b"></span>float <code class="sig-name descname">vpz_</code><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation4vpz_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="classpcl_1_1_normal_estimation_1a1a5638a31a9be8d78129e1edffe52c45"></span><code class="sig-name descname">EIGEN_ALIGN16 Eigen::Matrix3f pcl::NormalEstimation::covariance_matrix_</code></dt>
+<dd><p>Placeholder for the 3x3 covariance matrix at each surface patch. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16NormalEstimation13xyz_centroid_E">
+<span id="_CPPv3N3pcl16NormalEstimation13xyz_centroid_E"></span><span id="_CPPv2N3pcl16NormalEstimation13xyz_centroid_E"></span><span id="pcl::NormalEstimation::xyz_centroid___Eigen::Vector4f"></span><span class="target" id="classpcl_1_1_normal_estimation_1ac061ee015f9f914ae54cf27296e0e9ca"></span>Eigen::Vector4f <code class="sig-name descname">xyz_centroid_</code><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation13xyz_centroid_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>16-bytes aligned placeholder for the XYZ centroid of a surface patch. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16NormalEstimation18use_sensor_origin_E">
+<span id="_CPPv3N3pcl16NormalEstimation18use_sensor_origin_E"></span><span id="_CPPv2N3pcl16NormalEstimation18use_sensor_origin_E"></span><span id="pcl::NormalEstimation::use_sensor_origin___b"></span><span class="target" id="classpcl_1_1_normal_estimation_1a3d3ebf091502d08f19d5b1d123fa535c"></span>bool <code class="sig-name descname">use_sensor_origin_</code><a class="headerlink" href="#_CPPv4N3pcl16NormalEstimation18use_sensor_origin_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>whether the sensor origin of the input cloud or a user given viewpoint should be used. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,842 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class RangeImageBorderExtractor &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class RangeImageBorderExtractor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_range_image_border_extractor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-rangeimageborderextractor">
+<span id="exhale-class-classpcl-1-1-range-image-border-extractor"></span><h1>Class RangeImageBorderExtractor<a class="headerlink" href="#class-rangeimageborderextractor" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_features_include_pcl_features_range_image_border_extractor.h.html#file-pcl-features-include-pcl-features-range-image-border-extractor-h"><span class="std std-ref">File range_image_border_extractor.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_range_image_border_extractor_1_1_local_surface.html#exhale-struct-structpcl-1-1-range-image-border-extractor-1-1-local-surface"><span class="std std-ref">Struct RangeImageBorderExtractor::LocalSurface</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1_range_image_border_extractor_1_1_parameters.html#exhale-struct-structpcl-1-1-range-image-border-extractor-1-1-parameters"><span class="std std-ref">Struct RangeImageBorderExtractor::Parameters</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1_range_image_border_extractor_1_1_shadow_border_indices.html#exhale-struct-structpcl-1-1-range-image-border-extractor-1-1-shadow-border-indices"><span class="std std-ref">Struct RangeImageBorderExtractor::ShadowBorderIndices</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Feature&lt;</span> <span class="pre">PointWithRange,</span> <span class="pre">BorderDescription</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_feature.html#exhale-class-classpcl-1-1-feature"><span class="std std-ref">Template Class Feature</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractorE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractorE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractorE"></span><span id="pcl::RangeImageBorderExtractor"></span><span class="target" id="classpcl_1_1_range_image_border_extractor"></span><em class="property">class </em><code class="sig-name descname">RangeImageBorderExtractor</code> : <em class="property">public</em> pcl::Feature&lt;<a class="reference internal" href="structpcl_1_1_point_with_range.html#_CPPv4N3pcl14PointWithRangeE" title="pcl::PointWithRange">PointWithRange</a>, <a class="reference internal" href="structpcl_1_1_border_description.html#_CPPv4N3pcl17BorderDescriptionE" title="pcl::BorderDescription">BorderDescription</a>&gt;<a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Extract</strong> obstacle borders from range images, meaning positions where there is a transition from foreground to background. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Bastian Steder </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor3PtrE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor3PtrE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor3PtrE"></span><span id="pcl::RangeImageBorderExtractor::Ptr"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ac90a1b29c1d447b6637a1b6fa25af210"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractorE" title="pcl::RangeImageBorderExtractor">RangeImageBorderExtractor</a>&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor8ConstPtrE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor8ConstPtrE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor8ConstPtrE"></span><span id="pcl::RangeImageBorderExtractor::ConstPtr"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a328b4ec86417afffa59ad53bc0d64631"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractorE" title="pcl::RangeImageBorderExtractor">RangeImageBorderExtractor</a>&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor9BaseClassE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor9BaseClassE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor9BaseClassE"></span><span id="pcl::RangeImageBorderExtractor::BaseClass"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1aa6e01b80eb1f25a030250e49f8c5ede4"></span><em class="property">typedef </em>Feature&lt;<a class="reference internal" href="structpcl_1_1_point_with_range.html#_CPPv4N3pcl14PointWithRangeE" title="pcl::PointWithRange">PointWithRange</a>, <a class="reference internal" href="structpcl_1_1_border_description.html#_CPPv4N3pcl17BorderDescriptionE" title="pcl::BorderDescription">BorderDescription</a>&gt; <code class="sig-name descname">BaseClass</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor9BaseClassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor25RangeImageBorderExtractorEPK10RangeImage">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor25RangeImageBorderExtractorEPK10RangeImage"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor25RangeImageBorderExtractorEPK10RangeImage"></span><span id="pcl::RangeImageBorderExtractor::RangeImageBorderExtractor__RangeImageCP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a4d81b1e3a6d72598c59637ddd0e80db1"></span><code class="sig-name descname">RangeImageBorderExtractor</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1_range_image.html#_CPPv4N3pcl10RangeImageE" title="pcl::RangeImage">RangeImage</a> *<em>range_image</em> = NULL<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor25RangeImageBorderExtractorEPK10RangeImage" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractorD0Ev">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractorD0Ev"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractorD0Ev"></span><span id="pcl::RangeImageBorderExtractor::~RangeImageBorderExtractor"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a13e4103472141fed41407665ba3233bb"></span><em class="property">virtual</em> <code class="sig-name descname">~RangeImageBorderExtractor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor13setRangeImageEPK10RangeImage">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor13setRangeImageEPK10RangeImage"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor13setRangeImageEPK10RangeImage"></span><span id="pcl::RangeImageBorderExtractor::setRangeImage__RangeImageCP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a6f3e8ec8465ce0f81464534c94e0086b"></span>void <code class="sig-name descname">setRangeImage</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1_range_image.html#_CPPv4N3pcl10RangeImageE" title="pcl::RangeImage">RangeImage</a> *<em>range_image</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor13setRangeImageEPK10RangeImage" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the range image. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range_image</span></code>: a pointer to the range_image </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor9clearDataEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor9clearDataEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor9clearDataEv"></span><span id="pcl::RangeImageBorderExtractor::clearData"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1aef819151935510c24dc001cd483f62b2"></span>void <code class="sig-name descname">clearData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor9clearDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Erase all data calculated for the current range image. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor33getAnglesImageForBorderDirectionsEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor33getAnglesImageForBorderDirectionsEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor33getAnglesImageForBorderDirectionsEv"></span><span id="pcl::RangeImageBorderExtractor::getAnglesImageForBorderDirections"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a51bd8d8d977e214ec3eefb065e6c1703"></span>float *<code class="sig-name descname">getAnglesImageForBorderDirections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor33getAnglesImageForBorderDirectionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the 2D directions in the range image from the border directions - probably mainly useful for visualization. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor40getAnglesImageForSurfaceChangeDirectionsEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor40getAnglesImageForSurfaceChangeDirectionsEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor40getAnglesImageForSurfaceChangeDirectionsEv"></span><span id="pcl::RangeImageBorderExtractor::getAnglesImageForSurfaceChangeDirections"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a341bac12800bc68624674167a2f83189"></span>float *<code class="sig-name descname">getAnglesImageForSurfaceChangeDirections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor40getAnglesImageForSurfaceChangeDirectionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the 2D directions in the range image from the surface change directions - probably mainly useful for visualization. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor7computeER13PointCloudOut">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor7computeER13PointCloudOut"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor7computeER13PointCloudOut"></span><span id="pcl::RangeImageBorderExtractor::compute__PointCloudOutR"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a696dbef5ec52bd3af1141fea543b06d8"></span>void <code class="sig-name descname">compute</code><span class="sig-paren">(</span>PointCloudOut &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor7computeER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Overwrite the compute function of the base class. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor13getParametersEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor13getParametersEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor13getParametersEv"></span><span id="pcl::RangeImageBorderExtractor::getParameters"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a34dc6700d43cd67d1a30ea0ef98530e5"></span><a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractor10ParametersE" title="pcl::RangeImageBorderExtractor::Parameters">Parameters</a> &amp;<code class="sig-name descname">getParameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor13getParametersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor13hasRangeImageEv">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor13hasRangeImageEv"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor13hasRangeImageEv"></span><span id="pcl::RangeImageBorderExtractor::hasRangeImageC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ab728b29ad6df5cd248bfd0c67f899299"></span>bool <code class="sig-name descname">hasRangeImage</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor13hasRangeImageEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor13getRangeImageEv">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor13getRangeImageEv"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor13getRangeImageEv"></span><span id="pcl::RangeImageBorderExtractor::getRangeImageC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a6e2a827165fbadb2468fed8cbb06d22b"></span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1_range_image.html#_CPPv4N3pcl10RangeImageE" title="pcl::RangeImage">RangeImage</a> &amp;<code class="sig-name descname">getRangeImage</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor13getRangeImageEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19getBorderScoresLeftEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19getBorderScoresLeftEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19getBorderScoresLeftEv"></span><span id="pcl::RangeImageBorderExtractor::getBorderScoresLeft"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a27cb9eaaabf5d189662ac3b0d546c77d"></span>float *<code class="sig-name descname">getBorderScoresLeft</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19getBorderScoresLeftEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor20getBorderScoresRightEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor20getBorderScoresRightEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor20getBorderScoresRightEv"></span><span id="pcl::RangeImageBorderExtractor::getBorderScoresRight"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1abb3f938f77b68033fbd7cb87b0ad2bd5"></span>float *<code class="sig-name descname">getBorderScoresRight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor20getBorderScoresRightEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor18getBorderScoresTopEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor18getBorderScoresTopEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor18getBorderScoresTopEv"></span><span id="pcl::RangeImageBorderExtractor::getBorderScoresTop"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ae6306c7b279495d447bcdc317ba2dd25"></span>float *<code class="sig-name descname">getBorderScoresTop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor18getBorderScoresTopEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor21getBorderScoresBottomEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor21getBorderScoresBottomEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor21getBorderScoresBottomEv"></span><span id="pcl::RangeImageBorderExtractor::getBorderScoresBottom"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ad9fa78d84018add2a05ab634d6aa3217"></span>float *<code class="sig-name descname">getBorderScoresBottom</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor21getBorderScoresBottomEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19getSurfaceStructureEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19getSurfaceStructureEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19getSurfaceStructureEv"></span><span id="pcl::RangeImageBorderExtractor::getSurfaceStructure"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a4bb9e4004d88c2c7c81639d82bc31e2c"></span><a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurfaceE" title="pcl::RangeImageBorderExtractor::LocalSurface">LocalSurface</a> **<code class="sig-name descname">getSurfaceStructure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19getSurfaceStructureEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor21getBorderDescriptionsEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor21getBorderDescriptionsEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor21getBorderDescriptionsEv"></span><span id="pcl::RangeImageBorderExtractor::getBorderDescriptions"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a4cdaa40737e41da7a0986efb454fada2"></span>PointCloudOut &amp;<code class="sig-name descname">getBorderDescriptions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor21getBorderDescriptionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor27getShadowBorderInformationsEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor27getShadowBorderInformationsEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor27getShadowBorderInformationsEv"></span><span id="pcl::RangeImageBorderExtractor::getShadowBorderInformations"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a982f59b9ac2c931977fc6c278b8ee339"></span><a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndicesE" title="pcl::RangeImageBorderExtractor::ShadowBorderIndices">ShadowBorderIndices</a> **<code class="sig-name descname">getShadowBorderInformations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor27getShadowBorderInformationsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19getBorderDirectionsEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19getBorderDirectionsEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19getBorderDirectionsEv"></span><span id="pcl::RangeImageBorderExtractor::getBorderDirections"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a8ef6ba3e3e0ef4d754640d360efe65ee"></span>Eigen::Vector3f **<code class="sig-name descname">getBorderDirections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19getBorderDirectionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor22getSurfaceChangeScoresEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor22getSurfaceChangeScoresEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor22getSurfaceChangeScoresEv"></span><span id="pcl::RangeImageBorderExtractor::getSurfaceChangeScores"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a5d62b6c6915d78d2ba8a5832ce235115"></span>float *<code class="sig-name descname">getSurfaceChangeScores</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor22getSurfaceChangeScoresEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor26getSurfaceChangeDirectionsEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor26getSurfaceChangeDirectionsEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor26getSurfaceChangeDirectionsEv"></span><span id="pcl::RangeImageBorderExtractor::getSurfaceChangeDirections"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ae928d6baca016ceece9dcf6a775c0720"></span>Eigen::Vector3f *<code class="sig-name descname">getSurfaceChangeDirections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor26getSurfaceChangeDirectionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor22getObstacleBorderAngleERK12BorderTraits">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor22getObstacleBorderAngleERK12BorderTraits"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor22getObstacleBorderAngleERK12BorderTraits"></span><span id="pcl::RangeImageBorderExtractor::getObstacleBorderAngle__BorderTraitsCR"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ae26fcdf7d1a7ec96290eac407146919b"></span>float <code class="sig-name descname">getObstacleBorderAngle</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_group__common_1ga010a963efcb59df316596af2902fcb58.html#_CPPv4N3pcl12BorderTraitsE" title="pcl::BorderTraits">BorderTraits</a> &amp;<em>border_traits</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor22getObstacleBorderAngleERK12BorderTraits" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Take the information from BorderTraits to calculate the local direction of the border. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">border_traits</span></code>: contains the information needed to calculate the border angle </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor30getNeighborDistanceChangeScoreERK12LocalSurfaceiiiii">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor30getNeighborDistanceChangeScoreERK12LocalSurfaceiiiii"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor30getNeighborDistanceChangeScoreERK12LocalSurfaceiiiii"></span><span id="pcl::RangeImageBorderExtractor::getNeighborDistanceChangeScore__LocalSurfaceCR.i.i.i.i.iC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1afc527dd5fb69ea2ad4a94ad167fc2e75"></span>float <code class="sig-name descname">getNeighborDistanceChangeScore</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurfaceE" title="pcl::RangeImageBorderExtractor::LocalSurface">LocalSurface</a> &amp;<em>local_surface</em>, int <em>x</em>, int <em>y</em>, int <em>offset_x</em>, int <em>offset_y</em>, int <em>pixel_radius</em> = 1<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor30getNeighborDistanceChangeScoreERK12LocalSurfaceiiiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate a border score based on how distant the neighbor is, compared to the closest neighbors /param local_surface /param x /param y /param offset_x /param offset_y /param pixel_radius (defaults to 1) /return the resulting border score. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor25getNormalBasedBorderScoreERK12LocalSurfaceiiii">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor25getNormalBasedBorderScoreERK12LocalSurfaceiiii"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor25getNormalBasedBorderScoreERK12LocalSurfaceiiii"></span><span id="pcl::RangeImageBorderExtractor::getNormalBasedBorderScore__LocalSurfaceCR.i.i.i.iC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a1356c4bb64d6949598aea9202d348dc5"></span>float <code class="sig-name descname">getNormalBasedBorderScore</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurfaceE" title="pcl::RangeImageBorderExtractor::LocalSurface">LocalSurface</a> &amp;<em>local_surface</em>, int <em>x</em>, int <em>y</em>, int <em>offset_x</em>, int <em>offset_y</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor25getNormalBasedBorderScoreERK12LocalSurfaceiiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate a border score based on how much the neighbor is away from the local surface plane. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the resulting border score </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">local_surface</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset_x</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset_y</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor39changeScoreAccordingToShadowBorderValueEiiiiPfPfRi">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor39changeScoreAccordingToShadowBorderValueEiiiiPfPfRi"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor39changeScoreAccordingToShadowBorderValueEiiiiPfPfRi"></span><span id="pcl::RangeImageBorderExtractor::changeScoreAccordingToShadowBorderValue__i.i.i.i.floatP.floatP.iRC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a7790ac3b97468a6414b6f08df679d667"></span>bool <code class="sig-name descname">changeScoreAccordingToShadowBorderValue</code><span class="sig-paren">(</span>int <em>x</em>, int <em>y</em>, int <em>offset_x</em>, int <em>offset_y</em>, float *<em>border_scores</em>, float *<em>border_scores_other_direction</em>, int &amp;<em>shadow_border_idx</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor39changeScoreAccordingToShadowBorderValueEiiiiPfPfRi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Find the best corresponding shadow border and lower score according to the shadow borders value. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p></p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset_x</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset_y</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border_scores</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border_scores_other_direction</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shadow_border_idx</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor37updatedScoreAccordingToNeighborValuesEiiPKf">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor37updatedScoreAccordingToNeighborValuesEiiPKf"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor37updatedScoreAccordingToNeighborValuesEiiPKf"></span><span id="pcl::RangeImageBorderExtractor::updatedScoreAccordingToNeighborValues__i.i.floatCPC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a2f66eaecf71d2ab0a0940f9508a92d20"></span>float <code class="sig-name descname">updatedScoreAccordingToNeighborValues</code><span class="sig-paren">(</span>int <em>x</em>, int <em>y</em>, <em class="property">const</em> float *<em>border_scores</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor37updatedScoreAccordingToNeighborValuesEiiPKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a new score for the given pixel that is &gt;= the original value, based on the neighbors values. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the resulting updated border score </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinate of the input pixel </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: the y-coordinate of the input pixel </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border_scores</span></code>: the input border scores </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor38updatedScoresAccordingToNeighborValuesEPKf">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor38updatedScoresAccordingToNeighborValuesEPKf"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor38updatedScoresAccordingToNeighborValuesEPKf"></span><span id="pcl::RangeImageBorderExtractor::updatedScoresAccordingToNeighborValues__floatCPC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a11c29249e6c9432bd28a269b0a6ea17d"></span>float *<code class="sig-name descname">updatedScoresAccordingToNeighborValues</code><span class="sig-paren">(</span><em class="property">const</em> float *<em>border_scores</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor38updatedScoresAccordingToNeighborValuesEPKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>For all pixels, returns a new score that is &gt;= the original value, based on the neighbors values. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a pointer to the resulting array of updated scores </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">border_scores</span></code>: the input border scores </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor37updateScoresAccordingToNeighborValuesEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor37updateScoresAccordingToNeighborValuesEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor37updateScoresAccordingToNeighborValuesEv"></span><span id="pcl::RangeImageBorderExtractor::updateScoresAccordingToNeighborValues"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a2fcb0ac97395893e2207255c5a6e06ac"></span>void <code class="sig-name descname">updateScoresAccordingToNeighborValues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor37updateScoresAccordingToNeighborValuesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Replace all border score values with updates according to <em>updatedScoreAccordingToNeighborValues</em>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor20checkPotentialBorderEiiiiPfPfRi">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor20checkPotentialBorderEiiiiPfPfRi"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor20checkPotentialBorderEiiiiPfPfRi"></span><span id="pcl::RangeImageBorderExtractor::checkPotentialBorder__i.i.i.i.floatP.floatP.iRC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ae3dcb18b255626cf68e3695f7172be51"></span>bool <code class="sig-name descname">checkPotentialBorder</code><span class="sig-paren">(</span>int <em>x</em>, int <em>y</em>, int <em>offset_x</em>, int <em>offset_y</em>, float *<em>border_scores_left</em>, float *<em>border_scores_right</em>, int &amp;<em>shadow_border_idx</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor20checkPotentialBorderEiiiiPfPfRi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a potential border point has a corresponding shadow border. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a boolean value indicating whether or not the point has a corresponding shadow border </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: the y-coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset_x</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset_y</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border_scores_left</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border_scores_right</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shadow_border_idx</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor14checkIfMaximumEiiiiPfi">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor14checkIfMaximumEiiiiPfi"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor14checkIfMaximumEiiiiPfi"></span><span id="pcl::RangeImageBorderExtractor::checkIfMaximum__i.i.i.i.floatP.iC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a141f7569bbe617dc9c97d031821941bc"></span>bool <code class="sig-name descname">checkIfMaximum</code><span class="sig-paren">(</span>int <em>x</em>, int <em>y</em>, int <em>offset_x</em>, int <em>offset_y</em>, float *<em>border_scores</em>, int <em>shadow_border_idx</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor14checkIfMaximumEiiiiPfi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a potential border point is a maximum regarding the border score. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a boolean value indicating whether or not the point is a maximum </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: the y-coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset_x</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offset_y</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border_scores</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shadow_border_idx</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor28findAndEvaluateShadowBordersEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor28findAndEvaluateShadowBordersEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor28findAndEvaluateShadowBordersEv"></span><span id="pcl::RangeImageBorderExtractor::findAndEvaluateShadowBorders"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1aeb307e4a35d0d1718f9fd9a48d591874"></span>void <code class="sig-name descname">findAndEvaluateShadowBorders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor28findAndEvaluateShadowBordersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Find the best corresponding shadow border and lower score according to the shadow borders value. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor28extractLocalSurfaceStructureEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor28extractLocalSurfaceStructureEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor28extractLocalSurfaceStructureEv"></span><span id="pcl::RangeImageBorderExtractor::extractLocalSurfaceStructure"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a8f8430d1bc1f64b7ae941b76f2474826"></span>void <code class="sig-name descname">extractLocalSurfaceStructure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor28extractLocalSurfaceStructureEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract local plane information in every point (see getSurfaceStructure ()) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor24extractBorderScoreImagesEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor24extractBorderScoreImagesEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor24extractBorderScoreImagesEv"></span><span id="pcl::RangeImageBorderExtractor::extractBorderScoreImages"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a29357abd8ebafbfb3d0807592c7c10ce"></span>void <code class="sig-name descname">extractBorderScoreImages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor24extractBorderScoreImagesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get images representing the probability that the corresponding pixels are borders in that direction (see getBorderScores… </p>
+<p>()) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor15classifyBordersEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor15classifyBordersEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor15classifyBordersEv"></span><span id="pcl::RangeImageBorderExtractor::classifyBorders"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ae8c60f2bb5f82e0f581396d5e687fa8a"></span>void <code class="sig-name descname">classifyBorders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor15classifyBordersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Classify the pixels in the range image according to the different classes defined below in enum BorderClass. </p>
+<p>minImpactAngle (in radians) defines how flat the angle at which a surface was seen can be. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor24calculateBorderDirectionEii">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor24calculateBorderDirectionEii"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor24calculateBorderDirectionEii"></span><span id="pcl::RangeImageBorderExtractor::calculateBorderDirection__i.i"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ae6359bbb546f217d5684a9a89499be89"></span>void <code class="sig-name descname">calculateBorderDirection</code><span class="sig-paren">(</span>int <em>x</em>, int <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor24calculateBorderDirectionEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the 3D direction of the border just using the border traits at this position (facing away from the obstacle) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinate of the input position </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: the y-coordinate of the input position </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor25calculateBorderDirectionsEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor25calculateBorderDirectionsEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor25calculateBorderDirectionsEv"></span><span id="pcl::RangeImageBorderExtractor::calculateBorderDirections"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ae774a32d4e787c5f82a6ff257f4cc6d3"></span>void <code class="sig-name descname">calculateBorderDirections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor25calculateBorderDirectionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Call <em>calculateBorderDirection</em> for every point and average the result over parameters_.pixel_radius_border_direction. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor14get3dDirectionERK17BorderDescriptionRN5Eigen8Vector3fEPK12LocalSurface">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor14get3dDirectionERK17BorderDescriptionRN5Eigen8Vector3fEPK12LocalSurface"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor14get3dDirectionERK17BorderDescriptionRN5Eigen8Vector3fEPK12LocalSurface"></span><span id="pcl::RangeImageBorderExtractor::get3dDirection__BorderDescriptionCR.Eigen::Vector3fR.LocalSurfaceCP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a8ac3a295c64b7f06373101be122a6f48"></span>bool <code class="sig-name descname">get3dDirection</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="structpcl_1_1_border_description.html#_CPPv4N3pcl17BorderDescriptionE" title="pcl::BorderDescription">BorderDescription</a> &amp;<em>border_description</em>, Eigen::Vector3f &amp;<em>direction</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurfaceE" title="pcl::RangeImageBorderExtractor::LocalSurface">LocalSurface</a> *<em>local_surface</em> = NULL<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor14get3dDirectionERK17BorderDescriptionRN5Eigen8Vector3fEPK12LocalSurface" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate a 3d direction from a border point by projecting the direction in the range image - returns false if direction could not be calculated. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a boolean value indicating whether or not a direction could be calculated </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">border_description</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">direction</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_surface</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl25RangeImageBorderExtractor31calculateMainPrincipalCurvatureEiiiRfRN5Eigen8Vector3fE">
+<span id="_CPPv3NK3pcl25RangeImageBorderExtractor31calculateMainPrincipalCurvatureEiiiRfRN5Eigen8Vector3fE"></span><span id="_CPPv2NK3pcl25RangeImageBorderExtractor31calculateMainPrincipalCurvatureEiiiRfRN5Eigen8Vector3fE"></span><span id="pcl::RangeImageBorderExtractor::calculateMainPrincipalCurvature__i.i.i.floatR.Eigen::Vector3fRC"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1addb181b16f5a41bccbc50896d207e1a9"></span>bool <code class="sig-name descname">calculateMainPrincipalCurvature</code><span class="sig-paren">(</span>int <em>x</em>, int <em>y</em>, int <em>radius</em>, float &amp;<em>magnitude</em>, Eigen::Vector3f &amp;<em>main_direction</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl25RangeImageBorderExtractor31calculateMainPrincipalCurvatureEiiiRfRN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the main principal curvature (the largest eigenvalue and corresponding eigenvector for the normals in the area) in the given point. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: the x-coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: the y-coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code>: the pixel radius that is used to find neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">magnitude</span></code>: the resulting magnitude </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">main_direction</span></code>: the resulting direction </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor23calculateSurfaceChangesEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor23calculateSurfaceChangesEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor23calculateSurfaceChangesEv"></span><span id="pcl::RangeImageBorderExtractor::calculateSurfaceChanges"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ac62ce40c5cc1de13e4e0a9e7dd3a5470"></span>void <code class="sig-name descname">calculateSurfaceChanges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor23calculateSurfaceChangesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Uses either the border or principal curvature to define a score how much the surface changes in a point (1 for a border) and what the main direction of that change is. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor18blurSurfaceChangesEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor18blurSurfaceChangesEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor18blurSurfaceChangesEv"></span><span id="pcl::RangeImageBorderExtractor::blurSurfaceChanges"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ae1c6afa704fbbf6ab8fb152e92c976e2"></span>void <code class="sig-name descname">blurSurfaceChanges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor18blurSurfaceChangesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Apply a blur to the surface change images. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor14computeFeatureER13PointCloudOut">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor14computeFeatureER13PointCloudOut"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor14computeFeatureER13PointCloudOut"></span><span id="pcl::RangeImageBorderExtractor::computeFeature__PointCloudOutR"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1ad8e67854695ac836880d46283aa93d1e"></span><em class="property">virtual</em> void <code class="sig-name descname">computeFeature</code><span class="sig-paren">(</span>PointCloudOut &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor14computeFeatureER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Implementation of abstract derived function. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor11parameters_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor11parameters_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor11parameters_E"></span><span id="pcl::RangeImageBorderExtractor::parameters___Parameters"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a610dc5f515ae169fd1f44a882b70d075"></span><a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractor10ParametersE" title="pcl::RangeImageBorderExtractor::Parameters">Parameters</a> <code class="sig-name descname">parameters_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor11parameters_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12range_image_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12range_image_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12range_image_E"></span><span id="pcl::RangeImageBorderExtractor::range_image___RangeImageCP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a3499d229a7a47cc7e12c06f6e6b5fcca"></span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1_range_image.html#_CPPv4N3pcl10RangeImageE" title="pcl::RangeImage">RangeImage</a> *<code class="sig-name descname">range_image_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12range_image_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor35range_image_size_during_extraction_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor35range_image_size_during_extraction_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor35range_image_size_during_extraction_E"></span><span id="pcl::RangeImageBorderExtractor::range_image_size_during_extraction___i"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a42cc9bb9651009e465326c932e148aa5"></span>int <code class="sig-name descname">range_image_size_during_extraction_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor35range_image_size_during_extraction_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19border_scores_left_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19border_scores_left_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19border_scores_left_E"></span><span id="pcl::RangeImageBorderExtractor::border_scores_left___floatP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1acf6f057d9c8671e3e90d74d5de6894a9"></span>float *<code class="sig-name descname">border_scores_left_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19border_scores_left_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor20border_scores_right_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor20border_scores_right_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor20border_scores_right_E"></span><span id="pcl::RangeImageBorderExtractor::border_scores_right___floatP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a8d26eb3b0d7f18c772fadc89727d3869"></span>float *<code class="sig-name descname">border_scores_right_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor20border_scores_right_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor18border_scores_top_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor18border_scores_top_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor18border_scores_top_E"></span><span id="pcl::RangeImageBorderExtractor::border_scores_top___floatP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1aaa203eb07f8cefe7f022d1f79a294caa"></span>float *<code class="sig-name descname">border_scores_top_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor18border_scores_top_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor21border_scores_bottom_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor21border_scores_bottom_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor21border_scores_bottom_E"></span><span id="pcl::RangeImageBorderExtractor::border_scores_bottom___floatP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a6c51e87afe7c0c68b6d94656e37649e7"></span>float *<code class="sig-name descname">border_scores_bottom_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor21border_scores_bottom_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor18surface_structure_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor18surface_structure_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor18surface_structure_E"></span><span id="pcl::RangeImageBorderExtractor::surface_structure___LocalSurfacePP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a97ae685a7419b584fdc169c6b22bc5c6"></span><a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurfaceE" title="pcl::RangeImageBorderExtractor::LocalSurface">LocalSurface</a> **<code class="sig-name descname">surface_structure_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor18surface_structure_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor20border_descriptions_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor20border_descriptions_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor20border_descriptions_E"></span><span id="pcl::RangeImageBorderExtractor::border_descriptions___PointCloudOutP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1acb926679b8dd012577408a240304510a"></span>PointCloudOut *<code class="sig-name descname">border_descriptions_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor20border_descriptions_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor27shadow_border_informations_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor27shadow_border_informations_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor27shadow_border_informations_E"></span><span id="pcl::RangeImageBorderExtractor::shadow_border_informations___ShadowBorderIndicesPP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a9f708055a861595edd6da9ee6ab31981"></span><a class="reference internal" href="#_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndicesE" title="pcl::RangeImageBorderExtractor::ShadowBorderIndices">ShadowBorderIndices</a> **<code class="sig-name descname">shadow_border_informations_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor27shadow_border_informations_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor18border_directions_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor18border_directions_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor18border_directions_E"></span><span id="pcl::RangeImageBorderExtractor::border_directions___Eigen::Vector3fPP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a6eee0666a0640f0783cd6a2ec5c9cbf9"></span>Eigen::Vector3f **<code class="sig-name descname">border_directions_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor18border_directions_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor22surface_change_scores_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor22surface_change_scores_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor22surface_change_scores_E"></span><span id="pcl::RangeImageBorderExtractor::surface_change_scores___floatP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a14c2994048ba6fe86fa04b54aef0ed9e"></span>float *<code class="sig-name descname">surface_change_scores_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor22surface_change_scores_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor26surface_change_directions_E">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor26surface_change_directions_E"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor26surface_change_directions_E"></span><span id="pcl::RangeImageBorderExtractor::surface_change_directions___Eigen::Vector3fP"></span><span class="target" id="classpcl_1_1_range_image_border_extractor_1a89546e52283225bc037b81d0f57867c0"></span>Eigen::Vector3f *<code class="sig-name descname">surface_change_directions_</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor26surface_change_directions_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurfaceE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12LocalSurfaceE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12LocalSurfaceE"></span><span id="pcl::RangeImageBorderExtractor::LocalSurface"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_local_surface"></span><em class="property">struct </em><code class="sig-name descname">LocalSurface</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurfaceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores some information extracted from the neighborhood of a point. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface12LocalSurfaceEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12LocalSurface12LocalSurfaceEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12LocalSurface12LocalSurfaceEv"></span><span id="pcl::RangeImageBorderExtractor::LocalSurface::LocalSurface"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_local_surface_1aeef879439d434601c787ab0d7fba3494"></span><code class="sig-name descname">LocalSurface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface12LocalSurfaceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface6normalE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12LocalSurface6normalE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12LocalSurface6normalE"></span><span id="pcl::RangeImageBorderExtractor::LocalSurface::normal__Eigen::Vector3f"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_local_surface_1a29acd196c67a7b3ae94851ae882d1508"></span>Eigen::Vector3f <code class="sig-name descname">normal</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface6normalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface17neighborhood_meanE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12LocalSurface17neighborhood_meanE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12LocalSurface17neighborhood_meanE"></span><span id="pcl::RangeImageBorderExtractor::LocalSurface::neighborhood_mean__Eigen::Vector3f"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_local_surface_1a530851b9c63e1d6a516d322bf965bb1c"></span>Eigen::Vector3f <code class="sig-name descname">neighborhood_mean</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface17neighborhood_meanE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface12eigen_valuesE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12LocalSurface12eigen_valuesE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12LocalSurface12eigen_valuesE"></span><span id="pcl::RangeImageBorderExtractor::LocalSurface::eigen_values__Eigen::Vector3f"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_local_surface_1a03ec2697132e5c623e502750ce7be65f"></span>Eigen::Vector3f <code class="sig-name descname">eigen_values</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface12eigen_valuesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface15normal_no_jumpsE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12LocalSurface15normal_no_jumpsE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12LocalSurface15normal_no_jumpsE"></span><span id="pcl::RangeImageBorderExtractor::LocalSurface::normal_no_jumps__Eigen::Vector3f"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_local_surface_1a54540d1463b7e425cd53792787193d9e"></span>Eigen::Vector3f <code class="sig-name descname">normal_no_jumps</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface15normal_no_jumpsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface26neighborhood_mean_no_jumpsE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12LocalSurface26neighborhood_mean_no_jumpsE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12LocalSurface26neighborhood_mean_no_jumpsE"></span><span id="pcl::RangeImageBorderExtractor::LocalSurface::neighborhood_mean_no_jumps__Eigen::Vector3f"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_local_surface_1a24daa3bfdc54631000bbed309a5cf8ee"></span>Eigen::Vector3f <code class="sig-name descname">neighborhood_mean_no_jumps</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface26neighborhood_mean_no_jumpsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface21eigen_values_no_jumpsE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12LocalSurface21eigen_values_no_jumpsE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12LocalSurface21eigen_values_no_jumpsE"></span><span id="pcl::RangeImageBorderExtractor::LocalSurface::eigen_values_no_jumps__Eigen::Vector3f"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_local_surface_1af07be0b65f010e88ba5e3db4a16ee156"></span>Eigen::Vector3f <code class="sig-name descname">eigen_values_no_jumps</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface21eigen_values_no_jumpsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface29max_neighbor_distance_squaredE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor12LocalSurface29max_neighbor_distance_squaredE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor12LocalSurface29max_neighbor_distance_squaredE"></span><span id="pcl::RangeImageBorderExtractor::LocalSurface::max_neighbor_distance_squared__float"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_local_surface_1aea24f947b674b5212182f8806d522c6c"></span>float <code class="sig-name descname">max_neighbor_distance_squared</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor12LocalSurface29max_neighbor_distance_squaredE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor10ParametersE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor10ParametersE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor10ParametersE"></span><span id="pcl::RangeImageBorderExtractor::Parameters"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_parameters"></span><em class="property">struct </em><code class="sig-name descname">Parameters</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor10ParametersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="structpcl_1_1_range_image_border_extractor_1_1_parameters.html#structpcl_1_1_range_image_border_extractor_1_1_parameters"><span class="std std-ref">Parameters</span></a> used in this class. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor10Parameters10ParametersEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor10Parameters10ParametersEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor10Parameters10ParametersEv"></span><span id="pcl::RangeImageBorderExtractor::Parameters::Parameters"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_parameters_1a1a5d2415cafaf3c45c4754bef488fd52"></span><code class="sig-name descname">Parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor10Parameters10ParametersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor10Parameters17max_no_of_threadsE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor10Parameters17max_no_of_threadsE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor10Parameters17max_no_of_threadsE"></span><span id="pcl::RangeImageBorderExtractor::Parameters::max_no_of_threads__i"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_parameters_1aba5c9d546d84b93fa468370fa5e611fa"></span>int <code class="sig-name descname">max_no_of_threads</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor10Parameters17max_no_of_threadsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor10Parameters20pixel_radius_bordersE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor10Parameters20pixel_radius_bordersE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor10Parameters20pixel_radius_bordersE"></span><span id="pcl::RangeImageBorderExtractor::Parameters::pixel_radius_borders__i"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_parameters_1a53a2a6db4779bc945f23b749f2ac1d78"></span>int <code class="sig-name descname">pixel_radius_borders</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor10Parameters20pixel_radius_bordersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor10Parameters29pixel_radius_plane_extractionE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor10Parameters29pixel_radius_plane_extractionE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor10Parameters29pixel_radius_plane_extractionE"></span><span id="pcl::RangeImageBorderExtractor::Parameters::pixel_radius_plane_extraction__i"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_parameters_1a52ebcc636cb562e9704b10cab2a1961c"></span>int <code class="sig-name descname">pixel_radius_plane_extraction</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor10Parameters29pixel_radius_plane_extractionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor10Parameters29pixel_radius_border_directionE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor10Parameters29pixel_radius_border_directionE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor10Parameters29pixel_radius_border_directionE"></span><span id="pcl::RangeImageBorderExtractor::Parameters::pixel_radius_border_direction__i"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_parameters_1af473830633cc93ef4efeb0dfbce1b5f4"></span>int <code class="sig-name descname">pixel_radius_border_direction</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor10Parameters29pixel_radius_border_directionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor10Parameters26minimum_border_probabilityE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor10Parameters26minimum_border_probabilityE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor10Parameters26minimum_border_probabilityE"></span><span id="pcl::RangeImageBorderExtractor::Parameters::minimum_border_probability__float"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_parameters_1abc107d79d74e15869b536768a14afd8d"></span>float <code class="sig-name descname">minimum_border_probability</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor10Parameters26minimum_border_probabilityE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor10Parameters32pixel_radius_principal_curvatureE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor10Parameters32pixel_radius_principal_curvatureE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor10Parameters32pixel_radius_principal_curvatureE"></span><span id="pcl::RangeImageBorderExtractor::Parameters::pixel_radius_principal_curvature__i"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_parameters_1ae99a54add292edfa18c3a9103480e633"></span>int <code class="sig-name descname">pixel_radius_principal_curvature</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor10Parameters32pixel_radius_principal_curvatureE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndicesE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19ShadowBorderIndicesE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19ShadowBorderIndicesE"></span><span id="pcl::RangeImageBorderExtractor::ShadowBorderIndices"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_shadow_border_indices"></span><em class="property">struct </em><code class="sig-name descname">ShadowBorderIndices</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the indices of the shadow border corresponding to obstacle borders. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices19ShadowBorderIndicesEv">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19ShadowBorderIndices19ShadowBorderIndicesEv"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19ShadowBorderIndices19ShadowBorderIndicesEv"></span><span id="pcl::RangeImageBorderExtractor::ShadowBorderIndices::ShadowBorderIndices"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_shadow_border_indices_1a633d5f59da692651e3e6d844b8f88261"></span><code class="sig-name descname">ShadowBorderIndices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices19ShadowBorderIndicesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices4leftE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19ShadowBorderIndices4leftE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19ShadowBorderIndices4leftE"></span><span id="pcl::RangeImageBorderExtractor::ShadowBorderIndices::left__i"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_shadow_border_indices_1abcdfc64b92a60c1da4a24d9ba7ff8abc"></span>int <code class="sig-name descname">left</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices4leftE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices5rightE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19ShadowBorderIndices5rightE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19ShadowBorderIndices5rightE"></span><span id="pcl::RangeImageBorderExtractor::ShadowBorderIndices::right__i"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_shadow_border_indices_1a8bbfe7769ede58b4dfbf926459475de8"></span>int <code class="sig-name descname">right</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices5rightE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices3topE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19ShadowBorderIndices3topE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19ShadowBorderIndices3topE"></span><span id="pcl::RangeImageBorderExtractor::ShadowBorderIndices::top__i"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_shadow_border_indices_1a5dc22241c3b324be9eb6c47f77752532"></span>int <code class="sig-name descname">top</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices3topE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices6bottomE">
+<span id="_CPPv3N3pcl25RangeImageBorderExtractor19ShadowBorderIndices6bottomE"></span><span id="_CPPv2N3pcl25RangeImageBorderExtractor19ShadowBorderIndices6bottomE"></span><span id="pcl::RangeImageBorderExtractor::ShadowBorderIndices::bottom__i"></span><span class="target" id="structpcl_1_1_range_image_border_extractor_1_1_shadow_border_indices_1a67850c4afe28ae9ebc29b58172c1fb76"></span>int <code class="sig-name descname">bottom</code><a class="headerlink" href="#_CPPv4N3pcl25RangeImageBorderExtractor19ShadowBorderIndices6bottomE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

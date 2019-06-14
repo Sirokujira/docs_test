@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using PCL with Eclipse &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../../../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../../../../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Using PCL with Eclipse</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/pcl/doc/tutorials/content/using_pcl_with_eclipse.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-pcl-with-eclipse">
+<span id="id1"></span><h1><a class="toc-backref" href="#id2">Using PCL with Eclipse</a><a class="headerlink" href="#using-pcl-with-eclipse" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial explains how to use Eclipse as an IDE to manage your PCL projects. It was tested under Ubuntu 14.04 with Eclipse Luna;
+do not hesitate to modify this tutorial by submitting a pull request on GitHub to add other configurations etc.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#using-pcl-with-eclipse" id="id2">Using PCL with Eclipse</a></p>
+<ul>
+<li><p><a class="reference internal" href="#prerequisites" id="id3">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#creating-the-eclipse-project-files" id="id4">Creating the eclipse project files</a></p></li>
+<li><p><a class="reference internal" href="#importing-into-eclipse" id="id5">Importing into Eclipse</a></p>
+<ul>
+<li><p><a class="reference internal" href="#configuring-eclipse" id="id6">Configuring Eclipse</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#setting-the-pcl-code-style-in-eclipse" id="id7">Setting the PCL code style in Eclipse</a></p>
+<ul>
+<li><p><a class="reference internal" href="#global" id="id8">Global</a></p></li>
+<li><p><a class="reference internal" href="#project-specific" id="id9">Project specific</a></p></li>
+<li><p><a class="reference internal" href="#how-to-format-the-code" id="id10">How to format the code</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#launching-the-program" id="id11">Launching the program</a></p></li>
+<li><p><a class="reference internal" href="#where-to-get-more-information" id="id12">Where to get more information</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="prerequisites">
+<h2><a class="toc-backref" href="#id3">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>We assume you have downloaded and extracted a PCL version (either PCL trunk or a stable version) on your machine.
+For the example, we will use the <a class="reference external" href="http://www.pointclouds.org/documentation/tutorials/pcl_visualizer.php">pcl visualizer</a> code.</p>
+</div>
+<div class="section" id="creating-the-eclipse-project-files">
+<h2><a class="toc-backref" href="#id4">Creating the eclipse project files</a><a class="headerlink" href="#creating-the-eclipse-project-files" title="Permalink to this headline">¶</a></h2>
+<p>The files are organized like the following tree:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>.
+├── build
+└── src
+    ├── CMakeLists.txt
+    └── pcl_visualizer_demo.cpp
+</pre></div>
+</div>
+<p>Open a terminal, navigate to your project root folder and configure the project:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd /path_to_my_project/build
+$ cmake -G &quot;Eclipse CDT4 - Unix Makefiles&quot; ../src
+</pre></div>
+</div>
+<p>You will see something that should look like:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>-- The C compiler identification is GNU 4.8.2
+-- The CXX compiler identification is GNU 4.8.2
+-- Could not determine Eclipse version, assuming at least 3.6 (Helios). Adjust CMAKE_ECLIPSE_VERSION if this is wrong.
+-- Check for working C compiler: /usr/lib/ccache/cc
+-- Check for working C compiler: /usr/lib/ccache/cc   -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/lib/ccache/c++
+-- Check for working CXX compiler: /usr/lib/ccache/c++   -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- checking for module &#39;eigen3&#39;
+--   found eigen3, version 3.2.0
+-- Found eigen: /usr/include/eigen3
+-- Boost version: 1.54.0
+-- Found the following Boost libraries:
+--   system
+--   filesystem
+--   thread
+--   date_time
+--   iostreams
+--   mpi
+--   serialization
+--   chrono
+-- checking for module &#39;openni-dev&#39;
+--   package &#39;openni-dev&#39; not found
+-- Found openni: /usr/lib/libOpenNI.so
+-- checking for module &#39;openni2-dev&#39;
+--   package &#39;openni2-dev&#39; not found
+-- Found OpenNI2: /usr/lib/libOpenNI2.so
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+-- Found libusb-1.0: /usr/include
+-- checking for module &#39;flann&#39;
+--   found flann, version 1.8.4
+-- Found Flann: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
+-- Found qhull: /usr/lib/x86_64-linux-gnu/libqhull.so
+-- checking for module &#39;openni-dev&#39;
+--   package &#39;openni-dev&#39; not found
+-- checking for module &#39;openni2-dev&#39;
+--   package &#39;openni2-dev&#39; not found
+-- looking for PCL_COMMON
+-- Found PCL_COMMON: /usr/local/lib/libpcl_common.so
+-- looking for PCL_OCTREE
+-- Found PCL_OCTREE: /usr/local/lib/libpcl_octree.so
+-- looking for PCL_IO
+-- Found PCL_IO: /usr/local/lib/libpcl_io.so
+-- looking for PCL_KDTREE
+-- Found PCL_KDTREE: /usr/local/lib/libpcl_kdtree.so
+-- looking for PCL_SEARCH
+-- Found PCL_SEARCH: /usr/local/lib/libpcl_search.so
+-- looking for PCL_SAMPLE_CONSENSUS
+-- Found PCL_SAMPLE_CONSENSUS: /usr/local/lib/libpcl_sample_consensus.so
+-- looking for PCL_FILTERS
+-- Found PCL_FILTERS: /usr/local/lib/libpcl_filters.so
+-- looking for PCL_2D
+-- Found PCL_2D: /usr/local/include/pcl-1.7
+-- looking for PCL_FEATURES
+-- Found PCL_FEATURES: /usr/local/lib/libpcl_features.so
+-- looking for PCL_GEOMETRY
+-- Found PCL_GEOMETRY: /usr/local/include/pcl-1.7
+-- looking for PCL_KEYPOINTS
+-- Found PCL_KEYPOINTS: /usr/local/lib/libpcl_keypoints.so
+-- looking for PCL_SURFACE
+-- Found PCL_SURFACE: /usr/local/lib/libpcl_surface.so
+-- looking for PCL_REGISTRATION
+-- Found PCL_REGISTRATION: /usr/local/lib/libpcl_registration.so
+-- looking for PCL_ML
+-- Found PCL_ML: /usr/local/lib/libpcl_ml.so
+-- looking for PCL_SEGMENTATION
+-- Found PCL_SEGMENTATION: /usr/local/lib/libpcl_segmentation.so
+-- looking for PCL_RECOGNITION
+-- Found PCL_RECOGNITION: /usr/local/lib/libpcl_recognition.so
+-- looking for PCL_VISUALIZATION
+-- Found PCL_VISUALIZATION: /usr/local/lib/libpcl_visualization.so
+-- looking for PCL_PEOPLE
+-- Found PCL_PEOPLE: /usr/local/lib/libpcl_people.so
+-- looking for PCL_OUTOFCORE
+-- Found PCL_OUTOFCORE: /usr/local/lib/libpcl_outofcore.so
+-- looking for PCL_TRACKING
+-- Found PCL_TRACKING: /usr/local/lib/libpcl_tracking.so
+-- looking for PCL_STEREO
+-- Found PCL_STEREO: /usr/local/lib/libpcl_stereo.so
+-- looking for PCL_GPU_CONTAINERS
+-- Found PCL_GPU_CONTAINERS: /usr/local/lib/libpcl_gpu_containers.so
+-- looking for PCL_GPU_UTILS
+-- Found PCL_GPU_UTILS: /usr/local/lib/libpcl_gpu_utils.so
+-- looking for PCL_GPU_OCTREE
+-- Found PCL_GPU_OCTREE: /usr/local/lib/libpcl_gpu_octree.so
+-- looking for PCL_GPU_FEATURES
+-- Found PCL_GPU_FEATURES: /usr/local/lib/libpcl_gpu_features.so
+-- looking for PCL_GPU_KINFU
+-- Found PCL_GPU_KINFU: /usr/local/lib/libpcl_gpu_kinfu.so
+-- looking for PCL_GPU_KINFU_LARGE_SCALE
+-- Found PCL_GPU_KINFU_LARGE_SCALE: /usr/local/lib/libpcl_gpu_kinfu_large_scale.so
+-- looking for PCL_GPU_SEGMENTATION
+-- Found PCL_GPU_SEGMENTATION: /usr/local/lib/libpcl_gpu_segmentation.so
+-- looking for PCL_CUDA_COMMON
+-- Found PCL_CUDA_COMMON: /usr/local/include/pcl-1.7
+-- looking for PCL_CUDA_FEATURES
+-- Found PCL_CUDA_FEATURES: /usr/local/lib/libpcl_cuda_features.so
+-- looking for PCL_CUDA_SEGMENTATION
+-- Found PCL_CUDA_SEGMENTATION: /usr/local/lib/libpcl_cuda_segmentation.so
+-- looking for PCL_CUDA_SAMPLE_CONSENSUS
+-- Found PCL_CUDA_SAMPLE_CONSENSUS: /usr/local/lib/libpcl_cuda_sample_consensus.so
+-- Found PCL: /usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_mpi.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libpthread.so;optimized;/usr/local/lib/libpcl_common.so;debug;/usr/local/lib/libpcl_common.so;optimized;/usr/local/lib/libpcl_octree.so;debug;/usr/local/lib/libpcl_octree.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;vtkCommon;vtkFiltering;vtkImaging;vtkGraphics;vtkGenericFiltering;vtkIO;vtkRendering;vtkVolumeRendering;vtkHybrid;vtkWidgets;vtkParallel;vtkInfovis;vtkGeovis;vtkViews;vtkCharts;optimized;/usr/local/lib/libpcl_io.so;debug;/usr/local/lib/libpcl_io.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;optimized;/usr/local/lib/libpcl_kdtree.so;debug;/usr/local/lib/libpcl_kdtree.so;optimized;/usr/local/lib/libpcl_search.so;debug;/usr/local/lib/libpcl_search.so;optimized;/usr/local/lib/libpcl_sample_consensus.so;debug;/usr/local/lib/libpcl_sample_consensus.so;optimized;/usr/local/lib/libpcl_filters.so;debug;/usr/local/lib/libpcl_filters.so;optimized;/usr/local/lib/libpcl_features.so;debug;/usr/local/lib/libpcl_features.so;optimized;/usr/local/lib/libpcl_keypoints.so;debug;/usr/local/lib/libpcl_keypoints.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;optimized;/usr/local/lib/libpcl_surface.so;debug;/usr/local/lib/libpcl_surface.so;optimized;/usr/local/lib/libpcl_registration.so;debug;/usr/local/lib/libpcl_registration.so;optimized;/usr/local/lib/libpcl_ml.so;debug;/usr/local/lib/libpcl_ml.so;optimized;/usr/local/lib/libpcl_segmentation.so;debug;/usr/local/lib/libpcl_segmentation.so;optimized;/usr/local/lib/libpcl_recognition.so;debug;/usr/local/lib/libpcl_recognition.so;optimized;/usr/local/lib/libpcl_visualization.so;debug;/usr/local/lib/libpcl_visualization.so;optimized;/usr/local/lib/libpcl_people.so;debug;/usr/local/lib/libpcl_people.so;optimized;/usr/local/lib/libpcl_outofcore.so;debug;/usr/local/lib/libpcl_outofcore.so;optimized;/usr/local/lib/libpcl_tracking.so;debug;/usr/local/lib/libpcl_tracking.so;optimized;/usr/local/lib/libpcl_stereo.so;debug;/usr/local/lib/libpcl_stereo.so;optimized;/usr/local/lib/libpcl_gpu_containers.so;debug;/usr/local/lib/libpcl_gpu_containers.so;optimized;/usr/local/lib/libpcl_gpu_utils.so;debug;/usr/local/lib/libpcl_gpu_utils.so;optimized;/usr/local/lib/libpcl_gpu_octree.so;debug;/usr/local/lib/libpcl_gpu_octree.so;optimized;/usr/local/lib/libpcl_gpu_features.so;debug;/usr/local/lib/libpcl_gpu_features.so;optimized;/usr/local/lib/libpcl_gpu_kinfu.so;debug;/usr/local/lib/libpcl_gpu_kinfu.so;optimized;/usr/local/lib/libpcl_gpu_kinfu_large_scale.so;debug;/usr/local/lib/libpcl_gpu_kinfu_large_scale.so;optimized;/usr/local/lib/libpcl_gpu_segmentation.so;debug;/usr/local/lib/libpcl_gpu_segmentation.so;optimized;/usr/local/lib/libpcl_cuda_features.so;debug;/usr/local/lib/libpcl_cuda_features.so;optimized;/usr/local/lib/libpcl_cuda_segmentation.so;debug;/usr/local/lib/libpcl_cuda_segmentation.so;optimized;/usr/local/lib/libpcl_cuda_sample_consensus.so;debug;/usr/local/lib/libpcl_cuda_sample_consensus.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_mpi.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libpthread.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;vtkCommon;vtkFiltering;vtkImaging;vtkGraphics;vtkGenericFiltering;vtkIO;vtkRendering;vtkVolumeRendering;vtkHybrid;vtkWidgets;vtkParallel;vtkInfovis;vtkGeovis;vtkViews;vtkCharts (Required is at least version &quot;1.7&quot;)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dell/visualizer/build
+</pre></div>
+</div>
+</div>
+<div class="section" id="importing-into-eclipse">
+<h2><a class="toc-backref" href="#id5">Importing into Eclipse</a><a class="headerlink" href="#importing-into-eclipse" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Launch <a class="reference external" href="http://eclipse.org/cdt/">Eclipse CDT</a> and select <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Import</span></code>.</p></li>
+<li><p>In the list select  <code class="docutils literal notranslate"><span class="pre">General</span> <span class="pre">&gt;</span> <span class="pre">Existing</span> <span class="pre">Projects</span> <span class="pre">into</span> <span class="pre">Workspace</span></code> and then next.</p></li>
+<li><p>Browse (<code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">root</span> <span class="pre">directory</span></code>) to the root folder of the project and select the <code class="docutils literal notranslate"><span class="pre">build</span></code> folder (in the example case, <code class="docutils literal notranslate"><span class="pre">/home/dell/visualizer/build</span></code>).</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Finish</span></code>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Eclipse indexer is going to parse the files in the project (and all the includes), this can take a lot of time and might crash Eclipse if it’s not configured for big projects.
+Take a look at the bottom right of Eclipse’s window to see the indexer status; it is advised not to do anything until the indexer has finished it’s job.</p>
+</div>
+<div class="section" id="configuring-eclipse">
+<h3><a class="toc-backref" href="#id6">Configuring Eclipse</a><a class="headerlink" href="#configuring-eclipse" title="Permalink to this headline">¶</a></h3>
+<p>If Eclipse fails to open your PCL project you might need to change Eclipse configuration; here are some values that should solve all problems
+(but might not work on light hardware configurations):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ sudo gedit /usr/lib/eclipse/eclipse.ini
+</pre></div>
+</div>
+<p>Change the values in the last lines:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">org</span><span class="p">.</span><span class="n">eclipse</span><span class="p">.</span><span class="n">platform</span>
+<span class="o">--</span><span class="n">launcher</span><span class="p">.</span><span class="n">XXMaxPermSize</span>
+<span class="mi">1024</span><span class="n">m</span>
+<span class="o">--</span><span class="n">launcher</span><span class="p">.</span><span class="n">defaultAction</span>
+<span class="n">openFile</span>
+<span class="o">--</span><span class="n">launcher</span><span class="p">.</span><span class="n">appendVmargs</span>
+<span class="o">-</span><span class="n">vmargs</span>
+<span class="o">-</span><span class="n">Dosgi</span><span class="p">.</span><span class="n">requiredJavaVersion</span><span class="o">=</span><span class="mf">1.7</span>
+<span class="o">-</span><span class="nl">XX</span><span class="p">:</span><span class="n">MaxPermSize</span><span class="o">=</span><span class="mi">512</span><span class="n">m</span>
+<span class="o">-</span><span class="n">Xms1024m</span>
+<span class="o">-</span><span class="n">Xmx1024m</span>
+</pre></div>
+</div>
+<p>Restart Eclipse and go to <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span></code>, then <code class="docutils literal notranslate"><span class="pre">C/C++</span> <span class="pre">&gt;</span> <span class="pre">Indexer</span> <span class="pre">&gt;</span> <span class="pre">Cache</span> <span class="pre">Limits</span></code>. Set the limits to [50% | 512 | 512].</p>
+</div>
+</div>
+<div class="section" id="setting-the-pcl-code-style-in-eclipse">
+<h2><a class="toc-backref" href="#id7">Setting the PCL code style in Eclipse</a><a class="headerlink" href="#setting-the-pcl-code-style-in-eclipse" title="Permalink to this headline">¶</a></h2>
+<p>You can find a PCL code style file for Eclipse in <a class="reference external" href="https://github.com/PointCloudLibrary/pcl/blob/master/doc/advanced/content/files/PCL_eclipse_profile.xml">PCL GitHub trunk</a></p>
+<div class="section" id="global">
+<h3><a class="toc-backref" href="#id8">Global</a><a class="headerlink" href="#global" title="Permalink to this headline">¶</a></h3>
+<p>If you want to apply the PCL style guide to all projects:
+<code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">&gt;</span> <span class="pre">Preferences</span> <span class="pre">&gt;</span> <span class="pre">C/C++</span> <span class="pre">&gt;</span> <span class="pre">Code</span> <span class="pre">Style</span> <span class="pre">&gt;</span> <span class="pre">Formatter</span></code></p>
+</div>
+<div class="section" id="project-specific">
+<h3><a class="toc-backref" href="#id9">Project specific</a><a class="headerlink" href="#project-specific" title="Permalink to this headline">¶</a></h3>
+<p>If you want to apply the style guide only to one project:
+Go to <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">&gt;</span> <span class="pre">Properties</span></code>, then select <code class="docutils literal notranslate"><span class="pre">Code</span> <span class="pre">Style</span></code> in the left field and Enable <code class="docutils literal notranslate"><span class="pre">project</span> <span class="pre">specific</span> <span class="pre">settings</span></code>, then <code class="docutils literal notranslate"><span class="pre">Import</span></code> and select where you profile file (.xml) is.</p>
+</div>
+<div class="section" id="how-to-format-the-code">
+<h3><a class="toc-backref" href="#id10">How to format the code</a><a class="headerlink" href="#how-to-format-the-code" title="Permalink to this headline">¶</a></h3>
+<p>If you want to format the whole project use <code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">&gt;</span> <span class="pre">Format</span></code>. If you want to format only your selection use the shortcut <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">F</span></code></p>
+</div>
+</div>
+<div class="section" id="launching-the-program">
+<h2><a class="toc-backref" href="#id11">Launching the program</a><a class="headerlink" href="#launching-the-program" title="Permalink to this headline">¶</a></h2>
+<p>To build the project, click on the build icon</p>
+<a class="reference internal image-reference" href="../../../../_images/build_tab.gif"><img alt="../../../../_images/build_tab.gif" src="../../../../_images/build_tab.gif" style="height: 16px;" /></a>
+<ul class="simple">
+<li><p>Create a launch configuration, select the project on the left panel (left click on the project name); <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">&gt;</span> <span class="pre">Run</span> <span class="pre">Configurations..</span></code>.</p></li>
+<li><p>Create a new <code class="docutils literal notranslate"><span class="pre">C/C++</span> <span class="pre">Application</span></code> click on <code class="docutils literal notranslate"><span class="pre">Search</span> <span class="pre">Project</span></code> and choose the executable to be launched.</p></li>
+<li><p>Go the second tab (<code class="docutils literal notranslate"><span class="pre">Arguments</span></code>) and enter your arguments; remember this is not a terminal and <code class="docutils literal notranslate"><span class="pre">~</span></code> won’t work to get to your home folder for example !</p></li>
+</ul>
+<p>Run the program by clicking on the run icon</p>
+<a class="reference internal image-reference" href="../../../../_images/lrun_obj.gif"><img alt="../../../../_images/lrun_obj.gif" src="../../../../_images/lrun_obj.gif" style="height: 16px;" /></a>
+<p>The Eclipse console doesn’t manage ANSI colours, you could use <a class="reference external" href="http://www.mihai-nita.net/eclipse/">an ANSI console plugin</a> to get rid of the “[0m” characters in the output.</p>
+</div>
+<div class="section" id="where-to-get-more-information">
+<h2><a class="toc-backref" href="#id12">Where to get more information</a><a class="headerlink" href="#where-to-get-more-information" title="Permalink to this headline">¶</a></h2>
+<p>You can get more information about the Eclipse CDT4 Generator <a class="reference external" href="http://www.vtk.org/Wiki/Eclipse_CDT4_Generator">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

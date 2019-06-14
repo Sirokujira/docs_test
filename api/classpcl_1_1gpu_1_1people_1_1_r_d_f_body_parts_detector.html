@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class RDFBodyPartsDetector &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class RDFBodyPartsDetector</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-rdfbodypartsdetector">
+<span id="exhale-class-classpcl-1-1gpu-1-1people-1-1-r-d-f-body-parts-detector"></span><h1>Class RDFBodyPartsDetector<a class="headerlink" href="#class-rdfbodypartsdetector" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_gpu_people_include_pcl_gpu_people_bodyparts_detector.h.html#file-pcl-gpu-people-include-pcl-gpu-people-bodyparts-detector-h"><span class="std std-ref">File bodyparts_detector.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetectorE">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetectorE"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetectorE"></span><span id="pcl::gpu::people::RDFBodyPartsDetector"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector"></span><em class="property">class </em><code class="sig-name descname">RDFBodyPartsDetector</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector3PtrE">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector3PtrE"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector3PtrE"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::Ptr"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1aec7b114cf63ef021e9f7884e61572277"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetectorE" title="pcl::gpu::people::RDFBodyPartsDetector">RDFBodyPartsDetector</a>&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector10BlobMatrixE">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector10BlobMatrixE"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector10BlobMatrixE"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::BlobMatrix"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a12a60be790e550b0e01757c6953d965d"></span><em class="property">typedef </em>std::vector&lt;std::vector&lt;<a class="reference internal" href="structpcl_1_1gpu_1_1people_1_1_blob2.html#_CPPv4N3pcl3gpu6people5Blob2E" title="pcl::gpu::people::Blob2">Blob2</a>, Eigen::aligned_allocator&lt;<a class="reference internal" href="structpcl_1_1gpu_1_1people_1_1_blob2.html#_CPPv4N3pcl3gpu6people5Blob2E" title="pcl::gpu::people::Blob2">Blob2</a>&gt;&gt;&gt; <code class="sig-name descname">BlobMatrix</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector10BlobMatrixE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector6LabelsE">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector6LabelsE"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector6LabelsE"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::Labels"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a5654d3aa598a08deb0afeb568ac638cf"></span><em class="property">typedef </em>DeviceArray2D&lt;unsigned char&gt; <code class="sig-name descname">Labels</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector6LabelsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector5DepthE">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector5DepthE"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector5DepthE"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::Depth"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1af27e5039deff9292317ca7d347486df2"></span><em class="property">typedef </em>DeviceArray2D&lt;unsigned short&gt; <code class="sig-name descname">Depth</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector5DepthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector5ImageE">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector5ImageE"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector5ImageE"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::Image"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a7ab346019e97510acd681e1e17c20b06"></span><em class="property">typedef </em>DeviceArray2D&lt;pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a>&gt; <code class="sig-name descname">Image</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector5ImageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector20RDFBodyPartsDetectorERKNSt6vectorINSt6stringEEEii">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector20RDFBodyPartsDetectorERKNSt6vectorINSt6stringEEEii"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector20RDFBodyPartsDetectorERKNSt6vectorINSt6stringEEEii"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::RDFBodyPartsDetector__std::vector:ss:CR.i.i"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a8f9bf15da53f7bbe796ff71634e1ed57"></span><code class="sig-name descname">RDFBodyPartsDetector</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;std::string&gt; &amp;<em>tree_files</em>, int <em>default_buffer_rows</em> = 480, int <em>default_buffer_cols</em> = 640<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector20RDFBodyPartsDetectorERKNSt6vectorINSt6stringEEEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is the constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector7processERK5DepthRK10PointCloudI8PointXYZEi">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector7processERK5DepthRK10PointCloudI8PointXYZEi"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector7processERK5DepthRK10PointCloudI8PointXYZEi"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::process__DepthCR.PointCloud:PointXYZ:CR.i"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a4a96a5e75310b69be2eb1e0a84499374"></span>void <code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector5DepthE" title="pcl::gpu::people::RDFBodyPartsDetector::Depth">Depth</a> &amp;<em>depth</em>, <em class="property">const</em> PointCloud&lt;<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt; &amp;<em>cloud</em>, int <em>min_pts_per_cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector7processERK5DepthRK10PointCloudI8PointXYZEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function does the complete RDF evaluation in a discrete manner and builds the blob matrix. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector11processProbERK5Depth">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector11processProbERK5Depth"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector11processProbERK5Depth"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::processProb__DepthCR"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1ae4f79f7e16c3dd7ba0fdb4404bdaf8cb"></span>void <code class="sig-name descname">processProb</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector5DepthE" title="pcl::gpu::people::RDFBodyPartsDetector::Depth">Depth</a> &amp;<em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector11processProbERK5Depth" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function processes based on the RDF with probabilistic voting scheme. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector13processSmoothERK5DepthRK10PointCloudI8PointXYZEi">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector13processSmoothERK5DepthRK10PointCloudI8PointXYZEi"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector13processSmoothERK5DepthRK10PointCloudI8PointXYZEi"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::processSmooth__DepthCR.PointCloud:PointXYZ:CR.i"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a41493864b6689df96fc3a8ddf00765f6"></span>void <code class="sig-name descname">processSmooth</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector5DepthE" title="pcl::gpu::people::RDFBodyPartsDetector::Depth">Depth</a> &amp;<em>depth</em>, <em class="property">const</em> PointCloud&lt;<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt; &amp;<em>cloud</em>, int <em>min_pts_per_cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector13processSmoothERK5DepthRK10PointCloudI8PointXYZEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This smooths the labels and does the connected components. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector16processRelationsEv">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector16processRelationsEv"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector16processRelationsEv"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::processRelations"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a88c3f9dea8acee72e77c075b214dbb12"></span>int <code class="sig-name descname">processRelations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector16processRelationsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This processes the blob_matrix_. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>negative if failed </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector16processRelationsEN13PersonAttribs3PtrE">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector16processRelationsEN13PersonAttribs3PtrE"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector16processRelationsEN13PersonAttribs3PtrE"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::processRelations__PersonAttribs::Ptr"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a81e7030b98f36878159d6b8cead30cea"></span>int <code class="sig-name descname">processRelations</code><span class="sig-paren">(</span><a class="reference internal" href="classpcl_1_1gpu_1_1people_1_1_person_attribs.html#_CPPv4N3pcl3gpu6people13PersonAttribsE" title="pcl::gpu::people::PersonAttribs">PersonAttribs</a>::<a class="reference internal" href="classpcl_1_1gpu_1_1people_1_1_person_attribs.html#_CPPv4N3pcl3gpu6people13PersonAttribs3PtrE" title="pcl::gpu::people::PersonAttribs::Ptr">Ptr</a> <em>person_attribs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector16processRelationsEN13PersonAttribs3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This processes the blob_matrix_. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>negative if failed </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">person_attribs</span></code>: the custom person parameters </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector9getLabelsEv">
+<span id="_CPPv3NK3pcl3gpu6people20RDFBodyPartsDetector9getLabelsEv"></span><span id="_CPPv2NK3pcl3gpu6people20RDFBodyPartsDetector9getLabelsEv"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::getLabelsC"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a42d138d0d1b41eabf87f0a95f0aec094"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector6LabelsE" title="pcl::gpu::people::RDFBodyPartsDetector::Labels">Labels</a> &amp;<code class="sig-name descname">getLabels</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector9getLabelsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector14getProbabilityEv">
+<span id="_CPPv3NK3pcl3gpu6people20RDFBodyPartsDetector14getProbabilityEv"></span><span id="_CPPv2NK3pcl3gpu6people20RDFBodyPartsDetector14getProbabilityEv"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::getProbabilityC"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1aa9f1ad651ae41faf972c3ea4dd2ced6f"></span><em class="property">const</em> pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> &amp;<code class="sig-name descname">getProbability</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector14getProbabilityEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector15getProbability1Ev">
+<span id="_CPPv3NK3pcl3gpu6people20RDFBodyPartsDetector15getProbability1Ev"></span><span id="_CPPv2NK3pcl3gpu6people20RDFBodyPartsDetector15getProbability1Ev"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::getProbability1C"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a3acd00290211833db41a9e2820894914"></span><em class="property">const</em> pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> &amp;<code class="sig-name descname">getProbability1</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector15getProbability1Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector15getProbability2Ev">
+<span id="_CPPv3NK3pcl3gpu6people20RDFBodyPartsDetector15getProbability2Ev"></span><span id="_CPPv2NK3pcl3gpu6people20RDFBodyPartsDetector15getProbability2Ev"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::getProbability2C"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a723e60094c0b069ef5ed82f0d180a34d"></span><em class="property">const</em> pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> &amp;<code class="sig-name descname">getProbability2</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector15getProbability2Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector19getPrevProbability1Ev">
+<span id="_CPPv3NK3pcl3gpu6people20RDFBodyPartsDetector19getPrevProbability1Ev"></span><span id="_CPPv2NK3pcl3gpu6people20RDFBodyPartsDetector19getPrevProbability1Ev"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::getPrevProbability1C"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a554acc02efe129262d8a6dcec5352990"></span><em class="property">const</em> pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> &amp;<code class="sig-name descname">getPrevProbability1</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector19getPrevProbability1Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector19getPrevProbability2Ev">
+<span id="_CPPv3NK3pcl3gpu6people20RDFBodyPartsDetector19getPrevProbability2Ev"></span><span id="_CPPv2NK3pcl3gpu6people20RDFBodyPartsDetector19getPrevProbability2Ev"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::getPrevProbability2C"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1aa9d1e4c2e4bd28b6a0e722e9439eafd0"></span><em class="property">const</em> pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> &amp;<code class="sig-name descname">getPrevProbability2</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector19getPrevProbability2Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector14getNumberTreesEv">
+<span id="_CPPv3NK3pcl3gpu6people20RDFBodyPartsDetector14getNumberTreesEv"></span><span id="_CPPv2NK3pcl3gpu6people20RDFBodyPartsDetector14getNumberTreesEv"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::getNumberTreesC"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a874cff8817403140f1873b63021b603f"></span>size_t <code class="sig-name descname">getNumberTrees</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector14getNumberTreesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector13getBlobMatrixEv">
+<span id="_CPPv3NK3pcl3gpu6people20RDFBodyPartsDetector13getBlobMatrixEv"></span><span id="_CPPv2NK3pcl3gpu6people20RDFBodyPartsDetector13getBlobMatrixEv"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::getBlobMatrixC"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a1b1495aa7c6398dbe23b224c9adcccc3"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector10BlobMatrixE" title="pcl::gpu::people::RDFBodyPartsDetector::BlobMatrix">BlobMatrix</a> &amp;<code class="sig-name descname">getBlobMatrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu6people20RDFBodyPartsDetector13getBlobMatrixEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector7labels_E">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector7labels_E"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector7labels_E"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::labels___Labels"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1aff684169af9d9c4d2fbbbaf4b412ab43"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector6LabelsE" title="pcl::gpu::people::RDFBodyPartsDetector::Labels">Labels</a> <code class="sig-name descname">labels_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector7labels_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This contains the final body part labels. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector16labels_smoothed_E">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector16labels_smoothed_E"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector16labels_smoothed_E"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::labels_smoothed___Labels"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a0ecda7b2ec4de69ccdf16714973a3369"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector6LabelsE" title="pcl::gpu::people::RDFBodyPartsDetector::Labels">Labels</a> <code class="sig-name descname">labels_smoothed_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector16labels_smoothed_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This contains the smoothed final body part labels. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector4P_l_E">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector4P_l_E"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector4P_l_E"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::P_l___pcl::device::LabelProbability"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a16dba41e3421ed3d6dc1c09c8d274cf5"></span>pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> <code class="sig-name descname">P_l_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector4P_l_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>These contain the histograms of the labels for this detector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector9P_l_Gaus_E">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector9P_l_Gaus_E"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector9P_l_Gaus_E"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::P_l_Gaus___pcl::device::LabelProbability"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a467df055b0c7a351d832d1670069c9a8"></span>pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> <code class="sig-name descname">P_l_Gaus_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector9P_l_Gaus_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector14P_l_Gaus_Temp_E">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector14P_l_Gaus_Temp_E"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector14P_l_Gaus_Temp_E"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::P_l_Gaus_Temp___pcl::device::LabelProbability"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a84aa5f3a3d3f052501bc461191fed04f"></span>pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> <code class="sig-name descname">P_l_Gaus_Temp_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector14P_l_Gaus_Temp_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector6P_l_1_E">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector6P_l_1_E"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector6P_l_1_E"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::P_l_1___pcl::device::LabelProbability"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a244b8631fe306fc1864b39d05e935a7f"></span>pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> <code class="sig-name descname">P_l_1_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector6P_l_1_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector6P_l_2_E">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector6P_l_2_E"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector6P_l_2_E"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::P_l_2___pcl::device::LabelProbability"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1af2326bbb51f446c0419e54a25c35e75d"></span>pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> <code class="sig-name descname">P_l_2_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector6P_l_2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector11P_l_prev_1_E">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector11P_l_prev_1_E"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector11P_l_prev_1_E"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::P_l_prev_1___pcl::device::LabelProbability"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a37e1b2c73e3c921760e60e07fa29db22"></span>pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> <code class="sig-name descname">P_l_prev_1_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector11P_l_prev_1_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>These contain the histograms of the labels for this detector of the previous timestep. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector11P_l_prev_2_E">
+<span id="_CPPv3N3pcl3gpu6people20RDFBodyPartsDetector11P_l_prev_2_E"></span><span id="_CPPv2N3pcl3gpu6people20RDFBodyPartsDetector11P_l_prev_2_E"></span><span id="pcl::gpu::people::RDFBodyPartsDetector::P_l_prev_2___pcl::device::LabelProbability"></span><span class="target" id="classpcl_1_1gpu_1_1people_1_1_r_d_f_body_parts_detector_1a2bee11cafa2b1624768cf9b4daea8529"></span>pcl::device::<a class="reference internal" href="typedef_label__common_8h_1aba5664d081c646d45c77c9cecb2f0dea.html#_CPPv4N3pcl6device16LabelProbabilityE" title="pcl::device::LabelProbability">LabelProbability</a> <code class="sig-name descname">P_l_prev_2_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu6people20RDFBodyPartsDetector11P_l_prev_2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

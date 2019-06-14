@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class vtkVertexBufferObject &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class vtkVertexBufferObject</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classvtk_vertex_buffer_object.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-vtkvertexbufferobject">
+<span id="exhale-class-classvtk-vertex-buffer-object"></span><h1>Class vtkVertexBufferObject<a class="headerlink" href="#class-vtkvertexbufferobject" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_visualization_include_pcl_visualization_vtk_vtkVertexBufferObject.h.html#file-pcl-visualization-include-pcl-visualization-vtk-vtkvertexbufferobject-h"><span class="std std-ref">File vtkVertexBufferObject.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">vtkObject</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv421vtkVertexBufferObject">
+<span id="_CPPv321vtkVertexBufferObject"></span><span id="_CPPv221vtkVertexBufferObject"></span><span id="vtkVertexBufferObject"></span><span class="target" id="classvtk_vertex_buffer_object"></span><em class="property">class </em><code class="sig-name descname">vtkVertexBufferObject</code> : <em class="property">public</em> vtkObject<a class="headerlink" href="#_CPPv421vtkVertexBufferObject" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N21vtkVertexBufferObjectUt8_anon_181E">
+<span id="_CPPv3N21vtkVertexBufferObjectUt8_anon_181E"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512"></span><em class="property">enum </em><strong>[anonymous]</strong><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObjectUt8_anon_181E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject10StreamDrawE">
+<span id="_CPPv3N21vtkVertexBufferObject10StreamDrawE"></span><span id="_CPPv2N21vtkVertexBufferObject10StreamDrawE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512ace213a3684ad24034288324ac41fe949"></span><code class="sig-name descname">StreamDraw</code> = 0<a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject10StreamDrawE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject10StreamReadE">
+<span id="_CPPv3N21vtkVertexBufferObject10StreamReadE"></span><span id="_CPPv2N21vtkVertexBufferObject10StreamReadE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512a133d1fd04ac0785e612e5dfb3e2d7ab7"></span><code class="sig-name descname">StreamRead</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject10StreamReadE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject10StreamCopyE">
+<span id="_CPPv3N21vtkVertexBufferObject10StreamCopyE"></span><span id="_CPPv2N21vtkVertexBufferObject10StreamCopyE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512a42970648a66a2629edac8fd297662a61"></span><code class="sig-name descname">StreamCopy</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject10StreamCopyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject10StaticDrawE">
+<span id="_CPPv3N21vtkVertexBufferObject10StaticDrawE"></span><span id="_CPPv2N21vtkVertexBufferObject10StaticDrawE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512a6ef60f3ae09fd68331d698237b711b22"></span><code class="sig-name descname">StaticDraw</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject10StaticDrawE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject10StaticReadE">
+<span id="_CPPv3N21vtkVertexBufferObject10StaticReadE"></span><span id="_CPPv2N21vtkVertexBufferObject10StaticReadE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512a33266d8025ef54d94cd781ac4ddb3f68"></span><code class="sig-name descname">StaticRead</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject10StaticReadE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject10StaticCopyE">
+<span id="_CPPv3N21vtkVertexBufferObject10StaticCopyE"></span><span id="_CPPv2N21vtkVertexBufferObject10StaticCopyE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512aeabc7472dcbb7bfff76355cb70e59fb0"></span><code class="sig-name descname">StaticCopy</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject10StaticCopyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject11DynamicDrawE">
+<span id="_CPPv3N21vtkVertexBufferObject11DynamicDrawE"></span><span id="_CPPv2N21vtkVertexBufferObject11DynamicDrawE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512a3a8a4029ab28e41ce7ce824b5caf7ff7"></span><code class="sig-name descname">DynamicDraw</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11DynamicDrawE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject11DynamicReadE">
+<span id="_CPPv3N21vtkVertexBufferObject11DynamicReadE"></span><span id="_CPPv2N21vtkVertexBufferObject11DynamicReadE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512a17c15efc8ee742ff8e3233fb3c08cc57"></span><code class="sig-name descname">DynamicRead</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11DynamicReadE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject11DynamicCopyE">
+<span id="_CPPv3N21vtkVertexBufferObject11DynamicCopyE"></span><span id="_CPPv2N21vtkVertexBufferObject11DynamicCopyE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512a5cf99f2e9b10a1e022b66ccde8325721"></span><code class="sig-name descname">DynamicCopy</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11DynamicCopyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N21vtkVertexBufferObject14NumberOfUsagesE">
+<span id="_CPPv3N21vtkVertexBufferObject14NumberOfUsagesE"></span><span id="_CPPv2N21vtkVertexBufferObject14NumberOfUsagesE"></span><span class="target" id="classvtk_vertex_buffer_object_1a1baba3d9d39f6b65306c1a4ba8177512aef3713ae9fbb0ecddcf4ce3a2203b643"></span><code class="sig-name descname">NumberOfUsages</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject14NumberOfUsagesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject12vtkTypeMacroE21vtkVertexBufferObject9vtkObject">
+<span id="_CPPv3N21vtkVertexBufferObject12vtkTypeMacroE21vtkVertexBufferObject9vtkObject"></span><span id="_CPPv2N21vtkVertexBufferObject12vtkTypeMacroE21vtkVertexBufferObject9vtkObject"></span><span id="vtkVertexBufferObject::vtkTypeMacro__vtkVertexBufferObject.vtkObject"></span><span class="target" id="classvtk_vertex_buffer_object_1a9447459ebbc6b0d6df855e8380a78ddc"></span><code class="sig-name descname">vtkTypeMacro</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv421vtkVertexBufferObject" title="vtkVertexBufferObject">vtkVertexBufferObject</a>, vtkObject<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject12vtkTypeMacroE21vtkVertexBufferObject9vtkObject" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject9PrintSelfER7ostream9vtkIndent">
+<span id="_CPPv3N21vtkVertexBufferObject9PrintSelfER7ostream9vtkIndent"></span><span id="_CPPv2N21vtkVertexBufferObject9PrintSelfER7ostream9vtkIndent"></span><span id="vtkVertexBufferObject::PrintSelf__ostreamR.vtkIndent"></span><span class="target" id="classvtk_vertex_buffer_object_1af4b353551e9c307f5ef6b6cc45522cae"></span>void <code class="sig-name descname">PrintSelf</code><span class="sig-paren">(</span>ostream &amp;<em>os</em>, vtkIndent <em>indent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject9PrintSelfER7ostream9vtkIndent" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject10SetContextEP15vtkRenderWindow">
+<span id="_CPPv3N21vtkVertexBufferObject10SetContextEP15vtkRenderWindow"></span><span id="_CPPv2N21vtkVertexBufferObject10SetContextEP15vtkRenderWindow"></span><span id="vtkVertexBufferObject::SetContext__vtkRenderWindowP"></span><span class="target" id="classvtk_vertex_buffer_object_1ae1945c9f044a3cde7bd6ec951acb8499"></span>void <code class="sig-name descname">SetContext</code><span class="sig-paren">(</span>vtkRenderWindow *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject10SetContextEP15vtkRenderWindow" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject10GetContextEv">
+<span id="_CPPv3N21vtkVertexBufferObject10GetContextEv"></span><span id="_CPPv2N21vtkVertexBufferObject10GetContextEv"></span><span id="vtkVertexBufferObject::GetContext"></span><span class="target" id="classvtk_vertex_buffer_object_1a4596bdb7970f77cdc9e60d941372014a"></span>vtkRenderWindow *<code class="sig-name descname">GetContext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject10GetContextEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject11vtkGetMacroE5Usagei">
+<span id="_CPPv3N21vtkVertexBufferObject11vtkGetMacroE5Usagei"></span><span id="_CPPv2N21vtkVertexBufferObject11vtkGetMacroE5Usagei"></span><span id="vtkVertexBufferObject::vtkGetMacro__Usage.i"></span><span class="target" id="classvtk_vertex_buffer_object_1aaf6b24e2e40c7cf3d4094aae1da3f504"></span><code class="sig-name descname">vtkGetMacro</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N21vtkVertexBufferObject5UsageE" title="vtkVertexBufferObject::Usage">Usage</a>, int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11vtkGetMacroE5Usagei" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject11vtkSetMacroE5Usagei">
+<span id="_CPPv3N21vtkVertexBufferObject11vtkSetMacroE5Usagei"></span><span id="_CPPv2N21vtkVertexBufferObject11vtkSetMacroE5Usagei"></span><span id="vtkVertexBufferObject::vtkSetMacro__Usage.i"></span><span class="target" id="classvtk_vertex_buffer_object_1a5d2ee1afbbd95ff1b19334132c573d8f"></span><code class="sig-name descname">vtkSetMacro</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N21vtkVertexBufferObject5UsageE" title="vtkVertexBufferObject::Usage">Usage</a>, int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11vtkSetMacroE5Usagei" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject17GetAttributeIndexEv">
+<span id="_CPPv3N21vtkVertexBufferObject17GetAttributeIndexEv"></span><span id="_CPPv2N21vtkVertexBufferObject17GetAttributeIndexEv"></span><span id="vtkVertexBufferObject::GetAttributeIndex"></span><span class="target" id="classvtk_vertex_buffer_object_1a3e0d34464c3d82ccb0fc8b99f3a205d6"></span>int <code class="sig-name descname">GetAttributeIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject17GetAttributeIndexEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject23SetUserDefinedAttributeEibi">
+<span id="_CPPv3N21vtkVertexBufferObject23SetUserDefinedAttributeEibi"></span><span id="_CPPv2N21vtkVertexBufferObject23SetUserDefinedAttributeEibi"></span><span id="vtkVertexBufferObject::SetUserDefinedAttribute__i.b.i"></span><span class="target" id="classvtk_vertex_buffer_object_1a7779b586e99cf06ad1558f5506e13dbd"></span>void <code class="sig-name descname">SetUserDefinedAttribute</code><span class="sig-paren">(</span>int <em>index</em>, bool <em>normalized</em> = false, int <em>stride</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject23SetUserDefinedAttributeEibi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject25ResetUserDefinedAttributeEv">
+<span id="_CPPv3N21vtkVertexBufferObject25ResetUserDefinedAttributeEv"></span><span id="_CPPv2N21vtkVertexBufferObject25ResetUserDefinedAttributeEv"></span><span id="vtkVertexBufferObject::ResetUserDefinedAttribute"></span><span class="target" id="classvtk_vertex_buffer_object_1a54beb2b9c3c1cdb5aa6c5c6f7ea7b63a"></span>void <code class="sig-name descname">ResetUserDefinedAttribute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject25ResetUserDefinedAttributeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject22SetAttributeNormalizedEb">
+<span id="_CPPv3N21vtkVertexBufferObject22SetAttributeNormalizedEb"></span><span id="_CPPv2N21vtkVertexBufferObject22SetAttributeNormalizedEb"></span><span id="vtkVertexBufferObject::SetAttributeNormalized__b"></span><span class="target" id="classvtk_vertex_buffer_object_1abf36e31d3cee6d90e3a572cc05e4fa21"></span>void <code class="sig-name descname">SetAttributeNormalized</code><span class="sig-paren">(</span>bool <em>normalized</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject22SetAttributeNormalizedEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject6UploadEP9vtkPoints">
+<span id="_CPPv3N21vtkVertexBufferObject6UploadEP9vtkPoints"></span><span id="_CPPv2N21vtkVertexBufferObject6UploadEP9vtkPoints"></span><span id="vtkVertexBufferObject::Upload__vtkPointsP"></span><span class="target" id="classvtk_vertex_buffer_object_1a0b261bcc43044ee54037bc201e41b2b7"></span>bool <code class="sig-name descname">Upload</code><span class="sig-paren">(</span>vtkPoints *<em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject6UploadEP9vtkPoints" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject6UploadEP12vtkCellArray">
+<span id="_CPPv3N21vtkVertexBufferObject6UploadEP12vtkCellArray"></span><span id="_CPPv2N21vtkVertexBufferObject6UploadEP12vtkCellArray"></span><span id="vtkVertexBufferObject::Upload__vtkCellArrayP"></span><span class="target" id="classvtk_vertex_buffer_object_1a9362148db5b201c81eff7abed830613c"></span>bool <code class="sig-name descname">Upload</code><span class="sig-paren">(</span>vtkCellArray *<em>verts</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject6UploadEP12vtkCellArray" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject6UploadEPjj">
+<span id="_CPPv3N21vtkVertexBufferObject6UploadEPjj"></span><span id="_CPPv2N21vtkVertexBufferObject6UploadEPjj"></span><span id="vtkVertexBufferObject::Upload__unsigned-iP.unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1a80794320a10704b2395a2637ce5aad1e"></span>bool <code class="sig-name descname">Upload</code><span class="sig-paren">(</span>unsigned int *<em>indices</em>, unsigned int <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject6UploadEPjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject6UploadEP20vtkUnsignedCharArray">
+<span id="_CPPv3N21vtkVertexBufferObject6UploadEP20vtkUnsignedCharArray"></span><span id="_CPPv2N21vtkVertexBufferObject6UploadEP20vtkUnsignedCharArray"></span><span id="vtkVertexBufferObject::Upload__vtkUnsignedCharArrayP"></span><span class="target" id="classvtk_vertex_buffer_object_1a77d646590e8d7b2cb5db712e1cf77767"></span>bool <code class="sig-name descname">Upload</code><span class="sig-paren">(</span>vtkUnsignedCharArray *<em>colors</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject6UploadEP20vtkUnsignedCharArray" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject6UploadEP12vtkDataArray">
+<span id="_CPPv3N21vtkVertexBufferObject6UploadEP12vtkDataArray"></span><span id="_CPPv2N21vtkVertexBufferObject6UploadEP12vtkDataArray"></span><span id="vtkVertexBufferObject::Upload__vtkDataArrayP"></span><span class="target" id="classvtk_vertex_buffer_object_1a0d30fc5aa9a79e5b291410e847330248"></span>bool <code class="sig-name descname">Upload</code><span class="sig-paren">(</span>vtkDataArray *<em>array</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject6UploadEP12vtkDataArray" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject6UploadEP12vtkDataArrayii">
+<span id="_CPPv3N21vtkVertexBufferObject6UploadEP12vtkDataArrayii"></span><span id="_CPPv2N21vtkVertexBufferObject6UploadEP12vtkDataArrayii"></span><span id="vtkVertexBufferObject::Upload__vtkDataArrayP.i.i"></span><span class="target" id="classvtk_vertex_buffer_object_1a0f85179aab1368ddbc68152c1d303515"></span>bool <code class="sig-name descname">Upload</code><span class="sig-paren">(</span>vtkDataArray *<em>array</em>, int <em>attributeType</em>, int <em>arrayType</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject6UploadEP12vtkDataArrayii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject13UploadNormalsEP12vtkDataArray">
+<span id="_CPPv3N21vtkVertexBufferObject13UploadNormalsEP12vtkDataArray"></span><span id="_CPPv2N21vtkVertexBufferObject13UploadNormalsEP12vtkDataArray"></span><span id="vtkVertexBufferObject::UploadNormals__vtkDataArrayP"></span><span class="target" id="classvtk_vertex_buffer_object_1a72f1c61b96df04f8b83f2d01d0354984"></span>bool <code class="sig-name descname">UploadNormals</code><span class="sig-paren">(</span>vtkDataArray *<em>normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject13UploadNormalsEP12vtkDataArray" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject12UploadColorsEP12vtkDataArray">
+<span id="_CPPv3N21vtkVertexBufferObject12UploadColorsEP12vtkDataArray"></span><span id="_CPPv2N21vtkVertexBufferObject12UploadColorsEP12vtkDataArray"></span><span id="vtkVertexBufferObject::UploadColors__vtkDataArrayP"></span><span class="target" id="classvtk_vertex_buffer_object_1abaaf9f379b2434bdc6658feec4152ff3"></span>bool <code class="sig-name descname">UploadColors</code><span class="sig-paren">(</span>vtkDataArray *<em>colors</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject12UploadColorsEP12vtkDataArray" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject11vtkGetMacroE4Sizej">
+<span id="_CPPv3N21vtkVertexBufferObject11vtkGetMacroE4Sizej"></span><span id="_CPPv2N21vtkVertexBufferObject11vtkGetMacroE4Sizej"></span><span id="vtkVertexBufferObject::vtkGetMacro__Size.unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1a2dbd5d6ff09db655f2c14c12e69d9be3"></span><code class="sig-name descname">vtkGetMacro</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N21vtkVertexBufferObject4SizeE" title="vtkVertexBufferObject::Size">Size</a>, unsigned int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11vtkGetMacroE4Sizej" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject11vtkGetMacroE5Countj">
+<span id="_CPPv3N21vtkVertexBufferObject11vtkGetMacroE5Countj"></span><span id="_CPPv2N21vtkVertexBufferObject11vtkGetMacroE5Countj"></span><span id="vtkVertexBufferObject::vtkGetMacro__Count.unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1a64bfae2c10eae29e857b41fe0db1fc7f"></span><code class="sig-name descname">vtkGetMacro</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N21vtkVertexBufferObject5CountE" title="vtkVertexBufferObject::Count">Count</a>, unsigned int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11vtkGetMacroE5Countj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject11vtkGetMacroE6Handlej">
+<span id="_CPPv3N21vtkVertexBufferObject11vtkGetMacroE6Handlej"></span><span id="_CPPv2N21vtkVertexBufferObject11vtkGetMacroE6Handlej"></span><span id="vtkVertexBufferObject::vtkGetMacro__Handle.unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1abed5e8b87a7a9b63980a28bea9054966"></span><code class="sig-name descname">vtkGetMacro</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N21vtkVertexBufferObject6HandleE" title="vtkVertexBufferObject::Handle">Handle</a>, unsigned int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11vtkGetMacroE6Handlej" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject6UnBindEv">
+<span id="_CPPv3N21vtkVertexBufferObject6UnBindEv"></span><span id="_CPPv2N21vtkVertexBufferObject6UnBindEv"></span><span id="vtkVertexBufferObject::UnBind"></span><span class="target" id="classvtk_vertex_buffer_object_1afeb9867850ed9b69dcea1b709806567f"></span>void <code class="sig-name descname">UnBind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject6UnBindEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject4BindEv">
+<span id="_CPPv3N21vtkVertexBufferObject4BindEv"></span><span id="_CPPv2N21vtkVertexBufferObject4BindEv"></span><span id="vtkVertexBufferObject::Bind"></span><span class="target" id="classvtk_vertex_buffer_object_1ac80adc92645203f1c0041f623a66d77c"></span>void <code class="sig-name descname">Bind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject4BindEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject13ReleaseMemoryEv">
+<span id="_CPPv3N21vtkVertexBufferObject13ReleaseMemoryEv"></span><span id="_CPPv2N21vtkVertexBufferObject13ReleaseMemoryEv"></span><span id="vtkVertexBufferObject::ReleaseMemory"></span><span class="target" id="classvtk_vertex_buffer_object_1aa1ae974913f396d3ce462a5b2afa96df"></span>void <code class="sig-name descname">ReleaseMemory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject13ReleaseMemoryEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject3NewEv">
+<span id="_CPPv3N21vtkVertexBufferObject3NewEv"></span><span id="_CPPv2N21vtkVertexBufferObject3NewEv"></span><span id="vtkVertexBufferObject::New"></span><span class="target" id="classvtk_vertex_buffer_object_1a6b14408dc1496c7598dbcc036a78c2be"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv421vtkVertexBufferObject" title="vtkVertexBufferObject">vtkVertexBufferObject</a> *<code class="sig-name descname">New</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject3NewEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject11IsSupportedEP15vtkRenderWindow">
+<span id="_CPPv3N21vtkVertexBufferObject11IsSupportedEP15vtkRenderWindow"></span><span id="_CPPv2N21vtkVertexBufferObject11IsSupportedEP15vtkRenderWindow"></span><span id="vtkVertexBufferObject::IsSupported__vtkRenderWindowP"></span><span class="target" id="classvtk_vertex_buffer_object_1a9cf99f22e193b88779332350668ca48c"></span><em class="property">static</em> bool <code class="sig-name descname">IsSupported</code><span class="sig-paren">(</span>vtkRenderWindow *<em>renWin</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11IsSupportedEP15vtkRenderWindow" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject21vtkVertexBufferObjectEv">
+<span id="_CPPv3N21vtkVertexBufferObject21vtkVertexBufferObjectEv"></span><span id="_CPPv2N21vtkVertexBufferObject21vtkVertexBufferObjectEv"></span><span id="vtkVertexBufferObject::vtkVertexBufferObject"></span><span class="target" id="classvtk_vertex_buffer_object_1a05df59830f07c9355e6f66f29ea53b41"></span><code class="sig-name descname">vtkVertexBufferObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject21vtkVertexBufferObjectEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObjectD0Ev">
+<span id="_CPPv3N21vtkVertexBufferObjectD0Ev"></span><span id="_CPPv2N21vtkVertexBufferObjectD0Ev"></span><span id="vtkVertexBufferObject::~vtkVertexBufferObject"></span><span class="target" id="classvtk_vertex_buffer_object_1aa4203353698eece49c95778369042a15"></span><code class="sig-name descname">~vtkVertexBufferObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObjectD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject22LoadRequiredExtensionsEP25vtkOpenGLExtensionManager">
+<span id="_CPPv3N21vtkVertexBufferObject22LoadRequiredExtensionsEP25vtkOpenGLExtensionManager"></span><span id="_CPPv2N21vtkVertexBufferObject22LoadRequiredExtensionsEP25vtkOpenGLExtensionManager"></span><span id="vtkVertexBufferObject::LoadRequiredExtensions__vtkOpenGLExtensionManagerP"></span><span class="target" id="classvtk_vertex_buffer_object_1a9b4b1046abc78c58eb777c5294e6002c"></span>bool <code class="sig-name descname">LoadRequiredExtensions</code><span class="sig-paren">(</span>vtkOpenGLExtensionManager *<em>mgr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject22LoadRequiredExtensionsEP25vtkOpenGLExtensionManager" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject12CreateBufferEv">
+<span id="_CPPv3N21vtkVertexBufferObject12CreateBufferEv"></span><span id="_CPPv2N21vtkVertexBufferObject12CreateBufferEv"></span><span id="vtkVertexBufferObject::CreateBuffer"></span><span class="target" id="classvtk_vertex_buffer_object_1a6668631b71fa9ee1da60107799d7e7a2"></span>void <code class="sig-name descname">CreateBuffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject12CreateBufferEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject13DestroyBufferEv">
+<span id="_CPPv3N21vtkVertexBufferObject13DestroyBufferEv"></span><span id="_CPPv2N21vtkVertexBufferObject13DestroyBufferEv"></span><span id="vtkVertexBufferObject::DestroyBuffer"></span><span class="target" id="classvtk_vertex_buffer_object_1a4b922ade3b143ff5eeb884a2b798be8a"></span>void <code class="sig-name descname">DestroyBuffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject13DestroyBufferEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject6UploadEP6GLvoid">
+<span id="_CPPv3N21vtkVertexBufferObject6UploadEP6GLvoid"></span><span id="_CPPv2N21vtkVertexBufferObject6UploadEP6GLvoid"></span><span id="vtkVertexBufferObject::Upload__GLvoidP"></span><span class="target" id="classvtk_vertex_buffer_object_1af0108138921d548b129bef8c34e061ce"></span>bool <code class="sig-name descname">Upload</code><span class="sig-paren">(</span>GLvoid *<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject6UploadEP6GLvoid" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N21vtkVertexBufferObject11vtkGetMacroE9ArrayTypej">
+<span id="_CPPv3N21vtkVertexBufferObject11vtkGetMacroE9ArrayTypej"></span><span id="_CPPv2N21vtkVertexBufferObject11vtkGetMacroE9ArrayTypej"></span><span id="vtkVertexBufferObject::vtkGetMacro__ArrayType.unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1a8f4e43355d9c230952b397a38a336036"></span><code class="sig-name descname">vtkGetMacro</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N21vtkVertexBufferObject9ArrayTypeE" title="vtkVertexBufferObject::ArrayType">ArrayType</a>, unsigned int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject11vtkGetMacroE9ArrayTypej" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject5UsageE">
+<span id="_CPPv3N21vtkVertexBufferObject5UsageE"></span><span id="_CPPv2N21vtkVertexBufferObject5UsageE"></span><span id="vtkVertexBufferObject::Usage__i"></span><span class="target" id="classvtk_vertex_buffer_object_1ae8890e5e1807649960d9077519afed30"></span>int <code class="sig-name descname">Usage</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject5UsageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject4SizeE">
+<span id="_CPPv3N21vtkVertexBufferObject4SizeE"></span><span id="_CPPv2N21vtkVertexBufferObject4SizeE"></span><span id="vtkVertexBufferObject::Size__unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1a1d7653cc39d9add340d25fdb0e4fe329"></span>unsigned int <code class="sig-name descname">Size</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject4SizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject5CountE">
+<span id="_CPPv3N21vtkVertexBufferObject5CountE"></span><span id="_CPPv2N21vtkVertexBufferObject5CountE"></span><span id="vtkVertexBufferObject::Count__unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1aeddba6f7185a38fb2c1b1943b88a2e21"></span>unsigned int <code class="sig-name descname">Count</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject5CountE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject6HandleE">
+<span id="_CPPv3N21vtkVertexBufferObject6HandleE"></span><span id="_CPPv2N21vtkVertexBufferObject6HandleE"></span><span id="vtkVertexBufferObject::Handle__unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1a33549dce0b3d46e46b4e05d991f4e123"></span>unsigned int <code class="sig-name descname">Handle</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject6HandleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject9ArrayTypeE">
+<span id="_CPPv3N21vtkVertexBufferObject9ArrayTypeE"></span><span id="_CPPv2N21vtkVertexBufferObject9ArrayTypeE"></span><span id="vtkVertexBufferObject::ArrayType__unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1ad759652b58e980743208950c077348e5"></span>unsigned int <code class="sig-name descname">ArrayType</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject9ArrayTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject12BufferTargetE">
+<span id="_CPPv3N21vtkVertexBufferObject12BufferTargetE"></span><span id="_CPPv2N21vtkVertexBufferObject12BufferTargetE"></span><span id="vtkVertexBufferObject::BufferTarget__unsigned-i"></span><span class="target" id="classvtk_vertex_buffer_object_1a919ccadb5bf104d85e09fe0fd4237130"></span>unsigned int <code class="sig-name descname">BufferTarget</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject12BufferTargetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject14AttributeIndexE">
+<span id="_CPPv3N21vtkVertexBufferObject14AttributeIndexE"></span><span id="_CPPv2N21vtkVertexBufferObject14AttributeIndexE"></span><span id="vtkVertexBufferObject::AttributeIndex__i"></span><span class="target" id="classvtk_vertex_buffer_object_1a6814e9569b5cce74b523018b3dc667fa"></span>int <code class="sig-name descname">AttributeIndex</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject14AttributeIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject13AttributeSizeE">
+<span id="_CPPv3N21vtkVertexBufferObject13AttributeSizeE"></span><span id="_CPPv2N21vtkVertexBufferObject13AttributeSizeE"></span><span id="vtkVertexBufferObject::AttributeSize__i"></span><span class="target" id="classvtk_vertex_buffer_object_1aaff5105aea1807f26dbc12dba0a40226"></span>int <code class="sig-name descname">AttributeSize</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject13AttributeSizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject13AttributeTypeE">
+<span id="_CPPv3N21vtkVertexBufferObject13AttributeTypeE"></span><span id="_CPPv2N21vtkVertexBufferObject13AttributeTypeE"></span><span id="vtkVertexBufferObject::AttributeType__i"></span><span class="target" id="classvtk_vertex_buffer_object_1ae85f925dbd9b7ba4a283c87447823d0c"></span>int <code class="sig-name descname">AttributeType</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject13AttributeTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject19AttributeNormalizedE">
+<span id="_CPPv3N21vtkVertexBufferObject19AttributeNormalizedE"></span><span id="_CPPv2N21vtkVertexBufferObject19AttributeNormalizedE"></span><span id="vtkVertexBufferObject::AttributeNormalized__i"></span><span class="target" id="classvtk_vertex_buffer_object_1a948e71626f795ccf80f99a3ecbce0856"></span>int <code class="sig-name descname">AttributeNormalized</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject19AttributeNormalizedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject15AttributeStrideE">
+<span id="_CPPv3N21vtkVertexBufferObject15AttributeStrideE"></span><span id="_CPPv2N21vtkVertexBufferObject15AttributeStrideE"></span><span id="vtkVertexBufferObject::AttributeStride__i"></span><span class="target" id="classvtk_vertex_buffer_object_1aec80135b75fb0d04f1fb3f775561c451"></span>int <code class="sig-name descname">AttributeStride</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject15AttributeStrideE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21vtkVertexBufferObject7ContextE">
+<span id="_CPPv3N21vtkVertexBufferObject7ContextE"></span><span id="_CPPv2N21vtkVertexBufferObject7ContextE"></span><span id="vtkVertexBufferObject::Context__vtkWeakPointer:vtkRenderWindow:"></span><span class="target" id="classvtk_vertex_buffer_object_1af8dd737d68b91c5ed4d2ee21f76c6006"></span>vtkWeakPointer&lt;vtkRenderWindow&gt; <code class="sig-name descname">Context</code><a class="headerlink" href="#_CPPv4N21vtkVertexBufferObject7ContextE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

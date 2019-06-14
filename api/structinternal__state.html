@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Struct internal_state &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Struct internal_state</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/structinternal__state.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="struct-internal-state">
+<span id="exhale-struct-structinternal-state"></span><h1>Struct internal_state<a class="headerlink" href="#struct-internal-state" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_3rdparty_opennurbs_deflate.h.html#file-pcl-surface-include-pcl-surface-3rdparty-opennurbs-deflate-h"><span class="std std-ref">File deflate.h</span></a></p></li>
+</ul>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv414internal_state">
+<span id="_CPPv314internal_state"></span><span id="_CPPv214internal_state"></span><span id="internal_state"></span><span class="target" id="structinternal__state"></span><em class="property">struct </em><code class="sig-name descname">internal_state</code><a class="headerlink" href="#_CPPv414internal_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N14internal_state4strmE">
+<span id="_CPPv3N14internal_state4strmE"></span><span id="_CPPv2N14internal_state4strmE"></span><span id="internal_state::strm__z_streamp"></span><span class="target" id="structinternal__state_1aaf558a49ab8c6caea3d131c6b913db42"></span>z_streamp <code class="sig-name descname">strm</code><a class="headerlink" href="#_CPPv4N14internal_state4strmE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6statusE">
+<span id="_CPPv3N14internal_state6statusE"></span><span id="_CPPv2N14internal_state6statusE"></span><span id="internal_state::status__i"></span><span class="target" id="structinternal__state_1a8756cacdbac452a2633f87e06fae6c52"></span>int <code class="sig-name descname">status</code><a class="headerlink" href="#_CPPv4N14internal_state6statusE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state11pending_bufE">
+<span id="_CPPv3N14internal_state11pending_bufE"></span><span id="_CPPv2N14internal_state11pending_bufE"></span><span id="internal_state::pending_buf__BytefP"></span><span class="target" id="structinternal__state_1ae5f393e8d0d569da6038749768f65b94"></span>Bytef *<code class="sig-name descname">pending_buf</code><a class="headerlink" href="#_CPPv4N14internal_state11pending_bufE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state16pending_buf_sizeE">
+<span id="_CPPv3N14internal_state16pending_buf_sizeE"></span><span id="_CPPv2N14internal_state16pending_buf_sizeE"></span><span id="internal_state::pending_buf_size__ulg"></span><span class="target" id="structinternal__state_1a9100ecccf2f8bb474f0bcc7c69f55c27"></span><a class="reference internal" href="typedef_zutil_8h_1a2bf3d9b88ff8463e4a9ff25544ac5413.html#_CPPv43ulg" title="ulg">ulg</a> <code class="sig-name descname">pending_buf_size</code><a class="headerlink" href="#_CPPv4N14internal_state16pending_buf_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state11pending_outE">
+<span id="_CPPv3N14internal_state11pending_outE"></span><span id="_CPPv2N14internal_state11pending_outE"></span><span id="internal_state::pending_out__BytefP"></span><span class="target" id="structinternal__state_1a6e15ed78675c3c7bdb312623b5eceb7a"></span>Bytef *<code class="sig-name descname">pending_out</code><a class="headerlink" href="#_CPPv4N14internal_state11pending_outE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state7pendingE">
+<span id="_CPPv3N14internal_state7pendingE"></span><span id="_CPPv2N14internal_state7pendingE"></span><span id="internal_state::pending__uInt"></span><span class="target" id="structinternal__state_1ac92f5b70c269be4685539daef10b15a3"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">pending</code><a class="headerlink" href="#_CPPv4N14internal_state7pendingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state4wrapE">
+<span id="_CPPv3N14internal_state4wrapE"></span><span id="_CPPv2N14internal_state4wrapE"></span><span id="internal_state::wrap__i"></span><span class="target" id="structinternal__state_1ae80327ea7ad4ad0ef5baeef5ef3a6807"></span>int <code class="sig-name descname">wrap</code><a class="headerlink" href="#_CPPv4N14internal_state4wrapE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6gzheadE">
+<span id="_CPPv3N14internal_state6gzheadE"></span><span id="_CPPv2N14internal_state6gzheadE"></span><span id="internal_state::gzhead__gz_headerp"></span><span class="target" id="structinternal__state_1ac023d0c9e6112dfe6cbd049a56484997"></span>gz_headerp <code class="sig-name descname">gzhead</code><a class="headerlink" href="#_CPPv4N14internal_state6gzheadE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state7gzindexE">
+<span id="_CPPv3N14internal_state7gzindexE"></span><span id="_CPPv2N14internal_state7gzindexE"></span><span id="internal_state::gzindex__uInt"></span><span class="target" id="structinternal__state_1a5e09188a83aadfcb0db60b0765596aa1"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">gzindex</code><a class="headerlink" href="#_CPPv4N14internal_state7gzindexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6methodE">
+<span id="_CPPv3N14internal_state6methodE"></span><span id="_CPPv2N14internal_state6methodE"></span><span id="internal_state::method__Byte"></span><span class="target" id="structinternal__state_1aeb38f8a255e975e703595577ea43220b"></span><a class="reference internal" href="typedef_zconf_8h_1ae3a497195d617519e5353ea7b417940f.html#_CPPv44Byte" title="Byte">Byte</a> <code class="sig-name descname">method</code><a class="headerlink" href="#_CPPv4N14internal_state6methodE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state10last_flushE">
+<span id="_CPPv3N14internal_state10last_flushE"></span><span id="_CPPv2N14internal_state10last_flushE"></span><span id="internal_state::last_flush__i"></span><span class="target" id="structinternal__state_1aa9517fd4120306e1f07a05563a6fe40b"></span>int <code class="sig-name descname">last_flush</code><a class="headerlink" href="#_CPPv4N14internal_state10last_flushE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6w_sizeE">
+<span id="_CPPv3N14internal_state6w_sizeE"></span><span id="_CPPv2N14internal_state6w_sizeE"></span><span id="internal_state::w_size__uInt"></span><span class="target" id="structinternal__state_1a875579bf4d0e9d9f9c04ff288d22bb90"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">w_size</code><a class="headerlink" href="#_CPPv4N14internal_state6w_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6w_bitsE">
+<span id="_CPPv3N14internal_state6w_bitsE"></span><span id="_CPPv2N14internal_state6w_bitsE"></span><span id="internal_state::w_bits__uInt"></span><span class="target" id="structinternal__state_1a016f4538a10e71ab601017a052c0a05f"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">w_bits</code><a class="headerlink" href="#_CPPv4N14internal_state6w_bitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6w_maskE">
+<span id="_CPPv3N14internal_state6w_maskE"></span><span id="_CPPv2N14internal_state6w_maskE"></span><span id="internal_state::w_mask__uInt"></span><span class="target" id="structinternal__state_1a19aca516cb19d15cd0c2ea3c72cbe9a5"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">w_mask</code><a class="headerlink" href="#_CPPv4N14internal_state6w_maskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6windowE">
+<span id="_CPPv3N14internal_state6windowE"></span><span id="_CPPv2N14internal_state6windowE"></span><span id="internal_state::window__BytefP"></span><span class="target" id="structinternal__state_1a8d5cccc7e4dd85927c84bb8efc645533"></span>Bytef *<code class="sig-name descname">window</code><a class="headerlink" href="#_CPPv4N14internal_state6windowE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state11window_sizeE">
+<span id="_CPPv3N14internal_state11window_sizeE"></span><span id="_CPPv2N14internal_state11window_sizeE"></span><span id="internal_state::window_size__ulg"></span><span class="target" id="structinternal__state_1a4e45f5ef1c4d9d599a5fb11fa283806c"></span><a class="reference internal" href="typedef_zutil_8h_1a2bf3d9b88ff8463e4a9ff25544ac5413.html#_CPPv43ulg" title="ulg">ulg</a> <code class="sig-name descname">window_size</code><a class="headerlink" href="#_CPPv4N14internal_state11window_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state4prevE">
+<span id="_CPPv3N14internal_state4prevE"></span><span id="_CPPv2N14internal_state4prevE"></span><span id="internal_state::prev__PosfP"></span><span class="target" id="structinternal__state_1a93a7407be4c9df81f71a389eb1ff6c57"></span>Posf *<code class="sig-name descname">prev</code><a class="headerlink" href="#_CPPv4N14internal_state4prevE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state4headE">
+<span id="_CPPv3N14internal_state4headE"></span><span id="_CPPv2N14internal_state4headE"></span><span id="internal_state::head__PosfP"></span><span class="target" id="structinternal__state_1aafd9ba338599f15de29386ff7a0218f4"></span>Posf *<code class="sig-name descname">head</code><a class="headerlink" href="#_CPPv4N14internal_state4headE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state5ins_hE">
+<span id="_CPPv3N14internal_state5ins_hE"></span><span id="_CPPv2N14internal_state5ins_hE"></span><span id="internal_state::ins_h__uInt"></span><span class="target" id="structinternal__state_1a8cf437698f428195122d3c530929a80c"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">ins_h</code><a class="headerlink" href="#_CPPv4N14internal_state5ins_hE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state9hash_sizeE">
+<span id="_CPPv3N14internal_state9hash_sizeE"></span><span id="_CPPv2N14internal_state9hash_sizeE"></span><span id="internal_state::hash_size__uInt"></span><span class="target" id="structinternal__state_1aad05d6c37eb87eefafca51e05468f349"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">hash_size</code><a class="headerlink" href="#_CPPv4N14internal_state9hash_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state9hash_bitsE">
+<span id="_CPPv3N14internal_state9hash_bitsE"></span><span id="_CPPv2N14internal_state9hash_bitsE"></span><span id="internal_state::hash_bits__uInt"></span><span class="target" id="structinternal__state_1a5dbd3a26550651a746a8829210252715"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">hash_bits</code><a class="headerlink" href="#_CPPv4N14internal_state9hash_bitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state9hash_maskE">
+<span id="_CPPv3N14internal_state9hash_maskE"></span><span id="_CPPv2N14internal_state9hash_maskE"></span><span id="internal_state::hash_mask__uInt"></span><span class="target" id="structinternal__state_1a824166a384dcbf6d508c0f6b97a1cb89"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">hash_mask</code><a class="headerlink" href="#_CPPv4N14internal_state9hash_maskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state10hash_shiftE">
+<span id="_CPPv3N14internal_state10hash_shiftE"></span><span id="_CPPv2N14internal_state10hash_shiftE"></span><span id="internal_state::hash_shift__uInt"></span><span class="target" id="structinternal__state_1aec996517ec9d4c0741647c487d2c513c"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">hash_shift</code><a class="headerlink" href="#_CPPv4N14internal_state10hash_shiftE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state11block_startE">
+<span id="_CPPv3N14internal_state11block_startE"></span><span id="_CPPv2N14internal_state11block_startE"></span><span id="internal_state::block_start__i"></span><span class="target" id="structinternal__state_1ac181ba8ddadfb480d472973b7e42f4bc"></span>int <code class="sig-name descname">block_start</code><a class="headerlink" href="#_CPPv4N14internal_state11block_startE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state12match_lengthE">
+<span id="_CPPv3N14internal_state12match_lengthE"></span><span id="_CPPv2N14internal_state12match_lengthE"></span><span id="internal_state::match_length__uInt"></span><span class="target" id="structinternal__state_1aa1506e6907be6f3d4273a1386206ae0c"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">match_length</code><a class="headerlink" href="#_CPPv4N14internal_state12match_lengthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state10prev_matchE">
+<span id="_CPPv3N14internal_state10prev_matchE"></span><span id="_CPPv2N14internal_state10prev_matchE"></span><span id="internal_state::prev_match__IPos"></span><span class="target" id="structinternal__state_1a0f5871de1be252ed0496a8b7a30464ef"></span><a class="reference internal" href="typedef_deflate_8h_1ada696b787a46d01634b6365afcec1a9e.html#_CPPv44IPos" title="IPos">IPos</a> <code class="sig-name descname">prev_match</code><a class="headerlink" href="#_CPPv4N14internal_state10prev_matchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state15match_availableE">
+<span id="_CPPv3N14internal_state15match_availableE"></span><span id="_CPPv2N14internal_state15match_availableE"></span><span id="internal_state::match_available__i"></span><span class="target" id="structinternal__state_1accddba15d8b54ca3f10163fa920599f4"></span>int <code class="sig-name descname">match_available</code><a class="headerlink" href="#_CPPv4N14internal_state15match_availableE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state8strstartE">
+<span id="_CPPv3N14internal_state8strstartE"></span><span id="_CPPv2N14internal_state8strstartE"></span><span id="internal_state::strstart__uInt"></span><span class="target" id="structinternal__state_1a946579b9b86ee466424ffb0a67eb7060"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">strstart</code><a class="headerlink" href="#_CPPv4N14internal_state8strstartE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state11match_startE">
+<span id="_CPPv3N14internal_state11match_startE"></span><span id="_CPPv2N14internal_state11match_startE"></span><span id="internal_state::match_start__uInt"></span><span class="target" id="structinternal__state_1aced58a85c56daa1c5de41fa5ce75d2e8"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">match_start</code><a class="headerlink" href="#_CPPv4N14internal_state11match_startE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state9lookaheadE">
+<span id="_CPPv3N14internal_state9lookaheadE"></span><span id="_CPPv2N14internal_state9lookaheadE"></span><span id="internal_state::lookahead__uInt"></span><span class="target" id="structinternal__state_1a3a826064126ee19a77f78919e2f9bb1e"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">lookahead</code><a class="headerlink" href="#_CPPv4N14internal_state9lookaheadE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state11prev_lengthE">
+<span id="_CPPv3N14internal_state11prev_lengthE"></span><span id="_CPPv2N14internal_state11prev_lengthE"></span><span id="internal_state::prev_length__uInt"></span><span class="target" id="structinternal__state_1a7619fb70f9f66ff21b419b8ceac4904c"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">prev_length</code><a class="headerlink" href="#_CPPv4N14internal_state11prev_lengthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state16max_chain_lengthE">
+<span id="_CPPv3N14internal_state16max_chain_lengthE"></span><span id="_CPPv2N14internal_state16max_chain_lengthE"></span><span id="internal_state::max_chain_length__uInt"></span><span class="target" id="structinternal__state_1ab1ffa7feb159edec170574813fae3279"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">max_chain_length</code><a class="headerlink" href="#_CPPv4N14internal_state16max_chain_lengthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state14max_lazy_matchE">
+<span id="_CPPv3N14internal_state14max_lazy_matchE"></span><span id="_CPPv2N14internal_state14max_lazy_matchE"></span><span id="internal_state::max_lazy_match__uInt"></span><span class="target" id="structinternal__state_1ab74215ec1c106bf588a7642927d47b84"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">max_lazy_match</code><a class="headerlink" href="#_CPPv4N14internal_state14max_lazy_matchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state5levelE">
+<span id="_CPPv3N14internal_state5levelE"></span><span id="_CPPv2N14internal_state5levelE"></span><span id="internal_state::level__i"></span><span class="target" id="structinternal__state_1a7ad2ab1df80c8cab4ffb97ff84e88c62"></span>int <code class="sig-name descname">level</code><a class="headerlink" href="#_CPPv4N14internal_state5levelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state8strategyE">
+<span id="_CPPv3N14internal_state8strategyE"></span><span id="_CPPv2N14internal_state8strategyE"></span><span id="internal_state::strategy__i"></span><span class="target" id="structinternal__state_1a67219312df7fd2f86e06e6f14700eb28"></span>int <code class="sig-name descname">strategy</code><a class="headerlink" href="#_CPPv4N14internal_state8strategyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state10good_matchE">
+<span id="_CPPv3N14internal_state10good_matchE"></span><span id="_CPPv2N14internal_state10good_matchE"></span><span id="internal_state::good_match__uInt"></span><span class="target" id="structinternal__state_1a68ba00254242017f330dca5e0191bca4"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">good_match</code><a class="headerlink" href="#_CPPv4N14internal_state10good_matchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state10nice_matchE">
+<span id="_CPPv3N14internal_state10nice_matchE"></span><span id="_CPPv2N14internal_state10nice_matchE"></span><span id="internal_state::nice_match__i"></span><span class="target" id="structinternal__state_1a39ab99e52138c0628f645bc1e0c69a04"></span>int <code class="sig-name descname">nice_match</code><a class="headerlink" href="#_CPPv4N14internal_state10nice_matchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state9dyn_ltreeE">
+<span id="_CPPv3N14internal_state9dyn_ltreeE"></span><span id="_CPPv2N14internal_state9dyn_ltreeE"></span><span id="internal_state::dyn_ltree__ct_data_sA"></span><span class="target" id="structinternal__state_1ae11867c05d54c575dbc713bbea71266c"></span><em class="property">struct</em> <a class="reference internal" href="structct__data__s.html#_CPPv49ct_data_s" title="ct_data_s">ct_data_s</a> <code class="sig-name descname">dyn_ltree</code>[<code class="sig-name descname">HEAP_SIZE</code>]<a class="headerlink" href="#_CPPv4N14internal_state9dyn_ltreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state9dyn_dtreeE">
+<span id="_CPPv3N14internal_state9dyn_dtreeE"></span><span id="_CPPv2N14internal_state9dyn_dtreeE"></span><span id="internal_state::dyn_dtree__ct_data_sA"></span><span class="target" id="structinternal__state_1a42a52476d3cde41e57a6ef2a6a78008f"></span><em class="property">struct</em> <a class="reference internal" href="structct__data__s.html#_CPPv49ct_data_s" title="ct_data_s">ct_data_s</a> <code class="sig-name descname">dyn_dtree</code>[2 * <code class="sig-name descname">D_CODES</code> + 1]<a class="headerlink" href="#_CPPv4N14internal_state9dyn_dtreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state7bl_treeE">
+<span id="_CPPv3N14internal_state7bl_treeE"></span><span id="_CPPv2N14internal_state7bl_treeE"></span><span id="internal_state::bl_tree__ct_data_sA"></span><span class="target" id="structinternal__state_1a98131fc5b64d0d7542bc3621aef19854"></span><em class="property">struct</em> <a class="reference internal" href="structct__data__s.html#_CPPv49ct_data_s" title="ct_data_s">ct_data_s</a> <code class="sig-name descname">bl_tree</code>[2 * <code class="sig-name descname">BL_CODES</code> + 1]<a class="headerlink" href="#_CPPv4N14internal_state7bl_treeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6l_descE">
+<span id="_CPPv3N14internal_state6l_descE"></span><span id="_CPPv2N14internal_state6l_descE"></span><span id="internal_state::l_desc__tree_desc_s"></span><span class="target" id="structinternal__state_1a0266c4e0250652904e6b4908d8da84a9"></span><em class="property">struct</em> <a class="reference internal" href="structtree__desc__s.html#_CPPv411tree_desc_s" title="tree_desc_s">tree_desc_s</a> <code class="sig-name descname">l_desc</code><a class="headerlink" href="#_CPPv4N14internal_state6l_descE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6d_descE">
+<span id="_CPPv3N14internal_state6d_descE"></span><span id="_CPPv2N14internal_state6d_descE"></span><span id="internal_state::d_desc__tree_desc_s"></span><span class="target" id="structinternal__state_1ab2fddb383d3055b6ec81c7fef14e99d8"></span><em class="property">struct</em> <a class="reference internal" href="structtree__desc__s.html#_CPPv411tree_desc_s" title="tree_desc_s">tree_desc_s</a> <code class="sig-name descname">d_desc</code><a class="headerlink" href="#_CPPv4N14internal_state6d_descE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state7bl_descE">
+<span id="_CPPv3N14internal_state7bl_descE"></span><span id="_CPPv2N14internal_state7bl_descE"></span><span id="internal_state::bl_desc__tree_desc_s"></span><span class="target" id="structinternal__state_1aa0e5da102c35a7e7d22dd1894039393b"></span><em class="property">struct</em> <a class="reference internal" href="structtree__desc__s.html#_CPPv411tree_desc_s" title="tree_desc_s">tree_desc_s</a> <code class="sig-name descname">bl_desc</code><a class="headerlink" href="#_CPPv4N14internal_state7bl_descE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state8bl_countE">
+<span id="_CPPv3N14internal_state8bl_countE"></span><span id="_CPPv2N14internal_state8bl_countE"></span><span id="internal_state::bl_count__ushA"></span><span class="target" id="structinternal__state_1abf9e786c8e5b4ab5d620ab123208034c"></span><a class="reference internal" href="typedef_zutil_8h_1a3754180d606d4ed15468d15d9665aa2e.html#_CPPv43ush" title="ush">ush</a> <code class="sig-name descname">bl_count</code>[<code class="sig-name descname">MAX_BITS</code> + 1]<a class="headerlink" href="#_CPPv4N14internal_state8bl_countE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state4heapE">
+<span id="_CPPv3N14internal_state4heapE"></span><span id="_CPPv2N14internal_state4heapE"></span><span id="internal_state::heap__iA"></span><span class="target" id="structinternal__state_1ad7edb9b1d387e631bc6fde1cad0af758"></span>int <code class="sig-name descname">heap</code>[2 * <code class="sig-name descname">L_CODES</code> + 1]<a class="headerlink" href="#_CPPv4N14internal_state4heapE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state8heap_lenE">
+<span id="_CPPv3N14internal_state8heap_lenE"></span><span id="_CPPv2N14internal_state8heap_lenE"></span><span id="internal_state::heap_len__i"></span><span class="target" id="structinternal__state_1a0659e23b0188ac16db58f98ae2b67b6b"></span>int <code class="sig-name descname">heap_len</code><a class="headerlink" href="#_CPPv4N14internal_state8heap_lenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state8heap_maxE">
+<span id="_CPPv3N14internal_state8heap_maxE"></span><span id="_CPPv2N14internal_state8heap_maxE"></span><span id="internal_state::heap_max__i"></span><span class="target" id="structinternal__state_1aa8c78bbfa5d71f3ccc55445a62897f47"></span>int <code class="sig-name descname">heap_max</code><a class="headerlink" href="#_CPPv4N14internal_state8heap_maxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state5depthE">
+<span id="_CPPv3N14internal_state5depthE"></span><span id="_CPPv2N14internal_state5depthE"></span><span id="internal_state::depth__uchA"></span><span class="target" id="structinternal__state_1a8e525b4f3dfa38b3bbcb8b427e333570"></span><a class="reference internal" href="typedef_zutil_8h_1af3307af5922c72924a837559c801a8a4.html#_CPPv43uch" title="uch">uch</a> <code class="sig-name descname">depth</code>[2 * <code class="sig-name descname">L_CODES</code> + 1]<a class="headerlink" href="#_CPPv4N14internal_state5depthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state5l_bufE">
+<span id="_CPPv3N14internal_state5l_bufE"></span><span id="_CPPv2N14internal_state5l_bufE"></span><span id="internal_state::l_buf__uchfP"></span><span class="target" id="structinternal__state_1a5e6c4269e29696b192e02fd01381e400"></span>uchf *<code class="sig-name descname">l_buf</code><a class="headerlink" href="#_CPPv4N14internal_state5l_bufE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state11lit_bufsizeE">
+<span id="_CPPv3N14internal_state11lit_bufsizeE"></span><span id="_CPPv2N14internal_state11lit_bufsizeE"></span><span id="internal_state::lit_bufsize__uInt"></span><span class="target" id="structinternal__state_1a25ad7fc0094e412144b4201df2126bbb"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">lit_bufsize</code><a class="headerlink" href="#_CPPv4N14internal_state11lit_bufsizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state8last_litE">
+<span id="_CPPv3N14internal_state8last_litE"></span><span id="_CPPv2N14internal_state8last_litE"></span><span id="internal_state::last_lit__uInt"></span><span class="target" id="structinternal__state_1a01689001a8f8c7dfa46a439b7ae0708a"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">last_lit</code><a class="headerlink" href="#_CPPv4N14internal_state8last_litE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state5d_bufE">
+<span id="_CPPv3N14internal_state5d_bufE"></span><span id="_CPPv2N14internal_state5d_bufE"></span><span id="internal_state::d_buf__ushfP"></span><span class="target" id="structinternal__state_1ac636c34c1c08dc9d2f9c199ce2caa99d"></span>ushf *<code class="sig-name descname">d_buf</code><a class="headerlink" href="#_CPPv4N14internal_state5d_bufE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state7opt_lenE">
+<span id="_CPPv3N14internal_state7opt_lenE"></span><span id="_CPPv2N14internal_state7opt_lenE"></span><span id="internal_state::opt_len__ulg"></span><span class="target" id="structinternal__state_1a2f6efee5d2057aba8bca2c1a58cf418a"></span><a class="reference internal" href="typedef_zutil_8h_1a2bf3d9b88ff8463e4a9ff25544ac5413.html#_CPPv43ulg" title="ulg">ulg</a> <code class="sig-name descname">opt_len</code><a class="headerlink" href="#_CPPv4N14internal_state7opt_lenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state10static_lenE">
+<span id="_CPPv3N14internal_state10static_lenE"></span><span id="_CPPv2N14internal_state10static_lenE"></span><span id="internal_state::static_len__ulg"></span><span class="target" id="structinternal__state_1a8a83e269866761afa3a7b4641ba5ff91"></span><a class="reference internal" href="typedef_zutil_8h_1a2bf3d9b88ff8463e4a9ff25544ac5413.html#_CPPv43ulg" title="ulg">ulg</a> <code class="sig-name descname">static_len</code><a class="headerlink" href="#_CPPv4N14internal_state10static_lenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state7matchesE">
+<span id="_CPPv3N14internal_state7matchesE"></span><span id="_CPPv2N14internal_state7matchesE"></span><span id="internal_state::matches__uInt"></span><span class="target" id="structinternal__state_1ac0f10ec7237615f6b632f2f4d14872ef"></span><a class="reference internal" href="typedef_zconf_8h_1a87d141052bcd5ec8a80812a565c70369.html#_CPPv44uInt" title="uInt">uInt</a> <code class="sig-name descname">matches</code><a class="headerlink" href="#_CPPv4N14internal_state7matchesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state12last_eob_lenE">
+<span id="_CPPv3N14internal_state12last_eob_lenE"></span><span id="_CPPv2N14internal_state12last_eob_lenE"></span><span id="internal_state::last_eob_len__i"></span><span class="target" id="structinternal__state_1abf71c5672f4fce10f6f6a99eb30f72e1"></span>int <code class="sig-name descname">last_eob_len</code><a class="headerlink" href="#_CPPv4N14internal_state12last_eob_lenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state6bi_bufE">
+<span id="_CPPv3N14internal_state6bi_bufE"></span><span id="_CPPv2N14internal_state6bi_bufE"></span><span id="internal_state::bi_buf__ush"></span><span class="target" id="structinternal__state_1a6880946d081053778f5f544b04603d13"></span><a class="reference internal" href="typedef_zutil_8h_1a3754180d606d4ed15468d15d9665aa2e.html#_CPPv43ush" title="ush">ush</a> <code class="sig-name descname">bi_buf</code><a class="headerlink" href="#_CPPv4N14internal_state6bi_bufE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state8bi_validE">
+<span id="_CPPv3N14internal_state8bi_validE"></span><span id="_CPPv2N14internal_state8bi_validE"></span><span id="internal_state::bi_valid__i"></span><span class="target" id="structinternal__state_1a241f3606e41a3aa0ef22868a41bd9a0f"></span>int <code class="sig-name descname">bi_valid</code><a class="headerlink" href="#_CPPv4N14internal_state8bi_validE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14internal_state5dummyE">
+<span id="_CPPv3N14internal_state5dummyE"></span><span id="_CPPv2N14internal_state5dummyE"></span><span id="internal_state::dummy__i"></span><span class="target" id="structinternal__state_1ab000a3e3c901dd063859521988ad7e52"></span>int <code class="sig-name descname">dummy</code><a class="headerlink" href="#_CPPv4N14internal_state5dummyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

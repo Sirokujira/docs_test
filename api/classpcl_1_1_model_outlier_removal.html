@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class ModelOutlierRemoval &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class ModelOutlierRemoval</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_model_outlier_removal.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-modeloutlierremoval">
+<span id="exhale-class-classpcl-1-1-model-outlier-removal"></span><h1>Template Class ModelOutlierRemoval<a class="headerlink" href="#template-class-modeloutlierremoval" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_filters_include_pcl_filters_model_outlier_removal.h.html#file-pcl-filters-include-pcl-filters-model-outlier-removal-h"><span class="std std-ref">File model_outlier_removal.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::FilterIndices&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_filter_indices.html#exhale-class-classpcl-1-1-filter-indices"><span class="std std-ref">Template Class FilterIndices</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl19ModelOutlierRemovalE">
+<span id="_CPPv3I0EN3pcl19ModelOutlierRemovalE"></span><span id="_CPPv2I0EN3pcl19ModelOutlierRemovalE"></span><span class="target" id="classpcl_1_1_model_outlier_removal"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">ModelOutlierRemoval</code> : <em class="property">public</em> pcl::FilterIndices&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl19ModelOutlierRemovalE" title="pcl::ModelOutlierRemoval::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl19ModelOutlierRemovalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_model_outlier_removal"><span class="std std-ref">ModelOutlierRemoval</span></a></strong> filters points in a cloud based on the distance between model and point. </p>
+<p>Iterates through the entire input once, automatically filtering non-finite points and the points outside the model specified by setSampleConsensusModelPointer() and the threshold specified by setThreholdFunctionPointer(). <p> Usage example: </p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">pcl</span><span class="o">::</span><span class="n">ModelCoefficients</span> <span class="n">model_coeff</span><span class="p">;</span>
+<span class="n">model_coeff</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">model_coeff</span><span class="p">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">model_coeff</span><span class="p">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">model_coeff</span><span class="p">.</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span> <span class="n">model_coeff</span><span class="p">.</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="n">pcl</span><span class="o">::</span><span class="n">ModelOutlierRemoval</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="o">&gt;</span> <span class="n">filter</span><span class="p">;</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">setModelCoefficients</span> <span class="p">(</span><span class="n">model_coeff</span><span class="p">);</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">setThreshold</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">setModelType</span> <span class="p">(</span><span class="n">pcl</span><span class="o">::</span><span class="n">SACMODEL_PLANE</span><span class="p">);</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">setInputCloud</span> <span class="p">(</span><span class="o">*</span><span class="n">cloud_in</span><span class="p">);</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">setFilterLimitsNegative</span> <span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="n">filter</span><span class="p">.</span><span class="n">filter</span> <span class="p">(</span><span class="o">*</span><span class="n">cloud_out</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval14PointCloudNPtrE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval14PointCloudNPtrE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval14PointCloudNPtrE"></span><span id="pcl::ModelOutlierRemoval::PointCloudNPtr"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a21409f23e7ddd4cc660d2ee4700cd15a"></span><em class="property">typedef </em>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt;::Ptr <code class="sig-name descname">PointCloudNPtr</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval14PointCloudNPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval19PointCloudNConstPtrE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval19PointCloudNConstPtrE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval19PointCloudNConstPtrE"></span><span id="pcl::ModelOutlierRemoval::PointCloudNConstPtr"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a7e6de3bbf5826fd268863f7c7805c8dc"></span><em class="property">typedef </em>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt;::ConstPtr <code class="sig-name descname">PointCloudNConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval19PointCloudNConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval19ModelOutlierRemovalEb">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval19ModelOutlierRemovalEb"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval19ModelOutlierRemovalEb"></span><span id="pcl::ModelOutlierRemoval::ModelOutlierRemoval__b"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a92504900c55217f8ec0e337c7e0ed008"></span><code class="sig-name descname">ModelOutlierRemoval</code><span class="sig-paren">(</span>bool <em>extract_removed_indices</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval19ModelOutlierRemovalEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">extract_removed_indices</span></code>: Set to true if you want to be able to extract the indices of points being removed (default = false). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval20setModelCoefficientsEKN3pcl17ModelCoefficientsE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval20setModelCoefficientsEKN3pcl17ModelCoefficientsE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval20setModelCoefficientsEKN3pcl17ModelCoefficientsE"></span><span id="pcl::ModelOutlierRemoval::setModelCoefficients__pcl::ModelCoefficientsC"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1af1b99bece766701637636faf3e7611f5"></span>void <code class="sig-name descname">setModelCoefficients</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_model_coefficients.html#_CPPv4N3pcl17ModelCoefficientsE" title="pcl::ModelCoefficients">ModelCoefficients</a> <em>model_coefficients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval20setModelCoefficientsEKN3pcl17ModelCoefficientsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>sets the models coefficients </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19ModelOutlierRemoval20getModelCoefficientsEv">
+<span id="_CPPv3NK3pcl19ModelOutlierRemoval20getModelCoefficientsEv"></span><span id="_CPPv2NK3pcl19ModelOutlierRemoval20getModelCoefficientsEv"></span><span id="pcl::ModelOutlierRemoval::getModelCoefficientsC"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a986c3092c64fb8da007ee358381b1672"></span>pcl::<a class="reference internal" href="structpcl_1_1_model_coefficients.html#_CPPv4N3pcl17ModelCoefficientsE" title="pcl::ModelCoefficients">ModelCoefficients</a> <code class="sig-name descname">getModelCoefficients</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19ModelOutlierRemoval20getModelCoefficientsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>returns the models coefficients </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval12setModelTypeEN3pcl8SacModelE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval12setModelTypeEN3pcl8SacModelE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval12setModelTypeEN3pcl8SacModelE"></span><span id="pcl::ModelOutlierRemoval::setModelType__pcl::SacModel"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a30451f61b53235dddea4bb2d1a055e21"></span>void <code class="sig-name descname">setModelType</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="enum_namespacepcl_1a801a3c83fe807097c9aded5534df1394.html#_CPPv4N3pcl8SacModelE" title="pcl::SacModel">SacModel</a> <em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval12setModelTypeEN3pcl8SacModelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the type of SAC model used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19ModelOutlierRemoval12getModelTypeEv">
+<span id="_CPPv3NK3pcl19ModelOutlierRemoval12getModelTypeEv"></span><span id="_CPPv2NK3pcl19ModelOutlierRemoval12getModelTypeEv"></span><span id="pcl::ModelOutlierRemoval::getModelTypeC"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1ac8b43602729da9bafc11c83005fd3854"></span>pcl::<a class="reference internal" href="enum_namespacepcl_1a801a3c83fe807097c9aded5534df1394.html#_CPPv4N3pcl8SacModelE" title="pcl::SacModel">SacModel</a> <code class="sig-name descname">getModelType</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19ModelOutlierRemoval12getModelTypeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the type of SAC model used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval12setThresholdEf">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval12setThresholdEf"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval12setThresholdEf"></span><span id="pcl::ModelOutlierRemoval::setThreshold__float"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1afb3d82cbedb9891c895b00dbda3612bd"></span>void <code class="sig-name descname">setThreshold</code><span class="sig-paren">(</span>float <em>thresh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval12setThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the thresholdfunction. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19ModelOutlierRemoval12getThresholdEv">
+<span id="_CPPv3NK3pcl19ModelOutlierRemoval12getThresholdEv"></span><span id="_CPPv2NK3pcl19ModelOutlierRemoval12getThresholdEv"></span><span id="pcl::ModelOutlierRemoval::getThresholdC"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a528af2f982ad598acf12631ac81b5f24"></span>float <code class="sig-name descname">getThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19ModelOutlierRemoval12getThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the thresholdfunction. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval15setInputNormalsEK19PointCloudNConstPtr">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval15setInputNormalsEK19PointCloudNConstPtr"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval15setInputNormalsEK19PointCloudNConstPtr"></span><span id="pcl::ModelOutlierRemoval::setInputNormals__PointCloudNConstPtrC"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a1176fc3fd825c7f34e6e14a91e53d580"></span>void <code class="sig-name descname">setInputNormals</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl19ModelOutlierRemoval19PointCloudNConstPtrE" title="pcl::ModelOutlierRemoval::PointCloudNConstPtr">PointCloudNConstPtr</a> <em>normals_ptr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval15setInputNormalsEK19PointCloudNConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the normals cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19ModelOutlierRemoval15getInputNormalsEv">
+<span id="_CPPv3NK3pcl19ModelOutlierRemoval15getInputNormalsEv"></span><span id="_CPPv2NK3pcl19ModelOutlierRemoval15getInputNormalsEv"></span><span id="pcl::ModelOutlierRemoval::getInputNormalsC"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a9ca16c7cb037a10fd189778c1aaad99b"></span><a class="reference internal" href="#_CPPv4N3pcl19ModelOutlierRemoval19PointCloudNConstPtrE" title="pcl::ModelOutlierRemoval::PointCloudNConstPtr">PointCloudNConstPtr</a> <code class="sig-name descname">getInputNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19ModelOutlierRemoval15getInputNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the normals cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval23setNormalDistanceWeightEKd">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval23setNormalDistanceWeightEKd"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval23setNormalDistanceWeightEKd"></span><span id="pcl::ModelOutlierRemoval::setNormalDistanceWeight__doubleC"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1aa4f5129e7f39f6f74dccbad8b00e39a6"></span>void <code class="sig-name descname">setNormalDistanceWeight</code><span class="sig-paren">(</span><em class="property">const</em> double <em>weight</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval23setNormalDistanceWeightEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the normals distance weight. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19ModelOutlierRemoval23getNormalDistanceWeightEv">
+<span id="_CPPv3NK3pcl19ModelOutlierRemoval23getNormalDistanceWeightEv"></span><span id="_CPPv2NK3pcl19ModelOutlierRemoval23getNormalDistanceWeightEv"></span><span id="pcl::ModelOutlierRemoval::getNormalDistanceWeightC"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a84037ffa5670bd5f5a36dc024c87ceec"></span>double <code class="sig-name descname">getNormalDistanceWeight</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19ModelOutlierRemoval23getNormalDistanceWeightEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get the normal distance weight </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval20setThresholdFunctionEN5boost8functionIFbdEEE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval20setThresholdFunctionEN5boost8functionIFbdEEE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval20setThresholdFunctionEN5boost8functionIFbdEEE"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a283c4efd295c1b2453536db8a4c6c2ce"></span>void <code class="sig-name descname">setThresholdFunction</code><span class="sig-paren">(</span>boost::function&lt;bool<span class="sig-paren">(</span>double<span class="sig-paren">)</span>&gt; <em>thresh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval20setThresholdFunctionEN5boost8functionIFbdEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Register a different threshold function. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">thresh</span></code>: pointer to a threshold function </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_model_outlier_removal_1a982e72d52ac3e962640bf74604eb7b94"></span><code class="sig-name descname">template&lt;typename T&gt;void pcl::ModelOutlierRemoval::setThresholdFunction(bool(T::*)(double) thresh_function, T &amp; instance)</code></dt>
+<dd><p>Register a different threshold function. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">thresh_function</span></code>: pointer to a threshold function </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">instance</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval10PointCloudE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval10PointCloudE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval10PointCloudE"></span><span id="pcl::ModelOutlierRemoval::PointCloud"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a8e29a20f2084e2fd42752c034cd3d196"></span><em class="property">typedef </em>FilterIndices&lt;PointT&gt;::PointCloud <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval13PointCloudPtrE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval13PointCloudPtrE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval13PointCloudPtrE"></span><span id="pcl::ModelOutlierRemoval::PointCloudPtr"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1ad1ee080a61feb647d840d27eb5cdd15a"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl19ModelOutlierRemoval10PointCloudE" title="pcl::ModelOutlierRemoval::PointCloud">PointCloud</a>::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval18PointCloudConstPtrE"></span><span id="pcl::ModelOutlierRemoval::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a1ce3cb65ffcb19174c4b88c858d25752"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl19ModelOutlierRemoval10PointCloudE" title="pcl::ModelOutlierRemoval::PointCloud">PointCloud</a>::ConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval23SampleConsensusModelPtrE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval23SampleConsensusModelPtrE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval23SampleConsensusModelPtrE"></span><span id="pcl::ModelOutlierRemoval::SampleConsensusModelPtr"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a72d90dda7d1108f6e009460d6c994e44"></span><em class="property">typedef </em>SampleConsensusModel&lt;PointT&gt;::Ptr <code class="sig-name descname">SampleConsensusModelPtr</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval23SampleConsensusModelPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval11applyFilterER10PointCloud">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval11applyFilterER10PointCloud"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval11applyFilterER10PointCloud"></span><span id="pcl::ModelOutlierRemoval::applyFilter__PointCloudR"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a3f4b944996f04740e56ac378f8f06183"></span>void <code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl19ModelOutlierRemoval10PointCloudE" title="pcl::ModelOutlierRemoval::PointCloud">PointCloud</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval11applyFilterER10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Filtered results are stored in a separate point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: The resultant point cloud. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval11applyFilterERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval11applyFilterERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval11applyFilterERNSt6vectorIiEE"></span><span id="pcl::ModelOutlierRemoval::applyFilter__std::vector:i:R"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1ae9ef428e59a14d0136cf44ac2c6aea90"></span>void <code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval11applyFilterERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Filtered results are indexed by an indices array. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">indices</span></code>: The resultant indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval18applyFilterIndicesERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval18applyFilterIndicesERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval18applyFilterIndicesERNSt6vectorIiEE"></span><span id="pcl::ModelOutlierRemoval::applyFilterIndices__std::vector:i:R"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a3cf4bbd4c9245d3f5935ce5a2055571c"></span>void <code class="sig-name descname">applyFilterIndices</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval18applyFilterIndicesERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Filtered results are indexed by an indices array. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">indices</span></code>: The resultant indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval20checkSingleThresholdEd">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval20checkSingleThresholdEd"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval20checkSingleThresholdEd"></span><span id="pcl::ModelOutlierRemoval::checkSingleThreshold__double"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1adc23b464713be8be1393e1bdb13a90f6"></span>bool <code class="sig-name descname">checkSingleThreshold</code><span class="sig-paren">(</span>double <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval20checkSingleThresholdEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval24normals_distance_weight_E">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval24normals_distance_weight_E"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval24normals_distance_weight_E"></span><span id="pcl::ModelOutlierRemoval::normals_distance_weight___double"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1ac667db1b004a031930ff08695a14fb87"></span>double <code class="sig-name descname">normals_distance_weight_</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval24normals_distance_weight_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval14cloud_normals_E">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval14cloud_normals_E"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval14cloud_normals_E"></span><span id="pcl::ModelOutlierRemoval::cloud_normals___PointCloudNConstPtr"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1ad634fa7eb3cc9f417e1f72491f9f6fba"></span><a class="reference internal" href="#_CPPv4N3pcl19ModelOutlierRemoval19PointCloudNConstPtrE" title="pcl::ModelOutlierRemoval::PointCloudNConstPtr">PointCloudNConstPtr</a> <code class="sig-name descname">cloud_normals_</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval14cloud_normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval6model_E">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval6model_E"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval6model_E"></span><span id="pcl::ModelOutlierRemoval::model___SampleConsensusModelPtr"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1aa93ec51c79214cfe3d2c7eefa2f74102"></span><a class="reference internal" href="#_CPPv4N3pcl19ModelOutlierRemoval23SampleConsensusModelPtrE" title="pcl::ModelOutlierRemoval::SampleConsensusModelPtr">SampleConsensusModelPtr</a> <code class="sig-name descname">model_</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval6model_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The model used to calculate distances. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval7thresh_E">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval7thresh_E"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval7thresh_E"></span><span id="pcl::ModelOutlierRemoval::thresh___float"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a463fce3cf323fb8410c82fd808390da3"></span>float <code class="sig-name descname">thresh_</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval7thresh_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The threshold used to separate outliers (removed_indices) from inliers (indices) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval19model_coefficients_E">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval19model_coefficients_E"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval19model_coefficients_E"></span><span id="pcl::ModelOutlierRemoval::model_coefficients___Eigen::VectorXf"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a0efd26dbbbb34eb4eb07fb5fd75f7d50"></span>Eigen::VectorXf <code class="sig-name descname">model_coefficients_</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval19model_coefficients_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The model coefficients. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval11model_type_E">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval11model_type_E"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval11model_type_E"></span><span id="pcl::ModelOutlierRemoval::model_type___pcl::SacModel"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1a60aecb5280930a500556ff623e230d36"></span>pcl::<a class="reference internal" href="enum_namespacepcl_1a801a3c83fe807097c9aded5534df1394.html#_CPPv4N3pcl8SacModelE" title="pcl::SacModel">SacModel</a> <code class="sig-name descname">model_type_</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval11model_type_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The type of model to use (user given parameter). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19ModelOutlierRemoval19threshold_function_E">
+<span id="_CPPv3N3pcl19ModelOutlierRemoval19threshold_function_E"></span><span id="_CPPv2N3pcl19ModelOutlierRemoval19threshold_function_E"></span><span class="target" id="classpcl_1_1_model_outlier_removal_1af88e17c19837f8af35706c3235a55cfc"></span>boost::function&lt;bool<span class="sig-paren">(</span>double<span class="sig-paren">)</span>&gt; <code class="sig-name descname">threshold_function_</code><a class="headerlink" href="#_CPPv4N3pcl19ModelOutlierRemoval19threshold_function_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

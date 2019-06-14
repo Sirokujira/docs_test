@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class HarrisKeypoint3D &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class HarrisKeypoint3D</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_harris_keypoint3_d.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-harriskeypoint3d">
+<span id="exhale-class-classpcl-1-1-harris-keypoint3-d"></span><h1>Template Class HarrisKeypoint3D<a class="headerlink" href="#template-class-harriskeypoint3d" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_keypoints_include_pcl_keypoints_harris_3d.h.html#file-pcl-keypoints-include-pcl-keypoints-harris-3d-h"><span class="std std-ref">File harris_3d.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Keypoint&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_keypoint.html#exhale-class-classpcl-1-1-keypoint"><span class="std std-ref">Template Class Keypoint</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I000EN3pcl16HarrisKeypoint3DE">
+<span id="_CPPv3I000EN3pcl16HarrisKeypoint3DE"></span><span id="_CPPv2I000EN3pcl16HarrisKeypoint3DE"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">PointOutT</code>, typename <code class="sig-name descname">NormalT</code> = pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">HarrisKeypoint3D</code> : <em class="property">public</em> pcl::Keypoint&lt;<a class="reference internal" href="#_CPPv4I000EN3pcl16HarrisKeypoint3DE" title="pcl::HarrisKeypoint3D::PointInT">PointInT</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl16HarrisKeypoint3DE" title="pcl::HarrisKeypoint3D::PointOutT">PointOutT</a>&gt;<a class="headerlink" href="#_CPPv4I000EN3pcl16HarrisKeypoint3DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_harris_keypoint3_d"><span class="std std-ref">HarrisKeypoint3D</span></a> uses the idea of 2D Harris keypoints, but instead of using image gradients, it uses surface normals. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D14ResponseMethodE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D14ResponseMethodE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D14ResponseMethodE"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a372b4e5dd47b17cb70dd3a8f6e9e4187"></span><em class="property">enum </em><code class="sig-name descname">ResponseMethod</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D14ResponseMethodE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D6HARRISE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D6HARRISE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D6HARRISE"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a372b4e5dd47b17cb70dd3a8f6e9e4187aae1cd7868184d698a1e4eaa659ceb67b"></span><code class="sig-name descname">HARRIS</code> = 1<a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D6HARRISE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D5NOBLEE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D5NOBLEE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D5NOBLEE"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a372b4e5dd47b17cb70dd3a8f6e9e4187a44b647aef21bf6e729040811c48a851c"></span><code class="sig-name descname">NOBLE</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D5NOBLEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D4LOWEE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D4LOWEE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D4LOWEE"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a372b4e5dd47b17cb70dd3a8f6e9e4187a62c99cee45eadd40bdc3275e1a492cb4"></span><code class="sig-name descname">LOWE</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D4LOWEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D6TOMASIE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D6TOMASIE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D6TOMASIE"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a372b4e5dd47b17cb70dd3a8f6e9e4187a9f579996fc55f8a9f01925bedbc91a6f"></span><code class="sig-name descname">TOMASI</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D6TOMASIE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D9CURVATUREE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D9CURVATUREE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D9CURVATUREE"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a372b4e5dd47b17cb70dd3a8f6e9e4187a6159b39a0350ae43cfbe64457af06a50"></span><code class="sig-name descname">CURVATURE</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D9CURVATUREE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D3PtrE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D3PtrE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D3PtrE"></span><span id="pcl::HarrisKeypoint3D::Ptr"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a6051f0ed7ca3adadd4d1fb980b066ffa"></span><em class="property">typedef </em>boost::shared_ptr&lt;HarrisKeypoint3D&lt;PointInT, PointOutT, <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D8ConstPtrE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D8ConstPtrE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D8ConstPtrE"></span><span id="pcl::HarrisKeypoint3D::ConstPtr"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a8afe55797f84cbcc113eef64c91fab5b"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> HarrisKeypoint3D&lt;PointInT, PointOutT, <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D12PointCloudInE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D12PointCloudInE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D12PointCloudInE"></span><span id="pcl::HarrisKeypoint3D::PointCloudIn"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a8c4fa4bb39648a1b4bb2abc5d4799883"></span><em class="property">typedef </em>Keypoint&lt;PointInT, PointOutT&gt;::PointCloudIn <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D13PointCloudOutE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D13PointCloudOutE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D13PointCloudOutE"></span><span id="pcl::HarrisKeypoint3D::PointCloudOut"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1ab2f3272fbce408795c316d02d706e46e"></span><em class="property">typedef </em>Keypoint&lt;PointInT, PointOutT&gt;::PointCloudOut <code class="sig-name descname">PointCloudOut</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D13PointCloudOutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D6KdTreeE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D6KdTreeE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D6KdTreeE"></span><span id="pcl::HarrisKeypoint3D::KdTree"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a7e9186832ce986f0664fb76c39f3f0f0"></span><em class="property">typedef </em>Keypoint&lt;PointInT, PointOutT&gt;::KdTree <code class="sig-name descname">KdTree</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D6KdTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D20PointCloudInConstPtrE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D20PointCloudInConstPtrE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D20PointCloudInConstPtrE"></span><span id="pcl::HarrisKeypoint3D::PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a1277bfc3d7df5eb8d9c820bcf72e1df1"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D12PointCloudInE" title="pcl::HarrisKeypoint3D::PointCloudIn">PointCloudIn</a>::ConstPtr <code class="sig-name descname">PointCloudInConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D20PointCloudInConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D11PointCloudNE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D11PointCloudNE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D11PointCloudNE"></span><span id="pcl::HarrisKeypoint3D::PointCloudN"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a8731981ac31c99f4cfb0e677a4c38513"></span><em class="property">typedef </em>pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt; <code class="sig-name descname">PointCloudN</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D11PointCloudNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D14PointCloudNPtrE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D14PointCloudNPtrE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D14PointCloudNPtrE"></span><span id="pcl::HarrisKeypoint3D::PointCloudNPtr"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a3366987b3326e006a153d8bf0a92d01c"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D11PointCloudNE" title="pcl::HarrisKeypoint3D::PointCloudN">PointCloudN</a>::Ptr <code class="sig-name descname">PointCloudNPtr</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D14PointCloudNPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D19PointCloudNConstPtrE">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D19PointCloudNConstPtrE"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D19PointCloudNConstPtrE"></span><span id="pcl::HarrisKeypoint3D::PointCloudNConstPtr"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a5624b718e5e471396cf956002f582e40"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D11PointCloudNE" title="pcl::HarrisKeypoint3D::PointCloudN">PointCloudN</a>::ConstPtr <code class="sig-name descname">PointCloudNConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D19PointCloudNConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D16HarrisKeypoint3DE14ResponseMethodff">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D16HarrisKeypoint3DE14ResponseMethodff"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D16HarrisKeypoint3DE14ResponseMethodff"></span><span id="pcl::HarrisKeypoint3D::HarrisKeypoint3D__ResponseMethod.float.float"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a1afa16c2e7c1b8b8a1cca616b1845a18"></span><code class="sig-name descname">HarrisKeypoint3D</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D14ResponseMethodE" title="pcl::HarrisKeypoint3D::ResponseMethod">ResponseMethod</a> <em>method</em> = <a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D6HARRISE" title="pcl::HarrisKeypoint3D::HARRIS">HARRIS</a>, float <em>radius</em> = 0.01f, float <em>threshold</em> = 0.0f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D16HarrisKeypoint3DE14ResponseMethodff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">method</span></code>: the method to be used to determine the corner responses </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the radius for normal estimation as well as for non maxima suppression </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: the threshold to filter out weak corners </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3DD0Ev">
+<span id="_CPPv3N3pcl16HarrisKeypoint3DD0Ev"></span><span id="_CPPv2N3pcl16HarrisKeypoint3DD0Ev"></span><span id="pcl::HarrisKeypoint3D::~HarrisKeypoint3D"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a665dc1c02bf5bc26d59f1ca7ae9334d7"></span><em class="property">virtual</em> <code class="sig-name descname">~HarrisKeypoint3D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3DD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D13setInputCloudERK20PointCloudInConstPtr">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D13setInputCloudERK20PointCloudInConstPtr"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D13setInputCloudERK20PointCloudInConstPtr"></span><span id="pcl::HarrisKeypoint3D::setInputCloud__PointCloudInConstPtrCR"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a5699be5c91d0aa6294d1db9d185c3790"></span>void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D20PointCloudInConstPtrE" title="pcl::HarrisKeypoint3D::PointCloudInConstPtr">PointCloudInConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D13setInputCloudERK20PointCloudInConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D9setMethodE14ResponseMethod">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D9setMethodE14ResponseMethod"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D9setMethodE14ResponseMethod"></span><span id="pcl::HarrisKeypoint3D::setMethod__ResponseMethod"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1abf699289812b5dc5cc79b97df93767a1"></span>void <code class="sig-name descname">setMethod</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D14ResponseMethodE" title="pcl::HarrisKeypoint3D::ResponseMethod">ResponseMethod</a> <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D9setMethodE14ResponseMethod" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the method of the response to be calculated. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">type</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D9setRadiusEf">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D9setRadiusEf"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D9setRadiusEf"></span><span id="pcl::HarrisKeypoint3D::setRadius__float"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a9c95472adc1a41da8860edae7fbf9e90"></span>void <code class="sig-name descname">setRadius</code><span class="sig-paren">(</span>float <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D9setRadiusEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the radius for normal estimation and non maxima supression. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D12setThresholdEf">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D12setThresholdEf"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D12setThresholdEf"></span><span id="pcl::HarrisKeypoint3D::setThreshold__float"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1ad5874363fb23e47c4d3bb038fcb30c1c"></span>void <code class="sig-name descname">setThreshold</code><span class="sig-paren">(</span>float <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D12setThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the threshold value for detecting corners. </p>
+<p>This is only evaluated if non maxima suppression is turned on. note non maxima suppression needs to be activated in order to use this feature. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D19setNonMaxSupressionEb">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D19setNonMaxSupressionEb"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D19setNonMaxSupressionEb"></span><span id="pcl::HarrisKeypoint3D::setNonMaxSupression__b"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1ab7d78e7ad7d9505fea7bfa7d2e836023"></span>void <code class="sig-name descname">setNonMaxSupression</code><span class="sig-paren">(</span>bool <em>nonmax</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D19setNonMaxSupressionEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether non maxima suppression should be applied or the response for each point should be returned. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>this value needs to be turned on in order to apply thresholding and refinement </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nonmax</span></code>: default is false </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D9setRefineEb">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D9setRefineEb"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D9setRefineEb"></span><span id="pcl::HarrisKeypoint3D::setRefine__b"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1af0d6b4d9dae5e0ff5137c19b4352e27e"></span>void <code class="sig-name descname">setRefine</code><span class="sig-paren">(</span>bool <em>do_refine</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D9setRefineEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether the detected key points should be refined or not. </p>
+<p>If turned of, the key points are a subset of the original point cloud. Otherwise the key points may be arbitrary. note non maxima supression needs to be on in order to use this feature. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">do_refine</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D10setNormalsERK19PointCloudNConstPtr">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D10setNormalsERK19PointCloudNConstPtr"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D10setNormalsERK19PointCloudNConstPtr"></span><span id="pcl::HarrisKeypoint3D::setNormals__PointCloudNConstPtrCR"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a70fba15fb0957bf087d3a17b096545c7"></span>void <code class="sig-name descname">setNormals</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D19PointCloudNConstPtrE" title="pcl::HarrisKeypoint3D::PointCloudNConstPtr">PointCloudNConstPtr</a> &amp;<em>normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D10setNormalsERK19PointCloudNConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set normals if precalculated normals are available. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">normals</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D16setSearchSurfaceERK20PointCloudInConstPtr">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D16setSearchSurfaceERK20PointCloudInConstPtr"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D16setSearchSurfaceERK20PointCloudInConstPtr"></span><span id="pcl::HarrisKeypoint3D::setSearchSurface__PointCloudInConstPtrCR"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a8221211931ea9dc40dd81d7408cdb593"></span><em class="property">virtual</em> void <code class="sig-name descname">setSearchSurface</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D20PointCloudInConstPtrE" title="pcl::HarrisKeypoint3D::PointCloudInConstPtr">PointCloudInConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D16setSearchSurfaceERK20PointCloudInConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to a dataset to add additional information to estimate the features for every point in the input dataset. </p>
+<p>This is optional, if this is not set, it will only use the data in the input cloud to estimate the features. This is useful when you only need to compute the features for a downsampled cloud. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: a pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D18setNumberOfThreadsEj">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D18setNumberOfThreadsEj"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D18setNumberOfThreadsEj"></span><span id="pcl::HarrisKeypoint3D::setNumberOfThreads__unsigned-i"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a7f7a8adf1f523ef11509e2e2dcda78d9"></span>void <code class="sig-name descname">setNumberOfThreads</code><span class="sig-paren">(</span>unsigned int <em>nr_threads</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D18setNumberOfThreadsEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the scheduler and set the number of threads to use. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nr_threads</span></code>: the number of hardware threads to use (0 sets the value back to automatic) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D11initComputeEv">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D11initComputeEv"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D11initComputeEv"></span><span id="pcl::HarrisKeypoint3D::initCompute"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a612743b49f93a898f7b4661aa5789236"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16HarrisKeypoint3D15detectKeypointsER13PointCloudOut">
+<span id="_CPPv3N3pcl16HarrisKeypoint3D15detectKeypointsER13PointCloudOut"></span><span id="_CPPv2N3pcl16HarrisKeypoint3D15detectKeypointsER13PointCloudOut"></span><span id="pcl::HarrisKeypoint3D::detectKeypoints__PointCloudOutR"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a2b3225054750d69cdd9232104871520f"></span>void <code class="sig-name descname">detectKeypoints</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D13PointCloudOutE" title="pcl::HarrisKeypoint3D::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16HarrisKeypoint3D15detectKeypointsER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract key point detection method. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16HarrisKeypoint3D14responseHarrisER13PointCloudOut">
+<span id="_CPPv3NK3pcl16HarrisKeypoint3D14responseHarrisER13PointCloudOut"></span><span id="_CPPv2NK3pcl16HarrisKeypoint3D14responseHarrisER13PointCloudOut"></span><span id="pcl::HarrisKeypoint3D::responseHarris__PointCloudOutRC"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a5fc92825eb963fbab8a538644594e8cc"></span>void <code class="sig-name descname">responseHarris</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D13PointCloudOutE" title="pcl::HarrisKeypoint3D::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16HarrisKeypoint3D14responseHarrisER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>gets the corner response for valid input points </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16HarrisKeypoint3D13responseNobleER13PointCloudOut">
+<span id="_CPPv3NK3pcl16HarrisKeypoint3D13responseNobleER13PointCloudOut"></span><span id="_CPPv2NK3pcl16HarrisKeypoint3D13responseNobleER13PointCloudOut"></span><span id="pcl::HarrisKeypoint3D::responseNoble__PointCloudOutRC"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a38cc1ad0cb18e53eebad0929b9e2ceef"></span>void <code class="sig-name descname">responseNoble</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D13PointCloudOutE" title="pcl::HarrisKeypoint3D::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16HarrisKeypoint3D13responseNobleER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16HarrisKeypoint3D12responseLoweER13PointCloudOut">
+<span id="_CPPv3NK3pcl16HarrisKeypoint3D12responseLoweER13PointCloudOut"></span><span id="_CPPv2NK3pcl16HarrisKeypoint3D12responseLoweER13PointCloudOut"></span><span id="pcl::HarrisKeypoint3D::responseLowe__PointCloudOutRC"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1adcdc423d1b6c51e326f32048c2f924e7"></span>void <code class="sig-name descname">responseLowe</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D13PointCloudOutE" title="pcl::HarrisKeypoint3D::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16HarrisKeypoint3D12responseLoweER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16HarrisKeypoint3D14responseTomasiER13PointCloudOut">
+<span id="_CPPv3NK3pcl16HarrisKeypoint3D14responseTomasiER13PointCloudOut"></span><span id="_CPPv2NK3pcl16HarrisKeypoint3D14responseTomasiER13PointCloudOut"></span><span id="pcl::HarrisKeypoint3D::responseTomasi__PointCloudOutRC"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a11ffe872261553c144bd5f6b834e5ff2"></span>void <code class="sig-name descname">responseTomasi</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D13PointCloudOutE" title="pcl::HarrisKeypoint3D::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16HarrisKeypoint3D14responseTomasiER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16HarrisKeypoint3D17responseCurvatureER13PointCloudOut">
+<span id="_CPPv3NK3pcl16HarrisKeypoint3D17responseCurvatureER13PointCloudOut"></span><span id="_CPPv2NK3pcl16HarrisKeypoint3D17responseCurvatureER13PointCloudOut"></span><span id="pcl::HarrisKeypoint3D::responseCurvature__PointCloudOutRC"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a80e32cb4619b0ce48ae46f861c8b23a7"></span>void <code class="sig-name descname">responseCurvature</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D13PointCloudOutE" title="pcl::HarrisKeypoint3D::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16HarrisKeypoint3D17responseCurvatureER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16HarrisKeypoint3D13refineCornersER13PointCloudOut">
+<span id="_CPPv3NK3pcl16HarrisKeypoint3D13refineCornersER13PointCloudOut"></span><span id="_CPPv2NK3pcl16HarrisKeypoint3D13refineCornersER13PointCloudOut"></span><span id="pcl::HarrisKeypoint3D::refineCorners__PointCloudOutRC"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a97eba535cba9946aa2fe20e79d6310ca"></span>void <code class="sig-name descname">refineCorners</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16HarrisKeypoint3D13PointCloudOutE" title="pcl::HarrisKeypoint3D::PointCloudOut">PointCloudOut</a> &amp;<em>corners</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16HarrisKeypoint3D13refineCornersER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16HarrisKeypoint3D20calculateNormalCovarERKNSt6vectorIiEEPf">
+<span id="_CPPv3NK3pcl16HarrisKeypoint3D20calculateNormalCovarERKNSt6vectorIiEEPf"></span><span id="_CPPv2NK3pcl16HarrisKeypoint3D20calculateNormalCovarERKNSt6vectorIiEEPf"></span><span id="pcl::HarrisKeypoint3D::calculateNormalCovar__std::vector:i:CR.floatPC"></span><span class="target" id="classpcl_1_1_harris_keypoint3_d_1a058026af18e6580f2cde085f33536311"></span>void <code class="sig-name descname">calculateNormalCovar</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;int&gt; &amp;<em>neighbors</em>, float *<em>coefficients</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16HarrisKeypoint3D20calculateNormalCovarERKNSt6vectorIiEEPf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>calculates the upper triangular part of unnormalized covariance matrix over the normals given by the indices. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

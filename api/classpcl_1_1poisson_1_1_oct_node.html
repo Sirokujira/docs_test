@@ -1,0 +1,982 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OctNode &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OctNode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1poisson_1_1_oct_node.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-octnode">
+<span id="exhale-class-classpcl-1-1poisson-1-1-oct-node"></span><h1>Template Class OctNode<a class="headerlink" href="#template-class-octnode" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_3rdparty_poisson4_octree_poisson.h.html#file-pcl-surface-include-pcl-surface-3rdparty-poisson4-octree-poisson-h"><span class="std std-ref">File octree_poisson.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="classpcl_1_1poisson_1_1_oct_node_1_1_adjacency_count_function.html#exhale-class-classpcl-1-1poisson-1-1-oct-node-1-1-adjacency-count-function"><span class="std std-ref">Class OctNode::AdjacencyCountFunction</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key3.html#exhale-class-classpcl-1-1poisson-1-1-oct-node-1-1-const-neighbor-key3"><span class="std std-ref">Class OctNode::ConstNeighborKey3</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key5.html#exhale-class-classpcl-1-1poisson-1-1-oct-node-1-1-const-neighbor-key5"><span class="std std-ref">Class OctNode::ConstNeighborKey5</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors3.html#exhale-class-classpcl-1-1poisson-1-1-oct-node-1-1-const-neighbors3"><span class="std std-ref">Class OctNode::ConstNeighbors3</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors5.html#exhale-class-classpcl-1-1poisson-1-1-oct-node-1-1-const-neighbors5"><span class="std std-ref">Class OctNode::ConstNeighbors5</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3.html#exhale-class-classpcl-1-1poisson-1-1-oct-node-1-1-neighbor-key3"><span class="std std-ref">Class OctNode::NeighborKey3</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key5.html#exhale-class-classpcl-1-1poisson-1-1-oct-node-1-1-neighbor-key5"><span class="std std-ref">Class OctNode::NeighborKey5</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors3.html#exhale-class-classpcl-1-1poisson-1-1-oct-node-1-1-neighbors3"><span class="std std-ref">Class OctNode::Neighbors3</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors5.html#exhale-class-classpcl-1-1poisson-1-1-oct-node-1-1-neighbors5"><span class="std std-ref">Class OctNode::Neighbors5</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl7poisson7OctNodeE">
+<span id="_CPPv3I00EN3pcl7poisson7OctNodeE"></span><span id="_CPPv2I00EN3pcl7poisson7OctNodeE"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node"></span>template&lt;class <code class="sig-name descname">NodeData</code>, class <code class="sig-name descname">Real</code> = float&gt;<br /><em class="property">class </em><code class="sig-name descname">OctNode</code><a class="headerlink" href="#_CPPv4I00EN3pcl7poisson7OctNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode7OctNodeEv">
+<span id="_CPPv3N3pcl7poisson7OctNode7OctNodeEv"></span><span id="_CPPv2N3pcl7poisson7OctNode7OctNodeEv"></span><span id="pcl::poisson::OctNode::OctNode__void"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a702c1c51f303f5550c478535936065aa"></span><code class="sig-name descname">OctNode</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode7OctNodeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNodeD0Ev">
+<span id="_CPPv3N3pcl7poisson7OctNodeD0Ev"></span><span id="_CPPv2N3pcl7poisson7OctNodeD0Ev"></span><span id="pcl::poisson::OctNode::~OctNode__void"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a9010fe76c5cfc53dc32f3e6efb838262"></span><code class="sig-name descname">~OctNode</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNodeD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode12initChildrenEv">
+<span id="_CPPv3N3pcl7poisson7OctNode12initChildrenEv"></span><span id="_CPPv2N3pcl7poisson7OctNode12initChildrenEv"></span><span id="pcl::poisson::OctNode::initChildren__void"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1aeba7f2472ebfdbe80e9acac68f1f3c43"></span>int <code class="sig-name descname">initChildren</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12initChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode14depthAndOffsetERiA9DIMENSION_i">
+<span id="_CPPv3NK3pcl7poisson7OctNode14depthAndOffsetERiA9DIMENSION_i"></span><span id="_CPPv2NK3pcl7poisson7OctNode14depthAndOffsetERiADIMENSION_i"></span><span id="pcl::poisson::OctNode::depthAndOffset__iR.iAC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a0e3a32b18db8450503059d65bcab0260"></span>void <code class="sig-name descname">depthAndOffset</code><span class="sig-paren">(</span>int &amp;<em>depth</em>, int <em>offset</em>[<em>DIMENSION</em>]<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode14depthAndOffsetERiA9DIMENSION_i" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode5depthEv">
+<span id="_CPPv3NK3pcl7poisson7OctNode5depthEv"></span><span id="_CPPv2NK3pcl7poisson7OctNode5depthEv"></span><span id="pcl::poisson::OctNode::depth__voidC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a4a8287eb75052098c054073d07e55505"></span>int <code class="sig-name descname">depth</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode5depthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode14centerAndWidthER7Point3DI4RealER4Real">
+<span id="_CPPv3NK3pcl7poisson7OctNode14centerAndWidthER7Point3DI4RealER4Real"></span><span id="_CPPv2NK3pcl7poisson7OctNode14centerAndWidthER7Point3DI4RealER4Real"></span><span id="pcl::poisson::OctNode::centerAndWidth__Point3D:Real:R.RealRC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1aa5bdfac0b7a3701d9ec85191527cc15c"></span>void <code class="sig-name descname">centerAndWidth</code><span class="sig-paren">(</span>Point3D&lt;<a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; &amp;<em>center</em>, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a> &amp;<em>width</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode14centerAndWidthER7Point3DI4RealER4Real" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode8isInsideE7Point3DI4RealE">
+<span id="_CPPv3NK3pcl7poisson7OctNode8isInsideE7Point3DI4RealE"></span><span id="_CPPv2NK3pcl7poisson7OctNode8isInsideE7Point3DI4RealE"></span><span id="pcl::poisson::OctNode::isInside__Point3D:Real:C"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a397a3997ea9f9c15cc8e77e0d516f20f"></span>bool <code class="sig-name descname">isInside</code><span class="sig-paren">(</span>Point3D&lt;<a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; <em>p</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode8isInsideE7Point3DI4RealE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode6leavesEv">
+<span id="_CPPv3NK3pcl7poisson7OctNode6leavesEv"></span><span id="_CPPv2NK3pcl7poisson7OctNode6leavesEv"></span><span id="pcl::poisson::OctNode::leaves__voidC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a35a13affda49ba7c76ede56bf8e79738"></span>int <code class="sig-name descname">leaves</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode6leavesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode14maxDepthLeavesEi">
+<span id="_CPPv3NK3pcl7poisson7OctNode14maxDepthLeavesEi"></span><span id="_CPPv2NK3pcl7poisson7OctNode14maxDepthLeavesEi"></span><span id="pcl::poisson::OctNode::maxDepthLeaves__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a07081ded2f47be7859166efdf244d4cf"></span>int <code class="sig-name descname">maxDepthLeaves</code><span class="sig-paren">(</span>int <em>maxDepth</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode14maxDepthLeavesEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode5nodesEv">
+<span id="_CPPv3NK3pcl7poisson7OctNode5nodesEv"></span><span id="_CPPv2NK3pcl7poisson7OctNode5nodesEv"></span><span id="pcl::poisson::OctNode::nodes__voidC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a5c9a10ece3d8456d36d24114979c4100"></span>int <code class="sig-name descname">nodes</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode5nodesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode8maxDepthEv">
+<span id="_CPPv3NK3pcl7poisson7OctNode8maxDepthEv"></span><span id="_CPPv2NK3pcl7poisson7OctNode8maxDepthEv"></span><span id="pcl::poisson::OctNode::maxDepth__voidC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a0e6b41539013b7185b78163ec3ae0aa0"></span>int <code class="sig-name descname">maxDepth</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode8maxDepthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode4rootEv">
+<span id="_CPPv3NK3pcl7poisson7OctNode4rootEv"></span><span id="_CPPv2NK3pcl7poisson7OctNode4rootEv"></span><span id="pcl::poisson::OctNode::root__voidC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a99e3144b9460995a67a96732c7643f93"></span><em class="property">const</em> OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">root</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode4rootEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode8nextLeafEPK7OctNode">
+<span id="_CPPv3NK3pcl7poisson7OctNode8nextLeafEPK7OctNode"></span><span id="_CPPv2NK3pcl7poisson7OctNode8nextLeafEPK7OctNode"></span><span id="pcl::poisson::OctNode::nextLeaf__OctNodeCPC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1aacebd2f7a1712b9510987cc832c99a2f"></span><em class="property">const</em> OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">nextLeaf</code><span class="sig-paren">(</span><em class="property">const</em> OctNode *<em>currentLeaf</em> = NULL<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode8nextLeafEPK7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode8nextLeafEP7OctNode">
+<span id="_CPPv3N3pcl7poisson7OctNode8nextLeafEP7OctNode"></span><span id="_CPPv2N3pcl7poisson7OctNode8nextLeafEP7OctNode"></span><span id="pcl::poisson::OctNode::nextLeaf__OctNodeP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a46ac80dfa20cf3cf8dd04a26df91ca0e"></span>OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">nextLeaf</code><span class="sig-paren">(</span>OctNode *<em>currentLeaf</em> = NULL<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode8nextLeafEP7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode8nextNodeEPK7OctNode">
+<span id="_CPPv3NK3pcl7poisson7OctNode8nextNodeEPK7OctNode"></span><span id="_CPPv2NK3pcl7poisson7OctNode8nextNodeEPK7OctNode"></span><span id="pcl::poisson::OctNode::nextNode__OctNodeCPC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a803f6eb5bd01f85092b253f4e1f4d2fe"></span><em class="property">const</em> OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">nextNode</code><span class="sig-paren">(</span><em class="property">const</em> OctNode *<em>currentNode</em> = NULL<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode8nextNodeEPK7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode8nextNodeEP7OctNode">
+<span id="_CPPv3N3pcl7poisson7OctNode8nextNodeEP7OctNode"></span><span id="_CPPv2N3pcl7poisson7OctNode8nextNodeEP7OctNode"></span><span id="pcl::poisson::OctNode::nextNode__OctNodeP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1aaa1174041a1e523a63717dfd42403756"></span>OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">nextNode</code><span class="sig-paren">(</span>OctNode *<em>currentNode</em> = NULL<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode8nextNodeEP7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode10nextBranchEPK7OctNode">
+<span id="_CPPv3NK3pcl7poisson7OctNode10nextBranchEPK7OctNode"></span><span id="_CPPv2NK3pcl7poisson7OctNode10nextBranchEPK7OctNode"></span><span id="pcl::poisson::OctNode::nextBranch__OctNodeCPC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a6fdfd81b9864ca533b97d5fba20e2a5a"></span><em class="property">const</em> OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">nextBranch</code><span class="sig-paren">(</span><em class="property">const</em> OctNode *<em>current</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode10nextBranchEPK7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode10nextBranchEP7OctNode">
+<span id="_CPPv3N3pcl7poisson7OctNode10nextBranchEP7OctNode"></span><span id="_CPPv2N3pcl7poisson7OctNode10nextBranchEP7OctNode"></span><span id="pcl::poisson::OctNode::nextBranch__OctNodeP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1aec8dcd9ebefcd1e63a3899488b44a8c2"></span>OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">nextBranch</code><span class="sig-paren">(</span>OctNode *<em>current</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode10nextBranchEP7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode10prevBranchEPK7OctNode">
+<span id="_CPPv3NK3pcl7poisson7OctNode10prevBranchEPK7OctNode"></span><span id="_CPPv2NK3pcl7poisson7OctNode10prevBranchEPK7OctNode"></span><span id="pcl::poisson::OctNode::prevBranch__OctNodeCPC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a28660d20db25057f0b13fc47677beefb"></span><em class="property">const</em> OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">prevBranch</code><span class="sig-paren">(</span><em class="property">const</em> OctNode *<em>current</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode10prevBranchEPK7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode10prevBranchEP7OctNode">
+<span id="_CPPv3N3pcl7poisson7OctNode10prevBranchEP7OctNode"></span><span id="_CPPv2N3pcl7poisson7OctNode10prevBranchEP7OctNode"></span><span id="pcl::poisson::OctNode::prevBranch__OctNodeP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a8d8bebaf8e5852850aa46ec3249c0e17"></span>OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">prevBranch</code><span class="sig-paren">(</span>OctNode *<em>current</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode10prevBranchEP7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode12setFullDepthEi">
+<span id="_CPPv3N3pcl7poisson7OctNode12setFullDepthEi"></span><span id="_CPPv2N3pcl7poisson7OctNode12setFullDepthEi"></span><span id="pcl::poisson::OctNode::setFullDepth__i"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a7486b31634580bcf4f0116e40baabc90"></span>void <code class="sig-name descname">setFullDepth</code><span class="sig-paren">(</span>int <em>maxDepth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12setFullDepthEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode11printLeavesEv">
+<span id="_CPPv3NK3pcl7poisson7OctNode11printLeavesEv"></span><span id="_CPPv2NK3pcl7poisson7OctNode11printLeavesEv"></span><span id="pcl::poisson::OctNode::printLeaves__voidC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a8f7df32498e7f7a9222453033b861b46"></span>void <code class="sig-name descname">printLeaves</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode11printLeavesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode10printRangeEv">
+<span id="_CPPv3NK3pcl7poisson7OctNode10printRangeEv"></span><span id="_CPPv2NK3pcl7poisson7OctNode10printRangeEv"></span><span id="pcl::poisson::OctNode::printRange__voidC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1acee207d17d5425d4f3bfcf9170786144"></span>void <code class="sig-name descname">printRange</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode10printRangeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode16processNodeFacesEvP7OctNodeP21NodeAdjacencyFunctionii">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode16processNodeFacesEP7OctNodeP21NodeAdjacencyFunctionii"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode16processNodeFacesEP7OctNodeP21NodeAdjacencyFunctionii"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a91ac04a5cb333a71ead27eb3a84fcef9"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">processNodeFaces</code><span class="sig-paren">(</span>OctNode *<em>node</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode16processNodeFacesEvP7OctNodeP21NodeAdjacencyFunctionii" title="pcl::poisson::OctNode::processNodeFaces::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>fIndex</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode16processNodeFacesEvP7OctNodeP21NodeAdjacencyFunctionii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode16processNodeEdgesEvP7OctNodeP21NodeAdjacencyFunctionii">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode16processNodeEdgesEP7OctNodeP21NodeAdjacencyFunctionii"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode16processNodeEdgesEP7OctNodeP21NodeAdjacencyFunctionii"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a48af1dc0c23ed51b57b7e2d42a35adf7"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">processNodeEdges</code><span class="sig-paren">(</span>OctNode *<em>node</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode16processNodeEdgesEvP7OctNodeP21NodeAdjacencyFunctionii" title="pcl::poisson::OctNode::processNodeEdges::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>eIndex</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode16processNodeEdgesEvP7OctNodeP21NodeAdjacencyFunctionii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode18processNodeCornersEvP7OctNodeP21NodeAdjacencyFunctionii">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode18processNodeCornersEP7OctNodeP21NodeAdjacencyFunctionii"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode18processNodeCornersEP7OctNodeP21NodeAdjacencyFunctionii"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ae7cc2723f292cb13a91885835aa6bd53"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">processNodeCorners</code><span class="sig-paren">(</span>OctNode *<em>node</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode18processNodeCornersEvP7OctNodeP21NodeAdjacencyFunctionii" title="pcl::poisson::OctNode::processNodeCorners::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>cIndex</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode18processNodeCornersEvP7OctNodeP21NodeAdjacencyFunctionii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode16processNodeNodesEvP7OctNodeP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode16processNodeNodesEP7OctNodeP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode16processNodeNodesEP7OctNodeP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a396a9539821138b96b2c43a263844a6c"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">processNodeNodes</code><span class="sig-paren">(</span>OctNode *<em>node</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode16processNodeNodesEvP7OctNodeP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::processNodeNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode16processNodeNodesEvP7OctNodeP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode12faceNeighborEii">
+<span id="_CPPv3N3pcl7poisson7OctNode12faceNeighborEii"></span><span id="_CPPv2N3pcl7poisson7OctNode12faceNeighborEii"></span><span id="pcl::poisson::OctNode::faceNeighbor__i.i"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1adef8ff77f7f8da1f2edf16f538c9ef4d"></span>OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">faceNeighbor</code><span class="sig-paren">(</span>int <em>faceIndex</em>, int <em>forceChildren</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12faceNeighborEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode12faceNeighborEi">
+<span id="_CPPv3NK3pcl7poisson7OctNode12faceNeighborEi"></span><span id="_CPPv2NK3pcl7poisson7OctNode12faceNeighborEi"></span><span id="pcl::poisson::OctNode::faceNeighbor__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a1d41f0f55eaac517d26ff9842cc9f5f4"></span><em class="property">const</em> OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">faceNeighbor</code><span class="sig-paren">(</span>int <em>faceIndex</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode12faceNeighborEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode12edgeNeighborEii">
+<span id="_CPPv3N3pcl7poisson7OctNode12edgeNeighborEii"></span><span id="_CPPv2N3pcl7poisson7OctNode12edgeNeighborEii"></span><span id="pcl::poisson::OctNode::edgeNeighbor__i.i"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a6ac8deebc714a32bf5c6815ff48e04f2"></span>OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">edgeNeighbor</code><span class="sig-paren">(</span>int <em>edgeIndex</em>, int <em>forceChildren</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12edgeNeighborEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode12edgeNeighborEi">
+<span id="_CPPv3NK3pcl7poisson7OctNode12edgeNeighborEi"></span><span id="_CPPv2NK3pcl7poisson7OctNode12edgeNeighborEi"></span><span id="pcl::poisson::OctNode::edgeNeighbor__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a98c1c936f760e11b33941d711c1cc8f2"></span><em class="property">const</em> OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">edgeNeighbor</code><span class="sig-paren">(</span>int <em>edgeIndex</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode12edgeNeighborEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode14cornerNeighborEii">
+<span id="_CPPv3N3pcl7poisson7OctNode14cornerNeighborEii"></span><span id="_CPPv2N3pcl7poisson7OctNode14cornerNeighborEii"></span><span id="pcl::poisson::OctNode::cornerNeighbor__i.i"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a82ebadd6c4cd0c4f1ab744bb8cfd10d4"></span>OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">cornerNeighbor</code><span class="sig-paren">(</span>int <em>cornerIndex</em>, int <em>forceChildren</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode14cornerNeighborEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode14cornerNeighborEi">
+<span id="_CPPv3NK3pcl7poisson7OctNode14cornerNeighborEi"></span><span id="_CPPv2NK3pcl7poisson7OctNode14cornerNeighborEi"></span><span id="pcl::poisson::OctNode::cornerNeighbor__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a62a04ed81a5ec112958afc374d3f9419"></span><em class="property">const</em> OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">cornerNeighbor</code><span class="sig-paren">(</span>int <em>cornerIndex</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode14cornerNeighborEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode14getNearestLeafERK7Point3DI4RealE">
+<span id="_CPPv3N3pcl7poisson7OctNode14getNearestLeafERK7Point3DI4RealE"></span><span id="_CPPv2N3pcl7poisson7OctNode14getNearestLeafERK7Point3DI4RealE"></span><span id="pcl::poisson::OctNode::getNearestLeaf__Point3D:Real:CR"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a5b6cc876081455ce4bf28c58336d31d2"></span>OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">getNearestLeaf</code><span class="sig-paren">(</span><em class="property">const</em> Point3D&lt;<a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode14getNearestLeafERK7Point3DI4RealE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode14getNearestLeafERK7Point3DI4RealE">
+<span id="_CPPv3NK3pcl7poisson7OctNode14getNearestLeafERK7Point3DI4RealE"></span><span id="_CPPv2NK3pcl7poisson7OctNode14getNearestLeafERK7Point3DI4RealE"></span><span id="pcl::poisson::OctNode::getNearestLeaf__Point3D:Real:CRC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a8e932a1697531c6437c49c64232d43f0"></span><em class="property">const</em> OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<code class="sig-name descname">getNearestLeaf</code><span class="sig-paren">(</span><em class="property">const</em> Point3D&lt;<a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; &amp;<em>p</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode14getNearestLeafERK7Point3DI4RealE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNodeaSER7OctNodeRK7OctNodeI9NodeData24RealE">
+<span id="_CPPv3I0EN3pcl7poisson7OctNodeaSERK7OctNodeI9NodeData24RealE"></span><span id="_CPPv2I0EN3pcl7poisson7OctNodeaSERK7OctNodeI9NodeData24RealE"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a7eb4297b605700fd105933ab9be9165f"></span>template&lt;class <code class="sig-name descname">NodeData2</code>&gt;<br />OctNode &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> OctNode&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNodeaSER7OctNodeRK7OctNodeI9NodeData24RealE" title="pcl::poisson::OctNode::operator=::NodeData2">NodeData2</a>, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; &amp;<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNodeaSER7OctNodeRK7OctNodeI9NodeData24RealE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode5writeEPKc">
+<span id="_CPPv3NK3pcl7poisson7OctNode5writeEPKc"></span><span id="_CPPv2NK3pcl7poisson7OctNode5writeEPKc"></span><span id="pcl::poisson::OctNode::write__cCPC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a32002c1f0c17ec327b634766168ab8f2"></span>int <code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>fileName</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode5writeEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode5writeEP4FILE">
+<span id="_CPPv3NK3pcl7poisson7OctNode5writeEP4FILE"></span><span id="_CPPv2NK3pcl7poisson7OctNode5writeEP4FILE"></span><span id="pcl::poisson::OctNode::write__FILEPC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a8706bac66a90b1877f04374d7d56574d"></span>int <code class="sig-name descname">write</code><span class="sig-paren">(</span>FILE *<em>fp</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode5writeEP4FILE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode4readEPKc">
+<span id="_CPPv3N3pcl7poisson7OctNode4readEPKc"></span><span id="_CPPv2N3pcl7poisson7OctNode4readEPKc"></span><span id="pcl::poisson::OctNode::read__cCP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a519da47ca8a38f1c731957837e7b75fa"></span>int <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>fileName</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode4readEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode4readEP4FILE">
+<span id="_CPPv3N3pcl7poisson7OctNode4readEP4FILE"></span><span id="_CPPv2N3pcl7poisson7OctNode4readEP4FILE"></span><span id="pcl::poisson::OctNode::read__FILEP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a6de4182ed7061ee2e1d68dba8f592279"></span>int <code class="sig-name descname">read</code><span class="sig-paren">(</span>FILE *<em>fp</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode4readEP4FILE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode11centerIndexEiA9DIMENSION_i">
+<span id="_CPPv3NK3pcl7poisson7OctNode11centerIndexEiA9DIMENSION_i"></span><span id="_CPPv2NK3pcl7poisson7OctNode11centerIndexEiADIMENSION_i"></span><span id="pcl::poisson::OctNode::centerIndex__i.iAC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1aa942d08769e53083b7ee2384035b66f2"></span>void <code class="sig-name descname">centerIndex</code><span class="sig-paren">(</span>int <em>maxDepth</em>, int <em>index</em>[<em>DIMENSION</em>]<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode11centerIndexEiA9DIMENSION_i" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson7OctNode5widthEi">
+<span id="_CPPv3NK3pcl7poisson7OctNode5widthEi"></span><span id="_CPPv2NK3pcl7poisson7OctNode5widthEi"></span><span id="pcl::poisson::OctNode::width__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a8a50059eeb8e86ba9a57320cbeaa7c9b"></span>int <code class="sig-name descname">width</code><span class="sig-paren">(</span>int <em>maxDepth</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson7OctNode5widthEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a7be7bf6940b67fe490da2973cb620314"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node1</em>, int <em>radius1</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP32TerminatingNodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP32TerminatingNodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP32TerminatingNodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a624fd6d3dc4107a4ebd4b71e6384c680"></span>template&lt;class <code class="sig-name descname">TerminatingNodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessTerminatingNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node1</em>, int <em>radius1</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP32TerminatingNodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessTerminatingNodeAdjacentNodes::TerminatingNodeAdjacencyFunction">TerminatingNodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP32TerminatingNodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiiP22PointAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiiP22PointAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiiP22PointAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a033ce401578520b0f49aa025e8bf1a21"></span>template&lt;class <code class="sig-name descname">PointAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessPointAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEviAL3E_KiP7OctNodeiP22PointAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessPointAdjacentNodes::PointAdjacencyFunction">PointAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiiP22PointAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ae06e705fe6c1d48c30801549bbe554df"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessFixedDepthNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>maxDepth</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node1</em>, int <em>width1</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node2</em>, int <em>width2</em>, int <em>depth</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessFixedDepthNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1abbcfa5cd734c14aca81ec409c31367f0"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessFixedDepthNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node1</em>, int <em>radius1</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, int <em>depth</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessFixedDepthNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ab940b1313310d11062ef4fe170f3197e"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessMaxDepthNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>maxDepth</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node1</em>, int <em>width1</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node2</em>, int <em>width2</em>, int <em>depth</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessMaxDepthNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEiiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1aa361a3a0b2e1e8cb0b1fb168aa6178bc"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessMaxDepthNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node1</em>, int <em>radius1</em>, OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, int <em>depth</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessMaxDepthNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviiiP7OctNodeI8NodeData4RealEiP7OctNodeI8NodeData4RealEiiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNodeaSER7OctNodeI8NodeData4RealERK7OctNodeI9NodeData24RealE">
+<span id="_CPPv3I0EN3pcl7poisson7OctNodeaSERK7OctNodeI9NodeData24RealE"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a80d874afa1b186e3225f99c40e81457b"></span>template&lt;class <code class="sig-name descname">NodeData2</code>&gt;<br />OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> OctNode&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNodeaSER7OctNodeRK7OctNodeI9NodeData24RealE" title="pcl::poisson::OctNode::operator=::NodeData2">NodeData2</a>, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; &amp;<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNodeaSER7OctNodeI8NodeData4RealERK7OctNodeI9NodeData24RealE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode6parentE">
+<span id="_CPPv3N3pcl7poisson7OctNode6parentE"></span><span id="_CPPv2N3pcl7poisson7OctNode6parentE"></span><span id="pcl::poisson::OctNode::parent__OctNodeP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ab355d8c82a73596fa93030579afc3148"></span>OctNode *<code class="sig-name descname">parent</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode6parentE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode8childrenE">
+<span id="_CPPv3N3pcl7poisson7OctNode8childrenE"></span><span id="_CPPv2N3pcl7poisson7OctNode8childrenE"></span><span id="pcl::poisson::OctNode::children__OctNodeP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1abe0789401f354a05624810a1b7f4497f"></span>OctNode *<code class="sig-name descname">children</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode8childrenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode1dE">
+<span id="_CPPv3N3pcl7poisson7OctNode1dE"></span><span id="_CPPv2N3pcl7poisson7OctNode1dE"></span><span id="pcl::poisson::OctNode::d__short"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a006c904effb10ce7ac7de64f509005a4"></span>short <code class="sig-name descname">d</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode1dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE3offE">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE3offE"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE3offE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a714d973dafdec53a3ee582a36e9180ab"></span>short <code class="sig-name descname">off</code>[<code class="sig-name descname">DIMENSION</code>]<a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE3offE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode8nodeDataE">
+<span id="_CPPv3N3pcl7poisson7OctNode8nodeDataE"></span><span id="_CPPv2N3pcl7poisson7OctNode8nodeDataE"></span><span id="pcl::poisson::OctNode::nodeData__NodeData"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1acdc8e21309cea9634fb43a837c7e2c37"></span>NodeData <code class="sig-name descname">nodeData</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode8nodeDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode12UseAllocatorEv">
+<span id="_CPPv3N3pcl7poisson7OctNode12UseAllocatorEv"></span><span id="_CPPv2N3pcl7poisson7OctNode12UseAllocatorEv"></span><span id="pcl::poisson::OctNode::UseAllocator__void"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ac8d1385cb9bb57a1b417d0d89a47108f"></span>int <code class="sig-name descname">UseAllocator</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12UseAllocatorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode12SetAllocatorEi">
+<span id="_CPPv3N3pcl7poisson7OctNode12SetAllocatorEi"></span><span id="_CPPv2N3pcl7poisson7OctNode12SetAllocatorEi"></span><span id="pcl::poisson::OctNode::SetAllocator__i"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a9665ea6302fbc60ebf8f64fa3643717b"></span>void <code class="sig-name descname">SetAllocator</code><span class="sig-paren">(</span>int <em>blockSize</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12SetAllocatorEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode14DepthAndOffsetERKxRiA9DIMENSION_i">
+<span id="_CPPv3N3pcl7poisson7OctNode14DepthAndOffsetERKxRiA9DIMENSION_i"></span><span id="_CPPv2N3pcl7poisson7OctNode14DepthAndOffsetERKxRiADIMENSION_i"></span><span id="pcl::poisson::OctNode::DepthAndOffset__l-lCR.iR.iA"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a455569f89f4a0ef312f5a60b0d633120"></span>void <code class="sig-name descname">DepthAndOffset</code><span class="sig-paren">(</span><em class="property">const</em> long long &amp;<em>index</em>, int &amp;<em>depth</em>, int <em>offset</em>[<em>DIMENSION</em>]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode14DepthAndOffsetERKxRiA9DIMENSION_i" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode14CenterAndWidthERKxR7Point3DI4RealER4Real">
+<span id="_CPPv3N3pcl7poisson7OctNode14CenterAndWidthERKxR7Point3DI4RealER4Real"></span><span id="_CPPv2N3pcl7poisson7OctNode14CenterAndWidthERKxR7Point3DI4RealER4Real"></span><span id="pcl::poisson::OctNode::CenterAndWidth__l-lCR.Point3D:Real:R.RealR"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a46f1cd8a5aa645e90d1bcf8784dbe3e5"></span>void <code class="sig-name descname">CenterAndWidth</code><span class="sig-paren">(</span><em class="property">const</em> long long &amp;<em>index</em>, Point3D&lt;<a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; &amp;<em>center</em>, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a> &amp;<em>width</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode14CenterAndWidthERKxR7Point3DI4RealER4Real" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode5DepthERKx">
+<span id="_CPPv3N3pcl7poisson7OctNode5DepthERKx"></span><span id="_CPPv2N3pcl7poisson7OctNode5DepthERKx"></span><span id="pcl::poisson::OctNode::Depth__l-lCR"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a54434b86b1bdb2f3eaeb9d0def3d3f6e"></span>int <code class="sig-name descname">Depth</code><span class="sig-paren">(</span><em class="property">const</em> long long &amp;<em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode5DepthERKx" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode5IndexEiAL3E_KiRsA9DIMENSION_s">
+<span id="_CPPv3N3pcl7poisson7OctNode5IndexEiAL3E_KiRsA9DIMENSION_s"></span><span id="_CPPv2N3pcl7poisson7OctNode5IndexEiA3_KiRsADIMENSION_s"></span><span id="pcl::poisson::OctNode::Index__i.iCA.shortR.shortA"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ac950c873787a05f611ae3f0e59ca4d1b"></span>void <code class="sig-name descname">Index</code><span class="sig-paren">(</span>int <em>depth</em>, <em class="property">const</em> int <em>offset</em>[3], short &amp;<em>d</em>, short <em>off</em>[<em>DIMENSION</em>]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode5IndexEiAL3E_KiRsA9DIMENSION_s" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEiP7OctNodeiP7OctNodeiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEiP7OctNodeiP7OctNodeiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a135a656481498fb51e85012c38168d79"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>maxDepth</em>, OctNode *<em>node1</em>, int <em>width1</em>, OctNode *<em>node2</em>, int <em>width2</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEviiiP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEiiiP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEiiiP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a11846b087b48363b2126d6f5f4a938c5"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br /><em class="property">static</em> void <code class="sig-name descname">ProcessNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode *<em>node1</em>, int <em>radius1</em>, OctNode *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode24ProcessNodeAdjacentNodesEviiiP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP32TerminatingNodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEiP7OctNodeiP7OctNodeiP32TerminatingNodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEiP7OctNodeiP7OctNodeiP32TerminatingNodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a7e53115a8109e0ca73037a2c075eca54"></span>template&lt;class <code class="sig-name descname">TerminatingNodeAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessTerminatingNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>maxDepth</em>, OctNode *<em>node1</em>, int <em>width1</em>, OctNode *<em>node2</em>, int <em>width2</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP32TerminatingNodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessTerminatingNodeAdjacentNodes::TerminatingNodeAdjacencyFunction">TerminatingNodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP32TerminatingNodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEviiiP7OctNodeiP7OctNodeiiP32TerminatingNodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEiiiP7OctNodeiP7OctNodeiiP32TerminatingNodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEiiiP7OctNodeiP7OctNodeiiP32TerminatingNodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a4c68e04d92c28032aef560522e0d71ca"></span>template&lt;class <code class="sig-name descname">TerminatingNodeAdjacencyFunction</code>&gt;<br /><em class="property">static</em> void <code class="sig-name descname">ProcessTerminatingNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode *<em>node1</em>, int <em>radius1</em>, OctNode *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEviP7OctNodeiP7OctNodeiP32TerminatingNodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessTerminatingNodeAdjacentNodes::TerminatingNodeAdjacencyFunction">TerminatingNodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode35ProcessTerminatingNodeAdjacentNodesEviiiP7OctNodeiP7OctNodeiiP32TerminatingNodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEviAL3E_KiP7OctNodeiP22PointAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEiAL3E_KiP7OctNodeiP22PointAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEiA3_KiP7OctNodeiP22PointAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a72836d1d07adf06bd7528d8f4a489f0f"></span>template&lt;class <code class="sig-name descname">PointAdjacencyFunction</code>&gt;<br />void <code class="sig-name descname">ProcessPointAdjacentNodes</code><span class="sig-paren">(</span>int <em>maxDepth</em>, <em class="property">const</em> int <em>center1</em>[3], OctNode *<em>node2</em>, int <em>width2</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEviAL3E_KiP7OctNodeiP22PointAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessPointAdjacentNodes::PointAdjacencyFunction">PointAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEviAL3E_KiP7OctNodeiP22PointAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEviiiP7OctNodeiiP22PointAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEiiiP7OctNodeiiP22PointAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEiiiP7OctNodeiiP22PointAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a866f0324399a18a4e009a38de0b2405a"></span>template&lt;class <code class="sig-name descname">PointAdjacencyFunction</code>&gt;<br /><em class="property">static</em> void <code class="sig-name descname">ProcessPointAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEviAL3E_KiP7OctNodeiP22PointAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessPointAdjacentNodes::PointAdjacencyFunction">PointAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode25ProcessPointAdjacentNodesEviiiP7OctNodeiiP22PointAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEiP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEiP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ac311064677e28c7f669103104c4106c3"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br /><em class="property">static</em> void <code class="sig-name descname">ProcessFixedDepthNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>maxDepth</em>, OctNode *<em>node1</em>, int <em>width1</em>, OctNode *<em>node2</em>, int <em>width2</em>, int <em>depth</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessFixedDepthNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviiiP7OctNodeiP7OctNodeiiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEiiiP7OctNodeiP7OctNodeiiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEiiiP7OctNodeiP7OctNodeiiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a4599cb4a3048f2baa2a1db8a75b27308"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br /><em class="property">static</em> void <code class="sig-name descname">ProcessFixedDepthNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode *<em>node1</em>, int <em>radius1</em>, OctNode *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, int <em>depth</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessFixedDepthNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode34ProcessFixedDepthNodeAdjacentNodesEviiiP7OctNodeiP7OctNodeiiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEiP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEiP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a3dc944bbe0ce1c9843fc1830d2224fc4"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br /><em class="property">static</em> void <code class="sig-name descname">ProcessMaxDepthNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>maxDepth</em>, OctNode *<em>node1</em>, int <em>width1</em>, OctNode *<em>node2</em>, int <em>width2</em>, int <em>depth</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessMaxDepthNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviiiP7OctNodeiP7OctNodeiiiP21NodeAdjacencyFunctioni">
+<span id="_CPPv3I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEiiiP7OctNodeiP7OctNodeiiiP21NodeAdjacencyFunctioni"></span><span id="_CPPv2I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEiiiP7OctNodeiP7OctNodeiiiP21NodeAdjacencyFunctioni"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a13829efae0dca3699ed0e9b6419102f8"></span>template&lt;class <code class="sig-name descname">NodeAdjacencyFunction</code>&gt;<br /><em class="property">static</em> void <code class="sig-name descname">ProcessMaxDepthNodeAdjacentNodes</code><span class="sig-paren">(</span>int <em>dx</em>, int <em>dy</em>, int <em>dz</em>, OctNode *<em>node1</em>, int <em>radius1</em>, OctNode *<em>node2</em>, int <em>radius2</em>, int <em>width2</em>, int <em>depth</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviP7OctNodeiP7OctNodeiiP21NodeAdjacencyFunctioni" title="pcl::poisson::OctNode::ProcessMaxDepthNodeAdjacentNodes::NodeAdjacencyFunction">NodeAdjacencyFunction</a> *<em>F</em>, int <em>processCurrent</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson7OctNode32ProcessMaxDepthNodeAdjacentNodesEviiiP7OctNodeiP7OctNodeiiiP21NodeAdjacencyFunctioni" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode11CornerIndexERK7Point3DI4RealERK7Point3DI4RealE">
+<span id="_CPPv3N3pcl7poisson7OctNode11CornerIndexERK7Point3DI4RealERK7Point3DI4RealE"></span><span id="_CPPv2N3pcl7poisson7OctNode11CornerIndexERK7Point3DI4RealERK7Point3DI4RealE"></span><span id="pcl::poisson::OctNode::CornerIndex__Point3D:Real:CR.Point3D:Real:CR"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a62a47ad27a26b415c70abd6e1f5ed9a5"></span>int <code class="sig-name descname">CornerIndex</code><span class="sig-paren">(</span><em class="property">const</em> Point3D&lt;<a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; &amp;<em>center</em>, <em class="property">const</em> Point3D&lt;<a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode11CornerIndexERK7Point3DI4RealERK7Point3DI4RealE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode10CommonEdgeEPK7OctNodeiPK7OctNodei">
+<span id="_CPPv3N3pcl7poisson7OctNode10CommonEdgeEPK7OctNodeiPK7OctNodei"></span><span id="_CPPv2N3pcl7poisson7OctNode10CommonEdgeEPK7OctNodeiPK7OctNodei"></span><span id="pcl::poisson::OctNode::CommonEdge__OctNodeCP.i.OctNodeCP.i"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a93df7109b0dee409bd8dd79233a6e263"></span>int <code class="sig-name descname">CommonEdge</code><span class="sig-paren">(</span><em class="property">const</em> OctNode *<em>node1</em>, int <em>eIndex1</em>, <em class="property">const</em> OctNode *<em>node2</em>, int <em>eIndex2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode10CommonEdgeEPK7OctNodeiPK7OctNodei" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode20CompareForwardDepthsEPKvPKv">
+<span id="_CPPv3N3pcl7poisson7OctNode20CompareForwardDepthsEPKvPKv"></span><span id="_CPPv2N3pcl7poisson7OctNode20CompareForwardDepthsEPKvPKv"></span><span id="pcl::poisson::OctNode::CompareForwardDepths__voidCP.voidCP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a2671498afca166d1f520c0b029ccb676"></span>int <code class="sig-name descname">CompareForwardDepths</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>v1</em>, <em class="property">const</em> void *<em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode20CompareForwardDepthsEPKvPKv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode20CompareByDepthAndXYZEPKvPKv">
+<span id="_CPPv3N3pcl7poisson7OctNode20CompareByDepthAndXYZEPKvPKv"></span><span id="_CPPv2N3pcl7poisson7OctNode20CompareByDepthAndXYZEPKvPKv"></span><span id="pcl::poisson::OctNode::CompareByDepthAndXYZ__voidCP.voidCP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1abd53d02c59071af936095e44f8c5b8a0"></span>int <code class="sig-name descname">CompareByDepthAndXYZ</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>v1</em>, <em class="property">const</em> void *<em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode20CompareByDepthAndXYZEPKvPKv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode23CompareByDepthAndZIndexEPKvPKv">
+<span id="_CPPv3N3pcl7poisson7OctNode23CompareByDepthAndZIndexEPKvPKv"></span><span id="_CPPv2N3pcl7poisson7OctNode23CompareByDepthAndZIndexEPKvPKv"></span><span id="pcl::poisson::OctNode::CompareByDepthAndZIndex__voidCP.voidCP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a9d95c8be7a60182f2cf06c7f17f04e89"></span>int <code class="sig-name descname">CompareByDepthAndZIndex</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>v1</em>, <em class="property">const</em> void *<em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode23CompareByDepthAndZIndexEPKvPKv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode27CompareForwardPointerDepthsEPKvPKv">
+<span id="_CPPv3N3pcl7poisson7OctNode27CompareForwardPointerDepthsEPKvPKv"></span><span id="_CPPv2N3pcl7poisson7OctNode27CompareForwardPointerDepthsEPKvPKv"></span><span id="pcl::poisson::OctNode::CompareForwardPointerDepths__voidCP.voidCP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a5afbb4926befd04f1330df2660c09a3a"></span>int <code class="sig-name descname">CompareForwardPointerDepths</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>v1</em>, <em class="property">const</em> void *<em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode27CompareForwardPointerDepthsEPKvPKv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode21CompareBackwardDepthsEPKvPKv">
+<span id="_CPPv3N3pcl7poisson7OctNode21CompareBackwardDepthsEPKvPKv"></span><span id="_CPPv2N3pcl7poisson7OctNode21CompareBackwardDepthsEPKvPKv"></span><span id="pcl::poisson::OctNode::CompareBackwardDepths__voidCP.voidCP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a24d87350ad847fb4e193e514cead316e"></span>int <code class="sig-name descname">CompareBackwardDepths</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>v1</em>, <em class="property">const</em> void *<em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode21CompareBackwardDepthsEPKvPKv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode28CompareBackwardPointerDepthsEPKvPKv">
+<span id="_CPPv3N3pcl7poisson7OctNode28CompareBackwardPointerDepthsEPKvPKv"></span><span id="_CPPv2N3pcl7poisson7OctNode28CompareBackwardPointerDepthsEPKvPKv"></span><span id="pcl::poisson::OctNode::CompareBackwardPointerDepths__voidCP.voidCP"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ac3eea2aa021d79f77c660afee964487a"></span>int <code class="sig-name descname">CompareBackwardPointerDepths</code><span class="sig-paren">(</span><em class="property">const</em> void *<em>v1</em>, <em class="property">const</em> void *<em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode28CompareBackwardPointerDepthsEPKvPKv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson7OctNode8Overlap2ERKiA9DIMENSION_KiRK4RealRKiA9DIMENSION_KiRK4Real">
+<span id="_CPPv3N3pcl7poisson7OctNode8Overlap2ERKiA9DIMENSION_KiRK4RealRKiA9DIMENSION_KiRK4Real"></span><span id="_CPPv2N3pcl7poisson7OctNode8Overlap2ERKiADIMENSION_KiRK4RealRKiADIMENSION_KiRK4Real"></span><span id="pcl::poisson::OctNode::Overlap2__iCR.iCA.RealCR.iCR.iCA.RealCR"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a699e327c202e6606f40562d52b403bf8"></span>int <code class="sig-name descname">Overlap2</code><span class="sig-paren">(</span><em class="property">const</em> int &amp;<em>depth1</em>, <em class="property">const</em> int <em>offSet1</em>[<em>DIMENSION</em>], <em class="property">const</em> <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a> &amp;<em>multiplier1</em>, <em class="property">const</em> int &amp;<em>depth2</em>, <em class="property">const</em> int <em>offSet2</em>[<em>DIMENSION</em>], <em class="property">const</em> <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a> &amp;<em>multiplier2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode8Overlap2ERKiA9DIMENSION_KiRK4RealRKiA9DIMENSION_KiRK4Real" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode10DepthShiftE">
+<span id="_CPPv3N3pcl7poisson7OctNode10DepthShiftE"></span><span id="_CPPv2N3pcl7poisson7OctNode10DepthShiftE"></span><span id="pcl::poisson::OctNode::DepthShift__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1aceea7980ed01ce5ec773ae021095fc2d"></span><em class="property">const</em> int <code class="sig-name descname">DepthShift</code> = 5<a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode10DepthShiftE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode11OffsetShiftE">
+<span id="_CPPv3N3pcl7poisson7OctNode11OffsetShiftE"></span><span id="_CPPv2N3pcl7poisson7OctNode11OffsetShiftE"></span><span id="pcl::poisson::OctNode::OffsetShift__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a6e7e5bce04026c71a52c4b3529dcf746"></span><em class="property">const</em> int <code class="sig-name descname">OffsetShift</code> = 19<a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode11OffsetShiftE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode12OffsetShift1E">
+<span id="_CPPv3N3pcl7poisson7OctNode12OffsetShift1E"></span><span id="_CPPv2N3pcl7poisson7OctNode12OffsetShift1E"></span><span id="pcl::poisson::OctNode::OffsetShift1__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a09a332f4ee821a756a61fb2595f0466d"></span><em class="property">const</em> int <code class="sig-name descname">OffsetShift1</code> = <a class="reference internal" href="#_CPPv4N3pcl7poisson7OctNode10DepthShiftE" title="pcl::poisson::OctNode::DepthShift">DepthShift</a><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12OffsetShift1E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode12OffsetShift2E">
+<span id="_CPPv3N3pcl7poisson7OctNode12OffsetShift2E"></span><span id="_CPPv2N3pcl7poisson7OctNode12OffsetShift2E"></span><span id="pcl::poisson::OctNode::OffsetShift2__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a1b829297f14e886a0f5e963ec15c5b33"></span><em class="property">const</em> int <code class="sig-name descname">OffsetShift2</code> = <a class="reference internal" href="#_CPPv4N3pcl7poisson7OctNode12OffsetShift1E" title="pcl::poisson::OctNode::OffsetShift1">OffsetShift1</a> + <a class="reference internal" href="#_CPPv4N3pcl7poisson7OctNode11OffsetShiftE" title="pcl::poisson::OctNode::OffsetShift">OffsetShift</a><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12OffsetShift2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode12OffsetShift3E">
+<span id="_CPPv3N3pcl7poisson7OctNode12OffsetShift3E"></span><span id="_CPPv2N3pcl7poisson7OctNode12OffsetShift3E"></span><span id="pcl::poisson::OctNode::OffsetShift3__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ac63f0f128865a803ca6a97b28d46978a"></span><em class="property">const</em> int <code class="sig-name descname">OffsetShift3</code> = <a class="reference internal" href="#_CPPv4N3pcl7poisson7OctNode12OffsetShift2E" title="pcl::poisson::OctNode::OffsetShift2">OffsetShift2</a> + <a class="reference internal" href="#_CPPv4N3pcl7poisson7OctNode11OffsetShiftE" title="pcl::poisson::OctNode::OffsetShift">OffsetShift</a><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12OffsetShift3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode9DepthMaskE">
+<span id="_CPPv3N3pcl7poisson7OctNode9DepthMaskE"></span><span id="_CPPv2N3pcl7poisson7OctNode9DepthMaskE"></span><span id="pcl::poisson::OctNode::DepthMask__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1ad44df61c345b5ced70b89465177423d7"></span><em class="property">const</em> int <code class="sig-name descname">DepthMask</code> = (1 &lt;&lt; <a class="reference internal" href="#_CPPv4N3pcl7poisson7OctNode10DepthShiftE" title="pcl::poisson::OctNode::DepthShift">DepthShift</a>) - 1<a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode9DepthMaskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode10OffsetMaskE">
+<span id="_CPPv3N3pcl7poisson7OctNode10OffsetMaskE"></span><span id="_CPPv2N3pcl7poisson7OctNode10OffsetMaskE"></span><span id="pcl::poisson::OctNode::OffsetMask__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a32374d4c133729cea45cfd1b93020af4"></span><em class="property">const</em> int <code class="sig-name descname">OffsetMask</code> = (1 &lt;&lt; <a class="reference internal" href="#_CPPv4N3pcl7poisson7OctNode11OffsetShiftE" title="pcl::poisson::OctNode::OffsetShift">OffsetShift</a>) - 1<a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode10OffsetMaskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson7OctNode17internalAllocatorE">
+<span id="_CPPv3N3pcl7poisson7OctNode17internalAllocatorE"></span><span id="_CPPv2N3pcl7poisson7OctNode17internalAllocatorE"></span><span id="pcl::poisson::OctNode::internalAllocator__Allocator:OctNode:NodeData.Real::"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1a476c8ce3f1a9241ee017e127bd727347"></span>Allocator&lt;OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt;&gt; <code class="sig-name descname">internalAllocator</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode17internalAllocatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl7poisson7OctNode17ConstNeighborKey3E">
+<span id="_CPPv3N3pcl7poisson7OctNode17ConstNeighborKey3E"></span><span id="_CPPv2N3pcl7poisson7OctNode17ConstNeighborKey3E"></span><span id="pcl::poisson::OctNode::ConstNeighborKey3"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key3"></span><em class="property">class </em><code class="sig-name descname">ConstNeighborKey3</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode17ConstNeighborKey3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey317ConstNeighborKey3Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey317ConstNeighborKey3Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey317ConstNeighborKey3Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key3_1af69373e7622bd3d08e492e6fdde71e3a"></span>template&lt;&gt;<br /><code class="sig-name descname">ConstNeighborKey3</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey317ConstNeighborKey3Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey3D0Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey3D0Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey3D0Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key3_1abba0da140215fb9fc70339e273925876"></span>template&lt;&gt;<br /><code class="sig-name descname">~ConstNeighborKey3</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey3D0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey33setEvi">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey33setEi"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey33setEi"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key3_1a9f016724f7226d216d835acb0ce63107"></span>template&lt;&gt;<br />void <code class="sig-name descname">set</code><span class="sig-paren">(</span>int <em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey33setEvi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey312getNeighborsER15ConstNeighbors3PK7OctNode">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey312getNeighborsEPK7OctNode"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey312getNeighborsEPK7OctNode"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key3_1ab63d540d1cfca15d212d50926080dba7"></span>template&lt;&gt;<br />ConstNeighbors3 &amp;<code class="sig-name descname">getNeighbors</code><span class="sig-paren">(</span><em class="property">const</em> OctNode *<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey312getNeighborsER15ConstNeighbors3PK7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey312getNeighborsER15ConstNeighbors3PK7OctNodei">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey312getNeighborsEPK7OctNodei"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey312getNeighborsEPK7OctNodei"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key3_1acfa6bd76ec2c32a3cc666d3bec47cd97"></span>template&lt;&gt;<br />ConstNeighbors3 &amp;<code class="sig-name descname">getNeighbors</code><span class="sig-paren">(</span><em class="property">const</em> OctNode *<em>node</em>, int <em>minDepth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey312getNeighborsER15ConstNeighbors3PK7OctNodei" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey39neighborsE">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey39neighborsE"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey39neighborsE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key3_1a1d50b96d8272c829a3462b04229f3dbf"></span>ConstNeighbors3 *<code class="sig-name descname">neighbors</code><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey39neighborsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl7poisson7OctNode17ConstNeighborKey5E">
+<span id="_CPPv3N3pcl7poisson7OctNode17ConstNeighborKey5E"></span><span id="_CPPv2N3pcl7poisson7OctNode17ConstNeighborKey5E"></span><span id="pcl::poisson::OctNode::ConstNeighborKey5"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key5"></span><em class="property">class </em><code class="sig-name descname">ConstNeighborKey5</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode17ConstNeighborKey5E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey517ConstNeighborKey5Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey517ConstNeighborKey5Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey517ConstNeighborKey5Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key5_1a9644bcc985fd1ced9cfe5bea9f4a450c"></span>template&lt;&gt;<br /><code class="sig-name descname">ConstNeighborKey5</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey517ConstNeighborKey5Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey5D0Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey5D0Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey5D0Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key5_1a1f9004897a813f548d45c021149b9afc"></span>template&lt;&gt;<br /><code class="sig-name descname">~ConstNeighborKey5</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey5D0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey53setEvi">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey53setEi"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey53setEi"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key5_1ac13b60a8b016d898a88da2bee8cc7ebf"></span>template&lt;&gt;<br />void <code class="sig-name descname">set</code><span class="sig-paren">(</span>int <em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey53setEvi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey512getNeighborsERN7OctNodeI8NodeData4RealE15ConstNeighbors5EPK7OctNode">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey512getNeighborsEPK7OctNode"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey512getNeighborsEPK7OctNode"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key5_1ad80aa3f152c0a411838265e92917910f"></span>template&lt;&gt;<br />OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt;::ConstNeighbors5 &amp;<code class="sig-name descname">getNeighbors</code><span class="sig-paren">(</span><em class="property">const</em> OctNode *<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey512getNeighborsERN7OctNodeI8NodeData4RealE15ConstNeighbors5EPK7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey59neighborsE">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey59neighborsE"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey59neighborsE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbor_key5_1ad55cd139ff03ffc2db9f87362f72e66d"></span>ConstNeighbors5 *<code class="sig-name descname">neighbors</code><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE17ConstNeighborKey59neighborsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl7poisson7OctNode15ConstNeighbors3E">
+<span id="_CPPv3N3pcl7poisson7OctNode15ConstNeighbors3E"></span><span id="_CPPv2N3pcl7poisson7OctNode15ConstNeighbors3E"></span><span id="pcl::poisson::OctNode::ConstNeighbors3"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors3"></span><em class="property">class </em><code class="sig-name descname">ConstNeighbors3</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode15ConstNeighbors3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors315ConstNeighbors3Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors315ConstNeighbors3Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors315ConstNeighbors3Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors3_1a52d643c1860e1832e9fb5d93d6560c26"></span>template&lt;&gt;<br /><code class="sig-name descname">ConstNeighbors3</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors315ConstNeighbors3Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors35clearEvv">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors35clearEv"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors35clearEv"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors3_1a870f04b1df34db2315f58b0bc169130e"></span>template&lt;&gt;<br />void <code class="sig-name descname">clear</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors35clearEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors39neighborsE">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors39neighborsE"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors39neighborsE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors3_1a2f0c89e72277ac0a5f7be5b27ba57147"></span><em class="property">const</em> OctNode *<code class="sig-name descname">neighbors</code>[3][3][3]<a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors39neighborsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl7poisson7OctNode15ConstNeighbors5E">
+<span id="_CPPv3N3pcl7poisson7OctNode15ConstNeighbors5E"></span><span id="_CPPv2N3pcl7poisson7OctNode15ConstNeighbors5E"></span><span id="pcl::poisson::OctNode::ConstNeighbors5"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors5"></span><em class="property">class </em><code class="sig-name descname">ConstNeighbors5</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode15ConstNeighbors5E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors515ConstNeighbors5Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors515ConstNeighbors5Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors515ConstNeighbors5Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors5_1abc445d356fe3df408524abd7c5c2c8c4"></span>template&lt;&gt;<br /><code class="sig-name descname">ConstNeighbors5</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors515ConstNeighbors5Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors55clearEvv">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors55clearEv"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors55clearEv"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors5_1af4a7be8ebc64c8dba559450eae3e1512"></span>template&lt;&gt;<br />void <code class="sig-name descname">clear</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors55clearEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors59neighborsE">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors59neighborsE"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors59neighborsE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_const_neighbors5_1a1c1c66eca94809bbb73435ba9e0a048c"></span><em class="property">const</em> OctNode *<code class="sig-name descname">neighbors</code>[5][5][5]<a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE15ConstNeighbors59neighborsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl7poisson7OctNode12NeighborKey3E">
+<span id="_CPPv3N3pcl7poisson7OctNode12NeighborKey3E"></span><span id="_CPPv2N3pcl7poisson7OctNode12NeighborKey3E"></span><span id="pcl::poisson::OctNode::NeighborKey3"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3"></span><em class="property">class </em><code class="sig-name descname">NeighborKey3</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12NeighborKey3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312NeighborKey3Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312NeighborKey3Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312NeighborKey3Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3_1ab0c292dbe00c82c821e93017dcc3edf4"></span>template&lt;&gt;<br /><code class="sig-name descname">NeighborKey3</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312NeighborKey3Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey3D0Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey3D0Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey3D0Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3_1a1f4eee8334f31443599a288ca4925fd3"></span>template&lt;&gt;<br /><code class="sig-name descname">~NeighborKey3</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey3D0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey33setEvi">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey33setEi"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey33setEi"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3_1a949d90a40317f9083485834efa85c7c0"></span>template&lt;&gt;<br />void <code class="sig-name descname">set</code><span class="sig-paren">(</span>int <em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey33setEvi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsER10Neighbors3P7OctNode7Point3DI4RealEi">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsEP7OctNode7Point3DI4RealEi"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsEP7OctNode7Point3DI4RealEi"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3_1ab7f2cac43878b14163cfb428e5ece97f"></span>template&lt;&gt;<br />Neighbors3 &amp;<code class="sig-name descname">setNeighbors</code><span class="sig-paren">(</span>OctNode *<em>root</em>, Point3D&lt;<a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; <em>p</em>, int <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsER10Neighbors3P7OctNode7Point3DI4RealEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312getNeighborsER10Neighbors3P7OctNode7Point3DI4RealEi">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312getNeighborsEP7OctNode7Point3DI4RealEi"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312getNeighborsEP7OctNode7Point3DI4RealEi"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3_1a4bbc38d2dd62744bddc5959ac1470fcf"></span>template&lt;&gt;<br />Neighbors3 &amp;<code class="sig-name descname">getNeighbors</code><span class="sig-paren">(</span>OctNode *<em>root</em>, Point3D&lt;<a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt; <em>p</em>, int <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312getNeighborsER10Neighbors3P7OctNode7Point3DI4RealEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsER10Neighbors3P7OctNodeAL3E_AL3E_AL3E_b">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsEP7OctNodeAL3E_AL3E_AL3E_b"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsEP7OctNodeA3_A3_A3_b"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3_1adf84a69282a0ee5ab7a8dd74408fc6c1"></span>template&lt;&gt;<br />Neighbors3 &amp;<code class="sig-name descname">setNeighbors</code><span class="sig-paren">(</span>OctNode *<em>node</em>, bool <em>flags</em>[3][3][3]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsER10Neighbors3P7OctNodeAL3E_AL3E_AL3E_b" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsER10Neighbors3P7OctNode">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsEP7OctNode"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsEP7OctNode"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3_1ac72914aa8122b83485dba377b0ccffb3"></span>template&lt;&gt;<br />Neighbors3 &amp;<code class="sig-name descname">setNeighbors</code><span class="sig-paren">(</span>OctNode *<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312setNeighborsER10Neighbors3P7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312getNeighborsER10Neighbors3P7OctNode">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312getNeighborsEP7OctNode"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312getNeighborsEP7OctNode"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3_1a9e79f2cb990ebd796b1c92692e181f95"></span>template&lt;&gt;<br />Neighbors3 &amp;<code class="sig-name descname">getNeighbors</code><span class="sig-paren">(</span>OctNode *<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey312getNeighborsER10Neighbors3P7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey39neighborsE">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey39neighborsE"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey39neighborsE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key3_1a314b69a1ff9e251f42107e6b2bab8714"></span>Neighbors3 *<code class="sig-name descname">neighbors</code><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey39neighborsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl7poisson7OctNode12NeighborKey5E">
+<span id="_CPPv3N3pcl7poisson7OctNode12NeighborKey5E"></span><span id="_CPPv2N3pcl7poisson7OctNode12NeighborKey5E"></span><span id="pcl::poisson::OctNode::NeighborKey5"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key5"></span><em class="property">class </em><code class="sig-name descname">NeighborKey5</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode12NeighborKey5E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512NeighborKey5Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512NeighborKey5Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512NeighborKey5Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key5_1ae3c6d7a15d32cae805fb3ee32ebb5212"></span>template&lt;&gt;<br /><code class="sig-name descname">NeighborKey5</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512NeighborKey5Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey5D0Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey5D0Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey5D0Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key5_1a8aa1ce29209415f108dd3eebf3a9cf87"></span>template&lt;&gt;<br /><code class="sig-name descname">~NeighborKey5</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey5D0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey53setEvi">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey53setEi"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey53setEi"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key5_1a9730934e97fd8cb00b1306b62cb9fdbc"></span>template&lt;&gt;<br />void <code class="sig-name descname">set</code><span class="sig-paren">(</span>int <em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey53setEvi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512getNeighborsERN7OctNodeI8NodeData4RealE10Neighbors5EP7OctNode">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512getNeighborsEP7OctNode"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512getNeighborsEP7OctNode"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key5_1aa0e1d1132d20e163d6f1c78bb1bfbed3"></span>template&lt;&gt;<br />OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt;::Neighbors5 &amp;<code class="sig-name descname">getNeighbors</code><span class="sig-paren">(</span>OctNode *<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512getNeighborsERN7OctNodeI8NodeData4RealE10Neighbors5EP7OctNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512setNeighborsERN7OctNodeI8NodeData4RealE10Neighbors5EP7OctNodeiiiiii">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512setNeighborsEP7OctNodeiiiiii"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512setNeighborsEP7OctNodeiiiiii"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key5_1a696ae45a0add740831faa26621d3e450"></span>template&lt;&gt;<br />OctNode&lt;NodeData, <a class="reference internal" href="typedef_multi__grid__octree__data_8h_1a7a00b0a7dfe066febcf1407614ebfa9c.html#_CPPv4N3pcl7poisson4RealE" title="pcl::poisson::Real">Real</a>&gt;::Neighbors5 &amp;<code class="sig-name descname">setNeighbors</code><span class="sig-paren">(</span>OctNode *<em>node</em>, int <em>xStart</em> = 0, int <em>xEnd</em> = 5, int <em>yStart</em> = 0, int <em>yEnd</em> = 5, int <em>zStart</em> = 0, int <em>zEnd</em> = 5<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey512setNeighborsERN7OctNodeI8NodeData4RealE10Neighbors5EP7OctNodeiiiiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey59neighborsE">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey59neighborsE"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey59neighborsE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbor_key5_1a2830f97a6edde24ed747c604f0535782"></span>Neighbors5 *<code class="sig-name descname">neighbors</code><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE12NeighborKey59neighborsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl7poisson7OctNode10Neighbors3E">
+<span id="_CPPv3N3pcl7poisson7OctNode10Neighbors3E"></span><span id="_CPPv2N3pcl7poisson7OctNode10Neighbors3E"></span><span id="pcl::poisson::OctNode::Neighbors3"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors3"></span><em class="property">class </em><code class="sig-name descname">Neighbors3</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode10Neighbors3E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors310Neighbors3Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors310Neighbors3Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors310Neighbors3Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors3_1a71bb8d2650c1493bdfa710a1aa3d5877"></span>template&lt;&gt;<br /><code class="sig-name descname">Neighbors3</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors310Neighbors3Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors35clearEvv">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors35clearEv"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors35clearEv"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors3_1a72216f64af02a0914f8445dd6f93e650"></span>template&lt;&gt;<br />void <code class="sig-name descname">clear</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors35clearEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors39neighborsE">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors39neighborsE"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors39neighborsE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors3_1aea13ec6c8f9d2f7c857d9f47456a2418"></span>OctNode *<code class="sig-name descname">neighbors</code>[3][3][3]<a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors39neighborsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl7poisson7OctNode10Neighbors5E">
+<span id="_CPPv3N3pcl7poisson7OctNode10Neighbors5E"></span><span id="_CPPv2N3pcl7poisson7OctNode10Neighbors5E"></span><span id="pcl::poisson::OctNode::Neighbors5"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors5"></span><em class="property">class </em><code class="sig-name descname">Neighbors5</code><a class="headerlink" href="#_CPPv4N3pcl7poisson7OctNode10Neighbors5E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors510Neighbors5Ev">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors510Neighbors5Ev"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors510Neighbors5Ev"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors5_1acd9975f066072483bdba358ef67c66f1"></span>template&lt;&gt;<br /><code class="sig-name descname">Neighbors5</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors510Neighbors5Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors55clearEvv">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors55clearEv"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors55clearEv"></span><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors5_1a8d0688e817f94111a6d99e4b64a1e960"></span>template&lt;&gt;<br />void <code class="sig-name descname">clear</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors55clearEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors59neighborsE">
+<span id="_CPPv3IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors59neighborsE"></span><span id="_CPPv2IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors59neighborsE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1poisson_1_1_oct_node_1_1_neighbors5_1a17fab38bb2899c63b9c8089912fbf68f"></span>OctNode *<code class="sig-name descname">neighbors</code>[5][5][5]<a class="headerlink" href="#_CPPv4IEN3pcl7poisson7OctNodeI8NodeData4RealE10Neighbors59neighborsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

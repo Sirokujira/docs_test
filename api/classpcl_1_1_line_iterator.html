@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class LineIterator &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class LineIterator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_line_iterator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-lineiterator">
+<span id="exhale-class-classpcl-1-1-line-iterator"></span><h1>Class LineIterator<a class="headerlink" href="#class-lineiterator" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_geometry_include_pcl_geometry_line_iterator.h.html#file-pcl-geometry-include-pcl-geometry-line-iterator-h"><span class="std std-ref">File line_iterator.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::OrganizedIndexIterator</span></code> (<a class="reference internal" href="classpcl_1_1_organized_index_iterator.html#exhale-class-classpcl-1-1-organized-index-iterator"><span class="std std-ref">Class OrganizedIndexIterator</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl12LineIteratorE">
+<span id="_CPPv3N3pcl12LineIteratorE"></span><span id="_CPPv2N3pcl12LineIteratorE"></span><span id="pcl::LineIterator"></span><span class="target" id="classpcl_1_1_line_iterator"></span><em class="property">class </em><code class="sig-name descname">LineIterator</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_organized_index_iterator.html#_CPPv4N3pcl22OrganizedIndexIteratorE" title="pcl::OrganizedIndexIterator">OrganizedIndexIterator</a><a class="headerlink" href="#_CPPv4N3pcl12LineIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Organized Index Iterator for iterating over the “pixels” for a given line using the Bresenham algorithm. </p>
+<p>Supports 4 and 8 neighborhood connectivity <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>iterator does not visit the given end-point (on purpose). </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli <a class="reference external" href="mailto:gedikli&#37;&#52;&#48;willowgarage&#46;com">gedikli<span>&#64;</span>willowgarage<span>&#46;</span>com</a> </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl12LineIterator12NeighborhoodE">
+<span id="_CPPv3N3pcl12LineIterator12NeighborhoodE"></span><span id="_CPPv2N3pcl12LineIterator12NeighborhoodE"></span><span class="target" id="classpcl_1_1_line_iterator_1a5806c77db661ee1ef1b3b3fec8fcdf22"></span><em class="property">enum </em><code class="sig-name descname">Neighborhood</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator12NeighborhoodE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Neighborhood connectivity. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12LineIterator9Neighbor4E">
+<span id="_CPPv3N3pcl12LineIterator9Neighbor4E"></span><span id="_CPPv2N3pcl12LineIterator9Neighbor4E"></span><span class="target" id="classpcl_1_1_line_iterator_1a5806c77db661ee1ef1b3b3fec8fcdf22a46be2246fd499916497a074ab5fe9933"></span><code class="sig-name descname">Neighbor4</code> = 4<a class="headerlink" href="#_CPPv4N3pcl12LineIterator9Neighbor4E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12LineIterator9Neighbor8E">
+<span id="_CPPv3N3pcl12LineIterator9Neighbor8E"></span><span id="_CPPv2N3pcl12LineIterator9Neighbor8E"></span><span class="target" id="classpcl_1_1_line_iterator_1a5806c77db661ee1ef1b3b3fec8fcdf22aea0e99b42fadda42674196abbd861760"></span><code class="sig-name descname">Neighbor8</code> = 8<a class="headerlink" href="#_CPPv4N3pcl12LineIterator9Neighbor8E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12LineIterator12LineIteratorEjjjjjRK12Neighborhood">
+<span id="_CPPv3N3pcl12LineIterator12LineIteratorEjjjjjRK12Neighborhood"></span><span id="_CPPv2N3pcl12LineIterator12LineIteratorEjjjjjRK12Neighborhood"></span><span id="pcl::LineIterator::LineIterator__unsigned.unsigned.unsigned.unsigned.unsigned.NeighborhoodCR"></span><span class="target" id="classpcl_1_1_line_iterator_1a48ca3d9e32e2ca89b604b285751ff4f0"></span><code class="sig-name descname">LineIterator</code><span class="sig-paren">(</span>unsigned <em>x_start</em>, unsigned <em>y_start</em>, unsigned <em>x_end</em>, unsigned <em>y_end</em>, unsigned <em>width</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl12LineIterator12NeighborhoodE" title="pcl::LineIterator::Neighborhood">Neighborhood</a> &amp;<em>neighborhood</em> = <a class="reference internal" href="#_CPPv4N3pcl12LineIterator9Neighbor8E" title="pcl::LineIterator::Neighbor8">Neighbor8</a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12LineIterator12LineIteratorEjjjjjRK12Neighborhood" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x_start</span></code>: column of the start pixel of the line </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_start</span></code>: row of the start pixel of the line </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x_end</span></code>: column of the end pixel of the line </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_end</span></code>: row of the end pixel of the line </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: width of the organized structure e.g. image/cloud/map etc.. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neighborhood</span></code>: connectivity of the neighborhood </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12LineIteratorD0Ev">
+<span id="_CPPv3N3pcl12LineIteratorD0Ev"></span><span id="_CPPv2N3pcl12LineIteratorD0Ev"></span><span id="pcl::LineIterator::~LineIterator"></span><span class="target" id="classpcl_1_1_line_iterator_1aa61d29aef4f1619e4e60483a6d2eb3f3"></span><code class="sig-name descname">~LineIterator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12LineIteratorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12LineIteratorppEv">
+<span id="_CPPv3N3pcl12LineIteratorppEv"></span><span id="_CPPv2N3pcl12LineIteratorppEv"></span><span id="pcl::LineIterator::inc-operator"></span><span class="target" id="classpcl_1_1_line_iterator_1af2c659bad2acfc5f47f31d539b11e9bf"></span>void <code class="sig-name descname">operator++</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12LineIteratorppEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>go to next pixel/point in image/cloud </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12LineIterator11getRowIndexEv">
+<span id="_CPPv3NK3pcl12LineIterator11getRowIndexEv"></span><span id="_CPPv2NK3pcl12LineIterator11getRowIndexEv"></span><span id="pcl::LineIterator::getRowIndexC"></span><span class="target" id="classpcl_1_1_line_iterator_1a14cde659682f11e36fbff88c8b0bdd02"></span>unsigned <code class="sig-name descname">getRowIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12LineIterator11getRowIndexEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>returns the row index (y-coordinate) of the current pixel/point </p>
+<p>default implementation.</p>
+<p><p>Should be overloaded </p>
+<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the row index (y-coordinate) of the current pixel/point</p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12LineIterator14getColumnIndexEv">
+<span id="_CPPv3NK3pcl12LineIterator14getColumnIndexEv"></span><span id="_CPPv2NK3pcl12LineIterator14getColumnIndexEv"></span><span id="pcl::LineIterator::getColumnIndexC"></span><span class="target" id="classpcl_1_1_line_iterator_1ab5cebbe975962fc2fa40e0751406a975"></span>unsigned <code class="sig-name descname">getColumnIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12LineIterator14getColumnIndexEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>returns the col index (x-coordinate) of the current pixel/point </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the col index (x-coordinate) of the current pixel/point </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12LineIterator7isValidEv">
+<span id="_CPPv3NK3pcl12LineIterator7isValidEv"></span><span id="_CPPv2NK3pcl12LineIterator7isValidEv"></span><span id="pcl::LineIterator::isValidC"></span><span class="target" id="classpcl_1_1_line_iterator_1ac9895f623bf5d1f4e4296fd8b3a6a6a8"></span>bool <code class="sig-name descname">isValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12LineIterator7isValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>return whether the current visited pixel/point is valid or not. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if the current pixel/point is within the points to be iterated over, false otherwise </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12LineIterator5resetEv">
+<span id="_CPPv3N3pcl12LineIterator5resetEv"></span><span id="_CPPv2N3pcl12LineIterator5resetEv"></span><span id="pcl::LineIterator::reset"></span><span class="target" id="classpcl_1_1_line_iterator_1a147e809c82addc78d419a3cfd61d012e"></span>void <code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12LineIterator5resetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>resets the iterator to the beginning of the line </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12LineIterator4initERK12Neighborhood">
+<span id="_CPPv3N3pcl12LineIterator4initERK12Neighborhood"></span><span id="_CPPv2N3pcl12LineIterator4initERK12Neighborhood"></span><span id="pcl::LineIterator::init__NeighborhoodCR"></span><span class="target" id="classpcl_1_1_line_iterator_1a539182ca573d915b1bdb7b0c67cb56ab"></span>void <code class="sig-name descname">init</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl12LineIterator12NeighborhoodE" title="pcl::LineIterator::Neighborhood">Neighborhood</a> &amp;<em>neighborhood</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12LineIterator4initERK12Neighborhood" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>initializes the variables for the Bresenham algorithm </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">neighborhood</span></code>: connectivity to the neighborhood. Either 4 or 8 </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator2x_E">
+<span id="_CPPv3N3pcl12LineIterator2x_E"></span><span id="_CPPv2N3pcl12LineIterator2x_E"></span><span id="pcl::LineIterator::x___unsigned"></span><span class="target" id="classpcl_1_1_line_iterator_1ab37f3aa2abeda4b2e5fdbb3e25a75485"></span>unsigned <code class="sig-name descname">x_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator2x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>current column index </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator2y_E">
+<span id="_CPPv3N3pcl12LineIterator2y_E"></span><span id="_CPPv2N3pcl12LineIterator2y_E"></span><span id="pcl::LineIterator::y___unsigned"></span><span class="target" id="classpcl_1_1_line_iterator_1a2b2cee34fa71ff94893da75332fb5c81"></span>unsigned <code class="sig-name descname">y_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator2y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>current row index </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator8x_start_E">
+<span id="_CPPv3N3pcl12LineIterator8x_start_E"></span><span id="_CPPv2N3pcl12LineIterator8x_start_E"></span><span id="pcl::LineIterator::x_start___unsigned"></span><span class="target" id="classpcl_1_1_line_iterator_1af3565d0dce9adef34c2a1e67a7d6daa0"></span>unsigned <code class="sig-name descname">x_start_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator8x_start_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>column index of first pixel/point </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator8y_start_E">
+<span id="_CPPv3N3pcl12LineIterator8y_start_E"></span><span id="_CPPv2N3pcl12LineIterator8y_start_E"></span><span id="pcl::LineIterator::y_start___unsigned"></span><span class="target" id="classpcl_1_1_line_iterator_1ac4cc53ca93b3a45d62a11c161e054b54"></span>unsigned <code class="sig-name descname">y_start_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator8y_start_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>row index of first pixel/point </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator6x_end_E">
+<span id="_CPPv3N3pcl12LineIterator6x_end_E"></span><span id="_CPPv2N3pcl12LineIterator6x_end_E"></span><span id="pcl::LineIterator::x_end___unsigned"></span><span class="target" id="classpcl_1_1_line_iterator_1a174734ebedf80e5ad42e4414d4e1ca4b"></span>unsigned <code class="sig-name descname">x_end_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator6x_end_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>column index of end pixel/point </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator6y_end_E">
+<span id="_CPPv3N3pcl12LineIterator6y_end_E"></span><span id="_CPPv2N3pcl12LineIterator6y_end_E"></span><span id="pcl::LineIterator::y_end___unsigned"></span><span class="target" id="classpcl_1_1_line_iterator_1a4715dc8896950d96124547fb8b648e22"></span>unsigned <code class="sig-name descname">y_end_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator6y_end_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>row index of end pixel/point </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator6error_E">
+<span id="_CPPv3N3pcl12LineIterator6error_E"></span><span id="_CPPv2N3pcl12LineIterator6error_E"></span><span id="pcl::LineIterator::error___i"></span><span class="target" id="classpcl_1_1_line_iterator_1ae0b4d0c9d0bc85cb0a4d307623a6236d"></span>int <code class="sig-name descname">error_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator6error_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>current distance to the line </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator10error_max_E">
+<span id="_CPPv3N3pcl12LineIterator10error_max_E"></span><span id="_CPPv2N3pcl12LineIterator10error_max_E"></span><span id="pcl::LineIterator::error_max___i"></span><span class="target" id="classpcl_1_1_line_iterator_1acfc1110436519d046126d0fda3711c67"></span>int <code class="sig-name descname">error_max_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator10error_max_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>error threshold </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator12error_minus_E">
+<span id="_CPPv3N3pcl12LineIterator12error_minus_E"></span><span id="_CPPv2N3pcl12LineIterator12error_minus_E"></span><span id="pcl::LineIterator::error_minus___i"></span><span class="target" id="classpcl_1_1_line_iterator_1a4ab7732bb00d7f9c8ff8a72d03164a11"></span>int <code class="sig-name descname">error_minus_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator12error_minus_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>increment of error (distance) value in case of an y-step (if dx &gt; dy) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator11error_plus_E">
+<span id="_CPPv3N3pcl12LineIterator11error_plus_E"></span><span id="_CPPv2N3pcl12LineIterator11error_plus_E"></span><span id="pcl::LineIterator::error_plus___i"></span><span class="target" id="classpcl_1_1_line_iterator_1a4b79594dcb36045623a3583173b75028"></span>int <code class="sig-name descname">error_plus_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator11error_plus_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>increment of error (distance) value in case of just an x-step (if dx &gt; dy) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator7x_plus_E">
+<span id="_CPPv3N3pcl12LineIterator7x_plus_E"></span><span id="_CPPv2N3pcl12LineIterator7x_plus_E"></span><span id="pcl::LineIterator::x_plus___i"></span><span class="target" id="classpcl_1_1_line_iterator_1a9ff7153a9f0d0e1080b21479277cedd5"></span>int <code class="sig-name descname">x_plus_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator7x_plus_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>increment of column index in case of just an x-step (if dx &gt; dy) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator7y_plus_E">
+<span id="_CPPv3N3pcl12LineIterator7y_plus_E"></span><span id="_CPPv2N3pcl12LineIterator7y_plus_E"></span><span id="pcl::LineIterator::y_plus___i"></span><span class="target" id="classpcl_1_1_line_iterator_1a5f830c4985feaea8ab865f4aafd5389c"></span>int <code class="sig-name descname">y_plus_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator7y_plus_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>increment of row index in case of just an x-step (if dx &gt; dy) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator8x_minus_E">
+<span id="_CPPv3N3pcl12LineIterator8x_minus_E"></span><span id="_CPPv2N3pcl12LineIterator8x_minus_E"></span><span id="pcl::LineIterator::x_minus___i"></span><span class="target" id="classpcl_1_1_line_iterator_1a3262c629423d45171c9850fd0135ca55"></span>int <code class="sig-name descname">x_minus_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator8x_minus_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>increment of column index in case of just an y-step (if dx &gt; dy) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator8y_minus_E">
+<span id="_CPPv3N3pcl12LineIterator8y_minus_E"></span><span id="_CPPv2N3pcl12LineIterator8y_minus_E"></span><span id="pcl::LineIterator::y_minus___i"></span><span class="target" id="classpcl_1_1_line_iterator_1a1db8459e3838bccacd5dfd3e1c639834"></span>int <code class="sig-name descname">y_minus_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator8y_minus_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>increment of row index in case of just an y-step (if dx &gt; dy) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator11index_plus_E">
+<span id="_CPPv3N3pcl12LineIterator11index_plus_E"></span><span id="_CPPv2N3pcl12LineIterator11index_plus_E"></span><span id="pcl::LineIterator::index_plus___i"></span><span class="target" id="classpcl_1_1_line_iterator_1a67c216ef803c958f6e8944ba5119bef1"></span>int <code class="sig-name descname">index_plus_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator11index_plus_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>increment pixel/point index in case of just an x-step (if dx &gt; dy) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12LineIterator12index_minus_E">
+<span id="_CPPv3N3pcl12LineIterator12index_minus_E"></span><span id="_CPPv2N3pcl12LineIterator12index_minus_E"></span><span id="pcl::LineIterator::index_minus___i"></span><span class="target" id="classpcl_1_1_line_iterator_1a2a8151d251176cce7c61060499fdf233"></span>int <code class="sig-name descname">index_minus_</code><a class="headerlink" href="#_CPPv4N3pcl12LineIterator12index_minus_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>increment pixel/point index in case of just an y-step (if dx &gt; dy) </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

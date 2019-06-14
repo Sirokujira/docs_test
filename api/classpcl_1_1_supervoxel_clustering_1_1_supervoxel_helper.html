@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class SupervoxelClustering::SupervoxelHelper &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class SupervoxelClustering::SupervoxelHelper</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-supervoxelclustering-supervoxelhelper">
+<span id="exhale-class-classpcl-1-1-supervoxel-clustering-1-1-supervoxel-helper"></span><h1>Class SupervoxelClustering::SupervoxelHelper<a class="headerlink" href="#class-supervoxelclustering-supervoxelhelper" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_segmentation_include_pcl_segmentation_supervoxel_clustering.h.html#file-pcl-segmentation-include-pcl-segmentation-supervoxel-clustering-h"><span class="std std-ref">File supervoxel_clustering.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<p>This class is a nested type of <a class="reference internal" href="classpcl_1_1_supervoxel_clustering.html#exhale-class-classpcl-1-1-supervoxel-clustering"><span class="std std-ref">Template Class SupervoxelClustering</span></a>.</p>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1_1compare_leaves.html#exhale-struct-structpcl-1-1-supervoxel-clustering-1-1-supervoxel-helper-1-1compare-leaves"><span class="std std-ref">Struct SupervoxelHelper::compareLeaves</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl20SupervoxelClustering16SupervoxelHelperE">
+<span id="_CPPv3N3pcl20SupervoxelClustering16SupervoxelHelperE"></span><span id="_CPPv2N3pcl20SupervoxelClustering16SupervoxelHelperE"></span><span id="pcl::SupervoxelClustering::SupervoxelHelper"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper"></span><em class="property">class </em><code class="sig-name descname">SupervoxelHelper</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering16SupervoxelHelperE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Internal storage class for supervoxels. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Stores pointers to leaves of clustering internal octree, </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>so should not be used outside of clustering class </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8LeafSetTE">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8LeafSetTE"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8LeafSetTE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a2df34c7329adae1c55efeae14b1c5c54"></span><em class="property">typedef </em>std::set&lt;LeafContainerT *, <em class="property">typename</em> SupervoxelHelper::compareLeaves&gt; <code class="sig-name descname">LeafSetT</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8LeafSetTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8iteratorE">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8iteratorE"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8iteratorE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a886508931562122a911ecf9d8927e902"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8LeafSetTE" title="pcl::SupervoxelClustering&lt;PointT&gt;::SupervoxelHelper::LeafSetT">LeafSetT</a>::iterator <code class="sig-name descname">iterator</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8iteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper14const_iteratorE">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper14const_iteratorE"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper14const_iteratorE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a2d72fb72513095c23f92d7754c29896a"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8LeafSetTE" title="pcl::SupervoxelClustering&lt;PointT&gt;::SupervoxelHelper::LeafSetT">LeafSetT</a>::const_iterator <code class="sig-name descname">const_iterator</code><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper14const_iteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper11DistFuncPtrE">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper11DistFuncPtrE"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper11DistFuncPtrE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a8131ec5fe798b9644e2f16bcd557b20d"></span><em class="property">typedef </em>float (<code class="sig-name descname">SupervoxelClustering</code>::*<code class="sig-name descname">DistFuncPtr</code>)<span class="sig-paren">(</span><em class="property">const</em> VoxelData &amp;v1, <em class="property">const</em> VoxelData &amp;v2<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper11DistFuncPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper16SupervoxelHelperE8uint32_tP20SupervoxelClustering">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper16SupervoxelHelperE8uint32_tP20SupervoxelClustering"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper16SupervoxelHelperE8uint32_tP20SupervoxelClustering"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a5c3e31973f741d8ae9883715679eefce"></span>template&lt;&gt;<br /><code class="sig-name descname">SupervoxelHelper</code><span class="sig-paren">(</span>uint32_t <em>label</em>, SupervoxelClustering *<em>parent_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper16SupervoxelHelperE8uint32_tP20SupervoxelClustering" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper7addLeafEvP14LeafContainerT">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper7addLeafEP14LeafContainerT"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper7addLeafEP14LeafContainerT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a5e1adb63e7f2f8869f8553f9ff368af4"></span>template&lt;&gt;<br />void <code class="sig-name descname">addLeaf</code><span class="sig-paren">(</span>LeafContainerT *<em>leaf_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper7addLeafEvP14LeafContainerT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper10removeLeafEvP14LeafContainerT">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper10removeLeafEP14LeafContainerT"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper10removeLeafEP14LeafContainerT"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a1585836e7136fe5aea7ab90fbaa98dfa"></span>template&lt;&gt;<br />void <code class="sig-name descname">removeLeaf</code><span class="sig-paren">(</span>LeafContainerT *<em>leaf_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper10removeLeafEvP14LeafContainerT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper15removeAllLeavesEvv">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper15removeAllLeavesEv"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper15removeAllLeavesEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a2d7237dc36b85ef1d10615fff696aa55"></span>template&lt;&gt;<br />void <code class="sig-name descname">removeAllLeaves</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper15removeAllLeavesEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6expandEvv">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6expandEv"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6expandEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1accf81813df8abd2737f85fbe50129f8a"></span>template&lt;&gt;<br />void <code class="sig-name descname">expand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6expandEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper13refineNormalsEvv">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper13refineNormalsEv"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper13refineNormalsEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a626d3aae82c4d39271266792748eeb4e"></span>template&lt;&gt;<br />void <code class="sig-name descname">refineNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper13refineNormalsEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper14updateCentroidEvv">
+<span id="_CPPv3IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper14updateCentroidEv"></span><span id="_CPPv2IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper14updateCentroidEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1adae900fda47ae475cba8c8f385e602a4"></span>template&lt;&gt;<br />void <code class="sig-name descname">updateCentroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper14updateCentroidEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getVoxelsEvRN3pcl10PointCloudI6PointTE3PtrE">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getVoxelsERN3pcl10PointCloudI6PointTE3PtrE"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getVoxelsERN3pcl10PointCloudI6PointTE3PtrE"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1ac763d64e42bf52a02550b0b9ea7f0572"></span>template&lt;&gt;<br />void <code class="sig-name descname">getVoxels</code><span class="sig-paren">(</span><em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::Ptr &amp;<em>voxels</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getVoxelsEvRN3pcl10PointCloudI6PointTE3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper10getNormalsEvRN3pcl10PointCloudI6NormalE3PtrE">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper10getNormalsERN3pcl10PointCloudI6NormalE3PtrE"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper10getNormalsERN3pcl10PointCloudI6NormalE3PtrE"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1ab08e40a01a749dbd3210e0978b872e3d"></span>template&lt;&gt;<br />void <code class="sig-name descname">getNormals</code><span class="sig-paren">(</span><em class="property">typename</em> pcl::PointCloud&lt;<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt;::Ptr &amp;<em>normals</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper10getNormalsEvRN3pcl10PointCloudI6NormalE3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8getLabelE8uint32_tv">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8getLabelEv"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8getLabelEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a3ecf671360b4a243f520347d79bf3b5c"></span>template&lt;&gt;<br />uint32_t <code class="sig-name descname">getLabel</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper8getLabelE8uint32_tv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getNormalEN5Eigen8Vector4fEv">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getNormalEv"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getNormalEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a93382a621031e0446885ca05b5500519"></span>template&lt;&gt;<br />Eigen::Vector4f <code class="sig-name descname">getNormal</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getNormalEN5Eigen8Vector4fEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getRGBEN5Eigen8Vector3fEv">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getRGBEv"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getRGBEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1aec1d1faaf953ac36f1f2345d164ae4fd"></span>template&lt;&gt;<br />Eigen::Vector3f <code class="sig-name descname">getRGB</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getRGBEN5Eigen8Vector3fEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getXYZEN5Eigen8Vector3fEv">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getXYZEv"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getXYZEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a26aff169fea2631655413f7b29d17505"></span>template&lt;&gt;<br />Eigen::Vector3f <code class="sig-name descname">getXYZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getXYZEN5Eigen8Vector3fEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getXYZEvRfRfRf">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getXYZERfRfRf"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getXYZERfRfRf"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a15d35b0d285704c1fffe541fa4f158c4"></span>template&lt;&gt;<br />void <code class="sig-name descname">getXYZ</code><span class="sig-paren">(</span>float &amp;<em>x</em>, float &amp;<em>y</em>, float &amp;<em>z</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getXYZEvRfRfRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getRGBEvR8uint32_t">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getRGBER8uint32_t"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getRGBER8uint32_t"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a77f90ed2af781c30ff7b596492e21b01"></span>template&lt;&gt;<br />void <code class="sig-name descname">getRGB</code><span class="sig-paren">(</span>uint32_t &amp;<em>rgba</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper6getRGBEvR8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getNormalEvRN3pcl6NormalE">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getNormalERN3pcl6NormalE"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getNormalERN3pcl6NormalE"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1ab893da3dba6faf05daf4206b75fde83e"></span>template&lt;&gt;<br />void <code class="sig-name descname">getNormal</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a> &amp;<em>normal_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper9getNormalEvRN3pcl6NormalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper17getNeighborLabelsEvRNSt3setI8uint32_tEE">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper17getNeighborLabelsERNSt3setI8uint32_tEE"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper17getNeighborLabelsERNSt3setI8uint32_tEE"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a0470631468ff950bf37cd857e91f7f2c"></span>template&lt;&gt;<br />void <code class="sig-name descname">getNeighborLabels</code><span class="sig-paren">(</span>std::set&lt;uint32_t&gt; &amp;<em>neighbor_labels</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper17getNeighborLabelsEvRNSt3setI8uint32_tEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper11getCentroidE9VoxelDatav">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper11getCentroidEv"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper11getCentroidEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a72476d4f74b0b7cea92a8716239d19f1"></span>template&lt;&gt;<br />VoxelData <code class="sig-name descname">getCentroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper11getCentroidE9VoxelDatav" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper4sizeE6size_tv">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper4sizeEv"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper4sizeEv"></span><span class="target" id="classpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1a84bd5882860a590701c5bebb3ab43bd8"></span>template&lt;&gt;<br />size_t <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper4sizeE6size_tv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl20SupervoxelClustering16SupervoxelHelper13compareLeavesE">
+<span id="_CPPv3N3pcl20SupervoxelClustering16SupervoxelHelper13compareLeavesE"></span><span id="_CPPv2N3pcl20SupervoxelClustering16SupervoxelHelper13compareLeavesE"></span><span id="pcl::SupervoxelClustering::SupervoxelHelper::compareLeaves"></span><span class="target" id="structpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1_1compare_leaves"></span><em class="property">struct </em><code class="sig-name descname">compareLeaves</code><a class="headerlink" href="#_CPPv4N3pcl20SupervoxelClustering16SupervoxelHelper13compareLeavesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_comparator.html#classpcl_1_1_comparator"><span class="std std-ref">Comparator</span></a> for LeafContainerT pointers - used for sorting set of leaves. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Compares by index in the overall leaf_vector. Order isn’t important, so long as it is fixed. </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper13compareLeavesclEbRPC14LeafContainerTRPC14LeafContainerT">
+<span id="_CPPv3IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper13compareLeavesclERPC14LeafContainerTRPC14LeafContainerT"></span><span id="_CPPv2IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper13compareLeavesclERPC14LeafContainerTRPC14LeafContainerT"></span><span class="target" id="structpcl_1_1_supervoxel_clustering_1_1_supervoxel_helper_1_1compare_leaves_1ad4a81ca04b5cfbe9466148440c957e68"></span>template&lt;&gt;<br />bool <code class="sig-name descname">operator()</code><span class="sig-paren">(</span>LeafContainerT *<em class="property">const</em> &amp;<em>left</em>, LeafContainerT *<em class="property">const</em> &amp;<em>right</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl20SupervoxelClusteringI6PointTE16SupervoxelHelper13compareLeavesclEbRPC14LeafContainerTRPC14LeafContainerT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

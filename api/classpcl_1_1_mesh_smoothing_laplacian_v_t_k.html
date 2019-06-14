@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class MeshSmoothingLaplacianVTK &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class MeshSmoothingLaplacianVTK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_mesh_smoothing_laplacian_v_t_k.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-meshsmoothinglaplacianvtk">
+<span id="exhale-class-classpcl-1-1-mesh-smoothing-laplacian-v-t-k"></span><h1>Class MeshSmoothingLaplacianVTK<a class="headerlink" href="#class-meshsmoothinglaplacianvtk" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_vtk_smoothing_vtk_mesh_smoothing_laplacian.h.html#file-pcl-surface-include-pcl-surface-vtk-smoothing-vtk-mesh-smoothing-laplacian-h"><span class="std std-ref">File vtk_mesh_smoothing_laplacian.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::MeshProcessing</span></code> (<a class="reference internal" href="classpcl_1_1_mesh_processing.html#exhale-class-classpcl-1-1-mesh-processing"><span class="std std-ref">Class MeshProcessing</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTKE">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTKE"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTKE"></span><span id="pcl::MeshSmoothingLaplacianVTK"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k"></span><em class="property">class </em><code class="sig-name descname">MeshSmoothingLaplacianVTK</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_mesh_processing.html#_CPPv4N3pcl14MeshProcessingE" title="pcl::MeshProcessing">MeshProcessing</a><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTKE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>PCL mesh smoothing based on the vtkSmoothPolyDataFilter algorithm from the VTK library. </p>
+<p>Please check out the original documentation for more details on the inner workings of the algorithm Warning: This wrapper does two fairly computationally expensive conversions from the PCL <a class="reference internal" href="structpcl_1_1_polygon_mesh.html#structpcl_1_1_polygon_mesh"><span class="std std-ref">PolygonMesh</span></a> data structure to the vtkPolyData data structure and back. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK25MeshSmoothingLaplacianVTKEv">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK25MeshSmoothingLaplacianVTKEv"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK25MeshSmoothingLaplacianVTKEv"></span><span id="pcl::MeshSmoothingLaplacianVTK::MeshSmoothingLaplacianVTK"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1af41ae06f60aa5c35d94c96417fe58881"></span><code class="sig-name descname">MeshSmoothingLaplacianVTK</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK25MeshSmoothingLaplacianVTKEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor that sets the values of the algorithm parameters to the VTK defaults. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK10setNumIterEi">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK10setNumIterEi"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK10setNumIterEi"></span><span id="pcl::MeshSmoothingLaplacianVTK::setNumIter__i"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1a59214b91b05c5e4e063fdfe516c2510c"></span>void <code class="sig-name descname">setNumIter</code><span class="sig-paren">(</span>int <em>num_iter</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK10setNumIterEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the number of iterations for the smoothing filter. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_iter</span></code>: the number of iterations </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK10getNumIterEv">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK10getNumIterEv"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK10getNumIterEv"></span><span id="pcl::MeshSmoothingLaplacianVTK::getNumIter"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1a08a72aee06dfeeefe4c07e79c75e809b"></span>int <code class="sig-name descname">getNumIter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK10getNumIterEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of iterations. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK14setConvergenceEf">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK14setConvergenceEf"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK14setConvergenceEf"></span><span id="pcl::MeshSmoothingLaplacianVTK::setConvergence__float"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1a0cacc7eda5a0bedbd9a273d3f1cd492c"></span>void <code class="sig-name descname">setConvergence</code><span class="sig-paren">(</span>float <em>convergence</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK14setConvergenceEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify a convergence criterion for the iteration process. </p>
+<p>Smaller numbers result in more smoothing iterations. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">convergence</span></code>: convergence criterion for the Laplacian smoothing </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK14getConvergenceEv">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK14getConvergenceEv"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK14getConvergenceEv"></span><span id="pcl::MeshSmoothingLaplacianVTK::getConvergence"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1adc4cff1a1294865c1fdc914b84357792"></span>float <code class="sig-name descname">getConvergence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK14getConvergenceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the convergence criterion. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK19setRelaxationFactorEf">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK19setRelaxationFactorEf"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK19setRelaxationFactorEf"></span><span id="pcl::MeshSmoothingLaplacianVTK::setRelaxationFactor__float"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1aaec7bfc48a81329d0f5f9e7d67bc763b"></span>void <code class="sig-name descname">setRelaxationFactor</code><span class="sig-paren">(</span>float <em>relaxation_factor</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK19setRelaxationFactorEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify the relaxation factor for Laplacian smoothing. </p>
+<p>As in all iterative methods, the stability of the process is sensitive to this parameter. In general, small relaxation factors and large numbers of iterations are more stable than larger relaxation factors and smaller numbers of iterations. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">relaxation_factor</span></code>: the relaxation factor of the Laplacian smoothing algorithm </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK19getRelaxationFactorEv">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK19getRelaxationFactorEv"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK19getRelaxationFactorEv"></span><span id="pcl::MeshSmoothingLaplacianVTK::getRelaxationFactor"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1a05c39b370632a2299367747b27e621b9"></span>float <code class="sig-name descname">getRelaxationFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK19getRelaxationFactorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the relaxation factor of the Laplacian smoothing. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK23setFeatureEdgeSmoothingEb">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK23setFeatureEdgeSmoothingEb"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK23setFeatureEdgeSmoothingEb"></span><span id="pcl::MeshSmoothingLaplacianVTK::setFeatureEdgeSmoothing__b"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1afadbf6729d0b9c5ded0e38d3a3329e6c"></span>void <code class="sig-name descname">setFeatureEdgeSmoothing</code><span class="sig-paren">(</span>bool <em>feature_edge_smoothing</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK23setFeatureEdgeSmoothingEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Turn on/off smoothing along sharp interior edges. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">feature_edge_smoothing</span></code>: whether to enable/disable smoothing along sharp interior edges </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK23getFeatureEdgeSmoothingEv">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK23getFeatureEdgeSmoothingEv"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK23getFeatureEdgeSmoothingEv"></span><span id="pcl::MeshSmoothingLaplacianVTK::getFeatureEdgeSmoothing"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1a8cb08ee94b11bef9b3b8e729befb5235"></span>bool <code class="sig-name descname">getFeatureEdgeSmoothing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK23getFeatureEdgeSmoothingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the status of the feature edge smoothing. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK15setFeatureAngleEf">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK15setFeatureAngleEf"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK15setFeatureAngleEf"></span><span id="pcl::MeshSmoothingLaplacianVTK::setFeatureAngle__float"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1ad14426cfc75fedfdd1169fec333a80bb"></span>void <code class="sig-name descname">setFeatureAngle</code><span class="sig-paren">(</span>float <em>feature_angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK15setFeatureAngleEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify the feature angle for sharp edge identification. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">feature_angle</span></code>: the angle threshold for considering an edge to be sharp </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK15getFeatureAngleEv">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK15getFeatureAngleEv"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK15getFeatureAngleEv"></span><span id="pcl::MeshSmoothingLaplacianVTK::getFeatureAngle"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1a10bf1d8d1ae8604eb404f19deec0d7d7"></span>float <code class="sig-name descname">getFeatureAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK15getFeatureAngleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the angle threshold for considering an edge to be sharp. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK12setEdgeAngleEf">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK12setEdgeAngleEf"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK12setEdgeAngleEf"></span><span id="pcl::MeshSmoothingLaplacianVTK::setEdgeAngle__float"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1a0ce3a597e10cb1f95f8a1ebeea9afab1"></span>void <code class="sig-name descname">setEdgeAngle</code><span class="sig-paren">(</span>float <em>edge_angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK12setEdgeAngleEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify the edge angle to control smoothing along edges (either interior or boundary). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">edge_angle</span></code>: the angle to control smoothing along edges </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK12getEdgeAngleEv">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK12getEdgeAngleEv"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK12getEdgeAngleEv"></span><span id="pcl::MeshSmoothingLaplacianVTK::getEdgeAngle"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1afc4f10fe9071886c36ebda1fce52666b"></span>float <code class="sig-name descname">getEdgeAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK12getEdgeAngleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the edge angle to control smoothing along edges. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK20setBoundarySmoothingEb">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK20setBoundarySmoothingEb"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK20setBoundarySmoothingEb"></span><span id="pcl::MeshSmoothingLaplacianVTK::setBoundarySmoothing__b"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1af8f5d261c2439cc00bee22987977f871"></span>void <code class="sig-name descname">setBoundarySmoothing</code><span class="sig-paren">(</span>bool <em>boundary_smoothing</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK20setBoundarySmoothingEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Turn on/off the smoothing of vertices on the boundary of the mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">boundary_smoothing</span></code>: decision whether boundary smoothing is on or off </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK20getBoundarySmoothingEv">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK20getBoundarySmoothingEv"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK20getBoundarySmoothingEv"></span><span id="pcl::MeshSmoothingLaplacianVTK::getBoundarySmoothing"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1aad30e12a39c5c0c9ef9371e487692c3c"></span>bool <code class="sig-name descname">getBoundarySmoothing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK20getBoundarySmoothingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the status of the boundary smoothing. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl25MeshSmoothingLaplacianVTK17performProcessingERN3pcl11PolygonMeshE">
+<span id="_CPPv3N3pcl25MeshSmoothingLaplacianVTK17performProcessingERN3pcl11PolygonMeshE"></span><span id="_CPPv2N3pcl25MeshSmoothingLaplacianVTK17performProcessingERN3pcl11PolygonMeshE"></span><span id="pcl::MeshSmoothingLaplacianVTK::performProcessing__pcl::PolygonMeshR"></span><span class="target" id="classpcl_1_1_mesh_smoothing_laplacian_v_t_k_1ae2c05c419fcae24a71d001a6c83918a9"></span>void <code class="sig-name descname">performProcessing</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_polygon_mesh.html#_CPPv4N3pcl11PolygonMeshE" title="pcl::PolygonMesh">PolygonMesh</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl25MeshSmoothingLaplacianVTK17performProcessingERN3pcl11PolygonMeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract surface processing method. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

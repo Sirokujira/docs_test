@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OctreeLeafNodeDepthFirstIterator &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OctreeLeafNodeDepthFirstIterator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1octree_1_1_octree_leaf_node_depth_first_iterator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-octreeleafnodedepthfirstiterator">
+<span id="exhale-class-classpcl-1-1octree-1-1-octree-leaf-node-depth-first-iterator"></span><h1>Template Class OctreeLeafNodeDepthFirstIterator<a class="headerlink" href="#template-class-octreeleafnodedepthfirstiterator" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_octree_include_pcl_octree_octree_iterator.h.html#file-pcl-octree-include-pcl-octree-octree-iterator-h"><span class="std std-ref">File octree_iterator.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreeDepthFirstIterator&lt;</span> <span class="pre">OctreeT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_depth_first_iterator.html#exhale-class-classpcl-1-1octree-1-1-octree-depth-first-iterator"><span class="std std-ref">Template Class OctreeDepthFirstIterator</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl6octree32OctreeLeafNodeDepthFirstIteratorE">
+<span id="_CPPv3I0EN3pcl6octree32OctreeLeafNodeDepthFirstIteratorE"></span><span id="_CPPv2I0EN3pcl6octree32OctreeLeafNodeDepthFirstIteratorE"></span><span class="target" id="classpcl_1_1octree_1_1_octree_leaf_node_depth_first_iterator"></span>template&lt;typename <code class="sig-name descname">OctreeT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">OctreeLeafNodeDepthFirstIterator</code> : <em class="property">public</em> pcl::octree::OctreeDepthFirstIterator&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl6octree32OctreeLeafNodeDepthFirstIteratorE" title="pcl::octree::OctreeLeafNodeDepthFirstIterator::OctreeT">OctreeT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl6octree32OctreeLeafNodeDepthFirstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Octree leaf node iterator class. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class implements a forward iterator for traversing the leaf nodes of an octree data structure.</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEj">
+<span id="_CPPv3N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEj"></span><span id="_CPPv2N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEj"></span><span id="pcl::octree::OctreeLeafNodeDepthFirstIterator::OctreeLeafNodeDepthFirstIterator__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_leaf_node_depth_first_iterator_1aca852c624b41eb28bbdfdc15591bc15f"></span><code class="sig-name descname">OctreeLeafNodeDepthFirstIterator</code><span class="sig-paren">(</span>unsigned int <em>max_depth_arg</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_depth_arg</span></code>: Depth limitation during traversal </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEP7OctreeTj">
+<span id="_CPPv3N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEP7OctreeTj"></span><span id="_CPPv2N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEP7OctreeTj"></span><span id="pcl::octree::OctreeLeafNodeDepthFirstIterator::OctreeLeafNodeDepthFirstIterator__OctreeTP.unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_leaf_node_depth_first_iterator_1abc0e9278eca029e2edea74509b5c9ecf"></span><code class="sig-name descname">OctreeLeafNodeDepthFirstIterator</code><span class="sig-paren">(</span>OctreeT *<em>octree_arg</em>, unsigned int <em>max_depth_arg</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEP7OctreeTj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_arg</span></code>: Octree to be iterated. Initially the iterator is set to its root node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_depth_arg</span></code>: Depth limitation during traversal </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEP7OctreeTjP13IteratorStateRKNSt6vectorI13IteratorStateEE">
+<span id="_CPPv3N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEP7OctreeTjP13IteratorStateRKNSt6vectorI13IteratorStateEE"></span><span id="_CPPv2N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEP7OctreeTjP13IteratorStateRKNSt6vectorI13IteratorStateEE"></span><span id="pcl::octree::OctreeLeafNodeDepthFirstIterator::OctreeLeafNodeDepthFirstIterator__OctreeTP.unsigned-i.IteratorStateP.std::vector:IteratorState:CR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_leaf_node_depth_first_iterator_1ad09d137f51a9e6355558409155e14c7c"></span><code class="sig-name descname">OctreeLeafNodeDepthFirstIterator</code><span class="sig-paren">(</span>OctreeT *<em>octree_arg</em>, unsigned int <em>max_depth_arg</em>, <a class="reference internal" href="structpcl_1_1octree_1_1_iterator_state.html#_CPPv4N3pcl6octree13IteratorStateE" title="pcl::octree::IteratorState">IteratorState</a> *<em>current_state</em>, <em class="property">const</em> std::vector&lt;<a class="reference internal" href="structpcl_1_1octree_1_1_iterator_state.html#_CPPv4N3pcl6octree13IteratorStateE" title="pcl::octree::IteratorState">IteratorState</a>&gt; &amp;<em>stack</em> = std::vector&lt;<a class="reference internal" href="structpcl_1_1octree_1_1_iterator_state.html#_CPPv4N3pcl6octree13IteratorStateE" title="pcl::octree::IteratorState">IteratorState</a>&gt;()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIterator32OctreeLeafNodeDepthFirstIteratorEP7OctreeTjP13IteratorStateRKNSt6vectorI13IteratorStateEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Warning</strong></dt><dd><p>For advanced users only. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_arg</span></code>: Octree to be iterated. Initially the iterator is set to its root node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_depth_arg</span></code>: Depth limitation during traversal </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">current_state</span></code>: A pointer to the current iterator state</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIterator5resetEv">
+<span id="_CPPv3N3pcl6octree32OctreeLeafNodeDepthFirstIterator5resetEv"></span><span id="_CPPv2N3pcl6octree32OctreeLeafNodeDepthFirstIterator5resetEv"></span><span id="pcl::octree::OctreeLeafNodeDepthFirstIterator::reset"></span><span class="target" id="classpcl_1_1octree_1_1_octree_leaf_node_depth_first_iterator_1ac6f8ae315cdfd74ce579ac274e7ec782"></span>void <code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIterator5resetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset the iterator to the root node of the octree. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIteratorppEv">
+<span id="_CPPv3N3pcl6octree32OctreeLeafNodeDepthFirstIteratorppEv"></span><span id="_CPPv2N3pcl6octree32OctreeLeafNodeDepthFirstIteratorppEv"></span><span id="pcl::octree::OctreeLeafNodeDepthFirstIterator::inc-operator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_leaf_node_depth_first_iterator_1a38374e8fe3f829d58cdd335e17a34f58"></span>OctreeLeafNodeDepthFirstIterator &amp;<code class="sig-name descname">operator++</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIteratorppEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Preincrement operator. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>recursively step to next octree leaf node </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIteratorppEi">
+<span id="_CPPv3N3pcl6octree32OctreeLeafNodeDepthFirstIteratorppEi"></span><span id="_CPPv2N3pcl6octree32OctreeLeafNodeDepthFirstIteratorppEi"></span><span id="pcl::octree::OctreeLeafNodeDepthFirstIterator::inc-operator__i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_leaf_node_depth_first_iterator_1a629de1418d5f9cd1a3473bc37cc6254a"></span>OctreeLeafNodeDepthFirstIterator <code class="sig-name descname">operator++</code><span class="sig-paren">(</span>int<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree32OctreeLeafNodeDepthFirstIteratorppEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>postincrement operator. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>step to next octree node </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree32OctreeLeafNodeDepthFirstIteratormlEv">
+<span id="_CPPv3NK3pcl6octree32OctreeLeafNodeDepthFirstIteratormlEv"></span><span id="_CPPv2NK3pcl6octree32OctreeLeafNodeDepthFirstIteratormlEv"></span><span id="pcl::octree::OctreeLeafNodeDepthFirstIterator::mul-operatorC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_leaf_node_depth_first_iterator_1ac927de2361dac24b892f88bbf4fbcf7b"></span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<code class="sig-name descname">operator*</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree32OctreeLeafNodeDepthFirstIteratormlEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>*operator. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>pointer to the current octree leaf node </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

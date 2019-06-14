@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class GreedyProjectionTriangulation &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class GreedyProjectionTriangulation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_greedy_projection_triangulation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-greedyprojectiontriangulation">
+<span id="exhale-class-classpcl-1-1-greedy-projection-triangulation"></span><h1>Template Class GreedyProjectionTriangulation<a class="headerlink" href="#template-class-greedyprojectiontriangulation" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_gp3.h.html#file-pcl-surface-include-pcl-surface-gp3-h"><span class="std std-ref">File gp3.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_greedy_projection_triangulation_1_1double_edge.html#exhale-struct-structpcl-1-1-greedy-projection-triangulation-1-1double-edge"><span class="std std-ref">Struct GreedyProjectionTriangulation::doubleEdge</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1_greedy_projection_triangulation_1_1nn_angle.html#exhale-struct-structpcl-1-1-greedy-projection-triangulation-1-1nn-angle"><span class="std std-ref">Struct GreedyProjectionTriangulation::nnAngle</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::MeshConstruction&lt;</span> <span class="pre">PointInT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_mesh_construction.html#exhale-class-classpcl-1-1-mesh-construction"><span class="std std-ref">Template Class MeshConstruction</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl29GreedyProjectionTriangulationE">
+<span id="_CPPv3I0EN3pcl29GreedyProjectionTriangulationE"></span><span id="_CPPv2I0EN3pcl29GreedyProjectionTriangulationE"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation"></span>template&lt;typename <code class="sig-name descname">PointInT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">GreedyProjectionTriangulation</code> : <em class="property">public</em> pcl::MeshConstruction&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl29GreedyProjectionTriangulationE" title="pcl::GreedyProjectionTriangulation::PointInT">PointInT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl29GreedyProjectionTriangulationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_greedy_projection_triangulation"><span class="std std-ref">GreedyProjectionTriangulation</span></a> is an implementation of a greedy triangulation algorithm for 3D points based on local 2D projections. </p>
+<p>It assumes locally smooth surfaces and relatively smooth transitions between areas with different point densities. <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Zoltan Csaba Marton </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation7GP3TypeE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation7GP3TypeE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation7GP3TypeE"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a66ce4391e2953e9e27fc510cfd367e57"></span><em class="property">enum </em><code class="sig-name descname">GP3Type</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation7GP3TypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation4NONEE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation4NONEE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation4NONEE"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a66ce4391e2953e9e27fc510cfd367e57aa27c3413c2a034aed49382da8eac69cb"></span><code class="sig-name descname">NONE</code> = -1<a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation4NONEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation4FREEE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation4FREEE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation4FREEE"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a66ce4391e2953e9e27fc510cfd367e57a4b43472e1578386733661add85fe51a9"></span><code class="sig-name descname">FREE</code> = 0<a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation4FREEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation6FRINGEE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation6FRINGEE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation6FRINGEE"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a66ce4391e2953e9e27fc510cfd367e57a44c1819a0353dd557374a706c713db9d"></span><code class="sig-name descname">FRINGE</code> = 1<a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation6FRINGEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation8BOUNDARYE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation8BOUNDARYE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation8BOUNDARYE"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a66ce4391e2953e9e27fc510cfd367e57a061d20995221139f662ac6fa29adc088"></span><code class="sig-name descname">BOUNDARY</code> = 2<a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation8BOUNDARYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation9COMPLETEDE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation9COMPLETEDE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation9COMPLETEDE"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a66ce4391e2953e9e27fc510cfd367e57a2ddd6f9f0bdc593a6b1492d562c98f75"></span><code class="sig-name descname">COMPLETED</code> = 3<a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation9COMPLETEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation3PtrE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation3PtrE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation3PtrE"></span><span id="pcl::GreedyProjectionTriangulation::Ptr"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a658ce8c79b7803560d6906f881bba64a"></span><em class="property">typedef </em>boost::shared_ptr&lt;GreedyProjectionTriangulation&lt;PointInT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation8ConstPtrE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation8ConstPtrE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation8ConstPtrE"></span><span id="pcl::GreedyProjectionTriangulation::ConstPtr"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a0cafba7c33301a1458c6d207c9de8827"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> GreedyProjectionTriangulation&lt;PointInT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation6KdTreeE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation6KdTreeE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation6KdTreeE"></span><span id="pcl::GreedyProjectionTriangulation::KdTree"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a2bd0d428a55408547fe31d6917ab5772"></span><em class="property">typedef </em>pcl::KdTree&lt;PointInT&gt; <code class="sig-name descname">KdTree</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation6KdTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation9KdTreePtrE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation9KdTreePtrE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation9KdTreePtrE"></span><span id="pcl::GreedyProjectionTriangulation::KdTreePtr"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a007c19e7861cd47835be2c9179c3ab26"></span><em class="property">typedef </em>pcl::KdTree&lt;PointInT&gt;::Ptr <code class="sig-name descname">KdTreePtr</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation9KdTreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation12PointCloudInE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation12PointCloudInE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation12PointCloudInE"></span><span id="pcl::GreedyProjectionTriangulation::PointCloudIn"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1ac9893902af0672bfd03d43d0a381c8ed"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointInT&gt; <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation15PointCloudInPtrE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation15PointCloudInPtrE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation15PointCloudInPtrE"></span><span id="pcl::GreedyProjectionTriangulation::PointCloudInPtr"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a141b14ab1502d0444c63c87573922510"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl29GreedyProjectionTriangulation12PointCloudInE" title="pcl::GreedyProjectionTriangulation::PointCloudIn">PointCloudIn</a>::Ptr <code class="sig-name descname">PointCloudInPtr</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation15PointCloudInPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation20PointCloudInConstPtrE">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation20PointCloudInConstPtrE"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation20PointCloudInConstPtrE"></span><span id="pcl::GreedyProjectionTriangulation::PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a937ec96d104aa2ce3f79490a3157ee71"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl29GreedyProjectionTriangulation12PointCloudInE" title="pcl::GreedyProjectionTriangulation::PointCloudIn">PointCloudIn</a>::ConstPtr <code class="sig-name descname">PointCloudInConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation20PointCloudInConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation29GreedyProjectionTriangulationEv">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation29GreedyProjectionTriangulationEv"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation29GreedyProjectionTriangulationEv"></span><span id="pcl::GreedyProjectionTriangulation::GreedyProjectionTriangulation"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a9362b801bcf8beff54e85dfa1899d0e0"></span><code class="sig-name descname">GreedyProjectionTriangulation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation29GreedyProjectionTriangulationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation5setMuEd">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation5setMuEd"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation5setMuEd"></span><span id="pcl::GreedyProjectionTriangulation::setMu__double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1aeaef2c77774b0cc22b1b4fd0189f8042"></span>void <code class="sig-name descname">setMu</code><span class="sig-paren">(</span>double <em>mu</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation5setMuEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the multiplier of the nearest neighbor distance to obtain the final search radius for each point (this will make the algorithm adapt to different point densities in the cloud). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mu</span></code>: the multiplier </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation5getMuEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation5getMuEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation5getMuEv"></span><span id="pcl::GreedyProjectionTriangulation::getMuC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1aa8b556b2b89d707b8ebf23aca3c6b878"></span>double <code class="sig-name descname">getMu</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation5getMuEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the nearest neighbor distance multiplier. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation26setMaximumNearestNeighborsEi">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation26setMaximumNearestNeighborsEi"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation26setMaximumNearestNeighborsEi"></span><span id="pcl::GreedyProjectionTriangulation::setMaximumNearestNeighbors__i"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a8c0cfbd5d9843f2414e5ff426b61e2e5"></span>void <code class="sig-name descname">setMaximumNearestNeighbors</code><span class="sig-paren">(</span>int <em>nnn</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation26setMaximumNearestNeighborsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of nearest neighbors to be searched for. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nnn</span></code>: the maximum number of nearest neighbors </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation26getMaximumNearestNeighborsEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation26getMaximumNearestNeighborsEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation26getMaximumNearestNeighborsEv"></span><span id="pcl::GreedyProjectionTriangulation::getMaximumNearestNeighborsC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a0e12123b0d887bd368bfb4135ce29234"></span>int <code class="sig-name descname">getMaximumNearestNeighbors</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation26getMaximumNearestNeighborsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum number of nearest neighbors to be searched for. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation15setSearchRadiusEd">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation15setSearchRadiusEd"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation15setSearchRadiusEd"></span><span id="pcl::GreedyProjectionTriangulation::setSearchRadius__double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a05c546fbd885e103573960ff22d70454"></span>void <code class="sig-name descname">setSearchRadius</code><span class="sig-paren">(</span>double <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation15setSearchRadiusEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the sphere radius that is to be used for determining the k-nearest neighbors used for triangulating. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This distance limits the maximum edge length! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the sphere radius that is to contain all k-nearest neighbors </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation15getSearchRadiusEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation15getSearchRadiusEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation15getSearchRadiusEv"></span><span id="pcl::GreedyProjectionTriangulation::getSearchRadiusC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a9cda00f949e8854e5f6f5864317114eb"></span>double <code class="sig-name descname">getSearchRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation15getSearchRadiusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the sphere radius used for determining the k-nearest neighbors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation15setMinimumAngleEd">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation15setMinimumAngleEd"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation15setMinimumAngleEd"></span><span id="pcl::GreedyProjectionTriangulation::setMinimumAngle__double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1ac379baa93391656d84824ea5a9806b1f"></span>void <code class="sig-name descname">setMinimumAngle</code><span class="sig-paren">(</span>double <em>minimum_angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation15setMinimumAngleEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the minimum angle each triangle should have. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>As this is a greedy approach, this will have to be violated from time to time </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">minimum_angle</span></code>: the minimum angle each triangle should have </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation15getMinimumAngleEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation15getMinimumAngleEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation15getMinimumAngleEv"></span><span id="pcl::GreedyProjectionTriangulation::getMinimumAngleC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1aba8da36a370dae1a2c214562ee4accce"></span>double <code class="sig-name descname">getMinimumAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation15getMinimumAngleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the parameter for distance based weighting of neighbors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation15setMaximumAngleEd">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation15setMaximumAngleEd"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation15setMaximumAngleEd"></span><span id="pcl::GreedyProjectionTriangulation::setMaximumAngle__double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1adf103aba42e0132f580a755010188481"></span>void <code class="sig-name descname">setMaximumAngle</code><span class="sig-paren">(</span>double <em>maximum_angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation15setMaximumAngleEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum angle each triangle can have. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>For best results, its value should be around 120 degrees </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">maximum_angle</span></code>: the maximum angle each triangle can have </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation15getMaximumAngleEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation15getMaximumAngleEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation15getMaximumAngleEv"></span><span id="pcl::GreedyProjectionTriangulation::getMaximumAngleC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a0a8011513f286a954758ab51639a09af"></span>double <code class="sig-name descname">getMaximumAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation15getMaximumAngleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the parameter for distance based weighting of neighbors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation22setMaximumSurfaceAngleEd">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation22setMaximumSurfaceAngleEd"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation22setMaximumSurfaceAngleEd"></span><span id="pcl::GreedyProjectionTriangulation::setMaximumSurfaceAngle__double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1afcf52c4a94f453a5ec3aab1a2d4196d8"></span>void <code class="sig-name descname">setMaximumSurfaceAngle</code><span class="sig-paren">(</span>double <em>eps_angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation22setMaximumSurfaceAngleEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Don’t consider points for triangulation if their normal deviates more than this value from the query point’s normal. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>As normal estimation methods usually give smooth transitions at sharp edges, this ensures correct triangulation by avoiding connecting points from one side to points from the other through forcing the use of the edge points. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">eps_angle</span></code>: maximum surface angle </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation22getMaximumSurfaceAngleEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation22getMaximumSurfaceAngleEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation22getMaximumSurfaceAngleEv"></span><span id="pcl::GreedyProjectionTriangulation::getMaximumSurfaceAngleC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a5579952469400b1b36d95410c592fbb9"></span>double <code class="sig-name descname">getMaximumSurfaceAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation22getMaximumSurfaceAngleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum surface angle. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation20setNormalConsistencyEb">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation20setNormalConsistencyEb"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation20setNormalConsistencyEb"></span><span id="pcl::GreedyProjectionTriangulation::setNormalConsistency__b"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a8b5c4a1eea1b1002521ae54e49dce2a4"></span>void <code class="sig-name descname">setNormalConsistency</code><span class="sig-paren">(</span>bool <em>consistent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation20setNormalConsistencyEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the flag if the input normals are oriented consistently. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">consistent</span></code>: set it to true if the normals are consistently oriented </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation20getNormalConsistencyEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation20getNormalConsistencyEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation20getNormalConsistencyEv"></span><span id="pcl::GreedyProjectionTriangulation::getNormalConsistencyC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a168472229c63331a4453363652843854"></span>bool <code class="sig-name descname">getNormalConsistency</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation20getNormalConsistencyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the flag for consistently oriented normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation27setConsistentVertexOrderingEb">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation27setConsistentVertexOrderingEb"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation27setConsistentVertexOrderingEb"></span><span id="pcl::GreedyProjectionTriangulation::setConsistentVertexOrdering__b"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a104e41b329a80b09a813ce5739fbbf41"></span>void <code class="sig-name descname">setConsistentVertexOrdering</code><span class="sig-paren">(</span>bool <em>consistent_ordering</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation27setConsistentVertexOrderingEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the flag to order the resulting triangle vertices consistently (positive direction around normal). </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Assumes consistently oriented normals (towards the viewpoint)  see setNormalConsistency () </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">consistent_ordering</span></code>: set it to true if triangle vertices should be ordered consistently </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation27getConsistentVertexOrderingEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation27getConsistentVertexOrderingEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation27getConsistentVertexOrderingEv"></span><span id="pcl::GreedyProjectionTriangulation::getConsistentVertexOrderingC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a4ac6858fbd2baa971d336453f40e5826"></span>bool <code class="sig-name descname">getConsistentVertexOrdering</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation27getConsistentVertexOrderingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the flag signaling consistently ordered triangle vertices. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation14getPointStatesEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation14getPointStatesEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation14getPointStatesEv"></span><span id="pcl::GreedyProjectionTriangulation::getPointStatesC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1af46f8ebd7cd862c3e35d35d9155e602f"></span>std::vector&lt;int&gt; <code class="sig-name descname">getPointStates</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation14getPointStatesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the state of each point after reconstruction. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Options are defined as constants: FREE, FRINGE, COMPLETED, BOUNDARY and NONE </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation10getPartIDsEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation10getPartIDsEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation10getPartIDsEv"></span><span id="pcl::GreedyProjectionTriangulation::getPartIDsC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a9b41ae0e079546da1e47c1e552a50956"></span>std::vector&lt;int&gt; <code class="sig-name descname">getPartIDs</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation10getPartIDsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the ID of each point after reconstruction. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>parts are numbered from 0, a -1 denotes unconnected points </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation6getSFNEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation6getSFNEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation6getSFNEv"></span><span id="pcl::GreedyProjectionTriangulation::getSFNC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a5da276be84af2940b940442b32816bda"></span>std::vector&lt;int&gt; <code class="sig-name descname">getSFN</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation6getSFNEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the sfn list. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl29GreedyProjectionTriangulation6getFFNEv">
+<span id="_CPPv3NK3pcl29GreedyProjectionTriangulation6getFFNEv"></span><span id="_CPPv2NK3pcl29GreedyProjectionTriangulation6getFFNEv"></span><span id="pcl::GreedyProjectionTriangulation::getFFNC"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a28d3445ef71068787c44d367a9bd6020"></span>std::vector&lt;int&gt; <code class="sig-name descname">getFFN</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl29GreedyProjectionTriangulation6getFFNEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the ffn list. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation3mu_E">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation3mu_E"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation3mu_E"></span><span id="pcl::GreedyProjectionTriangulation::mu___double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a6c14f79538439d238fdc95bc4a508f8b"></span>double <code class="sig-name descname">mu_</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation3mu_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The nearest neighbor distance multiplier to obtain the final search radius. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation14search_radius_E">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation14search_radius_E"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation14search_radius_E"></span><span id="pcl::GreedyProjectionTriangulation::search_radius___double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a7473d8f0ae4d2f96b6b0eb45d502e99a"></span>double <code class="sig-name descname">search_radius_</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation14search_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The nearest neighbors search radius for each point and the maximum edge length. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation4nnn_E">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation4nnn_E"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation4nnn_E"></span><span id="pcl::GreedyProjectionTriangulation::nnn___i"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a4d641fb5e6702f577c09d4c271236005"></span>int <code class="sig-name descname">nnn_</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation4nnn_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum number of nearest neighbors accepted by searching. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation14minimum_angle_E">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation14minimum_angle_E"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation14minimum_angle_E"></span><span id="pcl::GreedyProjectionTriangulation::minimum_angle___double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1ac3f21361341929d5e02ba92ab0ca9258"></span>double <code class="sig-name descname">minimum_angle_</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation14minimum_angle_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The preferred minimum angle for the triangles. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation14maximum_angle_E">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation14maximum_angle_E"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation14maximum_angle_E"></span><span id="pcl::GreedyProjectionTriangulation::maximum_angle___double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a07fb25fe27e6088e942b965f77281468"></span>double <code class="sig-name descname">maximum_angle_</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation14maximum_angle_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum angle for the triangles. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation10eps_angle_E">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation10eps_angle_E"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation10eps_angle_E"></span><span id="pcl::GreedyProjectionTriangulation::eps_angle___double"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a0720b49d49abca1bd7c9504666ddaf35"></span>double <code class="sig-name descname">eps_angle_</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation10eps_angle_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum surface angle. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation11consistent_E">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation11consistent_E"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation11consistent_E"></span><span id="pcl::GreedyProjectionTriangulation::consistent___b"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a8d230c0cd46619352ee921315e576677"></span>bool <code class="sig-name descname">consistent_</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation11consistent_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set this to true if the normals of the input are consistently oriented. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl29GreedyProjectionTriangulation20consistent_ordering_E">
+<span id="_CPPv3N3pcl29GreedyProjectionTriangulation20consistent_ordering_E"></span><span id="_CPPv2N3pcl29GreedyProjectionTriangulation20consistent_ordering_E"></span><span id="pcl::GreedyProjectionTriangulation::consistent_ordering___b"></span><span class="target" id="classpcl_1_1_greedy_projection_triangulation_1a2716f15189fc93e5d1ffe3d9e32fdca5"></span>bool <code class="sig-name descname">consistent_ordering_</code><a class="headerlink" href="#_CPPv4N3pcl29GreedyProjectionTriangulation20consistent_ordering_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set this to true if the output triangle vertices should be consistently oriented. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

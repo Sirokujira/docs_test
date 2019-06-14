@@ -1,0 +1,986 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OutofcoreOctreeBaseNode &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OutofcoreOctreeBaseNode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1outofcore_1_1_outofcore_octree_base_node.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-outofcoreoctreebasenode">
+<span id="exhale-class-classpcl-1-1outofcore-1-1-outofcore-octree-base-node"></span><h1>Template Class OutofcoreOctreeBaseNode<a class="headerlink" href="#template-class-outofcoreoctreebasenode" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_outofcore_include_pcl_outofcore_octree_base_node.h.html#file-pcl-outofcore-include-pcl-outofcore-octree-base-node-h"><span class="std std-ref">File octree_base_node.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreeNode</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#exhale-class-classpcl-1-1octree-1-1-octree-node"><span class="std std-ref">Class OctreeNode</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl9outofcore23OutofcoreOctreeBaseNodeE">
+<span id="_CPPv3I00EN3pcl9outofcore23OutofcoreOctreeBaseNodeE"></span><span id="_CPPv2I00EN3pcl9outofcore23OutofcoreOctreeBaseNodeE"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node"></span>template&lt;typename <code class="sig-name descname">ContainerT</code> = OutofcoreOctreeDiskContainer&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt;, typename <code class="sig-name descname">PointT</code> = pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">OutofcoreOctreeBaseNode</code> : <em class="property">public</em> pcl::octree::<a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a><a class="headerlink" href="#_CPPv4I00EN3pcl9outofcore23OutofcoreOctreeBaseNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1outofcore_1_1_outofcore_octree_base_node"><span class="std std-ref">OutofcoreOctreeBaseNode</span></a> Class internally representing nodes of an outofcore octree, with accessors to its data via the <a class="reference internal" href="classpcl_1_1outofcore_1_1_outofcore_octree_disk_container.html#classpcl_1_1outofcore_1_1_outofcore_octree_disk_container"><span class="std std-ref">pcl::outofcore::OutofcoreOctreeDiskContainer</span></a> class or <a class="reference internal" href="classpcl_1_1outofcore_1_1_outofcore_octree_ram_container.html#classpcl_1_1outofcore_1_1_outofcore_octree_ram_container"><span class="std std-ref">pcl::outofcore::OutofcoreOctreeRamContainer</span></a> class, whichever it is templated against. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Code was adapted from the Urban Robotics out of core octree implementation. Contact Jacob Schloss <a class="reference external" href="mailto:jacob&#46;schloss&#37;&#52;&#48;urbanrobotics&#46;net">jacob<span>&#46;</span>schloss<span>&#64;</span>urbanrobotics<span>&#46;</span>net</a> with any questions. <a class="reference external" href="http://www.urbanrobotics.net/">http://www.urbanrobotics.net/</a></p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Jacob Schloss (<a class="reference external" href="mailto:jacob&#46;schloss&#37;&#52;&#48;urbanrobotics&#46;net">jacob<span>&#46;</span>schloss<span>&#64;</span>urbanrobotics<span>&#46;</span>net</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode11octree_diskE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode11octree_diskE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode11octree_diskE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::octree_disk"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ad72c9b5b1801518171d2be67cc4f97d8"></span><em class="property">typedef </em>OutofcoreOctreeBase&lt;OutofcoreOctreeDiskContainer&lt;PointT&gt;, PointT&gt; <code class="sig-name descname">octree_disk</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode11octree_diskE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode16octree_disk_nodeE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode16octree_disk_nodeE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode16octree_disk_nodeE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::octree_disk_node"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1af302197f5784238c1d9b44f86a21d1da"></span><em class="property">typedef </em>OutofcoreOctreeBaseNode&lt;OutofcoreOctreeDiskContainer&lt;PointT&gt;, PointT&gt; <code class="sig-name descname">octree_disk_node</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode16octree_disk_nodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1aa2eed6155fc75aad72e84d0ffd225464"></span><em class="property">typedef </em>std::vector&lt;PointT, Eigen::aligned_allocator&lt;PointT&gt;&gt; <code class="sig-name descname">AlignedPointTVector</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode11node_type_tE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode11node_type_tE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode11node_type_tE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::node_type_t"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a32499caa704bf89b3ad3b4bf6d420689"></span><em class="property">typedef </em>pcl::octree::<a class="reference internal" href="enum_octree__nodes_8h_1ab47cd694aefa05d92fadab19e0292219.html#_CPPv4N3pcl6octree11node_type_tE" title="pcl::octree::node_type_t">node_type_t</a> <code class="sig-name descname">node_type_t</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode11node_type_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeEv">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeEv"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::OutofcoreOctreeBaseNode"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a6abe8eec3ce00c880785f9b9726bf95b"></span><code class="sig-name descname">OutofcoreOctreeBaseNode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor; sets pointers for children and for bounding boxes to 0. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPC19OutofcoreOctreeBaseI10ContainerT6PointTERKN5boost10filesystem4pathE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPC19OutofcoreOctreeBaseI10ContainerT6PointTERKN5boost10filesystem4pathE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPC19OutofcoreOctreeBaseI10ContainerT6PointTERKN5boost10filesystem4pathE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::OutofcoreOctreeBaseNode__Eigen::Vector3dCR.Eigen::Vector3dCR.OutofcoreOctreeBase:ContainerT.PointT:PC.boost::filesystem::pathCR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a759ce1087fc4720c7123ac13fa26bd62"></span><code class="sig-name descname">OutofcoreOctreeBaseNode</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>bb_min</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>bb_max</em>, OutofcoreOctreeBase&lt;ContainerT, PointT&gt; *<em class="property">const</em> <em>tree</em>, <em class="property">const</em> boost::filesystem::path &amp;<em>root_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPC19OutofcoreOctreeBaseI10ContainerT6PointTERKN5boost10filesystem4pathE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create root node and directory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNodeD0Ev">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNodeD0Ev"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNodeD0Ev"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::~OutofcoreOctreeBaseNode"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1acbabae5c3e3695ef13c9cb4d15fcbecc"></span><code class="sig-name descname">~OutofcoreOctreeBaseNode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNodeD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Will recursively delete all children calling recFreeChildrein. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode14getBoundingBoxERN5Eigen8Vector3dERN5Eigen8Vector3dE">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode14getBoundingBoxERN5Eigen8Vector3dERN5Eigen8Vector3dE"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode14getBoundingBoxERN5Eigen8Vector3dERN5Eigen8Vector3dE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getBoundingBox__Eigen::Vector3dR.Eigen::Vector3dRC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a02626db7622e8b8734750987ec66f973"></span><em class="property">virtual</em> void <code class="sig-name descname">getBoundingBox</code><span class="sig-paren">(</span>Eigen::Vector3d &amp;<em>min_bb</em>, Eigen::Vector3d &amp;<em>max_bb</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode14getBoundingBoxERN5Eigen8Vector3dERN5Eigen8Vector3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>gets the minimum and maximum corner of the bounding box represented by this node </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">min_bb</span></code>: returns the minimum corner of the bounding box indexed by 0&gt;X, 1&gt;Y, 2&gt;Z </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">max_bb</span></code>: returns the maximum corner of the bounding box indexed by 0&gt;X, 1&gt;Y, 2&gt;Z </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode14getPCDFilenameEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode14getPCDFilenameEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode14getPCDFilenameEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getPCDFilenameC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a26b2902409eba20e122231fd25bb4a7e"></span><em class="property">const</em> boost::filesystem::path &amp;<code class="sig-name descname">getPCDFilename</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode14getPCDFilenameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode19getMetadataFilenameEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode19getMetadataFilenameEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode19getMetadataFilenameEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getMetadataFilenameC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a5aa23454bc2edfdb2a9d6481c04afa59"></span><em class="property">const</em> boost::filesystem::path &amp;<code class="sig-name descname">getMetadataFilename</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode19getMetadataFilenameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEAL24E_KdRNSt4listINSt6stringEEE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEAL24E_KdRNSt4listINSt6stringEEE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEA24_KdRNSt4listINSt6stringEEE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::queryFrustum__doubleCA.std::list:ss:R"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a8b63e79a3f8ea7e49c4283dcf72fcb56"></span>void <code class="sig-name descname">queryFrustum</code><span class="sig-paren">(</span><em class="property">const</em> double <em>planes</em>[24], std::list&lt;std::string&gt; &amp;<em>file_names</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEAL24E_KdRNSt4listINSt6stringEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEAL24E_KdRNSt4listINSt6stringEEEKN5boost8uint32_tEKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEAL24E_KdRNSt4listINSt6stringEEEKN5boost8uint32_tEKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEA24_KdRNSt4listINSt6stringEEEKN5boost8uint32_tEKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::queryFrustum__doubleCA.std::list:ss:R.boost::uint32_tC.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ae318e71fd41288222e0cb4c4d878ede2"></span>void <code class="sig-name descname">queryFrustum</code><span class="sig-paren">(</span><em class="property">const</em> double <em>planes</em>[24], std::list&lt;std::string&gt; &amp;<em>file_names</em>, <em class="property">const</em> boost::uint32_t <em>query_depth</em>, <em class="property">const</em> bool <em>skip_vfc_check</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEAL24E_KdRNSt4listINSt6stringEEEKN5boost8uint32_tEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEAL24E_KdRKN5Eigen8Vector3dERKN5Eigen8Matrix4dERNSt4listINSt6stringEEEKN5boost8uint32_tEKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEAL24E_KdRKN5Eigen8Vector3dERKN5Eigen8Matrix4dERNSt4listINSt6stringEEEKN5boost8uint32_tEKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEA24_KdRKN5Eigen8Vector3dERKN5Eigen8Matrix4dERNSt4listINSt6stringEEEKN5boost8uint32_tEKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::queryFrustum__doubleCA.Eigen::Vector3dCR.Eigen::Matrix4dCR.std::list:ss:R.boost::uint32_tC.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a603715a7f8f637c95cc924753a260271"></span>void <code class="sig-name descname">queryFrustum</code><span class="sig-paren">(</span><em class="property">const</em> double <em>planes</em>[24], <em class="property">const</em> Eigen::Vector3d &amp;<em>eye</em>, <em class="property">const</em> Eigen::Matrix4d &amp;<em>view_projection_matrix</em>, std::list&lt;std::string&gt; &amp;<em>file_names</em>, <em class="property">const</em> boost::uint32_t <em>query_depth</em>, <em class="property">const</em> bool <em>skip_vfc_check</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12queryFrustumEAL24E_KdRKN5Eigen8Vector3dERKN5Eigen8Matrix4dERNSt4listINSt6stringEEEKN5boost8uint32_tEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15queryBBIncludesERKN5Eigen8Vector3dERKN5Eigen8Vector3dE6size_tR19AlignedPointTVector">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode15queryBBIncludesERKN5Eigen8Vector3dERKN5Eigen8Vector3dE6size_tR19AlignedPointTVector"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode15queryBBIncludesERKN5Eigen8Vector3dERKN5Eigen8Vector3dE6size_tR19AlignedPointTVector"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::queryBBIncludes__Eigen::Vector3dCR.Eigen::Vector3dCR.s.AlignedPointTVectorR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1acdacc92401e3bfc72b659894bfafb68f"></span>void <code class="sig-name descname">queryBBIncludes</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em>, size_t <em>query_depth</em>, <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>dst</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15queryBBIncludesERKN5Eigen8Vector3dERKN5Eigen8Vector3dE6size_tR19AlignedPointTVector" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively add points that fall into the queried bounding box up to the <strong>query_depth</strong>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_bb</span></code>: the minimum corner of the bounding box, indexed by X,Y,Z coordinates </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_bb</span></code>: the maximum corner of the bounding box, indexed by X,Y,Z coordinates </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">query_depth</span></code>: the maximum depth to query in the octree for points within the bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">dst</span></code>: destion of points returned by the queries </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15queryBBIncludesERKN5Eigen8Vector3dERKN5Eigen8Vector3dE6size_tRKN3pcl14PCLPointCloud23PtrE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode15queryBBIncludesERKN5Eigen8Vector3dERKN5Eigen8Vector3dE6size_tRKN3pcl14PCLPointCloud23PtrE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode15queryBBIncludesERKN5Eigen8Vector3dERKN5Eigen8Vector3dE6size_tRKN3pcl14PCLPointCloud23PtrE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::queryBBIncludes__Eigen::Vector3dCR.Eigen::Vector3dCR.s.pcl::PCLPointCloud2::PtrCR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ad86d616b7a5ff8123c28a7a0d19e96cf"></span>void <code class="sig-name descname">queryBBIncludes</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em>, size_t <em>query_depth</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud23PtrE" title="pcl::PCLPointCloud2::Ptr">Ptr</a> &amp;<em>dst_blob</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15queryBBIncludesERKN5Eigen8Vector3dERKN5Eigen8Vector3dE6size_tRKN3pcl14PCLPointCloud23PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively add points that fall into the queried bounding box up to the <strong>query_depth</strong>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_bb</span></code>: the minimum corner of the bounding box, indexed by X,Y,Z coordinates </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_bb</span></code>: the maximum corner of the bounding box, indexed by X,Y,Z coordinates </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">query_depth</span></code>: the maximum depth to query in the octree for points within the bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">dst_blob</span></code>: destion of points returned by the queries </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode25queryBBIncludes_subsampleERKN5Eigen8Vector3dERKN5Eigen8Vector3dEN5boost8uint64_tEKdR19AlignedPointTVector">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode25queryBBIncludes_subsampleERKN5Eigen8Vector3dERKN5Eigen8Vector3dEN5boost8uint64_tEKdR19AlignedPointTVector"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode25queryBBIncludes_subsampleERKN5Eigen8Vector3dERKN5Eigen8Vector3dEN5boost8uint64_tEKdR19AlignedPointTVector"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::queryBBIncludes_subsample__Eigen::Vector3dCR.Eigen::Vector3dCR.boost::uint64_t.doubleC.AlignedPointTVectorR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ab6f84897e582d599020c1947eafe5500"></span>void <code class="sig-name descname">queryBBIncludes_subsample</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em>, boost::uint64_t <em>query_depth</em>, <em class="property">const</em> double <em>percent</em>, <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode25queryBBIncludes_subsampleERKN5Eigen8Vector3dERKN5Eigen8Vector3dEN5boost8uint64_tEKdR19AlignedPointTVector" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively add points that fall into the queried bounding box up to the <strong>query_depth</strong>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_bb</span></code>: the minimum corner of the bounding box, indexed by X,Y,Z coordinates </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_bb</span></code>: the maximum corner of the bounding box, indexed by X,Y,Z coordinates </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">query_depth</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percent</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">v</span></code>: std::list of points returned by the query </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode25queryBBIncludes_subsampleERKN5Eigen8Vector3dERKN5Eigen8Vector3dEN5boost8uint64_tERKN3pcl14PCLPointCloud23PtrEd">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode25queryBBIncludes_subsampleERKN5Eigen8Vector3dERKN5Eigen8Vector3dEN5boost8uint64_tERKN3pcl14PCLPointCloud23PtrEd"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode25queryBBIncludes_subsampleERKN5Eigen8Vector3dERKN5Eigen8Vector3dEN5boost8uint64_tERKN3pcl14PCLPointCloud23PtrEd"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::queryBBIncludes_subsample__Eigen::Vector3dCR.Eigen::Vector3dCR.boost::uint64_t.pcl::PCLPointCloud2::PtrCR.double"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a282a76077affce49a0b99116c644fd09"></span>void <code class="sig-name descname">queryBBIncludes_subsample</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em>, boost::uint64_t <em>query_depth</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud23PtrE" title="pcl::PCLPointCloud2::Ptr">Ptr</a> &amp;<em>dst_blob</em>, double <em>percent</em> = 1.0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode25queryBBIncludes_subsampleERKN5Eigen8Vector3dERKN5Eigen8Vector3dEN5boost8uint64_tERKN3pcl14PCLPointCloud23PtrEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode17queryBBIntersectsERKN5Eigen8Vector3dERKN5Eigen8Vector3dEKN5boost8uint32_tERNSt4listINSt6stringEEE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode17queryBBIntersectsERKN5Eigen8Vector3dERKN5Eigen8Vector3dEKN5boost8uint32_tERNSt4listINSt6stringEEE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode17queryBBIntersectsERKN5Eigen8Vector3dERKN5Eigen8Vector3dEKN5boost8uint32_tERNSt4listINSt6stringEEE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::queryBBIntersects__Eigen::Vector3dCR.Eigen::Vector3dCR.boost::uint32_tC.std::list:ss:R"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a30cabf53c79e7ced285f6071c0a0e4f4"></span>void <code class="sig-name descname">queryBBIntersects</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em>, <em class="property">const</em> boost::uint32_t <em>query_depth</em>, std::list&lt;std::string&gt; &amp;<em>file_names</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode17queryBBIntersectsERKN5Eigen8Vector3dERKN5Eigen8Vector3dEKN5boost8uint32_tERNSt4listINSt6stringEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursive acquires PCD paths to any node with which the queried bounding box intersects (at query_depth only). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode16printBoundingBoxEK6size_t">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode16printBoundingBoxEK6size_t"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode16printBoundingBoxEK6size_t"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::printBoundingBox__sCC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ae8da02065b6d179e57e22f49a8d47aef"></span>void <code class="sig-name descname">printBoundingBox</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>query_depth</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode16printBoundingBoxEK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write the voxel size to stdout at <code class="docutils literal notranslate"><span class="pre">query_depth</span></code>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">query_depth</span></code>: The depth at which to print the size of the voxel/bounding boxes </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13addDataToLeafERK19AlignedPointTVectorKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode13addDataToLeafERK19AlignedPointTVectorKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode13addDataToLeafERK19AlignedPointTVectorKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::addDataToLeaf__AlignedPointTVectorCR.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a70187347c2d0b3ebe1eb5822e6a1589c"></span>uint64_t <code class="sig-name descname">addDataToLeaf</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>p</em>, <em class="property">const</em> bool <em>skip_bb_check</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13addDataToLeafERK19AlignedPointTVectorKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>add point to this node if we are a leaf, or find the leaf below us that is supposed to take the point </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p</span></code>: vector of points to add to the leaf </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">skip_bb_check</span></code>: whether to check if the point’s coordinates fall within the bounding box </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13addDataToLeafERKNSt6vectorIPK6PointTEEKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode13addDataToLeafERKNSt6vectorIPK6PointTEEKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode13addDataToLeafERKNSt6vectorIPK6PointTEEKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::addDataToLeaf__std::vector:PointTCP:CR.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a86ecc95f18396b92057a07863746269d"></span>boost::uint64_t <code class="sig-name descname">addDataToLeaf</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<em class="property">const</em> PointT *&gt; &amp;<em>p</em>, <em class="property">const</em> bool <em>skip_bb_check</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13addDataToLeafERKNSt6vectorIPK6PointTEEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13addPointCloudERKN3pcl14PCLPointCloud23PtrEKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode13addPointCloudERKN3pcl14PCLPointCloud23PtrEKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode13addPointCloudERKN3pcl14PCLPointCloud23PtrEKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::addPointCloud__pcl::PCLPointCloud2::PtrCR.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a068a8bf6a12ed5eb451d6a1ef17f07c2"></span>boost::uint64_t <code class="sig-name descname">addPointCloud</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud23PtrE" title="pcl::PCLPointCloud2::Ptr">Ptr</a> &amp;<em>input_cloud</em>, <em class="property">const</em> bool <em>skip_bb_check</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13addPointCloudERKN3pcl14PCLPointCloud23PtrEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a single <a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#structpcl_1_1_p_c_l_point_cloud2"><span class="std std-ref">PCLPointCloud2</span></a> object into the octree. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input_cloud</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">skip_bb_check</span></code>: (default = false) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode24addPointCloud_and_genLODEKN3pcl14PCLPointCloud23PtrE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode24addPointCloud_and_genLODEKN3pcl14PCLPointCloud23PtrE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode24addPointCloud_and_genLODEKN3pcl14PCLPointCloud23PtrE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::addPointCloud_and_genLOD__pcl::PCLPointCloud2::PtrC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1abd2f9dcfd8b297859ef0c01f0cd91153"></span>boost::uint64_t <code class="sig-name descname">addPointCloud_and_genLOD</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud23PtrE" title="pcl::PCLPointCloud2::Ptr">Ptr</a> <em>input_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode24addPointCloud_and_genLODEKN3pcl14PCLPointCloud23PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a single <a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#structpcl_1_1_p_c_l_point_cloud2"><span class="std std-ref">PCLPointCloud2</span></a> into the octree and build the subsampled LOD during construction; this method of LOD construction is <strong>not</strong> multiresolution. </p>
+<p>Rather, there are no redundant data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode24addDataToLeaf_and_genLODERK19AlignedPointTVectorKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode24addDataToLeaf_and_genLODERK19AlignedPointTVectorKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode24addDataToLeaf_and_genLODERK19AlignedPointTVectorKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::addDataToLeaf_and_genLOD__AlignedPointTVectorCR.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a9e8966b1865d07a00f730beebe6a9ef9"></span>boost::uint64_t <code class="sig-name descname">addDataToLeaf_and_genLOD</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>p</em>, <em class="property">const</em> bool <em>skip_bb_check</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode24addDataToLeaf_and_genLODERK19AlignedPointTVectorKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively add points to the leaf and children subsampling LODs on the way down. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>rng_mutex_ lock occurs </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18writeVPythonVisualERNSt8ofstreamE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode18writeVPythonVisualERNSt8ofstreamE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode18writeVPythonVisualERNSt8ofstreamE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::writeVPythonVisual__std::ofstreamR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a64e4a385bd1a8a51d069ae4cac718e5e"></span>void <code class="sig-name descname">writeVPythonVisual</code><span class="sig-paren">(</span>std::ofstream &amp;<em>file</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18writeVPythonVisualERNSt8ofstreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write a python visual script to <strong>file</strong>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file</span></code>: output file stream to write the python visual script </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode4readERN3pcl14PCLPointCloud23PtrE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode4readERN3pcl14PCLPointCloud23PtrE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode4readERN3pcl14PCLPointCloud23PtrE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::read__pcl::PCLPointCloud2::PtrR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a793520c5608fa5834a3819b47a553e41"></span>int <code class="sig-name descname">read</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud23PtrE" title="pcl::PCLPointCloud2::Ptr">Ptr</a> &amp;<em>output_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode4readERN3pcl14PCLPointCloud23PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode11getNodeTypeEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode11getNodeTypeEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode11getNodeTypeEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getNodeTypeC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a660e65cd0c4e327534911d5dd9b6eead"></span><em class="property">virtual</em> <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode11node_type_tE" title="pcl::outofcore::OutofcoreOctreeBaseNode::node_type_t">node_type_t</a> <code class="sig-name descname">getNodeType</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode11getNodeTypeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pure virtual method for receiving the type of octree node (branch or leaf) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode8deepCopyEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode8deepCopyEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode8deepCopyEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::deepCopyC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a360e74ce8ce4c734028bba86c29f4976"></span><em class="property">virtual</em> OutofcoreOctreeBaseNode *<code class="sig-name descname">deepCopy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode8deepCopyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pure virtual method to perform a deep copy of the octree. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode8getDepthEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode8getDepthEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode8getDepthEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getDepthC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1aa76e1c3b4c7aca04f0674f69ae33d361"></span><em class="property">virtual</em> size_t <code class="sig-name descname">getDepth</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode8getDepthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode14getNumChildrenEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode14getNumChildrenEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode14getNumChildrenEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getNumChildrenC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1aabcdf2cecab2918ca63126167752fff4"></span><em class="property">virtual</em> size_t <code class="sig-name descname">getNumChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode14getNumChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the total number of children on disk. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode20getNumLoadedChildrenEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode20getNumLoadedChildrenEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode20getNumLoadedChildrenEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getNumLoadedChildrenC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a9d388e4988d2b1c066015bcdd757501f"></span><em class="property">virtual</em> size_t <code class="sig-name descname">getNumLoadedChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode20getNumLoadedChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Count loaded chilren. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode11getChildPtrE6size_t">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode11getChildPtrE6size_t"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode11getChildPtrE6size_t"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getChildPtr__sC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a49e16dd89655afbe6daa4290e791f516"></span>OutofcoreOctreeBaseNode&lt;ContainerT, PointT&gt; *<code class="sig-name descname">getChildPtr</code><span class="sig-paren">(</span>size_t <em>index_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode11getChildPtrE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a pointer to the child in octant index_arg. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode11getDataSizeEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode11getDataSizeEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode11getDataSizeEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getDataSizeC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a0c4732477a90b07e7806cc67d74dbc7d"></span>boost::uint64_t <code class="sig-name descname">getDataSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode11getDataSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the number of points available in the PCD file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode9clearDataEv">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode9clearDataEv"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode9clearDataEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::clearData"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a7248bffbbaf2bdcbcfa956510359c667"></span><em class="property">virtual</em> void <code class="sig-name descname">clearData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode9clearDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19node_index_basenameE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode19node_index_basenameE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode19node_index_basenameE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::node_index_basename__ssC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a0e479fbbe32ce45785fe8aec9b4a3160"></span><em class="property">const</em> std::string <code class="sig-name descname">node_index_basename</code> = &quot;node&quot;<a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19node_index_basenameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23node_container_basenameE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode23node_container_basenameE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode23node_container_basenameE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::node_container_basename__ssC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1aa8be5876dac1d0e0da8f7cb0b529f08a"></span><em class="property">const</em> std::string <code class="sig-name descname">node_container_basename</code> = &quot;node&quot;<a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23node_container_basenameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode20node_index_extensionE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode20node_index_extensionE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode20node_index_extensionE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::node_index_extension__ssC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a1b412acfc74ade18e3eedeebfc5053ac"></span><em class="property">const</em> std::string <code class="sig-name descname">node_index_extension</code> = &quot;.oct_idx&quot;<a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode20node_index_extensionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode24node_container_extensionE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode24node_container_extensionE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode24node_container_extensionE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::node_container_extension__ssC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ae420ed29b5198ecd6da59e723cc68ae7"></span><em class="property">const</em> std::string <code class="sig-name descname">node_container_extension</code> = &quot;.oct_dat&quot;<a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode24node_container_extensionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15sample_percent_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode15sample_percent_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode15sample_percent_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::sample_percent___doubleC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a5d3c75cef6f892061b48ca63825dba98"></span><em class="property">const</em> double <code class="sig-name descname">sample_percent_</code> = .125<a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15sample_percent_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5boost10filesystem4pathEP23OutofcoreOctreeBaseNodeI10ContainerT6PointTEb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5boost10filesystem4pathEP23OutofcoreOctreeBaseNodeI10ContainerT6PointTEb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5boost10filesystem4pathEP23OutofcoreOctreeBaseNodeI10ContainerT6PointTEb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::OutofcoreOctreeBaseNode__boost::filesystem::pathCR.OutofcoreOctreeBaseNode:ContainerT.PointT:P.b"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a1a8850aac8f22ab31cd81710536d442d"></span><code class="sig-name descname">OutofcoreOctreeBaseNode</code><span class="sig-paren">(</span><em class="property">const</em> boost::filesystem::path &amp;<em>directory_path</em>, <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeEv" title="pcl::outofcore::OutofcoreOctreeBaseNode::OutofcoreOctreeBaseNode">OutofcoreOctreeBaseNode</a>&lt;ContainerT, PointT&gt; *<em>super</em>, bool <em>load_all</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5boost10filesystem4pathEP23OutofcoreOctreeBaseNodeI10ContainerT6PointTEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Load from disk If creating root, path is full name. </p>
+<p>If creating any other node, path is dir; throws exception if directory or metadata not found</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">directory_path</span></code>: pathname </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">super</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">load_all</span></code>: </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_p_c_l_exception.html#classpcl_1_1_p_c_l_exception"><span class="std std-ref"><span class="pre">PCLException</span></span></a></code>: if directory is missing </p></li>
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_p_c_l_exception.html#classpcl_1_1_p_c_l_exception"><span class="std std-ref"><span class="pre">PCLException</span></span></a></code>: if node index is missing </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode14init_root_nodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPC19OutofcoreOctreeBaseI10ContainerT6PointTERKN5boost10filesystem4pathE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode14init_root_nodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPC19OutofcoreOctreeBaseI10ContainerT6PointTERKN5boost10filesystem4pathE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode14init_root_nodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPC19OutofcoreOctreeBaseI10ContainerT6PointTERKN5boost10filesystem4pathE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::init_root_node__Eigen::Vector3dCR.Eigen::Vector3dCR.OutofcoreOctreeBase:ContainerT.PointT:PC.boost::filesystem::pathCR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a756b7646bdd922567d02dcd26d5a4c36"></span>void <code class="sig-name descname">init_root_node</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>bb_min</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>bb_max</em>, OutofcoreOctreeBase&lt;ContainerT, PointT&gt; *<em class="property">const</em> <em>tree</em>, <em class="property">const</em> boost::filesystem::path &amp;<em>rootname</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode14init_root_nodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPC19OutofcoreOctreeBaseI10ContainerT6PointTERKN5boost10filesystem4pathE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create root node and directory. </p>
+<p>Initializes the root node and performs initial filesystem checks for the octree; throws OctreeException::OCT_BAD_PATH if root directory is an existing file</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bb_min</span></code>: triple of x,y,z minima for bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bb_max</span></code>: triple of x,y,z maxima for bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tree</span></code>: address of the tree data structure that will hold this initial root node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rootname</span></code>: Root directory for location of on-disk octree storage; if directory doesn’t exist, it is created; if “rootname” is an existing file,</p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_p_c_l_exception.html#classpcl_1_1_p_c_l_exception"><span class="std std-ref"><span class="pre">PCLException</span></span></a></code>: if the specified path already exists </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERK23OutofcoreOctreeBaseNode">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERK23OutofcoreOctreeBaseNode"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERK23OutofcoreOctreeBaseNode"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::OutofcoreOctreeBaseNode__OutofcoreOctreeBaseNodeCR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1aacb73bf2c6196978ccdd045b5b27df4a"></span><code class="sig-name descname">OutofcoreOctreeBaseNode</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeEv" title="pcl::outofcore::OutofcoreOctreeBaseNode::OutofcoreOctreeBaseNode">OutofcoreOctreeBaseNode</a> &amp;<em>rval</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERK23OutofcoreOctreeBaseNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>no copy construction right now </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNodeaSERK23OutofcoreOctreeBaseNode">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNodeaSERK23OutofcoreOctreeBaseNode"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNodeaSERK23OutofcoreOctreeBaseNode"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::assign-operator__OutofcoreOctreeBaseNodeCR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a322f20b7d829b06a0dad6a4d506ab678"></span>OutofcoreOctreeBaseNode &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> OutofcoreOctreeBaseNode &amp;<em>rval</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNodeaSERK23OutofcoreOctreeBaseNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Operator= is not implemented. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode16countNumChildrenEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode16countNumChildrenEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode16countNumChildrenEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::countNumChildrenC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a8f567f24e70a2f1f3e4e3760c125a794"></span>size_t <code class="sig-name descname">countNumChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode16countNumChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Counts the number of child directories on disk; used to update num_children_. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode22countNumLoadedChildrenEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode22countNumLoadedChildrenEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode22countNumLoadedChildrenEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::countNumLoadedChildrenC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ae37a4044f08bab8a30666f8bdd335983"></span>size_t <code class="sig-name descname">countNumLoadedChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode22countNumLoadedChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Counts the number of loaded chilren by testing the <code class="docutils literal notranslate"><span class="pre">children_</span></code> array; used to update num_loaded_chilren_ internally. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode7saveIdxEb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode7saveIdxEb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode7saveIdxEb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::saveIdx__b"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a81981aa776d748889cd72b7146e4ffe5"></span>void <code class="sig-name descname">saveIdx</code><span class="sig-paren">(</span>bool <em>recursive</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode7saveIdxEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Save node’s metadata to file. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">recursive</span></code>: if false, save only this node’s metadata to file; if true, recursively save all children’s metadata to files as well </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12randomSampleERK19AlignedPointTVectorR19AlignedPointTVectorKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode12randomSampleERK19AlignedPointTVectorR19AlignedPointTVectorKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode12randomSampleERK19AlignedPointTVectorR19AlignedPointTVectorKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::randomSample__AlignedPointTVectorCR.AlignedPointTVectorR.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a3e7ca923f6949fdbb3d461dbe9d85f22"></span>void <code class="sig-name descname">randomSample</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>p</em>, <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>insertBuff</em>, <em class="property">const</em> bool <em>skip_bb_check</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12randomSampleERK19AlignedPointTVectorR19AlignedPointTVectorKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Randomly sample point data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15subdividePointsERK19AlignedPointTVectorRNSt6vectorI19AlignedPointTVectorEEKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode15subdividePointsERK19AlignedPointTVectorRNSt6vectorI19AlignedPointTVectorEEKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode15subdividePointsERK19AlignedPointTVectorRNSt6vectorI19AlignedPointTVectorEEKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::subdividePoints__AlignedPointTVectorCR.std::vector:AlignedPointTVector:R.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1abbd17c866ef1f12d6d8b99eb33bbd61f"></span>void <code class="sig-name descname">subdividePoints</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>p</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a>&gt; &amp;<em>c</em>, <em class="property">const</em> bool <em>skip_bb_check</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15subdividePointsERK19AlignedPointTVectorRNSt6vectorI19AlignedPointTVectorEEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Subdivide points to pass to child nodes. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode14subdividePointERK6PointTRNSt6vectorI19AlignedPointTVectorEE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode14subdividePointERK6PointTRNSt6vectorI19AlignedPointTVectorEE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode14subdividePointERK6PointTRNSt6vectorI19AlignedPointTVectorEE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::subdividePoint__PointTCR.std::vector:AlignedPointTVector:R"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1acaa9286ec93878ea760311e654132a3e"></span>void <code class="sig-name descname">subdividePoint</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a>&gt; &amp;<em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode14subdividePointERK6PointTRNSt6vectorI19AlignedPointTVectorEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Subdivide a single point into a specific child node. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode17addDataAtMaxDepthERK19AlignedPointTVectorKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode17addDataAtMaxDepthERK19AlignedPointTVectorKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode17addDataAtMaxDepthERK19AlignedPointTVectorKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::addDataAtMaxDepth__AlignedPointTVectorCR.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1aaf52eaaab45e9b3f24aefc1aae220de2"></span>boost::uint64_t <code class="sig-name descname">addDataAtMaxDepth</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>p</em>, <em class="property">const</em> bool <em>skip_bb_check</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode17addDataAtMaxDepthERK19AlignedPointTVectorKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add data to the leaf when at max depth of tree. </p>
+<p>If skip_bb_check is true, adds to the node regardless of the bounding box it represents; otherwise only adds points that fall within the bounding box</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of points successfully added </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p</span></code>: vector of points to attempt to add to the tree </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">skip_bb_check</span></code>: if <strong>true</strong>, doesn’t check that points are in the proper bounding box; if <strong>false</strong>, only adds the points that fall into the bounding box to this node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode17addDataAtMaxDepthEKN3pcl14PCLPointCloud23PtrEKb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode17addDataAtMaxDepthEKN3pcl14PCLPointCloud23PtrEKb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode17addDataAtMaxDepthEKN3pcl14PCLPointCloud23PtrEKb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::addDataAtMaxDepth__pcl::PCLPointCloud2::PtrC.bC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a3c639f9c42a10d1dd0d08d96ae764736"></span>boost::uint64_t <code class="sig-name descname">addDataAtMaxDepth</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud23PtrE" title="pcl::PCLPointCloud2::Ptr">Ptr</a> <em>input_cloud</em>, <em class="property">const</em> bool <em>skip_bb_check</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode17addDataAtMaxDepthEKN3pcl14PCLPointCloud23PtrEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add data to the leaf when at max depth of tree. </p>
+<p>If <code class="docutils literal notranslate"><span class="pre">skip_bb_check</span></code> is true, adds to the node regardless of the bounding box it represents; otherwise only adds points that fall within the bounding box</p>
+<p><dl class="simple">
+<dt><strong>Warning</strong></dt><dd><p><a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#structpcl_1_1_p_c_l_point_cloud2"><span class="std std-ref">PCLPointCloud2</span></a> inserted into the tree must have x,y,z fields, and must be of same type of any other points inserted in the tree </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>number of points successfully added </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input_cloud</span></code>: <a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#structpcl_1_1_p_c_l_point_cloud2"><span class="std std-ref">PCLPointCloud2</span></a> points to attempt to add to the tree; </p></li>
+</ul>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">skip_bb_check</span></code>: (default true) if <strong>true</strong>, doesn’t check that points are in the proper bounding box; if <strong>false</strong>, only adds the points that fall into the bounding box to this node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode25intersectsWithBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dE">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode25intersectsWithBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dE"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode25intersectsWithBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::intersectsWithBoundingBox__Eigen::Vector3dCR.Eigen::Vector3dCRC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a0dfc9e4699b5197e2a23d71d1d96bb18"></span>bool <code class="sig-name descname">intersectsWithBoundingBox</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode25intersectsWithBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tests whether the input bounding box intersects with the current node’s bounding box. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>bool True if any portion of the bounding box intersects with this node’s bounding box; false otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_bb</span></code>: The minimum corner of the input bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_bb</span></code>: The maximum corner of the input bounding box </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode13inBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dE">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode13inBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dE"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode13inBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::inBoundingBox__Eigen::Vector3dCR.Eigen::Vector3dCRC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ad88e68bf251e5f640a4517e00ae42a69"></span>bool <code class="sig-name descname">inBoundingBox</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode13inBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tests whether the input bounding box falls inclusively within this node’s bounding box. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>bool True if the input bounding box falls inclusively within the boundaries of this node’s bounding box </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_bb</span></code>: The minimum corner of the input bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_bb</span></code>: The maximum corner of the input bounding box </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::pointInBoundingBox__Eigen::Vector3dCR.Eigen::Vector3dCR.Eigen::Vector3dCR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a809db94b3ebf6a4bd150d129b4b1db6d"></span>bool <code class="sig-name descname">pointInBoundingBox</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tests whether <code class="docutils literal notranslate"><span class="pre">point</span></code> falls within the input bounding box. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_bb</span></code>: The minimum corner of the input bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_bb</span></code>: The maximum corner of the input bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: The test point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERK6PointT">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERK6PointT"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERK6PointT"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::pointInBoundingBox__PointTCRC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ae500a814756242e0468fae871f4cfb76"></span>bool <code class="sig-name descname">pointInBoundingBox</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>p</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERK6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tests if specified point is within bounds of current node’s bounding box. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode11createChildEKNSt6size_tE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode11createChildEKNSt6size_tE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode11createChildEKNSt6size_tE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::createChild__std::sC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1af309ee9da72334d87619ce4b92cbf75b"></span>void <code class="sig-name descname">createChild</code><span class="sig-paren">(</span><em class="property">const</em> std::size_t <em>idx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode11createChildEKNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates child node <code class="docutils literal notranslate"><span class="pre">idx</span></code>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx</span></code>: Index (0-7) of the child node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18saveMetadataToFileERKN5boost10filesystem4pathE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode18saveMetadataToFileERKN5boost10filesystem4pathE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode18saveMetadataToFileERKN5boost10filesystem4pathE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::saveMetadataToFile__boost::filesystem::pathCR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ae3f660757a6708689539742b5a4b65dd"></span>void <code class="sig-name descname">saveMetadataToFile</code><span class="sig-paren">(</span><em class="property">const</em> boost::filesystem::path &amp;<em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18saveMetadataToFileERKN5boost10filesystem4pathE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write JSON metadata for this node to file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15recFreeChildrenEv">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode15recFreeChildrenEv"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode15recFreeChildrenEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::recFreeChildren"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ae8b1d0fb47dc71a3ddec4a2b7c16121c"></span>void <code class="sig-name descname">recFreeChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode15recFreeChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method which recursively free children of this node. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode4sizeEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode4sizeEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode4sizeEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::sizeC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a592ba5034ef1efc36a9ebaeb7d06d92a"></span>boost::uint64_t <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of points in the payload. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode20flushToDiskRecursiveEv">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode20flushToDiskRecursiveEv"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode20flushToDiskRecursiveEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::flushToDiskRecursive"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ad4158b642031dfbec31e01064a520777"></span>void <code class="sig-name descname">flushToDiskRecursive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode20flushToDiskRecursiveEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12loadFromFileERKN5boost10filesystem4pathEP23OutofcoreOctreeBaseNode">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode12loadFromFileERKN5boost10filesystem4pathEP23OutofcoreOctreeBaseNode"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode12loadFromFileERKN5boost10filesystem4pathEP23OutofcoreOctreeBaseNode"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::loadFromFile__boost::filesystem::pathCR.OutofcoreOctreeBaseNodeP"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a2e2641ff660f418f576fe4962e3e44d1"></span>void <code class="sig-name descname">loadFromFile</code><span class="sig-paren">(</span><em class="property">const</em> boost::filesystem::path &amp;<em>path</em>, OutofcoreOctreeBaseNode *<em>super</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12loadFromFileERKN5boost10filesystem4pathEP23OutofcoreOctreeBaseNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Loads the nodes metadata from the JSON file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode21convertToXYZRecursiveEv">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode21convertToXYZRecursiveEv"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode21convertToXYZRecursiveEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::convertToXYZRecursive"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a740054acdc4f823942dc51f34c79e579"></span>void <code class="sig-name descname">convertToXYZRecursive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode21convertToXYZRecursiveEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively converts data files to ascii XZY files. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This will be deprecated soon </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPKcP23OutofcoreOctreeBaseNodeI10ContainerT6PointTE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPKcP23OutofcoreOctreeBaseNodeI10ContainerT6PointTE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPKcP23OutofcoreOctreeBaseNodeI10ContainerT6PointTE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::OutofcoreOctreeBaseNode__Eigen::Vector3dCR.Eigen::Vector3dCR.cCP.OutofcoreOctreeBaseNode:ContainerT.PointT:P"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a6bc5224ba44ce4ce61b12c5a547b81d1"></span><code class="sig-name descname">OutofcoreOctreeBaseNode</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>bb_min</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>bb_max</em>, <em class="property">const</em> char *<em>dir</em>, <a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeEv" title="pcl::outofcore::OutofcoreOctreeBaseNode::OutofcoreOctreeBaseNode">OutofcoreOctreeBaseNode</a>&lt;ContainerT, PointT&gt; *<em>super</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode23OutofcoreOctreeBaseNodeERKN5Eigen8Vector3dERKN5Eigen8Vector3dEPKcP23OutofcoreOctreeBaseNodeI10ContainerT6PointTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Private constructor used for children. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode31copyAllCurrentAndChildPointsRecERNSt4listI6PointTEE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode31copyAllCurrentAndChildPointsRecERNSt4listI6PointTEE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode31copyAllCurrentAndChildPointsRecERNSt4listI6PointTEE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::copyAllCurrentAndChildPointsRec__std::list:PointT:R"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ac9f2855808b2d61bc51d2dc56065185a"></span>void <code class="sig-name descname">copyAllCurrentAndChildPointsRec</code><span class="sig-paren">(</span>std::list&lt;PointT&gt; &amp;<em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode31copyAllCurrentAndChildPointsRecERNSt4listI6PointTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copies points from this and all children into a single point container (std::list) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode35copyAllCurrentAndChildPointsRec_subERNSt4listI6PointTEEKd">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode35copyAllCurrentAndChildPointsRec_subERNSt4listI6PointTEEKd"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode35copyAllCurrentAndChildPointsRec_subERNSt4listI6PointTEEKd"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::copyAllCurrentAndChildPointsRec_sub__std::list:PointT:R.doubleC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a29cb21826303a98f74754e8f39d9c699"></span>void <code class="sig-name descname">copyAllCurrentAndChildPointsRec_sub</code><span class="sig-paren">(</span>std::list&lt;PointT&gt; &amp;<em>v</em>, <em class="property">const</em> double <em>percent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode35copyAllCurrentAndChildPointsRec_subERNSt4listI6PointTEEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode19hasUnloadedChildrenEv">
+<span id="_CPPv3NK3pcl9outofcore23OutofcoreOctreeBaseNode19hasUnloadedChildrenEv"></span><span id="_CPPv2NK3pcl9outofcore23OutofcoreOctreeBaseNode19hasUnloadedChildrenEv"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::hasUnloadedChildrenC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a3270af407876c73e75df3321f5ecb9ed"></span>bool <code class="sig-name descname">hasUnloadedChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9outofcore23OutofcoreOctreeBaseNode19hasUnloadedChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns whether or not a node has unloaded children data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12loadChildrenEb">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode12loadChildrenEb"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode12loadChildrenEb"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::loadChildren__b"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ad0e74a5ac5e0bcebb80c569290c4c465"></span>void <code class="sig-name descname">loadChildren</code><span class="sig-paren">(</span>bool <em>recursive</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode12loadChildrenEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Load nodes child data creating new nodes for each. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode32getOccupiedVoxelCentersRecursiveER19AlignedPointTVectorK6size_t">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode32getOccupiedVoxelCentersRecursiveER19AlignedPointTVectorK6size_t"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode32getOccupiedVoxelCentersRecursiveER19AlignedPointTVectorK6size_t"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getOccupiedVoxelCentersRecursive__AlignedPointTVectorR.sC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a0f8d78b9eff5c1bda626056bc296fd22"></span>void <code class="sig-name descname">getOccupiedVoxelCentersRecursive</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode19AlignedPointTVectorE" title="pcl::outofcore::OutofcoreOctreeBaseNode::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>voxel_centers</em>, <em class="property">const</em> size_t <em>query_depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode32getOccupiedVoxelCentersRecursiveER19AlignedPointTVectorK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets a vector of occupied voxel centers. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">voxel_centers</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">query_depth</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode32getOccupiedVoxelCentersRecursiveERNSt6vectorIN5Eigen8Vector3dEN5Eigen17aligned_allocatorIN5Eigen8Vector3dEEEEEK6size_t">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode32getOccupiedVoxelCentersRecursiveERNSt6vectorIN5Eigen8Vector3dEN5Eigen17aligned_allocatorIN5Eigen8Vector3dEEEEEK6size_t"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode32getOccupiedVoxelCentersRecursiveERNSt6vectorIN5Eigen8Vector3dEN5Eigen17aligned_allocatorIN5Eigen8Vector3dEEEEEK6size_t"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::getOccupiedVoxelCentersRecursive__std::vector:Eigen::Vector3d.Eigen::aligned_allocator:Eigen::Vector3d::R.sC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ae035b0551fbfcccf1b6ef0b69f197ac4"></span>void <code class="sig-name descname">getOccupiedVoxelCentersRecursive</code><span class="sig-paren">(</span>std::vector&lt;Eigen::Vector3d, Eigen::aligned_allocator&lt;Eigen::Vector3d&gt;&gt; &amp;<em>voxel_centers</em>, <em class="property">const</em> size_t <em>query_depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode32getOccupiedVoxelCentersRecursiveERNSt6vectorIN5Eigen8Vector3dEN5Eigen17aligned_allocatorIN5Eigen8Vector3dEEEEEK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets a vector of occupied voxel centers. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">voxel_centers</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">query_depth</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode17sortOctantIndicesERKN3pcl14PCLPointCloud23PtrERNSt6vectorINSt6vectorIiEEEERKN5Eigen8Vector3dE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode17sortOctantIndicesERKN3pcl14PCLPointCloud23PtrERNSt6vectorINSt6vectorIiEEEERKN5Eigen8Vector3dE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode17sortOctantIndicesERKN3pcl14PCLPointCloud23PtrERNSt6vectorINSt6vectorIiEEEERKN5Eigen8Vector3dE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::sortOctantIndices__pcl::PCLPointCloud2::PtrCR.std::vector:std::vector:i::R.Eigen::Vector3dCR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a3e584fa9e47e5d1bb7c1ec83752db20e"></span>void <code class="sig-name descname">sortOctantIndices</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud23PtrE" title="pcl::PCLPointCloud2::Ptr">Ptr</a> &amp;<em>input_cloud</em>, std::vector&lt;std::vector&lt;int&gt;&gt; &amp;<em>indices</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>mid_xyz</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode17sortOctantIndicesERKN3pcl14PCLPointCloud23PtrERNSt6vectorINSt6vectorIiEEEERKN5Eigen8Vector3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sorts the indices based on x,y,z fields and pushes the index into the proper octant’s vector; This could be overloaded with a parallelized implementation. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13enlargeToCubeERN5Eigen8Vector3dERN5Eigen8Vector3dE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode13enlargeToCubeERN5Eigen8Vector3dERN5Eigen8Vector3dE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode13enlargeToCubeERN5Eigen8Vector3dERN5Eigen8Vector3dE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::enlargeToCube__Eigen::Vector3dR.Eigen::Vector3dR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1af0f7c8d58ca0420abf980a3485e4e37c"></span>void <code class="sig-name descname">enlargeToCube</code><span class="sig-paren">(</span>Eigen::Vector3d &amp;<em>bb_min</em>, Eigen::Vector3d &amp;<em>bb_max</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13enlargeToCubeERN5Eigen8Vector3dERN5Eigen8Vector3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enlarges the shortest two sidelengths of the bounding box to a cubic shape; operation is done in place. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode7m_tree_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode7m_tree_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode7m_tree_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::m_tree___OutofcoreOctreeBase:ContainerT.PointT:P"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a4f620ffb1ce5fdf0e2d0bd93b1617e9a"></span>OutofcoreOctreeBase&lt;ContainerT, PointT&gt; *<code class="sig-name descname">m_tree_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode7m_tree_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The tree we belong to. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode10root_node_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode10root_node_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode10root_node_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::root_node___OutofcoreOctreeBaseNodeP"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a796c6c8e9a51cd42d8ce7b7fefcf3261"></span>OutofcoreOctreeBaseNode *<code class="sig-name descname">root_node_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode10root_node_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The root node of the tree we belong to. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode7parent_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode7parent_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode7parent_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::parent___OutofcoreOctreeBaseNodeP"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a7538e46e8b3d89bfbd03b0e606852ccc"></span>OutofcoreOctreeBaseNode *<code class="sig-name descname">parent_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode7parent_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>super-node </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode6depth_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode6depth_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode6depth_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::depth___s"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1aca2c713beae1004385b63b196a3b3d01"></span>size_t <code class="sig-name descname">depth_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode6depth_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Depth in the tree, root is 0, root’s children are 1, … </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode9children_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode9children_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode9children_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::children___std::vector:OutofcoreOctreeBaseNodeP:"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a9f2fb7fbd7be380212c99017557be57e"></span>std::vector&lt;OutofcoreOctreeBaseNode *&gt; <code class="sig-name descname">children_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode9children_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The children of this node. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13num_children_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode13num_children_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode13num_children_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::num_children___uint64_t"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a2c485ec11c94788d45436620fefe3402"></span>uint64_t <code class="sig-name descname">num_children_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13num_children_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of children on disk. </p>
+<p>This is only changed when a new node is created </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode20num_loaded_children_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode20num_loaded_children_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode20num_loaded_children_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::num_loaded_children___uint64_t"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1aca589546f23851a4b6e79dca8ef83181"></span>uint64_t <code class="sig-name descname">num_loaded_children_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode20num_loaded_children_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of loaded children this node has. </p>
+<p>“Loaded” means child OctreeBaseNodes have been allocated, and their metadata files have been loaded into memory. num_loaded_children_ &lt;= num_children_ </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode8payload_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode8payload_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode8payload_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::payload___boost::shared_ptr:ContainerT:"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a5afa8b2a7f8a4f2d21dbcc9cb749c993"></span>boost::shared_ptr&lt;ContainerT&gt; <code class="sig-name descname">payload_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode8payload_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>what holds the points. </p>
+<p>currently a custom class, but in theory you could use an stl container if you rewrote some of this class. I used to use deques for this… </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode14node_metadata_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode14node_metadata_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode14node_metadata_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::node_metadata___OutofcoreOctreeNodeMetadata::Ptr"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a8e7507ebbca5dc73c8230631cefcaed2"></span><a class="reference internal" href="classpcl_1_1outofcore_1_1_outofcore_octree_node_metadata.html#_CPPv4N3pcl9outofcore27OutofcoreOctreeNodeMetadataE" title="pcl::outofcore::OutofcoreOctreeNodeMetadata">OutofcoreOctreeNodeMetadata</a>::<a class="reference internal" href="classpcl_1_1outofcore_1_1_outofcore_octree_node_metadata.html#_CPPv4N3pcl9outofcore27OutofcoreOctreeNodeMetadata3PtrE" title="pcl::outofcore::OutofcoreOctreeNodeMetadata::Ptr">Ptr</a> <code class="sig-name descname">node_metadata_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode14node_metadata_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dERK6PointT">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dERK6PointT"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dERK6PointT"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::pointInBoundingBox__Eigen::Vector3dCR.Eigen::Vector3dCR.PointTCR"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a2a1bf7e6015d83e1c416cf28c03ccb00"></span>bool <code class="sig-name descname">pointInBoundingBox</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em>, <em class="property">const</em> PointT &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dERK6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tests whether <code class="docutils literal notranslate"><span class="pre">p</span></code> falls within the input bounding box. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_bb</span></code>: The minimum corner of the input bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_bb</span></code>: The maximum corner of the input bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p</span></code>: The point to be tested </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dEKdKdKd">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dEKdKdKd"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dEKdKdKd"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::pointInBoundingBox__Eigen::Vector3dCR.Eigen::Vector3dCR.doubleC.doubleC.doubleC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a72b5b9bc1e646f724e43a3c668615f58"></span><em class="property">static</em> bool <code class="sig-name descname">pointInBoundingBox</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>min_bb</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>max_bb</em>, <em class="property">const</em> double <em>x</em>, <em class="property">const</em> double <em>y</em>, <em class="property">const</em> double <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode18pointInBoundingBoxERKN5Eigen8Vector3dERKN5Eigen8Vector3dEKdKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tests whether <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> fall within the input bounding box. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_bb</span></code>: The minimum corner of the input bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_bb</span></code>: The maximum corner of the input bounding box </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">z</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Static Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode10rng_mutex_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode10rng_mutex_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode10rng_mutex_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::rng_mutex___boost::mutex"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ae8d9ecc1f06680f2df5c5f73fe43eeec"></span>boost::mutex <code class="sig-name descname">rng_mutex_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode10rng_mutex_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Random number generator mutex. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode9rand_gen_E">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode9rand_gen_E"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode9rand_gen_E"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::rand_gen___boost::mt19937"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a1f1713678ae1def55982cdb8cd74f885"></span>boost::mt19937 <code class="sig-name descname">rand_gen_</code><a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode9rand_gen_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mersenne Twister: A 623-dimensionally equidistributed uniform pseudo-random number generator. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode7rngseedE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode7rngseedE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode7rngseedE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::rngseed__boost::uint32_tC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1a1f98fef3c0c5d198a2341324ef445d72"></span><em class="property">const</em> boost::uint32_t <code class="sig-name descname">rngseed</code> = 0xAABBCCDD<a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode7rngseedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Random number generator seed. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13pcd_extensionE">
+<span id="_CPPv3N3pcl9outofcore23OutofcoreOctreeBaseNode13pcd_extensionE"></span><span id="_CPPv2N3pcl9outofcore23OutofcoreOctreeBaseNode13pcd_extensionE"></span><span id="pcl::outofcore::OutofcoreOctreeBaseNode::pcd_extension__ssC"></span><span class="target" id="classpcl_1_1outofcore_1_1_outofcore_octree_base_node_1ab0013fb7503dde308087de3382048b62"></span><em class="property">const</em> std::string <code class="sig-name descname">pcd_extension</code> = &quot;.pcd&quot;<a class="headerlink" href="#_CPPv4N3pcl9outofcore23OutofcoreOctreeBaseNode13pcd_extensionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extension for this class to find the pcd files on disk. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

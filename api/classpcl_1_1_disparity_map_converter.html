@@ -1,0 +1,629 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class DisparityMapConverter &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class DisparityMapConverter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_disparity_map_converter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-disparitymapconverter">
+<span id="exhale-class-classpcl-1-1-disparity-map-converter"></span><h1>Template Class DisparityMapConverter<a class="headerlink" href="#template-class-disparitymapconverter" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_stereo_include_pcl_stereo_disparity_map_converter.h.html#file-pcl-stereo-include-pcl-stereo-disparity-map-converter-h"><span class="std std-ref">File disparity_map_converter.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl21DisparityMapConverterE">
+<span id="_CPPv3I0EN3pcl21DisparityMapConverterE"></span><span id="_CPPv2I0EN3pcl21DisparityMapConverterE"></span><span class="target" id="classpcl_1_1_disparity_map_converter"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">DisparityMapConverter</code><a class="headerlink" href="#_CPPv4I0EN3pcl21DisparityMapConverterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute point cloud from the disparity map. </p>
+<p>Example of usage:</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">cloud</span> <span class="p">(</span><span class="k">new</span> 
+  <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">RGB</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">left_image</span> <span class="p">(</span><span class="k">new</span> 
+  <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">RGB</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="c1">// Fill left image cloud.</span>
+
+<span class="n">pcl</span><span class="o">::</span><span class="n">DisparityMapConverter</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&gt;</span> <span class="n">dmc</span><span class="p">;</span>
+<span class="n">dmc</span><span class="p">.</span><span class="n">setBaseline</span> <span class="p">(</span><span class="mf">0.8387445f</span><span class="p">);</span>
+<span class="n">dmc</span><span class="p">.</span><span class="n">setFocalLength</span> <span class="p">(</span><span class="mf">368.534700f</span><span class="p">);</span>
+<span class="n">dmc</span><span class="p">.</span><span class="n">setImageCenterX</span> <span class="p">(</span><span class="mf">318.112200f</span><span class="p">);</span>
+<span class="n">dmc</span><span class="p">.</span><span class="n">setImageCenterY</span> <span class="p">(</span><span class="mf">224.334900f</span><span class="p">);</span>
+<span class="n">dmc</span><span class="p">.</span><span class="n">setDisparityThresholdMin</span><span class="p">(</span><span class="mf">15.0f</span><span class="p">);</span>
+
+<span class="c1">// Left view of the scene.</span>
+<span class="n">dmc</span><span class="p">.</span><span class="n">setImage</span> <span class="p">(</span><span class="n">left_image</span><span class="p">);</span>
+<span class="c1">// Disparity map of the scene.</span>
+<span class="n">dmc</span><span class="p">.</span><span class="n">loadDisparityMap</span> <span class="p">(</span><span class="s">&quot;disparity_map.txt&quot;</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">);</span>
+
+<span class="n">dmc</span><span class="p">.</span><span class="n">compute</span><span class="p">(</span><span class="o">*</span><span class="n">cloud</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Timur Ibadov (<a class="reference external" href="mailto:ibadov&#46;timur&#37;&#52;&#48;gmail&#46;com">ibadov<span>&#46;</span>timur<span>&#64;</span>gmail<span>&#46;</span>com</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter21DisparityMapConverterEv">
+<span id="_CPPv3N3pcl21DisparityMapConverter21DisparityMapConverterEv"></span><span id="_CPPv2N3pcl21DisparityMapConverter21DisparityMapConverterEv"></span><span id="pcl::DisparityMapConverter::DisparityMapConverter"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a6d973636596c8edc698d813e804e983d"></span><code class="sig-name descname">DisparityMapConverter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter21DisparityMapConverterEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_disparity_map_converter"><span class="std std-ref">DisparityMapConverter</span></a> constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverterD0Ev">
+<span id="_CPPv3N3pcl21DisparityMapConverterD0Ev"></span><span id="_CPPv2N3pcl21DisparityMapConverterD0Ev"></span><span id="pcl::DisparityMapConverter::~DisparityMapConverter"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a63ea2a56e304a054537ebde80d5bf2d7"></span><code class="sig-name descname">~DisparityMapConverter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverterD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter15setImageCenterXEKf">
+<span id="_CPPv3N3pcl21DisparityMapConverter15setImageCenterXEKf"></span><span id="_CPPv2N3pcl21DisparityMapConverter15setImageCenterXEKf"></span><span id="pcl::DisparityMapConverter::setImageCenterX__floatC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a638fb7062f2aa5d9d9cceb1083411311"></span>void <code class="sig-name descname">setImageCenterX</code><span class="sig-paren">(</span><em class="property">const</em> float <em>center_x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter15setImageCenterXEKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set x-coordinate of the image center. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">center_x</span></code>: x-coordinate of the image center. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21DisparityMapConverter15getImageCenterXEv">
+<span id="_CPPv3NK3pcl21DisparityMapConverter15getImageCenterXEv"></span><span id="_CPPv2NK3pcl21DisparityMapConverter15getImageCenterXEv"></span><span id="pcl::DisparityMapConverter::getImageCenterXC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a31c00974045edaaa888f7fbfe9c7ac39"></span>float <code class="sig-name descname">getImageCenterX</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21DisparityMapConverter15getImageCenterXEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get x-coordinate of the image center. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>x-coordinate of the image center. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter15setImageCenterYEKf">
+<span id="_CPPv3N3pcl21DisparityMapConverter15setImageCenterYEKf"></span><span id="_CPPv2N3pcl21DisparityMapConverter15setImageCenterYEKf"></span><span id="pcl::DisparityMapConverter::setImageCenterY__floatC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1af66899bd1387ba76e5f78e3c628984ae"></span>void <code class="sig-name descname">setImageCenterY</code><span class="sig-paren">(</span><em class="property">const</em> float <em>center_y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter15setImageCenterYEKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set y-coordinate of the image center. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">center_y</span></code>: y-coordinate of the image center. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21DisparityMapConverter15getImageCenterYEv">
+<span id="_CPPv3NK3pcl21DisparityMapConverter15getImageCenterYEv"></span><span id="_CPPv2NK3pcl21DisparityMapConverter15getImageCenterYEv"></span><span id="pcl::DisparityMapConverter::getImageCenterYC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a228f7b55d3ba292457699662b2217fb9"></span>float <code class="sig-name descname">getImageCenterY</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21DisparityMapConverter15getImageCenterYEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get y-coordinate of the image center. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>y-coordinate of the image center. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter14setFocalLengthEKf">
+<span id="_CPPv3N3pcl21DisparityMapConverter14setFocalLengthEKf"></span><span id="_CPPv2N3pcl21DisparityMapConverter14setFocalLengthEKf"></span><span id="pcl::DisparityMapConverter::setFocalLength__floatC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1ae70b419c3c08fd95882b8302d024d2fb"></span>void <code class="sig-name descname">setFocalLength</code><span class="sig-paren">(</span><em class="property">const</em> float <em>focal_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter14setFocalLengthEKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set focal length. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">focal_length</span></code>: the focal length. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21DisparityMapConverter14getFocalLengthEv">
+<span id="_CPPv3NK3pcl21DisparityMapConverter14getFocalLengthEv"></span><span id="_CPPv2NK3pcl21DisparityMapConverter14getFocalLengthEv"></span><span id="pcl::DisparityMapConverter::getFocalLengthC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1ad84213ef839e517e957d47ec4ce14759"></span>float <code class="sig-name descname">getFocalLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21DisparityMapConverter14getFocalLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get focal length. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the focal length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter11setBaselineEKf">
+<span id="_CPPv3N3pcl21DisparityMapConverter11setBaselineEKf"></span><span id="_CPPv2N3pcl21DisparityMapConverter11setBaselineEKf"></span><span id="pcl::DisparityMapConverter::setBaseline__floatC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1ac8c4997d003903a930fda74fc0aea965"></span>void <code class="sig-name descname">setBaseline</code><span class="sig-paren">(</span><em class="property">const</em> float <em>baseline</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter11setBaselineEKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set baseline. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">baseline</span></code>: baseline. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21DisparityMapConverter11getBaselineEv">
+<span id="_CPPv3NK3pcl21DisparityMapConverter11getBaselineEv"></span><span id="_CPPv2NK3pcl21DisparityMapConverter11getBaselineEv"></span><span id="pcl::DisparityMapConverter::getBaselineC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a044323d282bd35210e28ed673db6c49a"></span>float <code class="sig-name descname">getBaseline</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21DisparityMapConverter11getBaselineEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get baseline. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the baseline. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter24setDisparityThresholdMinEKf">
+<span id="_CPPv3N3pcl21DisparityMapConverter24setDisparityThresholdMinEKf"></span><span id="_CPPv2N3pcl21DisparityMapConverter24setDisparityThresholdMinEKf"></span><span id="pcl::DisparityMapConverter::setDisparityThresholdMin__floatC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1aae49b8ec651f7f34fa4d0e3962963cc1"></span>void <code class="sig-name descname">setDisparityThresholdMin</code><span class="sig-paren">(</span><em class="property">const</em> float <em>disparity_threshold_min</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter24setDisparityThresholdMinEKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set min disparity threshold. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">disparity_threshold_min</span></code>: min disparity threshold. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21DisparityMapConverter24getDisparityThresholdMinEv">
+<span id="_CPPv3NK3pcl21DisparityMapConverter24getDisparityThresholdMinEv"></span><span id="_CPPv2NK3pcl21DisparityMapConverter24getDisparityThresholdMinEv"></span><span id="pcl::DisparityMapConverter::getDisparityThresholdMinC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1ab170773e3b0563cafedcde4f32914ded"></span>float <code class="sig-name descname">getDisparityThresholdMin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21DisparityMapConverter24getDisparityThresholdMinEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get min disparity threshold. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>min disparity threshold. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter24setDisparityThresholdMaxEKf">
+<span id="_CPPv3N3pcl21DisparityMapConverter24setDisparityThresholdMaxEKf"></span><span id="_CPPv2N3pcl21DisparityMapConverter24setDisparityThresholdMaxEKf"></span><span id="pcl::DisparityMapConverter::setDisparityThresholdMax__floatC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a24aa6a049e68538d5f411a4aaacae549"></span>void <code class="sig-name descname">setDisparityThresholdMax</code><span class="sig-paren">(</span><em class="property">const</em> float <em>disparity_threshold_max</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter24setDisparityThresholdMaxEKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set max disparity threshold. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">disparity_threshold_max</span></code>: max disparity threshold. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21DisparityMapConverter24getDisparityThresholdMaxEv">
+<span id="_CPPv3NK3pcl21DisparityMapConverter24getDisparityThresholdMaxEv"></span><span id="_CPPv2NK3pcl21DisparityMapConverter24getDisparityThresholdMaxEv"></span><span id="pcl::DisparityMapConverter::getDisparityThresholdMaxC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1aae6fb6826c55ba97d01c5787e9040b85"></span>float <code class="sig-name descname">getDisparityThresholdMax</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21DisparityMapConverter24getDisparityThresholdMaxEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get max disparity threshold. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>max disparity threshold. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter8setImageERKN3pcl10PointCloudIN3pcl3RGBEE8ConstPtrE">
+<span id="_CPPv3N3pcl21DisparityMapConverter8setImageERKN3pcl10PointCloudIN3pcl3RGBEE8ConstPtrE"></span><span id="_CPPv2N3pcl21DisparityMapConverter8setImageERKN3pcl10PointCloudIN3pcl3RGBEE8ConstPtrE"></span><span id="pcl::DisparityMapConverter::setImage__pcl::PointCloud:pcl::RGB:::ConstPtrCR"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a3ad025fb1ad289cb5fb78d1db4fca872"></span>void <code class="sig-name descname">setImage</code><span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a>&gt;::ConstPtr &amp;<em>image</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter8setImageERKN3pcl10PointCloudIN3pcl3RGBEE8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set an image, that will be used for coloring of the output cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">image</span></code>: the image. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter8getImageEv">
+<span id="_CPPv3N3pcl21DisparityMapConverter8getImageEv"></span><span id="_CPPv2N3pcl21DisparityMapConverter8getImageEv"></span><span id="pcl::DisparityMapConverter::getImage"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a48c4e5cbd50a54027784ddfeb2c567c1"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a>&gt;::Ptr <code class="sig-name descname">getImage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter8getImageEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the image, that is used for coloring of the output cloud. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the image. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter16loadDisparityMapERKNSt6stringE">
+<span id="_CPPv3N3pcl21DisparityMapConverter16loadDisparityMapERKNSt6stringE"></span><span id="_CPPv2N3pcl21DisparityMapConverter16loadDisparityMapERKNSt6stringE"></span><span id="pcl::DisparityMapConverter::loadDisparityMap__ssCR"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a50f9d0bc884df90e7ed8ce6df23183da"></span>bool <code class="sig-name descname">loadDisparityMap</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter16loadDisparityMapERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Load the disparity map. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if the disparity map was successfully loaded; “false” otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the disparity map file. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter16loadDisparityMapERKNSt6stringEK6size_tK6size_t">
+<span id="_CPPv3N3pcl21DisparityMapConverter16loadDisparityMapERKNSt6stringEK6size_tK6size_t"></span><span id="_CPPv2N3pcl21DisparityMapConverter16loadDisparityMapERKNSt6stringEK6size_tK6size_t"></span><span id="pcl::DisparityMapConverter::loadDisparityMap__ssCR.sC.sC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1acddb8e422faf6b995480a4dc14035256"></span>bool <code class="sig-name descname">loadDisparityMap</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, <em class="property">const</em> size_t <em>width</em>, <em class="property">const</em> size_t <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter16loadDisparityMapERKNSt6stringEK6size_tK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Load the disparity map and initialize it’s size. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if the disparity map was successfully loaded; “false” otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the disparity map file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">width</span></code>: width of the disparity map. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">height</span></code>: height of the disparity map. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter15setDisparityMapERKNSt6vectorIfEE">
+<span id="_CPPv3N3pcl21DisparityMapConverter15setDisparityMapERKNSt6vectorIfEE"></span><span id="_CPPv2N3pcl21DisparityMapConverter15setDisparityMapERKNSt6vectorIfEE"></span><span id="pcl::DisparityMapConverter::setDisparityMap__std::vector:float:CR"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1aa976c66c117ea7db5706748201458c94"></span>void <code class="sig-name descname">setDisparityMap</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;float&gt; &amp;<em>disparity_map</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter15setDisparityMapERKNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the disparity map. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">disparity_map</span></code>: the disparity map. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter15setDisparityMapERKNSt6vectorIfEEK6size_tK6size_t">
+<span id="_CPPv3N3pcl21DisparityMapConverter15setDisparityMapERKNSt6vectorIfEEK6size_tK6size_t"></span><span id="_CPPv2N3pcl21DisparityMapConverter15setDisparityMapERKNSt6vectorIfEEK6size_tK6size_t"></span><span id="pcl::DisparityMapConverter::setDisparityMap__std::vector:float:CR.sC.sC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1abf1ff3b4ea44783a21176689de7a55dc"></span>void <code class="sig-name descname">setDisparityMap</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;float&gt; &amp;<em>disparity_map</em>, <em class="property">const</em> size_t <em>width</em>, <em class="property">const</em> size_t <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter15setDisparityMapERKNSt6vectorIfEEK6size_tK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the disparity map and initialize it’s size. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if the disparity map was successfully loaded; “false” otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">disparity_map</span></code>: the disparity map. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">width</span></code>: width of the disparity map. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">height</span></code>: height of the disparity map. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter15getDisparityMapEv">
+<span id="_CPPv3N3pcl21DisparityMapConverter15getDisparityMapEv"></span><span id="_CPPv2N3pcl21DisparityMapConverter15getDisparityMapEv"></span><span id="pcl::DisparityMapConverter::getDisparityMap"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a126fa553c8e5bcccbba78840f89a5b8f"></span>std::vector&lt;float&gt; <code class="sig-name descname">getDisparityMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter15getDisparityMapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the disparity map. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the disparity map. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DisparityMapConverter7computeER10PointCloud">
+<span id="_CPPv3N3pcl21DisparityMapConverter7computeER10PointCloud"></span><span id="_CPPv2N3pcl21DisparityMapConverter7computeER10PointCloud"></span><span id="pcl::DisparityMapConverter::compute__PointCloudR"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a50bcf3409693dda241f97378b240c355"></span>void <code class="sig-name descname">compute</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl21DisparityMapConverter10PointCloudE" title="pcl::DisparityMapConverter::PointCloud">PointCloud</a> &amp;<em>out_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter7computeER10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the output cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out_cloud</span></code>: the variable to return the resulting cloud. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl21DisparityMapConverter10PointCloudE">
+<span id="_CPPv3N3pcl21DisparityMapConverter10PointCloudE"></span><span id="_CPPv2N3pcl21DisparityMapConverter10PointCloudE"></span><span id="pcl::DisparityMapConverter::PointCloud"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a014b5b5ac97f2cccaa5fadb040b35e93"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl21DisparityMapConverter20translateCoordinatesE6size_t6size_tf">
+<span id="_CPPv3NK3pcl21DisparityMapConverter20translateCoordinatesE6size_t6size_tf"></span><span id="_CPPv2NK3pcl21DisparityMapConverter20translateCoordinatesE6size_t6size_tf"></span><span id="pcl::DisparityMapConverter::translateCoordinates__s.s.floatC"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a30d77dd8ed5925cc4d1899b37cd65ea6"></span>pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> <code class="sig-name descname">translateCoordinates</code><span class="sig-paren">(</span>size_t <em>row</em>, size_t <em>column</em>, float <em>disparity</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21DisparityMapConverter20translateCoordinatesE6size_t6size_tf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Translate point from image coordinates and disparity to 3D-coordinates. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the 3D point, that corresponds to the input parametres and the camera calibration. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">row</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">column</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">disparity</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter9center_x_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter9center_x_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter9center_x_E"></span><span id="pcl::DisparityMapConverter::center_x___float"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1aec5dc0209f9a1ea3a08b312e1e84a558"></span>float <code class="sig-name descname">center_x_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter9center_x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>X-coordinate of the image center. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter9center_y_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter9center_y_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter9center_y_E"></span><span id="pcl::DisparityMapConverter::center_y___float"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a886ef972cb3e6e7d39f5a2895c794a5a"></span>float <code class="sig-name descname">center_y_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter9center_y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Y-coordinate of the image center. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter13focal_length_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter13focal_length_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter13focal_length_E"></span><span id="pcl::DisparityMapConverter::focal_length___float"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a0d9e7681afd08ef4e0dbdf4be50affe6"></span>float <code class="sig-name descname">focal_length_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter13focal_length_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Focal length. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter9baseline_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter9baseline_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter9baseline_E"></span><span id="pcl::DisparityMapConverter::baseline___float"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a3abd2e11c883c42ad450c7021e03288e"></span>float <code class="sig-name descname">baseline_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter9baseline_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Baseline. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter9is_color_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter9is_color_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter9is_color_E"></span><span id="pcl::DisparityMapConverter::is_color___b"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1aab60cab837c7b9ed6f2d6299fbe06fc7"></span>bool <code class="sig-name descname">is_color_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter9is_color_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Is color image is set. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter6image_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter6image_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter6image_E"></span><span id="pcl::DisparityMapConverter::image___pcl::PointCloud:pcl::RGB:::ConstPtr"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a18fb3832e663199324e4ee2ae5f21aed"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a>&gt;::ConstPtr <code class="sig-name descname">image_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter6image_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color image of the scene. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter14disparity_map_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter14disparity_map_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter14disparity_map_E"></span><span id="pcl::DisparityMapConverter::disparity_map___std::vector:float:"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a038c258b285ea1ff1675c8010971073d"></span>std::vector&lt;float&gt; <code class="sig-name descname">disparity_map_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter14disparity_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Vector for the disparity map. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter20disparity_map_width_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter20disparity_map_width_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter20disparity_map_width_E"></span><span id="pcl::DisparityMapConverter::disparity_map_width___s"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a2aabe11495a4fa10355858c697419328"></span>size_t <code class="sig-name descname">disparity_map_width_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter20disparity_map_width_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>X-size of the disparity map. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter21disparity_map_height_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter21disparity_map_height_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter21disparity_map_height_E"></span><span id="pcl::DisparityMapConverter::disparity_map_height___s"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a8165e38654e65342ffc7983a935ac85a"></span>size_t <code class="sig-name descname">disparity_map_height_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter21disparity_map_height_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Y-size of the disparity map. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter24disparity_threshold_min_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter24disparity_threshold_min_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter24disparity_threshold_min_E"></span><span id="pcl::DisparityMapConverter::disparity_threshold_min___float"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1af5a0f48dc13af275ae6b28bee7d17c51"></span>float <code class="sig-name descname">disparity_threshold_min_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter24disparity_threshold_min_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Thresholds of the disparity. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21DisparityMapConverter24disparity_threshold_max_E">
+<span id="_CPPv3N3pcl21DisparityMapConverter24disparity_threshold_max_E"></span><span id="_CPPv2N3pcl21DisparityMapConverter24disparity_threshold_max_E"></span><span id="pcl::DisparityMapConverter::disparity_threshold_max___float"></span><span class="target" id="classpcl_1_1_disparity_map_converter_1a2222ccbfd58e74a783bc7ae44c68423f"></span>float <code class="sig-name descname">disparity_threshold_max_</code><a class="headerlink" href="#_CPPv4N3pcl21DisparityMapConverter24disparity_threshold_max_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

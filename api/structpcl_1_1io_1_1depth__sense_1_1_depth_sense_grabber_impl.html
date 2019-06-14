@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Struct DepthSenseGrabberImpl &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Struct DepthSenseGrabberImpl</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="struct-depthsensegrabberimpl">
+<span id="exhale-struct-structpcl-1-1io-1-1depth-sense-1-1-depth-sense-grabber-impl"></span><h1>Struct DepthSenseGrabberImpl<a class="headerlink" href="#struct-depthsensegrabberimpl" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_depth_sense_depth_sense_grabber_impl.h.html#file-pcl-io-include-pcl-io-depth-sense-depth-sense-grabber-impl-h"><span class="std std-ref">File depth_sense_grabber_impl.h</span></a></p></li>
+</ul>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImplE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImplE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImplE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl"></span><em class="property">struct </em><code class="sig-name descname">DepthSenseGrabberImpl</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImplE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl30sig_cb_depth_sense_point_cloudE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl30sig_cb_depth_sense_point_cloudE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl30sig_cb_depth_sense_point_cloudE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::sig_cb_depth_sense_point_cloud"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1adfe0c9768ac3f2dc08c826f1ffe7f4d3"></span><em class="property">typedef </em><a class="reference internal" href="classpcl_1_1_depth_sense_grabber.html#_CPPv4N3pcl17DepthSenseGrabberE" title="pcl::DepthSenseGrabber">DepthSenseGrabber</a>::sig_cb_depth_sense_point_cloud <code class="sig-name descname">sig_cb_depth_sense_point_cloud</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl30sig_cb_depth_sense_point_cloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl35sig_cb_depth_sense_point_cloud_rgbaE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl35sig_cb_depth_sense_point_cloud_rgbaE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl35sig_cb_depth_sense_point_cloud_rgbaE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::sig_cb_depth_sense_point_cloud_rgba"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1ab3ce1f6506d93fd5415690e104fd8e37"></span><em class="property">typedef </em><a class="reference internal" href="classpcl_1_1_depth_sense_grabber.html#_CPPv4N3pcl17DepthSenseGrabberE" title="pcl::DepthSenseGrabber">DepthSenseGrabber</a>::sig_cb_depth_sense_point_cloud_rgba <code class="sig-name descname">sig_cb_depth_sense_point_cloud_rgba</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl35sig_cb_depth_sense_point_cloud_rgbaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl21DepthSenseGrabberImplEP17DepthSenseGrabberRKNSt6stringE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl21DepthSenseGrabberImplEP17DepthSenseGrabberRKNSt6stringE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl21DepthSenseGrabberImplEP17DepthSenseGrabberRKNSt6stringE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::DepthSenseGrabberImpl__DepthSenseGrabberP.ssCR"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1afdd8f45ea07734e7f8e44cfebb19b4dd"></span><code class="sig-name descname">DepthSenseGrabberImpl</code><span class="sig-paren">(</span><a class="reference internal" href="classpcl_1_1_depth_sense_grabber.html#_CPPv4N3pcl17DepthSenseGrabberE" title="pcl::DepthSenseGrabber">DepthSenseGrabber</a> *<em>parent</em>, <em class="property">const</em> std::string &amp;<em>device_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl21DepthSenseGrabberImplEP17DepthSenseGrabberRKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImplD0Ev">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImplD0Ev"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImplD0Ev"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::~DepthSenseGrabberImpl"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a85afcfc68d3d8874b4e878318e6fbed4"></span><code class="sig-name descname">~DepthSenseGrabberImpl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImplD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl5startEv">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl5startEv"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl5startEv"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::start"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a4742afa1b29abc1c17ba061202530017"></span>void <code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl5startEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl4stopEv">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl4stopEv"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl4stopEv"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::stop"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a0608ca7a832eb63d83f4a92432ba94db"></span>void <code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl4stopEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io11depth_sense21DepthSenseGrabberImpl18getFramesPerSecondEv">
+<span id="_CPPv3NK3pcl2io11depth_sense21DepthSenseGrabberImpl18getFramesPerSecondEv"></span><span id="_CPPv2NK3pcl2io11depth_sense21DepthSenseGrabberImpl18getFramesPerSecondEv"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::getFramesPerSecondC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a26e83d3b9b02233978663866f6c42aa0"></span>float <code class="sig-name descname">getFramesPerSecond</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io11depth_sense21DepthSenseGrabberImpl18getFramesPerSecondEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl22setConfidenceThresholdEi">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl22setConfidenceThresholdEi"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl22setConfidenceThresholdEi"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::setConfidenceThreshold__i"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1aa8d50c6be8638258adfdc28613ae9d97"></span>void <code class="sig-name descname">setConfidenceThreshold</code><span class="sig-paren">(</span>int <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl22setConfidenceThresholdEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl23enableTemporalFilteringEN17DepthSenseGrabber21TemporalFilteringTypeE6size_t">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl23enableTemporalFilteringEN17DepthSenseGrabber21TemporalFilteringTypeE6size_t"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl23enableTemporalFilteringEN17DepthSenseGrabber21TemporalFilteringTypeE6size_t"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::enableTemporalFiltering__DepthSenseGrabber::TemporalFilteringType.s"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1ab41ecdc155cb1bbd7d606e0b4e4242ae"></span>void <code class="sig-name descname">enableTemporalFiltering</code><span class="sig-paren">(</span><a class="reference internal" href="classpcl_1_1_depth_sense_grabber.html#_CPPv4N3pcl17DepthSenseGrabberE" title="pcl::DepthSenseGrabber">DepthSenseGrabber</a>::<a class="reference internal" href="classpcl_1_1_depth_sense_grabber.html#_CPPv4N3pcl17DepthSenseGrabber21TemporalFilteringTypeE" title="pcl::DepthSenseGrabber::TemporalFilteringType">TemporalFilteringType</a> <em>type</em>, size_t <em>window_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl23enableTemporalFilteringEN17DepthSenseGrabber21TemporalFilteringTypeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl19setCameraParametersERKN10DepthSense22StereoCameraParametersE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl19setCameraParametersERKN10DepthSense22StereoCameraParametersE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl19setCameraParametersERKN10DepthSense22StereoCameraParametersE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::setCameraParameters__DepthSense::StereoCameraParametersCR"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a595df083fab7f31d36008a218fa0d52c"></span>void <code class="sig-name descname">setCameraParameters</code><span class="sig-paren">(</span><em class="property">const</em> DepthSense::StereoCameraParameters &amp;<em>parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl19setCameraParametersERKN10DepthSense22StereoCameraParametersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io11depth_sense21DepthSenseGrabberImpl18configureDepthNodeEN10DepthSense9DepthNodeE">
+<span id="_CPPv3NK3pcl2io11depth_sense21DepthSenseGrabberImpl18configureDepthNodeEN10DepthSense9DepthNodeE"></span><span id="_CPPv2NK3pcl2io11depth_sense21DepthSenseGrabberImpl18configureDepthNodeEN10DepthSense9DepthNodeE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::configureDepthNode__DepthSense::DepthNodeC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1af3f1f67304a037bbf22acdf53c6f07d6"></span>void <code class="sig-name descname">configureDepthNode</code><span class="sig-paren">(</span>DepthSense::DepthNode <em>node</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io11depth_sense21DepthSenseGrabberImpl18configureDepthNodeEN10DepthSense9DepthNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io11depth_sense21DepthSenseGrabberImpl18configureColorNodeEN10DepthSense9ColorNodeE">
+<span id="_CPPv3NK3pcl2io11depth_sense21DepthSenseGrabberImpl18configureColorNodeEN10DepthSense9ColorNodeE"></span><span id="_CPPv2NK3pcl2io11depth_sense21DepthSenseGrabberImpl18configureColorNodeEN10DepthSense9ColorNodeE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::configureColorNode__DepthSense::ColorNodeC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a341e682802658b85958a90e08371d4ef"></span>void <code class="sig-name descname">configureColorNode</code><span class="sig-paren">(</span>DepthSense::ColorNode <em>node</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io11depth_sense21DepthSenseGrabberImpl18configureColorNodeEN10DepthSense9ColorNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl19onDepthDataReceivedEN10DepthSense9DepthNodeEN10DepthSense9DepthNode21NewSampleReceivedDataE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl19onDepthDataReceivedEN10DepthSense9DepthNodeEN10DepthSense9DepthNode21NewSampleReceivedDataE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl19onDepthDataReceivedEN10DepthSense9DepthNodeEN10DepthSense9DepthNode21NewSampleReceivedDataE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::onDepthDataReceived__DepthSense::DepthNode.DepthSense::DepthNode::NewSampleReceivedData"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a3d914fa13016bb814a1075142ce1b255"></span>void <code class="sig-name descname">onDepthDataReceived</code><span class="sig-paren">(</span>DepthSense::DepthNode <em>node</em>, DepthSense::DepthNode::NewSampleReceivedData <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl19onDepthDataReceivedEN10DepthSense9DepthNodeEN10DepthSense9DepthNode21NewSampleReceivedDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A callback for processing depth data. </p>
+<p>It is supposed to be called from the DepthSense::Context thread that is managed by <a class="reference internal" href="classpcl_1_1io_1_1depth__sense_1_1_depth_sense_device_manager.html#classpcl_1_1io_1_1depth__sense_1_1_depth_sense_device_manager"><span class="std std-ref">DepthSenseDeviceManager</span></a>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl19onColorDataReceivedEN10DepthSense9ColorNodeEN10DepthSense9ColorNode21NewSampleReceivedDataE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl19onColorDataReceivedEN10DepthSense9ColorNodeEN10DepthSense9ColorNode21NewSampleReceivedDataE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl19onColorDataReceivedEN10DepthSense9ColorNodeEN10DepthSense9ColorNode21NewSampleReceivedDataE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::onColorDataReceived__DepthSense::ColorNode.DepthSense::ColorNode::NewSampleReceivedData"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1aa2d7451bde4bae9d9c4fca6d544c734f"></span>void <code class="sig-name descname">onColorDataReceived</code><span class="sig-paren">(</span>DepthSense::ColorNode <em>node</em>, DepthSense::ColorNode::NewSampleReceivedData <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl19onColorDataReceivedEN10DepthSense9ColorNodeEN10DepthSense9ColorNode21NewSampleReceivedDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A callback for processing color data. </p>
+<p>It is supposed to be called from the DepthSense::Context thread that is managed by <a class="reference internal" href="classpcl_1_1io_1_1depth__sense_1_1_depth_sense_device_manager.html#classpcl_1_1io_1_1depth__sense_1_1_depth_sense_device_manager"><span class="std std-ref">DepthSenseDeviceManager</span></a>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl2io11depth_sense21DepthSenseGrabberImpl10computeXYZEvR10PointCloudI5PointE">
+<span id="_CPPv3I0EN3pcl2io11depth_sense21DepthSenseGrabberImpl10computeXYZER10PointCloudI5PointE"></span><span id="_CPPv2I0EN3pcl2io11depth_sense21DepthSenseGrabberImpl10computeXYZER10PointCloudI5PointE"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1acb3be95bee5285c31026937060f88c70"></span>template&lt;typename <code class="sig-name descname">Point</code>&gt;<br />void <code class="sig-name descname">computeXYZ</code><span class="sig-paren">(</span>PointCloud&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl2io11depth_sense21DepthSenseGrabberImpl10computeXYZEvR10PointCloudI5PointE" title="pcl::io::depth_sense::DepthSenseGrabberImpl::computeXYZ::Point">Point</a>&gt; &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl2io11depth_sense21DepthSenseGrabberImpl10computeXYZEvR10PointCloudI5PointE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl2p_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl2p_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl2p_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::p___DepthSenseGrabberP"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a5596706b0c6cb89cc52cca457c131ab3"></span><a class="reference internal" href="classpcl_1_1_depth_sense_grabber.html#_CPPv4N3pcl17DepthSenseGrabberE" title="pcl::DepthSenseGrabber">DepthSenseGrabber</a> *<code class="sig-name descname">p_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl2p_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parent grabber. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl10device_id_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl10device_id_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl10device_id_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::device_id___ss"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a5a200da5619fdc05b1c58fba76df6261"></span>std::string <code class="sig-name descname">device_id_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl10device_id_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Serial number of the device captured by this grabber. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl11is_running_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl11is_running_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl11is_running_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::is_running___b"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1aed22cf17483a68b3d192809503774fee"></span>bool <code class="sig-name descname">is_running_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl11is_running_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl21confidence_threshold_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl21confidence_threshold_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl21confidence_threshold_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::confidence_threshold___i"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a416e18e4a10cc59a2ddfdd12cff98701"></span>int <code class="sig-name descname">confidence_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl21confidence_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl24temporal_filtering_type_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl24temporal_filtering_type_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl24temporal_filtering_type_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::temporal_filtering_type___DepthSenseGrabber::TemporalFilteringType"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1aec1d959b05ff22d22d6428470c0fd034"></span><a class="reference internal" href="classpcl_1_1_depth_sense_grabber.html#_CPPv4N3pcl17DepthSenseGrabberE" title="pcl::DepthSenseGrabber">DepthSenseGrabber</a>::<a class="reference internal" href="classpcl_1_1_depth_sense_grabber.html#_CPPv4N3pcl17DepthSenseGrabber21TemporalFilteringTypeE" title="pcl::DepthSenseGrabber::TemporalFilteringType">TemporalFilteringType</a> <code class="sig-name descname">temporal_filtering_type_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl24temporal_filtering_type_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl11projection_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl11projection_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl11projection_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::projection___boost::shared_ptr:DepthSense::ProjectionHelper:"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a579e234ad7991337ce136fe2b5b2003f"></span>boost::shared_ptr&lt;DepthSense::ProjectionHelper&gt; <code class="sig-name descname">projection_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl11projection_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl19point_cloud_signal_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl19point_cloud_signal_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl19point_cloud_signal_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::point_cloud_signal___boost::signals2::signal:sig_cb_depth_sense_point_cloud:P"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a2d2663e428a21851bc5010d7bee3db4a"></span>boost::signals2::signal&lt;<a class="reference internal" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl30sig_cb_depth_sense_point_cloudE" title="pcl::io::depth_sense::DepthSenseGrabberImpl::sig_cb_depth_sense_point_cloud">sig_cb_depth_sense_point_cloud</a>&gt; *<code class="sig-name descname">point_cloud_signal_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl19point_cloud_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Signal to indicate whether new XYZ cloud is available. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl24point_cloud_rgba_signal_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl24point_cloud_rgba_signal_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl24point_cloud_rgba_signal_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::point_cloud_rgba_signal___boost::signals2::signal:sig_cb_depth_sense_point_cloud_rgba:P"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1ab57206d589100766c08ad978968bb33f"></span>boost::signals2::signal&lt;<a class="reference internal" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl35sig_cb_depth_sense_point_cloud_rgbaE" title="pcl::io::depth_sense::DepthSenseGrabberImpl::sig_cb_depth_sense_point_cloud_rgba">sig_cb_depth_sense_point_cloud_rgba</a>&gt; *<code class="sig-name descname">point_cloud_rgba_signal_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl24point_cloud_rgba_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Signal to indicate whether new XYZRGBA cloud is available. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl9need_xyz_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl9need_xyz_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl9need_xyz_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::need_xyz___b"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a961585646a9518ab48035e9b02b547a5"></span>bool <code class="sig-name descname">need_xyz_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl9need_xyz_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indicates whether there are subscribers for <a class="reference internal" href="structpcl_1_1_point_x_y_z.html#structpcl_1_1_point_x_y_z"><span class="std std-ref">PointXYZ</span></a> signal. </p>
+<p>This is computed and stored on start() </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl13need_xyzrgba_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl13need_xyzrgba_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl13need_xyzrgba_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::need_xyzrgba___b"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a2bf4c5c9ea8c1b709de9c9a435685e03"></span>bool <code class="sig-name descname">need_xyzrgba_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl13need_xyzrgba_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indicates whether there are subscribers for <a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b_a.html#structpcl_1_1_point_x_y_z_r_g_b_a"><span class="std std-ref">PointXYZRGBA</span></a> signal. </p>
+<p>This is computed and stored on start() </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl10frequency_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl10frequency_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl10frequency_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::frequency___EventFrequency"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a331e26e5d3868ef3af1c669e29ea8289"></span><a class="reference internal" href="classpcl_1_1_event_frequency.html#_CPPv4N3pcl14EventFrequencyE" title="pcl::EventFrequency">EventFrequency</a> <code class="sig-name descname">frequency_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl10frequency_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl10fps_mutex_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl10fps_mutex_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl10fps_mutex_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::fps_mutex___boost::mutex"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a707b155610e0d0be7831c376066ec7f9"></span>boost::mutex <code class="sig-name descname">fps_mutex_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl10fps_mutex_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl11color_data_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl11color_data_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl11color_data_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::color_data___std::vector:uint8_t:"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a20f7a5409a793cb9dd7381bb27445a8f"></span>std::vector&lt;uint8_t&gt; <code class="sig-name descname">color_data_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl11color_data_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Temporary buffer to store color data. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl13depth_buffer_E">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl13depth_buffer_E"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl13depth_buffer_E"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::depth_buffer___boost::shared_ptr:pcl::io::Buffer:float::"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1abef6d7864f8a1cef55674b764970cacf"></span>boost::shared_ptr&lt;pcl::io::Buffer&lt;float&gt;&gt; <code class="sig-name descname">depth_buffer_</code><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl13depth_buffer_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl9FRAMERATEE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl9FRAMERATEE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl9FRAMERATEE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::FRAMERATE__iC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1aab6429f3f7980d12fea2e81696335778"></span><em class="property">const</em> int <code class="sig-name descname">FRAMERATE</code> = 30<a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl9FRAMERATEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl5WIDTHE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl5WIDTHE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl5WIDTHE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::WIDTH__iC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1ab52fb82227b1277664465b6024c59866"></span><em class="property">const</em> int <code class="sig-name descname">WIDTH</code> = 320<a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl5WIDTHE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl6HEIGHTE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl6HEIGHTE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl6HEIGHTE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::HEIGHT__iC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1aa3ed48dd94a8b2da65d74c5afc219cc1"></span><em class="property">const</em> int <code class="sig-name descname">HEIGHT</code> = 240<a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl6HEIGHTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl4SIZEE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl4SIZEE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl4SIZEE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::SIZE__iC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1a0957fa5cfda4110a7124d1764a8fcd0a"></span><em class="property">const</em> int <code class="sig-name descname">SIZE</code> = <a class="reference internal" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl5WIDTHE" title="pcl::io::depth_sense::DepthSenseGrabberImpl::WIDTH">WIDTH</a> * <a class="reference internal" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl6HEIGHTE" title="pcl::io::depth_sense::DepthSenseGrabberImpl::HEIGHT">HEIGHT</a><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl4SIZEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl11COLOR_WIDTHE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl11COLOR_WIDTHE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl11COLOR_WIDTHE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::COLOR_WIDTH__iC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1ad214ab3d59621ba6bb4128e1855a8012"></span><em class="property">const</em> int <code class="sig-name descname">COLOR_WIDTH</code> = 640<a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl11COLOR_WIDTHE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl12COLOR_HEIGHTE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl12COLOR_HEIGHTE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl12COLOR_HEIGHTE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::COLOR_HEIGHT__iC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1ac4b21a5872d893391f25177cc85f70c4"></span><em class="property">const</em> int <code class="sig-name descname">COLOR_HEIGHT</code> = 480<a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl12COLOR_HEIGHTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl10COLOR_SIZEE">
+<span id="_CPPv3N3pcl2io11depth_sense21DepthSenseGrabberImpl10COLOR_SIZEE"></span><span id="_CPPv2N3pcl2io11depth_sense21DepthSenseGrabberImpl10COLOR_SIZEE"></span><span id="pcl::io::depth_sense::DepthSenseGrabberImpl::COLOR_SIZE__iC"></span><span class="target" id="structpcl_1_1io_1_1depth__sense_1_1_depth_sense_grabber_impl_1aeac6fc634136184b314f39a2548c905a"></span><em class="property">const</em> int <code class="sig-name descname">COLOR_SIZE</code> = <a class="reference internal" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl11COLOR_WIDTHE" title="pcl::io::depth_sense::DepthSenseGrabberImpl::COLOR_WIDTH">COLOR_WIDTH</a> * <a class="reference internal" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl12COLOR_HEIGHTE" title="pcl::io::depth_sense::DepthSenseGrabberImpl::COLOR_HEIGHT">COLOR_HEIGHT</a><a class="headerlink" href="#_CPPv4N3pcl2io11depth_sense21DepthSenseGrabberImpl10COLOR_SIZEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

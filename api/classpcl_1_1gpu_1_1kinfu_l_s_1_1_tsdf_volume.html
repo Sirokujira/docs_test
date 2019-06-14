@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class TsdfVolume &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class TsdfVolume</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-tsdfvolume">
+<span id="exhale-class-classpcl-1-1gpu-1-1kinfu-l-s-1-1-tsdf-volume"></span><h1>Class TsdfVolume<a class="headerlink" href="#class-tsdfvolume" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_gpu_kinfu_large_scale_include_pcl_gpu_kinfu_large_scale_tsdf_volume.h.html#file-pcl-gpu-kinfu-large-scale-include-pcl-gpu-kinfu-large-scale-tsdf-volume-h"><span class="std std-ref">File tsdf_volume.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header.html#exhale-struct-structpcl-1-1gpu-1-1kinfu-l-s-1-1-tsdf-volume-1-1-header"><span class="std std-ref">Struct TsdfVolume::Header</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolumeE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolumeE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolumeE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume"></span><em class="property">class </em><code class="sig-name descname">TsdfVolume</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolumeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume"><span class="std std-ref">TsdfVolume</span></a> class. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Anatoly Baskeheev, Itseez Ltd, (<a class="reference external" href="mailto:myname&#46;mysurname&#37;&#52;&#48;mycompany&#46;com">myname<span>&#46;</span>mysurname<span>&#64;</span>mycompany<span>&#46;</span>com</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolumeUt7_anon_87E">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolumeUt7_anon_87E"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a7d40165887aa0e669437cf398d524ead"></span><em class="property">enum </em><strong>[anonymous]</strong><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolumeUt7_anon_87E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default buffer size for fetching cloud. </p>
+<p>It limits max number of points that can be extracted </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume25DEFAULT_CLOUD_BUFFER_SIZEE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume25DEFAULT_CLOUD_BUFFER_SIZEE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume25DEFAULT_CLOUD_BUFFER_SIZEE"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a7d40165887aa0e669437cf398d524eadaaacbe751c53a55106d4f4de1711ad9b8"></span><code class="sig-name descname">DEFAULT_CLOUD_BUFFER_SIZE</code> = 10 * 1000 * 1000<a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume25DEFAULT_CLOUD_BUFFER_SIZEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume3PtrE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume3PtrE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume3PtrE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::Ptr"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1af913997f25a0ff32af3d2cf91ae22485"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolumeE" title="pcl::gpu::kinfuLS::TsdfVolume">TsdfVolume</a>&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::PointType"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a859e9c389e10be47ba94d785eeae975f"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> <code class="sig-name descname">PointType</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Supported Point Types. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume10NormalTypeE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume10NormalTypeE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume10NormalTypeE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::NormalType"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a6e746a0a7db590f190e91a336b893afb"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a> <code class="sig-name descname">NormalType</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume10NormalTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume10TsdfVolumeERKN5Eigen8Vector3iE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume10TsdfVolumeERKN5Eigen8Vector3iE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume10TsdfVolumeERKN5Eigen8Vector3iE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::TsdfVolume__Eigen::Vector3iCR"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1aa2a91af07bc4694381b6de8676fee478"></span><code class="sig-name descname">TsdfVolume</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume10TsdfVolumeERKN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">resolution</span></code>: volume resolution </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume7setSizeERKN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume7setSizeERKN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume7setSizeERKN5Eigen8Vector3fE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::setSize__Eigen::Vector3fCR"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a5a8d6e605ffdbcfc9228679604cab033"></span>void <code class="sig-name descname">setSize</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3f &amp;<em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume7setSizeERKN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets Tsdf volume size for each dimension. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">size</span></code>: size of tsdf volume in meters </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume16setTsdfTruncDistEf">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume16setTsdfTruncDistEf"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume16setTsdfTruncDistEf"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::setTsdfTruncDist__float"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1ab837c09a09bab3ecb69da7c2acb0d481"></span>void <code class="sig-name descname">setTsdfTruncDist</code><span class="sig-paren">(</span>float <em>distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume16setTsdfTruncDistEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets Tsdf truncation distance. </p>
+<p>Must be greater than 2 * volume_voxel_size <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">distance</span></code>: TSDF truncation distance </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume4dataEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume4dataEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume4dataEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::dataC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a722b992a0d24ac598c8721d34f25f895"></span>DeviceArray2D&lt;int&gt; <code class="sig-name descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume4dataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns tsdf volume container that point to data in GPU memory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume7getSizeEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume7getSizeEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume7getSizeEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::getSizeC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a0d3d6e74685957748835c83547fc2cad"></span><em class="property">const</em> Eigen::Vector3f &amp;<code class="sig-name descname">getSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume7getSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns volume size in meters. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume13getResolutionEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume13getResolutionEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume13getResolutionEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::getResolutionC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1acaee76b8eab6f7c49ebecac910a4243a"></span><em class="property">const</em> Eigen::Vector3i &amp;<code class="sig-name descname">getResolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume13getResolutionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns volume resolution. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume12getVoxelSizeEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume12getVoxelSizeEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume12getVoxelSizeEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::getVoxelSizeC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1acf4322c3864ddac7038cbcc29a477df3"></span><em class="property">const</em> Eigen::Vector3f <code class="sig-name descname">getVoxelSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume12getVoxelSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns volume voxel size in meters. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume16getTsdfTruncDistEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume16getTsdfTruncDistEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume16getTsdfTruncDistEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::getTsdfTruncDistC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1af03d21b79c89d4b6f18295ce49f8fb14"></span>float <code class="sig-name descname">getTsdfTruncDist</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume16getTsdfTruncDistEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns tsdf truncation distance in meters. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume5resetEv">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume5resetEv"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume5resetEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::reset"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1aabc12a6af5ac60742c13f4c63e0546f6"></span>void <code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume5resetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Resets tsdf volume data to uninitialized state. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume14fetchCloudHostER10PointCloudI9PointTypeEb">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume14fetchCloudHostER10PointCloudI9PointTypeEb"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume14fetchCloudHostER10PointCloudI9PointTypeEb"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::fetchCloudHost__PointCloud:PointType:R.bC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a88a992bc7d5284b9b9532f9cad00c75f"></span>void <code class="sig-name descname">fetchCloudHost</code><span class="sig-paren">(</span>PointCloud&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE" title="pcl::gpu::kinfuLS::TsdfVolume::PointType">PointType</a>&gt; &amp;<em>cloud</em>, bool <em>connected26</em> = false<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume14fetchCloudHostER10PointCloudI9PointTypeEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates cloud using CPU (downloads volumetric representation to CPU memory) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: output array for cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">connected26</span></code>: If false point cloud is extracted using 6 neighbor, otherwise 26. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume14fetchCloudHostER10PointCloudI9PointXYZIEb">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume14fetchCloudHostER10PointCloudI9PointXYZIEb"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume14fetchCloudHostER10PointCloudI9PointXYZIEb"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::fetchCloudHost__PointCloud:PointXYZI:R.bC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a919b00e9381e3527a0cb50ab304d9348"></span>void <code class="sig-name descname">fetchCloudHost</code><span class="sig-paren">(</span>PointCloud&lt;<a class="reference internal" href="structpcl_1_1_point_x_y_z_i.html#_CPPv4N3pcl9PointXYZIE" title="pcl::PointXYZI">PointXYZI</a>&gt; &amp;<em>cloud</em>, bool <em>connected26</em> = false<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume14fetchCloudHostER10PointCloudI9PointXYZIEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates cloud using CPU (downloads volumetric representation to CPU memory) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: output array for cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">connected26</span></code>: If false point cloud is extracted using 6 neighbor, otherwise 26. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume10fetchCloudER11DeviceArrayI9PointTypeE">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume10fetchCloudER11DeviceArrayI9PointTypeE"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume10fetchCloudER11DeviceArrayI9PointTypeE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::fetchCloud__DeviceArray:PointType:RC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a4a1ac38b3b6819ded1c3a8e63677d240"></span>DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE" title="pcl::gpu::kinfuLS::TsdfVolume::PointType">PointType</a>&gt; <code class="sig-name descname">fetchCloud</code><span class="sig-paren">(</span>DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE" title="pcl::gpu::kinfuLS::TsdfVolume::PointType">PointType</a>&gt; &amp;<em>cloud_buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume10fetchCloudER11DeviceArrayI9PointTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates cloud using GPU in connected6 mode only. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><a class="reference internal" href="classpcl_1_1gpu_1_1_device_array.html#classpcl_1_1gpu_1_1_device_array"><span class="std std-ref">DeviceArray</span></a> with disabled reference counting that points to filled part of cloud_buffer. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud_buffer</span></code>: buffer to store point cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume9pushSliceEKN10PointCloudI9PointXYZIE3PtrEPK11tsdf_buffer">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume9pushSliceEKN10PointCloudI9PointXYZIE3PtrEPK11tsdf_buffer"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume9pushSliceEKN10PointCloudI9PointXYZIE3PtrEPK11tsdf_buffer"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::pushSlice__PointCloud:PointXYZI:::PtrC.tsdf_bufferCPC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a572f56b7188a33899b79a31d657c4c22"></span>void <code class="sig-name descname">pushSlice</code><span class="sig-paren">(</span><em class="property">const</em> PointCloud&lt;<a class="reference internal" href="structpcl_1_1_point_x_y_z_i.html#_CPPv4N3pcl9PointXYZIE" title="pcl::PointXYZI">PointXYZI</a>&gt;::Ptr <em>existing_data_cloud</em>, <em class="property">const</em> <a class="reference internal" href="structpcl_1_1gpu_1_1kinfu_l_s_1_1tsdf__buffer.html#_CPPv4N3pcl3gpu7kinfuLS11tsdf_bufferE" title="pcl::gpu::kinfuLS::tsdf_buffer">tsdf_buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume9pushSliceEKN10PointCloudI9PointXYZIE3PtrEPK11tsdf_buffer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Push a point cloud of previously scanned tsdf slice to the TSDF volume. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">existing_data_cloud</span></code>: point cloud pointer to the existing data. This data will be pushed to the TSDf volume. The points with indices outside the range [0 … VOLUME_X - 1][0 … VOLUME_Y - 1][0 … VOLUME_Z - 1] will not be added. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">buffer</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume17fetchSliceAsCloudER11DeviceArrayI9PointTypeER11DeviceArrayIfEPK11tsdf_bufferiii">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume17fetchSliceAsCloudER11DeviceArrayI9PointTypeER11DeviceArrayIfEPK11tsdf_bufferiii"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume17fetchSliceAsCloudER11DeviceArrayI9PointTypeER11DeviceArrayIfEPK11tsdf_bufferiii"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::fetchSliceAsCloud__DeviceArray:PointType:R.DeviceArray:float:R.tsdf_bufferCP.i.i.iC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a6dcb89add51825fd927ac8ebf3f99d6f"></span>size_t <code class="sig-name descname">fetchSliceAsCloud</code><span class="sig-paren">(</span>DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE" title="pcl::gpu::kinfuLS::TsdfVolume::PointType">PointType</a>&gt; &amp;<em>cloud_buffer_xyz</em>, DeviceArray&lt;float&gt; &amp;<em>cloud_buffer_intensity</em>, <em class="property">const</em> <a class="reference internal" href="structpcl_1_1gpu_1_1kinfu_l_s_1_1tsdf__buffer.html#_CPPv4N3pcl3gpu7kinfuLS11tsdf_bufferE" title="pcl::gpu::kinfuLS::tsdf_buffer">tsdf_buffer</a> *<em>buffer</em>, int <em>shiftX</em>, int <em>shiftY</em>, int <em>shiftZ</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume17fetchSliceAsCloudER11DeviceArrayI9PointTypeER11DeviceArrayIfEPK11tsdf_bufferiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates cloud using GPU in connected6 mode only. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><a class="reference internal" href="classpcl_1_1gpu_1_1_device_array.html#classpcl_1_1gpu_1_1_device_array"><span class="std std-ref">DeviceArray</span></a> with disabled reference counting that points to filled part of cloud_buffer. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud_buffer_xyz</span></code>: buffer to store point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud_buffer_intensity</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">buffer</span></code>: Pointer to the buffer struct that contains information about memory addresses of the tsdf volume memory block, which are used for the cyclic buffer. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">shiftX</span></code>: Offset in indices. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">shiftY</span></code>: Offset in indices. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">shiftZ</span></code>: Offset in indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume12fetchNormalsERK11DeviceArrayI9PointTypeER11DeviceArrayI9PointTypeE">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume12fetchNormalsERK11DeviceArrayI9PointTypeER11DeviceArrayI9PointTypeE"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume12fetchNormalsERK11DeviceArrayI9PointTypeER11DeviceArrayI9PointTypeE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::fetchNormals__DeviceArray:PointType:CR.DeviceArray:PointType:RC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1aed035aa456067980cd33d4f5d46c4dc3"></span>void <code class="sig-name descname">fetchNormals</code><span class="sig-paren">(</span><em class="property">const</em> DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE" title="pcl::gpu::kinfuLS::TsdfVolume::PointType">PointType</a>&gt; &amp;<em>cloud</em>, DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE" title="pcl::gpu::kinfuLS::TsdfVolume::PointType">PointType</a>&gt; &amp;<em>normals</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume12fetchNormalsERK11DeviceArrayI9PointTypeER11DeviceArrayI9PointTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes normals as gradient of tsdf for given points. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: Points where normals are computed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">normals</span></code>: array for normals </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume12fetchNormalsERK11DeviceArrayI9PointTypeER11DeviceArrayI10NormalTypeE">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume12fetchNormalsERK11DeviceArrayI9PointTypeER11DeviceArrayI10NormalTypeE"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume12fetchNormalsERK11DeviceArrayI9PointTypeER11DeviceArrayI10NormalTypeE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::fetchNormals__DeviceArray:PointType:CR.DeviceArray:NormalType:RC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a283e8c1208b00aec411da6f73b93f45d"></span>void <code class="sig-name descname">fetchNormals</code><span class="sig-paren">(</span><em class="property">const</em> DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9PointTypeE" title="pcl::gpu::kinfuLS::TsdfVolume::PointType">PointType</a>&gt; &amp;<em>cloud</em>, DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume10NormalTypeE" title="pcl::gpu::kinfuLS::TsdfVolume::NormalType">NormalType</a>&gt; &amp;<em>normals</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume12fetchNormalsERK11DeviceArrayI9PointTypeER11DeviceArrayI10NormalTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes normals as gradient of tsdf for given points. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: Points where normals are computed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">normals</span></code>: array for normals </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume12downloadTsdfERNSt6vectorIfEE">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume12downloadTsdfERNSt6vectorIfEE"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume12downloadTsdfERNSt6vectorIfEE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::downloadTsdf__std::vector:float:RC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a5c03dc8e7fdb6d772e98925ed3056fff"></span>void <code class="sig-name descname">downloadTsdf</code><span class="sig-paren">(</span>std::vector&lt;float&gt; &amp;<em>tsdf</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume12downloadTsdfERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Downloads tsdf volume from GPU memory. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">tsdf</span></code>: Array with tsdf values. if volume resolution is 512x512x512, so for voxel (x,y,z) tsdf value can be retrieved as volume[512*512*z + 512*y + x]; </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume17downloadTsdfLocalEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume17downloadTsdfLocalEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume17downloadTsdfLocalEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::downloadTsdfLocalC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a110d678e4928b8e576fe1671700c262d"></span>void <code class="sig-name descname">downloadTsdfLocal</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume17downloadTsdfLocalEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Downloads tsdf volume from GPU memory to local CPU buffer. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume22downloadTsdfAndWeightsERNSt6vectorIfEERNSt6vectorIsEE">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume22downloadTsdfAndWeightsERNSt6vectorIfEERNSt6vectorIsEE"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume22downloadTsdfAndWeightsERNSt6vectorIfEERNSt6vectorIsEE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::downloadTsdfAndWeights__std::vector:float:R.std::vector:short:RC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a06377b70922b6fa5aa2f7b2b83313b34"></span>void <code class="sig-name descname">downloadTsdfAndWeights</code><span class="sig-paren">(</span>std::vector&lt;float&gt; &amp;<em>tsdf</em>, std::vector&lt;short&gt; &amp;<em>weights</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume22downloadTsdfAndWeightsERNSt6vectorIfEERNSt6vectorIsEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Downloads TSDF volume and according voxel weights from GPU memory. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">tsdf</span></code>: Array with tsdf values. if volume resolution is 512x512x512, so for voxel (x,y,z) tsdf value can be retrieved as volume[512*512*z + 512*y + x]; </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">weights</span></code>: Array with tsdf voxel weights. Same size and access index as for tsdf. A weight of 0 indicates the voxel was never used. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume27downloadTsdfAndWeightsLocalEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume27downloadTsdfAndWeightsLocalEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume27downloadTsdfAndWeightsLocalEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::downloadTsdfAndWeightsLocalC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1ae516b7f78d3646ed1819cfa46d66d970"></span>void <code class="sig-name descname">downloadTsdfAndWeightsLocal</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume27downloadTsdfAndWeightsLocalEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Downloads TSDF volume and according voxel weights from GPU memory to local CPU buffers. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume13releaseVolumeEv">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume13releaseVolumeEv"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume13releaseVolumeEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::releaseVolume"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a09d0604eb79abcf68e49ad7296e12cbd"></span>void <code class="sig-name descname">releaseVolume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume13releaseVolumeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Releases tsdf buffer on GPU. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume10print_warnEPKc6size_t">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume10print_warnEPKc6size_t"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume10print_warnEPKc6size_t"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::print_warn__cCP.s"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1ac4fdd72d8d8f97a724121684ccbe232a"></span>void <code class="sig-name descname">print_warn</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>arg1</em>, size_t <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume10print_warnEPKc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9setHeaderERKN5Eigen8Vector3iERKN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume9setHeaderERKN5Eigen8Vector3iERKN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume9setHeaderERKN5Eigen8Vector3iERKN5Eigen8Vector3fE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::setHeader__Eigen::Vector3iCR.Eigen::Vector3fCR"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a1e72e426ac70a99d71a9a447c2eed2bb"></span>void <code class="sig-name descname">setHeader</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>resolution</em>, <em class="property">const</em> Eigen::Vector3f &amp;<em>volume_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume9setHeaderERKN5Eigen8Vector3iERKN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the header for data stored on host directly. </p>
+<p>Useful if directly writing into volume and weights </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume4sizeEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume4sizeEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume4sizeEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::sizeC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a025f883e6c30096fffa6df505acd5a86"></span>size_t <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns overall number of voxels in grid stored on host. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume18convertToTsdfCloudERN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEKj">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume18convertToTsdfCloudERN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEKj"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume18convertToTsdfCloudERN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEKj"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::convertToTsdfCloud__pcl::PointCloud:pcl::PointXYZI:::PtrR.unsignedCC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a6ba47ba0d4ada88edd71524580feedba"></span>void <code class="sig-name descname">convertToTsdfCloud</code><span class="sig-paren">(</span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_i.html#_CPPv4N3pcl9PointXYZIE" title="pcl::PointXYZI">PointXYZI</a>&gt;::Ptr &amp;<em>cloud</em>, <em class="property">const</em> unsigned <em>step</em> = 2<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume18convertToTsdfCloudERN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEKj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Converts volume stored on host to cloud of TSDF values. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[ou]</span></code>: cloud - the output point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">step</span></code>: - the decimation step to use </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume14gridResolutionEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume14gridResolutionEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume14gridResolutionEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::gridResolutionC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1af26eab160f60904ea2e3b4e5bca64488"></span><em class="property">const</em> Eigen::Vector3i &amp;<code class="sig-name descname">gridResolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume14gridResolutionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the voxel grid resolution. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume4saveERKNSt6stringEb">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume4saveERKNSt6stringEb"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume4saveERKNSt6stringEb"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::save__ssCR.bC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1af1c033de3c839aaab7f74fb4d993178c"></span>bool <code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>filename</em> = &quot;tsdf_volume.dat&quot;, bool <em>binary</em> = true<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume4saveERKNSt6stringEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Saves local volume buffer to file. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume4loadERKNSt6stringEb">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume4loadERKNSt6stringEb"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume4loadERKNSt6stringEb"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::load__ssCR.b"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1a64bed9e25d8ad2d3e1f3e3e57fb4b1dc"></span>bool <code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>filename</em>, bool <em>binary</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume4loadERKNSt6stringEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Loads local volume from file. </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6HeaderE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume6HeaderE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume6HeaderE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::Header"></span><span class="target" id="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header"></span><em class="property">struct </em><code class="sig-name descname">Header</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6HeaderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Structure storing voxel grid resolution, volume size (in mm) and element_size of data stored on host. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header6HeaderEv">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume6Header6HeaderEv"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume6Header6HeaderEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::Header::Header"></span><span class="target" id="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header_1adf1f5f842424ab1d58e5b412480dff5e"></span><code class="sig-name descname">Header</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header6HeaderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header6HeaderERKN5Eigen8Vector3iERKN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume6Header6HeaderERKN5Eigen8Vector3iERKN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume6Header6HeaderERKN5Eigen8Vector3iERKN5Eigen8Vector3fE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::Header::Header__Eigen::Vector3iCR.Eigen::Vector3fCR"></span><span class="target" id="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header_1a2ecbb59333eae461558136d327c83535"></span><code class="sig-name descname">Header</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>res</em>, <em class="property">const</em> Eigen::Vector3f &amp;<em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header6HeaderERKN5Eigen8Vector3iERKN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume6Header13getVolumeSizeEv">
+<span id="_CPPv3NK3pcl3gpu7kinfuLS10TsdfVolume6Header13getVolumeSizeEv"></span><span id="_CPPv2NK3pcl3gpu7kinfuLS10TsdfVolume6Header13getVolumeSizeEv"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::Header::getVolumeSizeC"></span><span class="target" id="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header_1a6f26f1a0192041fa87d057041faf8b7e"></span>size_t <code class="sig-name descname">getVolumeSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu7kinfuLS10TsdfVolume6Header13getVolumeSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the size of data stored on host. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header10resolutionE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume6Header10resolutionE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume6Header10resolutionE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::Header::resolution__Eigen::Vector3i"></span><span class="target" id="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header_1af145fca7f611b7dfe51f791f928a44df"></span>Eigen::Vector3i <code class="sig-name descname">resolution</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header10resolutionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header11volume_sizeE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume6Header11volume_sizeE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume6Header11volume_sizeE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::Header::volume_size__Eigen::Vector3f"></span><span class="target" id="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header_1a3cd1d351c8120d164848406942eda012"></span>Eigen::Vector3f <code class="sig-name descname">volume_size</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header11volume_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header19volume_element_sizeE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume6Header19volume_element_sizeE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume6Header19volume_element_sizeE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::Header::volume_element_size__i"></span><span class="target" id="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header_1a7923793c08c030e62f30161f5fcab054"></span>int <code class="sig-name descname">volume_element_size</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header19volume_element_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header20weights_element_sizeE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS10TsdfVolume6Header20weights_element_sizeE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS10TsdfVolume6Header20weights_element_sizeE"></span><span id="pcl::gpu::kinfuLS::TsdfVolume::Header::weights_element_size__i"></span><span class="target" id="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header_1ace10068ac70c718007aebf54d296c17f"></span>int <code class="sig-name descname">weights_element_size</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume6Header20weights_element_sizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv4lsRNSt7ostreamERK6Header">
+<span id="_CPPv3lsRNSt7ostreamERK6Header"></span><span id="_CPPv2lsRNSt7ostreamERK6Header"></span><span id="lshift-operator__osR.HeaderCR"></span><span class="target" id="structpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume_1_1_header_1a67d7d8086ddad9be8da3ecd1557c466f"></span>std::ostream &amp;<code class="sig-name descname">operator&lt;&lt;</code><span class="sig-paren">(</span>std::ostream &amp;<em>os</em>, <em class="property">const</em> Header &amp;<em>h</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OctreePointCloudVoxelCentroid &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OctreePointCloudVoxelCentroid</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-octreepointcloudvoxelcentroid">
+<span id="exhale-class-classpcl-1-1octree-1-1-octree-point-cloud-voxel-centroid"></span><h1>Template Class OctreePointCloudVoxelCentroid<a class="headerlink" href="#template-class-octreepointcloudvoxelcentroid" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_octree_include_pcl_octree_octree_pointcloud_voxelcentroid.h.html#file-pcl-octree-include-pcl-octree-octree-pointcloud-voxelcentroid-h"><span class="std std-ref">File octree_pointcloud_voxelcentroid.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreePointCloud&lt;</span> <span class="pre">PointT,</span> <span class="pre">LeafContainerT,</span> <span class="pre">BranchContainerT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud.html#exhale-class-classpcl-1-1octree-1-1-octree-point-cloud"><span class="std std-ref">Template Class OctreePointCloud</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I000EN3pcl6octree29OctreePointCloudVoxelCentroidE">
+<span id="_CPPv3I000EN3pcl6octree29OctreePointCloudVoxelCentroidE"></span><span id="_CPPv2I000EN3pcl6octree29OctreePointCloudVoxelCentroidE"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid"></span>template&lt;typename <code class="sig-name descname">PointT</code>, typename <code class="sig-name descname">LeafContainerT</code> = OctreePointCloudVoxelCentroidContainer&lt;<a class="reference internal" href="#_CPPv4I000EN3pcl6octree29OctreePointCloudVoxelCentroidE" title="pcl::octree::OctreePointCloudVoxelCentroid::PointT">PointT</a>&gt;, typename <code class="sig-name descname">BranchContainerT</code> = <a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_empty.html#_CPPv4N3pcl6octree20OctreeContainerEmptyE" title="pcl::octree::OctreeContainerEmpty">OctreeContainerEmpty</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">OctreePointCloudVoxelCentroid</code> : <em class="property">public</em> pcl::octree::OctreePointCloud&lt;<a class="reference internal" href="#_CPPv4I000EN3pcl6octree29OctreePointCloudVoxelCentroidE" title="pcl::octree::OctreePointCloudVoxelCentroid::PointT">PointT</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl6octree29OctreePointCloudVoxelCentroidE" title="pcl::octree::OctreePointCloudVoxelCentroid::LeafContainerT">LeafContainerT</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl6octree29OctreePointCloudVoxelCentroidE" title="pcl::octree::OctreePointCloudVoxelCentroid::BranchContainerT">BranchContainerT</a>&gt;<a class="headerlink" href="#_CPPv4I000EN3pcl6octree29OctreePointCloudVoxelCentroidE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Octree</strong> pointcloud voxel centroid class </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class generate an octrees from a point cloud (zero-copy). It provides a vector of centroids for all occupied voxels. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>The octree pointcloud is initialized with its voxel resolution. Its bounding box is automatically adjusted or can be predefined. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p></p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>typename: PointT: type of point used in pointcloud</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid3PtrE">
+<span id="_CPPv3N3pcl6octree29OctreePointCloudVoxelCentroid3PtrE"></span><span id="_CPPv2N3pcl6octree29OctreePointCloudVoxelCentroid3PtrE"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::Ptr"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1a31e0ce7b0733681bbbdc75bef6814b56"></span><em class="property">typedef </em>boost::shared_ptr&lt;OctreePointCloudVoxelCentroid&lt;PointT, LeafContainerT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid8ConstPtrE">
+<span id="_CPPv3N3pcl6octree29OctreePointCloudVoxelCentroid8ConstPtrE"></span><span id="_CPPv2N3pcl6octree29OctreePointCloudVoxelCentroid8ConstPtrE"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::ConstPtr"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1a43826477560bdc2326fd4e90bd7648bb"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> OctreePointCloudVoxelCentroid&lt;PointT, LeafContainerT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid7OctreeTE">
+<span id="_CPPv3N3pcl6octree29OctreePointCloudVoxelCentroid7OctreeTE"></span><span id="_CPPv2N3pcl6octree29OctreePointCloudVoxelCentroid7OctreeTE"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::OctreeT"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1a46ecad9c4ce201725a2deb7030d5f519"></span><em class="property">typedef </em>OctreePointCloud&lt;PointT, LeafContainerT, BranchContainerT&gt; <code class="sig-name descname">OctreeT</code><a class="headerlink" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid7OctreeTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid8LeafNodeE">
+<span id="_CPPv3N3pcl6octree29OctreePointCloudVoxelCentroid8LeafNodeE"></span><span id="_CPPv2N3pcl6octree29OctreePointCloudVoxelCentroid8LeafNodeE"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::LeafNode"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1ae8c9eec9ce17d895f1a2ab06e925c05e"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid7OctreeTE" title="pcl::octree::OctreePointCloudVoxelCentroid::OctreeT">OctreeT</a>::LeafNode <code class="sig-name descname">LeafNode</code><a class="headerlink" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid8LeafNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid10BranchNodeE">
+<span id="_CPPv3N3pcl6octree29OctreePointCloudVoxelCentroid10BranchNodeE"></span><span id="_CPPv2N3pcl6octree29OctreePointCloudVoxelCentroid10BranchNodeE"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::BranchNode"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1ac01e8e4553a5f0336a2db8bec86eb627"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid7OctreeTE" title="pcl::octree::OctreePointCloudVoxelCentroid::OctreeT">OctreeT</a>::BranchNode <code class="sig-name descname">BranchNode</code><a class="headerlink" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid10BranchNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid29OctreePointCloudVoxelCentroidEKd">
+<span id="_CPPv3N3pcl6octree29OctreePointCloudVoxelCentroid29OctreePointCloudVoxelCentroidEKd"></span><span id="_CPPv2N3pcl6octree29OctreePointCloudVoxelCentroid29OctreePointCloudVoxelCentroidEKd"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::OctreePointCloudVoxelCentroid__doubleC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1a3ee3a60237c8896030a254bdd7b6cb0e"></span><code class="sig-name descname">OctreePointCloudVoxelCentroid</code><span class="sig-paren">(</span><em class="property">const</em> double <em>resolution_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid29OctreePointCloudVoxelCentroidEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>OctreePointCloudVoxelCentroids class constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">resolution_arg</span></code>: octree resolution at lowest octree level </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroidD0Ev">
+<span id="_CPPv3N3pcl6octree29OctreePointCloudVoxelCentroidD0Ev"></span><span id="_CPPv2N3pcl6octree29OctreePointCloudVoxelCentroidD0Ev"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::~OctreePointCloudVoxelCentroid"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1adb1edf24489dd1480cd9e64454b33160"></span><em class="property">virtual</em> <code class="sig-name descname">~OctreePointCloudVoxelCentroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroidD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty class deconstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid11addPointIdxEKi">
+<span id="_CPPv3N3pcl6octree29OctreePointCloudVoxelCentroid11addPointIdxEKi"></span><span id="_CPPv2N3pcl6octree29OctreePointCloudVoxelCentroid11addPointIdxEKi"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::addPointIdx__iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1a02c5fe6f8d684f4eb5878b48740bf178"></span><em class="property">virtual</em> void <code class="sig-name descname">addPointIdx</code><span class="sig-paren">(</span><em class="property">const</em> int <em>pointIdx_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid11addPointIdxEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add DataT object to leaf node at octree key. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pointIdx_arg</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree29OctreePointCloudVoxelCentroid23getVoxelCentroidAtPointERK6PointTR6PointT">
+<span id="_CPPv3NK3pcl6octree29OctreePointCloudVoxelCentroid23getVoxelCentroidAtPointERK6PointTR6PointT"></span><span id="_CPPv2NK3pcl6octree29OctreePointCloudVoxelCentroid23getVoxelCentroidAtPointERK6PointTR6PointT"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::getVoxelCentroidAtPoint__PointTCR.PointTRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1a1037bde81da535ae92644fd66426614f"></span>bool <code class="sig-name descname">getVoxelCentroidAtPoint</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point_arg</em>, PointT &amp;<em>voxel_centroid_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree29OctreePointCloudVoxelCentroid23getVoxelCentroidAtPointERK6PointTR6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get centroid for a single voxel addressed by a PointT point. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if voxel is found; “false” otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point_arg</span></code>: point addressing a voxel in octree </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">voxel_centroid_arg</span></code>: centroid is written to this PointT reference </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree29OctreePointCloudVoxelCentroid23getVoxelCentroidAtPointERKiR6PointT">
+<span id="_CPPv3NK3pcl6octree29OctreePointCloudVoxelCentroid23getVoxelCentroidAtPointERKiR6PointT"></span><span id="_CPPv2NK3pcl6octree29OctreePointCloudVoxelCentroid23getVoxelCentroidAtPointERKiR6PointT"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::getVoxelCentroidAtPoint__iCR.PointTRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1a1901d3f256ebde1b881f5e66da807325"></span>bool <code class="sig-name descname">getVoxelCentroidAtPoint</code><span class="sig-paren">(</span><em class="property">const</em> int &amp;<em>point_idx_arg</em>, PointT &amp;<em>voxel_centroid_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree29OctreePointCloudVoxelCentroid23getVoxelCentroidAtPointERKiR6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get centroid for a single voxel addressed by a PointT point from input cloud. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if voxel is found; “false” otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point_idx_arg</span></code>: point index from input cloud addressing a voxel in octree </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">voxel_centroid_arg</span></code>: centroid is written to this PointT reference </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree29OctreePointCloudVoxelCentroid17getVoxelCentroidsERN16OctreePointCloudI6PointT14LeafContainerT16BranchContainerTE19AlignedPointTVectorE">
+<span id="_CPPv3NK3pcl6octree29OctreePointCloudVoxelCentroid17getVoxelCentroidsERN16OctreePointCloudI6PointT14LeafContainerT16BranchContainerTE19AlignedPointTVectorE"></span><span id="_CPPv2NK3pcl6octree29OctreePointCloudVoxelCentroid17getVoxelCentroidsERN16OctreePointCloudI6PointT14LeafContainerT16BranchContainerTE19AlignedPointTVectorE"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::getVoxelCentroids__OctreePointCloud:PointT.LeafContainerT.BranchContainerT:::AlignedPointTVectorRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1a41e72dc35066b14f03f5e05f96f1b777"></span>size_t <code class="sig-name descname">getVoxelCentroids</code><span class="sig-paren">(</span><em class="property">typename</em> OctreePointCloud&lt;PointT, LeafContainerT, BranchContainerT&gt;::AlignedPointTVector &amp;<em>voxel_centroid_list_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree29OctreePointCloudVoxelCentroid17getVoxelCentroidsERN16OctreePointCloudI6PointT14LeafContainerT16BranchContainerTE19AlignedPointTVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get PointT vector of centroids for all occupied voxels. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of occupied voxels </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">voxel_centroid_list_arg</span></code>: results are written to this vector of PointT elements </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree29OctreePointCloudVoxelCentroid26getVoxelCentroidsRecursiveEPK10BranchNodeR9OctreeKeyRN16OctreePointCloudI6PointT14LeafContainerT16BranchContainerTE19AlignedPointTVectorE">
+<span id="_CPPv3NK3pcl6octree29OctreePointCloudVoxelCentroid26getVoxelCentroidsRecursiveEPK10BranchNodeR9OctreeKeyRN16OctreePointCloudI6PointT14LeafContainerT16BranchContainerTE19AlignedPointTVectorE"></span><span id="_CPPv2NK3pcl6octree29OctreePointCloudVoxelCentroid26getVoxelCentroidsRecursiveEPK10BranchNodeR9OctreeKeyRN16OctreePointCloudI6PointT14LeafContainerT16BranchContainerTE19AlignedPointTVectorE"></span><span id="pcl::octree::OctreePointCloudVoxelCentroid::getVoxelCentroidsRecursive__BranchNodeCP.OctreeKeyR.OctreePointCloud:PointT.LeafContainerT.BranchContainerT:::AlignedPointTVectorRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_voxel_centroid_1a76546713a226c897c7720e32639630a1"></span>void <code class="sig-name descname">getVoxelCentroidsRecursive</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree29OctreePointCloudVoxelCentroid10BranchNodeE" title="pcl::octree::OctreePointCloudVoxelCentroid::BranchNode">BranchNode</a> *<em>branch_arg</em>, <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em>, <em class="property">typename</em> OctreePointCloud&lt;PointT, LeafContainerT, BranchContainerT&gt;::AlignedPointTVector &amp;<em>voxel_centroid_list_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree29OctreePointCloudVoxelCentroid26getVoxelCentroidsRecursiveEPK10BranchNodeR9OctreeKeyRN16OctreePointCloudI6PointT14LeafContainerT16BranchContainerTE19AlignedPointTVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively explore the octree and output a PointT vector of centroids for all occupied voxels. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">branch_arg</span></code>: current branch node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key_arg</span></code>: current key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">voxel_centroid_list_arg</span></code>: results are written to this vector of PointT elements </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

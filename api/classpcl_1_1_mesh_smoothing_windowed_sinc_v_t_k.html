@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class MeshSmoothingWindowedSincVTK &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class MeshSmoothingWindowedSincVTK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-meshsmoothingwindowedsincvtk">
+<span id="exhale-class-classpcl-1-1-mesh-smoothing-windowed-sinc-v-t-k"></span><h1>Class MeshSmoothingWindowedSincVTK<a class="headerlink" href="#class-meshsmoothingwindowedsincvtk" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_vtk_smoothing_vtk_mesh_smoothing_windowed_sinc.h.html#file-pcl-surface-include-pcl-surface-vtk-smoothing-vtk-mesh-smoothing-windowed-sinc-h"><span class="std std-ref">File vtk_mesh_smoothing_windowed_sinc.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::MeshProcessing</span></code> (<a class="reference internal" href="classpcl_1_1_mesh_processing.html#exhale-class-classpcl-1-1-mesh-processing"><span class="std std-ref">Class MeshProcessing</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTKE">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTKE"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTKE"></span><span id="pcl::MeshSmoothingWindowedSincVTK"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k"></span><em class="property">class </em><code class="sig-name descname">MeshSmoothingWindowedSincVTK</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_mesh_processing.html#_CPPv4N3pcl14MeshProcessingE" title="pcl::MeshProcessing">MeshProcessing</a><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTKE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>PCL mesh smoothing based on the vtkWindowedSincPolyDataFilter algorithm from the VTK library. </p>
+<p>Please check out the original documentation for more details on the inner workings of the algorithm Warning: This wrapper does two fairly computationally expensive conversions from the PCL <a class="reference internal" href="structpcl_1_1_polygon_mesh.html#structpcl_1_1_polygon_mesh"><span class="std std-ref">PolygonMesh</span></a> data structure to the vtkPolyData data structure and back. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK28MeshSmoothingWindowedSincVTKEv">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK28MeshSmoothingWindowedSincVTKEv"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK28MeshSmoothingWindowedSincVTKEv"></span><span id="pcl::MeshSmoothingWindowedSincVTK::MeshSmoothingWindowedSincVTK"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1a2d45d5fd6ffbe5b9edb156471c79498b"></span><code class="sig-name descname">MeshSmoothingWindowedSincVTK</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK28MeshSmoothingWindowedSincVTKEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor that sets the values of the algorithm parameters to the VTK defaults. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK10setNumIterEi">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK10setNumIterEi"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK10setNumIterEi"></span><span id="pcl::MeshSmoothingWindowedSincVTK::setNumIter__i"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1a838d5040554a839f9987e36ec1614cc0"></span>void <code class="sig-name descname">setNumIter</code><span class="sig-paren">(</span>int <em>num_iter</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK10setNumIterEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the number of iterations for the smoothing filter. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_iter</span></code>: the number of iterations </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK10getNumIterEv">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK10getNumIterEv"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK10getNumIterEv"></span><span id="pcl::MeshSmoothingWindowedSincVTK::getNumIter"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1ad1d6d3f58622e5da016607c6b0aa4eff"></span>int <code class="sig-name descname">getNumIter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK10getNumIterEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of iterations. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK11setPassBandEf">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK11setPassBandEf"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK11setPassBandEf"></span><span id="pcl::MeshSmoothingWindowedSincVTK::setPassBand__float"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1ab37d16c78fccce914d7fc208c70bf91c"></span>void <code class="sig-name descname">setPassBand</code><span class="sig-paren">(</span>float <em>pass_band</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK11setPassBandEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the pass band value for windowed sinc filtering. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pass_band</span></code>: value for the pass band. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK11getPassBandEv">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK11getPassBandEv"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK11getPassBandEv"></span><span id="pcl::MeshSmoothingWindowedSincVTK::getPassBand"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1ad83ae7d4ddf39d38eef16d2fa43f0a67"></span>float <code class="sig-name descname">getPassBand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK11getPassBandEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the pass band value. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK23setNormalizeCoordinatesEb">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK23setNormalizeCoordinatesEb"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK23setNormalizeCoordinatesEb"></span><span id="pcl::MeshSmoothingWindowedSincVTK::setNormalizeCoordinates__b"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1abfd133ac558d61794c673b8f44a636bb"></span>void <code class="sig-name descname">setNormalizeCoordinates</code><span class="sig-paren">(</span>bool <em>normalize_coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK23setNormalizeCoordinatesEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Turn on/off coordinate normalization. </p>
+<p>The positions can be translated and scaled such that they fit within a [-1, 1] prior to the smoothing computation. The default is off. The numerical stability of the solution can be improved by turning normalization on. If normalization is on, the coordinates will be rescaled to the original coordinate system after smoothing has completed. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normalize_coordinates</span></code>: decision whether to normalize coordinates or not </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK23getNormalizeCoordinatesEv">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK23getNormalizeCoordinatesEv"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK23getNormalizeCoordinatesEv"></span><span id="pcl::MeshSmoothingWindowedSincVTK::getNormalizeCoordinates"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1a3d29b88d9db59a1f8b50a16a520e097e"></span>bool <code class="sig-name descname">getNormalizeCoordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK23getNormalizeCoordinatesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get whether the coordinate normalization is active or not. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK23setFeatureEdgeSmoothingEb">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK23setFeatureEdgeSmoothingEb"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK23setFeatureEdgeSmoothingEb"></span><span id="pcl::MeshSmoothingWindowedSincVTK::setFeatureEdgeSmoothing__b"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1a6a1e378236911ea1ee68a2a83ee948b9"></span>void <code class="sig-name descname">setFeatureEdgeSmoothing</code><span class="sig-paren">(</span>bool <em>feature_edge_smoothing</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK23setFeatureEdgeSmoothingEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Turn on/off smoothing along sharp interior edges. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">feature_edge_smoothing</span></code>: whether to enable/disable smoothing along sharp interior edges </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK23getFeatureEdgeSmoothingEv">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK23getFeatureEdgeSmoothingEv"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK23getFeatureEdgeSmoothingEv"></span><span id="pcl::MeshSmoothingWindowedSincVTK::getFeatureEdgeSmoothing"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1adffe4cd3b81471beb307ac53b1e31950"></span>bool <code class="sig-name descname">getFeatureEdgeSmoothing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK23getFeatureEdgeSmoothingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the status of the feature edge smoothing. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK15setFeatureAngleEf">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK15setFeatureAngleEf"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK15setFeatureAngleEf"></span><span id="pcl::MeshSmoothingWindowedSincVTK::setFeatureAngle__float"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1a7601d236df87c22fa87f7ad12642ea23"></span>void <code class="sig-name descname">setFeatureAngle</code><span class="sig-paren">(</span>float <em>feature_angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK15setFeatureAngleEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify the feature angle for sharp edge identification. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">feature_angle</span></code>: the angle threshold for considering an edge to be sharp </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK15getFeatureAngleEv">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK15getFeatureAngleEv"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK15getFeatureAngleEv"></span><span id="pcl::MeshSmoothingWindowedSincVTK::getFeatureAngle"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1ad235b0681a390eda6eecee5dbbe8466a"></span>float <code class="sig-name descname">getFeatureAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK15getFeatureAngleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the angle threshold for considering an edge to be sharp. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK12setEdgeAngleEf">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK12setEdgeAngleEf"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK12setEdgeAngleEf"></span><span id="pcl::MeshSmoothingWindowedSincVTK::setEdgeAngle__float"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1a8c13cd14f141fc06934bdff9733a7a6d"></span>void <code class="sig-name descname">setEdgeAngle</code><span class="sig-paren">(</span>float <em>edge_angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK12setEdgeAngleEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify the edge angle to control smoothing along edges (either interior or boundary). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">edge_angle</span></code>: the angle to control smoothing along edges </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK12getEdgeAngleEv">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK12getEdgeAngleEv"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK12getEdgeAngleEv"></span><span id="pcl::MeshSmoothingWindowedSincVTK::getEdgeAngle"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1aa70f77e238b0368e7ee2d89a12bd29c3"></span>float <code class="sig-name descname">getEdgeAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK12getEdgeAngleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the edge angle to control smoothing along edges. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK20setBoundarySmoothingEb">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK20setBoundarySmoothingEb"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK20setBoundarySmoothingEb"></span><span id="pcl::MeshSmoothingWindowedSincVTK::setBoundarySmoothing__b"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1af69bb905f9fd8eff286e5485c1f73c8d"></span>void <code class="sig-name descname">setBoundarySmoothing</code><span class="sig-paren">(</span>bool <em>boundary_smoothing</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK20setBoundarySmoothingEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Turn on/off the smoothing of vertices on the boundary of the mesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">boundary_smoothing</span></code>: decision whether boundary smoothing is on or off </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK20getBoundarySmoothingEv">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK20getBoundarySmoothingEv"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK20getBoundarySmoothingEv"></span><span id="pcl::MeshSmoothingWindowedSincVTK::getBoundarySmoothing"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1ad1cc3b942cf0bd48f676ef4b0adeacc7"></span>bool <code class="sig-name descname">getBoundarySmoothing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK20getBoundarySmoothingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the status of the boundary smoothing. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl28MeshSmoothingWindowedSincVTK17performProcessingERN3pcl11PolygonMeshE">
+<span id="_CPPv3N3pcl28MeshSmoothingWindowedSincVTK17performProcessingERN3pcl11PolygonMeshE"></span><span id="_CPPv2N3pcl28MeshSmoothingWindowedSincVTK17performProcessingERN3pcl11PolygonMeshE"></span><span id="pcl::MeshSmoothingWindowedSincVTK::performProcessing__pcl::PolygonMeshR"></span><span class="target" id="classpcl_1_1_mesh_smoothing_windowed_sinc_v_t_k_1ae2075ee659d435d0560f5c1cdee6a644"></span>void <code class="sig-name descname">performProcessing</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_polygon_mesh.html#_CPPv4N3pcl11PolygonMeshE" title="pcl::PolygonMesh">PolygonMesh</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MeshSmoothingWindowedSincVTK17performProcessingERN3pcl11PolygonMeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract surface processing method. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

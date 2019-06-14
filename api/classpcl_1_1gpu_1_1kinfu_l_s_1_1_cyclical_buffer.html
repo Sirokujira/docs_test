@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class CyclicalBuffer &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class CyclicalBuffer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-cyclicalbuffer">
+<span id="exhale-class-classpcl-1-1gpu-1-1kinfu-l-s-1-1-cyclical-buffer"></span><h1>Class CyclicalBuffer<a class="headerlink" href="#class-cyclicalbuffer" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_gpu_kinfu_large_scale_include_pcl_gpu_kinfu_large_scale_cyclical_buffer.h.html#file-pcl-gpu-kinfu-large-scale-include-pcl-gpu-kinfu-large-scale-cyclical-buffer-h"><span class="std std-ref">File cyclical_buffer.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBufferE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBufferE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBufferE"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer"></span><em class="property">class </em><code class="sig-name descname">CyclicalBuffer</code><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer"><span class="std std-ref">CyclicalBuffer</span></a> implements a cyclical TSDF buffer. </p>
+<p>The class offers a simple interface, by handling shifts and maintaining the world autonomously. <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Raphael Favier, Francisco Heredia </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer14CyclicalBufferEKdKdKi">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer14CyclicalBufferEKdKdKi"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer14CyclicalBufferEKdKdKi"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::CyclicalBuffer__doubleC.doubleC.iC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1af90266c84c6654e147369129a21d157d"></span><code class="sig-name descname">CyclicalBuffer</code><span class="sig-paren">(</span><em class="property">const</em> double <em>distance_threshold</em>, <em class="property">const</em> double <em>cube_size</em> = 3.f, <em class="property">const</em> int <em>nb_voxels_per_axis</em> = 512<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer14CyclicalBufferEKdKdKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for a cubic <a class="reference internal" href="#classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer"><span class="std std-ref">CyclicalBuffer</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">distance_threshold</span></code>: distance between cube center and target point at which we decide to shift. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cube_size</span></code>: physical size (in meters) of the volume (here, a cube) represented by the TSDF buffer. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nb_voxels_per_axis</span></code>: number of voxels per axis of the volume represented by the TSDF buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer14CyclicalBufferEKdKdKdKdKiKiKi">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer14CyclicalBufferEKdKdKdKdKiKiKi"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer14CyclicalBufferEKdKdKdKdKiKiKi"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::CyclicalBuffer__doubleC.doubleC.doubleC.doubleC.iC.iC.iC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1ac5025dd75e4356724c3c57495cf6d974"></span><code class="sig-name descname">CyclicalBuffer</code><span class="sig-paren">(</span><em class="property">const</em> double <em>distance_threshold</em>, <em class="property">const</em> double <em>volume_size_x</em>, <em class="property">const</em> double <em>volume_size_y</em>, <em class="property">const</em> double <em>volume_size_z</em>, <em class="property">const</em> int <em>nb_voxels_x</em>, <em class="property">const</em> int <em>nb_voxels_y</em>, <em class="property">const</em> int <em>nb_voxels_z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer14CyclicalBufferEKdKdKdKdKiKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for a non-cubic <a class="reference internal" href="#classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer"><span class="std std-ref">CyclicalBuffer</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">distance_threshold</span></code>: distance between cube center and target point at which we decide to shift. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">volume_size_x</span></code>: physical size (in meters) of the volume, X axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">volume_size_y</span></code>: physical size (in meters) of the volume, Y axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">volume_size_z</span></code>: physical size (in meters) of the volume, Z axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nb_voxels_x</span></code>: number of voxels for X axis of the volume represented by the TSDF buffer. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nb_voxels_y</span></code>: number of voxels for Y axis of the volume represented by the TSDF buffer. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nb_voxels_z</span></code>: number of voxels for Z axis of the volume represented by the TSDF buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer13checkForShiftEKN10TsdfVolume3PtrERKN5Eigen8Affine3fEKdKbKbKb">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer13checkForShiftEKN10TsdfVolume3PtrERKN5Eigen8Affine3fEKdKbKbKb"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer13checkForShiftEKN10TsdfVolume3PtrERKN5Eigen8Affine3fEKdKbKbKb"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::checkForShift__TsdfVolume::PtrC.Eigen::Affine3fCR.doubleC.bC.bC.bC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1ab79b510af9c3930221c09dec295c5070"></span>bool <code class="sig-name descname">checkForShift</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume.html#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolumeE" title="pcl::gpu::kinfuLS::TsdfVolume">TsdfVolume</a>::<a class="reference internal" href="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume.html#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume3PtrE" title="pcl::gpu::kinfuLS::TsdfVolume::Ptr">Ptr</a> <em>volume</em>, <em class="property">const</em> Eigen::Affine3f &amp;<em>cam_pose</em>, <em class="property">const</em> double <em>distance_camera_target</em>, <em class="property">const</em> bool <em>perform_shift</em> = true, <em class="property">const</em> bool <em>last_shift</em> = false, <em class="property">const</em> bool <em>force_shift</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer13checkForShiftEKN10TsdfVolume3PtrERKN5Eigen8Affine3fEKdKbKbKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if shifting needs to be performed, returns true if so. </p>
+<p>Shifting is considered needed if the target point is farther than distance_threshold_. The target point is located at distance_camera_point on the local Z axis of the camera. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true is the cube needs to be or has been shifted. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">volume</span></code>: pointer to the <a class="reference internal" href="classpcl_1_1_t_s_d_f_volume.html#classpcl_1_1_t_s_d_f_volume"><span class="std std-ref">TSDFVolume</span></a> living in GPU </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cam_pose</span></code>: global pose of the camera in the world </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">distance_camera_target</span></code>: distance from the camera’s origin to the target point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">perform_shift</span></code>: if set to false, shifting is not performed. The function will return true if shifting is needed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">last_shift</span></code>: if set to true, the whole cube will be shifted. This is used to push the whole cube to the world model. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">force_shift</span></code>: if set to true, shifting is forced. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer12performShiftEKN10TsdfVolume3PtrERKN3pcl8PointXYZEKb">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer12performShiftEKN10TsdfVolume3PtrERKN3pcl8PointXYZEKb"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer12performShiftEKN10TsdfVolume3PtrERKN3pcl8PointXYZEKb"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::performShift__TsdfVolume::PtrC.pcl::PointXYZCR.bC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1aeb9569a8779ef4d85fd96edc2bdd2f7d"></span>void <code class="sig-name descname">performShift</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume.html#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolumeE" title="pcl::gpu::kinfuLS::TsdfVolume">TsdfVolume</a>::<a class="reference internal" href="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume.html#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume3PtrE" title="pcl::gpu::kinfuLS::TsdfVolume::Ptr">Ptr</a> <em>volume</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> &amp;<em>target_point</em>, <em class="property">const</em> bool <em>last_shift</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer12performShiftEKN10TsdfVolume3PtrERKN3pcl8PointXYZEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Perform shifting operations: Compute offsets. </p>
+<p>Extract current slice from TSDF buffer. Extract existing data from world. Clear shifted slice in TSDF buffer. Push existing data into TSDF buffer. Update rolling buffer Update world model. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">volume</span></code>: pointer to the <a class="reference internal" href="classpcl_1_1_t_s_d_f_volume.html#classpcl_1_1_t_s_d_f_volume"><span class="std std-ref">TSDFVolume</span></a> living in GPU </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target_point</span></code>: target point around which the new cube will be centered </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">last_shift</span></code>: if set to true, the whole cube will be shifted. This is used to push the whole cube to the world model. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer20setDistanceThresholdEKd">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer20setDistanceThresholdEKd"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer20setDistanceThresholdEKd"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::setDistanceThreshold__doubleC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1a996fffe9ad39c8e58f4bdb7f4d160465"></span>void <code class="sig-name descname">setDistanceThreshold</code><span class="sig-paren">(</span><em class="property">const</em> double <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer20setDistanceThresholdEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the distance threshold between cube’s center and target point that triggers a shift. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: the distance in meters at which to trigger shift. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer20getDistanceThresholdEv">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer20getDistanceThresholdEv"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer20getDistanceThresholdEv"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::getDistanceThreshold"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1acf3fd4df35f18071b553b3214e1b77fd"></span>float <code class="sig-name descname">getDistanceThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer20getDistanceThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the distance threshold between cube’s center and target point that triggers a shift. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer9getBufferEv">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer9getBufferEv"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer9getBufferEv"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::getBuffer"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1a857e288835a318793fff350c886a702d"></span><a class="reference internal" href="structpcl_1_1gpu_1_1kinfu_l_s_1_1tsdf__buffer.html#_CPPv4N3pcl3gpu7kinfuLS11tsdf_bufferE" title="pcl::gpu::kinfuLS::tsdf_buffer">tsdf_buffer</a> *<code class="sig-name descname">getBuffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer9getBufferEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get a pointer to the <a class="reference internal" href="structpcl_1_1gpu_1_1kinfu_l_s_1_1tsdf__buffer.html#structpcl_1_1gpu_1_1kinfu_l_s_1_1tsdf__buffer"><span class="std std-ref">tsdf_buffer</span></a> structure. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a pointer to the <a class="reference internal" href="structpcl_1_1gpu_1_1kinfu_l_s_1_1tsdf__buffer.html#structpcl_1_1gpu_1_1kinfu_l_s_1_1tsdf__buffer"><span class="std std-ref">tsdf_buffer</span></a> used by cyclical buffer object. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer13setVolumeSizeEKdKdKd">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer13setVolumeSizeEKdKdKd"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer13setVolumeSizeEKdKdKd"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::setVolumeSize__doubleC.doubleC.doubleC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1aed6edeafb6187d03e83a14e3d5e9d064"></span>void <code class="sig-name descname">setVolumeSize</code><span class="sig-paren">(</span><em class="property">const</em> double <em>size_x</em>, <em class="property">const</em> double <em>size_y</em>, <em class="property">const</em> double <em>size_z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer13setVolumeSizeEKdKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the physical size represented by the default TSDF volume. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">size_x</span></code>: size of the volume on X axis, in meters. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">size_y</span></code>: size of the volume on Y axis, in meters. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">size_z</span></code>: size of the volume on Z axis, in meters. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer13setVolumeSizeEKd">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer13setVolumeSizeEKd"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer13setVolumeSizeEKd"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::setVolumeSize__doubleC"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1a121a9e71ef4d0efd9181c01b93d89c33"></span>void <code class="sig-name descname">setVolumeSize</code><span class="sig-paren">(</span><em class="property">const</em> double <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer13setVolumeSizeEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the physical size represented by the default TSDF volume. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">size</span></code>: size of the volume on all axis, in meters. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer32computeAndSetNewCubeMetricOriginERKN3pcl8PointXYZERiRiRi">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer32computeAndSetNewCubeMetricOriginERKN3pcl8PointXYZERiRiRi"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer32computeAndSetNewCubeMetricOriginERKN3pcl8PointXYZERiRiRi"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::computeAndSetNewCubeMetricOrigin__pcl::PointXYZCR.iR.iR.iR"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1a1184651e49f5b8cdf98b066f3de1ba2f"></span>void <code class="sig-name descname">computeAndSetNewCubeMetricOrigin</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> &amp;<em>target_point</em>, int &amp;<em>shiftX</em>, int &amp;<em>shiftY</em>, int &amp;<em>shiftZ</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer32computeAndSetNewCubeMetricOriginERKN3pcl8PointXYZERiRiRi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes and set the origin of the new cube (relative to the world), centered around a the target point. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target_point</span></code>: the target point around which the new cube will be centered. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">shiftX</span></code>: shift on X axis (in indices). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">shiftY</span></code>: shift on Y axis (in indices). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">shiftZ</span></code>: shift on Z axis (in indices). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer10initBufferEN10TsdfVolume3PtrE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer10initBufferEN10TsdfVolume3PtrE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer10initBufferEN10TsdfVolume3PtrE"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::initBuffer__TsdfVolume::Ptr"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1ae6a4e6bc0babb621392837a530dd15b7"></span>void <code class="sig-name descname">initBuffer</code><span class="sig-paren">(</span><a class="reference internal" href="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume.html#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolumeE" title="pcl::gpu::kinfuLS::TsdfVolume">TsdfVolume</a>::<a class="reference internal" href="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume.html#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume3PtrE" title="pcl::gpu::kinfuLS::TsdfVolume::Ptr">Ptr</a> <em>tsdf_volume</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer10initBufferEN10TsdfVolume3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initializes memory pointers of the cyclical buffer (start, end, current origin) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tsdf_volume</span></code>: pointer to the TSDF volume managed by this cyclical buffer </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer11resetBufferEN10TsdfVolume3PtrE">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer11resetBufferEN10TsdfVolume3PtrE"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer11resetBufferEN10TsdfVolume3PtrE"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::resetBuffer__TsdfVolume::Ptr"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1a5cd8edfdcbf8311065948d9cc91e612a"></span>void <code class="sig-name descname">resetBuffer</code><span class="sig-paren">(</span><a class="reference internal" href="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume.html#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolumeE" title="pcl::gpu::kinfuLS::TsdfVolume">TsdfVolume</a>::<a class="reference internal" href="classpcl_1_1gpu_1_1kinfu_l_s_1_1_tsdf_volume.html#_CPPv4N3pcl3gpu7kinfuLS10TsdfVolume3PtrE" title="pcl::gpu::kinfuLS::TsdfVolume::Ptr">Ptr</a> <em>tsdf_volume</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer11resetBufferEN10TsdfVolume3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset buffer structure. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tsdf_volume</span></code>: pointer to the TSDF volume managed by this cyclical buffer </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer13getWorldModelEv">
+<span id="_CPPv3N3pcl3gpu7kinfuLS14CyclicalBuffer13getWorldModelEv"></span><span id="_CPPv2N3pcl3gpu7kinfuLS14CyclicalBuffer13getWorldModelEv"></span><span id="pcl::gpu::kinfuLS::CyclicalBuffer::getWorldModel"></span><span class="target" id="classpcl_1_1gpu_1_1kinfu_l_s_1_1_cyclical_buffer_1af1551c9447111023ad662d9ceb4e3077"></span>pcl::kinfuLS::WorldModel&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_i.html#_CPPv4N3pcl9PointXYZIE" title="pcl::PointXYZI">PointXYZI</a>&gt; *<code class="sig-name descname">getWorldModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu7kinfuLS14CyclicalBuffer13getWorldModelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return a pointer to the world model. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

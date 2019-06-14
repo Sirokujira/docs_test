@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class FastBilateralFilter &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class FastBilateralFilter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_fast_bilateral_filter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-fastbilateralfilter">
+<span id="exhale-class-classpcl-1-1-fast-bilateral-filter"></span><h1>Template Class FastBilateralFilter<a class="headerlink" href="#template-class-fastbilateralfilter" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_filters_include_pcl_filters_fast_bilateral.h.html#file-pcl-filters-include-pcl-filters-fast-bilateral-h"><span class="std std-ref">File fast_bilateral.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="classpcl_1_1_fast_bilateral_filter_1_1_array3_d.html#exhale-class-classpcl-1-1-fast-bilateral-filter-1-1-array3-d"><span class="std std-ref">Class FastBilateralFilter::Array3D</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Filter&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_filter.html#exhale-class-classpcl-1-1-filter"><span class="std std-ref">Template Class Filter</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::FastBilateralFilterOMP&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_fast_bilateral_filter_o_m_p.html#exhale-class-classpcl-1-1-fast-bilateral-filter-o-m-p"><span class="std std-ref">Template Class FastBilateralFilterOMP</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl19FastBilateralFilterE">
+<span id="_CPPv3I0EN3pcl19FastBilateralFilterE"></span><span id="_CPPv2I0EN3pcl19FastBilateralFilterE"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">FastBilateralFilter</code> : <em class="property">public</em> pcl::Filter&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl19FastBilateralFilterE" title="pcl::FastBilateralFilter::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl19FastBilateralFilterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Implementation of a fast bilateral filter for smoothing depth information in organized point clouds Based on the following paper: </p>
+<p><ul class="simple">
+<li><p>Sylvain Paris and Fredo Durand “A Fast Approximation of the Bilateral Filter using a Signal Processing Approach” European Conference on Computer Vision (ECCV‘06)</p></li>
+</ul>
+</p>
+<p>More details on the webpage: <a class="reference external" href="http://people.csail.mit.edu/sparis/bf/">http://people.csail.mit.edu/sparis/bf/</a> </p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_fast_bilateral_filter_o_m_p.html#classpcl_1_1_fast_bilateral_filter_o_m_p"><span class="std std-ref">pcl::FastBilateralFilterOMP&lt; PointT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl19FastBilateralFilter3PtrE">
+<span id="_CPPv3N3pcl19FastBilateralFilter3PtrE"></span><span id="_CPPv2N3pcl19FastBilateralFilter3PtrE"></span><span id="pcl::FastBilateralFilter::Ptr"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1a35245b93c63a7eec6b34cab2e6b4e23d"></span><em class="property">typedef </em>boost::shared_ptr&lt;FastBilateralFilter&lt;PointT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19FastBilateralFilter8ConstPtrE">
+<span id="_CPPv3N3pcl19FastBilateralFilter8ConstPtrE"></span><span id="_CPPv2N3pcl19FastBilateralFilter8ConstPtrE"></span><span id="pcl::FastBilateralFilter::ConstPtr"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1a4977d663345de747b404de19efb3ec7b"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> FastBilateralFilter&lt;PointT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl19FastBilateralFilter19FastBilateralFilterEv">
+<span id="_CPPv3N3pcl19FastBilateralFilter19FastBilateralFilterEv"></span><span id="_CPPv2N3pcl19FastBilateralFilter19FastBilateralFilterEv"></span><span id="pcl::FastBilateralFilter::FastBilateralFilter"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1aac5f04a891620ef285bbb45f73af16b6"></span><code class="sig-name descname">FastBilateralFilter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter19FastBilateralFilterEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19FastBilateralFilterD0Ev">
+<span id="_CPPv3N3pcl19FastBilateralFilterD0Ev"></span><span id="_CPPv2N3pcl19FastBilateralFilterD0Ev"></span><span id="pcl::FastBilateralFilter::~FastBilateralFilter"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1ab372570329d83c3774bca088ee75a57a"></span><em class="property">virtual</em> <code class="sig-name descname">~FastBilateralFilter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilterD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19FastBilateralFilter9setSigmaSEf">
+<span id="_CPPv3N3pcl19FastBilateralFilter9setSigmaSEf"></span><span id="_CPPv2N3pcl19FastBilateralFilter9setSigmaSEf"></span><span id="pcl::FastBilateralFilter::setSigmaS__float"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1a62f17d57f5d02df4854af84612e36955"></span>void <code class="sig-name descname">setSigmaS</code><span class="sig-paren">(</span>float <em>sigma_s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter9setSigmaSEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the standard deviation of the Gaussian used by the bilateral filter for the spatial neighborhood/window. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sigma_s</span></code>: the size of the Gaussian bilateral filter window to use </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19FastBilateralFilter9getSigmaSEv">
+<span id="_CPPv3NK3pcl19FastBilateralFilter9getSigmaSEv"></span><span id="_CPPv2NK3pcl19FastBilateralFilter9getSigmaSEv"></span><span id="pcl::FastBilateralFilter::getSigmaSC"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1ad1e3d0eae7a417e52afd5b67d0f6a55f"></span>float <code class="sig-name descname">getSigmaS</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19FastBilateralFilter9getSigmaSEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the size of the Gaussian bilateral filter window as set by the user. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19FastBilateralFilter9setSigmaREf">
+<span id="_CPPv3N3pcl19FastBilateralFilter9setSigmaREf"></span><span id="_CPPv2N3pcl19FastBilateralFilter9setSigmaREf"></span><span id="pcl::FastBilateralFilter::setSigmaR__float"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1ace9aba523421f9c13c79b2fe619c5a40"></span>void <code class="sig-name descname">setSigmaR</code><span class="sig-paren">(</span>float <em>sigma_r</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter9setSigmaREf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the standard deviation of the Gaussian used to control how much an adjacent pixel is downweighted because of the intensity difference (depth in our case). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sigma_r</span></code>: the standard deviation of the Gaussian for the intensity difference </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19FastBilateralFilter9getSigmaREv">
+<span id="_CPPv3NK3pcl19FastBilateralFilter9getSigmaREv"></span><span id="_CPPv2NK3pcl19FastBilateralFilter9getSigmaREv"></span><span id="pcl::FastBilateralFilter::getSigmaRC"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1ab19a0163b468f86727db5bda738a4936"></span>float <code class="sig-name descname">getSigmaR</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19FastBilateralFilter9getSigmaREv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the standard deviation of the Gaussian for the intensity difference. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19FastBilateralFilter11applyFilterER10PointCloud">
+<span id="_CPPv3N3pcl19FastBilateralFilter11applyFilterER10PointCloud"></span><span id="_CPPv2N3pcl19FastBilateralFilter11applyFilterER10PointCloud"></span><span id="pcl::FastBilateralFilter::applyFilter__PointCloudR"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1adae3848512ae44c4480b91fb8c7931bd"></span>void <code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl19FastBilateralFilter10PointCloudE" title="pcl::FastBilateralFilter::PointCloud">PointCloud</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter11applyFilterER10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_filter.html#classpcl_1_1_filter"><span class="std std-ref">Filter</span></a> the input data and store the results into output. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant point cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl19FastBilateralFilter10PointCloudE">
+<span id="_CPPv3N3pcl19FastBilateralFilter10PointCloudE"></span><span id="_CPPv2N3pcl19FastBilateralFilter10PointCloudE"></span><span id="pcl::FastBilateralFilter::PointCloud"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1a403631d8d0e3169f5df35573cdaf1036"></span><em class="property">typedef </em>Filter&lt;PointT&gt;::PointCloud <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl19FastBilateralFilter8sigma_s_E">
+<span id="_CPPv3N3pcl19FastBilateralFilter8sigma_s_E"></span><span id="_CPPv2N3pcl19FastBilateralFilter8sigma_s_E"></span><span id="pcl::FastBilateralFilter::sigma_s___float"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1ac9bcd34cc449817f3eeba91419308a6e"></span>float <code class="sig-name descname">sigma_s_</code><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter8sigma_s_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19FastBilateralFilter8sigma_r_E">
+<span id="_CPPv3N3pcl19FastBilateralFilter8sigma_r_E"></span><span id="_CPPv2N3pcl19FastBilateralFilter8sigma_r_E"></span><span id="pcl::FastBilateralFilter::sigma_r___float"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1a0eb1aa274bed6579368c8135926a636c"></span>float <code class="sig-name descname">sigma_r_</code><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter8sigma_r_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19FastBilateralFilter15early_division_E">
+<span id="_CPPv3N3pcl19FastBilateralFilter15early_division_E"></span><span id="_CPPv2N3pcl19FastBilateralFilter15early_division_E"></span><span id="pcl::FastBilateralFilter::early_division___b"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1afd716f63496d64c896a09b11489adb7b"></span>bool <code class="sig-name descname">early_division_</code><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter15early_division_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl19FastBilateralFilter7Array3DE">
+<span id="_CPPv3N3pcl19FastBilateralFilter7Array3DE"></span><span id="_CPPv2N3pcl19FastBilateralFilter7Array3DE"></span><span id="pcl::FastBilateralFilter::Array3D"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d"></span><em class="property">class </em><code class="sig-name descname">Array3D</code><a class="headerlink" href="#_CPPv4N3pcl19FastBilateralFilter7Array3DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D7Array3DEK6size_tK6size_tK6size_t">
+<span id="_CPPv3IEN3pcl19FastBilateralFilterI6PointTE7Array3D7Array3DEK6size_tK6size_tK6size_t"></span><span id="_CPPv2IEN3pcl19FastBilateralFilterI6PointTE7Array3D7Array3DEK6size_tK6size_tK6size_t"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1aeae8c23a093c2ad258a76b484a7c7ae7"></span>template&lt;&gt;<br /><code class="sig-name descname">Array3D</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>width</em>, <em class="property">const</em> size_t <em>height</em>, <em class="property">const</em> size_t <em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D7Array3DEK6size_tK6size_tK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3DclERN5Eigen8Vector2fEK6size_tK6size_tK6size_t">
+<span id="_CPPv3IEN3pcl19FastBilateralFilterI6PointTE7Array3DclEK6size_tK6size_tK6size_t"></span><span id="_CPPv2IEN3pcl19FastBilateralFilterI6PointTE7Array3DclEK6size_tK6size_tK6size_t"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a73588c6b93a7bd42945868637aa91199"></span>template&lt;&gt;<br />Eigen::Vector2f &amp;<code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>x</em>, <em class="property">const</em> size_t <em>y</em>, <em class="property">const</em> size_t <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3DclERN5Eigen8Vector2fEK6size_tK6size_tK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3DclERKN5Eigen8Vector2fEK6size_tK6size_tK6size_t">
+<span id="_CPPv3IENK3pcl19FastBilateralFilterI6PointTE7Array3DclEK6size_tK6size_tK6size_t"></span><span id="_CPPv2IENK3pcl19FastBilateralFilterI6PointTE7Array3DclEK6size_tK6size_tK6size_t"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1ac99620bd66281e26b8b99bc70124fa1b"></span>template&lt;&gt;<br /><em class="property">const</em> Eigen::Vector2f &amp;<code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>x</em>, <em class="property">const</em> size_t <em>y</em>, <em class="property">const</em> size_t <em>z</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3DclERKN5Eigen8Vector2fEK6size_tK6size_tK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D6resizeEvK6size_tK6size_tK6size_t">
+<span id="_CPPv3IEN3pcl19FastBilateralFilterI6PointTE7Array3D6resizeEK6size_tK6size_tK6size_t"></span><span id="_CPPv2IEN3pcl19FastBilateralFilterI6PointTE7Array3D6resizeEK6size_tK6size_tK6size_t"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a03ac1444023914d7f23de7237d0166c4"></span>template&lt;&gt;<br />void <code class="sig-name descname">resize</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>width</em>, <em class="property">const</em> size_t <em>height</em>, <em class="property">const</em> size_t <em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D6resizeEvK6size_tK6size_tK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D23trilinear_interpolationEN5Eigen8Vector2fEKfKfKf">
+<span id="_CPPv3IEN3pcl19FastBilateralFilterI6PointTE7Array3D23trilinear_interpolationEKfKfKf"></span><span id="_CPPv2IEN3pcl19FastBilateralFilterI6PointTE7Array3D23trilinear_interpolationEKfKfKf"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a732d9564467e377515eaaa5efdbcd9e4"></span>template&lt;&gt;<br />Eigen::Vector2f <code class="sig-name descname">trilinear_interpolation</code><span class="sig-paren">(</span><em class="property">const</em> float <em>x</em>, <em class="property">const</em> float <em>y</em>, <em class="property">const</em> float <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D23trilinear_interpolationEN5Eigen8Vector2fEKfKfKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D6x_sizeE6size_tv">
+<span id="_CPPv3IENK3pcl19FastBilateralFilterI6PointTE7Array3D6x_sizeEv"></span><span id="_CPPv2IENK3pcl19FastBilateralFilterI6PointTE7Array3D6x_sizeEv"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a6c4b4a1b52645d950e2d13264758e336"></span>template&lt;&gt;<br />size_t <code class="sig-name descname">x_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D6x_sizeE6size_tv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D6y_sizeE6size_tv">
+<span id="_CPPv3IENK3pcl19FastBilateralFilterI6PointTE7Array3D6y_sizeEv"></span><span id="_CPPv2IENK3pcl19FastBilateralFilterI6PointTE7Array3D6y_sizeEv"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a15a462312c570370f30799d126120931"></span>template&lt;&gt;<br />size_t <code class="sig-name descname">y_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D6y_sizeE6size_tv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D6z_sizeE6size_tv">
+<span id="_CPPv3IENK3pcl19FastBilateralFilterI6PointTE7Array3D6z_sizeEv"></span><span id="_CPPv2IENK3pcl19FastBilateralFilterI6PointTE7Array3D6z_sizeEv"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a71bcac0afca972b81c64bfc5575e1e29"></span>template&lt;&gt;<br />size_t <code class="sig-name descname">z_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D6z_sizeE6size_tv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D5beginENSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEE8iteratorEv">
+<span id="_CPPv3IEN3pcl19FastBilateralFilterI6PointTE7Array3D5beginEv"></span><span id="_CPPv2IEN3pcl19FastBilateralFilterI6PointTE7Array3D5beginEv"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1ab9738cffbc54e54c0d9759b3dcb56a93"></span>template&lt;&gt;<br />std::vector&lt;Eigen::Vector2f, Eigen::aligned_allocator&lt;Eigen::Vector2f&gt;&gt;::iterator <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D5beginENSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEE8iteratorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D3endENSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEE8iteratorEv">
+<span id="_CPPv3IEN3pcl19FastBilateralFilterI6PointTE7Array3D3endEv"></span><span id="_CPPv2IEN3pcl19FastBilateralFilterI6PointTE7Array3D3endEv"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a6b3760b784f6230ffbe876927d710e44"></span>template&lt;&gt;<br />std::vector&lt;Eigen::Vector2f, Eigen::aligned_allocator&lt;Eigen::Vector2f&gt;&gt;::iterator <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D3endENSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEE8iteratorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D5beginENSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEE14const_iteratorEv">
+<span id="_CPPv3IENK3pcl19FastBilateralFilterI6PointTE7Array3D5beginEv"></span><span id="_CPPv2IENK3pcl19FastBilateralFilterI6PointTE7Array3D5beginEv"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a32a8ba6dc8e331ff09c8bd124c26c96d"></span>template&lt;&gt;<br />std::vector&lt;Eigen::Vector2f, Eigen::aligned_allocator&lt;Eigen::Vector2f&gt;&gt;::const_iterator <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D5beginENSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEE14const_iteratorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D3endENSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEE14const_iteratorEv">
+<span id="_CPPv3IENK3pcl19FastBilateralFilterI6PointTE7Array3D3endEv"></span><span id="_CPPv2IENK3pcl19FastBilateralFilterI6PointTE7Array3D3endEv"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a1da7afa9da6b34fa33ff871fdfe130b3"></span>template&lt;&gt;<br />std::vector&lt;Eigen::Vector2f, Eigen::aligned_allocator&lt;Eigen::Vector2f&gt;&gt;::const_iterator <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl19FastBilateralFilterI6PointTE7Array3D3endENSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEE14const_iteratorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D5clampE6size_tK6size_tK6size_tK6size_t">
+<span id="_CPPv3IEN3pcl19FastBilateralFilterI6PointTE7Array3D5clampEK6size_tK6size_tK6size_t"></span><span id="_CPPv2IEN3pcl19FastBilateralFilterI6PointTE7Array3D5clampEK6size_tK6size_tK6size_t"></span><span class="target" id="classpcl_1_1_fast_bilateral_filter_1_1_array3_d_1a4ad6b5a19bb0d393d0aaea0454c3f16a"></span>template&lt;&gt;<br />size_t <code class="sig-name descname">clamp</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>min_value</em>, <em class="property">const</em> size_t <em>max_value</em>, <em class="property">const</em> size_t <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl19FastBilateralFilterI6PointTE7Array3D5clampE6size_tK6size_tK6size_tK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

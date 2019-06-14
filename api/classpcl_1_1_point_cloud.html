@@ -1,0 +1,852 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class PointCloud &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class PointCloud</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_point_cloud.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-pointcloud">
+<span id="exhale-class-classpcl-1-1-point-cloud"></span><h1>Template Class PointCloud<a class="headerlink" href="#template-class-pointcloud" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_common_include_pcl_common_projection_matrix.h.html#file-pcl-common-include-pcl-common-projection-matrix-h"><span class="std std-ref">File projection_matrix.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl10PointCloudE">
+<span id="_CPPv3I0EN3pcl10PointCloudE"></span><span id="_CPPv2I0EN3pcl10PointCloudE"></span><span class="target" id="classpcl_1_1_point_cloud"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4I0EN3pcl10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> represents the base class in PCL for storing collections of 3D points. </p>
+<p>The class is templated, which means you need to specify the type of data that it should contain. For example, to create a point cloud that holds 4 random XYZ data points, use:</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="o">&gt;</span> <span class="n">cloud</span><span class="p">;</span>
+<span class="n">cloud</span><span class="p">.</span><span class="n">push_back</span> <span class="p">(</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span> <span class="p">(</span><span class="n">rand</span> <span class="p">(),</span> <span class="n">rand</span> <span class="p">(),</span> <span class="n">rand</span> <span class="p">()));</span>
+<span class="n">cloud</span><span class="p">.</span><span class="n">push_back</span> <span class="p">(</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span> <span class="p">(</span><span class="n">rand</span> <span class="p">(),</span> <span class="n">rand</span> <span class="p">(),</span> <span class="n">rand</span> <span class="p">()));</span>
+<span class="n">cloud</span><span class="p">.</span><span class="n">push_back</span> <span class="p">(</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span> <span class="p">(</span><span class="n">rand</span> <span class="p">(),</span> <span class="n">rand</span> <span class="p">(),</span> <span class="n">rand</span> <span class="p">()));</span>
+<span class="n">cloud</span><span class="p">.</span><span class="n">push_back</span> <span class="p">(</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span> <span class="p">(</span><span class="n">rand</span> <span class="p">(),</span> <span class="n">rand</span> <span class="p">(),</span> <span class="n">rand</span> <span class="p">()));</span>
+</pre></div>
+</div>
+</p>
+<p>The <a class="reference internal" href="#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> class contains the following elements:<ul class="simple">
+<li><p><strong>width</strong> - specifies the width of the point cloud dataset in the number of points. WIDTH has two meanings:<ul>
+<li><p>it can specify the total number of points in the cloud (equal with POINTS see below) for unorganized datasets;</p></li>
+<li><p>it can specify the width (total number of points in a row) of an organized point cloud dataset. <em>Mandatory</em>.</p></li>
+</ul>
+</p></li>
+<li><p><strong>height</strong> - specifies the height of the point cloud dataset in the number of points. HEIGHT has two meanings:<ul>
+<li><p>it can specify the height (total number of rows) of an organized point cloud dataset;</p></li>
+<li><p>it is set to 1 for unorganized datasets (thus used to check whether a dataset is organized or not). <em>Mandatory</em>.</p></li>
+</ul>
+</p></li>
+<li><p><strong>points</strong> - the data array where all points of type <strong>PointT</strong> are stored. <em>Mandatory</em>.</p></li>
+<li><p><strong>is_dense</strong> - specifies if all the data in <strong>points</strong> is finite (true), or whether it might contain Inf/NaN values (false). <em>Mandatory</em>.</p></li>
+<li><p><strong>sensor_origin_</strong> - specifies the sensor acquisition pose (origin/translation). <em>Optional</em>.</p></li>
+<li><p><strong>sensor_orientation_</strong> - specifies the sensor acquisition pose (rotation). <em>Optional</em>.</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Patrick Mihelich, Radu B. Rusu </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud9PointTypeE">
+<span id="_CPPv3N3pcl10PointCloud9PointTypeE"></span><span id="_CPPv2N3pcl10PointCloud9PointTypeE"></span><span id="pcl::PointCloud::PointType"></span><span class="target" id="classpcl_1_1_point_cloud_1a6a2e5a4dd3d3bfb7a60bd54071878809"></span><em class="property">typedef </em>PointT <code class="sig-name descname">PointType</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud9PointTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud10VectorTypeE">
+<span id="_CPPv3N3pcl10PointCloud10VectorTypeE"></span><span id="_CPPv2N3pcl10PointCloud10VectorTypeE"></span><span id="pcl::PointCloud::VectorType"></span><span class="target" id="classpcl_1_1_point_cloud_1a649cf215d01262238ed380da757fb295"></span><em class="property">typedef </em>std::vector&lt;PointT, Eigen::aligned_allocator&lt;PointT&gt;&gt; <code class="sig-name descname">VectorType</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud10VectorTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud15CloudVectorTypeE">
+<span id="_CPPv3N3pcl10PointCloud15CloudVectorTypeE"></span><span id="_CPPv2N3pcl10PointCloud15CloudVectorTypeE"></span><span id="pcl::PointCloud::CloudVectorType"></span><span class="target" id="classpcl_1_1_point_cloud_1a4657f95425ac2785a5b86e3c3d7ff212"></span><em class="property">typedef </em>std::vector&lt;PointCloud&lt;PointT&gt;, Eigen::aligned_allocator&lt;PointCloud&lt;PointT&gt;&gt;&gt; <code class="sig-name descname">CloudVectorType</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud15CloudVectorTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud3PtrE">
+<span id="_CPPv3N3pcl10PointCloud3PtrE"></span><span id="_CPPv2N3pcl10PointCloud3PtrE"></span><span id="pcl::PointCloud::Ptr"></span><span class="target" id="classpcl_1_1_point_cloud_1a86473dec40d705190c6b2c2f795b9f15"></span><em class="property">typedef </em>boost::shared_ptr&lt;PointCloud&lt;PointT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud8ConstPtrE">
+<span id="_CPPv3N3pcl10PointCloud8ConstPtrE"></span><span id="_CPPv2N3pcl10PointCloud8ConstPtrE"></span><span id="pcl::PointCloud::ConstPtr"></span><span class="target" id="classpcl_1_1_point_cloud_1ad63ba0b541909de6e4a01ea59c7a156d"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> PointCloud&lt;PointT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud10value_typeE">
+<span id="_CPPv3N3pcl10PointCloud10value_typeE"></span><span id="_CPPv2N3pcl10PointCloud10value_typeE"></span><span id="pcl::PointCloud::value_type"></span><span class="target" id="classpcl_1_1_point_cloud_1aae89f3bb4a4fb588683fd9d14b7c5969"></span><em class="property">typedef </em>PointT <code class="sig-name descname">value_type</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud10value_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud9referenceE">
+<span id="_CPPv3N3pcl10PointCloud9referenceE"></span><span id="_CPPv2N3pcl10PointCloud9referenceE"></span><span id="pcl::PointCloud::reference"></span><span class="target" id="classpcl_1_1_point_cloud_1a8f653b9d0fe056e7d5ead8f63e0e5f95"></span><em class="property">typedef </em>PointT &amp;<code class="sig-name descname">reference</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud9referenceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud15const_referenceE">
+<span id="_CPPv3N3pcl10PointCloud15const_referenceE"></span><span id="_CPPv2N3pcl10PointCloud15const_referenceE"></span><span id="pcl::PointCloud::const_reference"></span><span class="target" id="classpcl_1_1_point_cloud_1a3c114a3688df1d4390055d33abe3a4db"></span><em class="property">typedef </em><em class="property">const</em> PointT &amp;<code class="sig-name descname">const_reference</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud15const_referenceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud15difference_typeE">
+<span id="_CPPv3N3pcl10PointCloud15difference_typeE"></span><span id="_CPPv2N3pcl10PointCloud15difference_typeE"></span><span id="pcl::PointCloud::difference_type"></span><span class="target" id="classpcl_1_1_point_cloud_1ad7318020f0ad9d4d4cc7c5c4f4011383"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl10PointCloud10VectorTypeE" title="pcl::PointCloud::VectorType">VectorType</a>::difference_type <code class="sig-name descname">difference_type</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud15difference_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud9size_typeE">
+<span id="_CPPv3N3pcl10PointCloud9size_typeE"></span><span id="_CPPv2N3pcl10PointCloud9size_typeE"></span><span id="pcl::PointCloud::size_type"></span><span class="target" id="classpcl_1_1_point_cloud_1ac0ecadb7be18f29a15f2a70325dd1e9f"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl10PointCloud10VectorTypeE" title="pcl::PointCloud::VectorType">VectorType</a>::size_type <code class="sig-name descname">size_type</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud9size_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud8iteratorE">
+<span id="_CPPv3N3pcl10PointCloud8iteratorE"></span><span id="_CPPv2N3pcl10PointCloud8iteratorE"></span><span id="pcl::PointCloud::iterator"></span><span class="target" id="classpcl_1_1_point_cloud_1acd3990f8f7570cebe51aed11d9885e84"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl10PointCloud10VectorTypeE" title="pcl::PointCloud::VectorType">VectorType</a>::iterator <code class="sig-name descname">iterator</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10PointCloud14const_iteratorE">
+<span id="_CPPv3N3pcl10PointCloud14const_iteratorE"></span><span id="_CPPv2N3pcl10PointCloud14const_iteratorE"></span><span id="pcl::PointCloud::const_iterator"></span><span class="target" id="classpcl_1_1_point_cloud_1af81b11aab71c852e20626277f817d04d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl10PointCloud10VectorTypeE" title="pcl::PointCloud::VectorType">VectorType</a>::const_iterator <code class="sig-name descname">const_iterator</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud14const_iteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud10PointCloudEv">
+<span id="_CPPv3N3pcl10PointCloud10PointCloudEv"></span><span id="_CPPv2N3pcl10PointCloud10PointCloudEv"></span><span id="pcl::PointCloud::PointCloud"></span><span class="target" id="classpcl_1_1_point_cloud_1a06d2d868269c767930f24ac273ed9e05"></span><code class="sig-name descname">PointCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud10PointCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default constructor. </p>
+<p>Sets <a class="reference internal" href="#classpcl_1_1_point_cloud_1a3ca88d8ebf6f4f35acbc31cdfb38aa94"><span class="std std-ref">is_dense</span></a> to true, <a class="reference internal" href="#classpcl_1_1_point_cloud_1a2185a6453f8ad905d7bdf7b45754a160"><span class="std std-ref">width</span></a> and <a class="reference internal" href="#classpcl_1_1_point_cloud_1a4f34b45220c57f96607513ffad0d9582"><span class="std std-ref">height</span></a> to 0, and the <a class="reference internal" href="#classpcl_1_1_point_cloud_1aad7c2cd4b0d1c7f0fbc096276b5e2230"><span class="std std-ref">sensor_origin_</span></a> and <a class="reference internal" href="#classpcl_1_1_point_cloud_1a5de17e88bdf15e1c4fd1bcc6b85b1941"><span class="std std-ref">sensor_orientation_</span></a> to identity. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud10PointCloudER10PointCloudI6PointTE">
+<span id="_CPPv3N3pcl10PointCloud10PointCloudER10PointCloudI6PointTE"></span><span id="_CPPv2N3pcl10PointCloud10PointCloudER10PointCloudI6PointTE"></span><span id="pcl::PointCloud::PointCloud__PointCloud:PointT:R"></span><span class="target" id="classpcl_1_1_point_cloud_1ac32b534164db32cebec965ed5507e490"></span><code class="sig-name descname">PointCloud</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud10PointCloudEv" title="pcl::PointCloud::PointCloud">PointCloud</a>&lt;PointT&gt; &amp;<em>pc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud10PointCloudER10PointCloudI6PointTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor (needed by compilers such as Intel C++) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pc</span></code>: the cloud to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud10PointCloudERK10PointCloudI6PointTE">
+<span id="_CPPv3N3pcl10PointCloud10PointCloudERK10PointCloudI6PointTE"></span><span id="_CPPv2N3pcl10PointCloud10PointCloudERK10PointCloudI6PointTE"></span><span id="pcl::PointCloud::PointCloud__PointCloud:PointT:CR"></span><span class="target" id="classpcl_1_1_point_cloud_1a4f4e3cd77252d0256e96de21d1f0219d"></span><code class="sig-name descname">PointCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl10PointCloud10PointCloudEv" title="pcl::PointCloud::PointCloud">PointCloud</a>&lt;PointT&gt; &amp;<em>pc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud10PointCloudERK10PointCloudI6PointTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor (needed by compilers such as Intel C++) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pc</span></code>: the cloud to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud10PointCloudERK10PointCloudI6PointTERKNSt6vectorIiEE">
+<span id="_CPPv3N3pcl10PointCloud10PointCloudERK10PointCloudI6PointTERKNSt6vectorIiEE"></span><span id="_CPPv2N3pcl10PointCloud10PointCloudERK10PointCloudI6PointTERKNSt6vectorIiEE"></span><span id="pcl::PointCloud::PointCloud__PointCloud:PointT:CR.std::vector:i:CR"></span><span class="target" id="classpcl_1_1_point_cloud_1a2a482d4048581443749a04e3aabb3691"></span><code class="sig-name descname">PointCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl10PointCloud10PointCloudEv" title="pcl::PointCloud::PointCloud">PointCloud</a>&lt;PointT&gt; &amp;<em>pc</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud10PointCloudERK10PointCloudI6PointTERKNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor from point cloud subset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pc</span></code>: the cloud to copy into this </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: the subset to copy </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud10PointCloudE8uint32_t8uint32_tRK6PointT">
+<span id="_CPPv3N3pcl10PointCloud10PointCloudE8uint32_t8uint32_tRK6PointT"></span><span id="_CPPv2N3pcl10PointCloud10PointCloudE8uint32_t8uint32_tRK6PointT"></span><span id="pcl::PointCloud::PointCloud__uint32_t.uint32_t.PointTCR"></span><span class="target" id="classpcl_1_1_point_cloud_1ab5892ddcac7bafdcf659551846ac6aae"></span><code class="sig-name descname">PointCloud</code><span class="sig-paren">(</span>uint32_t <em>width_</em>, uint32_t <em>height_</em>, <em class="property">const</em> PointT &amp;<em>value_</em> = PointT()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud10PointCloudE8uint32_t8uint32_tRK6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allocate constructor from point cloud subset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">width_</span></code>: the cloud width </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">height_</span></code>: the cloud height </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">value_</span></code>: default value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloudD0Ev">
+<span id="_CPPv3N3pcl10PointCloudD0Ev"></span><span id="_CPPv2N3pcl10PointCloudD0Ev"></span><span id="pcl::PointCloud::~PointCloud"></span><span class="target" id="classpcl_1_1_point_cloud_1aa614daa65a6a30956886ccd24e5fa4d4"></span><em class="property">virtual</em> <code class="sig-name descname">~PointCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloudD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloudpLERK10PointCloud">
+<span id="_CPPv3N3pcl10PointCloudpLERK10PointCloud"></span><span id="_CPPv2N3pcl10PointCloudpLERK10PointCloud"></span><span id="pcl::PointCloud::add-assign-operator__PointCloudCR"></span><span class="target" id="classpcl_1_1_point_cloud_1a335a1cf1c305cc563f9ebeb2a61f994b"></span>PointCloud &amp;<code class="sig-name descname">operator+=</code><span class="sig-paren">(</span><em class="property">const</em> PointCloud &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloudpLERK10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a point cloud to the current cloud. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the new cloud as a concatenation of the current cloud and the new given cloud </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rhs</span></code>: the cloud to add to the current cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloudplERK10PointCloud">
+<span id="_CPPv3N3pcl10PointCloudplERK10PointCloud"></span><span id="_CPPv2N3pcl10PointCloudplERK10PointCloud"></span><span id="pcl::PointCloud::add-operator__PointCloudCR"></span><span class="target" id="classpcl_1_1_point_cloud_1ac5959e2829b27d093904c222257f1b1c"></span><em class="property">const</em> PointCloud <code class="sig-name descname">operator+</code><span class="sig-paren">(</span><em class="property">const</em> PointCloud &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloudplERK10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a point cloud to another cloud. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the new cloud as a concatenation of the current cloud and the new given cloud </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rhs</span></code>: the cloud to add to the current cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud2atEii">
+<span id="_CPPv3NK3pcl10PointCloud2atEii"></span><span id="_CPPv2NK3pcl10PointCloud2atEii"></span><span id="pcl::PointCloud::at__i.iC"></span><span class="target" id="classpcl_1_1_point_cloud_1a1155fe4ba5cdc7e83cb72159a4ea02dc"></span><em class="property">const</em> PointT &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span>int <em>column</em>, int <em>row</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud2atEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain the point given by the (column, row) coordinates. </p>
+<p>Only works on organized datasets (those that have height != 1). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">column</span></code>: the column coordinate </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">row</span></code>: the row coordinate </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud2atEii">
+<span id="_CPPv3N3pcl10PointCloud2atEii"></span><span id="_CPPv2N3pcl10PointCloud2atEii"></span><span id="pcl::PointCloud::at__i.i"></span><span class="target" id="classpcl_1_1_point_cloud_1a930c2d1f3d8682ca228873ce1c5cc7c4"></span>PointT &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span>int <em>column</em>, int <em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud2atEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain the point given by the (column, row) coordinates. </p>
+<p>Only works on organized datasets (those that have height != 1). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">column</span></code>: the column coordinate </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">row</span></code>: the row coordinate </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloudclE6size_t6size_t">
+<span id="_CPPv3NK3pcl10PointCloudclE6size_t6size_t"></span><span id="_CPPv2NK3pcl10PointCloudclE6size_t6size_t"></span><span id="pcl::PointCloud::call-operator__s.sC"></span><span class="target" id="classpcl_1_1_point_cloud_1a91451e94e3c4d3bbe1e0a499de5163f4"></span><em class="property">const</em> PointT &amp;<code class="sig-name descname">operator()</code><span class="sig-paren">(</span>size_t <em>column</em>, size_t <em>row</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloudclE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain the point given by the (column, row) coordinates. </p>
+<p>Only works on organized datasets (those that have height != 1). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">column</span></code>: the column coordinate </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">row</span></code>: the row coordinate </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloudclE6size_t6size_t">
+<span id="_CPPv3N3pcl10PointCloudclE6size_t6size_t"></span><span id="_CPPv2N3pcl10PointCloudclE6size_t6size_t"></span><span id="pcl::PointCloud::call-operator__s.s"></span><span class="target" id="classpcl_1_1_point_cloud_1a72a535e193c4669ece027971e7fa21a2"></span>PointT &amp;<code class="sig-name descname">operator()</code><span class="sig-paren">(</span>size_t <em>column</em>, size_t <em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloudclE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain the point given by the (column, row) coordinates. </p>
+<p>Only works on organized datasets (those that have height != 1). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">column</span></code>: the column coordinate </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">row</span></code>: the row coordinate </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud11isOrganizedEv">
+<span id="_CPPv3NK3pcl10PointCloud11isOrganizedEv"></span><span id="_CPPv2NK3pcl10PointCloud11isOrganizedEv"></span><span id="pcl::PointCloud::isOrganizedC"></span><span class="target" id="classpcl_1_1_point_cloud_1a914dbcef25abdb46f32991ac112002e7"></span>bool <code class="sig-name descname">isOrganized</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud11isOrganizedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return whether a dataset is organized (e.g., arranged in a structured grid). </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The height value must be different than 1 for a dataset to be organized. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud14getMatrixXfMapEiii">
+<span id="_CPPv3N3pcl10PointCloud14getMatrixXfMapEiii"></span><span id="_CPPv2N3pcl10PointCloud14getMatrixXfMapEiii"></span><span id="pcl::PointCloud::getMatrixXfMap__i.i.i"></span><span class="target" id="classpcl_1_1_point_cloud_1ab9486898ac363e8206829da7c01ea62d"></span>Eigen::Map&lt;Eigen::MatrixXf, Eigen::Aligned, Eigen::OuterStride&lt;&gt;&gt; <code class="sig-name descname">getMatrixXfMap</code><span class="sig-paren">(</span>int <em>dim</em>, int <em>stride</em>, int <em>offset</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud14getMatrixXfMapEiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return an Eigen MatrixXf (assumes float values) mapped to the specified dimensions of the <a class="reference internal" href="#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This method is for advanced users only! Use with care!</p>
+</dd>
+<dt><strong>Attention</strong></dt><dd><p>Since 1.4.0, Eigen matrices are forced to Row Major to increase the efficiency of the algorithms in PCL This means that the behavior of getMatrixXfMap changed, and is now correctly mapping 1-1 with a <a class="reference internal" href="#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> structure, that is: number of points in a cloud = rows in a matrix, number of point dimensions = columns in a matrix</p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>for getting only XYZ coordinates out of <a class="reference internal" href="structpcl_1_1_point_x_y_z.html#structpcl_1_1_point_x_y_z"><span class="std std-ref">PointXYZ</span></a> use dim=3, stride=4 and offset=0 due to the alignment. </p>
+</dd>
+<dt><strong>Attention</strong></dt><dd><p>PointT types are most of the time aligned, so the offsets are not continuous! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dim</span></code>: the number of dimensions to consider for each point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stride</span></code>: the number of values in each point (will be the number of values that separate two of the columns) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the number of dimensions to skip from the beginning of each point (stride = offset + dim + x, where x is the number of dimensions to skip from the end of each point) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud14getMatrixXfMapEiii">
+<span id="_CPPv3NK3pcl10PointCloud14getMatrixXfMapEiii"></span><span id="_CPPv2NK3pcl10PointCloud14getMatrixXfMapEiii"></span><span id="pcl::PointCloud::getMatrixXfMap__i.i.iC"></span><span class="target" id="classpcl_1_1_point_cloud_1a0fb96c26772eca605280d622efe35995"></span><em class="property">const</em> Eigen::Map&lt;<em class="property">const</em> Eigen::MatrixXf, Eigen::Aligned, Eigen::OuterStride&lt;&gt;&gt; <code class="sig-name descname">getMatrixXfMap</code><span class="sig-paren">(</span>int <em>dim</em>, int <em>stride</em>, int <em>offset</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud14getMatrixXfMapEiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return an Eigen MatrixXf (assumes float values) mapped to the specified dimensions of the <a class="reference internal" href="#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This method is for advanced users only! Use with care!</p>
+</dd>
+<dt><strong>Attention</strong></dt><dd><p>Since 1.4.0, Eigen matrices are forced to Row Major to increase the efficiency of the algorithms in PCL This means that the behavior of getMatrixXfMap changed, and is now correctly mapping 1-1 with a <a class="reference internal" href="#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> structure, that is: number of points in a cloud = rows in a matrix, number of point dimensions = columns in a matrix</p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>for getting only XYZ coordinates out of <a class="reference internal" href="structpcl_1_1_point_x_y_z.html#structpcl_1_1_point_x_y_z"><span class="std std-ref">PointXYZ</span></a> use dim=3, stride=4 and offset=0 due to the alignment. </p>
+</dd>
+<dt><strong>Attention</strong></dt><dd><p>PointT types are most of the time aligned, so the offsets are not continuous! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dim</span></code>: the number of dimensions to consider for each point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stride</span></code>: the number of values in each point (will be the number of values that separate two of the columns) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the number of dimensions to skip from the beginning of each point (stride = offset + dim + x, where x is the number of dimensions to skip from the end of each point) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud14getMatrixXfMapEv">
+<span id="_CPPv3N3pcl10PointCloud14getMatrixXfMapEv"></span><span id="_CPPv2N3pcl10PointCloud14getMatrixXfMapEv"></span><span id="pcl::PointCloud::getMatrixXfMap"></span><span class="target" id="classpcl_1_1_point_cloud_1a194a19cac54494383e3706a72f4240fb"></span>Eigen::Map&lt;Eigen::MatrixXf, Eigen::Aligned, Eigen::OuterStride&lt;&gt;&gt; <code class="sig-name descname">getMatrixXfMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud14getMatrixXfMapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return an Eigen MatrixXf (assumes float values) mapped to the <a class="reference internal" href="#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This method is for advanced users only! Use with care! </p>
+</dd>
+<dt><strong>Attention</strong></dt><dd><p>PointT types are most of the time aligned, so the offsets are not continuous! See getMatrixXfMap for more information. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud14getMatrixXfMapEv">
+<span id="_CPPv3NK3pcl10PointCloud14getMatrixXfMapEv"></span><span id="_CPPv2NK3pcl10PointCloud14getMatrixXfMapEv"></span><span id="pcl::PointCloud::getMatrixXfMapC"></span><span class="target" id="classpcl_1_1_point_cloud_1ada3e021bcb3f4d8d62ea3f00324fc126"></span><em class="property">const</em> Eigen::Map&lt;<em class="property">const</em> Eigen::MatrixXf, Eigen::Aligned, Eigen::OuterStride&lt;&gt;&gt; <code class="sig-name descname">getMatrixXfMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud14getMatrixXfMapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return an Eigen MatrixXf (assumes float values) mapped to the <a class="reference internal" href="#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This method is for advanced users only! Use with care! </p>
+</dd>
+<dt><strong>Attention</strong></dt><dd><p>PointT types are most of the time aligned, so the offsets are not continuous! See getMatrixXfMap for more information. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud5beginEv">
+<span id="_CPPv3N3pcl10PointCloud5beginEv"></span><span id="_CPPv2N3pcl10PointCloud5beginEv"></span><span id="pcl::PointCloud::begin"></span><span class="target" id="classpcl_1_1_point_cloud_1a28d991dffbab8ccc854e4c77c2cbe851"></span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud5beginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud3endEv">
+<span id="_CPPv3N3pcl10PointCloud3endEv"></span><span id="_CPPv2N3pcl10PointCloud3endEv"></span><span id="pcl::PointCloud::end"></span><span class="target" id="classpcl_1_1_point_cloud_1a428eb0a69891d347ffbeb1ab3addcb30"></span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud5beginEv">
+<span id="_CPPv3NK3pcl10PointCloud5beginEv"></span><span id="_CPPv2NK3pcl10PointCloud5beginEv"></span><span id="pcl::PointCloud::beginC"></span><span class="target" id="classpcl_1_1_point_cloud_1a63dc8d896d90c5c16b43a4e8b603d742"></span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud14const_iteratorE" title="pcl::PointCloud::const_iterator">const_iterator</a> <code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud5beginEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud3endEv">
+<span id="_CPPv3NK3pcl10PointCloud3endEv"></span><span id="_CPPv2NK3pcl10PointCloud3endEv"></span><span id="pcl::PointCloud::endC"></span><span class="target" id="classpcl_1_1_point_cloud_1ae3ad7a59d8e2f3ded78c17dede26c6b9"></span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud14const_iteratorE" title="pcl::PointCloud::const_iterator">const_iterator</a> <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud4sizeEv">
+<span id="_CPPv3NK3pcl10PointCloud4sizeEv"></span><span id="_CPPv2NK3pcl10PointCloud4sizeEv"></span><span id="pcl::PointCloud::sizeC"></span><span class="target" id="classpcl_1_1_point_cloud_1acc80ec2ec9dc2d3e940850f0c757a32b"></span>size_t <code class="sig-name descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud7reserveE6size_t">
+<span id="_CPPv3N3pcl10PointCloud7reserveE6size_t"></span><span id="_CPPv2N3pcl10PointCloud7reserveE6size_t"></span><span id="pcl::PointCloud::reserve__s"></span><span class="target" id="classpcl_1_1_point_cloud_1ab58ad20b233b05da011a20718e6509c4"></span>void <code class="sig-name descname">reserve</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud7reserveE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud5emptyEv">
+<span id="_CPPv3NK3pcl10PointCloud5emptyEv"></span><span id="_CPPv2NK3pcl10PointCloud5emptyEv"></span><span id="pcl::PointCloud::emptyC"></span><span class="target" id="classpcl_1_1_point_cloud_1a1626420d44e28b5ab22bdc2f1fc6c7ff"></span>bool <code class="sig-name descname">empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud5emptyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud6resizeE6size_t">
+<span id="_CPPv3N3pcl10PointCloud6resizeE6size_t"></span><span id="_CPPv2N3pcl10PointCloud6resizeE6size_t"></span><span id="pcl::PointCloud::resize__s"></span><span class="target" id="classpcl_1_1_point_cloud_1a2d60b6927b31ef89cd3b97e8173ea4aa"></span>void <code class="sig-name descname">resize</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud6resizeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Resize the cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">n</span></code>: the new cloud size </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloudixE6size_t">
+<span id="_CPPv3NK3pcl10PointCloudixE6size_t"></span><span id="_CPPv2NK3pcl10PointCloudixE6size_t"></span><span id="pcl::PointCloud::subscript-operator__sC"></span><span class="target" id="classpcl_1_1_point_cloud_1ae339455e1dcc5049cc76d8390dfd3fd6"></span><em class="property">const</em> PointT &amp;<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloudixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloudixE6size_t">
+<span id="_CPPv3N3pcl10PointCloudixE6size_t"></span><span id="_CPPv2N3pcl10PointCloudixE6size_t"></span><span id="pcl::PointCloud::subscript-operator__s"></span><span class="target" id="classpcl_1_1_point_cloud_1a2d298930acd2ae539f47f7c3d9bdfb30"></span>PointT &amp;<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloudixE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud2atE6size_t">
+<span id="_CPPv3NK3pcl10PointCloud2atE6size_t"></span><span id="_CPPv2NK3pcl10PointCloud2atE6size_t"></span><span id="pcl::PointCloud::at__sC"></span><span class="target" id="classpcl_1_1_point_cloud_1a075e6b2927f4f05584acffb14fb7ca0b"></span><em class="property">const</em> PointT &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud2atE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud2atE6size_t">
+<span id="_CPPv3N3pcl10PointCloud2atE6size_t"></span><span id="_CPPv2N3pcl10PointCloud2atE6size_t"></span><span id="pcl::PointCloud::at__s"></span><span class="target" id="classpcl_1_1_point_cloud_1a939f75f413b130342a5136021e1627e2"></span>PointT &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud2atE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud5frontEv">
+<span id="_CPPv3NK3pcl10PointCloud5frontEv"></span><span id="_CPPv2NK3pcl10PointCloud5frontEv"></span><span id="pcl::PointCloud::frontC"></span><span class="target" id="classpcl_1_1_point_cloud_1a4eb4170da773993d46db2e760d74736d"></span><em class="property">const</em> PointT &amp;<code class="sig-name descname">front</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud5frontEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud5frontEv">
+<span id="_CPPv3N3pcl10PointCloud5frontEv"></span><span id="_CPPv2N3pcl10PointCloud5frontEv"></span><span id="pcl::PointCloud::front"></span><span class="target" id="classpcl_1_1_point_cloud_1a157e45c8c8bb7b028b315e3a1548cc85"></span>PointT &amp;<code class="sig-name descname">front</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud5frontEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud4backEv">
+<span id="_CPPv3NK3pcl10PointCloud4backEv"></span><span id="_CPPv2NK3pcl10PointCloud4backEv"></span><span id="pcl::PointCloud::backC"></span><span class="target" id="classpcl_1_1_point_cloud_1a6381d79fcde03c65cdddb8abf610ae46"></span><em class="property">const</em> PointT &amp;<code class="sig-name descname">back</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud4backEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud4backEv">
+<span id="_CPPv3N3pcl10PointCloud4backEv"></span><span id="_CPPv2N3pcl10PointCloud4backEv"></span><span id="pcl::PointCloud::back"></span><span class="target" id="classpcl_1_1_point_cloud_1a21a3d18a47ea5ef7ea379fac42f7575a"></span>PointT &amp;<code class="sig-name descname">back</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud4backEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud9push_backERK6PointT">
+<span id="_CPPv3N3pcl10PointCloud9push_backERK6PointT"></span><span id="_CPPv2N3pcl10PointCloud9push_backERK6PointT"></span><span id="pcl::PointCloud::push_back__PointTCR"></span><span class="target" id="classpcl_1_1_point_cloud_1a0b4d7abee110e47d90635eb042488bb4"></span>void <code class="sig-name descname">push_back</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>pt</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud9push_backERK6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Insert a new point in the cloud, at the end of the container. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This breaks the organized structure of the cloud by setting the height to 1! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: the point to insert </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud6insertE8iteratorRK6PointT">
+<span id="_CPPv3N3pcl10PointCloud6insertE8iteratorRK6PointT"></span><span id="_CPPv2N3pcl10PointCloud6insertE8iteratorRK6PointT"></span><span id="pcl::PointCloud::insert__iterator.PointTCR"></span><span class="target" id="classpcl_1_1_point_cloud_1a75387c07a2d24ee943eb71ab1c00e4a7"></span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <code class="sig-name descname">insert</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <em>position</em>, <em class="property">const</em> PointT &amp;<em>pt</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud6insertE8iteratorRK6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Insert a new point in the cloud, given an iterator. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This breaks the organized structure of the cloud by setting the height to 1! </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>returns the new position iterator </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">position</span></code>: where to insert the point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: the point to insert </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud6insertE8iterator6size_tRK6PointT">
+<span id="_CPPv3N3pcl10PointCloud6insertE8iterator6size_tRK6PointT"></span><span id="_CPPv2N3pcl10PointCloud6insertE8iterator6size_tRK6PointT"></span><span id="pcl::PointCloud::insert__iterator.s.PointTCR"></span><span class="target" id="classpcl_1_1_point_cloud_1a70ff499c4a3f9398bc3d1629b066db30"></span>void <code class="sig-name descname">insert</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <em>position</em>, size_t <em>n</em>, <em class="property">const</em> PointT &amp;<em>pt</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud6insertE8iterator6size_tRK6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Insert a new point in the cloud N times, given an iterator. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This breaks the organized structure of the cloud by setting the height to 1! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">position</span></code>: where to insert the point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">n</span></code>: the number of times to insert the point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: the point to insert </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl10PointCloud6insertEv8iterator13InputIterator13InputIterator">
+<span id="_CPPv3I0EN3pcl10PointCloud6insertE8iterator13InputIterator13InputIterator"></span><span id="_CPPv2I0EN3pcl10PointCloud6insertE8iterator13InputIterator13InputIterator"></span><span class="target" id="classpcl_1_1_point_cloud_1a3cccb494b2875101b528a8919c738f9b"></span>template&lt;class <code class="sig-name descname">InputIterator</code>&gt;<br />void <code class="sig-name descname">insert</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <em>position</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl10PointCloud6insertEv8iterator13InputIterator13InputIterator" title="pcl::PointCloud::insert::InputIterator">InputIterator</a> <em>first</em>, <a class="reference internal" href="#_CPPv4I0EN3pcl10PointCloud6insertEv8iterator13InputIterator13InputIterator" title="pcl::PointCloud::insert::InputIterator">InputIterator</a> <em>last</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl10PointCloud6insertEv8iterator13InputIterator13InputIterator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Insert a new range of points in the cloud, at a certain position. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This breaks the organized structure of the cloud by setting the height to 1! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">position</span></code>: where to insert the data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">first</span></code>: where to start inserting the points from </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">last</span></code>: where to stop inserting the points from </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud5eraseE8iterator">
+<span id="_CPPv3N3pcl10PointCloud5eraseE8iterator"></span><span id="_CPPv2N3pcl10PointCloud5eraseE8iterator"></span><span id="pcl::PointCloud::erase__iterator"></span><span class="target" id="classpcl_1_1_point_cloud_1a06463926e7cbe52ed3c024c7bc7565d3"></span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <code class="sig-name descname">erase</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud5eraseE8iterator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Erase a point in the cloud. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This breaks the organized structure of the cloud by setting the height to 1! </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>returns the new position iterator </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">position</span></code>: what data point to erase </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud5eraseE8iterator8iterator">
+<span id="_CPPv3N3pcl10PointCloud5eraseE8iterator8iterator"></span><span id="_CPPv2N3pcl10PointCloud5eraseE8iterator8iterator"></span><span id="pcl::PointCloud::erase__iterator.iterator"></span><span class="target" id="classpcl_1_1_point_cloud_1a2901a922dac074254160e1e11912d2c5"></span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <code class="sig-name descname">erase</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <em>first</em>, <a class="reference internal" href="#_CPPv4N3pcl10PointCloud8iteratorE" title="pcl::PointCloud::iterator">iterator</a> <em>last</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud5eraseE8iterator8iterator" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Erase a set of points given by a (first, last) iterator pair. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This breaks the organized structure of the cloud by setting the height to 1! </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>returns the new position iterator </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">first</span></code>: where to start erasing points from </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">last</span></code>: where to stop erasing points from </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud4swapER10PointCloudI6PointTE">
+<span id="_CPPv3N3pcl10PointCloud4swapER10PointCloudI6PointTE"></span><span id="_CPPv2N3pcl10PointCloud4swapER10PointCloudI6PointTE"></span><span id="pcl::PointCloud::swap__PointCloud:PointT:R"></span><span class="target" id="classpcl_1_1_point_cloud_1ab4a0b63e9c8442286b08336f8385a9ea"></span>void <code class="sig-name descname">swap</code><span class="sig-paren">(</span>PointCloud&lt;PointT&gt; &amp;<em>rhs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud4swapER10PointCloudI6PointTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Swap a point cloud with another cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">rhs</span></code>: point cloud to swap this with </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10PointCloud5clearEv">
+<span id="_CPPv3N3pcl10PointCloud5clearEv"></span><span id="_CPPv2N3pcl10PointCloud5clearEv"></span><span id="pcl::PointCloud::clear"></span><span class="target" id="classpcl_1_1_point_cloud_1a963c0da7320055c79e5af0df4f6ad224"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10PointCloud5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Removes all points in a cloud and sets the width and height to 0. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10PointCloud10makeSharedEv">
+<span id="_CPPv3NK3pcl10PointCloud10makeSharedEv"></span><span id="_CPPv2NK3pcl10PointCloud10makeSharedEv"></span><span id="pcl::PointCloud::makeSharedC"></span><span class="target" id="classpcl_1_1_point_cloud_1afebbbb9c522a94cf245dd3968b50ed5e"></span><a class="reference internal" href="#_CPPv4N3pcl10PointCloud3PtrE" title="pcl::PointCloud::Ptr">Ptr</a> <code class="sig-name descname">makeShared</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10PointCloud10makeSharedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy the cloud to the heap and return a smart pointer Note that deep copy is performed, so avoid using this function on non-empty clouds. </p>
+<p>The changes of the returned cloud are not mirrored back to this one. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>shared pointer to the copy of the cloud </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl10PointCloud6headerE">
+<span id="_CPPv3N3pcl10PointCloud6headerE"></span><span id="_CPPv2N3pcl10PointCloud6headerE"></span><span id="pcl::PointCloud::header__pcl::PCLHeader"></span><span class="target" id="classpcl_1_1_point_cloud_1a82e0be055a617e5e74102ed62712b352"></span>pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_header.html#_CPPv4N3pcl9PCLHeaderE" title="pcl::PCLHeader">PCLHeader</a> <code class="sig-name descname">header</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud6headerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The point cloud header. </p>
+<p>It contains information about the acquisition time. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10PointCloud6pointsE">
+<span id="_CPPv3N3pcl10PointCloud6pointsE"></span><span id="_CPPv2N3pcl10PointCloud6pointsE"></span><span id="pcl::PointCloud::points__std::vector:PointT.Eigen::aligned_allocator:PointT::"></span><span class="target" id="classpcl_1_1_point_cloud_1af16a62638198313b9c093127c492c884"></span>std::vector&lt;PointT, Eigen::aligned_allocator&lt;PointT&gt;&gt; <code class="sig-name descname">points</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud6pointsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The point data. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10PointCloud5widthE">
+<span id="_CPPv3N3pcl10PointCloud5widthE"></span><span id="_CPPv2N3pcl10PointCloud5widthE"></span><span id="pcl::PointCloud::width__uint32_t"></span><span class="target" id="classpcl_1_1_point_cloud_1a2185a6453f8ad905d7bdf7b45754a160"></span>uint32_t <code class="sig-name descname">width</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud5widthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The point cloud width (if organized as an image-structure). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10PointCloud6heightE">
+<span id="_CPPv3N3pcl10PointCloud6heightE"></span><span id="_CPPv2N3pcl10PointCloud6heightE"></span><span id="pcl::PointCloud::height__uint32_t"></span><span class="target" id="classpcl_1_1_point_cloud_1a4f34b45220c57f96607513ffad0d9582"></span>uint32_t <code class="sig-name descname">height</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud6heightE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The point cloud height (if organized as an image-structure). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10PointCloud8is_denseE">
+<span id="_CPPv3N3pcl10PointCloud8is_denseE"></span><span id="_CPPv2N3pcl10PointCloud8is_denseE"></span><span id="pcl::PointCloud::is_dense__b"></span><span class="target" id="classpcl_1_1_point_cloud_1a3ca88d8ebf6f4f35acbc31cdfb38aa94"></span>bool <code class="sig-name descname">is_dense</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud8is_denseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>True if no points are invalid (e.g., have NaN or Inf values in any of their floating point fields). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10PointCloud14sensor_origin_E">
+<span id="_CPPv3N3pcl10PointCloud14sensor_origin_E"></span><span id="_CPPv2N3pcl10PointCloud14sensor_origin_E"></span><span id="pcl::PointCloud::sensor_origin___Eigen::Vector4f"></span><span class="target" id="classpcl_1_1_point_cloud_1aad7c2cd4b0d1c7f0fbc096276b5e2230"></span>Eigen::Vector4f <code class="sig-name descname">sensor_origin_</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud14sensor_origin_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sensor acquisition pose (origin/translation). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10PointCloud19sensor_orientation_E">
+<span id="_CPPv3N3pcl10PointCloud19sensor_orientation_E"></span><span id="_CPPv2N3pcl10PointCloud19sensor_orientation_E"></span><span id="pcl::PointCloud::sensor_orientation___Eigen::Quaternionf"></span><span class="target" id="classpcl_1_1_point_cloud_1a5de17e88bdf15e1c4fd1bcc6b85b1941"></span>Eigen::Quaternionf <code class="sig-name descname">sensor_orientation_</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud19sensor_orientation_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sensor acquisition pose (rotation). </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl10PointCloud8mapping_E">
+<span id="_CPPv3N3pcl10PointCloud8mapping_E"></span><span id="_CPPv2N3pcl10PointCloud8mapping_E"></span><span id="pcl::PointCloud::mapping___boost::shared_ptr:MsgFieldMap:"></span><span class="target" id="classpcl_1_1_point_cloud_1a306d8c279a6fb68c26a81d69dcee1f97"></span>boost::shared_ptr&lt;<a class="reference internal" href="typedef_namespacepcl_1a349df3d4e632dab530b0df75229f4006.html#_CPPv4N3pcl11MsgFieldMapE" title="pcl::MsgFieldMap">MsgFieldMap</a>&gt; <code class="sig-name descname">mapping_</code><a class="headerlink" href="#_CPPv4N3pcl10PointCloud8mapping_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv4N6detail10getMappingERN3pcl10PointCloudI6PointTEE">
+<span id="_CPPv3N6detail10getMappingERN3pcl10PointCloudI6PointTEE"></span><span id="_CPPv2N6detail10getMappingERN3pcl10PointCloudI6PointTEE"></span><span id="detail::getMapping__pcl::PointCloud:PointT:R"></span><span class="target" id="classpcl_1_1_point_cloud_1a4f1d203dfdb88aa8ae806d4f56505061"></span>boost::shared_ptr&lt;MsgFieldMap&gt; &amp;<code class="sig-name descname">getMapping</code><span class="sig-paren">(</span>pcl::PointCloud&lt;PointT&gt; &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6detail10getMappingERN3pcl10PointCloudI6PointTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,916 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class EnsensoGrabber &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class EnsensoGrabber</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_ensenso_grabber.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-ensensograbber">
+<span id="exhale-class-classpcl-1-1-ensenso-grabber"></span><h1>Class EnsensoGrabber<a class="headerlink" href="#class-ensensograbber" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_ensenso_grabber.h.html#file-pcl-io-include-pcl-io-ensenso-grabber-h"><span class="std std-ref">File ensenso_grabber.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Grabber</span></code> (<a class="reference internal" href="classpcl_1_1_grabber.html#exhale-class-classpcl-1-1-grabber"><span class="std std-ref">Class Grabber</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl14EnsensoGrabberE">
+<span id="_CPPv3N3pcl14EnsensoGrabberE"></span><span id="_CPPv2N3pcl14EnsensoGrabberE"></span><span id="pcl::EnsensoGrabber"></span><span class="target" id="classpcl_1_1_ensenso_grabber"></span><em class="property">class </em><code class="sig-name descname">EnsensoGrabber</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_grabber.html#_CPPv4N3pcl7GrabberE" title="pcl::Grabber">Grabber</a><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabberE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_grabber.html#classpcl_1_1_grabber"><span class="std std-ref">Grabber</span></a> for IDS-Imaging Ensenso’s devices. </p>
+<p><p>The </p>
+<a class="reference external" href="http://www.ensenso.de/manual/">Ensenso SDK</a> allow to use multiple Ensenso devices to produce a single cloud.<p>This feature is not implemented here, it is up to the user to configure multiple Ensenso cameras.</p>
+<dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Victor Lamoine (<a class="reference external" href="mailto:victor&#46;lamoine&#37;&#52;&#48;gmail&#46;com">victor<span>&#46;</span>lamoine<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber14EnsensoGrabberEv">
+<span id="_CPPv3N3pcl14EnsensoGrabber14EnsensoGrabberEv"></span><span id="_CPPv2N3pcl14EnsensoGrabber14EnsensoGrabberEv"></span><span id="pcl::EnsensoGrabber::EnsensoGrabber"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1adb464c16c81b88c2242a727355a712c3"></span><code class="sig-name descname">EnsensoGrabber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber14EnsensoGrabberEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabberD0Ev">
+<span id="_CPPv3N3pcl14EnsensoGrabberD0Ev"></span><span id="_CPPv2N3pcl14EnsensoGrabberD0Ev"></span><span id="pcl::EnsensoGrabber::~EnsensoGrabber"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a81409fa462be9fcd5bdc6180468d1811"></span><em class="property">virtual</em> <code class="sig-name descname">~EnsensoGrabber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabberD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor inherited from the <a class="reference internal" href="classpcl_1_1_grabber.html#classpcl_1_1_grabber"><span class="std std-ref">Grabber</span></a> interface. </p>
+<p>It never throws. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber11enumDevicesEv">
+<span id="_CPPv3NK3pcl14EnsensoGrabber11enumDevicesEv"></span><span id="_CPPv2NK3pcl14EnsensoGrabber11enumDevicesEv"></span><span id="pcl::EnsensoGrabber::enumDevicesC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a592b99cc59683f533b8135dfa3893565"></span>int <code class="sig-name descname">enumDevices</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber11enumDevicesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Searches for available devices. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The number of Ensenso devices connected </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber10openDeviceEKi">
+<span id="_CPPv3N3pcl14EnsensoGrabber10openDeviceEKi"></span><span id="_CPPv2N3pcl14EnsensoGrabber10openDeviceEKi"></span><span id="pcl::EnsensoGrabber::openDevice__iC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a4cf25748d5a2443f346f5b031cdd1657"></span>bool <code class="sig-name descname">openDevice</code><span class="sig-paren">(</span><em class="property">const</em> int <em>device</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber10openDeviceEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Opens an Ensenso device. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">device</span></code>: The device ID to open </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber11closeDeviceEv">
+<span id="_CPPv3N3pcl14EnsensoGrabber11closeDeviceEv"></span><span id="_CPPv2N3pcl14EnsensoGrabber11closeDeviceEv"></span><span id="pcl::EnsensoGrabber::closeDevice"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a1b186f84307302e2bfbd136eb48216b8"></span>bool <code class="sig-name descname">closeDevice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber11closeDeviceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Closes the Ensenso device. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber5startEv">
+<span id="_CPPv3N3pcl14EnsensoGrabber5startEv"></span><span id="_CPPv2N3pcl14EnsensoGrabber5startEv"></span><span id="pcl::EnsensoGrabber::start"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a3b10963e90c7a2acc28016ca7036917f"></span>void <code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber5startEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Start the point cloud and or image acquisition. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Opens device “0” if no device is open </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber4stopEv">
+<span id="_CPPv3N3pcl14EnsensoGrabber4stopEv"></span><span id="_CPPv2N3pcl14EnsensoGrabber4stopEv"></span><span id="pcl::EnsensoGrabber::stop"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a0894a295e1a6a1caea9ef57a3920a8ad"></span>void <code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber4stopEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stop the data acquisition. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber9isRunningEv">
+<span id="_CPPv3NK3pcl14EnsensoGrabber9isRunningEv"></span><span id="_CPPv2NK3pcl14EnsensoGrabber9isRunningEv"></span><span id="pcl::EnsensoGrabber::isRunningC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a11cc4775131a8a8d794fd58136799365"></span>bool <code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber9isRunningEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the data acquisition is still running. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if running, false otherwise </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber13isTcpPortOpenEv">
+<span id="_CPPv3NK3pcl14EnsensoGrabber13isTcpPortOpenEv"></span><span id="_CPPv2NK3pcl14EnsensoGrabber13isTcpPortOpenEv"></span><span id="pcl::EnsensoGrabber::isTcpPortOpenC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1ac546d3496604f572c8d01626e176071d"></span>bool <code class="sig-name descname">isTcpPortOpen</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber13isTcpPortOpenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a TCP port is opened. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if open, false otherwise </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber7getNameEv">
+<span id="_CPPv3NK3pcl14EnsensoGrabber7getNameEv"></span><span id="_CPPv2NK3pcl14EnsensoGrabber7getNameEv"></span><span id="pcl::EnsensoGrabber::getNameC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a801aec7e16af3ae34bf020d2d8e1b898"></span>std::string <code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber7getNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get class name. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>A string containing the class name </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber16configureCaptureEKbKbKiKfKbKiKbKbKbKiKbKiKNSt6stringEKb">
+<span id="_CPPv3NK3pcl14EnsensoGrabber16configureCaptureEKbKbKiKfKbKiKbKbKbKiKbKiKNSt6stringEKb"></span><span id="_CPPv2NK3pcl14EnsensoGrabber16configureCaptureEKbKbKiKfKbKiKbKbKbKiKbKiKNSt6stringEKb"></span><span id="pcl::EnsensoGrabber::configureCapture__bC.bC.iC.floatC.bC.iC.bC.bC.bC.iC.bC.iC.ssC.bCC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1afe821d292fc44e53dbc6bf80f60c5dc2"></span>bool <code class="sig-name descname">configureCapture</code><span class="sig-paren">(</span><em class="property">const</em> bool <em>auto_exposure</em> = true, <em class="property">const</em> bool <em>auto_gain</em> = true, <em class="property">const</em> int <em>bining</em> = 1, <em class="property">const</em> float <em>exposure</em> = 0.32, <em class="property">const</em> bool <em>front_light</em> = false, <em class="property">const</em> int <em>gain</em> = 1, <em class="property">const</em> bool <em>gain_boost</em> = false, <em class="property">const</em> bool <em>hardware_gamma</em> = false, <em class="property">const</em> bool <em>hdr</em> = false, <em class="property">const</em> int <em>pixel_clock</em> = 10, <em class="property">const</em> bool <em>projector</em> = true, <em class="property">const</em> int <em>target_brightness</em> = 80, <em class="property">const</em> std::string <em>trigger_mode</em> = &quot;Software&quot;, <em class="property">const</em> bool <em>use_disparity_map_area_of_interest</em> = false<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber16configureCaptureEKbKbKiKfKbKiKbKbKbKiKbKiKNSt6stringEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Configure Ensenso capture settings. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>See <a class="reference external" href="http://www.ensenso.de/manual/index.html?capture.htm">Capture tree item</a> for more details about the parameters. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">auto_exposure</span></code>: If set to yes, the exposure parameter will be ignored </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">auto_gain</span></code>: If set to yes, the gain parameter will be ignored </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">bining</span></code>: Pixel bining: 1, 2 or 4 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">exposure</span></code>: In milliseconds, from 0.01 to 20 ms </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">front_light</span></code>: Infrared front light (useful for calibration) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">gain</span></code>: Float between 1 and 4 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">gain_boost</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hardware_gamma</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hdr</span></code>: High Dynamic Range (check compatibility with other options in Ensenso manual) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pixel_clock</span></code>: In MegaHertz, from 5 to 85 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">projector</span></code>: Use the central infrared projector or not </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target_brightness</span></code>: Between 40 and 210 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">trigger_mode</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">use_disparity_map_area_of_interest</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber15grabSingleCloudERN3pcl10PointCloudIN3pcl8PointXYZEEE">
+<span id="_CPPv3N3pcl14EnsensoGrabber15grabSingleCloudERN3pcl10PointCloudIN3pcl8PointXYZEEE"></span><span id="_CPPv2N3pcl14EnsensoGrabber15grabSingleCloudERN3pcl10PointCloudIN3pcl8PointXYZEEE"></span><span id="pcl::EnsensoGrabber::grabSingleCloud__pcl::PointCloud:pcl::PointXYZ:R"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a93f01b7890457a2ce394755be3923423"></span>bool <code class="sig-name descname">grabSingleCloud</code><span class="sig-paren">(</span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt; &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber15grabSingleCloudERN3pcl10PointCloudIN3pcl8PointXYZEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Capture a single point cloud and store it. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>A device must be opened and not running </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: The cloud to be filled </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber24initExtrinsicCalibrationEKi">
+<span id="_CPPv3NK3pcl14EnsensoGrabber24initExtrinsicCalibrationEKi"></span><span id="_CPPv2NK3pcl14EnsensoGrabber24initExtrinsicCalibrationEKi"></span><span id="pcl::EnsensoGrabber::initExtrinsicCalibration__iCC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1acc89fb7d03dbb844813e1ae6c1e457f3"></span>bool <code class="sig-name descname">initExtrinsicCalibration</code><span class="sig-paren">(</span><em class="property">const</em> int <em>grid_spacing</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber24initExtrinsicCalibrationEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set up the Ensenso sensor and API to do 3D extrinsic calibration using the Ensenso 2D patterns. </p>
+<p><p>Configures the capture parameters to default values (eg: </p>
+<code class="docutils literal notranslate"><span class="pre">projector</span></code> = <code class="docutils literal notranslate"><span class="pre">false</span></code> and <code class="docutils literal notranslate"><span class="pre">front_light</span></code> = <code class="docutils literal notranslate"><span class="pre">true</span></code>) Discards all previous patterns, configures <code class="docutils literal notranslate"><span class="pre">grid_spacing</span></code> <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise</p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>A device must be opened and must not be running. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>See the <a class="reference external" href="http://www.ensenso.de/manual/index.html?calibratehandeyeparameters.htm">Ensenso manual</a> for more information about the extrinsic calibration process. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p><a class="reference external" href="http://www.ensenso.de/manual/index.html?gridsize.htm">GridSize</a> item is protected in the NxTree, you can’t modify it. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">grid_spacing</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber29clearCalibrationPatternBufferEv">
+<span id="_CPPv3NK3pcl14EnsensoGrabber29clearCalibrationPatternBufferEv"></span><span id="_CPPv2NK3pcl14EnsensoGrabber29clearCalibrationPatternBufferEv"></span><span id="pcl::EnsensoGrabber::clearCalibrationPatternBufferC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1ac8bacd55a7b6dcee6f15dc6ac5806104"></span>bool <code class="sig-name descname">clearCalibrationPatternBuffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber29clearCalibrationPatternBufferEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clear calibration patterns buffer. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber25captureCalibrationPatternEv">
+<span id="_CPPv3NK3pcl14EnsensoGrabber25captureCalibrationPatternEv"></span><span id="_CPPv2NK3pcl14EnsensoGrabber25captureCalibrationPatternEv"></span><span id="pcl::EnsensoGrabber::captureCalibrationPatternC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1ad138d12b4b5d658736db944553971c3f"></span>int <code class="sig-name descname">captureCalibrationPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber25captureCalibrationPatternEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Captures a calibration pattern. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the number of calibration patterns stored in the nxTree, -1 on error </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>A device must be opened and must not be running. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>You should use <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1acc89fb7d03dbb844813e1ae6c1e457f3"><span class="std std-ref">initExtrinsicCalibration</span></a> before </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber30estimateCalibrationPatternPoseERN5Eigen8Affine3dE">
+<span id="_CPPv3NK3pcl14EnsensoGrabber30estimateCalibrationPatternPoseERN5Eigen8Affine3dE"></span><span id="_CPPv2NK3pcl14EnsensoGrabber30estimateCalibrationPatternPoseERN5Eigen8Affine3dE"></span><span id="pcl::EnsensoGrabber::estimateCalibrationPatternPose__Eigen::Affine3dRC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a33129cceb52294317a18eb529468d07a"></span>bool <code class="sig-name descname">estimateCalibrationPatternPose</code><span class="sig-paren">(</span>Eigen::Affine3d &amp;<em>pattern_pose</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber30estimateCalibrationPatternPoseERN5Eigen8Affine3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate the calibration pattern pose. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>A device must be opened and must not be running. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>At least one calibration pattern must have been captured before, use <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1ad138d12b4b5d658736db944553971c3f"><span class="std std-ref">captureCalibrationPattern</span></a> before </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pattern_pose</span></code>: the calibration pattern pose </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber24computeCalibrationMatrixERKNSt6vectorIN5Eigen8Affine3dEN5Eigen17aligned_allocatorIN5Eigen8Affine3dEEEEERNSt6stringEKNSt6stringEKNSt6stringERKN5Eigen8Affine3dEKb">
+<span id="_CPPv3NK3pcl14EnsensoGrabber24computeCalibrationMatrixERKNSt6vectorIN5Eigen8Affine3dEN5Eigen17aligned_allocatorIN5Eigen8Affine3dEEEEERNSt6stringEKNSt6stringEKNSt6stringERKN5Eigen8Affine3dEKb"></span><span id="_CPPv2NK3pcl14EnsensoGrabber24computeCalibrationMatrixERKNSt6vectorIN5Eigen8Affine3dEN5Eigen17aligned_allocatorIN5Eigen8Affine3dEEEEERNSt6stringEKNSt6stringEKNSt6stringERKN5Eigen8Affine3dEKb"></span><span id="pcl::EnsensoGrabber::computeCalibrationMatrix__std::vector:Eigen::Affine3d.Eigen::aligned_allocator:Eigen::Affine3d::CR.ssR.ssC.ssC.Eigen::Affine3dCR.bCC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a2277fe79f8aca23bac888523f1bfa0f9"></span>bool <code class="sig-name descname">computeCalibrationMatrix</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;Eigen::Affine3d, Eigen::aligned_allocator&lt;Eigen::Affine3d&gt;&gt; &amp;<em>robot_poses</em>, std::string &amp;<em>json</em>, <em class="property">const</em> std::string <em>setup</em> = &quot;Moving&quot;, <em class="property">const</em> std::string <em>target</em> = &quot;Hand&quot;, <em class="property">const</em> Eigen::Affine3d &amp;<em>guess_tf</em> = Eigen::Affine3d::Identity(), <em class="property">const</em> bool <em>pretty_format</em> = true<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber24computeCalibrationMatrixERKNSt6vectorIN5Eigen8Affine3dEN5Eigen17aligned_allocatorIN5Eigen8Affine3dEEEEERNSt6stringEKNSt6stringEKNSt6stringERKN5Eigen8Affine3dEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the calibration matrix using the collected patterns and the robot poses vector. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>This can take up to 120 seconds </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>Check the result with <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1aa437c818b8d3a198cfc396929a30b2dd"><span class="std std-ref">getResultAsJson</span></a>. If you want to permanently store the result, use <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a2e05aa2b2632d96e985cfe8d4e373676"><span class="std std-ref">storeEEPROMExtrinsicCalibration</span></a>. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">robot_poses</span></code>: A list of robot poses, 1 for each pattern acquired (in the same order) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">json</span></code>: The extrinsic calibration data in JSON format </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">setup</span></code>: Moving or Fixed, please refer to the Ensenso documentation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target</span></code>: Please refer to the Ensenso documentation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">guess_tf</span></code>: Guess transformation for the calibration matrix (translation in meters) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pretty_format</span></code>: JSON formatting style </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber31storeEEPROMExtrinsicCalibrationEv">
+<span id="_CPPv3NK3pcl14EnsensoGrabber31storeEEPROMExtrinsicCalibrationEv"></span><span id="_CPPv2NK3pcl14EnsensoGrabber31storeEEPROMExtrinsicCalibrationEv"></span><span id="pcl::EnsensoGrabber::storeEEPROMExtrinsicCalibrationC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a2e05aa2b2632d96e985cfe8d4e373676"></span>bool <code class="sig-name descname">storeEEPROMExtrinsicCalibration</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber31storeEEPROMExtrinsicCalibrationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy the link defined in the Link node of the nxTree to the EEPROM. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise Refer to <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a2063306cd947f67ab5a55fcfe550ee8b"><span class="std std-ref">setExtrinsicCalibration</span></a> for more information about how the EEPROM works.<p>After calling </p>
+<a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a2277fe79f8aca23bac888523f1bfa0f9"><span class="std std-ref">computeCalibrationMatrix</span></a>, this enables to permanently store the matrix. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>The target must be specified (<a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a2277fe79f8aca23bac888523f1bfa0f9"><span class="std std-ref">computeCalibrationMatrix</span></a> specifies the target) </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber31clearEEPROMExtrinsicCalibrationEv">
+<span id="_CPPv3N3pcl14EnsensoGrabber31clearEEPROMExtrinsicCalibrationEv"></span><span id="_CPPv2N3pcl14EnsensoGrabber31clearEEPROMExtrinsicCalibrationEv"></span><span id="pcl::EnsensoGrabber::clearEEPROMExtrinsicCalibration"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a6df93f62e9f56e9174df5db76fcc3afa"></span>bool <code class="sig-name descname">clearEEPROMExtrinsicCalibration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber31clearEEPROMExtrinsicCalibrationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clear the extrinsic calibration stored in the EEPROM by writing an identity matrix. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber23setExtrinsicCalibrationEKdRN5Eigen8Vector3dERKN5Eigen8Vector3dEKNSt6stringE">
+<span id="_CPPv3N3pcl14EnsensoGrabber23setExtrinsicCalibrationEKdRN5Eigen8Vector3dERKN5Eigen8Vector3dEKNSt6stringE"></span><span id="_CPPv2N3pcl14EnsensoGrabber23setExtrinsicCalibrationEKdRN5Eigen8Vector3dERKN5Eigen8Vector3dEKNSt6stringE"></span><span id="pcl::EnsensoGrabber::setExtrinsicCalibration__doubleC.Eigen::Vector3dR.Eigen::Vector3dCR.ssC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a2063306cd947f67ab5a55fcfe550ee8b"></span>bool <code class="sig-name descname">setExtrinsicCalibration</code><span class="sig-paren">(</span><em class="property">const</em> double <em>euler_angle</em>, Eigen::Vector3d &amp;<em>rotation_axis</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>translation</em>, <em class="property">const</em> std::string <em>target</em> = &quot;Hand&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber23setExtrinsicCalibrationEKdRN5Eigen8Vector3dERKN5Eigen8Vector3dEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Update Link node in NxLib tree. </p>
+<p><p>More information on the parameters can be found in </p>
+<a class="reference external" href="http://www.ensenso.de/manual/index.html?cameralink.htm">Link node</a> section of the Ensenso manual.<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>Translation are in meters, rotation angles in radians! (stored in mm/radians in Ensenso tree) </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If a calibration has been stored in the EEPROM, it is copied in the Link node at nxLib tree start. This method overwrites the Link node but does not write to the EEPROM.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target</span></code>: “Hand” or “Workspace” for example </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">euler_angle</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rotation_axis</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">translation</span></code>: Translation in meters </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>The point cloud you get from the Ensenso is already transformed using this calibration matrix. Make sure it is the identity transformation if you want the original point cloud! (use <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a6df93f62e9f56e9174df5db76fcc3afa"><span class="std std-ref">clearEEPROMExtrinsicCalibration</span></a>) Use <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a2e05aa2b2632d96e985cfe8d4e373676"><span class="std std-ref">storeEEPROMExtrinsicCalibration</span></a> to permanently store this transformation </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber23setExtrinsicCalibrationEKNSt6stringE">
+<span id="_CPPv3N3pcl14EnsensoGrabber23setExtrinsicCalibrationEKNSt6stringE"></span><span id="_CPPv2N3pcl14EnsensoGrabber23setExtrinsicCalibrationEKNSt6stringE"></span><span id="pcl::EnsensoGrabber::setExtrinsicCalibration__ssC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1aef5f7e530c2b84b4b11644343938d664"></span>bool <code class="sig-name descname">setExtrinsicCalibration</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>target</em> = &quot;Hand&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber23setExtrinsicCalibrationEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Update Link node in NxLib tree with an identity matrix. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target</span></code>: “Hand” or “Workspace” for example </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber23setExtrinsicCalibrationERKN5Eigen8Affine3dEKNSt6stringE">
+<span id="_CPPv3N3pcl14EnsensoGrabber23setExtrinsicCalibrationERKN5Eigen8Affine3dEKNSt6stringE"></span><span id="_CPPv2N3pcl14EnsensoGrabber23setExtrinsicCalibrationERKN5Eigen8Affine3dEKNSt6stringE"></span><span id="pcl::EnsensoGrabber::setExtrinsicCalibration__Eigen::Affine3dCR.ssC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1ae7eabb8ccc69bc16debfa054fbc52fb0"></span>bool <code class="sig-name descname">setExtrinsicCalibration</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Affine3d &amp;<em>transformation</em>, <em class="property">const</em> std::string <em>target</em> = &quot;Hand&quot;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber23setExtrinsicCalibrationERKN5Eigen8Affine3dEKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Update Link node in NxLib tree. </p>
+<p><p>More information on the parameters can be found in </p>
+<a class="reference external" href="http://www.ensenso.de/manual/index.html?cameralink.htm">Link node</a> section of the Ensenso manual.<dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>Translation are in meters, rotation angles in radians! (stored in mm/radians in Ensenso tree) </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If a calibration has been stored in the EEPROM, it is copied in the Link node at nxLib tree start. This method overwrites the Link node but does not write to the EEPROM.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">transformation</span></code>: Transformation matrix </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target</span></code>: “Hand” or “Workspace” for example </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<p>The point cloud you get from the Ensenso is already transformed using this calibration matrix. Make sure it is the identity transformation if you want the original point cloud! (use <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a6df93f62e9f56e9174df5db76fcc3afa"><span class="std std-ref">clearEEPROMExtrinsicCalibration</span></a>) Use <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a2e05aa2b2632d96e985cfe8d4e373676"><span class="std std-ref">storeEEPROMExtrinsicCalibration</span></a> to permanently store this transformation </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber18getFramesPerSecondEv">
+<span id="_CPPv3NK3pcl14EnsensoGrabber18getFramesPerSecondEv"></span><span id="_CPPv2NK3pcl14EnsensoGrabber18getFramesPerSecondEv"></span><span id="pcl::EnsensoGrabber::getFramesPerSecondC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1ac5300dcc9514469836ae02e3b6d47472"></span>float <code class="sig-name descname">getFramesPerSecond</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber18getFramesPerSecondEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain the number of frames per second (FPS) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber11openTcpPortEKi">
+<span id="_CPPv3N3pcl14EnsensoGrabber11openTcpPortEKi"></span><span id="_CPPv2N3pcl14EnsensoGrabber11openTcpPortEKi"></span><span id="pcl::EnsensoGrabber::openTcpPort__iC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1add59b06d6b02aceaae73ef3c87db0373"></span>bool <code class="sig-name descname">openTcpPort</code><span class="sig-paren">(</span><em class="property">const</em> int <em>port</em> = 24000<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber11openTcpPortEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Open TCP port to enable access via the <a class="reference external" href="http://www.ensenso.de/manual/software_components.htm">nxTreeEdit</a> program. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">port</span></code>: The port number </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber12closeTcpPortEv">
+<span id="_CPPv3N3pcl14EnsensoGrabber12closeTcpPortEv"></span><span id="_CPPv2N3pcl14EnsensoGrabber12closeTcpPortEv"></span><span id="pcl::EnsensoGrabber::closeTcpPort__void"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a34b631b996aa4e3364dccaa9d2bb4309"></span>bool <code class="sig-name descname">closeTcpPort</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber12closeTcpPortEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Close TCP port program. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>If you do not close the TCP port the program might exit with the port still open, if it is the case use<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ps</span> <span class="o">-</span><span class="n">ef</span> 
+</pre></div>
+</div>
+ and<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">kill</span> <span class="n">PID</span> 
+</pre></div>
+</div>
+ to kill the application and effectively close the port. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber13getTreeAsJsonEKb">
+<span id="_CPPv3NK3pcl14EnsensoGrabber13getTreeAsJsonEKb"></span><span id="_CPPv2NK3pcl14EnsensoGrabber13getTreeAsJsonEKb"></span><span id="pcl::EnsensoGrabber::getTreeAsJson__bCC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a6c6ce919164aa4d59180908a2241bfb4"></span>std::string <code class="sig-name descname">getTreeAsJson</code><span class="sig-paren">(</span><em class="property">const</em> bool <em>pretty_format</em> = true<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber13getTreeAsJsonEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the full NxLib tree as a JSON string. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>A string containing the NxLib tree in JSON format </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pretty_format</span></code>: JSON formatting style </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber15getResultAsJsonEKb">
+<span id="_CPPv3NK3pcl14EnsensoGrabber15getResultAsJsonEKb"></span><span id="_CPPv2NK3pcl14EnsensoGrabber15getResultAsJsonEKb"></span><span id="pcl::EnsensoGrabber::getResultAsJson__bCC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1aa437c818b8d3a198cfc396929a30b2dd"></span>std::string <code class="sig-name descname">getResultAsJson</code><span class="sig-paren">(</span><em class="property">const</em> bool <em>pretty_format</em> = true<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber15getResultAsJsonEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the Result node (of the last command) as a JSON string. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>A string containing the Result node in JSON format </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pretty_format</span></code>: JSON formatting style </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber31jsonTransformationToEulerAnglesERKNSt6stringERdRdRdRdRdRd">
+<span id="_CPPv3NK3pcl14EnsensoGrabber31jsonTransformationToEulerAnglesERKNSt6stringERdRdRdRdRdRd"></span><span id="_CPPv2NK3pcl14EnsensoGrabber31jsonTransformationToEulerAnglesERKNSt6stringERdRdRdRdRdRd"></span><span id="pcl::EnsensoGrabber::jsonTransformationToEulerAngles__ssCR.doubleR.doubleR.doubleR.doubleR.doubleR.doubleRC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1ae9dc248e5eccfbcbe870b0ffc7f9c504"></span>bool <code class="sig-name descname">jsonTransformationToEulerAngles</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>json</em>, double &amp;<em>x</em>, double &amp;<em>y</em>, double &amp;<em>z</em>, double &amp;<em>w</em>, double &amp;<em>p</em>, double &amp;<em>r</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber31jsonTransformationToEulerAnglesERKNSt6stringERdRdRdRdRdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the Euler angles corresponding to a JSON string (an angle axis transformation) </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>The units are meters and radians! </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>See: <a class="reference external" href="http://www.ensenso.de/manual/transformation.htm">transformation page</a> in the EnsensoSDK documentation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">json</span></code>: A string containing the angle axis transformation in JSON format </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">x</span></code>: The X translation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">y</span></code>: The Y translation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">z</span></code>: The Z translation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">w</span></code>: The yaW angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">p</span></code>: The Pitch angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">r</span></code>: The Roll angle </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber29jsonTransformationToAngleAxisEKNSt6stringERdRN5Eigen8Vector3dERN5Eigen8Vector3dE">
+<span id="_CPPv3NK3pcl14EnsensoGrabber29jsonTransformationToAngleAxisEKNSt6stringERdRN5Eigen8Vector3dERN5Eigen8Vector3dE"></span><span id="_CPPv2NK3pcl14EnsensoGrabber29jsonTransformationToAngleAxisEKNSt6stringERdRN5Eigen8Vector3dERN5Eigen8Vector3dE"></span><span id="pcl::EnsensoGrabber::jsonTransformationToAngleAxis__ssC.doubleR.Eigen::Vector3dR.Eigen::Vector3dRC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a26f4375470cf58ff889667257463c090"></span>bool <code class="sig-name descname">jsonTransformationToAngleAxis</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>json</em>, double &amp;<em>alpha</em>, Eigen::Vector3d &amp;<em>axis</em>, Eigen::Vector3d &amp;<em>translation</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber29jsonTransformationToAngleAxisEKNSt6stringERdRN5Eigen8Vector3dERN5Eigen8Vector3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the angle axis parameters corresponding to a JSON string. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>The units are meters and radians! </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>See: <a class="reference external" href="http://www.ensenso.de/manual/transformation.htm">transformation page</a> in the EnsensoSDK documentation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">json</span></code>: A string containing the angle axis transformation in JSON format </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">alpha</span></code>: Euler angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">axis</span></code>: <a class="reference internal" href="structpcl_1_1_axis.html#structpcl_1_1_axis"><span class="std std-ref">Axis</span></a> vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">translation</span></code>: Translation vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber26jsonTransformationToMatrixEKNSt6stringERN5Eigen8Affine3dE">
+<span id="_CPPv3NK3pcl14EnsensoGrabber26jsonTransformationToMatrixEKNSt6stringERN5Eigen8Affine3dE"></span><span id="_CPPv2NK3pcl14EnsensoGrabber26jsonTransformationToMatrixEKNSt6stringERN5Eigen8Affine3dE"></span><span id="pcl::EnsensoGrabber::jsonTransformationToMatrix__ssC.Eigen::Affine3dRC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1ac5a855363a529e1212eecd6bdfc34742"></span>bool <code class="sig-name descname">jsonTransformationToMatrix</code><span class="sig-paren">(</span><em class="property">const</em> std::string <em>transformation</em>, Eigen::Affine3d &amp;<em>matrix</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber26jsonTransformationToMatrixEKNSt6stringERN5Eigen8Affine3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the JSON string corresponding to a 4x4 matrix. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>The units are meters and radians! </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>See: <a class="reference external" href="http://www.ensenso.de/manual/index.html?cmdconverttransformation.htm">ConvertTransformation page</a> in the EnsensoSDK documentation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">transformation</span></code>: The input transformation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">matrix</span></code>: A matrix containing JSON transformation </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber31eulerAnglesTransformationToJsonEKdKdKdKdKdKdRNSt6stringEKb">
+<span id="_CPPv3NK3pcl14EnsensoGrabber31eulerAnglesTransformationToJsonEKdKdKdKdKdKdRNSt6stringEKb"></span><span id="_CPPv2NK3pcl14EnsensoGrabber31eulerAnglesTransformationToJsonEKdKdKdKdKdKdRNSt6stringEKb"></span><span id="pcl::EnsensoGrabber::eulerAnglesTransformationToJson__doubleC.doubleC.doubleC.doubleC.doubleC.doubleC.ssR.bCC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a98b41658b9744fa11105dc65ed9f7cb2"></span>bool <code class="sig-name descname">eulerAnglesTransformationToJson</code><span class="sig-paren">(</span><em class="property">const</em> double <em>x</em>, <em class="property">const</em> double <em>y</em>, <em class="property">const</em> double <em>z</em>, <em class="property">const</em> double <em>w</em>, <em class="property">const</em> double <em>p</em>, <em class="property">const</em> double <em>r</em>, std::string &amp;<em>json</em>, <em class="property">const</em> bool <em>pretty_format</em> = true<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber31eulerAnglesTransformationToJsonEKdKdKdKdKdKdRNSt6stringEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the JSON string corresponding to the Euler angles transformation. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>The units are meters and radians! </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>See: <a class="reference external" href="http://www.ensenso.de/manual/transformation.htm">transformation page</a> in the EnsensoSDK documentation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: The X translation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">y</span></code>: The Y translation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">z</span></code>: The Z translation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">w</span></code>: The yaW angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p</span></code>: The Pitch angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">r</span></code>: The Roll angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">json</span></code>: A string containing the Euler angles transformation in JSON format </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pretty_format</span></code>: JSON formatting style </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber29angleAxisTransformationToJsonEKdKdKdKdKdKdKdRNSt6stringEKb">
+<span id="_CPPv3NK3pcl14EnsensoGrabber29angleAxisTransformationToJsonEKdKdKdKdKdKdKdRNSt6stringEKb"></span><span id="_CPPv2NK3pcl14EnsensoGrabber29angleAxisTransformationToJsonEKdKdKdKdKdKdKdRNSt6stringEKb"></span><span id="pcl::EnsensoGrabber::angleAxisTransformationToJson__doubleC.doubleC.doubleC.doubleC.doubleC.doubleC.doubleC.ssR.bCC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a3c49ec5a1642ccfa7b470a2e86ca5fd5"></span>bool <code class="sig-name descname">angleAxisTransformationToJson</code><span class="sig-paren">(</span><em class="property">const</em> double <em>x</em>, <em class="property">const</em> double <em>y</em>, <em class="property">const</em> double <em>z</em>, <em class="property">const</em> double <em>rx</em>, <em class="property">const</em> double <em>ry</em>, <em class="property">const</em> double <em>rz</em>, <em class="property">const</em> double <em>alpha</em>, std::string &amp;<em>json</em>, <em class="property">const</em> bool <em>pretty_format</em> = true<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber29angleAxisTransformationToJsonEKdKdKdKdKdKdKdRNSt6stringEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the JSON string corresponding to an angle axis transformation. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>The units are meters and radians! (the Euler axis doesn’t need to be normalized) </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>See: <a class="reference external" href="http://www.ensenso.de/manual/transformation.htm">transformation page</a> in the EnsensoSDK documentation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: The X angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">y</span></code>: The Y angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">z</span></code>: The Z angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rx</span></code>: The X component of the Euler axis </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ry</span></code>: The Y component of the Euler axis </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rz</span></code>: The Z component of the Euler axis </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">alpha</span></code>: The Euler rotation angle </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">json</span></code>: A string containing the angle axis transformation in JSON format </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pretty_format</span></code>: JSON formatting style </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14EnsensoGrabber26matrixTransformationToJsonERKN5Eigen8Affine3dERNSt6stringEKb">
+<span id="_CPPv3NK3pcl14EnsensoGrabber26matrixTransformationToJsonERKN5Eigen8Affine3dERNSt6stringEKb"></span><span id="_CPPv2NK3pcl14EnsensoGrabber26matrixTransformationToJsonERKN5Eigen8Affine3dERNSt6stringEKb"></span><span id="pcl::EnsensoGrabber::matrixTransformationToJson__Eigen::Affine3dCR.ssR.bCC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a8dfa1c0930f95fcb8601297d678176b6"></span>bool <code class="sig-name descname">matrixTransformationToJson</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Affine3d &amp;<em>matrix</em>, std::string &amp;<em>json</em>, <em class="property">const</em> bool <em>pretty_format</em> = true<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14EnsensoGrabber26matrixTransformationToJsonERKN5Eigen8Affine3dERNSt6stringEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the JSON string corresponding to a 4x4 matrix. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if successful, false otherwise </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>The units are meters and radians! </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>See: <a class="reference external" href="http://www.ensenso.de/manual/index.html?cmdconverttransformation.htm">ConvertTransformation page</a> in the EnsensoSDK documentation </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">matrix</span></code>: The input matrix </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">json</span></code>: A string containing the matrix transformation in JSON format </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pretty_format</span></code>: JSON formatting style </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber5root_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber5root_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber5root_E"></span><span id="pcl::EnsensoGrabber::root___boost::shared_ptr:NxLibItemC:"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1acb694e94e1e8256dcc8a2f8b296f3ee2"></span>boost::shared_ptr&lt;<em class="property">const</em> NxLibItem&gt; <code class="sig-name descname">root_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber5root_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reference to the NxLib tree root. </p>
+<p><dl class="simple">
+<dt><strong>Warning</strong></dt><dd><p>You must handle NxLib exceptions manually when playing with <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1acb694e94e1e8256dcc8a2f8b296f3ee2"><span class="std std-ref">root_</span></a> ! See ensensoExceptionHandling in ensenso_grabber.cpp </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber7camera_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber7camera_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber7camera_E"></span><span id="pcl::EnsensoGrabber::camera___NxLibItem"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a3d5d6d55a5871455fe5f21e3821fe3a9"></span>NxLibItem <code class="sig-name descname">camera_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber7camera_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reference to the camera tree. </p>
+<p><dl class="simple">
+<dt><strong>Warning</strong></dt><dd><p>You must handle NxLib exceptions manually when playing with <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a3d5d6d55a5871455fe5f21e3821fe3a9"><span class="std std-ref">camera_</span></a> ! </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber15processGrabbingEv">
+<span id="_CPPv3N3pcl14EnsensoGrabber15processGrabbingEv"></span><span id="_CPPv2N3pcl14EnsensoGrabber15processGrabbingEv"></span><span id="pcl::EnsensoGrabber::processGrabbing"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a9cf97b0d7ccfe7cf0e3a879d333dd8ba"></span>void <code class="sig-name descname">processGrabbing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber15processGrabbingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Continuously asks for images and or point clouds data from the device and publishes them if available. </p>
+<p>PCL time stamps are filled for both the images and clouds grabbed (see <a class="reference internal" href="#classpcl_1_1_ensenso_grabber_1a6fbd5b77840cea6b5ed0da8c55161370"><span class="std std-ref">getPCLStamp</span></a>) <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The cloud time stamp is the RAW image time stamp </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber15grabber_thread_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber15grabber_thread_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber15grabber_thread_E"></span><span id="pcl::EnsensoGrabber::grabber_thread___boost::thread"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a4cc87ad6be4e7bd5988fc13d7bff8178"></span>boost::thread <code class="sig-name descname">grabber_thread_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber15grabber_thread_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_grabber.html#classpcl_1_1_grabber"><span class="std std-ref">Grabber</span></a> thread. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber19point_cloud_signal_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber19point_cloud_signal_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber19point_cloud_signal_E"></span><span id="pcl::EnsensoGrabber::point_cloud_signal___boost::signals2::signal:sig_cb_ensenso_point_cloud:P"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a2e6338f221f5e6fa2d214d764da01bb7"></span>boost::signals2::signal&lt;sig_cb_ensenso_point_cloud&gt; *<code class="sig-name descname">point_cloud_signal_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber19point_cloud_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Boost point cloud signal. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber14images_signal_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber14images_signal_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber14images_signal_E"></span><span id="pcl::EnsensoGrabber::images_signal___boost::signals2::signal:sig_cb_ensenso_images:P"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a1e68897d92342fae0f029e89a8a113bd"></span>boost::signals2::signal&lt;sig_cb_ensenso_images&gt; *<code class="sig-name descname">images_signal_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber14images_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Boost images signal. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber26point_cloud_images_signal_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber26point_cloud_images_signal_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber26point_cloud_images_signal_E"></span><span id="pcl::EnsensoGrabber::point_cloud_images_signal___boost::signals2::signal:sig_cb_ensenso_point_cloud_images:P"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a51c385ebf68613e0796936e2829077ac"></span>boost::signals2::signal&lt;sig_cb_ensenso_point_cloud_images&gt; *<code class="sig-name descname">point_cloud_images_signal_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber26point_cloud_images_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Boost images + point cloud signal. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber12device_open_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber12device_open_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber12device_open_E"></span><span id="pcl::EnsensoGrabber::device_open___b"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1afa663d24ad3184066a825b2b5b11ecf4"></span>bool <code class="sig-name descname">device_open_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber12device_open_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether an Ensenso device is opened or not. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber9tcp_open_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber9tcp_open_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber9tcp_open_E"></span><span id="pcl::EnsensoGrabber::tcp_open___b"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1aa3be373b75cb4b16a3e7ecc1835d0b23"></span>bool <code class="sig-name descname">tcp_open_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber9tcp_open_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether an TCP port is opened or not. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber8running_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber8running_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber8running_E"></span><span id="pcl::EnsensoGrabber::running___b"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1aff48a03fa934f94f4b989f47176671ca"></span>bool <code class="sig-name descname">running_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber8running_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether an Ensenso device is running or not. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber10frequency_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber10frequency_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber10frequency_E"></span><span id="pcl::EnsensoGrabber::frequency___pcl::EventFrequency"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1ac068717957d8173fd3cab3b81d00642f"></span>pcl::<a class="reference internal" href="classpcl_1_1_event_frequency.html#_CPPv4N3pcl14EventFrequencyE" title="pcl::EventFrequency">EventFrequency</a> <code class="sig-name descname">frequency_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber10frequency_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point cloud capture/processing frequency. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14EnsensoGrabber10fps_mutex_E">
+<span id="_CPPv3N3pcl14EnsensoGrabber10fps_mutex_E"></span><span id="_CPPv2N3pcl14EnsensoGrabber10fps_mutex_E"></span><span id="pcl::EnsensoGrabber::fps_mutex___boost::mutex"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a5199279cd4dedb67013f38386ae11d83"></span>boost::mutex <code class="sig-name descname">fps_mutex_</code><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber10fps_mutex_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Mutual exclusion for FPS computation. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber11getPCLStampEKd">
+<span id="_CPPv3N3pcl14EnsensoGrabber11getPCLStampEKd"></span><span id="_CPPv2N3pcl14EnsensoGrabber11getPCLStampEKd"></span><span id="pcl::EnsensoGrabber::getPCLStamp__doubleC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a6fbd5b77840cea6b5ed0da8c55161370"></span><em class="property">static</em> pcl::uint64_t <code class="sig-name descname">getPCLStamp</code><span class="sig-paren">(</span><em class="property">const</em> double <em>ensenso_stamp</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber11getPCLStampEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert an Ensenso time stamp into a PCL/ROS time stamp. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>PCL stamp The Ensenso API returns the time elapsed from January 1st, 1601 (UTC); on Linux OS the reference time is January 1st, 1970 (UTC). See <a class="reference external" href="http://www.ensenso.de/manual/index.html?json_types.htm">time-stamp page</a> for more info about the time stamp conversion. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ensenso_stamp</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14EnsensoGrabber13getOpenCVTypeEKiKiKb">
+<span id="_CPPv3N3pcl14EnsensoGrabber13getOpenCVTypeEKiKiKb"></span><span id="_CPPv2N3pcl14EnsensoGrabber13getOpenCVTypeEKiKiKb"></span><span id="pcl::EnsensoGrabber::getOpenCVType__iC.iC.bC"></span><span class="target" id="classpcl_1_1_ensenso_grabber_1a60b5d1aa0bd6825dbe3ce3b15961596f"></span><em class="property">static</em> std::string <code class="sig-name descname">getOpenCVType</code><span class="sig-paren">(</span><em class="property">const</em> int <em>channels</em>, <em class="property">const</em> int <em>bpe</em>, <em class="property">const</em> bool <em>isFlt</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14EnsensoGrabber13getOpenCVTypeEKiKiKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get OpenCV image type corresponding to the parameters given. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the OpenCV type as a string </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">channels</span></code>: number of channels in the image </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bpe</span></code>: bytes per element </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isFlt</span></code>: is float </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

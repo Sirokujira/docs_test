@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class OctreeContainerPointIndex &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class OctreeContainerPointIndex</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1octree_1_1_octree_container_point_index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-octreecontainerpointindex">
+<span id="exhale-class-classpcl-1-1octree-1-1-octree-container-point-index"></span><h1>Class OctreeContainerPointIndex<a class="headerlink" href="#class-octreecontainerpointindex" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_octree_include_pcl_octree_octree_container.h.html#file-pcl-octree-include-pcl-octree-octree-container-h"><span class="std std-ref">File octree_container.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreeContainerBase</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_base.html#exhale-class-classpcl-1-1octree-1-1-octree-container-base"><span class="std std-ref">Class OctreeContainerBase</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl6octree25OctreeContainerPointIndexE">
+<span id="_CPPv3N3pcl6octree25OctreeContainerPointIndexE"></span><span id="_CPPv2N3pcl6octree25OctreeContainerPointIndexE"></span><span id="pcl::octree::OctreeContainerPointIndex"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index"></span><em class="property">class </em><code class="sig-name descname">OctreeContainerPointIndex</code> : <em class="property">public</em> pcl::octree::<a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_base.html#_CPPv4N3pcl6octree19OctreeContainerBaseE" title="pcl::octree::OctreeContainerBase">OctreeContainerBase</a><a class="headerlink" href="#_CPPv4N3pcl6octree25OctreeContainerPointIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Octree</strong> container class that does store a single point index. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Enables the octree to store a single DataT element within its leaf nodes. </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree25OctreeContainerPointIndex25OctreeContainerPointIndexEv">
+<span id="_CPPv3N3pcl6octree25OctreeContainerPointIndex25OctreeContainerPointIndexEv"></span><span id="_CPPv2N3pcl6octree25OctreeContainerPointIndex25OctreeContainerPointIndexEv"></span><span id="pcl::octree::OctreeContainerPointIndex::OctreeContainerPointIndex"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1ae2d8e6f995a883d94899395502b8be7c"></span><code class="sig-name descname">OctreeContainerPointIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree25OctreeContainerPointIndex25OctreeContainerPointIndexEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree25OctreeContainerPointIndex25OctreeContainerPointIndexERK25OctreeContainerPointIndex">
+<span id="_CPPv3N3pcl6octree25OctreeContainerPointIndex25OctreeContainerPointIndexERK25OctreeContainerPointIndex"></span><span id="_CPPv2N3pcl6octree25OctreeContainerPointIndex25OctreeContainerPointIndexERK25OctreeContainerPointIndex"></span><span id="pcl::octree::OctreeContainerPointIndex::OctreeContainerPointIndex__OctreeContainerPointIndexCR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1a38426fcde4a374b23177cf0b4fba62fb"></span><code class="sig-name descname">OctreeContainerPointIndex</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree25OctreeContainerPointIndex25OctreeContainerPointIndexEv" title="pcl::octree::OctreeContainerPointIndex::OctreeContainerPointIndex">OctreeContainerPointIndex</a> &amp;<em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree25OctreeContainerPointIndex25OctreeContainerPointIndexERK25OctreeContainerPointIndex" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree25OctreeContainerPointIndexD0Ev">
+<span id="_CPPv3N3pcl6octree25OctreeContainerPointIndexD0Ev"></span><span id="_CPPv2N3pcl6octree25OctreeContainerPointIndexD0Ev"></span><span id="pcl::octree::OctreeContainerPointIndex::~OctreeContainerPointIndex"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1a0fcc4ef509dfef47c5243437c7f4278d"></span><em class="property">virtual</em> <code class="sig-name descname">~OctreeContainerPointIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree25OctreeContainerPointIndexD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty deconstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree25OctreeContainerPointIndex8deepCopyEv">
+<span id="_CPPv3NK3pcl6octree25OctreeContainerPointIndex8deepCopyEv"></span><span id="_CPPv2NK3pcl6octree25OctreeContainerPointIndex8deepCopyEv"></span><span id="pcl::octree::OctreeContainerPointIndex::deepCopyC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1a483faa53742dbec325bb62aadd59e386"></span><em class="property">virtual</em> <a class="reference internal" href="#_CPPv4N3pcl6octree25OctreeContainerPointIndexE" title="pcl::octree::OctreeContainerPointIndex">OctreeContainerPointIndex</a> *<code class="sig-name descname">deepCopy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree25OctreeContainerPointIndex8deepCopyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Octree deep copy method. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree25OctreeContainerPointIndexeqERK19OctreeContainerBase">
+<span id="_CPPv3NK3pcl6octree25OctreeContainerPointIndexeqERK19OctreeContainerBase"></span><span id="_CPPv2NK3pcl6octree25OctreeContainerPointIndexeqERK19OctreeContainerBase"></span><span id="pcl::octree::OctreeContainerPointIndex::eq-operator__OctreeContainerBaseCRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1a2244399811b378dee18d97485ccaeb24"></span><em class="property">virtual</em> bool <code class="sig-name descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_base.html#_CPPv4N3pcl6octree19OctreeContainerBaseE" title="pcl::octree::OctreeContainerBase">OctreeContainerBase</a> &amp;<em>other</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree25OctreeContainerPointIndexeqERK19OctreeContainerBase" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Equal comparison operator. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">other</span></code>: <a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_base.html#classpcl_1_1octree_1_1_octree_container_base"><span class="std std-ref">OctreeContainerBase</span></a> to compare with </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree25OctreeContainerPointIndex13addPointIndexEi">
+<span id="_CPPv3N3pcl6octree25OctreeContainerPointIndex13addPointIndexEi"></span><span id="_CPPv2N3pcl6octree25OctreeContainerPointIndex13addPointIndexEi"></span><span id="pcl::octree::OctreeContainerPointIndex::addPointIndex__i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1a81bc3388358213cc40bdc9cd0691c6fe"></span>void <code class="sig-name descname">addPointIndex</code><span class="sig-paren">(</span>int <em>data_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree25OctreeContainerPointIndex13addPointIndexEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add point index to container memory. </p>
+<p>This container stores a only a single point index. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data_arg</span></code>: index to be stored within leaf node. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree25OctreeContainerPointIndex13getPointIndexEv">
+<span id="_CPPv3NK3pcl6octree25OctreeContainerPointIndex13getPointIndexEv"></span><span id="_CPPv2NK3pcl6octree25OctreeContainerPointIndex13getPointIndexEv"></span><span id="pcl::octree::OctreeContainerPointIndex::getPointIndexC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1a8d6adfb0a160647b62c30c87ab01d41b"></span>int <code class="sig-name descname">getPointIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree25OctreeContainerPointIndex13getPointIndexEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieve point index from container. </p>
+<p>This container stores a only a single point index <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>index stored within container. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree25OctreeContainerPointIndex15getPointIndicesERNSt6vectorIiEE">
+<span id="_CPPv3NK3pcl6octree25OctreeContainerPointIndex15getPointIndicesERNSt6vectorIiEE"></span><span id="_CPPv2NK3pcl6octree25OctreeContainerPointIndex15getPointIndicesERNSt6vectorIiEE"></span><span id="pcl::octree::OctreeContainerPointIndex::getPointIndices__std::vector:i:RC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1a6ba586bfe05f7a6c3a84bce068b562df"></span>void <code class="sig-name descname">getPointIndices</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>data_vector_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree25OctreeContainerPointIndex15getPointIndicesERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieve point indices from container. </p>
+<p>This container stores only a single point index <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">data_vector_arg</span></code>: vector of point indices to be stored within data vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree25OctreeContainerPointIndex7getSizeEv">
+<span id="_CPPv3NK3pcl6octree25OctreeContainerPointIndex7getSizeEv"></span><span id="_CPPv2NK3pcl6octree25OctreeContainerPointIndex7getSizeEv"></span><span id="pcl::octree::OctreeContainerPointIndex::getSizeC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1a32a7fa218d2a9833b1aca0feabb98d92"></span>size_t <code class="sig-name descname">getSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree25OctreeContainerPointIndex7getSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get size of container (number of DataT objects) </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of DataT elements in leaf node container. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree25OctreeContainerPointIndex5resetEv">
+<span id="_CPPv3N3pcl6octree25OctreeContainerPointIndex5resetEv"></span><span id="_CPPv2N3pcl6octree25OctreeContainerPointIndex5resetEv"></span><span id="pcl::octree::OctreeContainerPointIndex::reset"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1a13a93640d26d20cd77021bea6485b4fe"></span><em class="property">virtual</em> void <code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree25OctreeContainerPointIndex5resetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset leaf node memory to zero. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree25OctreeContainerPointIndex5data_E">
+<span id="_CPPv3N3pcl6octree25OctreeContainerPointIndex5data_E"></span><span id="_CPPv2N3pcl6octree25OctreeContainerPointIndex5data_E"></span><span id="pcl::octree::OctreeContainerPointIndex::data___i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_container_point_index_1afc696257ccc6cfc67d417dc3d30fc9a5"></span>int <code class="sig-name descname">data_</code><a class="headerlink" href="#_CPPv4N3pcl6octree25OctreeContainerPointIndex5data_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point index stored in octree. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

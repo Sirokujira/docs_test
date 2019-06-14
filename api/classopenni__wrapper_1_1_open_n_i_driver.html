@@ -1,0 +1,639 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class OpenNIDriver &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class OpenNIDriver</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classopenni__wrapper_1_1_open_n_i_driver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-opennidriver">
+<span id="exhale-class-classopenni-wrapper-1-1-open-n-i-driver"></span><h1>Class OpenNIDriver<a class="headerlink" href="#class-opennidriver" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_openni_camera_openni_driver.h.html#file-pcl-io-include-pcl-io-openni-camera-openni-driver-h"><span class="std std-ref">File openni_driver.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context.html#exhale-struct-structopenni-wrapper-1-1-open-n-i-driver-1-1-device-context"><span class="std std-ref">Struct OpenNIDriver::DeviceContext</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriverE">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriverE"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriverE"></span><span id="openni_wrapper::OpenNIDriver"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver"></span><em class="property">class </em><code class="sig-name descname">OpenNIDriver</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriverE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Driver class implemented as Singleton. </p>
+<p>This class contains the xn::Context object used by all devices. It \ provides methods for enumerating and accessing devices. <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Date</strong></dt><dd><p>02.january 2011 </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriverD0Ev">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriverD0Ev"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriverD0Ev"></span><span id="openni_wrapper::OpenNIDriver::~OpenNIDriver"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a52bad30f544414ef3abb45488078f7e7"></span><code class="sig-name descname">~OpenNIDriver</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriverD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>virtual Destructor that never throws an exception </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver16updateDeviceListEv">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver16updateDeviceListEv"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver16updateDeviceListEv"></span><span id="openni_wrapper::OpenNIDriver::updateDeviceList"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a9ba2cb3bcf34d734047795cc681d4411"></span>unsigned <code class="sig-name descname">updateDeviceList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver16updateDeviceListEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>enumerates all devices and updates the list of available devices. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the number of devices found. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver16getNumberDevicesEv">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver16getNumberDevicesEv"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver16getNumberDevicesEv"></span><span id="openni_wrapper::OpenNIDriver::getNumberDevicesC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a971b47962137bd094419d1adee15c86f"></span>unsigned <code class="sig-name descname">getNumberDevices</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver16getNumberDevicesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the number of available devices. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver19createVirtualDeviceERKNSt6stringEbb">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver19createVirtualDeviceERKNSt6stringEbb"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver19createVirtualDeviceERKNSt6stringEbb"></span><span id="openni_wrapper::OpenNIDriver::createVirtualDevice__ssCR.b.bC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a37a56e93171c07f5baf2f73f663ecbba"></span>boost::shared_ptr&lt;<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>&gt; <code class="sig-name descname">createVirtualDevice</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>path</em>, bool <em>repeat</em>, bool <em>stream</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver19createVirtualDeviceERKNSt6stringEbb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>creates a virtual device from an ONI file. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the shared_ptr to the newly created virtual device. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">path</span></code>: the path to the ONI file </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">repeat</span></code>: whether the ONI playback should be repeated in an infinite loop or not. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stream</span></code>: whether the device should be created as a streaming or trigger-based device. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver16getDeviceByIndexEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver16getDeviceByIndexEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver16getDeviceByIndexEj"></span><span id="openni_wrapper::OpenNIDriver::getDeviceByIndex__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a99d34fd945c49e8140bdaa8111509197"></span>boost::shared_ptr&lt;<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>&gt; <code class="sig-name descname">getDeviceByIndex</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver16getDeviceByIndexEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>returns the device with a given index, where the index is its position in the device list. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>shared_ptr to the device, null if no matching device found. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: index of the device to be retrieved. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver23getDeviceBySerialNumberERKNSt6stringE">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver23getDeviceBySerialNumberERKNSt6stringE"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver23getDeviceBySerialNumberERKNSt6stringE"></span><span id="openni_wrapper::OpenNIDriver::getDeviceBySerialNumber__ssCRC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a047e09c5f923660c643c40299dc7da33"></span>boost::shared_ptr&lt;<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>&gt; <code class="sig-name descname">getDeviceBySerialNumber</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>serial_number</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver23getDeviceBySerialNumberERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>returns the device with the given serial number. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>shared_ptr to the device, null if no matching device found. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">serial_number</span></code>: the serial number of the device to be retrieved. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver18getDeviceByAddressEhh">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver18getDeviceByAddressEhh"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver18getDeviceByAddressEhh"></span><span id="openni_wrapper::OpenNIDriver::getDeviceByAddress__unsigned-c.unsigned-cC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a4a76ab956fe081ce330861b3cbb3b8ca"></span>boost::shared_ptr&lt;<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>&gt; <code class="sig-name descname">getDeviceByAddress</code><span class="sig-paren">(</span>unsigned char <em>bus</em>, unsigned char <em>address</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver18getDeviceByAddressEhh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>returns the device that is given by the USB bus/address combination. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>shared_ptr to the device, null if no matching device found. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">bus</span></code>: the USB bus id </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">address</span></code>: the USB address </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver15getSerialNumberEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver15getSerialNumberEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver15getSerialNumberEj"></span><span id="openni_wrapper::OpenNIDriver::getSerialNumber__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a82f8cd008fc08dd99d246cb100551a26"></span><em class="property">const</em> char *<code class="sig-name descname">getSerialNumber</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver15getSerialNumberEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to retrieve the serial number of a device without creating it. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the serial number of the device. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the device in the device list. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver19getConnectionStringEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver19getConnectionStringEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver19getConnectionStringEj"></span><span id="openni_wrapper::OpenNIDriver::getConnectionString__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1af051da3a828f268d4a1c4d3118fccaff"></span><em class="property">const</em> char *<code class="sig-name descname">getConnectionString</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver19getConnectionStringEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to retrieve the connection string of a device without creating it. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the connection string of the device. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the device in the device list. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver13getVendorNameEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver13getVendorNameEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver13getVendorNameEj"></span><span id="openni_wrapper::OpenNIDriver::getVendorName__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a44d07cbc32f8ca711f12db12d261f514"></span><em class="property">const</em> char *<code class="sig-name descname">getVendorName</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver13getVendorNameEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to retrieve the vendor name of the USB device without creating it. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the vendor name of the USB device. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the device in the device list. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver14getProductNameEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver14getProductNameEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver14getProductNameEj"></span><span id="openni_wrapper::OpenNIDriver::getProductName__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1ad322d3a04f304ff989bc862747a4a5db"></span><em class="property">const</em> char *<code class="sig-name descname">getProductName</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver14getProductNameEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to retrieve the product name of the USB device without creating it. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the product name of the USB device. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the device in the device list. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver11getVendorIDEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver11getVendorIDEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver11getVendorIDEj"></span><span id="openni_wrapper::OpenNIDriver::getVendorID__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a01e61f30a9130a1e7372313265581f28"></span>unsigned short <code class="sig-name descname">getVendorID</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver11getVendorIDEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to retrieve the vendor id of the USB device without creating it. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the vendor id of the USB device. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the device in the device list. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver12getProductIDEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver12getProductIDEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver12getProductIDEj"></span><span id="openni_wrapper::OpenNIDriver::getProductID__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a22bece96b674da4e636980aa30a93ec9"></span>unsigned short <code class="sig-name descname">getProductID</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver12getProductIDEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to retrieve the product id of the USB device without creating it. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the product id of the USB device. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the device in the device list. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver6getBusEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver6getBusEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver6getBusEj"></span><span id="openni_wrapper::OpenNIDriver::getBus__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1aa86290073baa27f648e96114c54aa7a3"></span>unsigned char <code class="sig-name descname">getBus</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver6getBusEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to retrieve the bus id of the USB device without creating it. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the bus id of the USB device. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the device in the device list. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver10getAddressEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver10getAddressEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver10getAddressEj"></span><span id="openni_wrapper::OpenNIDriver::getAddress__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a5c9b9de707c6a0569f6ab2db6d4f8812"></span>unsigned char <code class="sig-name descname">getAddress</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver10getAddressEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to retrieve the vaddress of the USB device without creating it. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the address of the USB device. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the device in the device list. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver7stopAllEv">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver7stopAllEv"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver7stopAllEv"></span><span id="openni_wrapper::OpenNIDriver::stopAll"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1acf69f26046b87fe51938cbaf696f0b74"></span>void <code class="sig-name descname">stopAll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver7stopAllEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>stops all streams from all devices. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver11getInstanceEv">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver11getInstanceEv"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver11getInstanceEv"></span><span id="openni_wrapper::OpenNIDriver::getInstance"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a2c7f52e39e9baafb13507b913bf073e2"></span><a class="reference internal" href="#_CPPv4N14openni_wrapper12OpenNIDriverE" title="openni_wrapper::OpenNIDriver">OpenNIDriver</a> &amp;<code class="sig-name descname">getInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver11getInstanceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>static access method to the only instance. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the only instance of this class. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13getDeviceTypeERKNSt6stringERtRt">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13getDeviceTypeERKNSt6stringERtRt"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13getDeviceTypeERKNSt6stringERtRt"></span><span id="openni_wrapper::OpenNIDriver::getDeviceType__ssCR.unsigned-shortR.unsigned-shortR"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a296f096b9093a65b18f60a29b1921f9e"></span><em class="property">static</em> void <code class="sig-name descname">getDeviceType</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>connection_string</em>, unsigned short &amp;<em>vendorId</em>, unsigned short &amp;<em>productId</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13getDeviceTypeERKNSt6stringERtRt" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>decomposes the connection string into vendor id and product id. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">connection_string</span></code>: the string containing the connection information </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">vendorId</span></code>: the vendor id </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">productId</span></code>: the product id </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver12OpenNIDriverEv">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver12OpenNIDriverEv"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver12OpenNIDriverEv"></span><span id="openni_wrapper::OpenNIDriver::OpenNIDriver"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1ae90c54764bd08062f2ef35e83762fbf9"></span><code class="sig-name descname">OpenNIDriver</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver12OpenNIDriverEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper12OpenNIDriver9getDeviceEj">
+<span id="_CPPv3NK14openni_wrapper12OpenNIDriver9getDeviceEj"></span><span id="_CPPv2NK14openni_wrapper12OpenNIDriver9getDeviceEj"></span><span id="openni_wrapper::OpenNIDriver::getDevice__unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a04a18480b69b2e0566daea57ec8c87c9"></span>boost::shared_ptr&lt;<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>&gt; <code class="sig-name descname">getDevice</code><span class="sig-paren">(</span>unsigned <em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper12OpenNIDriver9getDeviceEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver14getDeviceInfosEv">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver14getDeviceInfosEv"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver14getDeviceInfosEv"></span><span id="openni_wrapper::OpenNIDriver::getDeviceInfos"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1ae6a44eeb76a208f29b2921284659693b"></span>void <code class="sig-name descname">getDeviceInfos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver14getDeviceInfosEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver15device_context_E">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver15device_context_E"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver15device_context_E"></span><span id="openni_wrapper::OpenNIDriver::device_context___std::vector:DeviceContext:"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a7b6abcf6a8f6a71efdca08715e3089b5"></span>std::vector&lt;<a class="reference internal" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContextE" title="openni_wrapper::OpenNIDriver::DeviceContext">DeviceContext</a>&gt; <code class="sig-name descname">device_context_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver15device_context_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver8context_E">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver8context_E"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver8context_E"></span><span id="openni_wrapper::OpenNIDriver::context___xn::Context"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1aae1fc8403dfee6889f598f6524f05703"></span>xn::Context <code class="sig-name descname">context_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver8context_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver8bus_map_E">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver8bus_map_E"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver8bus_map_E"></span><span id="openni_wrapper::OpenNIDriver::bus_map___std::map:unsigned-c.std::map:unsigned-c.unsigned::"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1a8a13419fd8812a9f9328a7860d360269"></span>std::map&lt;unsigned char, std::map&lt;unsigned char, unsigned&gt;&gt; <code class="sig-name descname">bus_map_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver8bus_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver11serial_map_E">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver11serial_map_E"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver11serial_map_E"></span><span id="openni_wrapper::OpenNIDriver::serial_map___std::map:ss.unsigned:"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1aa9c8dc5a87682a3ef84b36b184bf9293"></span>std::map&lt;std::string, unsigned&gt; <code class="sig-name descname">serial_map_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver11serial_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver22connection_string_map_E">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver22connection_string_map_E"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver22connection_string_map_E"></span><span id="openni_wrapper::OpenNIDriver::connection_string_map___std::map:ss.unsigned:"></span><span class="target" id="classopenni__wrapper_1_1_open_n_i_driver_1ae98ed53a66ccdc38828420ef72db3237"></span>std::map&lt;std::string, unsigned&gt; <code class="sig-name descname">connection_string_map_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver22connection_string_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContextE">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13DeviceContextE"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13DeviceContextE"></span><span id="openni_wrapper::OpenNIDriver::DeviceContext"></span><span class="target" id="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context"></span><em class="property">struct </em><code class="sig-name descname">DeviceContext</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContextE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERKN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoE">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERKN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoE"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERKN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoE"></span><span id="openni_wrapper::OpenNIDriver::DeviceContext::DeviceContext__xn::NodeInfoCR.xn::NodeInfoP.xn::NodeInfoP.xn::NodeInfoP"></span><span class="target" id="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context_1a2b7b241f8a83c0cad035e22f469f4d49"></span><code class="sig-name descname">DeviceContext</code><span class="sig-paren">(</span><em class="property">const</em> xn::NodeInfo &amp;<em>device_node</em>, xn::NodeInfo *<em>image_node</em>, xn::NodeInfo *<em>depth_node</em>, xn::NodeInfo *<em>ir_node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERKN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERKN2xn8NodeInfoE">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERKN2xn8NodeInfoE"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERKN2xn8NodeInfoE"></span><span id="openni_wrapper::OpenNIDriver::DeviceContext::DeviceContext__xn::NodeInfoCR"></span><span class="target" id="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context_1a797c763466a5512cf2ad7a5620dc71b6"></span><code class="sig-name descname">DeviceContext</code><span class="sig-paren">(</span><em class="property">const</em> xn::NodeInfo &amp;<em>device_node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERKN2xn8NodeInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERK13DeviceContext">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERK13DeviceContext"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERK13DeviceContext"></span><span id="openni_wrapper::OpenNIDriver::DeviceContext::DeviceContext__DeviceContextCR"></span><span class="target" id="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context_1a7621a2c3e5801e9083e6851b24769b4d"></span><code class="sig-name descname">DeviceContext</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERKN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoEPN2xn8NodeInfoE" title="openni_wrapper::OpenNIDriver::DeviceContext::DeviceContext">DeviceContext</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext13DeviceContextERK13DeviceContext" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext11device_nodeE">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13DeviceContext11device_nodeE"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13DeviceContext11device_nodeE"></span><span id="openni_wrapper::OpenNIDriver::DeviceContext::device_node__xn::NodeInfo"></span><span class="target" id="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context_1a2ffa8e0c238cd0bbcf74dfd22f6dd0a8"></span>xn::NodeInfo <code class="sig-name descname">device_node</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext11device_nodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext10image_nodeE">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13DeviceContext10image_nodeE"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13DeviceContext10image_nodeE"></span><span id="openni_wrapper::OpenNIDriver::DeviceContext::image_node__boost::shared_ptr:xn::NodeInfo:"></span><span class="target" id="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context_1ae7cf92e7cd79830946b3995717a62671"></span>boost::shared_ptr&lt;xn::NodeInfo&gt; <code class="sig-name descname">image_node</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext10image_nodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext10depth_nodeE">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13DeviceContext10depth_nodeE"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13DeviceContext10depth_nodeE"></span><span id="openni_wrapper::OpenNIDriver::DeviceContext::depth_node__boost::shared_ptr:xn::NodeInfo:"></span><span class="target" id="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context_1a77e160f7d7d7b18558b6318cf3f14b2e"></span>boost::shared_ptr&lt;xn::NodeInfo&gt; <code class="sig-name descname">depth_node</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext10depth_nodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext7ir_nodeE">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13DeviceContext7ir_nodeE"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13DeviceContext7ir_nodeE"></span><span id="openni_wrapper::OpenNIDriver::DeviceContext::ir_node__boost::shared_ptr:xn::NodeInfo:"></span><span class="target" id="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context_1a238f93ac0dd280f06244be49f06a0c6e"></span>boost::shared_ptr&lt;xn::NodeInfo&gt; <code class="sig-name descname">ir_node</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext7ir_nodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext6deviceE">
+<span id="_CPPv3N14openni_wrapper12OpenNIDriver13DeviceContext6deviceE"></span><span id="_CPPv2N14openni_wrapper12OpenNIDriver13DeviceContext6deviceE"></span><span id="openni_wrapper::OpenNIDriver::DeviceContext::device__boost::weak_ptr:OpenNIDevice:"></span><span class="target" id="structopenni__wrapper_1_1_open_n_i_driver_1_1_device_context_1a445e431195c15a1e401eb10744d1c0ef"></span>boost::weak_ptr&lt;<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>&gt; <code class="sig-name descname">device</code><a class="headerlink" href="#_CPPv4N14openni_wrapper12OpenNIDriver13DeviceContext6deviceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

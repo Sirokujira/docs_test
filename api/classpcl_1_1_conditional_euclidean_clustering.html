@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class ConditionalEuclideanClustering &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class ConditionalEuclideanClustering</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_conditional_euclidean_clustering.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-conditionaleuclideanclustering">
+<span id="exhale-class-classpcl-1-1-conditional-euclidean-clustering"></span><h1>Template Class ConditionalEuclideanClustering<a class="headerlink" href="#template-class-conditionaleuclideanclustering" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_segmentation_include_pcl_segmentation_conditional_euclidean_clustering.h.html#file-pcl-segmentation-include-pcl-segmentation-conditional-euclidean-clustering-h"><span class="std std-ref">File conditional_euclidean_clustering.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PCLBase&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_c_l_base.html#exhale-class-classpcl-1-1-p-c-l-base"><span class="std std-ref">Template Class PCLBase</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl30ConditionalEuclideanClusteringE">
+<span id="_CPPv3I0EN3pcl30ConditionalEuclideanClusteringE"></span><span id="_CPPv2I0EN3pcl30ConditionalEuclideanClusteringE"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">ConditionalEuclideanClustering</code> : <em class="property">public</em> pcl::PCLBase&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl30ConditionalEuclideanClusteringE" title="pcl::ConditionalEuclideanClustering::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl30ConditionalEuclideanClusteringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_conditional_euclidean_clustering"><span class="std std-ref">ConditionalEuclideanClustering</span></a></strong> performs segmentation based on Euclidean distance and a user-defined clustering condition. </p>
+<p>The condition that need to hold is currently passed using a function pointer. For more information check the documentation of <a class="reference internal" href="#classpcl_1_1_conditional_euclidean_clustering_1a62bf691a0260fc34c3df9d9d48cb2faa"><span class="std std-ref">setConditionFunction()</span></a> or the usage example below: <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span>
+<span class="nf">enforceIntensitySimilarity</span> <span class="p">(</span><span class="k">const</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&amp;</span> <span class="n">point_a</span><span class="p">,</span> <span class="k">const</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&amp;</span> <span class="n">point_b</span><span class="p">,</span> <span class="kt">float</span> <span class="n">squared_distance</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">fabs</span> <span class="p">(</span><span class="n">point_a</span><span class="p">.</span><span class="n">intensity</span> <span class="o">-</span> <span class="n">point_b</span><span class="p">.</span><span class="n">intensity</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.1f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// ...</span>
+<span class="c1">// Somewhere down to the main code</span>
+<span class="c1">// ...</span>
+<span class="n">pcl</span><span class="o">::</span><span class="n">ConditionalEuclideanClustering</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZI</span><span class="o">&gt;</span> <span class="n">cec</span> <span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">cec</span><span class="p">.</span><span class="n">setInputCloud</span> <span class="p">(</span><span class="n">cloud_in</span><span class="p">);</span>
+<span class="n">cec</span><span class="p">.</span><span class="n">setConditionFunction</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">enforceIntensitySimilarity</span><span class="p">);</span>
+<span class="c1">// Points within this distance from one another are going to need to validate the enforceIntensitySimilarity function to be part of the same cluster:</span>
+<span class="n">cec</span><span class="p">.</span><span class="n">setClusterTolerance</span> <span class="p">(</span><span class="mf">0.09f</span><span class="p">);</span>
+<span class="c1">// Size constraints for the clusters:</span>
+<span class="n">cec</span><span class="p">.</span><span class="n">setMinClusterSize</span> <span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">cec</span><span class="p">.</span><span class="n">setMaxClusterSize</span> <span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="c1">// The resulting clusters (an array of pointindices):</span>
+<span class="n">cec</span><span class="p">.</span><span class="n">segment</span> <span class="p">(</span><span class="o">*</span><span class="n">clusters</span><span class="p">);</span>
+<span class="c1">// The clusters that are too small or too large in size can also be extracted separately:</span>
+<span class="n">cec</span><span class="p">.</span><span class="n">getRemovedClusters</span> <span class="p">(</span><span class="n">small_clusters</span><span class="p">,</span> <span class="n">large_clusters</span><span class="p">);</span>
+</pre></div>
+</div>
+ <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Frits Florentinus </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering30ConditionalEuclideanClusteringEb">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering30ConditionalEuclideanClusteringEb"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering30ConditionalEuclideanClusteringEb"></span><span id="pcl::ConditionalEuclideanClustering::ConditionalEuclideanClustering__b"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1af707af3b42a9b8cd4314e95ac9134eed"></span><code class="sig-name descname">ConditionalEuclideanClustering</code><span class="sig-paren">(</span>bool <em>extract_removed_clusters</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering30ConditionalEuclideanClusteringEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">extract_removed_clusters</span></code>: Set to true if you want to be able to extract the clusters that are too large or too small (default = false) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering15setSearchMethodERK11SearcherPtr">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering15setSearchMethodERK11SearcherPtr"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering15setSearchMethodERK11SearcherPtr"></span><span id="pcl::ConditionalEuclideanClustering::setSearchMethod__SearcherPtrCR"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1a05ed0d12c23e028e60648b87a42e6b07"></span>void <code class="sig-name descname">setSearchMethod</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl30ConditionalEuclideanClustering11SearcherPtrE" title="pcl::ConditionalEuclideanClustering::SearcherPtr">SearcherPtr</a> &amp;<em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering15setSearchMethodERK11SearcherPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the search object. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tree</span></code>: a pointer to the spatial search object. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl30ConditionalEuclideanClustering15getSearchMethodEv">
+<span id="_CPPv3NK3pcl30ConditionalEuclideanClustering15getSearchMethodEv"></span><span id="_CPPv2NK3pcl30ConditionalEuclideanClustering15getSearchMethodEv"></span><span id="pcl::ConditionalEuclideanClustering::getSearchMethodC"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1ab299c2c250237cebb6d4ed64a68d522b"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl30ConditionalEuclideanClustering11SearcherPtrE" title="pcl::ConditionalEuclideanClustering::SearcherPtr">SearcherPtr</a> &amp;<code class="sig-name descname">getSearchMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl30ConditionalEuclideanClustering15getSearchMethodEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the search method used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering20setConditionFunctionEPFbRK6PointTRK6PointTfE">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering20setConditionFunctionEPFbRK6PointTRK6PointTfE"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering20setConditionFunctionEPFbRK6PointTRK6PointTfE"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1a62bf691a0260fc34c3df9d9d48cb2faa"></span>void <code class="sig-name descname">setConditionFunction</code><span class="sig-paren">(</span>bool (*<em>condition_function</em>)<span class="sig-paren">(</span><em class="property">const</em> PointT&amp;, <em class="property">const</em> PointT&amp;, float<span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering20setConditionFunctionEPFbRK6PointTRK6PointTfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the condition that needs to hold for neighboring points to be considered part of the same cluster. </p>
+<p>Any two points within a certain distance from one another will need to evaluate this condition in order to be made part of the same cluster. The distance can be set using <a class="reference internal" href="#classpcl_1_1_conditional_euclidean_clustering_1abc0ffbe8624cf5c990484e35055f3c87"><span class="std std-ref">setClusterTolerance()</span></a>. <p> Note that for a point to be part of a cluster, the condition only needs to hold for at least 1 point pair. To clarify, the following statement is false: Any two points within a cluster always evaluate this condition function to true. </p>
+<p> The input arguments of the condition function are: </p>
+<ul class="simple">
+<li><p>PointT The first point of the point pair </p></li>
+<li><p>PointT The second point of the point pair </p></li>
+<li><p>float The squared distance between the points </p></li>
+</ul>
+<p>The output argument is a boolean, returning true will merge the second point into the cluster of the first point. </p>
+<dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">condition_function</span></code>: The condition function that needs to hold for clustering </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering20setConditionFunctionEN5boost8functionIFbRK6PointTRK6PointTfEEE">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering20setConditionFunctionEN5boost8functionIFbRK6PointTRK6PointTfEEE"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering20setConditionFunctionEN5boost8functionIFbRK6PointTRK6PointTfEEE"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1afc78950824bf9940d260835543862850"></span>void <code class="sig-name descname">setConditionFunction</code><span class="sig-paren">(</span>boost::function&lt;bool<span class="sig-paren">(</span><em class="property">const</em> PointT&amp;, <em class="property">const</em> PointT&amp;, float<span class="sig-paren">)</span>&gt; <em>condition_function</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering20setConditionFunctionEN5boost8functionIFbRK6PointTRK6PointTfEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the condition that needs to hold for neighboring points to be considered part of the same cluster. </p>
+<p>This is an overloaded function provided for convenience. See the documentation for <a class="reference internal" href="#classpcl_1_1_conditional_euclidean_clustering_1a62bf691a0260fc34c3df9d9d48cb2faa"><span class="std std-ref">setConditionFunction()</span></a>. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering19setClusterToleranceEf">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering19setClusterToleranceEf"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering19setClusterToleranceEf"></span><span id="pcl::ConditionalEuclideanClustering::setClusterTolerance__float"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1abc0ffbe8624cf5c990484e35055f3c87"></span>void <code class="sig-name descname">setClusterTolerance</code><span class="sig-paren">(</span>float <em>cluster_tolerance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering19setClusterToleranceEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the spatial tolerance for new cluster candidates. </p>
+<p>Any two points within this distance from one another will need to evaluate a certain condition in order to be made part of the same cluster. The condition can be set using <a class="reference internal" href="#classpcl_1_1_conditional_euclidean_clustering_1a62bf691a0260fc34c3df9d9d48cb2faa"><span class="std std-ref">setConditionFunction()</span></a>. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cluster_tolerance</span></code>: The distance to scan for cluster candidates (default = 0.0) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering19getClusterToleranceEv">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering19getClusterToleranceEv"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering19getClusterToleranceEv"></span><span id="pcl::ConditionalEuclideanClustering::getClusterTolerance"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1a462b1b1ee44fd92efd8af88add42c61a"></span>float <code class="sig-name descname">getClusterTolerance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering19getClusterToleranceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the spatial tolerance for new cluster candidates. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering17setMinClusterSizeEi">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering17setMinClusterSizeEi"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering17setMinClusterSizeEi"></span><span id="pcl::ConditionalEuclideanClustering::setMinClusterSize__i"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1a05a9b657c356141464cb80ee22ab53c2"></span>void <code class="sig-name descname">setMinClusterSize</code><span class="sig-paren">(</span>int <em>min_cluster_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering17setMinClusterSizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the minimum number of points that a cluster needs to contain in order to be considered valid. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_cluster_size</span></code>: The minimum cluster size (default = 1) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering17getMinClusterSizeEv">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering17getMinClusterSizeEv"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering17getMinClusterSizeEv"></span><span id="pcl::ConditionalEuclideanClustering::getMinClusterSize"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1ae97b076d0e5f939189c3c2207e872785"></span>int <code class="sig-name descname">getMinClusterSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering17getMinClusterSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the minimum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering17setMaxClusterSizeEi">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering17setMaxClusterSizeEi"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering17setMaxClusterSizeEi"></span><span id="pcl::ConditionalEuclideanClustering::setMaxClusterSize__i"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1a8c0ad8703fab1ddc50e09924eb2cfcc8"></span>void <code class="sig-name descname">setMaxClusterSize</code><span class="sig-paren">(</span>int <em>max_cluster_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering17setMaxClusterSizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of points that a cluster needs to contain in order to be considered valid. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_cluster_size</span></code>: The maximum cluster size (default = unlimited) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering17getMaxClusterSizeEv">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering17getMaxClusterSizeEv"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering17getMaxClusterSizeEv"></span><span id="pcl::ConditionalEuclideanClustering::getMaxClusterSize"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1a003e5aabe77befd122290e8039e013ec"></span>int <code class="sig-name descname">getMaxClusterSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering17getMaxClusterSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering7segmentER15IndicesClusters">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering7segmentER15IndicesClusters"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering7segmentER15IndicesClusters"></span><span id="pcl::ConditionalEuclideanClustering::segment__IndicesClustersR"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1a8c03a476748bf42bbca42bc66141e785"></span>void <code class="sig-name descname">segment</code><span class="sig-paren">(</span><a class="reference internal" href="typedef_namespacepcl_1ae590f783a25826f221a26599aeee0f83.html#_CPPv4N3pcl15IndicesClustersE" title="pcl::IndicesClusters">IndicesClusters</a> &amp;<em>clusters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering7segmentER15IndicesClusters" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Segment the input into separate clusters. </p>
+<p>The input can be set using <a class="reference internal" href="classpcl_1_1_p_c_l_base.html#classpcl_1_1_p_c_l_base_1a1952d7101f3942bac3b69ed55c1ca7ea"><span class="std std-ref">setInputCloud()</span></a> and <a class="reference internal" href="classpcl_1_1_p_c_l_base.html#classpcl_1_1_p_c_l_base_1ab219359de6eb34c9d51e2e976dd1a0d1"><span class="std std-ref">setIndices()</span></a>. <p> The size constraints for the resulting clusters can be set using </p>
+<a class="reference internal" href="#classpcl_1_1_conditional_euclidean_clustering_1a05a9b657c356141464cb80ee22ab53c2"><span class="std std-ref">setMinClusterSize()</span></a> and <a class="reference internal" href="#classpcl_1_1_conditional_euclidean_clustering_1a8c0ad8703fab1ddc50e09924eb2cfcc8"><span class="std std-ref">setMaxClusterSize()</span></a>. <p> The region growing parameters can be set using </p>
+<a class="reference internal" href="#classpcl_1_1_conditional_euclidean_clustering_1a62bf691a0260fc34c3df9d9d48cb2faa"><span class="std std-ref">setConditionFunction()</span></a> and <a class="reference internal" href="#classpcl_1_1_conditional_euclidean_clustering_1abc0ffbe8624cf5c990484e35055f3c87"><span class="std std-ref">setClusterTolerance()</span></a>. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">clusters</span></code>: The resultant set of indices, indexing the points of the input cloud that correspond to the clusters </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering18getRemovedClustersER18IndicesClustersPtrR18IndicesClustersPtr">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering18getRemovedClustersER18IndicesClustersPtrR18IndicesClustersPtr"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering18getRemovedClustersER18IndicesClustersPtrR18IndicesClustersPtr"></span><span id="pcl::ConditionalEuclideanClustering::getRemovedClusters__IndicesClustersPtrR.IndicesClustersPtrR"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1af264099e843fbf5d48049857e1e1d6af"></span>void <code class="sig-name descname">getRemovedClusters</code><span class="sig-paren">(</span><a class="reference internal" href="typedef_namespacepcl_1ad23a5d901ae14db89c439b5e825b3256.html#_CPPv4N3pcl18IndicesClustersPtrE" title="pcl::IndicesClustersPtr">IndicesClustersPtr</a> &amp;<em>small_clusters</em>, <a class="reference internal" href="typedef_namespacepcl_1ad23a5d901ae14db89c439b5e825b3256.html#_CPPv4N3pcl18IndicesClustersPtrE" title="pcl::IndicesClustersPtr">IndicesClustersPtr</a> &amp;<em>large_clusters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering18getRemovedClustersER18IndicesClustersPtrR18IndicesClustersPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the clusters that are invalidated due to size constraints. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The constructor of this class needs to be initialized with true, and the segment method needs to have been called prior to using this method. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">small_clusters</span></code>: The resultant clusters that contain less than min_cluster_size points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">large_clusters</span></code>: The resultant clusters that contain more than max_cluster_size points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl30ConditionalEuclideanClustering11SearcherPtrE">
+<span id="_CPPv3N3pcl30ConditionalEuclideanClustering11SearcherPtrE"></span><span id="_CPPv2N3pcl30ConditionalEuclideanClustering11SearcherPtrE"></span><span id="pcl::ConditionalEuclideanClustering::SearcherPtr"></span><span class="target" id="classpcl_1_1_conditional_euclidean_clustering_1abb103ab0852677c97b78ca12a39ba930"></span><em class="property">typedef </em>pcl::search::Search&lt;PointT&gt;::Ptr <code class="sig-name descname">SearcherPtr</code><a class="headerlink" href="#_CPPv4N3pcl30ConditionalEuclideanClustering11SearcherPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

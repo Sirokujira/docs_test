@@ -1,0 +1,1077 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class MovingLeastSquares &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class MovingLeastSquares</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_moving_least_squares.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-movingleastsquares">
+<span id="exhale-class-classpcl-1-1-moving-least-squares"></span><h1>Template Class MovingLeastSquares<a class="headerlink" href="#template-class-movingleastsquares" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_mls.h.html#file-pcl-surface-include-pcl-surface-mls-h"><span class="std std-ref">File mls.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid.html#exhale-class-classpcl-1-1-moving-least-squares-1-1-m-l-s-voxel-grid"><span class="std std-ref">Class MovingLeastSquares::MLSVoxelGrid</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1_1_leaf.html#exhale-struct-structpcl-1-1-moving-least-squares-1-1-m-l-s-voxel-grid-1-1-leaf"><span class="std std-ref">Struct MLSVoxelGrid::Leaf</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::CloudSurfaceProcessing&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_cloud_surface_processing.html#exhale-class-classpcl-1-1-cloud-surface-processing"><span class="std std-ref">Template Class CloudSurfaceProcessing</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::MovingLeastSquaresOMP&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_moving_least_squares_o_m_p.html#exhale-class-classpcl-1-1-moving-least-squares-o-m-p"><span class="std std-ref">Template Class MovingLeastSquaresOMP</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl18MovingLeastSquaresE">
+<span id="_CPPv3I00EN3pcl18MovingLeastSquaresE"></span><span id="_CPPv2I00EN3pcl18MovingLeastSquaresE"></span><span class="target" id="classpcl_1_1_moving_least_squares"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">PointOutT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">MovingLeastSquares</code> : <em class="property">public</em> pcl::CloudSurfaceProcessing&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl18MovingLeastSquaresE" title="pcl::MovingLeastSquares::PointInT">PointInT</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl18MovingLeastSquaresE" title="pcl::MovingLeastSquares::PointOutT">PointOutT</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl18MovingLeastSquaresE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_moving_least_squares"><span class="std std-ref">MovingLeastSquares</span></a> represent an implementation of the MLS (Moving Least Squares) algorithm for data smoothing and improved normal estimation. </p>
+<p>It also contains methods for upsampling the resulting cloud based on the parametric fit. Reference paper: “Computing and Rendering Point Set Surfaces” by Marc Alexa, Johannes Behr, Daniel Cohen-Or, Shachar Fleishman, David Levin and Claudio T. Silva www.sci.utah.edu/~shachar/Publications/crpss.pdf <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>There is a parallelized version of the processing step, using the OpenMP standard. Compared to the standard version, an overhead is incurred in terms of runtime and memory usage. The upsampling methods DISTINCT_CLOUD and VOXEL_GRID_DILATION are not parallelized completely, i.e. parts of the algorithm run on a single thread only. </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Zoltan Csaba Marton, Radu B. Rusu, Alexandru E. Ichim, Suat Gedikli, Robert Huitl </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_moving_least_squares_o_m_p.html#classpcl_1_1_moving_least_squares_o_m_p"><span class="std std-ref">pcl::MovingLeastSquaresOMP&lt; PointInT, PointOutT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl18MovingLeastSquares16UpsamplingMethodE">
+<span id="_CPPv3N3pcl18MovingLeastSquares16UpsamplingMethodE"></span><span id="_CPPv2N3pcl18MovingLeastSquares16UpsamplingMethodE"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aa444c1e8df3498adba7f25918f4a961c"></span><em class="property">enum </em><code class="sig-name descname">UpsamplingMethod</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares16UpsamplingMethodE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl18MovingLeastSquares4NONEE">
+<span id="_CPPv3N3pcl18MovingLeastSquares4NONEE"></span><span id="_CPPv2N3pcl18MovingLeastSquares4NONEE"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aa444c1e8df3498adba7f25918f4a961caf46ddb8efe2eba76e9214b9e8eb79902"></span><code class="sig-name descname">NONE</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares4NONEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>No upsampling will be done, only the input points will be projected to their own MLS surfaces. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl18MovingLeastSquares14DISTINCT_CLOUDE">
+<span id="_CPPv3N3pcl18MovingLeastSquares14DISTINCT_CLOUDE"></span><span id="_CPPv2N3pcl18MovingLeastSquares14DISTINCT_CLOUDE"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aa444c1e8df3498adba7f25918f4a961caf672714dcbb282a17c5cd8bb8bf3bb11"></span><code class="sig-name descname">DISTINCT_CLOUD</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares14DISTINCT_CLOUDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project the points of the distinct cloud to the MLS surface. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl18MovingLeastSquares18SAMPLE_LOCAL_PLANEE">
+<span id="_CPPv3N3pcl18MovingLeastSquares18SAMPLE_LOCAL_PLANEE"></span><span id="_CPPv2N3pcl18MovingLeastSquares18SAMPLE_LOCAL_PLANEE"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aa444c1e8df3498adba7f25918f4a961ca4b1648fc191e95dafeddda97f689ec14"></span><code class="sig-name descname">SAMPLE_LOCAL_PLANE</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares18SAMPLE_LOCAL_PLANEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The local plane of each input point will be sampled in a circular fashion using the <a class="reference internal" href="#classpcl_1_1_moving_least_squares_1aa2346b81e98ac4a83b65613b4f5dac9a"><span class="std std-ref">upsampling_radius_</span></a> and the <a class="reference internal" href="#classpcl_1_1_moving_least_squares_1a7144ad759e58dca299c0ab5f8c6259b9"><span class="std std-ref">upsampling_step_</span></a> parameters. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl18MovingLeastSquares22RANDOM_UNIFORM_DENSITYE">
+<span id="_CPPv3N3pcl18MovingLeastSquares22RANDOM_UNIFORM_DENSITYE"></span><span id="_CPPv2N3pcl18MovingLeastSquares22RANDOM_UNIFORM_DENSITYE"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aa444c1e8df3498adba7f25918f4a961ca375458537eed10ffd0be26da0866ad96"></span><code class="sig-name descname">RANDOM_UNIFORM_DENSITY</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares22RANDOM_UNIFORM_DENSITYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The local plane of each input point will be sampled using an uniform random distribution such that the density of points is constant throughout the cloud - given by the <a class="reference internal" href="#classpcl_1_1_moving_least_squares_1ab4a818c9ec101ecfcf970c6165b201c0"><span class="std std-ref">desired_num_points_in_radius_</span></a> parameter. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl18MovingLeastSquares19VOXEL_GRID_DILATIONE">
+<span id="_CPPv3N3pcl18MovingLeastSquares19VOXEL_GRID_DILATIONE"></span><span id="_CPPv2N3pcl18MovingLeastSquares19VOXEL_GRID_DILATIONE"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aa444c1e8df3498adba7f25918f4a961ca6ffc59f2169c12d01654c932ac28db13"></span><code class="sig-name descname">VOXEL_GRID_DILATION</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares19VOXEL_GRID_DILATIONE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The input cloud will be inserted into a voxel grid with voxels of size <a class="reference internal" href="#classpcl_1_1_moving_least_squares_1afbde287f8eb3329c22d0246db630ad58"><span class="std std-ref">voxel_size_</span></a>; this voxel grid will be dilated <a class="reference internal" href="#classpcl_1_1_moving_least_squares_1aea681e491f0d8671dbd6e36ccd8f68b5"><span class="std std-ref">dilation_iteration_num_</span></a> times and the resulting points will be projected to the MLS surface of the closest point in the input cloud; the result is a point cloud with filled holes and a constant point density. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares3PtrE">
+<span id="_CPPv3N3pcl18MovingLeastSquares3PtrE"></span><span id="_CPPv2N3pcl18MovingLeastSquares3PtrE"></span><span id="pcl::MovingLeastSquares::Ptr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a9a8aa4f38a1ee5548a1b99c755a269b3"></span><em class="property">typedef </em>boost::shared_ptr&lt;MovingLeastSquares&lt;PointInT, PointOutT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares8ConstPtrE">
+<span id="_CPPv3N3pcl18MovingLeastSquares8ConstPtrE"></span><span id="_CPPv2N3pcl18MovingLeastSquares8ConstPtrE"></span><span id="pcl::MovingLeastSquares::ConstPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a5ca27f5d5ab42f4d66bcd149121cc388"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> MovingLeastSquares&lt;PointInT, PointOutT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares6KdTreeE">
+<span id="_CPPv3N3pcl18MovingLeastSquares6KdTreeE"></span><span id="_CPPv2N3pcl18MovingLeastSquares6KdTreeE"></span><span id="pcl::MovingLeastSquares::KdTree"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a3ceb63c0ef071ebb49c6cc51a941636a"></span><em class="property">typedef </em>pcl::search::Search&lt;PointInT&gt; <code class="sig-name descname">KdTree</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares6KdTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares9KdTreePtrE">
+<span id="_CPPv3N3pcl18MovingLeastSquares9KdTreePtrE"></span><span id="_CPPv2N3pcl18MovingLeastSquares9KdTreePtrE"></span><span id="pcl::MovingLeastSquares::KdTreePtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ad998895a52d4d5cfa1a904f004b0c062"></span><em class="property">typedef </em>pcl::search::Search&lt;PointInT&gt;::Ptr <code class="sig-name descname">KdTreePtr</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares9KdTreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares11NormalCloudE">
+<span id="_CPPv3N3pcl18MovingLeastSquares11NormalCloudE"></span><span id="_CPPv2N3pcl18MovingLeastSquares11NormalCloudE"></span><span id="pcl::MovingLeastSquares::NormalCloud"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a34c43c0ece6dff1a5ca06cc0fd77ef54"></span><em class="property">typedef </em>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt; <code class="sig-name descname">NormalCloud</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares11NormalCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares14NormalCloudPtrE">
+<span id="_CPPv3N3pcl18MovingLeastSquares14NormalCloudPtrE"></span><span id="_CPPv2N3pcl18MovingLeastSquares14NormalCloudPtrE"></span><span id="pcl::MovingLeastSquares::NormalCloudPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ab308e0d1c1f08e9371791436f84a0d0e"></span><em class="property">typedef </em>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt;::Ptr <code class="sig-name descname">NormalCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares14NormalCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares13PointCloudOutE">
+<span id="_CPPv3N3pcl18MovingLeastSquares13PointCloudOutE"></span><span id="_CPPv2N3pcl18MovingLeastSquares13PointCloudOutE"></span><span id="pcl::MovingLeastSquares::PointCloudOut"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a081a1b058e04212bcf410d39e23d2aec"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointOutT&gt; <code class="sig-name descname">PointCloudOut</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares13PointCloudOutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares16PointCloudOutPtrE">
+<span id="_CPPv3N3pcl18MovingLeastSquares16PointCloudOutPtrE"></span><span id="_CPPv2N3pcl18MovingLeastSquares16PointCloudOutPtrE"></span><span id="pcl::MovingLeastSquares::PointCloudOutPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1abc89cf0ec094ec97dc596c1cfa12eb98"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares13PointCloudOutE" title="pcl::MovingLeastSquares::PointCloudOut">PointCloudOut</a>::Ptr <code class="sig-name descname">PointCloudOutPtr</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares16PointCloudOutPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares21PointCloudOutConstPtrE">
+<span id="_CPPv3N3pcl18MovingLeastSquares21PointCloudOutConstPtrE"></span><span id="_CPPv2N3pcl18MovingLeastSquares21PointCloudOutConstPtrE"></span><span id="pcl::MovingLeastSquares::PointCloudOutConstPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ac4c339a7baeb4accdd08f892016d0145"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares13PointCloudOutE" title="pcl::MovingLeastSquares::PointCloudOut">PointCloudOut</a>::ConstPtr <code class="sig-name descname">PointCloudOutConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares21PointCloudOutConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares12PointCloudInE">
+<span id="_CPPv3N3pcl18MovingLeastSquares12PointCloudInE"></span><span id="_CPPv2N3pcl18MovingLeastSquares12PointCloudInE"></span><span id="pcl::MovingLeastSquares::PointCloudIn"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a4032189616a8e0c99aa8bdc2fa705537"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointInT&gt; <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares15PointCloudInPtrE">
+<span id="_CPPv3N3pcl18MovingLeastSquares15PointCloudInPtrE"></span><span id="_CPPv2N3pcl18MovingLeastSquares15PointCloudInPtrE"></span><span id="pcl::MovingLeastSquares::PointCloudInPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a981b3179a1140b00e9ae85d785f0b366"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares12PointCloudInE" title="pcl::MovingLeastSquares::PointCloudIn">PointCloudIn</a>::Ptr <code class="sig-name descname">PointCloudInPtr</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares15PointCloudInPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares20PointCloudInConstPtrE">
+<span id="_CPPv3N3pcl18MovingLeastSquares20PointCloudInConstPtrE"></span><span id="_CPPv2N3pcl18MovingLeastSquares20PointCloudInConstPtrE"></span><span id="pcl::MovingLeastSquares::PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ab1efc3ba0c7ca630567b965fffaccce1"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares12PointCloudInE" title="pcl::MovingLeastSquares::PointCloudIn">PointCloudIn</a>::ConstPtr <code class="sig-name descname">PointCloudInConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares20PointCloudInConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18MovingLeastSquares12SearchMethodE">
+<span id="_CPPv3N3pcl18MovingLeastSquares12SearchMethodE"></span><span id="_CPPv2N3pcl18MovingLeastSquares12SearchMethodE"></span><span id="pcl::MovingLeastSquares::SearchMethod"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a32e4abb29961e72584fd7dcd69e8133e"></span><em class="property">typedef </em>boost::function&lt;int<span class="sig-paren">(</span>int, double, std::vector&lt;int&gt;&amp;, std::vector&lt;float&gt;&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">SearchMethod</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares12SearchMethodE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares18MovingLeastSquaresEv">
+<span id="_CPPv3N3pcl18MovingLeastSquares18MovingLeastSquaresEv"></span><span id="_CPPv2N3pcl18MovingLeastSquares18MovingLeastSquaresEv"></span><span id="pcl::MovingLeastSquares::MovingLeastSquares"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a379330b0b1dacaa668d165f94930749c"></span><code class="sig-name descname">MovingLeastSquares</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares18MovingLeastSquaresEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquaresD0Ev">
+<span id="_CPPv3N3pcl18MovingLeastSquaresD0Ev"></span><span id="_CPPv2N3pcl18MovingLeastSquaresD0Ev"></span><span id="pcl::MovingLeastSquares::~MovingLeastSquares"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a085971b0da5e600bc65d11dd67704845"></span><em class="property">virtual</em> <code class="sig-name descname">~MovingLeastSquares</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquaresD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares17setComputeNormalsEb">
+<span id="_CPPv3N3pcl18MovingLeastSquares17setComputeNormalsEb"></span><span id="_CPPv2N3pcl18MovingLeastSquares17setComputeNormalsEb"></span><span id="pcl::MovingLeastSquares::setComputeNormals__b"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a5983412b9e7efee57f491d1c54da21d6"></span>void <code class="sig-name descname">setComputeNormals</code><span class="sig-paren">(</span>bool <em>compute_normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares17setComputeNormalsEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set whether the algorithm should also store the normals computed. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This is optional, but need a proper output cloud type </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares15setSearchMethodERK9KdTreePtr">
+<span id="_CPPv3N3pcl18MovingLeastSquares15setSearchMethodERK9KdTreePtr"></span><span id="_CPPv2N3pcl18MovingLeastSquares15setSearchMethodERK9KdTreePtr"></span><span id="pcl::MovingLeastSquares::setSearchMethod__KdTreePtrCR"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ab0865f62d90c9fb0f45dd96e587fe84e"></span>void <code class="sig-name descname">setSearchMethod</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares9KdTreePtrE" title="pcl::MovingLeastSquares::KdTreePtr">KdTreePtr</a> &amp;<em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares15setSearchMethodERK9KdTreePtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the search object. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tree</span></code>: a pointer to the spatial search object. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares15getSearchMethodEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares15getSearchMethodEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares15getSearchMethodEv"></span><span id="pcl::MovingLeastSquares::getSearchMethodC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a2e0a2dd7634af96f989edbb06a0a04d8"></span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares9KdTreePtrE" title="pcl::MovingLeastSquares::KdTreePtr">KdTreePtr</a> <code class="sig-name descname">getSearchMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares15getSearchMethodEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the search method used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares18setPolynomialOrderEi">
+<span id="_CPPv3N3pcl18MovingLeastSquares18setPolynomialOrderEi"></span><span id="_CPPv2N3pcl18MovingLeastSquares18setPolynomialOrderEi"></span><span id="pcl::MovingLeastSquares::setPolynomialOrder__i"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a3127676a2bb32a32164a181bfbbf7589"></span>void <code class="sig-name descname">setPolynomialOrder</code><span class="sig-paren">(</span>int <em>order</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares18setPolynomialOrderEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the order of the polynomial to be fit. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Setting order &gt; 1 indicates using a polynomial fit. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">order</span></code>: the order of the polynomial </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares18getPolynomialOrderEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares18getPolynomialOrderEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares18getPolynomialOrderEv"></span><span id="pcl::MovingLeastSquares::getPolynomialOrderC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a31b20ae5edc27db50e771a5832d4f7ea"></span>int <code class="sig-name descname">getPolynomialOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares18getPolynomialOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the order of the polynomial to be fit. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares16setPolynomialFitEb">
+<span id="_CPPv3N3pcl18MovingLeastSquares16setPolynomialFitEb"></span><span id="_CPPv2N3pcl18MovingLeastSquares16setPolynomialFitEb"></span><span id="pcl::MovingLeastSquares::setPolynomialFit__b"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aec89a5e1f9001476eb1fc2b8db63d650"></span>void <code class="sig-name descname">setPolynomialFit</code><span class="sig-paren">(</span>bool <em>polynomial_fit</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares16setPolynomialFitEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets whether the surface and normal are approximated using a polynomial, or only via tangent estimation. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">polynomial_fit</span></code>: set to true for polynomial fit </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares16getPolynomialFitEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares16getPolynomialFitEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares16getPolynomialFitEv"></span><span id="pcl::MovingLeastSquares::getPolynomialFitC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a16c07d35ff542961eacdf24852adfdcd"></span>bool <code class="sig-name descname">getPolynomialFit</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares16getPolynomialFitEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the polynomial_fit value (true if the surface and normal are approximated using a polynomial). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares15setSearchRadiusEd">
+<span id="_CPPv3N3pcl18MovingLeastSquares15setSearchRadiusEd"></span><span id="_CPPv2N3pcl18MovingLeastSquares15setSearchRadiusEd"></span><span id="pcl::MovingLeastSquares::setSearchRadius__double"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ae5e4d16c7aae631ef02bf1ee843bd55e"></span>void <code class="sig-name descname">setSearchRadius</code><span class="sig-paren">(</span>double <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares15setSearchRadiusEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the sphere radius that is to be used for determining the k-nearest neighbors used for fitting. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Calling this method resets the squared Gaussian parameter to radius * radius ! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the sphere radius that is to contain all k-nearest neighbors </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares15getSearchRadiusEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares15getSearchRadiusEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares15getSearchRadiusEv"></span><span id="pcl::MovingLeastSquares::getSearchRadiusC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a2543a2bcdcb9efd4aaf01f90c69a88b1"></span>double <code class="sig-name descname">getSearchRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares15getSearchRadiusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the sphere radius used for determining the k-nearest neighbors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares16setSqrGaussParamEd">
+<span id="_CPPv3N3pcl18MovingLeastSquares16setSqrGaussParamEd"></span><span id="_CPPv2N3pcl18MovingLeastSquares16setSqrGaussParamEd"></span><span id="pcl::MovingLeastSquares::setSqrGaussParam__double"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a026b12106161eba174b69ef67d769950"></span>void <code class="sig-name descname">setSqrGaussParam</code><span class="sig-paren">(</span>double <em>sqr_gauss_param</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares16setSqrGaussParamEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the parameter used for distance based weighting of neighbors (the square of the search radius works best in general). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sqr_gauss_param</span></code>: the squared Gaussian parameter </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares16getSqrGaussParamEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares16getSqrGaussParamEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares16getSqrGaussParamEv"></span><span id="pcl::MovingLeastSquares::getSqrGaussParamC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a0de2cd297da3db1daef0b090a6e54a67"></span>double <code class="sig-name descname">getSqrGaussParam</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares16getSqrGaussParamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the parameter for distance based weighting of neighbors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares19setUpsamplingMethodE16UpsamplingMethod">
+<span id="_CPPv3N3pcl18MovingLeastSquares19setUpsamplingMethodE16UpsamplingMethod"></span><span id="_CPPv2N3pcl18MovingLeastSquares19setUpsamplingMethodE16UpsamplingMethod"></span><span id="pcl::MovingLeastSquares::setUpsamplingMethod__UpsamplingMethod"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ac29ad97b98353d64ce64e2ff924f7d20"></span>void <code class="sig-name descname">setUpsamplingMethod</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares16UpsamplingMethodE" title="pcl::MovingLeastSquares::UpsamplingMethod">UpsamplingMethod</a> <em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares19setUpsamplingMethodE16UpsamplingMethod" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the upsampling method to be used. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares16setDistinctCloudE20PointCloudInConstPtr">
+<span id="_CPPv3N3pcl18MovingLeastSquares16setDistinctCloudE20PointCloudInConstPtr"></span><span id="_CPPv2N3pcl18MovingLeastSquares16setDistinctCloudE20PointCloudInConstPtr"></span><span id="pcl::MovingLeastSquares::setDistinctCloud__PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a8fc924b0b40e6be32f094aa774ed3809"></span>void <code class="sig-name descname">setDistinctCloud</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares20PointCloudInConstPtrE" title="pcl::MovingLeastSquares::PointCloudInConstPtr">PointCloudInConstPtr</a> <em>distinct_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares16setDistinctCloudE20PointCloudInConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the distinct cloud used for the DISTINCT_CLOUD upsampling method. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares16getDistinctCloudEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares16getDistinctCloudEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares16getDistinctCloudEv"></span><span id="pcl::MovingLeastSquares::getDistinctCloudC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aa718796e24f8bd5640caf411ae5e6116"></span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares20PointCloudInConstPtrE" title="pcl::MovingLeastSquares::PointCloudInConstPtr">PointCloudInConstPtr</a> <code class="sig-name descname">getDistinctCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares16getDistinctCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the distinct cloud used for the DISTINCT_CLOUD upsampling method. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares19setUpsamplingRadiusEd">
+<span id="_CPPv3N3pcl18MovingLeastSquares19setUpsamplingRadiusEd"></span><span id="_CPPv2N3pcl18MovingLeastSquares19setUpsamplingRadiusEd"></span><span id="pcl::MovingLeastSquares::setUpsamplingRadius__double"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a8efa7671c4b24700c2f22f63affdce9b"></span>void <code class="sig-name descname">setUpsamplingRadius</code><span class="sig-paren">(</span>double <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares19setUpsamplingRadiusEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the radius of the circle in the local point plane that will be sampled. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of SAMPLE_LOCAL_PLANE upsampling </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the radius of the circle </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares19getUpsamplingRadiusEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares19getUpsamplingRadiusEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares19getUpsamplingRadiusEv"></span><span id="pcl::MovingLeastSquares::getUpsamplingRadiusC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a32440eca50d4648ae44d88554496383c"></span>double <code class="sig-name descname">getUpsamplingRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares19getUpsamplingRadiusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the radius of the circle in the local point plane that will be sampled. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of SAMPLE_LOCAL_PLANE upsampling </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares21setUpsamplingStepSizeEd">
+<span id="_CPPv3N3pcl18MovingLeastSquares21setUpsamplingStepSizeEd"></span><span id="_CPPv2N3pcl18MovingLeastSquares21setUpsamplingStepSizeEd"></span><span id="pcl::MovingLeastSquares::setUpsamplingStepSize__double"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ac2c814527e15d4d3ff9a5ba5864b842d"></span>void <code class="sig-name descname">setUpsamplingStepSize</code><span class="sig-paren">(</span>double <em>step_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares21setUpsamplingStepSizeEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the step size for the local plane sampling. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of SAMPLE_LOCAL_PLANE upsampling </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">step_size</span></code>: the step size </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares21getUpsamplingStepSizeEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares21getUpsamplingStepSizeEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares21getUpsamplingStepSizeEv"></span><span id="pcl::MovingLeastSquares::getUpsamplingStepSizeC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a64d15ad2d306b46bcdf5ffc5f77a137d"></span>double <code class="sig-name descname">getUpsamplingStepSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares21getUpsamplingStepSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the step size for the local plane sampling. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of SAMPLE_LOCAL_PLANE upsampling </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares15setPointDensityEi">
+<span id="_CPPv3N3pcl18MovingLeastSquares15setPointDensityEi"></span><span id="_CPPv2N3pcl18MovingLeastSquares15setPointDensityEi"></span><span id="pcl::MovingLeastSquares::setPointDensity__i"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a5c4b8a31a83259d20754e5cc57cb85ae"></span>void <code class="sig-name descname">setPointDensity</code><span class="sig-paren">(</span>int <em>desired_num_points_in_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares15setPointDensityEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the parameter that specifies the desired number of points within the search radius. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of RANDOM_UNIFORM_DENSITY upsampling </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">desired_num_points_in_radius</span></code>: the desired number of points in the output cloud in a sphere of radius <a class="reference internal" href="#classpcl_1_1_moving_least_squares_1a36c2086cb13c37080daba5009f57f484"><span class="std std-ref">search_radius_</span></a> around each point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares15getPointDensityEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares15getPointDensityEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares15getPointDensityEv"></span><span id="pcl::MovingLeastSquares::getPointDensityC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a423ab297382e3bf760c04d51d8db5f6c"></span>int <code class="sig-name descname">getPointDensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares15getPointDensityEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the parameter that specifies the desired number of points within the search radius. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of RANDOM_UNIFORM_DENSITY upsampling </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares20setDilationVoxelSizeEf">
+<span id="_CPPv3N3pcl18MovingLeastSquares20setDilationVoxelSizeEf"></span><span id="_CPPv2N3pcl18MovingLeastSquares20setDilationVoxelSizeEf"></span><span id="pcl::MovingLeastSquares::setDilationVoxelSize__float"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a91ca6567348b72285196be7c28618182"></span>void <code class="sig-name descname">setDilationVoxelSize</code><span class="sig-paren">(</span>float <em>voxel_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares20setDilationVoxelSizeEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the voxel size for the voxel grid. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the VOXEL_GRID_DILATION upsampling method </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">voxel_size</span></code>: the edge length of a cubic voxel in the voxel grid </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares20getDilationVoxelSizeEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares20getDilationVoxelSizeEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares20getDilationVoxelSizeEv"></span><span id="pcl::MovingLeastSquares::getDilationVoxelSizeC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a54ce342e01ccc42ed7f01b2c7f709284"></span>float <code class="sig-name descname">getDilationVoxelSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares20getDilationVoxelSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the voxel size for the voxel grid. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the VOXEL_GRID_DILATION upsampling method </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares21setDilationIterationsEi">
+<span id="_CPPv3N3pcl18MovingLeastSquares21setDilationIterationsEi"></span><span id="_CPPv2N3pcl18MovingLeastSquares21setDilationIterationsEi"></span><span id="pcl::MovingLeastSquares::setDilationIterations__i"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a08fd0701e8ab705e17c2704ae64601c9"></span>void <code class="sig-name descname">setDilationIterations</code><span class="sig-paren">(</span>int <em>iterations</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares21setDilationIterationsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the number of dilation steps of the voxel grid. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the VOXEL_GRID_DILATION upsampling method </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">iterations</span></code>: the number of dilation iterations </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares21getDilationIterationsEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares21getDilationIterationsEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares21getDilationIterationsEv"></span><span id="pcl::MovingLeastSquares::getDilationIterationsC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a6ec3602cc88f55d230384da35f01d173"></span>int <code class="sig-name descname">getDilationIterations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares21getDilationIterationsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of dilation steps of the voxel grid. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the VOXEL_GRID_DILATION upsampling method </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares18setCacheMLSResultsEb">
+<span id="_CPPv3N3pcl18MovingLeastSquares18setCacheMLSResultsEb"></span><span id="_CPPv2N3pcl18MovingLeastSquares18setCacheMLSResultsEb"></span><span id="pcl::MovingLeastSquares::setCacheMLSResults__b"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ac9c74fbab36dd39673c4b6e56c97d2a0"></span>void <code class="sig-name descname">setCacheMLSResults</code><span class="sig-paren">(</span>bool <em>cache_mls_results</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares18setCacheMLSResultsEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set whether the mls results should be stored for each point in the input cloud. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The cache_mls_results_ is forced to true when using upsampling method VOXEL_GRID_DILATION or DISTINCT_CLOUD. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If memory consumption is a concern set to false when not using upsampling method VOXEL_GRID_DILATION or DISTINCT_CLOUD. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">True</span></code>: if the mls results should be stored, otherwise false. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares18getCacheMLSResultsEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares18getCacheMLSResultsEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares18getCacheMLSResultsEv"></span><span id="pcl::MovingLeastSquares::getCacheMLSResultsC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a0a8a87e49e06e2c0052b6caa4d7cf6cf"></span>bool <code class="sig-name descname">getCacheMLSResults</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares18getCacheMLSResultsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the cache_mls_results_ value (True if the mls results should be stored, otherwise false). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares19setProjectionMethodEN9MLSResult16ProjectionMethodE">
+<span id="_CPPv3N3pcl18MovingLeastSquares19setProjectionMethodEN9MLSResult16ProjectionMethodE"></span><span id="_CPPv2N3pcl18MovingLeastSquares19setProjectionMethodEN9MLSResult16ProjectionMethodE"></span><span id="pcl::MovingLeastSquares::setProjectionMethod__MLSResult::ProjectionMethod"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aebb8bf26e1b7030c7f4354de30363a5b"></span>void <code class="sig-name descname">setProjectionMethod</code><span class="sig-paren">(</span><a class="reference internal" href="structpcl_1_1_m_l_s_result.html#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>::<a class="reference internal" href="structpcl_1_1_m_l_s_result.html#_CPPv4N3pcl9MLSResult16ProjectionMethodE" title="pcl::MLSResult::ProjectionMethod">ProjectionMethod</a> <em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares19setProjectionMethodEN9MLSResult16ProjectionMethodE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the method to be used when projection the point on to the MLS surface. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This is only used when polynomial fit is enabled. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares19getProjectionMethodEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares19getProjectionMethodEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares19getProjectionMethodEv"></span><span id="pcl::MovingLeastSquares::getProjectionMethodC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a5fe8e99793b875269fb1d9ace84e8ac1"></span><a class="reference internal" href="structpcl_1_1_m_l_s_result.html#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>::<a class="reference internal" href="structpcl_1_1_m_l_s_result.html#_CPPv4N3pcl9MLSResult16ProjectionMethodE" title="pcl::MLSResult::ProjectionMethod">ProjectionMethod</a> <code class="sig-name descname">getProjectionMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares19getProjectionMethodEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the current projection method being used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares13getMLSResultsEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares13getMLSResultsEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares13getMLSResultsEv"></span><span id="pcl::MovingLeastSquares::getMLSResultsC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1abf201a5b1c4211eb8058bf77386fb8ca"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="structpcl_1_1_m_l_s_result.html#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>&gt; &amp;<code class="sig-name descname">getMLSResults</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares13getMLSResultsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the MLSResults for input cloud. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The results are only stored if setCacheMLSResults(true) was called or when using the upsampling method DISTINCT_CLOUD or VOXEL_GRID_DILATION. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>This vector is align with the input cloud indices, so use getCorrespondingIndices to get the correct results when using output cloud indices. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares18setNumberOfThreadsEj">
+<span id="_CPPv3N3pcl18MovingLeastSquares18setNumberOfThreadsEj"></span><span id="_CPPv2N3pcl18MovingLeastSquares18setNumberOfThreadsEj"></span><span id="pcl::MovingLeastSquares::setNumberOfThreads__unsigned-i"></span><span class="target" id="classpcl_1_1_moving_least_squares_1acc57688a9d995471ef54a3b06a5ce328"></span>void <code class="sig-name descname">setNumberOfThreads</code><span class="sig-paren">(</span>unsigned int <em>threads</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares18setNumberOfThreadsEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of threads to use. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">threads</span></code>: the maximum number of hardware threads to use (0 sets the value to 1) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares7processER13PointCloudOut">
+<span id="_CPPv3N3pcl18MovingLeastSquares7processER13PointCloudOut"></span><span id="_CPPv2N3pcl18MovingLeastSquares7processER13PointCloudOut"></span><span id="pcl::MovingLeastSquares::process__PointCloudOutR"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ad168be16626ea58d1c31c321bd1d980f"></span>void <code class="sig-name descname">process</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares13PointCloudOutE" title="pcl::MovingLeastSquares::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares7processER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Base method for surface reconstruction for all points given in &lt;setInputCloud (), setIndices ()&gt; </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant reconstructed surface model </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares23getCorrespondingIndicesEv">
+<span id="_CPPv3NK3pcl18MovingLeastSquares23getCorrespondingIndicesEv"></span><span id="_CPPv2NK3pcl18MovingLeastSquares23getCorrespondingIndicesEv"></span><span id="pcl::MovingLeastSquares::getCorrespondingIndicesC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ae3cbf301c383b36eb54b6660c8ccbbc5"></span><a class="reference internal" href="typedef_namespacepcl_1a53792858d78862a698389664d6720a40.html#_CPPv4N3pcl15PointIndicesPtrE" title="pcl::PointIndicesPtr">PointIndicesPtr</a> <code class="sig-name descname">getCorrespondingIndices</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares23getCorrespondingIndicesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the set of indices with each point in output having the corresponding point in input. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares18searchForNeighborsEiRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3NK3pcl18MovingLeastSquares18searchForNeighborsEiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2NK3pcl18MovingLeastSquares18searchForNeighborsEiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::MovingLeastSquares::searchForNeighbors__i.std::vector:i:R.std::vector:float:RC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a8450a26f10b00753056f01eef9042c1f"></span>int <code class="sig-name descname">searchForNeighbors</code><span class="sig-paren">(</span>int <em>index</em>, std::vector&lt;int&gt; &amp;<em>indices</em>, std::vector&lt;float&gt; &amp;<em>sqr_distances</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares18searchForNeighborsEiRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for the closest nearest neighbors of a given point using a radius search. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">indices</span></code>: the resultant vector of indices representing the k-nearest neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">sqr_distances</span></code>: the resultant squared distances from the query point to the k-nearest neighbors </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares21computeMLSPointNormalEiRKNSt6vectorIiEER13PointCloudOutR11NormalCloudR12PointIndicesR9MLSResult">
+<span id="_CPPv3NK3pcl18MovingLeastSquares21computeMLSPointNormalEiRKNSt6vectorIiEER13PointCloudOutR11NormalCloudR12PointIndicesR9MLSResult"></span><span id="_CPPv2NK3pcl18MovingLeastSquares21computeMLSPointNormalEiRKNSt6vectorIiEER13PointCloudOutR11NormalCloudR12PointIndicesR9MLSResult"></span><span id="pcl::MovingLeastSquares::computeMLSPointNormal__i.std::vector:i:CR.PointCloudOutR.NormalCloudR.PointIndicesR.MLSResultRC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ae6ac6adf0fd368dd3d98c3d1e22f66b6"></span>void <code class="sig-name descname">computeMLSPointNormal</code><span class="sig-paren">(</span>int <em>index</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>nn_indices</em>, <a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares13PointCloudOutE" title="pcl::MovingLeastSquares::PointCloudOut">PointCloudOut</a> &amp;<em>projected_points</em>, <a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares11NormalCloudE" title="pcl::MovingLeastSquares::NormalCloud">NormalCloud</a> &amp;<em>projected_points_normals</em>, <a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a> &amp;<em>corresponding_input_indices</em>, <a class="reference internal" href="structpcl_1_1_m_l_s_result.html#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a> &amp;<em>mls_result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares21computeMLSPointNormalEiRKNSt6vectorIiEER13PointCloudOutR11NormalCloudR12PointIndicesR9MLSResult" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Smooth a given point and its neighborghood using Moving Least Squares. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the query point in the input cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nn_indices</span></code>: the set of nearest neighbors indices for pt </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">projected_points</span></code>: the set of points projected points around the query point (in the case of upsampling method NONE, only the query point projected to its own fitted surface will be returned, in the case of the other upsampling methods, multiple points will be returned) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">projected_points_normals</span></code>: the normals corresponding to the projected points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">corresponding_input_indices</span></code>: the set of indices with each point in output having the corresponding point in input </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">mls_result</span></code>: stores the MLS result for each point in the input cloud (used only in the case of VOXEL_GRID_DILATION or DISTINCT_CLOUD upsampling) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares23addProjectedPointNormalEiRKN5Eigen8Vector3dERKN5Eigen8Vector3dEdR13PointCloudOutR11NormalCloudR12PointIndices">
+<span id="_CPPv3NK3pcl18MovingLeastSquares23addProjectedPointNormalEiRKN5Eigen8Vector3dERKN5Eigen8Vector3dEdR13PointCloudOutR11NormalCloudR12PointIndices"></span><span id="_CPPv2NK3pcl18MovingLeastSquares23addProjectedPointNormalEiRKN5Eigen8Vector3dERKN5Eigen8Vector3dEdR13PointCloudOutR11NormalCloudR12PointIndices"></span><span id="pcl::MovingLeastSquares::addProjectedPointNormal__i.Eigen::Vector3dCR.Eigen::Vector3dCR.double.PointCloudOutR.NormalCloudR.PointIndicesRC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a95b7808828728e6adc6a7c9d09a1b9dc"></span>void <code class="sig-name descname">addProjectedPointNormal</code><span class="sig-paren">(</span>int <em>index</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>point</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>normal</em>, double <em>curvature</em>, <a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares13PointCloudOutE" title="pcl::MovingLeastSquares::PointCloudOut">PointCloudOut</a> &amp;<em>projected_points</em>, <a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares11NormalCloudE" title="pcl::MovingLeastSquares::NormalCloud">NormalCloud</a> &amp;<em>projected_points_normals</em>, <a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a> &amp;<em>corresponding_input_indices</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares23addProjectedPointNormalEiRKN5Eigen8Vector3dERKN5Eigen8Vector3dEdR13PointCloudOutR11NormalCloudR12PointIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is a helper function for add projected points. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the query point in the input cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: the projected point to be added </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normal</span></code>: the projected point’s normal to be added </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">curvature</span></code>: the projected point’s curvature </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">projected_points</span></code>: the set of projected points around the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">projected_points_normals</span></code>: the normals corresponding to the projected points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">corresponding_input_indices</span></code>: the set of indices with each point in output having the corresponding point in input </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18MovingLeastSquares17copyMissingFieldsERK8PointInTR9PointOutT">
+<span id="_CPPv3NK3pcl18MovingLeastSquares17copyMissingFieldsERK8PointInTR9PointOutT"></span><span id="_CPPv2NK3pcl18MovingLeastSquares17copyMissingFieldsERK8PointInTR9PointOutT"></span><span id="pcl::MovingLeastSquares::copyMissingFields__PointInTCR.PointOutTRC"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a596b1e2184766db3681a6d9059157cc7"></span>void <code class="sig-name descname">copyMissingFields</code><span class="sig-paren">(</span><em class="property">const</em> PointInT &amp;<em>point_in</em>, PointOutT &amp;<em>point_out</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18MovingLeastSquares17copyMissingFieldsERK8PointInTR9PointOutT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares17performProcessingER13PointCloudOut">
+<span id="_CPPv3N3pcl18MovingLeastSquares17performProcessingER13PointCloudOut"></span><span id="_CPPv2N3pcl18MovingLeastSquares17performProcessingER13PointCloudOut"></span><span id="pcl::MovingLeastSquares::performProcessing__PointCloudOutR"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ae27440d95b1fc5568b2ec820302654a4"></span>void <code class="sig-name descname">performProcessing</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares13PointCloudOutE" title="pcl::MovingLeastSquares::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares17performProcessingER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract surface reconstruction method. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the result of the reconstruction </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18MovingLeastSquares17performUpsamplingER13PointCloudOut">
+<span id="_CPPv3N3pcl18MovingLeastSquares17performUpsamplingER13PointCloudOut"></span><span id="_CPPv2N3pcl18MovingLeastSquares17performUpsamplingER13PointCloudOut"></span><span id="pcl::MovingLeastSquares::performUpsampling__PointCloudOutR"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a1a4ffe40c701474aa4f18758d2432ca7"></span>void <code class="sig-name descname">performUpsampling</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares13PointCloudOutE" title="pcl::MovingLeastSquares::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares17performUpsamplingER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Perform upsampling for the distinct-cloud and voxel-grid methods. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the result of the reconstruction </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares8normals_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares8normals_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares8normals_E"></span><span id="pcl::MovingLeastSquares::normals___NormalCloudPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a8f261a61a049a33b90064b0956a1b34a"></span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares14NormalCloudPtrE" title="pcl::MovingLeastSquares::NormalCloudPtr">NormalCloudPtr</a> <code class="sig-name descname">normals_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares8normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The point cloud that will hold the estimated normals, if set. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares15distinct_cloud_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares15distinct_cloud_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares15distinct_cloud_E"></span><span id="pcl::MovingLeastSquares::distinct_cloud___PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1afe8cc1328aa77f8262f4243dd4fdba37"></span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares20PointCloudInConstPtrE" title="pcl::MovingLeastSquares::PointCloudInConstPtr">PointCloudInConstPtr</a> <code class="sig-name descname">distinct_cloud_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares15distinct_cloud_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The distinct point cloud that will be projected to the MLS surface. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares14search_method_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares14search_method_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares14search_method_E"></span><span id="pcl::MovingLeastSquares::search_method___SearchMethod"></span><span class="target" id="classpcl_1_1_moving_least_squares_1adaf7406e16a85ba21c0c100d8d0d95e3"></span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares12SearchMethodE" title="pcl::MovingLeastSquares::SearchMethod">SearchMethod</a> <code class="sig-name descname">search_method_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares14search_method_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The search method template for indices. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares5tree_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares5tree_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares5tree_E"></span><span id="pcl::MovingLeastSquares::tree___KdTreePtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a57adb49b99d770e7d32de6e64c872b4a"></span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares9KdTreePtrE" title="pcl::MovingLeastSquares::KdTreePtr">KdTreePtr</a> <code class="sig-name descname">tree_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares5tree_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A pointer to the spatial search object. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares6order_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares6order_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares6order_E"></span><span id="pcl::MovingLeastSquares::order___i"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a234ecea03abec8ecb99a5b5f871e7c9e"></span>int <code class="sig-name descname">order_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares6order_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The order of the polynomial to be fit. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares14search_radius_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares14search_radius_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares14search_radius_E"></span><span id="pcl::MovingLeastSquares::search_radius___double"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a36c2086cb13c37080daba5009f57f484"></span>double <code class="sig-name descname">search_radius_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares14search_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The nearest neighbors search radius for each point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares16sqr_gauss_param_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares16sqr_gauss_param_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares16sqr_gauss_param_E"></span><span id="pcl::MovingLeastSquares::sqr_gauss_param___double"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a3c2a7bb303cf17f5fa5e3360e059e8e7"></span>double <code class="sig-name descname">sqr_gauss_param_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares16sqr_gauss_param_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parameter for distance based weighting of neighbors (search_radius_ * search_radius_ works fine) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares16compute_normals_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares16compute_normals_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares16compute_normals_E"></span><span id="pcl::MovingLeastSquares::compute_normals___b"></span><span class="target" id="classpcl_1_1_moving_least_squares_1acd4484eb2270ad8ce06550e51c13a4d1"></span>bool <code class="sig-name descname">compute_normals_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares16compute_normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parameter that specifies whether the normals should be computed for the input cloud or not. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares16upsample_method_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares16upsample_method_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares16upsample_method_E"></span><span id="pcl::MovingLeastSquares::upsample_method___UpsamplingMethod"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a9237259f71cf6491ff1f314eddb3b5d0"></span><a class="reference internal" href="#_CPPv4N3pcl18MovingLeastSquares16UpsamplingMethodE" title="pcl::MovingLeastSquares::UpsamplingMethod">UpsamplingMethod</a> <code class="sig-name descname">upsample_method_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares16upsample_method_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parameter that specifies the upsampling method to be used. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares18upsampling_radius_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares18upsampling_radius_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares18upsampling_radius_E"></span><span id="pcl::MovingLeastSquares::upsampling_radius___double"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aa2346b81e98ac4a83b65613b4f5dac9a"></span>double <code class="sig-name descname">upsampling_radius_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares18upsampling_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Radius of the circle in the local point plane that will be sampled. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of SAMPLE_LOCAL_PLANE upsampling </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares16upsampling_step_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares16upsampling_step_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares16upsampling_step_E"></span><span id="pcl::MovingLeastSquares::upsampling_step___double"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a7144ad759e58dca299c0ab5f8c6259b9"></span>double <code class="sig-name descname">upsampling_step_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares16upsampling_step_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Step size for the local plane sampling. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of SAMPLE_LOCAL_PLANE upsampling </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares29desired_num_points_in_radius_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares29desired_num_points_in_radius_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares29desired_num_points_in_radius_E"></span><span id="pcl::MovingLeastSquares::desired_num_points_in_radius___i"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ab4a818c9ec101ecfcf970c6165b201c0"></span>int <code class="sig-name descname">desired_num_points_in_radius_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares29desired_num_points_in_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parameter that specifies the desired number of points within the search radius. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of RANDOM_UNIFORM_DENSITY upsampling </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares18cache_mls_results_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares18cache_mls_results_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares18cache_mls_results_E"></span><span id="pcl::MovingLeastSquares::cache_mls_results___b"></span><span class="target" id="classpcl_1_1_moving_least_squares_1af4051fb2081fa8f72d8d058bcf09a6b2"></span>bool <code class="sig-name descname">cache_mls_results_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares18cache_mls_results_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>True if the mls results for the input cloud should be stored. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This is forced to true when using upsampling methods VOXEL_GRID_DILATION or DISTINCT_CLOUD. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares12mls_results_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares12mls_results_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares12mls_results_E"></span><span id="pcl::MovingLeastSquares::mls_results___std::vector:MLSResult:"></span><span class="target" id="classpcl_1_1_moving_least_squares_1afb0395459bc94fa4c1990b47d471a4bc"></span>std::vector&lt;<a class="reference internal" href="structpcl_1_1_m_l_s_result.html#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>&gt; <code class="sig-name descname">mls_results_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares12mls_results_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the MLS result for each point in the input cloud. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of VOXEL_GRID_DILATION or DISTINCT_CLOUD upsampling </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares18projection_method_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares18projection_method_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares18projection_method_E"></span><span id="pcl::MovingLeastSquares::projection_method___MLSResult::ProjectionMethod"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a2a49ebf3d94d2607f0bbfd692bf4d2c1"></span><a class="reference internal" href="structpcl_1_1_m_l_s_result.html#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>::<a class="reference internal" href="structpcl_1_1_m_l_s_result.html#_CPPv4N3pcl9MLSResult16ProjectionMethodE" title="pcl::MLSResult::ProjectionMethod">ProjectionMethod</a> <code class="sig-name descname">projection_method_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares18projection_method_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parameter that specifies the projection method to be used. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares8threads_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares8threads_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares8threads_E"></span><span id="pcl::MovingLeastSquares::threads___unsigned-i"></span><span class="target" id="classpcl_1_1_moving_least_squares_1a13ca79a3566e2286fff57c1785b376c3"></span>unsigned int <code class="sig-name descname">threads_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares8threads_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum number of threads the scheduler should use. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares11voxel_size_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares11voxel_size_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares11voxel_size_E"></span><span id="pcl::MovingLeastSquares::voxel_size___float"></span><span class="target" id="classpcl_1_1_moving_least_squares_1afbde287f8eb3329c22d0246db630ad58"></span>float <code class="sig-name descname">voxel_size_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares11voxel_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Voxel size for the VOXEL_GRID_DILATION upsampling method. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares23dilation_iteration_num_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares23dilation_iteration_num_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares23dilation_iteration_num_E"></span><span id="pcl::MovingLeastSquares::dilation_iteration_num___i"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aea681e491f0d8671dbd6e36ccd8f68b5"></span>int <code class="sig-name descname">dilation_iteration_num_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares23dilation_iteration_num_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of dilation steps for the VOXEL_GRID_DILATION upsampling method. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares9nr_coeff_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares9nr_coeff_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares9nr_coeff_E"></span><span id="pcl::MovingLeastSquares::nr_coeff___i"></span><span class="target" id="classpcl_1_1_moving_least_squares_1aca9f46399d7e0d6bfb08b9d6ffbb58d1"></span>int <code class="sig-name descname">nr_coeff_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares9nr_coeff_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of coefficients, to be computed from the requested order. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18MovingLeastSquares28corresponding_input_indices_E">
+<span id="_CPPv3N3pcl18MovingLeastSquares28corresponding_input_indices_E"></span><span id="_CPPv2N3pcl18MovingLeastSquares28corresponding_input_indices_E"></span><span id="pcl::MovingLeastSquares::corresponding_input_indices___PointIndicesPtr"></span><span class="target" id="classpcl_1_1_moving_least_squares_1ac34f1e1593c2fe8860e4d77f91c87930"></span><a class="reference internal" href="typedef_namespacepcl_1a53792858d78862a698389664d6720a40.html#_CPPv4N3pcl15PointIndicesPtrE" title="pcl::PointIndicesPtr">PointIndicesPtr</a> <code class="sig-name descname">corresponding_input_indices_</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares28corresponding_input_indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Collects for each point in output the corrseponding point in the input. </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl18MovingLeastSquares12MLSVoxelGridE">
+<span id="_CPPv3N3pcl18MovingLeastSquares12MLSVoxelGridE"></span><span id="_CPPv2N3pcl18MovingLeastSquares12MLSVoxelGridE"></span><span id="pcl::MovingLeastSquares::MLSVoxelGrid"></span><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid"></span><em class="property">class </em><code class="sig-name descname">MLSVoxelGrid</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares12MLSVoxelGridE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A minimalistic implementation of a voxel grid, necessary for the point cloud upsampling. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Used only in the case of VOXEL_GRID_DILATION upsampling </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid7HashMapE">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid7HashMapE"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid7HashMapE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1a4d620820a2bb22bdb48b4d0f0764e96e"></span><em class="property">typedef </em>std::map&lt;uint64_t, Leaf&gt; <code class="sig-name descname">HashMap</code><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid7HashMapE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12MLSVoxelGridER20PointCloudInConstPtrR10IndicesPtrf">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12MLSVoxelGridER20PointCloudInConstPtrR10IndicesPtrf"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12MLSVoxelGridER20PointCloudInConstPtrR10IndicesPtrf"></span><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1a2c1cb3ae952c1121bf1d2f7a5c8b0134"></span>template&lt;&gt;<br /><code class="sig-name descname">MLSVoxelGrid</code><span class="sig-paren">(</span>PointCloudInConstPtr &amp;<em>cloud</em>, <a class="reference internal" href="typedef_namespacepcl_1a7f201b2b4e80960afd3ffb2efacc96b3.html#_CPPv4N3pcl10IndicesPtrE" title="pcl::IndicesPtr">IndicesPtr</a> &amp;<em>indices</em>, float <em>voxel_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12MLSVoxelGridER20PointCloudInConstPtrR10IndicesPtrf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid6dilateEvv">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid6dilateEv"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid6dilateEv"></span><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1a1011953e94cca4efdde81bba2a3311ce"></span>template&lt;&gt;<br />void <code class="sig-name descname">dilate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid6dilateEvv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getIndexIn1DEvRKN5Eigen8Vector3iER8uint64_t">
+<span id="_CPPv3IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getIndexIn1DERKN5Eigen8Vector3iER8uint64_t"></span><span id="_CPPv2IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getIndexIn1DERKN5Eigen8Vector3iER8uint64_t"></span><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1aa21bcabcac4e78fd8698f48014601c6b"></span>template&lt;&gt;<br />void <code class="sig-name descname">getIndexIn1D</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>index</em>, uint64_t &amp;<em>index_1d</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getIndexIn1DEvRKN5Eigen8Vector3iER8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getIndexIn3DEv8uint64_tRN5Eigen8Vector3iE">
+<span id="_CPPv3IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getIndexIn3DE8uint64_tRN5Eigen8Vector3iE"></span><span id="_CPPv2IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getIndexIn3DE8uint64_tRN5Eigen8Vector3iE"></span><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1a9015c5c9b5bd5913ed103fde8d47dfc7"></span>template&lt;&gt;<br />void <code class="sig-name descname">getIndexIn3D</code><span class="sig-paren">(</span>uint64_t <em>index_1d</em>, Eigen::Vector3i &amp;<em>index_3d</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getIndexIn3DEv8uint64_tRN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getCellIndexEvRKN5Eigen8Vector3fERN5Eigen8Vector3iE">
+<span id="_CPPv3IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getCellIndexERKN5Eigen8Vector3fERN5Eigen8Vector3iE"></span><span id="_CPPv2IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getCellIndexERKN5Eigen8Vector3fERN5Eigen8Vector3iE"></span><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1ab8adee9174b0962bdb8649635609952d"></span>template&lt;&gt;<br />void <code class="sig-name descname">getCellIndex</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3f &amp;<em>p</em>, Eigen::Vector3i &amp;<em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid12getCellIndexEvRKN5Eigen8Vector3fERN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11getPositionEvRK8uint64_tRN5Eigen8Vector3fE">
+<span id="_CPPv3IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11getPositionERK8uint64_tRN5Eigen8Vector3fE"></span><span id="_CPPv2IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11getPositionERK8uint64_tRN5Eigen8Vector3fE"></span><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1a55975fe22a6764e960db85f5b1d64a5c"></span>template&lt;&gt;<br />void <code class="sig-name descname">getPosition</code><span class="sig-paren">(</span><em class="property">const</em> uint64_t &amp;<em>index_1d</em>, Eigen::Vector3f &amp;<em>point</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11getPositionEvRK8uint64_tRN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11voxel_grid_E">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11voxel_grid_E"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11voxel_grid_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1a00339cae5cc8f446a1076a0ec4a0eb1d"></span><a class="reference internal" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid7HashMapE" title="pcl::MovingLeastSquares&lt;PointInT, PointOutT&gt;::MLSVoxelGrid::HashMap">HashMap</a> <code class="sig-name descname">voxel_grid_</code><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11voxel_grid_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid13bounding_min_E">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid13bounding_min_E"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid13bounding_min_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1a77c35e8659a5cb40bb5c2cc6e5f162c8"></span>Eigen::Vector4f <code class="sig-name descname">bounding_min_</code><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid13bounding_min_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid13bounding_max_E">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid13bounding_max_E"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid13bounding_max_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1a88c6cdae9589c0a94ba44f6fb7764303"></span>Eigen::Vector4f <code class="sig-name descname">bounding_max_</code><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid13bounding_max_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid10data_size_E">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid10data_size_E"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid10data_size_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1ae5ccc7182de8fd73a56957a544530fd0"></span>uint64_t <code class="sig-name descname">data_size_</code><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid10data_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11voxel_size_E">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11voxel_size_E"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11voxel_size_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1a6ffe4b28f18365896fbf81038c662427"></span>float <code class="sig-name descname">voxel_size_</code><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid11voxel_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl18MovingLeastSquares12MLSVoxelGrid4LeafE">
+<span id="_CPPv3N3pcl18MovingLeastSquares12MLSVoxelGrid4LeafE"></span><span id="_CPPv2N3pcl18MovingLeastSquares12MLSVoxelGrid4LeafE"></span><span id="pcl::MovingLeastSquares::MLSVoxelGrid::Leaf"></span><span class="target" id="structpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1_1_leaf"></span><em class="property">struct </em><code class="sig-name descname">Leaf</code><a class="headerlink" href="#_CPPv4N3pcl18MovingLeastSquares12MLSVoxelGrid4LeafE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid4Leaf4LeafEv">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid4Leaf4LeafEv"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid4Leaf4LeafEv"></span><span class="target" id="structpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1_1_leaf_1a03b3601578331bdab0e8b334686a8cb6"></span>template&lt;&gt;<br /><code class="sig-name descname">Leaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid4Leaf4LeafEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid4Leaf5validE">
+<span id="_CPPv3IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid4Leaf5validE"></span><span id="_CPPv2IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid4Leaf5validE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_moving_least_squares_1_1_m_l_s_voxel_grid_1_1_leaf_1ae2e4f8deb1d8da99489f2678f971be1b"></span>bool <code class="sig-name descname">valid</code><a class="headerlink" href="#_CPPv4IEN3pcl18MovingLeastSquaresI8PointInT9PointOutTE12MLSVoxelGrid4Leaf5validE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

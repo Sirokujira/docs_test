@@ -1,0 +1,783 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class GridProjection &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class GridProjection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_grid_projection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-gridprojection">
+<span id="exhale-class-classpcl-1-1-grid-projection"></span><h1>Template Class GridProjection<a class="headerlink" href="#template-class-gridprojection" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_grid_projection.h.html#file-pcl-surface-include-pcl-surface-grid-projection-h"><span class="std std-ref">File grid_projection.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_grid_projection_1_1_leaf.html#exhale-struct-structpcl-1-1-grid-projection-1-1-leaf"><span class="std std-ref">Struct GridProjection::Leaf</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SurfaceReconstruction&lt;</span> <span class="pre">PointNT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_surface_reconstruction.html#exhale-class-classpcl-1-1-surface-reconstruction"><span class="std std-ref">Template Class SurfaceReconstruction</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl14GridProjectionE">
+<span id="_CPPv3I0EN3pcl14GridProjectionE"></span><span id="_CPPv2I0EN3pcl14GridProjectionE"></span><span class="target" id="classpcl_1_1_grid_projection"></span>template&lt;typename <code class="sig-name descname">PointNT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">GridProjection</code> : <em class="property">public</em> pcl::SurfaceReconstruction&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl14GridProjectionE" title="pcl::GridProjection::PointNT">PointNT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl14GridProjectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="class_grid.html#class_grid"><span class="std std-ref">Grid</span></a> projection surface reconstruction method. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Rosie Li</p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If you use this code in any academic work, please cite:<ul class="simple">
+<li><p>Ruosi Li, Lu Liu, Ly Phan, Sasakthi Abeysinghe, Cindy Grimm, Tao Ju. Polygonizing extremal surfaces with manifold guarantees. In Proceedings of the 14th ACM Symposium on Solid and Physical Modeling, 2010. </p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl14GridProjection3PtrE">
+<span id="_CPPv3N3pcl14GridProjection3PtrE"></span><span id="_CPPv2N3pcl14GridProjection3PtrE"></span><span id="pcl::GridProjection::Ptr"></span><span class="target" id="classpcl_1_1_grid_projection_1a3911927c375521805982070910d9cc21"></span><em class="property">typedef </em>boost::shared_ptr&lt;GridProjection&lt;PointNT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl14GridProjection3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14GridProjection8ConstPtrE">
+<span id="_CPPv3N3pcl14GridProjection8ConstPtrE"></span><span id="_CPPv2N3pcl14GridProjection8ConstPtrE"></span><span id="pcl::GridProjection::ConstPtr"></span><span class="target" id="classpcl_1_1_grid_projection_1a96ab14f919129aea2466ca5fd1013a21"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> GridProjection&lt;PointNT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl14GridProjection8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14GridProjection13PointCloudPtrE">
+<span id="_CPPv3N3pcl14GridProjection13PointCloudPtrE"></span><span id="_CPPv2N3pcl14GridProjection13PointCloudPtrE"></span><span id="pcl::GridProjection::PointCloudPtr"></span><span class="target" id="classpcl_1_1_grid_projection_1a777cd7621a8ebf35147fa29c1c18641a"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointNT&gt;::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl14GridProjection13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14GridProjection6KdTreeE">
+<span id="_CPPv3N3pcl14GridProjection6KdTreeE"></span><span id="_CPPv2N3pcl14GridProjection6KdTreeE"></span><span id="pcl::GridProjection::KdTree"></span><span class="target" id="classpcl_1_1_grid_projection_1aeeedb440fd215c97143a9fa6fa5ccf2d"></span><em class="property">typedef </em>pcl::KdTree&lt;PointNT&gt; <code class="sig-name descname">KdTree</code><a class="headerlink" href="#_CPPv4N3pcl14GridProjection6KdTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14GridProjection9KdTreePtrE">
+<span id="_CPPv3N3pcl14GridProjection9KdTreePtrE"></span><span id="_CPPv2N3pcl14GridProjection9KdTreePtrE"></span><span id="pcl::GridProjection::KdTreePtr"></span><span class="target" id="classpcl_1_1_grid_projection_1a1430ad128176bbf6521bcbdd64599b78"></span><em class="property">typedef </em>pcl::KdTree&lt;PointNT&gt;::Ptr <code class="sig-name descname">KdTreePtr</code><a class="headerlink" href="#_CPPv4N3pcl14GridProjection9KdTreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14GridProjection7HashMapE">
+<span id="_CPPv3N3pcl14GridProjection7HashMapE"></span><span id="_CPPv2N3pcl14GridProjection7HashMapE"></span><span id="pcl::GridProjection::HashMap"></span><span class="target" id="classpcl_1_1_grid_projection_1acf2c35c358d768516c366bdb16a1c54a"></span><em class="property">typedef </em>boost::unordered_map&lt;int, <a class="reference internal" href="#_CPPv4N3pcl14GridProjection4LeafE" title="pcl::GridProjection::Leaf">Leaf</a>, boost::hash&lt;int&gt;, std::equal_to&lt;int&gt;, Eigen::aligned_allocator&lt;int&gt;&gt; <code class="sig-name descname">HashMap</code><a class="headerlink" href="#_CPPv4N3pcl14GridProjection7HashMapE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection14GridProjectionEv">
+<span id="_CPPv3N3pcl14GridProjection14GridProjectionEv"></span><span id="_CPPv2N3pcl14GridProjection14GridProjectionEv"></span><span id="pcl::GridProjection::GridProjection"></span><span class="target" id="classpcl_1_1_grid_projection_1a79cb25cd43c17040722912dbffa5ca22"></span><code class="sig-name descname">GridProjection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection14GridProjectionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection14GridProjectionEd">
+<span id="_CPPv3N3pcl14GridProjection14GridProjectionEd"></span><span id="_CPPv2N3pcl14GridProjection14GridProjectionEd"></span><span id="pcl::GridProjection::GridProjection__double"></span><span class="target" id="classpcl_1_1_grid_projection_1acb6b9a0bf64fe78bbd8c8b16b95735fa"></span><code class="sig-name descname">GridProjection</code><span class="sig-paren">(</span>double <em>in_resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection14GridProjectionEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">in_resolution</span></code>: set the resolution of the grid </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjectionD0Ev">
+<span id="_CPPv3N3pcl14GridProjectionD0Ev"></span><span id="_CPPv2N3pcl14GridProjectionD0Ev"></span><span id="pcl::GridProjection::~GridProjection"></span><span class="target" id="classpcl_1_1_grid_projection_1a64f6ad98a1afff0c76ff557c68ae7b29"></span><code class="sig-name descname">~GridProjection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjectionD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection13setResolutionEd">
+<span id="_CPPv3N3pcl14GridProjection13setResolutionEd"></span><span id="_CPPv2N3pcl14GridProjection13setResolutionEd"></span><span id="pcl::GridProjection::setResolution__double"></span><span class="target" id="classpcl_1_1_grid_projection_1af8ccfe1a2c8d66ca9a126d33096d2496"></span>void <code class="sig-name descname">setResolution</code><span class="sig-paren">(</span>double <em>resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection13setResolutionEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the size of the grid cell. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">resolution</span></code>: the size of the grid cell </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection13getResolutionEv">
+<span id="_CPPv3NK3pcl14GridProjection13getResolutionEv"></span><span id="_CPPv2NK3pcl14GridProjection13getResolutionEv"></span><span id="pcl::GridProjection::getResolutionC"></span><span class="target" id="classpcl_1_1_grid_projection_1ae28f4d83ee50a5ad6267d7936f55a09d"></span>double <code class="sig-name descname">getResolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection13getResolutionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection14setPaddingSizeEi">
+<span id="_CPPv3N3pcl14GridProjection14setPaddingSizeEi"></span><span id="_CPPv2N3pcl14GridProjection14setPaddingSizeEi"></span><span id="pcl::GridProjection::setPaddingSize__i"></span><span class="target" id="classpcl_1_1_grid_projection_1a7661621ee4c96b46571cc5778b9b48cf"></span>void <code class="sig-name descname">setPaddingSize</code><span class="sig-paren">(</span>int <em>padding_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection14setPaddingSizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>When averaging the vectors, we find the union of all the input data points within the padding area,and do a weighted average. </p>
+<p>Say if the padding size is 1, when we process cell (x,y,z), we will find union of input data points from (x-1) to (x+1), (y-1) to (y+1), (z-1) to (z+1)(in total, 27 cells). In this way, even the cells itself doesn’t contain any data points, we will still process it because there are data points in the padding area. This can help us fix holes which is smaller than the padding size. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">padding_size</span></code>: The num of padding cells we want to create </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection14getPaddingSizeEv">
+<span id="_CPPv3NK3pcl14GridProjection14getPaddingSizeEv"></span><span id="_CPPv2NK3pcl14GridProjection14getPaddingSizeEv"></span><span id="pcl::GridProjection::getPaddingSizeC"></span><span class="target" id="classpcl_1_1_grid_projection_1adb565f51df04964c3b49dbd257d66d3d"></span>int <code class="sig-name descname">getPaddingSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection14getPaddingSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection21setNearestNeighborNumEi">
+<span id="_CPPv3N3pcl14GridProjection21setNearestNeighborNumEi"></span><span id="_CPPv2N3pcl14GridProjection21setNearestNeighborNumEi"></span><span id="pcl::GridProjection::setNearestNeighborNum__i"></span><span class="target" id="classpcl_1_1_grid_projection_1ab668b2eefe9c9136c06956ad312e6704"></span>void <code class="sig-name descname">setNearestNeighborNum</code><span class="sig-paren">(</span>int <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection21setNearestNeighborNumEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set this only when using the k nearest neighbors search instead of finding the point union. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code>: The number of nearest neighbors we are looking for </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection21getNearestNeighborNumEv">
+<span id="_CPPv3NK3pcl14GridProjection21getNearestNeighborNumEv"></span><span id="_CPPv2NK3pcl14GridProjection21getNearestNeighborNumEv"></span><span id="pcl::GridProjection::getNearestNeighborNumC"></span><span class="target" id="classpcl_1_1_grid_projection_1a9887d299ea2be516a1216cb7843a1bef"></span>int <code class="sig-name descname">getNearestNeighborNum</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection21getNearestNeighborNumEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection23setMaxBinarySearchLevelEi">
+<span id="_CPPv3N3pcl14GridProjection23setMaxBinarySearchLevelEi"></span><span id="_CPPv2N3pcl14GridProjection23setMaxBinarySearchLevelEi"></span><span id="pcl::GridProjection::setMaxBinarySearchLevel__i"></span><span class="target" id="classpcl_1_1_grid_projection_1a86f788e943e8660d1806688f8a56aec3"></span>void <code class="sig-name descname">setMaxBinarySearchLevel</code><span class="sig-paren">(</span>int <em>max_binary_search_level</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection23setMaxBinarySearchLevelEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Binary search is used in projection. </p>
+<p>given a point x, we find another point which is 3*cell_size_ far away from x. Then we do a binary search between these two points to find where the projected point should be. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection23getMaxBinarySearchLevelEv">
+<span id="_CPPv3NK3pcl14GridProjection23getMaxBinarySearchLevelEv"></span><span id="_CPPv2NK3pcl14GridProjection23getMaxBinarySearchLevelEv"></span><span id="pcl::GridProjection::getMaxBinarySearchLevelC"></span><span class="target" id="classpcl_1_1_grid_projection_1a8c221e7f97944896dc9003da3303c4f3"></span>int <code class="sig-name descname">getMaxBinarySearchLevel</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection23getMaxBinarySearchLevelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection14getCellHashMapEv">
+<span id="_CPPv3NK3pcl14GridProjection14getCellHashMapEv"></span><span id="_CPPv2NK3pcl14GridProjection14getCellHashMapEv"></span><span id="pcl::GridProjection::getCellHashMapC"></span><span class="target" id="classpcl_1_1_grid_projection_1a244e5fdc0993524900d4512c1eb7c60b"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl14GridProjection7HashMapE" title="pcl::GridProjection::HashMap">HashMap</a> &amp;<code class="sig-name descname">getCellHashMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection14getCellHashMapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection20getVectorAtDataPointEv">
+<span id="_CPPv3NK3pcl14GridProjection20getVectorAtDataPointEv"></span><span id="_CPPv2NK3pcl14GridProjection20getVectorAtDataPointEv"></span><span id="pcl::GridProjection::getVectorAtDataPointC"></span><span class="target" id="classpcl_1_1_grid_projection_1a41777645db865cd6155d3714fc8c7380"></span><em class="property">const</em> std::vector&lt;Eigen::Vector3f, Eigen::aligned_allocator&lt;Eigen::Vector3f&gt;&gt; &amp;<code class="sig-name descname">getVectorAtDataPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection20getVectorAtDataPointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection10getSurfaceEv">
+<span id="_CPPv3NK3pcl14GridProjection10getSurfaceEv"></span><span id="_CPPv2NK3pcl14GridProjection10getSurfaceEv"></span><span id="pcl::GridProjection::getSurfaceC"></span><span class="target" id="classpcl_1_1_grid_projection_1aa89bb70feecd87f4c8440ecec5426ccb"></span><em class="property">const</em> std::vector&lt;Eigen::Vector4f, Eigen::aligned_allocator&lt;Eigen::Vector4f&gt;&gt; &amp;<code class="sig-name descname">getSurface</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection10getSurfaceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection14getBoundingBoxEv">
+<span id="_CPPv3N3pcl14GridProjection14getBoundingBoxEv"></span><span id="_CPPv2N3pcl14GridProjection14getBoundingBoxEv"></span><span id="pcl::GridProjection::getBoundingBox"></span><span class="target" id="classpcl_1_1_grid_projection_1a3a200448054e67bd9f6117ebf81a1056"></span>void <code class="sig-name descname">getBoundingBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection14getBoundingBoxEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the bounding box for the input data points, also calculating the cell size, and the gaussian scale factor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection19reconstructPolygonsERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl14GridProjection19reconstructPolygonsERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl14GridProjection19reconstructPolygonsERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::GridProjection::reconstructPolygons__std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_grid_projection_1a0f79063799f9c6f47e8b8c7a61bae696"></span>bool <code class="sig-name descname">reconstructPolygons</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection19reconstructPolygonsERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The actual surface reconstruction method. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection21performReconstructionERN3pcl11PolygonMeshE">
+<span id="_CPPv3N3pcl14GridProjection21performReconstructionERN3pcl11PolygonMeshE"></span><span id="_CPPv2N3pcl14GridProjection21performReconstructionERN3pcl11PolygonMeshE"></span><span id="pcl::GridProjection::performReconstruction__pcl::PolygonMeshR"></span><span class="target" id="classpcl_1_1_grid_projection_1a0022be10a74f9928ca95c566a0cb0de5"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_polygon_mesh.html#_CPPv4N3pcl11PolygonMeshE" title="pcl::PolygonMesh">PolygonMesh</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection21performReconstructionERN3pcl11PolygonMeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create the surface. </p>
+<p>The 1st step is filling the padding, so that all the cells in the padding area are in the hash map. The 2nd step is store the vector, and projected point. The 3rd step is finding all the edges intersects the surface, and creating surface.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant polygonal mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection21performReconstructionERN3pcl10PointCloudI7PointNTEERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl14GridProjection21performReconstructionERN3pcl10PointCloudI7PointNTEERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl14GridProjection21performReconstructionERN3pcl10PointCloudI7PointNTEERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::GridProjection::performReconstruction__pcl::PointCloud:PointNT:R.std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_grid_projection_1a8110323bbd4c3b7af31d308246ebeb1a"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span>pcl::PointCloud&lt;PointNT&gt; &amp;<em>points</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection21performReconstructionERN3pcl10PointCloudI7PointNTEERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create the surface. </p>
+<p>The 1st step is filling the padding, so that all the cells in the padding area are in the hash map. The 2nd step is store the vector, and projected point. The 3rd step is finding all the edges intersects the surface, and creating surface.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">points</span></code>: the resultant points lying on the surface </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection19scaleInputDataPointEd">
+<span id="_CPPv3N3pcl14GridProjection19scaleInputDataPointEd"></span><span id="_CPPv2N3pcl14GridProjection19scaleInputDataPointEd"></span><span id="pcl::GridProjection::scaleInputDataPoint__double"></span><span class="target" id="classpcl_1_1_grid_projection_1a5411849e36c65f0f841290f9aa9fb562"></span>void <code class="sig-name descname">scaleInputDataPoint</code><span class="sig-paren">(</span>double <em>scale_factor</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection19scaleInputDataPointEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>When the input data points don’t fill into the 1*1*1 box, scale them so that they can be filled in the unit box. </p>
+<p>Otherwise, it will be some drawing problem when doing visulization <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scale_factor</span></code>: scale all the input data point by scale_factor </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection12getCellIndexERKN5Eigen8Vector4fERN5Eigen8Vector3iE">
+<span id="_CPPv3NK3pcl14GridProjection12getCellIndexERKN5Eigen8Vector4fERN5Eigen8Vector3iE"></span><span id="_CPPv2NK3pcl14GridProjection12getCellIndexERKN5Eigen8Vector4fERN5Eigen8Vector3iE"></span><span id="pcl::GridProjection::getCellIndex__Eigen::Vector4fCR.Eigen::Vector3iRC"></span><span class="target" id="classpcl_1_1_grid_projection_1a3dc6098c925df8dd7d769cdd9a48d388"></span>void <code class="sig-name descname">getCellIndex</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>p</em>, Eigen::Vector3i &amp;<em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection12getCellIndexERKN5Eigen8Vector4fERN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the 3d index (x,y,z) of the cell based on the location of the cell. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: the coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: the output 3d index </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection22getCellCenterFromIndexERKN5Eigen8Vector3iERN5Eigen8Vector4fE">
+<span id="_CPPv3NK3pcl14GridProjection22getCellCenterFromIndexERKN5Eigen8Vector3iERN5Eigen8Vector4fE"></span><span id="_CPPv2NK3pcl14GridProjection22getCellCenterFromIndexERKN5Eigen8Vector3iERN5Eigen8Vector4fE"></span><span id="pcl::GridProjection::getCellCenterFromIndex__Eigen::Vector3iCR.Eigen::Vector4fRC"></span><span class="target" id="classpcl_1_1_grid_projection_1a7be2fc98e055e9b0bdef93ad4bed5088"></span>void <code class="sig-name descname">getCellCenterFromIndex</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>index</em>, Eigen::Vector4f &amp;<em>center</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection22getCellCenterFromIndexERKN5Eigen8Vector3iERN5Eigen8Vector4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given the 3d index (x, y, z) of the cell, get the coordinates of the cell center. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: the output 3d index </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">center</span></code>: the resultant cell center </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection23getVertexFromCellCenterERKN5Eigen8Vector4fERNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEE">
+<span id="_CPPv3NK3pcl14GridProjection23getVertexFromCellCenterERKN5Eigen8Vector4fERNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEE"></span><span id="_CPPv2NK3pcl14GridProjection23getVertexFromCellCenterERKN5Eigen8Vector4fERNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEE"></span><span id="pcl::GridProjection::getVertexFromCellCenter__Eigen::Vector4fCR.std::vector:Eigen::Vector4f.Eigen::aligned_allocator:Eigen::Vector4f::RC"></span><span class="target" id="classpcl_1_1_grid_projection_1a9737031e2e20bafbd0cbf68d56aab6bf"></span>void <code class="sig-name descname">getVertexFromCellCenter</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>cell_center</em>, std::vector&lt;Eigen::Vector4f, Eigen::aligned_allocator&lt;Eigen::Vector4f&gt;&gt; &amp;<em>pts</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection23getVertexFromCellCenterERKN5Eigen8Vector4fERNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given cell center, caluate the coordinates of the eight vertices of the cell. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cell_center</span></code>: the coordinates of the cell center </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pts</span></code>: the coordinates of the 8 vertices </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection12getIndexIn1DERKN5Eigen8Vector3iE">
+<span id="_CPPv3NK3pcl14GridProjection12getIndexIn1DERKN5Eigen8Vector3iE"></span><span id="_CPPv2NK3pcl14GridProjection12getIndexIn1DERKN5Eigen8Vector3iE"></span><span id="pcl::GridProjection::getIndexIn1D__Eigen::Vector3iCRC"></span><span class="target" id="classpcl_1_1_grid_projection_1ada1e79d0c17350a5d877a4bb62f49559"></span>int <code class="sig-name descname">getIndexIn1D</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>index</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection12getIndexIn1DERKN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given an index (x, y, z) in 3d, translate it into the index in 1d. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: the index of the cell in (x,y,z) 3d format </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14GridProjection12getIndexIn3DEiRN5Eigen8Vector3iE">
+<span id="_CPPv3NK3pcl14GridProjection12getIndexIn3DEiRN5Eigen8Vector3iE"></span><span id="_CPPv2NK3pcl14GridProjection12getIndexIn3DEiRN5Eigen8Vector3iE"></span><span id="pcl::GridProjection::getIndexIn3D__i.Eigen::Vector3iRC"></span><span class="target" id="classpcl_1_1_grid_projection_1a0dabfb35173b2618cc09e2399229b3bc"></span>void <code class="sig-name descname">getIndexIn3D</code><span class="sig-paren">(</span>int <em>index_1d</em>, Eigen::Vector3i &amp;<em>index_3d</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14GridProjection12getIndexIn3DEiRN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given an index in 1d, translate it into the index (x, y, z) in 3d. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index_1d</span></code>: the input 1d index </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index_3d</span></code>: the output 3d index </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection7fillPadERKN5Eigen8Vector3iE">
+<span id="_CPPv3N3pcl14GridProjection7fillPadERKN5Eigen8Vector3iE"></span><span id="_CPPv2N3pcl14GridProjection7fillPadERKN5Eigen8Vector3iE"></span><span id="pcl::GridProjection::fillPad__Eigen::Vector3iCR"></span><span class="target" id="classpcl_1_1_grid_projection_1addddfa2765e87d007286da283e1bb785"></span>void <code class="sig-name descname">fillPad</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection7fillPadERKN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>For a given 3d index of a cell, test whether the cells within its padding area exist in the hash table, if no, create an entry for that cell. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: the index of the cell in (x,y,z) format </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection15getDataPtsUnionERKN5Eigen8Vector3iERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl14GridProjection15getDataPtsUnionERKN5Eigen8Vector3iERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl14GridProjection15getDataPtsUnionERKN5Eigen8Vector3iERNSt6vectorIiEE"></span><span id="pcl::GridProjection::getDataPtsUnion__Eigen::Vector3iCR.std::vector:i:R"></span><span class="target" id="classpcl_1_1_grid_projection_1a8911f8091c13fced97e02517394cc92b"></span>void <code class="sig-name descname">getDataPtsUnion</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>index</em>, std::vector&lt;int&gt; &amp;<em>pt_union_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection15getDataPtsUnionERKN5Eigen8Vector3iERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain the index of a cell and the pad size. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: the input index </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection20createSurfaceForCellERKN5Eigen8Vector3iERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl14GridProjection20createSurfaceForCellERKN5Eigen8Vector3iERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl14GridProjection20createSurfaceForCellERKN5Eigen8Vector3iERNSt6vectorIiEE"></span><span id="pcl::GridProjection::createSurfaceForCell__Eigen::Vector3iCR.std::vector:i:R"></span><span class="target" id="classpcl_1_1_grid_projection_1ac5eb7fadd9ea168c7e7f6b179e9e03f9"></span>void <code class="sig-name descname">createSurfaceForCell</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>index</em>, std::vector&lt;int&gt; &amp;<em>pt_union_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection20createSurfaceForCellERKN5Eigen8Vector3iERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given the index of a cell, exam it’s up, left, front edges, and add the vectices to m_surface list.the up, left, front edges only share 4 points, we first get the vectors at these 4 points and exam whether those three edges are intersected by the surface. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code>: the input index </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection13getProjectionERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE">
+<span id="_CPPv3N3pcl14GridProjection13getProjectionERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE"></span><span id="_CPPv2N3pcl14GridProjection13getProjectionERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE"></span><span id="pcl::GridProjection::getProjection__Eigen::Vector4fCR.std::vector:i:R.Eigen::Vector4fR"></span><span class="target" id="classpcl_1_1_grid_projection_1ae80852b9daa1e3969edbcb55de2f9bfd"></span>void <code class="sig-name descname">getProjection</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>p</em>, std::vector&lt;int&gt; &amp;<em>pt_union_indices</em>, Eigen::Vector4f &amp;<em>projection</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection13getProjectionERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given the coordinates of one point, project it onto the surface, return the projected point. </p>
+<p>Do a binary search between p and p+projection_distance to find the projected point <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: the coordinates of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">projection</span></code>: the resultant point projected </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection25getProjectionWithPlaneFitERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE">
+<span id="_CPPv3N3pcl14GridProjection25getProjectionWithPlaneFitERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE"></span><span id="_CPPv2N3pcl14GridProjection25getProjectionWithPlaneFitERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE"></span><span id="pcl::GridProjection::getProjectionWithPlaneFit__Eigen::Vector4fCR.std::vector:i:R.Eigen::Vector4fR"></span><span class="target" id="classpcl_1_1_grid_projection_1a8fcbd49493eae00ac9b08c3ad9d84470"></span>void <code class="sig-name descname">getProjectionWithPlaneFit</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>p</em>, std::vector&lt;int&gt; &amp;<em>pt_union_indices</em>, Eigen::Vector4f &amp;<em>projection</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection25getProjectionWithPlaneFitERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given the coordinates of one point, project it onto the surface, return the projected point. </p>
+<p>Find the plane which fits all the points in pt_union_indices, projected p to the plane to get the projected point. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: the coordinates of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">projection</span></code>: the resultant point projected </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection16getVectorAtPointERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl14GridProjection16getVectorAtPointERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl14GridProjection16getVectorAtPointERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector3fE"></span><span id="pcl::GridProjection::getVectorAtPoint__Eigen::Vector4fCR.std::vector:i:R.Eigen::Vector3fR"></span><span class="target" id="classpcl_1_1_grid_projection_1a074763eb0e0911eaad45550917bd8d83"></span>void <code class="sig-name descname">getVectorAtPoint</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>p</em>, std::vector&lt;int&gt; &amp;<em>pt_union_indices</em>, Eigen::Vector3f &amp;<em>vo</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection16getVectorAtPointERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given the location of a point, get it’s vector. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: the coordinates of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vo</span></code>: the resultant vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection19getVectorAtPointKNNERKN5Eigen8Vector4fERNSt6vectorIiEERNSt6vectorIfEERN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl14GridProjection19getVectorAtPointKNNERKN5Eigen8Vector4fERNSt6vectorIiEERNSt6vectorIfEERN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl14GridProjection19getVectorAtPointKNNERKN5Eigen8Vector4fERNSt6vectorIiEERNSt6vectorIfEERN5Eigen8Vector3fE"></span><span id="pcl::GridProjection::getVectorAtPointKNN__Eigen::Vector4fCR.std::vector:i:R.std::vector:float:R.Eigen::Vector3fR"></span><span class="target" id="classpcl_1_1_grid_projection_1a060f7e37755634942614e7db6a51bc2f"></span>void <code class="sig-name descname">getVectorAtPointKNN</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>p</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_squared_distances</em>, Eigen::Vector3f &amp;<em>vo</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection19getVectorAtPointKNNERKN5Eigen8Vector4fERNSt6vectorIiEERNSt6vectorIfEERN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given the location of a point, get it’s vector. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: the coordinates of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_indices</span></code>: the k nearest neighbors of the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k_squared_distances</span></code>: the squared distances of the k nearest neighbors to the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vo</span></code>: the resultant vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection13getMagAtPointERKN5Eigen8Vector4fERKNSt6vectorIiEE">
+<span id="_CPPv3N3pcl14GridProjection13getMagAtPointERKN5Eigen8Vector4fERKNSt6vectorIiEE"></span><span id="_CPPv2N3pcl14GridProjection13getMagAtPointERKN5Eigen8Vector4fERKNSt6vectorIiEE"></span><span id="pcl::GridProjection::getMagAtPoint__Eigen::Vector4fCR.std::vector:i:CR"></span><span class="target" id="classpcl_1_1_grid_projection_1a0dd2b2c908b476f89d409fdd75eaf651"></span>double <code class="sig-name descname">getMagAtPoint</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>p</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>pt_union_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection13getMagAtPointERKN5Eigen8Vector4fERKNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the magnitude of the vector by summing up the distance. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: the coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection12getD1AtPointERKN5Eigen8Vector4fERKN5Eigen8Vector3fERKNSt6vectorIiEE">
+<span id="_CPPv3N3pcl14GridProjection12getD1AtPointERKN5Eigen8Vector4fERKN5Eigen8Vector3fERKNSt6vectorIiEE"></span><span id="_CPPv2N3pcl14GridProjection12getD1AtPointERKN5Eigen8Vector4fERKN5Eigen8Vector3fERKNSt6vectorIiEE"></span><span id="pcl::GridProjection::getD1AtPoint__Eigen::Vector4fCR.Eigen::Vector3fCR.std::vector:i:CR"></span><span class="target" id="classpcl_1_1_grid_projection_1a4088a346e9317fccdf6ab2d0f6f21026"></span>double <code class="sig-name descname">getD1AtPoint</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>p</em>, <em class="property">const</em> Eigen::Vector3f &amp;<em>vec</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>pt_union_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection12getD1AtPointERKN5Eigen8Vector4fERKN5Eigen8Vector3fERKNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the 1st derivative. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: the coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec</span></code>: the vector at point p </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection12getD2AtPointERKN5Eigen8Vector4fERKN5Eigen8Vector3fERKNSt6vectorIiEE">
+<span id="_CPPv3N3pcl14GridProjection12getD2AtPointERKN5Eigen8Vector4fERKN5Eigen8Vector3fERKNSt6vectorIiEE"></span><span id="_CPPv2N3pcl14GridProjection12getD2AtPointERKN5Eigen8Vector4fERKN5Eigen8Vector3fERKNSt6vectorIiEE"></span><span id="pcl::GridProjection::getD2AtPoint__Eigen::Vector4fCR.Eigen::Vector3fCR.std::vector:i:CR"></span><span class="target" id="classpcl_1_1_grid_projection_1a548e9827c1cb590510e55b6285952ca1"></span>double <code class="sig-name descname">getD2AtPoint</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>p</em>, <em class="property">const</em> Eigen::Vector3f &amp;<em>vec</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>pt_union_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection12getD2AtPointERKN5Eigen8Vector4fERKN5Eigen8Vector3fERKNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the 2nd derivative. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: the coordinate of the input point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec</span></code>: the vector at point p </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection13isIntersectedERKNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEERNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl14GridProjection13isIntersectedERKNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEERNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl14GridProjection13isIntersectedERKNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEERNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEERNSt6vectorIiEE"></span><span id="pcl::GridProjection::isIntersected__std::vector:Eigen::Vector4f.Eigen::aligned_allocator:Eigen::Vector4f::CR.std::vector:Eigen::Vector3f.Eigen::aligned_allocator:Eigen::Vector3f::R.std::vector:i:R"></span><span class="target" id="classpcl_1_1_grid_projection_1ad417229bdf16b68c1ce7830bcbfbf758"></span>bool <code class="sig-name descname">isIntersected</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;Eigen::Vector4f, Eigen::aligned_allocator&lt;Eigen::Vector4f&gt;&gt; &amp;<em>end_pts</em>, std::vector&lt;Eigen::Vector3f, Eigen::aligned_allocator&lt;Eigen::Vector3f&gt;&gt; &amp;<em>vect_at_end_pts</em>, std::vector&lt;int&gt; &amp;<em>pt_union_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection13isIntersectedERKNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEERNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Test whether the edge is intersected by the surface by doing the dot product of the vector at two end points. </p>
+<p>Also test whether the edge is intersected by the maximum surface by examing the 2nd derivative of the intersection point <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">end_pts</span></code>: the two points of the edge </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vect_at_end_pts</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection16findIntersectionEiRKNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEERKNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE">
+<span id="_CPPv3N3pcl14GridProjection16findIntersectionEiRKNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEERKNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE"></span><span id="_CPPv2N3pcl14GridProjection16findIntersectionEiRKNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEERKNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE"></span><span id="pcl::GridProjection::findIntersection__i.std::vector:Eigen::Vector4f.Eigen::aligned_allocator:Eigen::Vector4f::CR.std::vector:Eigen::Vector3f.Eigen::aligned_allocator:Eigen::Vector3f::CR.Eigen::Vector4fCR.std::vector:i:R.Eigen::Vector4fR"></span><span class="target" id="classpcl_1_1_grid_projection_1a624615f1f4b63e4c7b9094bdc14a64f4"></span>void <code class="sig-name descname">findIntersection</code><span class="sig-paren">(</span>int <em>level</em>, <em class="property">const</em> std::vector&lt;Eigen::Vector4f, Eigen::aligned_allocator&lt;Eigen::Vector4f&gt;&gt; &amp;<em>end_pts</em>, <em class="property">const</em> std::vector&lt;Eigen::Vector3f, Eigen::aligned_allocator&lt;Eigen::Vector3f&gt;&gt; &amp;<em>vect_at_end_pts</em>, <em class="property">const</em> Eigen::Vector4f &amp;<em>start_pt</em>, std::vector&lt;int&gt; &amp;<em>pt_union_indices</em>, Eigen::Vector4f &amp;<em>intersection</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection16findIntersectionEiRKNSt6vectorIN5Eigen8Vector4fEN5Eigen17aligned_allocatorIN5Eigen8Vector4fEEEEERKNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEERKN5Eigen8Vector4fERNSt6vectorIiEERN5Eigen8Vector4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Find point where the edge intersects the surface. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">level</span></code>: binary search level </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_pts</span></code>: the two end points on the edge </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vect_at_end_pts</span></code>: the vectors at the two end points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_pt</span></code>: the starting point we use for binary search </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and padding cells </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">intersection</span></code>: the resultant intersection point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection24storeVectAndSurfacePointEiRKN5Eigen8Vector3iERNSt6vectorIiEERK4Leaf">
+<span id="_CPPv3N3pcl14GridProjection24storeVectAndSurfacePointEiRKN5Eigen8Vector3iERNSt6vectorIiEERK4Leaf"></span><span id="_CPPv2N3pcl14GridProjection24storeVectAndSurfacePointEiRKN5Eigen8Vector3iERNSt6vectorIiEERK4Leaf"></span><span id="pcl::GridProjection::storeVectAndSurfacePoint__i.Eigen::Vector3iCR.std::vector:i:R.LeafCR"></span><span class="target" id="classpcl_1_1_grid_projection_1aac13ae4b11bb74d2efd2253dcca78862"></span>void <code class="sig-name descname">storeVectAndSurfacePoint</code><span class="sig-paren">(</span>int <em>index_1d</em>, <em class="property">const</em> Eigen::Vector3i &amp;<em>index_3d</em>, std::vector&lt;int&gt; &amp;<em>pt_union_indices</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl14GridProjection4LeafE" title="pcl::GridProjection::Leaf">Leaf</a> &amp;<em>cell_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection24storeVectAndSurfacePointEiRKN5Eigen8Vector3iERNSt6vectorIiEERK4Leaf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Go through all the entries in the hash table and update the cellData. </p>
+<p>When creating the hash table, the pt_on_surface field store the center point of the cell.After calling this function, the projection operator will project the center point onto the surface, and the pt_on_surface field will be updated using the projected point.Also the vect_at_grid_pt field will be updated using the vector at the upper left front vertex of the cell.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index_1d</span></code>: the index of the cell after flatting it’s 3d index into a 1d array </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index_3d</span></code>: the index of the cell in (x,y,z) 3d format </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt_union_indices</span></code>: the union of input data points within the cell and pads </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cell_data</span></code>: information stored in the cell </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14GridProjection27storeVectAndSurfacePointKNNEiRKN5Eigen8Vector3iERK4Leaf">
+<span id="_CPPv3N3pcl14GridProjection27storeVectAndSurfacePointKNNEiRKN5Eigen8Vector3iERK4Leaf"></span><span id="_CPPv2N3pcl14GridProjection27storeVectAndSurfacePointKNNEiRKN5Eigen8Vector3iERK4Leaf"></span><span id="pcl::GridProjection::storeVectAndSurfacePointKNN__i.Eigen::Vector3iCR.LeafCR"></span><span class="target" id="classpcl_1_1_grid_projection_1a18151db726b30e36c9e7cfbb45b4a47f"></span>void <code class="sig-name descname">storeVectAndSurfacePointKNN</code><span class="sig-paren">(</span>int <em>index_1d</em>, <em class="property">const</em> Eigen::Vector3i &amp;<em>index_3d</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl14GridProjection4LeafE" title="pcl::GridProjection::Leaf">Leaf</a> &amp;<em>cell_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14GridProjection27storeVectAndSurfacePointKNNEiRKN5Eigen8Vector3iERK4Leaf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Go through all the entries in the hash table and update the cellData. </p>
+<p>When creating the hash table, the pt_on_surface field store the center point of the cell.After calling this function, the projection operator will project the center point onto the surface, and the pt_on_surface field will be updated using the projected point.Also the vect_at_grid_pt field will be updated using the vector at the upper left front vertex of the cell. When projecting the point and calculating the vector, using K nearest neighbors instead of using the union of input data point within the cell and pads.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index_1d</span></code>: the index of the cell after flatting it’s 3d index into a 1d array </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index_3d</span></code>: the index of the cell in (x,y,z) 3d format </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cell_data</span></code>: information stored in the cell </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl14GridProjection4LeafE">
+<span id="_CPPv3N3pcl14GridProjection4LeafE"></span><span id="_CPPv2N3pcl14GridProjection4LeafE"></span><span id="pcl::GridProjection::Leaf"></span><span class="target" id="structpcl_1_1_grid_projection_1_1_leaf"></span><em class="property">struct </em><code class="sig-name descname">Leaf</code><a class="headerlink" href="#_CPPv4N3pcl14GridProjection4LeafE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data leaf. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl14GridProjectionI7PointNTE4Leaf4LeafEv">
+<span id="_CPPv3IEN3pcl14GridProjectionI7PointNTE4Leaf4LeafEv"></span><span id="_CPPv2IEN3pcl14GridProjectionI7PointNTE4Leaf4LeafEv"></span><span class="target" id="structpcl_1_1_grid_projection_1_1_leaf_1a4f15ae7c513cc840745052af9abeba99"></span>template&lt;&gt;<br /><code class="sig-name descname">Leaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl14GridProjectionI7PointNTE4Leaf4LeafEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl14GridProjectionI7PointNTE4Leaf12data_indicesE">
+<span id="_CPPv3IEN3pcl14GridProjectionI7PointNTE4Leaf12data_indicesE"></span><span id="_CPPv2IEN3pcl14GridProjectionI7PointNTE4Leaf12data_indicesE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_grid_projection_1_1_leaf_1ac9c2c7943355c069a20733b67f2e970e"></span>std::vector&lt;int&gt; <code class="sig-name descname">data_indices</code><a class="headerlink" href="#_CPPv4IEN3pcl14GridProjectionI7PointNTE4Leaf12data_indicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl14GridProjectionI7PointNTE4Leaf13pt_on_surfaceE">
+<span id="_CPPv3IEN3pcl14GridProjectionI7PointNTE4Leaf13pt_on_surfaceE"></span><span id="_CPPv2IEN3pcl14GridProjectionI7PointNTE4Leaf13pt_on_surfaceE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_grid_projection_1_1_leaf_1a76fea4d11f9cf29a03f7d3c3cc643603"></span>Eigen::Vector4f <code class="sig-name descname">pt_on_surface</code><a class="headerlink" href="#_CPPv4IEN3pcl14GridProjectionI7PointNTE4Leaf13pt_on_surfaceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl14GridProjectionI7PointNTE4Leaf15vect_at_grid_ptE">
+<span id="_CPPv3IEN3pcl14GridProjectionI7PointNTE4Leaf15vect_at_grid_ptE"></span><span id="_CPPv2IEN3pcl14GridProjectionI7PointNTE4Leaf15vect_at_grid_ptE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_grid_projection_1_1_leaf_1a29466f5e1361536e67752b5ddaffe9e3"></span>Eigen::Vector3f <code class="sig-name descname">vect_at_grid_pt</code><a class="headerlink" href="#_CPPv4IEN3pcl14GridProjectionI7PointNTE4Leaf15vect_at_grid_ptE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,934 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OctreePointCloudSearch &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OctreePointCloudSearch</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1octree_1_1_octree_point_cloud_search.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-octreepointcloudsearch">
+<span id="exhale-class-classpcl-1-1octree-1-1-octree-point-cloud-search"></span><h1>Template Class OctreePointCloudSearch<a class="headerlink" href="#template-class-octreepointcloudsearch" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_octree_include_pcl_octree_octree_search.h.html#file-pcl-octree-include-pcl-octree-octree-search-h"><span class="std std-ref">File octree_search.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry.html#exhale-class-classpcl-1-1octree-1-1-octree-point-cloud-search-1-1prio-branch-queue-entry"><span class="std std-ref">Class OctreePointCloudSearch::prioBranchQueueEntry</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_point_queue_entry.html#exhale-class-classpcl-1-1octree-1-1-octree-point-cloud-search-1-1prio-point-queue-entry"><span class="std std-ref">Class OctreePointCloudSearch::prioPointQueueEntry</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreePointCloud&lt;</span> <span class="pre">PointT,</span> <span class="pre">LeafContainerT,</span> <span class="pre">BranchContainerT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud.html#exhale-class-classpcl-1-1octree-1-1-octree-point-cloud"><span class="std std-ref">Template Class OctreePointCloud</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I000EN3pcl6octree22OctreePointCloudSearchE">
+<span id="_CPPv3I000EN3pcl6octree22OctreePointCloudSearchE"></span><span id="_CPPv2I000EN3pcl6octree22OctreePointCloudSearchE"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search"></span>template&lt;typename <code class="sig-name descname">PointT</code>, typename <code class="sig-name descname">LeafContainerT</code> = <a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_point_indices.html#_CPPv4N3pcl6octree27OctreeContainerPointIndicesE" title="pcl::octree::OctreeContainerPointIndices">OctreeContainerPointIndices</a>, typename <code class="sig-name descname">BranchContainerT</code> = <a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_empty.html#_CPPv4N3pcl6octree20OctreeContainerEmptyE" title="pcl::octree::OctreeContainerEmpty">OctreeContainerEmpty</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">OctreePointCloudSearch</code> : <em class="property">public</em> pcl::octree::OctreePointCloud&lt;<a class="reference internal" href="#_CPPv4I000EN3pcl6octree22OctreePointCloudSearchE" title="pcl::octree::OctreePointCloudSearch::PointT">PointT</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl6octree22OctreePointCloudSearchE" title="pcl::octree::OctreePointCloudSearch::LeafContainerT">LeafContainerT</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl6octree22OctreePointCloudSearchE" title="pcl::octree::OctreePointCloudSearch::BranchContainerT">BranchContainerT</a>&gt;<a class="headerlink" href="#_CPPv4I000EN3pcl6octree22OctreePointCloudSearchE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Octree</strong> pointcloud search class </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class provides several methods for spatial neighbor search based on octree structure </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>typename: PointT: type of point used in pointcloud</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch10IndicesPtrE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch10IndicesPtrE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch10IndicesPtrE"></span><span id="pcl::octree::OctreePointCloudSearch::IndicesPtr"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a0321f299befce56b8dfe769bc21b067c"></span><em class="property">typedef </em>boost::shared_ptr&lt;std::vector&lt;int&gt;&gt; <code class="sig-name descname">IndicesPtr</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10IndicesPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch15IndicesConstPtrE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch15IndicesConstPtrE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch15IndicesConstPtrE"></span><span id="pcl::octree::OctreePointCloudSearch::IndicesConstPtr"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a99f63bc0d03868c9a81608ca4ea80cb4"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> std::vector&lt;int&gt;&gt; <code class="sig-name descname">IndicesConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch15IndicesConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch10PointCloudE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch10PointCloudE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch10PointCloudE"></span><span id="pcl::octree::OctreePointCloudSearch::PointCloud"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1af3f879524c0ec18da3c4451eeafe0769"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch13PointCloudPtrE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch13PointCloudPtrE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch13PointCloudPtrE"></span><span id="pcl::octree::OctreePointCloudSearch::PointCloudPtr"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a6f8088661c5340814ec584fed234971b"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10PointCloudE" title="pcl::octree::OctreePointCloudSearch::PointCloud">PointCloud</a>&gt; <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch18PointCloudConstPtrE"></span><span id="pcl::octree::OctreePointCloudSearch::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1aafe8edd385a4dd6c33d172905c8d3f19"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10PointCloudE" title="pcl::octree::OctreePointCloudSearch::PointCloud">PointCloud</a>&gt; <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch3PtrE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch3PtrE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch3PtrE"></span><span id="pcl::octree::OctreePointCloudSearch::Ptr"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1af7712400d276c978e2d55592593ffbdc"></span><em class="property">typedef </em>boost::shared_ptr&lt;OctreePointCloudSearch&lt;PointT, LeafContainerT, BranchContainerT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch8ConstPtrE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch8ConstPtrE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch8ConstPtrE"></span><span id="pcl::octree::OctreePointCloudSearch::ConstPtr"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1acebc2f9148400e6d6e1f3ce2511d011a"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> OctreePointCloudSearch&lt;PointT, LeafContainerT, BranchContainerT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch19AlignedPointTVectorE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch19AlignedPointTVectorE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch19AlignedPointTVectorE"></span><span id="pcl::octree::OctreePointCloudSearch::AlignedPointTVector"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a8680d7754f3b9872f62319ad0d304cba"></span><em class="property">typedef </em>std::vector&lt;PointT, Eigen::aligned_allocator&lt;PointT&gt;&gt; <code class="sig-name descname">AlignedPointTVector</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch19AlignedPointTVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch7OctreeTE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch7OctreeTE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch7OctreeTE"></span><span id="pcl::octree::OctreePointCloudSearch::OctreeT"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a4a421f6d63e460a10852a52d1e44f5a6"></span><em class="property">typedef </em>OctreePointCloud&lt;PointT, LeafContainerT, BranchContainerT&gt; <code class="sig-name descname">OctreeT</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch7OctreeTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch8LeafNodeE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch8LeafNodeE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch8LeafNodeE"></span><span id="pcl::octree::OctreePointCloudSearch::LeafNode"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1aabd102fe0e24722872dee414c6178e33"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch7OctreeTE" title="pcl::octree::OctreePointCloudSearch::OctreeT">OctreeT</a>::LeafNode <code class="sig-name descname">LeafNode</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch8LeafNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch10BranchNodeE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch10BranchNodeE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch10BranchNodeE"></span><span id="pcl::octree::OctreePointCloudSearch::BranchNode"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a81cf2cdbaf5211e5dee4c58bde0dd45d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch7OctreeTE" title="pcl::octree::OctreePointCloudSearch::OctreeT">OctreeT</a>::BranchNode <code class="sig-name descname">BranchNode</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10BranchNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch22OctreePointCloudSearchEKd">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch22OctreePointCloudSearchEKd"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch22OctreePointCloudSearchEKd"></span><span id="pcl::octree::OctreePointCloudSearch::OctreePointCloudSearch__doubleC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1adb3b8d2c1fa8f5548de1a4c3f4b8af2c"></span><code class="sig-name descname">OctreePointCloudSearch</code><span class="sig-paren">(</span><em class="property">const</em> double <em>resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch22OctreePointCloudSearchEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">resolution</span></code>: octree resolution at lowest octree level </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearchD0Ev">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearchD0Ev"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearchD0Ev"></span><span id="pcl::octree::OctreePointCloudSearch::~OctreePointCloudSearch"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a922594b383449d1cf7662b3551ea4aa6"></span><em class="property">virtual</em> <code class="sig-name descname">~OctreePointCloudSearch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearchD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty class destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch11voxelSearchERK6PointTRNSt6vectorIiEE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch11voxelSearchERK6PointTRNSt6vectorIiEE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch11voxelSearchERK6PointTRNSt6vectorIiEE"></span><span id="pcl::octree::OctreePointCloudSearch::voxelSearch__PointTCR.std::vector:i:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1afb43baee48b83316cce5d4003561aabb"></span>bool <code class="sig-name descname">voxelSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, std::vector&lt;int&gt; &amp;<em>point_idx_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch11voxelSearchERK6PointTRNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for neighbors within a voxel at given point. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if leaf node exist; “false” otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: point addressing a leaf node voxel </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">point_idx_data</span></code>: the resultant indices of the neighboring voxel points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch11voxelSearchEKiRNSt6vectorIiEE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch11voxelSearchEKiRNSt6vectorIiEE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch11voxelSearchEKiRNSt6vectorIiEE"></span><span id="pcl::octree::OctreePointCloudSearch::voxelSearch__iC.std::vector:i:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a69d3bb3040880d640a84361618964c1b"></span>bool <code class="sig-name descname">voxelSearch</code><span class="sig-paren">(</span><em class="property">const</em> int <em>index</em>, std::vector&lt;int&gt; &amp;<em>point_idx_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch11voxelSearchEKiRNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for neighbors within a voxel at given point referenced by a point index. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if leaf node exist; “false” otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index in input cloud defining the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">point_idx_data</span></code>: the resultant indices of the neighboring voxel points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch14nearestKSearchERK10PointCloudiiRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch14nearestKSearchERK10PointCloudiiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch14nearestKSearchERK10PointCloudiiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::octree::OctreePointCloudSearch::nearestKSearch__PointCloudCR.i.i.std::vector:i:R.std::vector:float:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a21d3818a5a56eef093a0f556b3b1ff60"></span>int <code class="sig-name descname">nearestKSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10PointCloudE" title="pcl::octree::OctreePointCloudSearch::PointCloud">PointCloud</a> &amp;<em>cloud</em>, int <em>index</em>, int <em>k</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch14nearestKSearchERK10PointCloudiiRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for k-nearest neighbors at the query point. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the point cloud data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index in <em>cloud</em> representing the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: the number of neighbors to search for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant indices of the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::octree::OctreePointCloudSearch::nearestKSearch__PointTCR.i.std::vector:i:R.std::vector:float:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1aa631ebe91256e5e62d092eab41e63ab1"></span>int <code class="sig-name descname">nearestKSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>p_q</em>, int <em>k</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch14nearestKSearchERK6PointTiRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for k-nearest neighbors at given query point. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p_q</span></code>: the given query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: the number of neighbors to search for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant indices of the neighboring points (must be resized to k a priori!) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points (must be resized to k a priori!) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch14nearestKSearchEiiRNSt6vectorIiEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch14nearestKSearchEiiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch14nearestKSearchEiiRNSt6vectorIiEERNSt6vectorIfEE"></span><span id="pcl::octree::OctreePointCloudSearch::nearestKSearch__i.i.std::vector:i:R.std::vector:float:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a6c7167376eca831089b7848438ffdb82"></span>int <code class="sig-name descname">nearestKSearch</code><span class="sig-paren">(</span>int <em>index</em>, int <em>k</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch14nearestKSearchEiiRNSt6vectorIiEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for k-nearest neighbors at query point. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: index representing the query point in the dataset given by <em>setInputCloud</em>. If indices were given in setInputCloud, index will be the position in the indices vector. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: the number of neighbors to search for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant indices of the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points (must be resized to <em>k</em> a priori!) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch19approxNearestSearchERK10PointCloudiRiRf">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch19approxNearestSearchERK10PointCloudiRiRf"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch19approxNearestSearchERK10PointCloudiRiRf"></span><span id="pcl::octree::OctreePointCloudSearch::approxNearestSearch__PointCloudCR.i.iR.floatR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a76f66f61c1561a260c9dfd7a91bce860"></span>void <code class="sig-name descname">approxNearestSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10PointCloudE" title="pcl::octree::OctreePointCloudSearch::PointCloud">PointCloud</a> &amp;<em>cloud</em>, int <em>query_index</em>, int &amp;<em>result_index</em>, float &amp;<em>sqr_distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch19approxNearestSearchERK10PointCloudiRiRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for approx. </p>
+<p>nearest neighbor at the query point. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the point cloud data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">query_index</span></code>: the index in <em>cloud</em> representing the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">result_index</span></code>: the resultant index of the neighbor point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">sqr_distance</span></code>: the resultant squared distance to the neighboring point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch19approxNearestSearchERK6PointTRiRf">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch19approxNearestSearchERK6PointTRiRf"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch19approxNearestSearchERK6PointTRiRf"></span><span id="pcl::octree::OctreePointCloudSearch::approxNearestSearch__PointTCR.iR.floatR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1aedaa8f43355000dbb0acc811c4b321fb"></span>void <code class="sig-name descname">approxNearestSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>p_q</em>, int &amp;<em>result_index</em>, float &amp;<em>sqr_distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch19approxNearestSearchERK6PointTRiRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for approx. </p>
+<p>nearest neighbor at the query point. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p_q</span></code>: the given query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">result_index</span></code>: the resultant index of the neighbor point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">sqr_distance</span></code>: the resultant squared distance to the neighboring point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch19approxNearestSearchEiRiRf">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch19approxNearestSearchEiRiRf"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch19approxNearestSearchEiRiRf"></span><span id="pcl::octree::OctreePointCloudSearch::approxNearestSearch__i.iR.floatR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a9dbe80e71348afa35b7eea4e0d7de225"></span>void <code class="sig-name descname">approxNearestSearch</code><span class="sig-paren">(</span>int <em>query_index</em>, int &amp;<em>result_index</em>, float &amp;<em>sqr_distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch19approxNearestSearchEiRiRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for approx. </p>
+<p>nearest neighbor at the query point. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">query_index</span></code>: index representing the query point in the dataset given by <em>setInputCloud</em>. If indices were given in setInputCloud, index will be the position in the indices vector. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">result_index</span></code>: the resultant index of the neighbor point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">sqr_distance</span></code>: the resultant squared distance to the neighboring point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch12radiusSearchERK10PointCloudidRNSt6vectorIiEERNSt6vectorIfEEj">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch12radiusSearchERK10PointCloudidRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch12radiusSearchERK10PointCloudidRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="pcl::octree::OctreePointCloudSearch::radiusSearch__PointCloudCR.i.double.std::vector:i:R.std::vector:float:R.unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a2af4c4588b2b73cfcd74fb1f906f2b45"></span>int <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10PointCloudE" title="pcl::octree::OctreePointCloudSearch::PointCloud">PointCloud</a> &amp;<em>cloud</em>, int <em>index</em>, double <em>radius</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em>, unsigned int <em>max_nn</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch12radiusSearchERK10PointCloudidRNSt6vectorIiEERNSt6vectorIfEEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for all neighbors of query point that are within a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found in radius </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the point cloud data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index in <em>cloud</em> representing the query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the radius of the sphere bounding all of p_q’s neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant indices of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_nn</span></code>: if given, bounds the maximum returned neighbors to this value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch12radiusSearchERK6PointTKdRNSt6vectorIiEERNSt6vectorIfEEj">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch12radiusSearchERK6PointTKdRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch12radiusSearchERK6PointTKdRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="pcl::octree::OctreePointCloudSearch::radiusSearch__PointTCR.doubleC.std::vector:i:R.std::vector:float:R.unsigned-iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a3e8ab16c43fca6296b1c38fd5c9028b7"></span>int <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>p_q</em>, <em class="property">const</em> double <em>radius</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em>, unsigned int <em>max_nn</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch12radiusSearchERK6PointTKdRNSt6vectorIiEERNSt6vectorIfEEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for all neighbors of query point that are within a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found in radius </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p_q</span></code>: the given query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the radius of the sphere bounding all of p_q’s neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant indices of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_nn</span></code>: if given, bounds the maximum returned neighbors to this value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch12radiusSearchEiKdRNSt6vectorIiEERNSt6vectorIfEEj">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch12radiusSearchEiKdRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch12radiusSearchEiKdRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="pcl::octree::OctreePointCloudSearch::radiusSearch__i.doubleC.std::vector:i:R.std::vector:float:R.unsigned-iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1afa074a6d13e7b9399e0cb31e23da6d10"></span>int <code class="sig-name descname">radiusSearch</code><span class="sig-paren">(</span>int <em>index</em>, <em class="property">const</em> double <em>radius</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em>, unsigned int <em>max_nn</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch12radiusSearchEiKdRNSt6vectorIiEERNSt6vectorIfEEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for all neighbors of query point that are within a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of neighbors found in radius </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: index representing the query point in the dataset given by <em>setInputCloud</em>. If indices were given in setInputCloud, index will be the position in the indices vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: radius of the sphere bounding all of p_q’s neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant indices of the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: the resultant squared distances to the neighboring points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_nn</span></code>: if given, bounds the maximum returned neighbors to this value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch26getIntersectedVoxelCentersEN5Eigen8Vector3fEN5Eigen8Vector3fER19AlignedPointTVectori">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch26getIntersectedVoxelCentersEN5Eigen8Vector3fEN5Eigen8Vector3fER19AlignedPointTVectori"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch26getIntersectedVoxelCentersEN5Eigen8Vector3fEN5Eigen8Vector3fER19AlignedPointTVectori"></span><span id="pcl::octree::OctreePointCloudSearch::getIntersectedVoxelCenters__Eigen::Vector3f.Eigen::Vector3f.AlignedPointTVectorR.iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1ae89d60007b4ba6a92e3c3dc879ab9538"></span>int <code class="sig-name descname">getIntersectedVoxelCenters</code><span class="sig-paren">(</span>Eigen::Vector3f <em>origin</em>, Eigen::Vector3f <em>direction</em>, <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch19AlignedPointTVectorE" title="pcl::octree::OctreePointCloudSearch::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>voxel_center_list</em>, int <em>max_voxel_count</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch26getIntersectedVoxelCentersEN5Eigen8Vector3fEN5Eigen8Vector3fER19AlignedPointTVectori" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a PointT vector of centers of all voxels that intersected by a ray (origin, direction). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of intersected voxels </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">origin</span></code>: ray origin </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: ray direction vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">voxel_center_list</span></code>: results are written to this vector of PointT elements </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_voxel_count</span></code>: stop raycasting when this many voxels intersected (0: disable) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch26getIntersectedVoxelIndicesEN5Eigen8Vector3fEN5Eigen8Vector3fERNSt6vectorIiEEi">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch26getIntersectedVoxelIndicesEN5Eigen8Vector3fEN5Eigen8Vector3fERNSt6vectorIiEEi"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch26getIntersectedVoxelIndicesEN5Eigen8Vector3fEN5Eigen8Vector3fERNSt6vectorIiEEi"></span><span id="pcl::octree::OctreePointCloudSearch::getIntersectedVoxelIndices__Eigen::Vector3f.Eigen::Vector3f.std::vector:i:R.iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a9a4587e573349759836cf8146baeb00b"></span>int <code class="sig-name descname">getIntersectedVoxelIndices</code><span class="sig-paren">(</span>Eigen::Vector3f <em>origin</em>, Eigen::Vector3f <em>direction</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, int <em>max_voxel_count</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch26getIntersectedVoxelIndicesEN5Eigen8Vector3fEN5Eigen8Vector3fERNSt6vectorIiEEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get indices of all voxels that are intersected by a ray (origin, direction). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of intersected voxels </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">origin</span></code>: ray origin </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: ray direction vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: resulting point indices from intersected voxels </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_voxel_count</span></code>: stop raycasting when this many voxels intersected (0: disable) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch9boxSearchERKN5Eigen8Vector3fERKN5Eigen8Vector3fERNSt6vectorIiEE">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch9boxSearchERKN5Eigen8Vector3fERKN5Eigen8Vector3fERNSt6vectorIiEE"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch9boxSearchERKN5Eigen8Vector3fERKN5Eigen8Vector3fERNSt6vectorIiEE"></span><span id="pcl::octree::OctreePointCloudSearch::boxSearch__Eigen::Vector3fCR.Eigen::Vector3fCR.std::vector:i:RC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1abf53270d1fe0590b0d44a286119cafb5"></span>int <code class="sig-name descname">boxSearch</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3f &amp;<em>min_pt</em>, <em class="property">const</em> Eigen::Vector3f &amp;<em>max_pt</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch9boxSearchERKN5Eigen8Vector3fERKN5Eigen8Vector3fERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search for points within rectangular search area Points exactly on the edges of the search rectangle are included. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of points found within search area </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_pt</span></code>: lower corner of search area </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_pt</span></code>: upper corner of search area </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant point indices </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch16pointSquaredDistERK6PointTRK6PointT">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch16pointSquaredDistERK6PointTRK6PointT"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch16pointSquaredDistERK6PointTRK6PointT"></span><span id="pcl::octree::OctreePointCloudSearch::pointSquaredDist__PointTCR.PointTCRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a9c6a211241668de62243825b1f95e76a"></span>float <code class="sig-name descname">pointSquaredDist</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point_a</em>, <em class="property">const</em> PointT &amp;<em>point_b</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch16pointSquaredDistERK6PointTRK6PointT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Helper function to calculate the squared distance between two points. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>squared distance between point A and point B </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point_a</span></code>: point A </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point_b</span></code>: point B </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch33getNeighborsWithinRadiusRecursiveERK6PointTKdPK10BranchNodeRK9OctreeKeyjRNSt6vectorIiEERNSt6vectorIfEEj">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch33getNeighborsWithinRadiusRecursiveERK6PointTKdPK10BranchNodeRK9OctreeKeyjRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch33getNeighborsWithinRadiusRecursiveERK6PointTKdPK10BranchNodeRK9OctreeKeyjRNSt6vectorIiEERNSt6vectorIfEEj"></span><span id="pcl::octree::OctreePointCloudSearch::getNeighborsWithinRadiusRecursive__PointTCR.doubleC.BranchNodeCP.OctreeKeyCR.unsigned-i.std::vector:i:R.std::vector:float:R.unsigned-iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a08c976a887a568daced02c11da5c75df"></span>void <code class="sig-name descname">getNeighborsWithinRadiusRecursive</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, <em class="property">const</em> double <em>radiusSquared</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10BranchNodeE" title="pcl::octree::OctreePointCloudSearch::BranchNode">BranchNode</a> *<em>node</em>, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key</em>, unsigned int <em>tree_depth</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, std::vector&lt;float&gt; &amp;<em>k_sqr_distances</em>, unsigned int <em>max_nn</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch33getNeighborsWithinRadiusRecursiveERK6PointTKdPK10BranchNodeRK9OctreeKeyjRNSt6vectorIiEERNSt6vectorIfEEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursive search method that explores the octree and finds neighbors within a given radius. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radiusSquared</span></code>: squared search radius </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">node</span></code>: current octree node to be explored </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: octree key addressing a leaf node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tree_depth</span></code>: current depth/level in the octree </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: vector of indices found to be neighbors of query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_sqr_distances</span></code>: squared distances of neighbors to query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_nn</span></code>: maximum of neighbors to be found </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch28getKNearestNeighborRecursiveERK6PointTjPK10BranchNodeRK9OctreeKeyjKdRNSt6vectorI19prioPointQueueEntryEE">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch28getKNearestNeighborRecursiveERK6PointTjPK10BranchNodeRK9OctreeKeyjKdRNSt6vectorI19prioPointQueueEntryEE"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch28getKNearestNeighborRecursiveERK6PointTjPK10BranchNodeRK9OctreeKeyjKdRNSt6vectorI19prioPointQueueEntryEE"></span><span id="pcl::octree::OctreePointCloudSearch::getKNearestNeighborRecursive__PointTCR.unsigned-i.BranchNodeCP.OctreeKeyCR.unsigned-i.doubleC.std::vector:prioPointQueueEntry:RC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a907f077b8bcf8f7b85c0f181c9ac6fd8"></span>double <code class="sig-name descname">getKNearestNeighborRecursive</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, unsigned int <em>K</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10BranchNodeE" title="pcl::octree::OctreePointCloudSearch::BranchNode">BranchNode</a> *<em>node</em>, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key</em>, unsigned int <em>tree_depth</em>, <em class="property">const</em> double <em>squared_search_radius</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch19prioPointQueueEntryE" title="pcl::octree::OctreePointCloudSearch::prioPointQueueEntry">prioPointQueueEntry</a>&gt; &amp;<em>point_candidates</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch28getKNearestNeighborRecursiveERK6PointTjPK10BranchNodeRK9OctreeKeyjKdRNSt6vectorI19prioPointQueueEntryEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursive search method that explores the octree and finds the K nearest neighbors. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>squared search radius based on current point candidate set found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">K</span></code>: amount of nearest neighbors to be found </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">node</span></code>: current octree node to be explored </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: octree key addressing a leaf node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tree_depth</span></code>: current depth/level in the octree </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">squared_search_radius</span></code>: squared search radius distance </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">point_candidates</span></code>: priority queue of nearest neigbor point candidates </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch28approxNearestSearchRecursiveERK6PointTPK10BranchNodeRK9OctreeKeyjRiRf">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch28approxNearestSearchRecursiveERK6PointTPK10BranchNodeRK9OctreeKeyjRiRf"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch28approxNearestSearchRecursiveERK6PointTPK10BranchNodeRK9OctreeKeyjRiRf"></span><span id="pcl::octree::OctreePointCloudSearch::approxNearestSearchRecursive__PointTCR.BranchNodeCP.OctreeKeyCR.unsigned-i.iR.floatR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a2361d272532234458d3a6a5d32fe0d01"></span>void <code class="sig-name descname">approxNearestSearchRecursive</code><span class="sig-paren">(</span><em class="property">const</em> PointT &amp;<em>point</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10BranchNodeE" title="pcl::octree::OctreePointCloudSearch::BranchNode">BranchNode</a> *<em>node</em>, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key</em>, unsigned int <em>tree_depth</em>, int &amp;<em>result_index</em>, float &amp;<em>sqr_distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch28approxNearestSearchRecursiveERK6PointTPK10BranchNodeRK9OctreeKeyjRiRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursive search method that explores the octree and finds the approximate nearest neighbor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: query point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">node</span></code>: current octree node to be explored </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: octree key addressing a leaf node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tree_depth</span></code>: current depth/level in the octree </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">result_index</span></code>: result index is written to this reference </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">sqr_distance</span></code>: squared distance to search </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch35getIntersectedVoxelCentersRecursiveEddddddhPK10OctreeNodeRK9OctreeKeyR19AlignedPointTVectori">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch35getIntersectedVoxelCentersRecursiveEddddddhPK10OctreeNodeRK9OctreeKeyR19AlignedPointTVectori"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch35getIntersectedVoxelCentersRecursiveEddddddhPK10OctreeNodeRK9OctreeKeyR19AlignedPointTVectori"></span><span id="pcl::octree::OctreePointCloudSearch::getIntersectedVoxelCentersRecursive__double.double.double.double.double.double.unsigned-c.OctreeNodeCP.OctreeKeyCR.AlignedPointTVectorR.iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a265cd3d276609bd215c98d7680976e47"></span>int <code class="sig-name descname">getIntersectedVoxelCentersRecursive</code><span class="sig-paren">(</span>double <em>min_x</em>, double <em>min_y</em>, double <em>min_z</em>, double <em>max_x</em>, double <em>max_y</em>, double <em>max_z</em>, unsigned char <em>a</em>, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<em>node</em>, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key</em>, <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch19AlignedPointTVectorE" title="pcl::octree::OctreePointCloudSearch::AlignedPointTVector">AlignedPointTVector</a> &amp;<em>voxel_center_list</em>, int <em>max_voxel_count</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch35getIntersectedVoxelCentersRecursiveEddddddhPK10OctreeNodeRK9OctreeKeyR19AlignedPointTVectori" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively search the tree for all intersected leaf nodes and return a vector of voxel centers. </p>
+<p>This algorithm is based off the paper An Efficient Parametric Algorithm for Octree Traversal: <a class="reference external" href="http://wscg.zcu.cz/wscg2000/Papers_2000/X31.pdf">http://wscg.zcu.cz/wscg2000/Papers_2000/X31.pdf</a> <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of voxels found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_x</span></code>: octree nodes X coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_y</span></code>: octree nodes Y coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_z</span></code>: octree nodes Z coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_x</span></code>: octree nodes X coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_y</span></code>: octree nodes Y coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_z</span></code>: octree nodes Z coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">node</span></code>: current octree node to be explored </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: octree key addressing a leaf node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">voxel_center_list</span></code>: results are written to this vector of PointT elements </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_voxel_count</span></code>: stop raycasting when this many voxels intersected (0: disable) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch18boxSearchRecursiveERKN5Eigen8Vector3fERKN5Eigen8Vector3fEPK10BranchNodeRK9OctreeKeyjRNSt6vectorIiEE">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch18boxSearchRecursiveERKN5Eigen8Vector3fERKN5Eigen8Vector3fEPK10BranchNodeRK9OctreeKeyjRNSt6vectorIiEE"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch18boxSearchRecursiveERKN5Eigen8Vector3fERKN5Eigen8Vector3fEPK10BranchNodeRK9OctreeKeyjRNSt6vectorIiEE"></span><span id="pcl::octree::OctreePointCloudSearch::boxSearchRecursive__Eigen::Vector3fCR.Eigen::Vector3fCR.BranchNodeCP.OctreeKeyCR.unsigned-i.std::vector:i:RC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a4736506b85b403d53265661cdc637cbc"></span>void <code class="sig-name descname">boxSearchRecursive</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3f &amp;<em>min_pt</em>, <em class="property">const</em> Eigen::Vector3f &amp;<em>max_pt</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch10BranchNodeE" title="pcl::octree::OctreePointCloudSearch::BranchNode">BranchNode</a> *<em>node</em>, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key</em>, unsigned int <em>tree_depth</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch18boxSearchRecursiveERKN5Eigen8Vector3fERKN5Eigen8Vector3fEPK10BranchNodeRK9OctreeKeyjRNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursive search method that explores the octree and finds points within a rectangular search area. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_pt</span></code>: lower corner of search area </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_pt</span></code>: upper corner of search area </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">node</span></code>: current octree node to be explored </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: octree key addressing a leaf node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tree_depth</span></code>: current depth/level in the octree </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: the resultant point indices </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch35getIntersectedVoxelIndicesRecursiveEddddddhPK10OctreeNodeRK9OctreeKeyRNSt6vectorIiEEi">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch35getIntersectedVoxelIndicesRecursiveEddddddhPK10OctreeNodeRK9OctreeKeyRNSt6vectorIiEEi"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch35getIntersectedVoxelIndicesRecursiveEddddddhPK10OctreeNodeRK9OctreeKeyRNSt6vectorIiEEi"></span><span id="pcl::octree::OctreePointCloudSearch::getIntersectedVoxelIndicesRecursive__double.double.double.double.double.double.unsigned-c.OctreeNodeCP.OctreeKeyCR.std::vector:i:R.iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a722a3807b9e1ab10e7db5aeac79b001f"></span>int <code class="sig-name descname">getIntersectedVoxelIndicesRecursive</code><span class="sig-paren">(</span>double <em>min_x</em>, double <em>min_y</em>, double <em>min_z</em>, double <em>max_x</em>, double <em>max_y</em>, double <em>max_z</em>, unsigned char <em>a</em>, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<em>node</em>, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key</em>, std::vector&lt;int&gt; &amp;<em>k_indices</em>, int <em>max_voxel_count</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch35getIntersectedVoxelIndicesRecursiveEddddddhPK10OctreeNodeRK9OctreeKeyRNSt6vectorIiEEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively search the tree for all intersected leaf nodes and return a vector of indices. </p>
+<p>This algorithm is based off the paper An Efficient Parametric Algorithm for Octree Traversal: <a class="reference external" href="http://wscg.zcu.cz/wscg2000/Papers_2000/X31.pdf">http://wscg.zcu.cz/wscg2000/Papers_2000/X31.pdf</a> <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>number of voxels found </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_x</span></code>: octree nodes X coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_y</span></code>: octree nodes Y coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_z</span></code>: octree nodes Z coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_x</span></code>: octree nodes X coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_y</span></code>: octree nodes Y coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_z</span></code>: octree nodes Z coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">node</span></code>: current octree node to be explored </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">key</span></code>: octree key addressing a leaf node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">k_indices</span></code>: resulting indices </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_voxel_count</span></code>: stop raycasting when this many voxels intersected (0: disable) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch20initIntersectedVoxelERN5Eigen8Vector3fERN5Eigen8Vector3fERdRdRdRdRdRdRh">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch20initIntersectedVoxelERN5Eigen8Vector3fERN5Eigen8Vector3fERdRdRdRdRdRdRh"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch20initIntersectedVoxelERN5Eigen8Vector3fERN5Eigen8Vector3fERdRdRdRdRdRdRh"></span><span id="pcl::octree::OctreePointCloudSearch::initIntersectedVoxel__Eigen::Vector3fR.Eigen::Vector3fR.doubleR.doubleR.doubleR.doubleR.doubleR.doubleR.unsigned-cRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a9c2837512d584123a6cdf26123feec99"></span>void <code class="sig-name descname">initIntersectedVoxel</code><span class="sig-paren">(</span>Eigen::Vector3f &amp;<em>origin</em>, Eigen::Vector3f &amp;<em>direction</em>, double &amp;<em>min_x</em>, double &amp;<em>min_y</em>, double &amp;<em>min_z</em>, double &amp;<em>max_x</em>, double &amp;<em>max_y</em>, double &amp;<em>max_z</em>, unsigned char &amp;<em>a</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch20initIntersectedVoxelERN5Eigen8Vector3fERN5Eigen8Vector3fERdRdRdRdRdRdRh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize raytracing algorithm. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">origin</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">direction</span></code>: </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_x</span></code>: octree nodes X coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_y</span></code>: octree nodes Y coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_z</span></code>: octree nodes Z coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_x</span></code>: octree nodes X coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_y</span></code>: octree nodes Y coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_z</span></code>: octree nodes Z coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch23getFirstIntersectedNodeEdddddd">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch23getFirstIntersectedNodeEdddddd"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch23getFirstIntersectedNodeEdddddd"></span><span id="pcl::octree::OctreePointCloudSearch::getFirstIntersectedNode__double.double.double.double.double.doubleC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1ad3dcc9a1781a9d8bb73b5ea1a6425709"></span>int <code class="sig-name descname">getFirstIntersectedNode</code><span class="sig-paren">(</span>double <em>min_x</em>, double <em>min_y</em>, double <em>min_z</em>, double <em>mid_x</em>, double <em>mid_y</em>, double <em>mid_z</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch23getFirstIntersectedNodeEdddddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Find first child node ray will enter. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the first child node ray will enter </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_x</span></code>: octree nodes X coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_y</span></code>: octree nodes Y coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_z</span></code>: octree nodes Z coordinate of lower bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mid_x</span></code>: octree nodes X coordinate of bounding box mid line </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mid_y</span></code>: octree nodes Y coordinate of bounding box mid line </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mid_z</span></code>: octree nodes Z coordinate of bounding box mid line </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree22OctreePointCloudSearch22getNextIntersectedNodeEdddiii">
+<span id="_CPPv3NK3pcl6octree22OctreePointCloudSearch22getNextIntersectedNodeEdddiii"></span><span id="_CPPv2NK3pcl6octree22OctreePointCloudSearch22getNextIntersectedNodeEdddiii"></span><span id="pcl::octree::OctreePointCloudSearch::getNextIntersectedNode__double.double.double.i.i.iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1a27ee200992e4fced45f27e3d138e5b6f"></span>int <code class="sig-name descname">getNextIntersectedNode</code><span class="sig-paren">(</span>double <em>x</em>, double <em>y</em>, double <em>z</em>, int <em>a</em>, int <em>b</em>, int <em>c</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree22OctreePointCloudSearch22getNextIntersectedNodeEdddiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the next visited node given the current node upper bounding box corner. </p>
+<p>This function accepts three float values, and three int values. The function returns the ith integer where the ith float value is the minimum of the three float values. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the next child node ray will enter or 8 if exiting </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: current nodes X coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">y</span></code>: current nodes Y coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">z</span></code>: current nodes Z coordinate of upper bounding box corner </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: next node if exit Plane YZ </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">b</span></code>: next node if exit Plane XZ </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c</span></code>: next node if exit Plane XY </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch20prioBranchQueueEntryE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch20prioBranchQueueEntryE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch20prioBranchQueueEntryE"></span><span id="pcl::octree::OctreePointCloudSearch::prioBranchQueueEntry"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry"></span><em class="property">class </em><code class="sig-name descname">prioBranchQueueEntry</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch20prioBranchQueueEntryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Priority</strong> queue entry for branch nodes </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class defines priority queue entries for the nearest neighbor search. </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEv">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEv"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEv"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a88de2ae8393ffd95e498261587a6e724"></span>template&lt;&gt;<br /><code class="sig-name descname">prioBranchQueueEntry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEP10OctreeNodeR9OctreeKeyf">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEP10OctreeNodeR9OctreeKeyf"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEP10OctreeNodeR9OctreeKeyf"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a723b50b3869f2da1796cce6bacaa4b77"></span>template&lt;&gt;<br /><code class="sig-name descname">prioBranchQueueEntry</code><span class="sig-paren">(</span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<em>_node</em>, <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>_key</em>, float <em>_point_distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEP10OctreeNodeR9OctreeKeyf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for initializing priority queue entry. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_node</span></code>: pointer to octree node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_key</span></code>: octree key addressing voxel in octree structure </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">_point_distance</span></code>: distance of query point to voxel center </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntryltEbK20prioBranchQueueEntry">
+<span id="_CPPv3IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntryltEK20prioBranchQueueEntry"></span><span id="_CPPv2IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntryltEK20prioBranchQueueEntry"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a200c873f71fff21737682411df8735d7"></span>template&lt;&gt;<br />bool <code class="sig-name descname">operator&lt;</code><span class="sig-paren">(</span><em class="property">const</em> prioBranchQueueEntry <em>rhs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntryltEbK20prioBranchQueueEntry" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Operator&lt; for comparing priority queue entries with each other. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rhs</span></code>: the priority queue to compare this against </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry4nodeE">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry4nodeE"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry4nodeE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a31c6a920e3d2442810286263a2faf1e8"></span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<code class="sig-name descname">node</code><a class="headerlink" href="#_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry4nodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to octree node. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry14point_distanceE">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry14point_distanceE"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry14point_distanceE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1ac6896fd3b626b908917d5da9786e91c6"></span>float <code class="sig-name descname">point_distance</code><a class="headerlink" href="#_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry14point_distanceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Distance to query point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry3keyE">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry3keyE"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry3keyE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a25f1aa98e82f8ad00b4d2a549fa4257e"></span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> <code class="sig-name descname">key</code><a class="headerlink" href="#_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry3keyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Octree key. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch19prioPointQueueEntryE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch19prioPointQueueEntryE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch19prioPointQueueEntryE"></span><span id="pcl::octree::OctreePointCloudSearch::prioPointQueueEntry"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_point_queue_entry"></span><em class="property">class </em><code class="sig-name descname">prioPointQueueEntry</code><a class="headerlink" href="#_CPPv4N3pcl6octree22OctreePointCloudSearch19prioPointQueueEntryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Priority</strong> queue entry for point candidates </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class defines priority queue entries for the nearest neighbor point candidates. </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry19prioPointQueueEntryEv">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry19prioPointQueueEntryEv"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry19prioPointQueueEntryEv"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_point_queue_entry_1ab295e1f9ed5635492f0ad36c4ea849f5"></span>template&lt;&gt;<br /><code class="sig-name descname">prioPointQueueEntry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry19prioPointQueueEntryEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry19prioPointQueueEntryERjf">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry19prioPointQueueEntryERjf"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry19prioPointQueueEntryERjf"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_point_queue_entry_1afc567ed22e8f873e54214eec87c0f70a"></span>template&lt;&gt;<br /><code class="sig-name descname">prioPointQueueEntry</code><span class="sig-paren">(</span>unsigned int &amp;<em>point_idx</em>, float <em>point_distance</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry19prioPointQueueEntryERjf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for initializing priority queue entry. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point_idx</span></code>: an index representing a point in the dataset given by <em>setInputCloud</em> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point_distance</span></code>: distance of query point to voxel center </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntryltEbRK19prioPointQueueEntry">
+<span id="_CPPv3IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntryltERK19prioPointQueueEntry"></span><span id="_CPPv2IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntryltERK19prioPointQueueEntry"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_point_queue_entry_1adf4989474b9da23a982443be994a5f92"></span>template&lt;&gt;<br />bool <code class="sig-name descname">operator&lt;</code><span class="sig-paren">(</span><em class="property">const</em> prioPointQueueEntry &amp;<em>rhs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntryltEbRK19prioPointQueueEntry" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Operator&lt; for comparing priority queue entries with each other. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rhs</span></code>: priority queue to compare this against </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry10point_idx_E">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry10point_idx_E"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry10point_idx_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_point_queue_entry_1a00fb485718ecaa7d7e23f90ceb2c6023"></span>int <code class="sig-name descname">point_idx_</code><a class="headerlink" href="#_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry10point_idx_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Index representing a point in the dataset given by <em>setInputCloud</em>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry15point_distance_E">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry15point_distance_E"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry15point_distance_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_point_queue_entry_1ae6f400f8f120674cf9f7d5e6edbd4345"></span>float <code class="sig-name descname">point_distance_</code><a class="headerlink" href="#_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE19prioPointQueueEntry15point_distance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Distance to query point. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

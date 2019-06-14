@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OctreePointCloudCompression &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OctreePointCloudCompression</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1io_1_1_octree_point_cloud_compression.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-octreepointcloudcompression">
+<span id="exhale-class-classpcl-1-1io-1-1-octree-point-cloud-compression"></span><h1>Template Class OctreePointCloudCompression<a class="headerlink" href="#template-class-octreepointcloudcompression" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_compression_octree_pointcloud_compression.h.html#file-pcl-io-include-pcl-compression-octree-pointcloud-compression-h"><span class="std std-ref">File octree_pointcloud_compression.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreePointCloud&lt;</span> <span class="pre">PointT,</span> <span class="pre">LeafT,</span> <span class="pre">BranchT,</span> <span class="pre">OctreeT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud.html#exhale-class-classpcl-1-1octree-1-1-octree-point-cloud"><span class="std std-ref">Template Class OctreePointCloud</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0000EN3pcl2io27OctreePointCloudCompressionE">
+<span id="_CPPv3I0000EN3pcl2io27OctreePointCloudCompressionE"></span><span id="_CPPv2I0000EN3pcl2io27OctreePointCloudCompressionE"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression"></span>template&lt;typename <code class="sig-name descname">PointT</code>, typename <code class="sig-name descname">LeafT</code> = OctreeContainerPointIndices, typename <code class="sig-name descname">BranchT</code> = OctreeContainerEmpty, typename <code class="sig-name descname">OctreeT</code> = Octree2BufBase&lt;<a class="reference internal" href="#_CPPv4I0000EN3pcl2io27OctreePointCloudCompressionE" title="pcl::io::OctreePointCloudCompression::LeafT">LeafT</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl2io27OctreePointCloudCompressionE" title="pcl::io::OctreePointCloudCompression::BranchT">BranchT</a>&gt;&gt;<br /><em class="property">class </em><code class="sig-name descname">OctreePointCloudCompression</code> : <em class="property">public</em> pcl::octree::OctreePointCloud&lt;<a class="reference internal" href="#_CPPv4I0000EN3pcl2io27OctreePointCloudCompressionE" title="pcl::io::OctreePointCloudCompression::PointT">PointT</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl2io27OctreePointCloudCompressionE" title="pcl::io::OctreePointCloudCompression::LeafT">LeafT</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl2io27OctreePointCloudCompressionE" title="pcl::io::OctreePointCloudCompression::BranchT">BranchT</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl2io27OctreePointCloudCompressionE" title="pcl::io::OctreePointCloudCompression::OctreeT">OctreeT</a>&gt;<a class="headerlink" href="#_CPPv4I0000EN3pcl2io27OctreePointCloudCompressionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Octree</strong> pointcloud compression class </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class enables compression and decompression of point cloud data based on octree data structures. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p></p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>typename: PointT: type of point used in pointcloud </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression10PointCloudE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression10PointCloudE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression10PointCloudE"></span><span id="pcl::io::OctreePointCloudCompression::PointCloud"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1aeb1a535aa4d11432900f4d83fec798cd"></span><em class="property">typedef </em>OctreePointCloud&lt;PointT, LeafT, BranchT, OctreeT&gt;::PointCloud <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression13PointCloudPtrE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression13PointCloudPtrE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression13PointCloudPtrE"></span><span id="pcl::io::OctreePointCloudCompression::PointCloudPtr"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a61010d2ca2d327505a95fc19cd4ed845"></span><em class="property">typedef </em>OctreePointCloud&lt;PointT, LeafT, BranchT, OctreeT&gt;::PointCloudPtr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression18PointCloudConstPtrE"></span><span id="pcl::io::OctreePointCloudCompression::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a59ecbad249db7b7242fc24086bfb5bfe"></span><em class="property">typedef </em>OctreePointCloud&lt;PointT, LeafT, BranchT, OctreeT&gt;::PointCloudConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression3PtrE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression3PtrE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression3PtrE"></span><span id="pcl::io::OctreePointCloudCompression::Ptr"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a20f2e6af77868d272c67c40f6c64711b"></span><em class="property">typedef </em>boost::shared_ptr&lt;OctreePointCloudCompression&lt;PointT, LeafT, BranchT, OctreeT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression8ConstPtrE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression8ConstPtrE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression8ConstPtrE"></span><span id="pcl::io::OctreePointCloudCompression::ConstPtr"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1afffd0f3a2a6c38087f367b56335f3580"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> OctreePointCloudCompression&lt;PointT, LeafT, BranchT, OctreeT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression8LeafNodeE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression8LeafNodeE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression8LeafNodeE"></span><span id="pcl::io::OctreePointCloudCompression::LeafNode"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1adc5138a8737f7776621d50e5748170b9"></span><em class="property">typedef </em>OctreeT::LeafNode <code class="sig-name descname">LeafNode</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression8LeafNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression10BranchNodeE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression10BranchNodeE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression10BranchNodeE"></span><span id="pcl::io::OctreePointCloudCompression::BranchNode"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1ad34b719204f0e0a816da81f7ddc8ab90"></span><em class="property">typedef </em>OctreeT::BranchNode <code class="sig-name descname">BranchNode</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression10BranchNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression25RealTimeStreamCompressionE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression25RealTimeStreamCompressionE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression25RealTimeStreamCompressionE"></span><span id="pcl::io::OctreePointCloudCompression::RealTimeStreamCompression"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a0e6281385be119c12fd1c30b008cd3d0"></span><em class="property">typedef </em>OctreePointCloudCompression&lt;PointT, LeafT, BranchT, Octree2BufBase&lt;LeafT, BranchT&gt;&gt; <code class="sig-name descname">RealTimeStreamCompression</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression25RealTimeStreamCompressionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression36SinglePointCloudCompressionLowMemoryE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression36SinglePointCloudCompressionLowMemoryE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression36SinglePointCloudCompressionLowMemoryE"></span><span id="pcl::io::OctreePointCloudCompression::SinglePointCloudCompressionLowMemory"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a4a0ee08e321de11f29603ba28d55e8ed"></span><em class="property">typedef </em>OctreePointCloudCompression&lt;PointT, LeafT, BranchT, OctreeBase&lt;LeafT, BranchT&gt;&gt; <code class="sig-name descname">SinglePointCloudCompressionLowMemory</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression36SinglePointCloudCompressionLowMemoryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression27OctreePointCloudCompressionE22compression_Profiles_ebKdKdbKjbKh">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression27OctreePointCloudCompressionE22compression_Profiles_ebKdKdbKjbKh"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression27OctreePointCloudCompressionE22compression_Profiles_ebKdKdbKjbKh"></span><span id="pcl::io::OctreePointCloudCompression::OctreePointCloudCompression__compression_Profiles_e.b.doubleC.doubleC.b.unsigned-iC.b.unsigned-cC"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1aac470a2ddbd1f3ddaa4b6f5eeb399f61"></span><code class="sig-name descname">OctreePointCloudCompression</code><span class="sig-paren">(</span><a class="reference internal" href="enum_compression__profiles_8h_1ace28c28f4a188903e34afa2125d8410b.html#_CPPv4N3pcl2io22compression_Profiles_eE" title="pcl::io::compression_Profiles_e">compression_Profiles_e</a> <em>compressionProfile_arg</em> = <a class="reference internal" href="enum_compression__profiles_8h_1ace28c28f4a188903e34afa2125d8410b.html#_CPPv4N3pcl2io37MED_RES_ONLINE_COMPRESSION_WITH_COLORE" title="pcl::io::MED_RES_ONLINE_COMPRESSION_WITH_COLOR">MED_RES_ONLINE_COMPRESSION_WITH_COLOR</a>, bool <em>showStatistics_arg</em> = false, <em class="property">const</em> double <em>pointResolution_arg</em> = 0.001, <em class="property">const</em> double <em>octreeResolution_arg</em> = 0.01, bool <em>doVoxelGridDownDownSampling_arg</em> = false, <em class="property">const</em> unsigned int <em>iFrameRate_arg</em> = 30, bool <em>doColorEncoding_arg</em> = true, <em class="property">const</em> unsigned char <em>colorBitResolution_arg</em> = 6<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression27OctreePointCloudCompressionE22compression_Profiles_ebKdKdbKjbKh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compressionProfile_arg</span></code>: define compression profile </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">octreeResolution_arg</span></code>: octree resolution at lowest octree level </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pointResolution_arg</span></code>: precision of point coordinates </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doVoxelGridDownDownSampling_arg</span></code>: voxel grid filtering </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iFrameRate_arg</span></code>: i-frame encoding rate </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doColorEncoding_arg</span></code>: enable/disable color coding </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colorBitResolution_arg</span></code>: color bit depth </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">showStatistics_arg</span></code>: output compression statistics </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompressionD0Ev">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompressionD0Ev"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompressionD0Ev"></span><span id="pcl::io::OctreePointCloudCompression::~OctreePointCloudCompression"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a666bcd6d5523a142041f8dab068014b3"></span><em class="property">virtual</em> <code class="sig-name descname">~OctreePointCloudCompression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompressionD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty deconstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression14initializationEv">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression14initializationEv"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression14initializationEv"></span><span id="pcl::io::OctreePointCloudCompression::initialization"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1ab3343a4cfc17fb5c3bbf03553c3c62f4"></span>void <code class="sig-name descname">initialization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression14initializationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize globals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression11addPointIdxEKi">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression11addPointIdxEKi"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression11addPointIdxEKi"></span><span id="pcl::io::OctreePointCloudCompression::addPointIdx__iC"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1af57e000fea506a493bcd7ead63b9e1ea"></span><em class="property">virtual</em> void <code class="sig-name descname">addPointIdx</code><span class="sig-paren">(</span><em class="property">const</em> int <em>pointIdx_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression11addPointIdxEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add point at index from input pointcloud dataset to octree. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pointIdx_arg</span></code>: the index representing the point in the dataset given by <em>setInputCloud</em> to be added </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression14setOutputCloudERK13PointCloudPtr">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression14setOutputCloudERK13PointCloudPtr"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression14setOutputCloudERK13PointCloudPtr"></span><span id="pcl::io::OctreePointCloudCompression::setOutputCloud__PointCloudPtrCR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a8c67c92f45645e9feaa9908b7a6854ef"></span>void <code class="sig-name descname">setOutputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io27OctreePointCloudCompression13PointCloudPtrE" title="pcl::io::OctreePointCloudCompression::PointCloudPtr">PointCloudPtr</a> &amp;<em>cloud_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression14setOutputCloudERK13PointCloudPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the output data set. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud_arg</span></code>: the boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl2io27OctreePointCloudCompression14getOutputCloudEv">
+<span id="_CPPv3NK3pcl2io27OctreePointCloudCompression14getOutputCloudEv"></span><span id="_CPPv2NK3pcl2io27OctreePointCloudCompression14getOutputCloudEv"></span><span id="pcl::io::OctreePointCloudCompression::getOutputCloudC"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1aa1d2c2bba05c7fab6e75d4cf2a45e33b"></span><a class="reference internal" href="#_CPPv4N3pcl2io27OctreePointCloudCompression13PointCloudPtrE" title="pcl::io::OctreePointCloudCompression::PointCloudPtr">PointCloudPtr</a> <code class="sig-name descname">getOutputCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl2io27OctreePointCloudCompression14getOutputCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the output point cloud dataset. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>pointer to pointcloud output class. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression16encodePointCloudERK18PointCloudConstPtrRNSt7ostreamE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression16encodePointCloudERK18PointCloudConstPtrRNSt7ostreamE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression16encodePointCloudERK18PointCloudConstPtrRNSt7ostreamE"></span><span id="pcl::io::OctreePointCloudCompression::encodePointCloud__PointCloudConstPtrCR.osR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a0130ade92487d1ac634ec7221aae85b8"></span>void <code class="sig-name descname">encodePointCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io27OctreePointCloudCompression18PointCloudConstPtrE" title="pcl::io::OctreePointCloudCompression::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud_arg</em>, std::ostream &amp;<em>compressed_tree_data_out_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression16encodePointCloudERK18PointCloudConstPtrRNSt7ostreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Encode point cloud to output stream. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud_arg</span></code>: point cloud to be compressed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compressed_tree_data_out_arg</span></code>: binary output stream containing compressed data </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression16decodePointCloudERNSt7istreamER13PointCloudPtr">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression16decodePointCloudERNSt7istreamER13PointCloudPtr"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression16decodePointCloudERNSt7istreamER13PointCloudPtr"></span><span id="pcl::io::OctreePointCloudCompression::decodePointCloud__isR.PointCloudPtrR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a9ef445a1b19d3f21ca90481070aa59cb"></span>void <code class="sig-name descname">decodePointCloud</code><span class="sig-paren">(</span>std::istream &amp;<em>compressed_tree_data_in_arg</em>, <a class="reference internal" href="#_CPPv4N3pcl2io27OctreePointCloudCompression13PointCloudPtrE" title="pcl::io::OctreePointCloudCompression::PointCloudPtr">PointCloudPtr</a> &amp;<em>cloud_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression16decodePointCloudERNSt7istreamER13PointCloudPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decode point cloud from input stream. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compressed_tree_data_in_arg</span></code>: binary input stream containing compressed data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud_arg</span></code>: reference to decoded point cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression16writeFrameHeaderERNSt7ostreamE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression16writeFrameHeaderERNSt7ostreamE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression16writeFrameHeaderERNSt7ostreamE"></span><span id="pcl::io::OctreePointCloudCompression::writeFrameHeader__osR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a615433bb22086ab1a06fd75a23fb7da8"></span>void <code class="sig-name descname">writeFrameHeader</code><span class="sig-paren">(</span>std::ostream &amp;<em>compressed_tree_data_out_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression16writeFrameHeaderERNSt7ostreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Write frame information to output stream. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compressed_tree_data_out_arg</span></code>: binary output stream </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression15readFrameHeaderERNSt7istreamE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression15readFrameHeaderERNSt7istreamE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression15readFrameHeaderERNSt7istreamE"></span><span id="pcl::io::OctreePointCloudCompression::readFrameHeader__isR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a479e4529536ba794a75939552d3e7cf2"></span>void <code class="sig-name descname">readFrameHeader</code><span class="sig-paren">(</span>std::istream &amp;<em>compressed_tree_data_in_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression15readFrameHeaderERNSt7istreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read frame information to output stream. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compressed_tree_data_in_arg</span></code>: binary input stream </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression12syncToHeaderERNSt7istreamE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression12syncToHeaderERNSt7istreamE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression12syncToHeaderERNSt7istreamE"></span><span id="pcl::io::OctreePointCloudCompression::syncToHeader__isR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a19e0ad29dc86b5bf1d89aa816039516c"></span>void <code class="sig-name descname">syncToHeader</code><span class="sig-paren">(</span>std::istream &amp;<em>compressed_tree_data_in_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression12syncToHeaderERNSt7istreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Synchronize to frame header. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compressed_tree_data_in_arg</span></code>: binary input stream </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression15entropyEncodingERNSt7ostreamE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression15entropyEncodingERNSt7ostreamE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression15entropyEncodingERNSt7ostreamE"></span><span id="pcl::io::OctreePointCloudCompression::entropyEncoding__osR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a193a8f147d1e45a511ae6977863a4610"></span>void <code class="sig-name descname">entropyEncoding</code><span class="sig-paren">(</span>std::ostream &amp;<em>compressed_tree_data_out_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression15entropyEncodingERNSt7ostreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Apply entropy encoding to encoded information and output to binary stream. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compressed_tree_data_out_arg</span></code>: binary output stream </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression15entropyDecodingERNSt7istreamE">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression15entropyDecodingERNSt7istreamE"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression15entropyDecodingERNSt7istreamE"></span><span id="pcl::io::OctreePointCloudCompression::entropyDecoding__isR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a8d57094fe71b73a76189139ec66ed00a"></span>void <code class="sig-name descname">entropyDecoding</code><span class="sig-paren">(</span>std::istream &amp;<em>compressed_tree_data_in_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression15entropyDecodingERNSt7istreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Entropy decoding of input binary stream and output to information vectors. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compressed_tree_data_in_arg</span></code>: binary input stream </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression21serializeTreeCallbackER5LeafTRK9OctreeKey">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression21serializeTreeCallbackER5LeafTRK9OctreeKey"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression21serializeTreeCallbackER5LeafTRK9OctreeKey"></span><span id="pcl::io::OctreePointCloudCompression::serializeTreeCallback__LeafTR.OctreeKeyCR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1ad6acbe6be9d492002932c84e7d0d282c"></span>void <code class="sig-name descname">serializeTreeCallback</code><span class="sig-paren">(</span>LeafT &amp;<em>leaf_arg</em>, <em class="property">const</em> OctreeKey &amp;<em>key_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression21serializeTreeCallbackER5LeafTRK9OctreeKey" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Encode leaf node information during serialization. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">leaf_arg</span></code>: reference to new leaf node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: octree key of new leaf node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression23deserializeTreeCallbackER5LeafTRK9OctreeKey">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression23deserializeTreeCallbackER5LeafTRK9OctreeKey"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression23deserializeTreeCallbackER5LeafTRK9OctreeKey"></span><span id="pcl::io::OctreePointCloudCompression::deserializeTreeCallback__LeafTR.OctreeKeyCR"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a80f6e719665e1cb435f006c5895ff91e"></span>void <code class="sig-name descname">deserializeTreeCallback</code><span class="sig-paren">(</span>LeafT&amp;, <em class="property">const</em> OctreeKey &amp;<em>key_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression23deserializeTreeCallbackER5LeafTRK9OctreeKey" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decode leaf nodes information during deserialization. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: octree key of new leaf node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression7output_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression7output_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression7output_E"></span><span id="pcl::io::OctreePointCloudCompression::output___PointCloudPtr"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1ac72607ca04e1885ab9bf65e7f3f49477"></span><a class="reference internal" href="#_CPPv4N3pcl2io27OctreePointCloudCompression13PointCloudPtrE" title="pcl::io::OctreePointCloudCompression::PointCloudPtr">PointCloudPtr</a> <code class="sig-name descname">output_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression7output_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to output point cloud dataset. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression24binary_tree_data_vector_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression24binary_tree_data_vector_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression24binary_tree_data_vector_E"></span><span id="pcl::io::OctreePointCloudCompression::binary_tree_data_vector___std::vector:c:"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1aae26463a7465be923d0987a6ad284a2f"></span>std::vector&lt;char&gt; <code class="sig-name descname">binary_tree_data_vector_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression24binary_tree_data_vector_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Vector for storing binary tree structure. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression25binary_color_tree_vector_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression25binary_color_tree_vector_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression25binary_color_tree_vector_E"></span><span id="pcl::io::OctreePointCloudCompression::binary_color_tree_vector___std::vector:c:"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a7e5b472065093162cae1062823732243"></span>std::vector&lt;char&gt; <code class="sig-name descname">binary_color_tree_vector_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression25binary_color_tree_vector_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Iterator on binary tree structure vector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression24point_count_data_vector_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression24point_count_data_vector_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression24point_count_data_vector_E"></span><span id="pcl::io::OctreePointCloudCompression::point_count_data_vector___std::vector:unsigned-i:"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1aca78c8958023c1ae49b026eb0f5bcdf6"></span>std::vector&lt;unsigned int&gt; <code class="sig-name descname">point_count_data_vector_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression24point_count_data_vector_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Vector for storing points per voxel information. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression33point_count_data_vector_iterator_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression33point_count_data_vector_iterator_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression33point_count_data_vector_iterator_E"></span><span id="pcl::io::OctreePointCloudCompression::point_count_data_vector_iterator___std::vector:unsigned-i:::const_iterator"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a60c04620fae807dbddd76895124a9eb5"></span>std::vector&lt;unsigned int&gt;::const_iterator <code class="sig-name descname">point_count_data_vector_iterator_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression33point_count_data_vector_iterator_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Iterator on points per voxel vector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression12color_coder_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression12color_coder_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression12color_coder_E"></span><span id="pcl::io::OctreePointCloudCompression::color_coder___ColorCoding:PointT:"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a210c9aa011e8797616c0548aa094612f"></span>ColorCoding&lt;PointT&gt; <code class="sig-name descname">color_coder_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression12color_coder_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color coding instance. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression12point_coder_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression12point_coder_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression12point_coder_E"></span><span id="pcl::io::OctreePointCloudCompression::point_coder___PointCoding:PointT:"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a665e46fd9b12feb9b42e44d9275d3ee0"></span>PointCoding&lt;PointT&gt; <code class="sig-name descname">point_coder_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression12point_coder_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point coding instance. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression14entropy_coder_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression14entropy_coder_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression14entropy_coder_E"></span><span id="pcl::io::OctreePointCloudCompression::entropy_coder___StaticRangeCoder"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a845ff8a27ce8f59b5d8ae73b0f2c1b74"></span><a class="reference internal" href="classpcl_1_1_static_range_coder.html#_CPPv4N3pcl16StaticRangeCoderE" title="pcl::StaticRangeCoder">StaticRangeCoder</a> <code class="sig-name descname">entropy_coder_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression14entropy_coder_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Static range coder instance. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression25do_voxel_grid_enDecoding_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression25do_voxel_grid_enDecoding_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression25do_voxel_grid_enDecoding_E"></span><span id="pcl::io::OctreePointCloudCompression::do_voxel_grid_enDecoding___b"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1ad195285150c192521c9c8993e2a0e71a"></span>bool <code class="sig-name descname">do_voxel_grid_enDecoding_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression25do_voxel_grid_enDecoding_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression13i_frame_rate_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression13i_frame_rate_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression13i_frame_rate_E"></span><span id="pcl::io::OctreePointCloudCompression::i_frame_rate___uint32_t"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1aedc8c6e1c9f49a7cfd84193bb786fc30"></span>uint32_t <code class="sig-name descname">i_frame_rate_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression13i_frame_rate_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression16i_frame_counter_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression16i_frame_counter_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression16i_frame_counter_E"></span><span id="pcl::io::OctreePointCloudCompression::i_frame_counter___uint32_t"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a07a9b1fe13bce051435ba4bdc1e546ef"></span>uint32_t <code class="sig-name descname">i_frame_counter_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression16i_frame_counter_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression9frame_ID_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression9frame_ID_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression9frame_ID_E"></span><span id="pcl::io::OctreePointCloudCompression::frame_ID___uint32_t"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a824cff8ddb94dee0140e6097cab706b2"></span>uint32_t <code class="sig-name descname">frame_ID_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression9frame_ID_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression12point_count_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression12point_count_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression12point_count_E"></span><span id="pcl::io::OctreePointCloudCompression::point_count___uint64_t"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a73919de49c2ff4d8bb6af4afe2da260a"></span>uint64_t <code class="sig-name descname">point_count_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression12point_count_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression8i_frame_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression8i_frame_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression8i_frame_E"></span><span id="pcl::io::OctreePointCloudCompression::i_frame___b"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1af36a43d1b9b5dc49639610aa67ecc987"></span>bool <code class="sig-name descname">i_frame_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression8i_frame_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression18do_color_encoding_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression18do_color_encoding_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression18do_color_encoding_E"></span><span id="pcl::io::OctreePointCloudCompression::do_color_encoding___b"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1afd7d9b02524d833dab7386cad7c59edd"></span>bool <code class="sig-name descname">do_color_encoding_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression18do_color_encoding_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression17cloud_with_color_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression17cloud_with_color_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression17cloud_with_color_E"></span><span id="pcl::io::OctreePointCloudCompression::cloud_with_color___b"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a1c63c09fdd8d579c9f8b284b114d6cb8"></span>bool <code class="sig-name descname">cloud_with_color_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression17cloud_with_color_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression16data_with_color_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression16data_with_color_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression16data_with_color_E"></span><span id="pcl::io::OctreePointCloudCompression::data_with_color___b"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a72fec48dbcde9efa3aa58444aebabd9f"></span>bool <code class="sig-name descname">data_with_color_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression16data_with_color_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression19point_color_offset_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression19point_color_offset_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression19point_color_offset_E"></span><span id="pcl::io::OctreePointCloudCompression::point_color_offset___unsigned-c"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1ae0dc1bcfc8281a5ae01a969da41406ee"></span>unsigned char <code class="sig-name descname">point_color_offset_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression19point_color_offset_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression18b_show_statistics_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression18b_show_statistics_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression18b_show_statistics_E"></span><span id="pcl::io::OctreePointCloudCompression::b_show_statistics___b"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1ad976836de22b29839bb465aa8cc622c6"></span>bool <code class="sig-name descname">b_show_statistics_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression18b_show_statistics_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression26compressed_point_data_len_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression26compressed_point_data_len_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression26compressed_point_data_len_E"></span><span id="pcl::io::OctreePointCloudCompression::compressed_point_data_len___uint64_t"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1ae12b99b3222a1590ee86261fe060cce5"></span>uint64_t <code class="sig-name descname">compressed_point_data_len_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression26compressed_point_data_len_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression26compressed_color_data_len_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression26compressed_color_data_len_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression26compressed_color_data_len_E"></span><span id="pcl::io::OctreePointCloudCompression::compressed_color_data_len___uint64_t"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1afe4f71ae4b1101cd07a2c46e320b1e82"></span>uint64_t <code class="sig-name descname">compressed_color_data_len_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression26compressed_color_data_len_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression17selected_profile_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression17selected_profile_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression17selected_profile_E"></span><span id="pcl::io::OctreePointCloudCompression::selected_profile___compression_Profiles_eC"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a2c463974b44c02f816a6ba13e88aa330"></span><em class="property">const</em> <a class="reference internal" href="enum_compression__profiles_8h_1ace28c28f4a188903e34afa2125d8410b.html#_CPPv4N3pcl2io22compression_Profiles_eE" title="pcl::io::compression_Profiles_e">compression_Profiles_e</a> <code class="sig-name descname">selected_profile_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression17selected_profile_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression17point_resolution_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression17point_resolution_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression17point_resolution_E"></span><span id="pcl::io::OctreePointCloudCompression::point_resolution___doubleC"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a9ecf7493803a4bbd5bedfd88161101a1"></span><em class="property">const</em> double <code class="sig-name descname">point_resolution_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression17point_resolution_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression18octree_resolution_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression18octree_resolution_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression18octree_resolution_E"></span><span id="pcl::io::OctreePointCloudCompression::octree_resolution___doubleC"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1af079f873e797af01d60f6beab2b28808"></span><em class="property">const</em> double <code class="sig-name descname">octree_resolution_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression18octree_resolution_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression21color_bit_resolution_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression21color_bit_resolution_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression21color_bit_resolution_E"></span><span id="pcl::io::OctreePointCloudCompression::color_bit_resolution___unsigned-cC"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1aae8908956d431493bc59cc91469bf39b"></span><em class="property">const</em> unsigned char <code class="sig-name descname">color_bit_resolution_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression21color_bit_resolution_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression13object_count_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression13object_count_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression13object_count_E"></span><span id="pcl::io::OctreePointCloudCompression::object_count___std::s"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a0ff699cda947d0759d8a1f9bcb5f4bce"></span>std::size_t <code class="sig-name descname">object_count_</code><a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression13object_count_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Static Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl2io27OctreePointCloudCompression24frame_header_identifier_E">
+<span id="_CPPv3N3pcl2io27OctreePointCloudCompression24frame_header_identifier_E"></span><span id="_CPPv2N3pcl2io27OctreePointCloudCompression24frame_header_identifier_E"></span><span id="pcl::io::OctreePointCloudCompression::frame_header_identifier___cCP"></span><span class="target" id="classpcl_1_1io_1_1_octree_point_cloud_compression_1a3e76cd2a3c7a015aaf0c290f53e68501"></span><em class="property">const</em> char *<code class="sig-name descname">frame_header_identifier_</code> = &quot;&lt;PCL-OCT-COMPRESSED&gt;&quot;<a class="headerlink" href="#_CPPv4N3pcl2io27OctreePointCloudCompression24frame_header_identifier_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

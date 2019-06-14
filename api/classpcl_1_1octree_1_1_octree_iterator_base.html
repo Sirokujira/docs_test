@@ -1,0 +1,514 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OctreeIteratorBase &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OctreeIteratorBase</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1octree_1_1_octree_iterator_base.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-octreeiteratorbase">
+<span id="exhale-class-classpcl-1-1octree-1-1-octree-iterator-base"></span><h1>Template Class OctreeIteratorBase<a class="headerlink" href="#template-class-octreeiteratorbase" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_octree_include_pcl_octree_octree_iterator.h.html#file-pcl-octree-include-pcl-octree-octree-iterator-h"><span class="std std-ref">File octree_iterator.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">std::iterator&lt;</span> <span class="pre">std::forward_iterator_tag,</span> <span class="pre">const</span> <span class="pre">OctreeNode,</span> <span class="pre">void,</span> <span class="pre">const</span> <span class="pre">OctreeNode</span> <span class="pre">*,</span> <span class="pre">const</span> <span class="pre">OctreeNode</span> <span class="pre">&amp;&gt;</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreeBreadthFirstIterator&lt;</span> <span class="pre">OctreeT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_breadth_first_iterator.html#exhale-class-classpcl-1-1octree-1-1-octree-breadth-first-iterator"><span class="std std-ref">Template Class OctreeBreadthFirstIterator</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreeDepthFirstIterator&lt;</span> <span class="pre">OctreeT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_depth_first_iterator.html#exhale-class-classpcl-1-1octree-1-1-octree-depth-first-iterator"><span class="std std-ref">Template Class OctreeDepthFirstIterator</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl6octree18OctreeIteratorBaseE">
+<span id="_CPPv3I0EN3pcl6octree18OctreeIteratorBaseE"></span><span id="_CPPv2I0EN3pcl6octree18OctreeIteratorBaseE"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base"></span>template&lt;typename <code class="sig-name descname">OctreeT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">OctreeIteratorBase</code> : <em class="property">public</em> std::iterator&lt;std::forward_iterator_tag, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a>, void, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a>&amp;&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl6octree18OctreeIteratorBaseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>Abstract</strong> octree iterator class </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Octree iterator base class</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1octree_1_1_octree_breadth_first_iterator.html#classpcl_1_1octree_1_1_octree_breadth_first_iterator"><span class="std std-ref">pcl::octree::OctreeBreadthFirstIterator&lt; OctreeT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1octree_1_1_octree_depth_first_iterator.html#classpcl_1_1octree_1_1_octree_depth_first_iterator"><span class="std std-ref">pcl::octree::OctreeDepthFirstIterator&lt; OctreeT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase8LeafNodeE">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase8LeafNodeE"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase8LeafNodeE"></span><span id="pcl::octree::OctreeIteratorBase::LeafNode"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a7db5fac89d626cc24103eac2b248152f"></span><em class="property">typedef </em>OctreeT::LeafNode <code class="sig-name descname">LeafNode</code><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase8LeafNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase10BranchNodeE">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase10BranchNodeE"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase10BranchNodeE"></span><span id="pcl::octree::OctreeIteratorBase::BranchNode"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1adbda80916516d2662a3e785fc683480d"></span><em class="property">typedef </em>OctreeT::BranchNode <code class="sig-name descname">BranchNode</code><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase10BranchNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase13LeafContainerE">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase13LeafContainerE"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase13LeafContainerE"></span><span id="pcl::octree::OctreeIteratorBase::LeafContainer"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a8910e06142c68260863192c4595f5ca8"></span><em class="property">typedef </em>OctreeT::LeafContainer <code class="sig-name descname">LeafContainer</code><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase13LeafContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase15BranchContainerE">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase15BranchContainerE"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase15BranchContainerE"></span><span id="pcl::octree::OctreeIteratorBase::BranchContainer"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a4a32092792fed534000b3960ed82331a"></span><em class="property">typedef </em>OctreeT::BranchContainer <code class="sig-name descname">BranchContainer</code><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase15BranchContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEj">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEj"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEj"></span><span id="pcl::octree::OctreeIteratorBase::OctreeIteratorBase__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1aabe5d79aa48e2f9690ea9aee37586285"></span><code class="sig-name descname">OctreeIteratorBase</code><span class="sig-paren">(</span>unsigned int <em>max_depth_arg</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEP7OctreeTj">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEP7OctreeTj"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEP7OctreeTj"></span><span id="pcl::octree::OctreeIteratorBase::OctreeIteratorBase__OctreeTP.unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1ab792fd631335e04b72751514ef392e47"></span><code class="sig-name descname">OctreeIteratorBase</code><span class="sig-paren">(</span>OctreeT *<em>octree_arg</em>, unsigned int <em>max_depth_arg</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEP7OctreeTj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_arg</span></code>: Octree to be iterated. Initially the iterator is set to its root node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_depth_arg</span></code>: Depth limitation during traversal </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEP7OctreeTjP13IteratorState">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEP7OctreeTjP13IteratorState"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEP7OctreeTjP13IteratorState"></span><span id="pcl::octree::OctreeIteratorBase::OctreeIteratorBase__OctreeTP.unsigned-i.IteratorStateP"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a8f7ada4e00cbda15f63e1321c3fc242b"></span><code class="sig-name descname">OctreeIteratorBase</code><span class="sig-paren">(</span>OctreeT *<em>octree_arg</em>, unsigned int <em>max_depth_arg</em>, <a class="reference internal" href="structpcl_1_1octree_1_1_iterator_state.html#_CPPv4N3pcl6octree13IteratorStateE" title="pcl::octree::IteratorState">IteratorState</a> *<em>current_state</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase18OctreeIteratorBaseEP7OctreeTjP13IteratorState" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Warning</strong></dt><dd><p>For advanced users only. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_arg</span></code>: Octree to be iterated. Initially the iterator is set to its root node. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_depth_arg</span></code>: Depth limitation during traversal </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">current_state</span></code>: A pointer to the current iterator state</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBaseD0Ev">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBaseD0Ev"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBaseD0Ev"></span><span id="pcl::octree::OctreeIteratorBase::~OctreeIteratorBase"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a6b23ce2c9e69b892c8f18889dd118c9f"></span><em class="property">virtual</em> <code class="sig-name descname">~OctreeIteratorBase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBaseD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty deconstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBaseeqERK18OctreeIteratorBase">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBaseeqERK18OctreeIteratorBase"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBaseeqERK18OctreeIteratorBase"></span><span id="pcl::octree::OctreeIteratorBase::eq-operator__OctreeIteratorBaseCRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1ac445a01b88610a2b6c7e475667773c47"></span>bool <code class="sig-name descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> OctreeIteratorBase &amp;<em>other</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBaseeqERK18OctreeIteratorBase" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Equal comparison operator. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">other</span></code>: <a class="reference internal" href="#classpcl_1_1octree_1_1_octree_iterator_base"><span class="std std-ref">OctreeIteratorBase</span></a> to compare with </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBaseneERK18OctreeIteratorBase">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBaseneERK18OctreeIteratorBase"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBaseneERK18OctreeIteratorBase"></span><span id="pcl::octree::OctreeIteratorBase::neq-operator__OctreeIteratorBaseCRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1ac8925254792de64b9cbee3e58049ae75"></span>bool <code class="sig-name descname">operator!=</code><span class="sig-paren">(</span><em class="property">const</em> OctreeIteratorBase &amp;<em>other</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBaseneERK18OctreeIteratorBase" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Inequal comparison operator. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">other</span></code>: <a class="reference internal" href="#classpcl_1_1octree_1_1_octree_iterator_base"><span class="std std-ref">OctreeIteratorBase</span></a> to compare with </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase5resetEv">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase5resetEv"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase5resetEv"></span><span id="pcl::octree::OctreeIteratorBase::reset"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1ad99362068dd933579cf38c0f541fb94c"></span>void <code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase5resetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset iterator. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBase19getCurrentOctreeKeyEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBase19getCurrentOctreeKeyEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBase19getCurrentOctreeKeyEv"></span><span id="pcl::octree::OctreeIteratorBase::getCurrentOctreeKeyC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a2c8a14332aaa89bfeb2125d8422b2c4d"></span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<code class="sig-name descname">getCurrentOctreeKey</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBase19getCurrentOctreeKeyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get octree key for the current iterator octree node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>octree key of current node </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBase21getCurrentOctreeDepthEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBase21getCurrentOctreeDepthEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBase21getCurrentOctreeDepthEv"></span><span id="pcl::octree::OctreeIteratorBase::getCurrentOctreeDepthC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1ae5370f97f228434d2386c7d10ea59385"></span>unsigned int <code class="sig-name descname">getCurrentOctreeDepth</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBase21getCurrentOctreeDepthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the current depth level of octree. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>depth level </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBase20getCurrentOctreeNodeEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBase20getCurrentOctreeNodeEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBase20getCurrentOctreeNodeEv"></span><span id="pcl::octree::OctreeIteratorBase::getCurrentOctreeNodeC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a74e3887b102f4fc2057af33912994826"></span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<code class="sig-name descname">getCurrentOctreeNode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBase20getCurrentOctreeNodeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the current octree node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>pointer to current octree node </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBase12isBranchNodeEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBase12isBranchNodeEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBase12isBranchNodeEv"></span><span id="pcl::octree::OctreeIteratorBase::isBranchNodeC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a6d291e8c14d83bb7bcb8b2eee8c4ded2"></span>bool <code class="sig-name descname">isBranchNode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBase12isBranchNodeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>check if current node is a branch node </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if current node is a branch node, false otherwise </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBase10isLeafNodeEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBase10isLeafNodeEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBase10isLeafNodeEv"></span><span id="pcl::octree::OctreeIteratorBase::isLeafNodeC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1af9874af14d576f29d2365df1c195b73c"></span>bool <code class="sig-name descname">isLeafNode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBase10isLeafNodeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>check if current node is a branch node </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if current node is a branch node, false otherwise </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBasemlEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBasemlEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBasemlEv"></span><span id="pcl::octree::OctreeIteratorBase::mul-operatorC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a025cb011b80719ca04e085b8034786c4"></span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<code class="sig-name descname">operator*</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBasemlEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>*operator. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>pointer to the current octree node </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBase20getNodeConfigurationEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBase20getNodeConfigurationEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBase20getNodeConfigurationEv"></span><span id="pcl::octree::OctreeIteratorBase::getNodeConfigurationC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a04d1a6194408a9358ba3189730e6a246"></span>char <code class="sig-name descname">getNodeConfiguration</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBase20getNodeConfigurationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get bit pattern of children configuration of current node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>bit pattern (byte) describing the existence of 8 children of the current node </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBase16getLeafContainerEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBase16getLeafContainerEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBase16getLeafContainerEv"></span><span id="pcl::octree::OctreeIteratorBase::getLeafContainerC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a8bbd32273e2ce53b6430c9c12a8d46cf"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree18OctreeIteratorBase13LeafContainerE" title="pcl::octree::OctreeIteratorBase::LeafContainer">LeafContainer</a> &amp;<code class="sig-name descname">getLeafContainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBase16getLeafContainerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method for retrieving a single leaf container from the octree leaf node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Reference to container class of leaf node. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase16getLeafContainerEv">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase16getLeafContainerEv"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase16getLeafContainerEv"></span><span id="pcl::octree::OctreeIteratorBase::getLeafContainer"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a49732b8764d00dbae0205aeb1b8846e0"></span><a class="reference internal" href="#_CPPv4N3pcl6octree18OctreeIteratorBase13LeafContainerE" title="pcl::octree::OctreeIteratorBase::LeafContainer">LeafContainer</a> &amp;<code class="sig-name descname">getLeafContainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase16getLeafContainerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method for retrieving a single leaf container from the octree leaf node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Reference to container class of leaf node. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBase18getBranchContainerEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBase18getBranchContainerEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBase18getBranchContainerEv"></span><span id="pcl::octree::OctreeIteratorBase::getBranchContainerC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1af228d48d15a6e5a2b132f68671cd96c2"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree18OctreeIteratorBase15BranchContainerE" title="pcl::octree::OctreeIteratorBase::BranchContainer">BranchContainer</a> &amp;<code class="sig-name descname">getBranchContainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBase18getBranchContainerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method for retrieving the container from an octree branch node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>BranchContainer. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase18getBranchContainerEv">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase18getBranchContainerEv"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase18getBranchContainerEv"></span><span id="pcl::octree::OctreeIteratorBase::getBranchContainer"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1aa3cb841e9b039e5567ab4bf25f67f857"></span><a class="reference internal" href="#_CPPv4N3pcl6octree18OctreeIteratorBase15BranchContainerE" title="pcl::octree::OctreeIteratorBase::BranchContainer">BranchContainer</a> &amp;<code class="sig-name descname">getBranchContainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase18getBranchContainerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method for retrieving the container from an octree branch node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>BranchContainer. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree18OctreeIteratorBase9getNodeIDEv">
+<span id="_CPPv3NK3pcl6octree18OctreeIteratorBase9getNodeIDEv"></span><span id="_CPPv2NK3pcl6octree18OctreeIteratorBase9getNodeIDEv"></span><span id="pcl::octree::OctreeIteratorBase::getNodeIDC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a93530440dc4c4d3113e2e8f8478ae5bf"></span><em class="property">virtual</em> unsigned long <code class="sig-name descname">getNodeID</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree18OctreeIteratorBase9getNodeIDEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get a integer identifier for current node (note: identifier depends on tree depth). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>node id. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase7octree_E">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase7octree_E"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase7octree_E"></span><span id="pcl::octree::OctreeIteratorBase::octree___OctreeTP"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a2bbf66c95951c55f5b6d672ba8d3ab92"></span>OctreeT *<code class="sig-name descname">octree_</code><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase7octree_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reference to octree class. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase14current_state_E">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase14current_state_E"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase14current_state_E"></span><span id="pcl::octree::OctreeIteratorBase::current_state___IteratorStateP"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1acc3e577b8deac4ec30bd414d7963a28f"></span><a class="reference internal" href="structpcl_1_1octree_1_1_iterator_state.html#_CPPv4N3pcl6octree13IteratorStateE" title="pcl::octree::IteratorState">IteratorState</a> *<code class="sig-name descname">current_state_</code><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase14current_state_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to current iterator state. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree18OctreeIteratorBase17max_octree_depth_E">
+<span id="_CPPv3N3pcl6octree18OctreeIteratorBase17max_octree_depth_E"></span><span id="_CPPv2N3pcl6octree18OctreeIteratorBase17max_octree_depth_E"></span><span id="pcl::octree::OctreeIteratorBase::max_octree_depth___unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_iterator_base_1a033e43f41da6424ab36e2e7bdb265ba7"></span>unsigned int <code class="sig-name descname">max_octree_depth_</code><a class="headerlink" href="#_CPPv4N3pcl6octree18OctreeIteratorBase17max_octree_depth_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum octree depth. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

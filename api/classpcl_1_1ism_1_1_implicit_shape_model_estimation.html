@@ -1,0 +1,888 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class ImplicitShapeModelEstimation &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class ImplicitShapeModelEstimation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1ism_1_1_implicit_shape_model_estimation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-implicitshapemodelestimation">
+<span id="exhale-class-classpcl-1-1ism-1-1-implicit-shape-model-estimation"></span><h1>Template Class ImplicitShapeModelEstimation<a class="headerlink" href="#template-class-implicitshapemodelestimation" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_recognition_include_pcl_recognition_implicit_shape_model.h.html#file-pcl-recognition-include-pcl-recognition-implicit-shape-model-h"><span class="std std-ref">File implicit_shape_model.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_location_info.html#exhale-struct-structpcl-1-1ism-1-1-implicit-shape-model-estimation-1-1-location-info"><span class="std std-ref">Struct ImplicitShapeModelEstimation::LocationInfo</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_t_c.html#exhale-struct-structpcl-1-1ism-1-1-implicit-shape-model-estimation-1-1-t-c"><span class="std std-ref">Struct ImplicitShapeModelEstimation::TC</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_visual_word_stat.html#exhale-struct-structpcl-1-1ism-1-1-implicit-shape-model-estimation-1-1-visual-word-stat"><span class="std std-ref">Struct ImplicitShapeModelEstimation::VisualWordStat</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I_i00EN3pcl3ism28ImplicitShapeModelEstimationE">
+<span id="_CPPv3I_i00EN3pcl3ism28ImplicitShapeModelEstimationE"></span><span id="_CPPv2I_i00EN3pcl3ism28ImplicitShapeModelEstimationE"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation"></span>template&lt;int <code class="sig-name descname">FeatureSize</code>, typename <code class="sig-name descname">PointT</code>, typename <code class="sig-name descname">NormalT</code> = pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">ImplicitShapeModelEstimation</code><a class="headerlink" href="#_CPPv4I_i00EN3pcl3ism28ImplicitShapeModelEstimationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This class implements Implicit Shape Model algorithm described in “Hough Transforms and 3D SURF for robust three dimensional classication” by Jan Knopp1, Mukta Prasad, Geert Willems1, Radu Timofte, and Luc Van Gool. </p>
+<p>It has two main member functions. One for training, using the data for which we know which class it belongs to. And second for investigating a cloud for the presence of the class of interest. Implementation of the ISM algorithm described in “Hough Transforms and 3D SURF for robust three dimensional classication” by Jan Knopp, Mukta Prasad, Geert Willems, Radu Timofte, and Luc Van Gool</p>
+<p>Authors: Roman Shapovalov, Alexander Velizhev, Sergey Ushakov </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation11ISMModelPtrE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation11ISMModelPtrE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation11ISMModelPtrE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::ISMModelPtr"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a17f54f427a93522738d6e32a6bef4d69"></span><em class="property">typedef </em>boost::shared_ptr&lt;pcl::features::<a class="reference internal" href="structpcl_1_1features_1_1_i_s_m_model.html#_CPPv4N3pcl8features8ISMModelE" title="pcl::features::ISMModel">ISMModel</a>&gt; <code class="sig-name descname">ISMModelPtr</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation11ISMModelPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation28ImplicitShapeModelEstimationEv">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation28ImplicitShapeModelEstimationEv"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation28ImplicitShapeModelEstimationEv"></span><span id="pcl::ism::ImplicitShapeModelEstimation::ImplicitShapeModelEstimation"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a6dfe939775dc97b5a076c815a4d5bdac"></span><code class="sig-name descname">ImplicitShapeModelEstimation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation28ImplicitShapeModelEstimationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simple constructor that initializes everything. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimationD0Ev">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimationD0Ev"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimationD0Ev"></span><span id="pcl::ism::ImplicitShapeModelEstimation::~ImplicitShapeModelEstimation"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a54ebf011063ef77084762d3f2b08a513"></span><code class="sig-name descname">~ImplicitShapeModelEstimation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimationD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simple destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17getTrainingCloudsEv">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation17getTrainingCloudsEv"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation17getTrainingCloudsEv"></span><span id="pcl::ism::ImplicitShapeModelEstimation::getTrainingClouds"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a2cfd927e2f6297db673dcc5b96cdc1b4"></span>std::vector&lt;<em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::Ptr&gt; <code class="sig-name descname">getTrainingClouds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17getTrainingCloudsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method simply returns the clouds that were set as the training clouds. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17setTrainingCloudsERKNSt6vectorIN3pcl10PointCloudI6PointTE3PtrEEE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation17setTrainingCloudsERKNSt6vectorIN3pcl10PointCloudI6PointTE3PtrEEE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation17setTrainingCloudsERKNSt6vectorIN3pcl10PointCloudI6PointTE3PtrEEE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::setTrainingClouds__std::vector:pcl::PointCloud:PointT:::Ptr:CR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a43e42d336b600c4d6e7d8b9665d16c86"></span>void <code class="sig-name descname">setTrainingClouds</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::Ptr&gt; &amp;<em>training_clouds</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17setTrainingCloudsERKNSt6vectorIN3pcl10PointCloudI6PointTE3PtrEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to set clouds for training the ISM model. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">training_clouds</span></code>: array of point clouds for training </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18getTrainingClassesEv">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation18getTrainingClassesEv"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation18getTrainingClassesEv"></span><span id="pcl::ism::ImplicitShapeModelEstimation::getTrainingClasses"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a82f839cf09e9db845af7659cb66a6fe0"></span>std::vector&lt;unsigned int&gt; <code class="sig-name descname">getTrainingClasses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18getTrainingClassesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the array of classes that indicates which class the corresponding training cloud belongs. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18setTrainingClassesERKNSt6vectorIjEE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation18setTrainingClassesERKNSt6vectorIjEE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation18setTrainingClassesERKNSt6vectorIjEE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::setTrainingClasses__std::vector:unsigned-i:CR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1afa36d00337ee0a1adfc2b566fc46e9d7"></span>void <code class="sig-name descname">setTrainingClasses</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;unsigned int&gt; &amp;<em>training_classes</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18setTrainingClassesERKNSt6vectorIjEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to set the class labels for the corresponding training clouds. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">training_classes</span></code>: array of class labels </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18getTrainingNormalsEv">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation18getTrainingNormalsEv"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation18getTrainingNormalsEv"></span><span id="pcl::ism::ImplicitShapeModelEstimation::getTrainingNormals"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1af932b3a78637dc245cda7ea03d45e9e8"></span>std::vector&lt;<em class="property">typename</em> pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;::Ptr&gt; <code class="sig-name descname">getTrainingNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18getTrainingNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method returns the corresponding cloud of normals for every training point cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18setTrainingNormalsERKNSt6vectorIN3pcl10PointCloudI7NormalTE3PtrEEE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation18setTrainingNormalsERKNSt6vectorIN3pcl10PointCloudI7NormalTE3PtrEEE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation18setTrainingNormalsERKNSt6vectorIN3pcl10PointCloudI7NormalTE3PtrEEE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::setTrainingNormals__std::vector:pcl::PointCloud:NormalT:::Ptr:CR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a5c310cb89a7be4b388bea1526111a525"></span>void <code class="sig-name descname">setTrainingNormals</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<em class="property">typename</em> pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;::Ptr&gt; &amp;<em>training_normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18setTrainingNormalsERKNSt6vectorIN3pcl10PointCloudI7NormalTE3PtrEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to set normals for the training clouds that were passed through setTrainingClouds method. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">training_normals</span></code>: array of clouds, each cloud is the cloud of normals </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation15getSamplingSizeEv">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation15getSamplingSizeEv"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation15getSamplingSizeEv"></span><span id="pcl::ism::ImplicitShapeModelEstimation::getSamplingSize"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1afd2eea3c7f85613e9b80bf5b8f822577"></span>float <code class="sig-name descname">getSamplingSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation15getSamplingSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the sampling size used for cloud simplification. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation15setSamplingSizeEf">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation15setSamplingSizeEf"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation15setSamplingSizeEf"></span><span id="pcl::ism::ImplicitShapeModelEstimation::setSamplingSize__float"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1ae01b18529098566b7244f16ccf864cf1"></span>void <code class="sig-name descname">setSamplingSize</code><span class="sig-paren">(</span>float <em>sampling_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation15setSamplingSizeEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Changes the sampling size used for cloud simplification. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sampling_size</span></code>: desired size of grid bin </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19getFeatureEstimatorEv">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation19getFeatureEstimatorEv"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation19getFeatureEstimatorEv"></span><span id="pcl::ism::ImplicitShapeModelEstimation::getFeatureEstimator"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1aca084efb9d923b8963ae18c4b3550564"></span>boost::shared_ptr&lt;pcl::Feature&lt;PointT, pcl::Histogram&lt;FeatureSize&gt;&gt;&gt; <code class="sig-name descname">getFeatureEstimator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19getFeatureEstimatorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the current feature estimator used for extraction of the descriptors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19setFeatureEstimatorEN5boost10shared_ptrIN3pcl7FeatureI6PointTN3pcl9HistogramI11FeatureSizeEEEEEE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation19setFeatureEstimatorEN5boost10shared_ptrIN3pcl7FeatureI6PointTN3pcl9HistogramI11FeatureSizeEEEEEE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation19setFeatureEstimatorEN5boost10shared_ptrIN3pcl7FeatureI6PointTN3pcl9HistogramI11FeatureSizeEEEEEE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::setFeatureEstimator__boost::shared_ptr:pcl::Feature:PointT.pcl::Histogram:FeatureSize:::"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1aaf734e2f3120bb043404596956f01f6c"></span>void <code class="sig-name descname">setFeatureEstimator</code><span class="sig-paren">(</span>boost::shared_ptr&lt;pcl::Feature&lt;PointT, pcl::Histogram&lt;FeatureSize&gt;&gt;&gt; <em>feature</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19setFeatureEstimatorEN5boost10shared_ptrIN3pcl7FeatureI6PointTN3pcl9HistogramI11FeatureSizeEEEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Changes the feature estimator. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">feature</span></code>: feature estimator that will be used to extract the descriptors. Note that it must be fully initialized and configured. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19getNumberOfClustersEv">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation19getNumberOfClustersEv"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation19getNumberOfClustersEv"></span><span id="pcl::ism::ImplicitShapeModelEstimation::getNumberOfClusters"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1ab4cf537c4ecdbd38cdaa92bbefd2654d"></span>unsigned int <code class="sig-name descname">getNumberOfClusters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19getNumberOfClustersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the number of clusters used for descriptor clustering. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19setNumberOfClustersEj">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation19setNumberOfClustersEj"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation19setNumberOfClustersEj"></span><span id="pcl::ism::ImplicitShapeModelEstimation::setNumberOfClusters__unsigned-i"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1ac0b8072d7f6048c714854202bf00790a"></span>void <code class="sig-name descname">setNumberOfClusters</code><span class="sig-paren">(</span>unsigned int <em>num_of_clusters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19setNumberOfClustersEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Changes the number of clusters. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">num_of_clusters</span></code>: desired number of clusters </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation13getSigmaDistsEv">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation13getSigmaDistsEv"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation13getSigmaDistsEv"></span><span id="pcl::ism::ImplicitShapeModelEstimation::getSigmaDists"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1acddaa58ec2977624f87a24e5432d831e"></span>std::vector&lt;float&gt; <code class="sig-name descname">getSigmaDists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation13getSigmaDistsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the array of sigma values. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation13setSigmaDistsERKNSt6vectorIfEE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation13setSigmaDistsERKNSt6vectorIfEE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation13setSigmaDistsERKNSt6vectorIfEE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::setSigmaDists__std::vector:float:CR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1af8eb194807519f620f01decec6dcd8a7"></span>void <code class="sig-name descname">setSigmaDists</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;float&gt; &amp;<em>training_sigmas</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation13setSigmaDistsERKNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method allows to set the value of sigma used for calculating the learned weights for every single class. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">training_sigmas</span></code>: new sigmas for every class. If you want these values to be computed automatically, just pass the empty array. The automatic regime calculates the maximum distance between the objects points and takes 10% of this value as recommended in the article. If there are several objects of the same class, then it computes the average maximum distance and takes 10%. Note that each class has its own sigma value. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12getNVotStateEv">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation12getNVotStateEv"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation12getNVotStateEv"></span><span id="pcl::ism::ImplicitShapeModelEstimation::getNVotState"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a5b8561475b8dcf05c214fdaa3d786918"></span>bool <code class="sig-name descname">getNVotState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12getNVotStateEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the state of Nvot coeff from [Knopp et al., 2010, (4)], if set to false then coeff is taken as 1.0. </p>
+<p>It is just a kind of heuristic. The default behavior is as in the article. So you can ignore this if you want. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12setNVotStateEb">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation12setNVotStateEb"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation12setNVotStateEb"></span><span id="pcl::ism::ImplicitShapeModelEstimation::setNVotState__b"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a4a5c99e74ddf4ae9bc3caa3575b6ca11"></span>void <code class="sig-name descname">setNVotState</code><span class="sig-paren">(</span>bool <em>state</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12setNVotStateEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Changes the state of the Nvot coeff from [Knopp et al., 2010, (4)]. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">state</span></code>: desired state, if false then Nvot is taken as 1.0 </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation8trainISMER11ISMModelPtr">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation8trainISMER11ISMModelPtr"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation8trainISMER11ISMModelPtr"></span><span id="pcl::ism::ImplicitShapeModelEstimation::trainISM__ISMModelPtrR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a0df7cc562e4e36d408c2738e67d1191f"></span>bool <code class="sig-name descname">trainISM</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation11ISMModelPtrE" title="pcl::ism::ImplicitShapeModelEstimation::ISMModelPtr">ISMModelPtr</a> &amp;<em>trained_model</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation8trainISMER11ISMModelPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method performs training and forms a visual vocabulary. </p>
+<p>It returns a trained model that can be saved to file for later usage. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">trained_model</span></code>: trained model </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation11findObjectsE11ISMModelPtrN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI6NormalE3PtrEi">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation11findObjectsE11ISMModelPtrN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI6NormalE3PtrEi"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation11findObjectsE11ISMModelPtrN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI6NormalE3PtrEi"></span><span id="pcl::ism::ImplicitShapeModelEstimation::findObjects__ISMModelPtr.pcl::PointCloud:PointT:::Ptr.pcl::PointCloud:Normal:::Ptr.i"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a16e7d9f66e627dc6e68206ffabb45c95"></span>boost::shared_ptr&lt;pcl::features::ISMVoteList&lt;PointT&gt;&gt; <code class="sig-name descname">findObjects</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation11ISMModelPtrE" title="pcl::ism::ImplicitShapeModelEstimation::ISMModelPtr">ISMModelPtr</a> <em>model</em>, <em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::Ptr <em>in_cloud</em>, <em class="property">typename</em> pcl::PointCloud&lt;<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt;::Ptr <em>in_normals</em>, int <em>in_class_of_interest</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation11findObjectsE11ISMModelPtrN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI6NormalE3PtrEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function is searching for the class of interest in a given cloud and returns the list of votes. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model</span></code>: trained model which will be used for searching the objects </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_cloud</span></code>: input cloud that need to be investigated </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_normals</span></code>: cloud of normals corresponding to the input cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_class_of_interest</span></code>: class which we are looking for </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a6dd150ee2659da80dc7577233ac9eb93"></span><em class="property">typedef </em><code class="sig-name descname">struct PCL_EXPORTS pcl::ism::ImplicitShapeModelEstimation::TC  pcl::ism::ImplicitShapeModelEstimation::TermCriteria</code></dt>
+<dd><p>This structure is used for determining the end of the k-means clustering process. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18extractDescriptorsERNSt6vectorIN3pcl9HistogramI11FeatureSizeEEEERNSt6vectorI12LocationInfoN5Eigen17aligned_allocatorI12LocationInfoEEEE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation18extractDescriptorsERNSt6vectorIN3pcl9HistogramI11FeatureSizeEEEERNSt6vectorI12LocationInfoN5Eigen17aligned_allocatorI12LocationInfoEEEE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation18extractDescriptorsERNSt6vectorIN3pcl9HistogramI11FeatureSizeEEEERNSt6vectorI12LocationInfoN5Eigen17aligned_allocatorI12LocationInfoEEEE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::extractDescriptors__std::vector:pcl::Histogram:FeatureSize::R.std::vector:LocationInfo.Eigen::aligned_allocator:LocationInfo::R"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1aada2c42e9685032c4cd2beb2a29b157c"></span>bool <code class="sig-name descname">extractDescriptors</code><span class="sig-paren">(</span>std::vector&lt;pcl::Histogram&lt;FeatureSize&gt;&gt; &amp;<em>histograms</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12LocationInfoE" title="pcl::ism::ImplicitShapeModelEstimation::LocationInfo">LocationInfo</a>, Eigen::aligned_allocator&lt;<a class="reference internal" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12LocationInfoE" title="pcl::ism::ImplicitShapeModelEstimation::LocationInfo">LocationInfo</a>&gt;&gt; &amp;<em>locations</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18extractDescriptorsERNSt6vectorIN3pcl9HistogramI11FeatureSizeEEEERNSt6vectorI12LocationInfoN5Eigen17aligned_allocatorI12LocationInfoEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extracts the descriptors from the input clouds. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">histograms</span></code>: it will store the descriptors for each key point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">locations</span></code>: it will contain the comprehensive information (such as direction, initial keypoint) for the corresponding descriptors </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18clusterDescriptorsERNSt6vectorIN3pcl9HistogramI11FeatureSizeEEEERN5Eigen8MatrixXiERN5Eigen8MatrixXfE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation18clusterDescriptorsERNSt6vectorIN3pcl9HistogramI11FeatureSizeEEEERN5Eigen8MatrixXiERN5Eigen8MatrixXfE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation18clusterDescriptorsERNSt6vectorIN3pcl9HistogramI11FeatureSizeEEEERN5Eigen8MatrixXiERN5Eigen8MatrixXfE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::clusterDescriptors__std::vector:pcl::Histogram:FeatureSize::R.Eigen::MatrixXiR.Eigen::MatrixXfR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1accdd4bb97e49ade2295cd49f59e78eba"></span>bool <code class="sig-name descname">clusterDescriptors</code><span class="sig-paren">(</span>std::vector&lt;pcl::Histogram&lt;FeatureSize&gt;&gt; &amp;<em>histograms</em>, Eigen::MatrixXi &amp;<em>labels</em>, Eigen::MatrixXf &amp;<em>clusters_centers</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18clusterDescriptorsERNSt6vectorIN3pcl9HistogramI11FeatureSizeEEEERN5Eigen8MatrixXiERN5Eigen8MatrixXfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method performs descriptor clustering. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">histograms</span></code>: descriptors to cluster </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">labels</span></code>: it contains labels for each descriptor </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">clusters_centers</span></code>: stores the centers of clusters </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation15calculateSigmasERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation15calculateSigmasERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation15calculateSigmasERNSt6vectorIfEE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::calculateSigmas__std::vector:float:R"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1ab5390e2ac51390339be681e644a1bdc9"></span>void <code class="sig-name descname">calculateSigmas</code><span class="sig-paren">(</span>std::vector&lt;float&gt; &amp;<em>sigmas</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation15calculateSigmasERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method calculates the value of sigma used for calculating the learned weights for every single class. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">sigmas</span></code>: computed sigmas. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation16calculateWeightsERKNSt6vectorI12LocationInfoN5Eigen17aligned_allocatorI12LocationInfoEEEERKN5Eigen8MatrixXiERNSt6vectorIfEERNSt6vectorINSt6vectorIjEEEERNSt6vectorINSt6vectorIfEEEERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation16calculateWeightsERKNSt6vectorI12LocationInfoN5Eigen17aligned_allocatorI12LocationInfoEEEERKN5Eigen8MatrixXiERNSt6vectorIfEERNSt6vectorINSt6vectorIjEEEERNSt6vectorINSt6vectorIfEEEERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation16calculateWeightsERKNSt6vectorI12LocationInfoN5Eigen17aligned_allocatorI12LocationInfoEEEERKN5Eigen8MatrixXiERNSt6vectorIfEERNSt6vectorINSt6vectorIjEEEERNSt6vectorINSt6vectorIfEEEERNSt6vectorIfEE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::calculateWeights__std::vector:LocationInfo.Eigen::aligned_allocator:LocationInfo::CR.Eigen::MatrixXiCR.std::vector:float:R.std::vector:std::vector:unsigned-i::R.std::vector:std::vector:float::R.std::vector:float:R"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a833845333ec925a77af5b963953ee37d"></span>void <code class="sig-name descname">calculateWeights</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12LocationInfoE" title="pcl::ism::ImplicitShapeModelEstimation::LocationInfo">LocationInfo</a>, Eigen::aligned_allocator&lt;<a class="reference internal" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12LocationInfoE" title="pcl::ism::ImplicitShapeModelEstimation::LocationInfo">LocationInfo</a>&gt;&gt; &amp;<em>locations</em>, <em class="property">const</em> Eigen::MatrixXi &amp;<em>labels</em>, std::vector&lt;float&gt; &amp;<em>sigmas</em>, std::vector&lt;std::vector&lt;unsigned int&gt;&gt; &amp;<em>clusters</em>, std::vector&lt;std::vector&lt;float&gt;&gt; &amp;<em>statistical_weights</em>, std::vector&lt;float&gt; &amp;<em>learned_weights</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation16calculateWeightsERKNSt6vectorI12LocationInfoN5Eigen17aligned_allocatorI12LocationInfoEEEERKN5Eigen8MatrixXiERNSt6vectorIfEERNSt6vectorINSt6vectorIjEEEERNSt6vectorINSt6vectorIfEEEERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function forms a visual vocabulary and evaluates weights described in [Knopp et al., 2010, (5)]. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">locations</span></code>: array containing description of each keypoint: its position, which cloud belongs and expected direction to center </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">labels</span></code>: labels that were obtained during k-means clustering </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sigmas</span></code>: array of sigmas for each class </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">clusters</span></code>: clusters that were obtained during k-means clustering </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">statistical_weights</span></code>: stores the computed statistical weights </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">learned_weights</span></code>: stores the computed learned weights </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation13simplifyCloudEN3pcl10PointCloudI6PointTE8ConstPtrEN3pcl10PointCloudI7NormalTE8ConstPtrEN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI7NormalTE3PtrE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation13simplifyCloudEN3pcl10PointCloudI6PointTE8ConstPtrEN3pcl10PointCloudI7NormalTE8ConstPtrEN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI7NormalTE3PtrE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation13simplifyCloudEN3pcl10PointCloudI6PointTE8ConstPtrEN3pcl10PointCloudI7NormalTE8ConstPtrEN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI7NormalTE3PtrE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::simplifyCloud__pcl::PointCloud:PointT:::ConstPtr.pcl::PointCloud:NormalT:::ConstPtr.pcl::PointCloud:PointT:::Ptr.pcl::PointCloud:NormalT:::Ptr"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1aeab8318ded750cbf52cd272daeeeba98"></span>void <code class="sig-name descname">simplifyCloud</code><span class="sig-paren">(</span><em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::ConstPtr <em>in_point_cloud</em>, <em class="property">typename</em> pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;::ConstPtr <em>in_normal_cloud</em>, <em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::Ptr <em>out_sampled_point_cloud</em>, <em class="property">typename</em> pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;::Ptr <em>out_sampled_normal_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation13simplifyCloudEN3pcl10PointCloudI6PointTE8ConstPtrEN3pcl10PointCloudI7NormalTE8ConstPtrEN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI7NormalTE3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simplifies the cloud using voxel grid principles. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_point_cloud</span></code>: cloud that need to be simplified </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_normal_cloud</span></code>: normals of the cloud that need to be simplified </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out_sampled_point_cloud</span></code>: simplified cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out_sampled_normal_cloud</span></code>: and the corresponding normals </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation10shiftCloudEN3pcl10PointCloudI6PointTE3PtrEN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation10shiftCloudEN3pcl10PointCloudI6PointTE3PtrEN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation10shiftCloudEN3pcl10PointCloudI6PointTE3PtrEN5Eigen8Vector3fE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::shiftCloud__pcl::PointCloud:PointT:::Ptr.Eigen::Vector3f"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a56c5bfb3d5801c417ae72bd8f2f80316"></span>void <code class="sig-name descname">shiftCloud</code><span class="sig-paren">(</span><em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::Ptr <em>in_cloud</em>, Eigen::Vector3f <em>shift_point</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation10shiftCloudEN3pcl10PointCloudI6PointTE3PtrEN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method simply shifts the clouds points relative to the passed point. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_cloud</span></code>: cloud to shift </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">shift_point</span></code>: point relative to which the cloud will be shifted </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation21alignYCoordWithNormalERK7NormalT">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation21alignYCoordWithNormalERK7NormalT"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation21alignYCoordWithNormalERK7NormalT"></span><span id="pcl::ism::ImplicitShapeModelEstimation::alignYCoordWithNormal__NormalTCR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a1d9b74d62021c431e5519a0546b888c5"></span>Eigen::Matrix3f <code class="sig-name descname">alignYCoordWithNormal</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a> &amp;<em>in_normal</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation21alignYCoordWithNormalERK7NormalT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method simply computes the rotation matrix, so that the given normal would match the Y axis after the transformation. </p>
+<p>This is done because the algorithm needs to be invariant to the affine transformations. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_normal</span></code>: normal for which the rotation matrix need to be computed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation14applyTransformERN5Eigen8Vector3fERKN5Eigen8Matrix3fE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation14applyTransformERN5Eigen8Vector3fERKN5Eigen8Matrix3fE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation14applyTransformERN5Eigen8Vector3fERKN5Eigen8Matrix3fE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::applyTransform__Eigen::Vector3fR.Eigen::Matrix3fCR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a1ba2c5aed4e6ca83a4c43e51c0f8b915"></span>void <code class="sig-name descname">applyTransform</code><span class="sig-paren">(</span>Eigen::Vector3f &amp;<em>io_vec</em>, <em class="property">const</em> Eigen::Matrix3f &amp;<em>in_transform</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation14applyTransformERN5Eigen8Vector3fERKN5Eigen8Matrix3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method applies transform set in in_transform to vector io_vector. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">io_vec</span></code>: vector that need to be transformed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_transform</span></code>: matrix that contains the transformation </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation16estimateFeaturesEN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI7NormalTE3PtrEN3pcl10PointCloudIN3pcl9HistogramI11FeatureSizeEEE3PtrE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation16estimateFeaturesEN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI7NormalTE3PtrEN3pcl10PointCloudIN3pcl9HistogramI11FeatureSizeEEE3PtrE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation16estimateFeaturesEN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI7NormalTE3PtrEN3pcl10PointCloudIN3pcl9HistogramI11FeatureSizeEEE3PtrE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::estimateFeatures__pcl::PointCloud:PointT:::Ptr.pcl::PointCloud:NormalT:::Ptr.pcl::PointCloud:pcl::Histogram:FeatureSize::::Ptr"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a95ecb201992f3fcc3b0df7f30d1db105"></span>void <code class="sig-name descname">estimateFeatures</code><span class="sig-paren">(</span><em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::Ptr <em>sampled_point_cloud</em>, <em class="property">typename</em> pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;::Ptr <em>normal_cloud</em>, <em class="property">typename</em> pcl::PointCloud&lt;pcl::Histogram&lt;FeatureSize&gt;&gt;::Ptr <em>feature_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation16estimateFeaturesEN3pcl10PointCloudI6PointTE3PtrEN3pcl10PointCloudI7NormalTE3PtrEN3pcl10PointCloudIN3pcl9HistogramI11FeatureSizeEEE3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method estimates features for the given point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sampled_point_cloud</span></code>: sampled point cloud for which the features must be computed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normal_cloud</span></code>: normals for the original point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">feature_cloud</span></code>: it will store the computed histograms (features) for the given cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation23computeKMeansClusteringERKN5Eigen8MatrixXfEiRN5Eigen8MatrixXiE12TermCriteriaiiRN5Eigen8MatrixXfE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation23computeKMeansClusteringERKN5Eigen8MatrixXfEiRN5Eigen8MatrixXiE12TermCriteriaiiRN5Eigen8MatrixXfE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation23computeKMeansClusteringERKN5Eigen8MatrixXfEiRN5Eigen8MatrixXiE12TermCriteriaiiRN5Eigen8MatrixXfE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::computeKMeansClustering__Eigen::MatrixXfCR.i.Eigen::MatrixXiR.TermCriteria.i.i.Eigen::MatrixXfR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a6e7cc25fdb5957ffb10cc45cffdfc144"></span>double <code class="sig-name descname">computeKMeansClustering</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::MatrixXf &amp;<em>points_to_cluster</em>, int <em>number_of_clusters</em>, Eigen::MatrixXi &amp;<em>io_labels</em>, TermCriteria <em>criteria</em>, int <em>attempts</em>, int <em>flags</em>, Eigen::MatrixXf &amp;<em>cluster_centers</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation23computeKMeansClusteringERKN5Eigen8MatrixXfEiRN5Eigen8MatrixXiE12TermCriteriaiiRN5Eigen8MatrixXfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Performs K-means clustering. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">points_to_cluster</span></code>: points to cluster </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">number_of_clusters</span></code>: desired number of clusters </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">io_labels</span></code>: output parameter, which stores the label for each point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">criteria</span></code>: defines when the computational process need to be finished. For example if the desired accuracy is achieved or the iteration number exceeds given value </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">attempts</span></code>: number of attempts to compute clustering </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">flags</span></code>: if set to USE_INITIAL_LABELS then initial approximation of labels is taken from io_labels </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cluster_centers</span></code>: it will store the cluster centers </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17generateCentersPPERKN5Eigen8MatrixXfERN5Eigen8MatrixXfEii">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation17generateCentersPPERKN5Eigen8MatrixXfERN5Eigen8MatrixXfEii"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation17generateCentersPPERKN5Eigen8MatrixXfERN5Eigen8MatrixXfEii"></span><span id="pcl::ism::ImplicitShapeModelEstimation::generateCentersPP__Eigen::MatrixXfCR.Eigen::MatrixXfR.i.i"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a6a0f8e46d933e4b93b320a2c9682db84"></span>void <code class="sig-name descname">generateCentersPP</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::MatrixXf &amp;<em>data</em>, Eigen::MatrixXf &amp;<em>out_centers</em>, int <em>number_of_clusters</em>, int <em>trials</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17generateCentersPPERKN5Eigen8MatrixXfERN5Eigen8MatrixXfEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates centers for clusters as described in Arthur, David and Sergei Vassilvitski (2007) k-means++: The Advantages of Careful Seeding. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: points to cluster </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out_centers</span></code>: it will contain generated centers </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">number_of_clusters</span></code>: defines the number of desired cluster centers </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">trials</span></code>: number of trials to generate a center </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation20generateRandomCenterERKNSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEEERN5Eigen8VectorXfE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation20generateRandomCenterERKNSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEEERN5Eigen8VectorXfE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation20generateRandomCenterERKNSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEEERN5Eigen8VectorXfE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::generateRandomCenter__std::vector:Eigen::Vector2f.Eigen::aligned_allocator:Eigen::Vector2f::CR.Eigen::VectorXfR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a33688b88157c6d8b15290ed88646effb"></span>void <code class="sig-name descname">generateRandomCenter</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;Eigen::Vector2f, Eigen::aligned_allocator&lt;Eigen::Vector2f&gt;&gt; &amp;<em>boxes</em>, Eigen::VectorXf &amp;<em>center</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation20generateRandomCenterERKNSt6vectorIN5Eigen8Vector2fEN5Eigen17aligned_allocatorIN5Eigen8Vector2fEEEEERN5Eigen8VectorXfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates random center for cluster. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">boxes</span></code>: contains min and max values for each dimension </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">center</span></code>: it will the contain generated center </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation15computeDistanceERN5Eigen8VectorXfERN5Eigen8VectorXfE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation15computeDistanceERN5Eigen8VectorXfERN5Eigen8VectorXfE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation15computeDistanceERN5Eigen8VectorXfERN5Eigen8VectorXfE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::computeDistance__Eigen::VectorXfR.Eigen::VectorXfR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a4f7f33ad9a8cec7886f8746b45165095"></span>float <code class="sig-name descname">computeDistance</code><span class="sig-paren">(</span>Eigen::VectorXf &amp;<em>vec_1</em>, Eigen::VectorXf &amp;<em>vec_2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation15computeDistanceERN5Eigen8VectorXfERN5Eigen8VectorXfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the square distance between two vectors. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">vec_1</span></code>: first vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">vec_2</span></code>: second vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimationaSERK28ImplicitShapeModelEstimation">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimationaSERK28ImplicitShapeModelEstimation"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimationaSERK28ImplicitShapeModelEstimation"></span><span id="pcl::ism::ImplicitShapeModelEstimation::assign-operator__ImplicitShapeModelEstimationCR"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a28998d39a77ee1428add8d117ffa73eb"></span>ImplicitShapeModelEstimation &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> ImplicitShapeModelEstimation&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimationaSERK28ImplicitShapeModelEstimation" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Forbids the assignment operator. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation16training_clouds_E">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation16training_clouds_E"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation16training_clouds_E"></span><span id="pcl::ism::ImplicitShapeModelEstimation::training_clouds___std::vector:pcl::PointCloud:PointT:::Ptr:"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1ae649a1601f3d60f929d41782e9733bea"></span>std::vector&lt;<em class="property">typename</em> pcl::PointCloud&lt;PointT&gt;::Ptr&gt; <code class="sig-name descname">training_clouds_</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation16training_clouds_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the clouds used for training. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17training_classes_E">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation17training_classes_E"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation17training_classes_E"></span><span id="pcl::ism::ImplicitShapeModelEstimation::training_classes___std::vector:unsigned-i:"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a5bea2020d8fbe1a7a824eb57eed5a31e"></span>std::vector&lt;unsigned int&gt; <code class="sig-name descname">training_classes_</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17training_classes_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the class number for each cloud from training_clouds_. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17training_normals_E">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation17training_normals_E"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation17training_normals_E"></span><span id="pcl::ism::ImplicitShapeModelEstimation::training_normals___std::vector:pcl::PointCloud:NormalT:::Ptr:"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a7145a95483ee85c15fb36bf0c34a4861"></span>std::vector&lt;<em class="property">typename</em> pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;::Ptr&gt; <code class="sig-name descname">training_normals_</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation17training_normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the normals for each training cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation16training_sigmas_E">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation16training_sigmas_E"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation16training_sigmas_E"></span><span id="pcl::ism::ImplicitShapeModelEstimation::training_sigmas___std::vector:float:"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1ae02a68f40df9efa2b38bb4acc6b58f20"></span>std::vector&lt;float&gt; <code class="sig-name descname">training_sigmas_</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation16training_sigmas_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This array stores the sigma values for each training class. </p>
+<p>If this array has a size equals 0, then sigma values will be calculated automatically. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation14sampling_size_E">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation14sampling_size_E"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation14sampling_size_E"></span><span id="pcl::ism::ImplicitShapeModelEstimation::sampling_size___float"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1adf847cb3c880ca5d2dc5f71d60a0d725"></span>float <code class="sig-name descname">sampling_size_</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation14sampling_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This value is used for the simplification. </p>
+<p>It sets the size of grid bin. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18feature_estimator_E">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation18feature_estimator_E"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation18feature_estimator_E"></span><span id="pcl::ism::ImplicitShapeModelEstimation::feature_estimator___boost::shared_ptr:pcl::Feature:PointT.pcl::Histogram:FeatureSize:::"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a59c6f181873500f38df1d7eab07a67cb"></span>boost::shared_ptr&lt;pcl::Feature&lt;PointT, pcl::Histogram&lt;FeatureSize&gt;&gt;&gt; <code class="sig-name descname">feature_estimator_</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18feature_estimator_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the feature estimator. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19number_of_clusters_E">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation19number_of_clusters_E"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation19number_of_clusters_E"></span><span id="pcl::ism::ImplicitShapeModelEstimation::number_of_clusters___unsigned-i"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1ab74fef9c7fed6a762448dd89f9210e12"></span>unsigned int <code class="sig-name descname">number_of_clusters_</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation19number_of_clusters_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of clusters, is used for clustering descriptors during the training. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation9n_vot_ON_E">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation9n_vot_ON_E"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation9n_vot_ON_E"></span><span id="pcl::ism::ImplicitShapeModelEstimation::n_vot_ON___b"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1aaf6529639183fac2a343afad1329c389"></span>bool <code class="sig-name descname">n_vot_ON_</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation9n_vot_ON_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If set to false then Nvot coeff from [Knopp et al., 2010, (4)] is equal 1.0. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Static Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation10PP_CENTERSE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation10PP_CENTERSE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation10PP_CENTERSE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::PP_CENTERS__iC"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1a95927f44e0c0364766cd4fc0ceace646"></span><em class="property">const</em> int <code class="sig-name descname">PP_CENTERS</code> = 2<a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation10PP_CENTERSE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This const value is used for indicating that for k-means clustering centers must be generated as described in Arthur, David and Sergei Vassilvitski (2007) k-means++: The Advantages of Careful Seeding. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18USE_INITIAL_LABELSE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation18USE_INITIAL_LABELSE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation18USE_INITIAL_LABELSE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::USE_INITIAL_LABELS__iC"></span><span class="target" id="classpcl_1_1ism_1_1_implicit_shape_model_estimation_1ad32395d4f6b46da4433911b29045b5b5"></span><em class="property">const</em> int <code class="sig-name descname">USE_INITIAL_LABELS</code> = 1<a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation18USE_INITIAL_LABELSE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This const value is used for indicating that input labels must be taken as the initial approximation for k-means clustering. </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12LocationInfoE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation12LocationInfoE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation12LocationInfoE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::LocationInfo"></span><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_location_info"></span><em class="property">struct </em><code class="sig-name descname">LocationInfo</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation12LocationInfoE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This structure stores the information about the keypoint. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo12LocationInfoEjRK6PointTRK6PointTRK7NormalT">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo12LocationInfoEjRK6PointTRK6PointTRK7NormalT"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo12LocationInfoEjRK6PointTRK6PointTRK7NormalT"></span><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_location_info_1a99b83de2981193d6ac8d68e91e55e96c"></span>template&lt;&gt;<br /><code class="sig-name descname">LocationInfo</code><span class="sig-paren">(</span>unsigned int <em>model_num</em>, <em class="property">const</em> PointT &amp;<em>dir_to_center</em>, <em class="property">const</em> PointT &amp;<em>origin</em>, <em class="property">const</em> <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a> &amp;<em>normal</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo12LocationInfoEjRK6PointTRK6PointTRK7NormalT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Location info constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model_num</span></code>: number of training model. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dir_to_center</span></code>: expected direction to center </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">origin</span></code>: initial point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normal</span></code>: normal of the initial point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo10model_num_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo10model_num_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo10model_num_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_location_info_1a51db094dfefb6dfe4d1837a7551e0b02"></span>unsigned int <code class="sig-name descname">model_num_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo10model_num_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tells from which training model this keypoint was extracted. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo14dir_to_center_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo14dir_to_center_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo14dir_to_center_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_location_info_1ad27c41c034e87268095024697f6a2aa4"></span>PointT <code class="sig-name descname">dir_to_center_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo14dir_to_center_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Expected direction to center for this keypoint. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo6point_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo6point_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo6point_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_location_info_1a939e527fa1800d1f058f2682f449161c"></span>PointT <code class="sig-name descname">point_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo6point_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the initial point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo7normal_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo7normal_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo7normal_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_location_info_1a5048ab641d7e2ce9110a80c972fa629c"></span><a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a> <code class="sig-name descname">normal_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE12LocationInfo7normal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the normal of the initial point. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation2TCE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation2TCE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation2TCE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::TC"></span><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_t_c"></span><em class="property">struct </em><code class="sig-name descname">TC</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation2TCE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This structure is used for determining the end of the k-means clustering process. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimationUt8_anon_119E">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimationUt8_anon_119E"></span><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_t_c_1a904e232a6470993fcf5f6906aec98fa8"></span><em class="property">enum </em><strong>[anonymous]</strong><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimationUt8_anon_119E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation5COUNTE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation5COUNTE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation5COUNTE"></span><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_t_c_1a904e232a6470993fcf5f6906aec98fa8a3fc2312eb39dc3f911089c348016f984"></span><code class="sig-name descname">COUNT</code> = 1<a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation5COUNTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation3EPSE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation3EPSE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation3EPSE"></span><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_t_c_1a904e232a6470993fcf5f6906aec98fa8af1ff49a6936a3972625a088b587ce837"></span><code class="sig-name descname">EPS</code> = 2<a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation3EPSE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC2TCEiif">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC2TCEiif"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC2TCEiif"></span><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_t_c_1a43b18d66f16d1075c762fa2a29007f14"></span>template&lt;&gt;<br /><code class="sig-name descname">TC</code><span class="sig-paren">(</span>int <em>type</em>, int <em>max_count</em>, float <em>epsilon</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC2TCEiif" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Termination criteria constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">type</span></code>: defines the condition of termination(max iter., desired accuracy) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_count</span></code>: defines the max number of iterations </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">epsilon</span></code>: defines the desired accuracy </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC5type_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC5type_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC5type_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_t_c_1a0d8d28702f28bd977f10f142c27ad25a"></span>int <code class="sig-name descname">type_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC5type_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Flag that determines when the k-means clustering must be stopped. </p>
+<p>If type_ equals COUNT then it must be stopped when the max number of iterations will be reached. If type_ eaquals EPS then it must be stopped when the desired accuracy will be reached. These flags can be used together, in that case the clustering will be finished when one of these conditions will be reached. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC10max_count_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC10max_count_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC10max_count_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_t_c_1abeeaa2e50bce56d045bdb78f43111250"></span>int <code class="sig-name descname">max_count_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC10max_count_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines maximum number of iterations for k-means clustering. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC8epsilon_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC8epsilon_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC8epsilon_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_t_c_1a6d1ca48170362af7b4f563067584769b"></span>float <code class="sig-name descname">epsilon_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE2TC8epsilon_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines the accuracy for k-means clustering. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl3ism28ImplicitShapeModelEstimation14VisualWordStatE">
+<span id="_CPPv3N3pcl3ism28ImplicitShapeModelEstimation14VisualWordStatE"></span><span id="_CPPv2N3pcl3ism28ImplicitShapeModelEstimation14VisualWordStatE"></span><span id="pcl::ism::ImplicitShapeModelEstimation::VisualWordStat"></span><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_visual_word_stat"></span><em class="property">struct </em><code class="sig-name descname">VisualWordStat</code><a class="headerlink" href="#_CPPv4N3pcl3ism28ImplicitShapeModelEstimation14VisualWordStatE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Structure for storing the visual word. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat14VisualWordStatEv">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat14VisualWordStatEv"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat14VisualWordStatEv"></span><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_visual_word_stat_1a2c67cb9635d983587a8800d48b68dffe"></span>template&lt;&gt;<br /><code class="sig-name descname">VisualWordStat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat14VisualWordStatEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor with member variables initialization. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat6class_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat6class_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat6class_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_visual_word_stat_1a948064bbb5f3470bee396db267f5fbbe"></span>int <code class="sig-name descname">class_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat6class_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Which class this vote belongs. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat15learned_weight_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat15learned_weight_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat15learned_weight_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_visual_word_stat_1a148a3fe65d6c71bcc4474a51b26529e5"></span>float <code class="sig-name descname">learned_weight_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat15learned_weight_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Weight of the vote. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat14dir_to_center_E">
+<span id="_CPPv3IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat14dir_to_center_E"></span><span id="_CPPv2IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat14dir_to_center_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1ism_1_1_implicit_shape_model_estimation_1_1_visual_word_stat_1a1364a6c6db23bc255122d2538271e0c3"></span>pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> <code class="sig-name descname">dir_to_center_</code><a class="headerlink" href="#_CPPv4IEN3pcl3ism28ImplicitShapeModelEstimationI11FeatureSize6PointT7NormalTE14VisualWordStat14dir_to_center_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Expected direction to center. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class ConvexHull &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class ConvexHull</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_convex_hull.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-convexhull">
+<span id="exhale-class-classpcl-1-1-convex-hull"></span><h1>Template Class ConvexHull<a class="headerlink" href="#template-class-convexhull" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_convex_hull.h.html#file-pcl-surface-include-pcl-surface-convex-hull-h"><span class="std std-ref">File convex_hull.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::MeshConstruction&lt;</span> <span class="pre">PointInT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_mesh_construction.html#exhale-class-classpcl-1-1-mesh-construction"><span class="std std-ref">Template Class MeshConstruction</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl10ConvexHullE">
+<span id="_CPPv3I0EN3pcl10ConvexHullE"></span><span id="_CPPv2I0EN3pcl10ConvexHullE"></span><span class="target" id="classpcl_1_1_convex_hull"></span>template&lt;typename <code class="sig-name descname">PointInT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">ConvexHull</code> : <em class="property">public</em> pcl::MeshConstruction&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl10ConvexHullE" title="pcl::ConvexHull::PointInT">PointInT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl10ConvexHullE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_convex_hull"><span class="std std-ref">ConvexHull</span></a></strong> using libqhull library. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Aitor Aldoma, Alex Trevor </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl10ConvexHull3PtrE">
+<span id="_CPPv3N3pcl10ConvexHull3PtrE"></span><span id="_CPPv2N3pcl10ConvexHull3PtrE"></span><span id="pcl::ConvexHull::Ptr"></span><span class="target" id="classpcl_1_1_convex_hull_1a88e07c25f9778bab15170a1563c06538"></span><em class="property">typedef </em>boost::shared_ptr&lt;ConvexHull&lt;PointInT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10ConvexHull8ConstPtrE">
+<span id="_CPPv3N3pcl10ConvexHull8ConstPtrE"></span><span id="_CPPv2N3pcl10ConvexHull8ConstPtrE"></span><span id="pcl::ConvexHull::ConstPtr"></span><span class="target" id="classpcl_1_1_convex_hull_1ad2d20299293a0358c7d1ce93f4cded19"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> ConvexHull&lt;PointInT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10ConvexHull10PointCloudE">
+<span id="_CPPv3N3pcl10ConvexHull10PointCloudE"></span><span id="_CPPv2N3pcl10ConvexHull10PointCloudE"></span><span id="pcl::ConvexHull::PointCloud"></span><span class="target" id="classpcl_1_1_convex_hull_1a65dba1fed9acb8bc4cfe09b25b88bfed"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointInT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10ConvexHull13PointCloudPtrE">
+<span id="_CPPv3N3pcl10ConvexHull13PointCloudPtrE"></span><span id="_CPPv2N3pcl10ConvexHull13PointCloudPtrE"></span><span id="pcl::ConvexHull::PointCloudPtr"></span><span class="target" id="classpcl_1_1_convex_hull_1adeb730c8494a3216a98735160dba5857"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl10ConvexHull10PointCloudE" title="pcl::ConvexHull::PointCloud">PointCloud</a>::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl10ConvexHull18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl10ConvexHull18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl10ConvexHull18PointCloudConstPtrE"></span><span id="pcl::ConvexHull::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_convex_hull_1ab3c48cfd1b1d8453df8c2f632286937c"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl10ConvexHull10PointCloudE" title="pcl::ConvexHull::PointCloud">PointCloud</a>::ConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull10ConvexHullEv">
+<span id="_CPPv3N3pcl10ConvexHull10ConvexHullEv"></span><span id="_CPPv2N3pcl10ConvexHull10ConvexHullEv"></span><span id="pcl::ConvexHull::ConvexHull"></span><span class="target" id="classpcl_1_1_convex_hull_1ab84f4fcd61cb525b94a382c9d049099a"></span><code class="sig-name descname">ConvexHull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull10ConvexHullEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHullD0Ev">
+<span id="_CPPv3N3pcl10ConvexHullD0Ev"></span><span id="_CPPv2N3pcl10ConvexHullD0Ev"></span><span id="pcl::ConvexHull::~ConvexHull"></span><span class="target" id="classpcl_1_1_convex_hull_1ad2cfcd67e9c3294e2b221e207fac1d12"></span><em class="property">virtual</em> <code class="sig-name descname">~ConvexHull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHullD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull11reconstructER10PointCloudRNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl10ConvexHull11reconstructER10PointCloudRNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl10ConvexHull11reconstructER10PointCloudRNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::ConvexHull::reconstruct__PointCloudR.std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_convex_hull_1ab9b739a5f9ccce436e520c6605fd641e"></span>void <code class="sig-name descname">reconstruct</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10ConvexHull10PointCloudE" title="pcl::ConvexHull::PointCloud">PointCloud</a> &amp;<em>points</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull11reconstructER10PointCloudRNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute a convex hull for all points given. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>In 2D case (i.e. if the input points belong to one plane) the <em>polygons</em> vector will have a single item, whereas in 3D case it will contain one item for each hull facet.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">points</span></code>: the resultant points lying on the convex hull. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant convex hull polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull11reconstructER10PointCloud">
+<span id="_CPPv3N3pcl10ConvexHull11reconstructER10PointCloud"></span><span id="_CPPv2N3pcl10ConvexHull11reconstructER10PointCloud"></span><span id="pcl::ConvexHull::reconstruct__PointCloudR"></span><span class="target" id="classpcl_1_1_convex_hull_1a1b9ac0c85c8a0f78659de4834c9e0970"></span>void <code class="sig-name descname">reconstruct</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10ConvexHull10PointCloudE" title="pcl::ConvexHull::PointCloud">PointCloud</a> &amp;<em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull11reconstructER10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute a convex hull for all points given. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">points</span></code>: the resultant points lying on the convex hull. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull20setComputeAreaVolumeEb">
+<span id="_CPPv3N3pcl10ConvexHull20setComputeAreaVolumeEb"></span><span id="_CPPv2N3pcl10ConvexHull20setComputeAreaVolumeEb"></span><span id="pcl::ConvexHull::setComputeAreaVolume__b"></span><span class="target" id="classpcl_1_1_convex_hull_1a16aaac6698f75ed77def80b75fd260ec"></span>void <code class="sig-name descname">setComputeAreaVolume</code><span class="sig-paren">(</span>bool <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull20setComputeAreaVolumeEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If set to true, the qhull library is called to compute the total area and volume of the convex hull. </p>
+<p>NOTE: When this option is activated, the qhull library produces output to the console. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">value</span></code>: whether to compute the area and the volume, default is false </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10ConvexHull12getTotalAreaEv">
+<span id="_CPPv3NK3pcl10ConvexHull12getTotalAreaEv"></span><span id="_CPPv2NK3pcl10ConvexHull12getTotalAreaEv"></span><span id="pcl::ConvexHull::getTotalAreaC"></span><span class="target" id="classpcl_1_1_convex_hull_1a05c842e6c229fedb99818385780b18a6"></span>double <code class="sig-name descname">getTotalArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10ConvexHull12getTotalAreaEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the total area of the convex hull. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10ConvexHull14getTotalVolumeEv">
+<span id="_CPPv3NK3pcl10ConvexHull14getTotalVolumeEv"></span><span id="_CPPv2NK3pcl10ConvexHull14getTotalVolumeEv"></span><span id="pcl::ConvexHull::getTotalVolumeC"></span><span class="target" id="classpcl_1_1_convex_hull_1a4f17f9c8e4ea651285202de27ddac69b"></span>double <code class="sig-name descname">getTotalVolume</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10ConvexHull14getTotalVolumeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the total volume of the convex hull. </p>
+<p>Only valid for 3-dimensional sets. For 2D-sets volume is zero. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull12setDimensionEi">
+<span id="_CPPv3N3pcl10ConvexHull12setDimensionEi"></span><span id="_CPPv2N3pcl10ConvexHull12setDimensionEi"></span><span id="pcl::ConvexHull::setDimension__i"></span><span class="target" id="classpcl_1_1_convex_hull_1a42ef09abf35ac7cc65c550a95ed4b3a6"></span>void <code class="sig-name descname">setDimension</code><span class="sig-paren">(</span>int <em>dimension</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull12setDimensionEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the dimension on the input data, 2D or 3D. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dimension</span></code>: The dimension of the input data. If not set, this will be determined automatically. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10ConvexHull12getDimensionEv">
+<span id="_CPPv3NK3pcl10ConvexHull12getDimensionEv"></span><span id="_CPPv2NK3pcl10ConvexHull12getDimensionEv"></span><span id="pcl::ConvexHull::getDimensionC"></span><span class="target" id="classpcl_1_1_convex_hull_1a7d57c0336aa8985335b08af26ac677aa"></span>int <code class="sig-name descname">getDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10ConvexHull12getDimensionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the dimensionality (2 or 3) of the calculated hull. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10ConvexHull19getHullPointIndicesERN3pcl12PointIndicesE">
+<span id="_CPPv3NK3pcl10ConvexHull19getHullPointIndicesERN3pcl12PointIndicesE"></span><span id="_CPPv2NK3pcl10ConvexHull19getHullPointIndicesERN3pcl12PointIndicesE"></span><span id="pcl::ConvexHull::getHullPointIndices__pcl::PointIndicesRC"></span><span class="target" id="classpcl_1_1_convex_hull_1a6ba4534388e060d4166119f17dc1320f"></span>void <code class="sig-name descname">getHullPointIndices</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a> &amp;<em>hull_point_indices</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10ConvexHull19getHullPointIndicesERN3pcl12PointIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieve the indices of the input point cloud that for the convex hull. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Should only be called after reconstruction was performed. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">hull_point_indices</span></code>: The indices of the points forming the point cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull21performReconstructionER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb">
+<span id="_CPPv3N3pcl10ConvexHull21performReconstructionER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb"></span><span id="_CPPv2N3pcl10ConvexHull21performReconstructionER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb"></span><span id="pcl::ConvexHull::performReconstruction__PointCloudR.std::vector:pcl::Vertices:R.b"></span><span class="target" id="classpcl_1_1_convex_hull_1a7992a62b084d522257d54db88bce437e"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10ConvexHull10PointCloudE" title="pcl::ConvexHull::PointCloud">PointCloud</a> &amp;<em>points</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em>, bool <em>fill_polygon_data</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull21performReconstructionER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The actual reconstruction method. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">points</span></code>: the resultant points lying on the convex hull </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant convex hull polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fill_polygon_data</span></code>: true if polygons should be filled, false otherwise </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull23performReconstruction2DER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb">
+<span id="_CPPv3N3pcl10ConvexHull23performReconstruction2DER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb"></span><span id="_CPPv2N3pcl10ConvexHull23performReconstruction2DER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb"></span><span id="pcl::ConvexHull::performReconstruction2D__PointCloudR.std::vector:pcl::Vertices:R.b"></span><span class="target" id="classpcl_1_1_convex_hull_1a2cfe989348264389ad90861eebf354cf"></span>void <code class="sig-name descname">performReconstruction2D</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10ConvexHull10PointCloudE" title="pcl::ConvexHull::PointCloud">PointCloud</a> &amp;<em>points</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em>, bool <em>fill_polygon_data</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull23performReconstruction2DER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The reconstruction method for 2D data. </p>
+<p>Does not require dimension to be set.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">points</span></code>: the resultant points lying on the convex hull </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant convex hull polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fill_polygon_data</span></code>: true if polygons should be filled, false otherwise </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull23performReconstruction3DER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb">
+<span id="_CPPv3N3pcl10ConvexHull23performReconstruction3DER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb"></span><span id="_CPPv2N3pcl10ConvexHull23performReconstruction3DER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb"></span><span id="pcl::ConvexHull::performReconstruction3D__PointCloudR.std::vector:pcl::Vertices:R.b"></span><span class="target" id="classpcl_1_1_convex_hull_1ae622404d55b4de28fe21f00009284e49"></span>void <code class="sig-name descname">performReconstruction3D</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl10ConvexHull10PointCloudE" title="pcl::ConvexHull::PointCloud">PointCloud</a> &amp;<em>points</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em>, bool <em>fill_polygon_data</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull23performReconstruction3DER10PointCloudRNSt6vectorIN3pcl8VerticesEEEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The reconstruction method for 3D data. </p>
+<p>Does not require dimension to be set.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">points</span></code>: the resultant points lying on the convex hull </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the resultant convex hull polygons, as a set of vertices. The <a class="reference internal" href="structpcl_1_1_vertices.html#structpcl_1_1_vertices"><span class="std std-ref">Vertices</span></a> structure contains an array of point indices. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fill_polygon_data</span></code>: true if polygons should be filled, false otherwise </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull21performReconstructionER11PolygonMesh">
+<span id="_CPPv3N3pcl10ConvexHull21performReconstructionER11PolygonMesh"></span><span id="_CPPv2N3pcl10ConvexHull21performReconstructionER11PolygonMesh"></span><span id="pcl::ConvexHull::performReconstruction__PolygonMeshR"></span><span class="target" id="classpcl_1_1_convex_hull_1a5acf43ae6449a5885c71b11416c70b22"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span><a class="reference internal" href="structpcl_1_1_polygon_mesh.html#_CPPv4N3pcl11PolygonMeshE" title="pcl::PolygonMesh">PolygonMesh</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull21performReconstructionER11PolygonMesh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A reconstruction method that returns a polygonmesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: a <a class="reference internal" href="structpcl_1_1_polygon_mesh.html#structpcl_1_1_polygon_mesh"><span class="std std-ref">PolygonMesh</span></a> representing the convex hull of the input data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull21performReconstructionERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl10ConvexHull21performReconstructionERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl10ConvexHull21performReconstructionERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::ConvexHull::performReconstruction__std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_convex_hull_1a3864600399fce3a335c9b34602eb8654"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull21performReconstructionERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A reconstruction method that returns the polygon of the convex hull. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the polygon(s) representing the convex hull of the input data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10ConvexHull23calculateInputDimensionEv">
+<span id="_CPPv3N3pcl10ConvexHull23calculateInputDimensionEv"></span><span id="_CPPv2N3pcl10ConvexHull23calculateInputDimensionEv"></span><span id="pcl::ConvexHull::calculateInputDimension"></span><span class="target" id="classpcl_1_1_convex_hull_1a22e3f0df2b096f5bfa4842b587bdcb2b"></span>void <code class="sig-name descname">calculateInputDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull23calculateInputDimensionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Automatically determines the dimension of input data - 2D or 3D. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl10ConvexHull12getClassNameEv">
+<span id="_CPPv3NK3pcl10ConvexHull12getClassNameEv"></span><span id="_CPPv2NK3pcl10ConvexHull12getClassNameEv"></span><span id="pcl::ConvexHull::getClassNameC"></span><span class="target" id="classpcl_1_1_convex_hull_1aa55ecfc24c98a6f344e34414e360a4cd"></span>std::string <code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl10ConvexHull12getClassNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class get name method. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull13compute_area_E">
+<span id="_CPPv3N3pcl10ConvexHull13compute_area_E"></span><span id="_CPPv2N3pcl10ConvexHull13compute_area_E"></span><span id="pcl::ConvexHull::compute_area___b"></span><span class="target" id="classpcl_1_1_convex_hull_1ab654ba1228c94200ce71aba291248b75"></span>bool <code class="sig-name descname">compute_area_</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull13compute_area_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull11total_area_E">
+<span id="_CPPv3N3pcl10ConvexHull11total_area_E"></span><span id="_CPPv2N3pcl10ConvexHull11total_area_E"></span><span id="pcl::ConvexHull::total_area___double"></span><span class="target" id="classpcl_1_1_convex_hull_1a98bda453feac67f1e55dc94df80a88a7"></span>double <code class="sig-name descname">total_area_</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull11total_area_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull13total_volume_E">
+<span id="_CPPv3N3pcl10ConvexHull13total_volume_E"></span><span id="_CPPv2N3pcl10ConvexHull13total_volume_E"></span><span id="pcl::ConvexHull::total_volume___double"></span><span class="target" id="classpcl_1_1_convex_hull_1a01b604f32991060bda29a2a3978b1344"></span>double <code class="sig-name descname">total_volume_</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull13total_volume_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull10dimension_E">
+<span id="_CPPv3N3pcl10ConvexHull10dimension_E"></span><span id="_CPPv2N3pcl10ConvexHull10dimension_E"></span><span id="pcl::ConvexHull::dimension___i"></span><span class="target" id="classpcl_1_1_convex_hull_1ae8fe6e5a2a96e1fb647be330c0191148"></span>int <code class="sig-name descname">dimension_</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull10dimension_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The dimensionality of the concave hull (2D or 3D). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull24projection_angle_thresh_E">
+<span id="_CPPv3N3pcl10ConvexHull24projection_angle_thresh_E"></span><span id="_CPPv2N3pcl10ConvexHull24projection_angle_thresh_E"></span><span id="pcl::ConvexHull::projection_angle_thresh___double"></span><span class="target" id="classpcl_1_1_convex_hull_1a985c65a927d84281e96d120094d42792"></span>double <code class="sig-name descname">projection_angle_thresh_</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull24projection_angle_thresh_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>How close can a 2D plane’s normal be to an axis to make projection problematic. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull11qhull_flagsE">
+<span id="_CPPv3N3pcl10ConvexHull11qhull_flagsE"></span><span id="_CPPv2N3pcl10ConvexHull11qhull_flagsE"></span><span id="pcl::ConvexHull::qhull_flags__ss"></span><span class="target" id="classpcl_1_1_convex_hull_1a50bb4f23c54803201694e9914de1efd1"></span>std::string <code class="sig-name descname">qhull_flags</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull11qhull_flagsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Option flag string to be used calling qhull. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull7x_axis_E">
+<span id="_CPPv3N3pcl10ConvexHull7x_axis_E"></span><span id="_CPPv2N3pcl10ConvexHull7x_axis_E"></span><span id="pcl::ConvexHull::x_axis___Eigen::Vector3dC"></span><span class="target" id="classpcl_1_1_convex_hull_1ad3f514d72496fab83b87b566cd4a03d5"></span><em class="property">const</em> Eigen::Vector3d <code class="sig-name descname">x_axis_</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull7x_axis_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull7y_axis_E">
+<span id="_CPPv3N3pcl10ConvexHull7y_axis_E"></span><span id="_CPPv2N3pcl10ConvexHull7y_axis_E"></span><span id="pcl::ConvexHull::y_axis___Eigen::Vector3dC"></span><span class="target" id="classpcl_1_1_convex_hull_1acdba2e2746fd67efea6a1f0adafdb684"></span><em class="property">const</em> Eigen::Vector3d <code class="sig-name descname">y_axis_</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull7y_axis_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull7z_axis_E">
+<span id="_CPPv3N3pcl10ConvexHull7z_axis_E"></span><span id="_CPPv2N3pcl10ConvexHull7z_axis_E"></span><span id="pcl::ConvexHull::z_axis___Eigen::Vector3dC"></span><span class="target" id="classpcl_1_1_convex_hull_1a48fdceb64520d2f3047c985c04a0c773"></span><em class="property">const</em> Eigen::Vector3d <code class="sig-name descname">z_axis_</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull7z_axis_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl10ConvexHull13hull_indices_E">
+<span id="_CPPv3N3pcl10ConvexHull13hull_indices_E"></span><span id="_CPPv2N3pcl10ConvexHull13hull_indices_E"></span><span id="pcl::ConvexHull::hull_indices___pcl::PointIndices"></span><span class="target" id="classpcl_1_1_convex_hull_1a6dacbb338a8002bbce06bda17f181373"></span>pcl::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a> <code class="sig-name descname">hull_indices_</code><a class="headerlink" href="#_CPPv4N3pcl10ConvexHull13hull_indices_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

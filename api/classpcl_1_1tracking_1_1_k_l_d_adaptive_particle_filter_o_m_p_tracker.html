@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class KLDAdaptiveParticleFilterOMPTracker &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class KLDAdaptiveParticleFilterOMPTracker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-kldadaptiveparticlefilteromptracker">
+<span id="exhale-class-classpcl-1-1tracking-1-1-k-l-d-adaptive-particle-filter-o-m-p-tracker"></span><h1>Template Class KLDAdaptiveParticleFilterOMPTracker<a class="headerlink" href="#template-class-kldadaptiveparticlefilteromptracker" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_tracking_include_pcl_tracking_kld_adaptive_particle_filter_omp.h.html#file-pcl-tracking-include-pcl-tracking-kld-adaptive-particle-filter-omp-h"><span class="std std-ref">File kld_adaptive_particle_filter_omp.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::tracking::KLDAdaptiveParticleFilterTracker&lt;</span> <span class="pre">PointInT,</span> <span class="pre">StateT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_tracker.html#exhale-class-classpcl-1-1tracking-1-1-k-l-d-adaptive-particle-filter-tracker"><span class="std std-ref">Template Class KLDAdaptiveParticleFilterTracker</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl8tracking35KLDAdaptiveParticleFilterOMPTrackerE">
+<span id="_CPPv3I00EN3pcl8tracking35KLDAdaptiveParticleFilterOMPTrackerE"></span><span id="_CPPv2I00EN3pcl8tracking35KLDAdaptiveParticleFilterOMPTrackerE"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">StateT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">KLDAdaptiveParticleFilterOMPTracker</code> : <em class="property">public</em> pcl::tracking::KLDAdaptiveParticleFilterTracker&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl8tracking35KLDAdaptiveParticleFilterOMPTrackerE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointInT">PointInT</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl8tracking35KLDAdaptiveParticleFilterOMPTrackerE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::StateT">StateT</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl8tracking35KLDAdaptiveParticleFilterOMPTrackerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker"><span class="std std-ref">KLDAdaptiveParticleFilterOMPTracker</span></a></strong> tracks the <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> which is given by setReferenceCloud within the measured <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> using particle filter method. </p>
+<p>The number of the particles changes adaptively based on KLD sampling [D. Fox, NIPS-01], [D.Fox, IJRR03]. and the computation of the weights of the particles is parallelized using OpenMP. <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Ryohei Ueda </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9BaseClassE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9BaseClassE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9BaseClassE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::BaseClass"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a80909e4e502db2aba984ed612bb35132"></span><em class="property">typedef </em>Tracker&lt;PointInT, StateT&gt; <code class="sig-name descname">BaseClass</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9BaseClassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12PointCloudInE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12PointCloudInE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12PointCloudInE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudIn"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1ac52cd22ba87e0047a1183f2164dd18b3"></span><em class="property">typedef </em>Tracker&lt;PointInT, StateT&gt;::PointCloudIn <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudInPtrE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudInPtrE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudInPtrE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudInPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1aad90a675366f1e319751d8d33df16420"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12PointCloudInE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudIn">PointCloudIn</a>::Ptr <code class="sig-name descname">PointCloudInPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudInPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker20PointCloudInConstPtrE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker20PointCloudInConstPtrE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker20PointCloudInConstPtrE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a74c52a93043a76738ac6eb0beccc8ceb"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12PointCloudInE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudIn">PointCloudIn</a>::ConstPtr <code class="sig-name descname">PointCloudInConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker20PointCloudInConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudStateE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudStateE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudStateE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudState"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a3890d94ee6cd52498f2b6167e7a28e24"></span><em class="property">typedef </em>Tracker&lt;PointInT, StateT&gt;::PointCloudState <code class="sig-name descname">PointCloudState</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudStateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker18PointCloudStatePtrE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker18PointCloudStatePtrE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker18PointCloudStatePtrE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudStatePtr"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1acfd70ae8f03f18c3cc3a70d3a6449f38"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudStateE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudState">PointCloudState</a>::Ptr <code class="sig-name descname">PointCloudStatePtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker18PointCloudStatePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker23PointCloudStateConstPtrE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker23PointCloudStateConstPtrE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker23PointCloudStateConstPtrE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudStateConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a253b645a8d2bfaf946d09c5d5c2ac1fc"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker15PointCloudStateE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::PointCloudState">PointCloudState</a>::ConstPtr <code class="sig-name descname">PointCloudStateConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker23PointCloudStateConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9CoherenceE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9CoherenceE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9CoherenceE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::Coherence"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a2fda689a09abe95cc4e00d9275bf77ce"></span><em class="property">typedef </em>PointCoherence&lt;PointInT&gt; <code class="sig-name descname">Coherence</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9CoherenceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12CoherencePtrE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12CoherencePtrE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12CoherencePtrE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::CoherencePtr"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a45320d680bdb42f9fee375eeebcce641"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9CoherenceE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::Coherence">Coherence</a>&gt; <code class="sig-name descname">CoherencePtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker12CoherencePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker17CoherenceConstPtrE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker17CoherenceConstPtrE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker17CoherenceConstPtrE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::CoherenceConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a8b31e5b09db83fb612ce3b53ac01dd10"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker9CoherenceE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::Coherence">Coherence</a>&gt; <code class="sig-name descname">CoherenceConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker17CoherenceConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker14CloudCoherenceE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker14CloudCoherenceE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker14CloudCoherenceE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::CloudCoherence"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a564ca79f68cdadefe74d40b7e111c5f0"></span><em class="property">typedef </em>PointCloudCoherence&lt;PointInT&gt; <code class="sig-name descname">CloudCoherence</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker14CloudCoherenceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker17CloudCoherencePtrE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker17CloudCoherencePtrE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker17CloudCoherencePtrE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::CloudCoherencePtr"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a5a9a2290dd862cecae37a2cf1d7b43ac"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker14CloudCoherenceE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::CloudCoherence">CloudCoherence</a>&gt; <code class="sig-name descname">CloudCoherencePtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker17CloudCoherencePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker22CloudCoherenceConstPtrE">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker22CloudCoherenceConstPtrE"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker22CloudCoherenceConstPtrE"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::CloudCoherenceConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1aacfb1675165691652deafbdbb4b17989"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker14CloudCoherenceE" title="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::CloudCoherence">CloudCoherence</a>&gt; <code class="sig-name descname">CloudCoherenceConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker22CloudCoherenceConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker35KLDAdaptiveParticleFilterOMPTrackerEj">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker35KLDAdaptiveParticleFilterOMPTrackerEj"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker35KLDAdaptiveParticleFilterOMPTrackerEj"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::KLDAdaptiveParticleFilterOMPTracker__unsigned-i"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a69f67d0e24c1fd01874bba00cb231e4f"></span><code class="sig-name descname">KLDAdaptiveParticleFilterOMPTracker</code><span class="sig-paren">(</span>unsigned int <em>nr_threads</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker35KLDAdaptiveParticleFilterOMPTrackerEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the scheduler and set the number of threads to use. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nr_threads</span></code>: the number of hardware threads to use (0 sets the value back to automatic) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker18setNumberOfThreadsEj">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker18setNumberOfThreadsEj"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker18setNumberOfThreadsEj"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::setNumberOfThreads__unsigned-i"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a8b8e7b1aefdbaf5f1f3b417a510d98d5"></span>void <code class="sig-name descname">setNumberOfThreads</code><span class="sig-paren">(</span>unsigned int <em>nr_threads</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker18setNumberOfThreadsEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the scheduler and set the number of threads to use. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nr_threads</span></code>: the number of hardware threads to use (0 sets the value back to automatic) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker6weightEv">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker6weightEv"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker6weightEv"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::weight"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a5d43c8efe0ab537653138e5c1d9793cc"></span>void <code class="sig-name descname">weight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker6weightEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>weighting phase of particle filter method. </p>
+<p>calculate the likelihood of all of the particles and set the weights. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker8threads_E">
+<span id="_CPPv3N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker8threads_E"></span><span id="_CPPv2N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker8threads_E"></span><span id="pcl::tracking::KLDAdaptiveParticleFilterOMPTracker::threads___unsigned-i"></span><span class="target" id="classpcl_1_1tracking_1_1_k_l_d_adaptive_particle_filter_o_m_p_tracker_1a298013328d51135b99c5befd8785d181"></span>unsigned int <code class="sig-name descname">threads_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking35KLDAdaptiveParticleFilterOMPTracker8threads_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of threads the scheduler should use. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

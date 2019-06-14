@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class SparseMatrix &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class SparseMatrix</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1poisson_1_1_sparse_matrix.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-sparsematrix">
+<span id="exhale-class-classpcl-1-1poisson-1-1-sparse-matrix"></span><h1>Template Class SparseMatrix<a class="headerlink" href="#template-class-sparsematrix" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_3rdparty_poisson4_sparse_matrix.h.html#file-pcl-surface-include-pcl-surface-3rdparty-poisson4-sparse-matrix-h"><span class="std std-ref">File sparse_matrix.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::poisson::SparseSymmetricMatrix&lt;</span> <span class="pre">T</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1poisson_1_1_sparse_symmetric_matrix.html#exhale-class-classpcl-1-1poisson-1-1-sparse-symmetric-matrix"><span class="std std-ref">Template Class SparseSymmetricMatrix</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl7poisson12SparseMatrixE">
+<span id="_CPPv3I0EN3pcl7poisson12SparseMatrixE"></span><span id="_CPPv2I0EN3pcl7poisson12SparseMatrixE"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix"></span>template&lt;class <code class="sig-name descname">T</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">SparseMatrix</code><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson12SparseMatrixE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Subclassed by <a class="reference internal" href="classpcl_1_1poisson_1_1_sparse_symmetric_matrix.html#classpcl_1_1poisson_1_1_sparse_symmetric_matrix"><span class="std std-ref">pcl::poisson::SparseSymmetricMatrix&lt; T &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrixixEi">
+<span id="_CPPv3N3pcl7poisson12SparseMatrixixEi"></span><span id="_CPPv2N3pcl7poisson12SparseMatrixixEi"></span><span id="pcl::poisson::SparseMatrix::subscript-operator__i"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a0f197aa2d5f01b12ff519829ca67354f"></span>MatrixEntry&lt;T&gt; *<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>int <em>idx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrixixEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson12SparseMatrixixEi">
+<span id="_CPPv3NK3pcl7poisson12SparseMatrixixEi"></span><span id="_CPPv2NK3pcl7poisson12SparseMatrixixEi"></span><span id="pcl::poisson::SparseMatrix::subscript-operator__iC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a82693f6f0c9fe5015704f156462948a5"></span><em class="property">const</em> MatrixEntry&lt;T&gt; *<code class="sig-name descname">operator[]</code><span class="sig-paren">(</span>int <em>idx</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson12SparseMatrixixEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix12SparseMatrixEv">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix12SparseMatrixEv"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix12SparseMatrixEv"></span><span id="pcl::poisson::SparseMatrix::SparseMatrix__void"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a5ef843c83c1ed4cc78211aa860c038c9"></span><code class="sig-name descname">SparseMatrix</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix12SparseMatrixEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix12SparseMatrixEi">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix12SparseMatrixEi"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix12SparseMatrixEi"></span><span id="pcl::poisson::SparseMatrix::SparseMatrix__i"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a3d33a76a73bbfc14bddad3e994c89f00"></span><code class="sig-name descname">SparseMatrix</code><span class="sig-paren">(</span>int <em>rows</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix12SparseMatrixEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix12SparseMatrixEii">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix12SparseMatrixEii"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix12SparseMatrixEii"></span><span id="pcl::poisson::SparseMatrix::SparseMatrix__i.i"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a16ad686c975d8e48c954fbcb64fc268f"></span><code class="sig-name descname">SparseMatrix</code><span class="sig-paren">(</span>int <em>rows</em>, int <em>maxEntriesPerRow</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix12SparseMatrixEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix6ResizeEi">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix6ResizeEi"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix6ResizeEi"></span><span id="pcl::poisson::SparseMatrix::Resize__i"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a764fdd2af6bfa1312427f7eebd21cd13"></span>void <code class="sig-name descname">Resize</code><span class="sig-paren">(</span>int <em>rows</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix6ResizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix6ResizeEii">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix6ResizeEii"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix6ResizeEii"></span><span id="pcl::poisson::SparseMatrix::Resize__i.i"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1afa9ddc100b46c36489c2bae1fbde6679"></span>void <code class="sig-name descname">Resize</code><span class="sig-paren">(</span>int <em>rows</em>, int <em>maxEntriesPerRow</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix6ResizeEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix10SetRowSizeEii">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix10SetRowSizeEii"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix10SetRowSizeEii"></span><span id="pcl::poisson::SparseMatrix::SetRowSize__i.i"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a8303ada0bd176f3919efc09874d8757f"></span>void <code class="sig-name descname">SetRowSize</code><span class="sig-paren">(</span>int <em>row</em>, int <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix10SetRowSizeEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson12SparseMatrix7EntriesEv">
+<span id="_CPPv3NK3pcl7poisson12SparseMatrix7EntriesEv"></span><span id="_CPPv2NK3pcl7poisson12SparseMatrix7EntriesEv"></span><span id="pcl::poisson::SparseMatrix::Entries__voidC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1aa907dc5454a3ec45cf90db8e5b8a03f2"></span>int <code class="sig-name descname">Entries</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson12SparseMatrix7EntriesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix12SparseMatrixERK12SparseMatrix">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix12SparseMatrixERK12SparseMatrix"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix12SparseMatrixERK12SparseMatrix"></span><span id="pcl::poisson::SparseMatrix::SparseMatrix__SparseMatrixCR"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1ab9456dc62169e200fcb972e92b076fa0"></span><code class="sig-name descname">SparseMatrix</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl7poisson12SparseMatrix12SparseMatrixEv" title="pcl::poisson::SparseMatrix::SparseMatrix">SparseMatrix</a> &amp;<em>M</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix12SparseMatrixERK12SparseMatrix" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrixD0Ev">
+<span id="_CPPv3N3pcl7poisson12SparseMatrixD0Ev"></span><span id="_CPPv2N3pcl7poisson12SparseMatrixD0Ev"></span><span id="pcl::poisson::SparseMatrix::~SparseMatrix"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1ac52c4e878897115d5f77c220784374d7"></span><code class="sig-name descname">~SparseMatrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrixD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix7SetZeroEv">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix7SetZeroEv"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix7SetZeroEv"></span><span id="pcl::poisson::SparseMatrix::SetZero"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1ad6a31391bad1817c8e96c9f9e8ca1470"></span>void <code class="sig-name descname">SetZero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix7SetZeroEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix11SetIdentityEv">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix11SetIdentityEv"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix11SetIdentityEv"></span><span id="pcl::poisson::SparseMatrix::SetIdentity"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1aa61792abc974c3db2fcd34f8f84624be"></span>void <code class="sig-name descname">SetIdentity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix11SetIdentityEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrixaSERK12SparseMatrixI1TE">
+<span id="_CPPv3N3pcl7poisson12SparseMatrixaSERK12SparseMatrixI1TE"></span><span id="_CPPv2N3pcl7poisson12SparseMatrixaSERK12SparseMatrixI1TE"></span><span id="pcl::poisson::SparseMatrix::assign-operator__SparseMatrix:T:CR"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a6cc6a4f0c77b8b78464c740cbfb8ea8d"></span>SparseMatrix&lt;T&gt; &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> SparseMatrix&lt;T&gt; &amp;<em>M</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrixaSERK12SparseMatrixI1TE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson12SparseMatrixmlERK1T">
+<span id="_CPPv3NK3pcl7poisson12SparseMatrixmlERK1T"></span><span id="_CPPv2NK3pcl7poisson12SparseMatrixmlERK1T"></span><span id="pcl::poisson::SparseMatrix::mul-operator__TCRC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1aa3c52ad7f077830f64bedf054c3318cc"></span>SparseMatrix&lt;T&gt; <code class="sig-name descname">operator*</code><span class="sig-paren">(</span><em class="property">const</em> T &amp;<em>V</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson12SparseMatrixmlERK1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrixmLERK1T">
+<span id="_CPPv3N3pcl7poisson12SparseMatrixmLERK1T"></span><span id="_CPPv2N3pcl7poisson12SparseMatrixmLERK1T"></span><span id="pcl::poisson::SparseMatrix::mul-assign-operator__TCR"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a58bf6542719fe30b31aca77381fb60c3"></span>SparseMatrix&lt;T&gt; &amp;<code class="sig-name descname">operator*=</code><span class="sig-paren">(</span><em class="property">const</em> T &amp;<em>V</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrixmLERK1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson12SparseMatrixmlERK12SparseMatrixI1TE">
+<span id="_CPPv3NK3pcl7poisson12SparseMatrixmlERK12SparseMatrixI1TE"></span><span id="_CPPv2NK3pcl7poisson12SparseMatrixmlERK12SparseMatrixI1TE"></span><span id="pcl::poisson::SparseMatrix::mul-operator__SparseMatrix:T:CRC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a8b597c4bb1690c6d2a447879ea164b14"></span>SparseMatrix&lt;T&gt; <code class="sig-name descname">operator*</code><span class="sig-paren">(</span><em class="property">const</em> SparseMatrix&lt;T&gt; &amp;<em>M</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson12SparseMatrixmlERK12SparseMatrixI1TE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson12SparseMatrix8MultiplyERK12SparseMatrixI1TE">
+<span id="_CPPv3NK3pcl7poisson12SparseMatrix8MultiplyERK12SparseMatrixI1TE"></span><span id="_CPPv2NK3pcl7poisson12SparseMatrix8MultiplyERK12SparseMatrixI1TE"></span><span id="pcl::poisson::SparseMatrix::Multiply__SparseMatrix:T:CRC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a38977d6c7d5af4a771d4855b9f7d5813"></span>SparseMatrix&lt;T&gt; <code class="sig-name descname">Multiply</code><span class="sig-paren">(</span><em class="property">const</em> SparseMatrix&lt;T&gt; &amp;<em>M</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson12SparseMatrix8MultiplyERK12SparseMatrixI1TE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson12SparseMatrix17MultiplyTransposeERK12SparseMatrixI1TE">
+<span id="_CPPv3NK3pcl7poisson12SparseMatrix17MultiplyTransposeERK12SparseMatrixI1TE"></span><span id="_CPPv2NK3pcl7poisson12SparseMatrix17MultiplyTransposeERK12SparseMatrixI1TE"></span><span id="pcl::poisson::SparseMatrix::MultiplyTranspose__SparseMatrix:T:CRC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a5ebf5a7057adece0b41ab8261d308e68"></span>SparseMatrix&lt;T&gt; <code class="sig-name descname">MultiplyTranspose</code><span class="sig-paren">(</span><em class="property">const</em> SparseMatrix&lt;T&gt; &amp;<em>Mt</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson12SparseMatrix17MultiplyTransposeERK12SparseMatrixI1TE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0ENK3pcl7poisson12SparseMatrixmlE6VectorI2T2ERK6VectorI2T2E">
+<span id="_CPPv3I0ENK3pcl7poisson12SparseMatrixmlERK6VectorI2T2E"></span><span id="_CPPv2I0ENK3pcl7poisson12SparseMatrixmlERK6VectorI2T2E"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1aababe3b6476e52cfef184e3a80c517a9"></span>template&lt;class <code class="sig-name descname">T2</code>&gt;<br />Vector&lt;<a class="reference internal" href="#_CPPv4I0ENK3pcl7poisson12SparseMatrixmlE6VectorI2T2ERK6VectorI2T2E" title="pcl::poisson::SparseMatrix::operator*::T2">T2</a>&gt; <code class="sig-name descname">operator*</code><span class="sig-paren">(</span><em class="property">const</em> Vector&lt;<a class="reference internal" href="#_CPPv4I0ENK3pcl7poisson12SparseMatrixmlE6VectorI2T2ERK6VectorI2T2E" title="pcl::poisson::SparseMatrix::operator*::T2">T2</a>&gt; &amp;<em>V</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I0ENK3pcl7poisson12SparseMatrixmlE6VectorI2T2ERK6VectorI2T2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0ENK3pcl7poisson12SparseMatrix8MultiplyE6VectorI2T2ERK6VectorI2T2E">
+<span id="_CPPv3I0ENK3pcl7poisson12SparseMatrix8MultiplyERK6VectorI2T2E"></span><span id="_CPPv2I0ENK3pcl7poisson12SparseMatrix8MultiplyERK6VectorI2T2E"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a62ae1654b20cf19b07a41ffb792299ab"></span>template&lt;class <code class="sig-name descname">T2</code>&gt;<br />Vector&lt;<a class="reference internal" href="#_CPPv4I0ENK3pcl7poisson12SparseMatrix8MultiplyE6VectorI2T2ERK6VectorI2T2E" title="pcl::poisson::SparseMatrix::Multiply::T2">T2</a>&gt; <code class="sig-name descname">Multiply</code><span class="sig-paren">(</span><em class="property">const</em> Vector&lt;<a class="reference internal" href="#_CPPv4I0ENK3pcl7poisson12SparseMatrix8MultiplyE6VectorI2T2ERK6VectorI2T2E" title="pcl::poisson::SparseMatrix::Multiply::T2">T2</a>&gt; &amp;<em>V</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I0ENK3pcl7poisson12SparseMatrix8MultiplyE6VectorI2T2ERK6VectorI2T2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0ENK3pcl7poisson12SparseMatrix8MultiplyEvRK6VectorI2T2ER6VectorI2T2Ei">
+<span id="_CPPv3I0ENK3pcl7poisson12SparseMatrix8MultiplyERK6VectorI2T2ER6VectorI2T2Ei"></span><span id="_CPPv2I0ENK3pcl7poisson12SparseMatrix8MultiplyERK6VectorI2T2ER6VectorI2T2Ei"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a7ae61574dea08c5e5b24403589f08a15"></span>template&lt;class <code class="sig-name descname">T2</code>&gt;<br />void <code class="sig-name descname">Multiply</code><span class="sig-paren">(</span><em class="property">const</em> Vector&lt;<a class="reference internal" href="#_CPPv4I0ENK3pcl7poisson12SparseMatrix8MultiplyE6VectorI2T2ERK6VectorI2T2E" title="pcl::poisson::SparseMatrix::Multiply::T2">T2</a>&gt; &amp;<em>In</em>, Vector&lt;<a class="reference internal" href="#_CPPv4I0ENK3pcl7poisson12SparseMatrix8MultiplyE6VectorI2T2ERK6VectorI2T2E" title="pcl::poisson::SparseMatrix::Multiply::T2">T2</a>&gt; &amp;<em>Out</em>, int <em>threads</em> = 1<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I0ENK3pcl7poisson12SparseMatrix8MultiplyEvRK6VectorI2T2ER6VectorI2T2Ei" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson12SparseMatrix9TransposeEv">
+<span id="_CPPv3NK3pcl7poisson12SparseMatrix9TransposeEv"></span><span id="_CPPv2NK3pcl7poisson12SparseMatrix9TransposeEv"></span><span id="pcl::poisson::SparseMatrix::TransposeC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a3a2b23cf03c8c9b42f7c767396d85b6d"></span>SparseMatrix&lt;T&gt; <code class="sig-name descname">Transpose</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson12SparseMatrix9TransposeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson12SparseMatrix5writeEP4FILE">
+<span id="_CPPv3NK3pcl7poisson12SparseMatrix5writeEP4FILE"></span><span id="_CPPv2NK3pcl7poisson12SparseMatrix5writeEP4FILE"></span><span id="pcl::poisson::SparseMatrix::write__FILEPC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a79e58725fc023e6ddf3e92ca158d5662"></span>bool <code class="sig-name descname">write</code><span class="sig-paren">(</span>FILE *<em>fp</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson12SparseMatrix5writeEP4FILE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7poisson12SparseMatrix5writeEPKc">
+<span id="_CPPv3NK3pcl7poisson12SparseMatrix5writeEPKc"></span><span id="_CPPv2NK3pcl7poisson12SparseMatrix5writeEPKc"></span><span id="pcl::poisson::SparseMatrix::write__cCPC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a4ff32424807ecf6c3f600a71b74ddf7d"></span>bool <code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>fileName</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7poisson12SparseMatrix5writeEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix4readEP4FILE">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix4readEP4FILE"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix4readEP4FILE"></span><span id="pcl::poisson::SparseMatrix::read__FILEP"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a1b848078a2c0e60327a6563324df81a0"></span>bool <code class="sig-name descname">read</code><span class="sig-paren">(</span>FILE *<em>fp</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix4readEP4FILE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix4readEPKc">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix4readEPKc"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix4readEPKc"></span><span id="pcl::poisson::SparseMatrix::read__cCP"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1abc2b5b658f734547633dc9c1d9cfb762"></span>bool <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>fileName</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix4readEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix4rowsE">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix4rowsE"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix4rowsE"></span><span id="pcl::poisson::SparseMatrix::rows__i"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a92d2de915a7dc1e1f1e239c2fe165dbe"></span>int <code class="sig-name descname">rows</code><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix4rowsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix8rowSizesE">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix8rowSizesE"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix8rowSizesE"></span><span id="pcl::poisson::SparseMatrix::rowSizes__iP"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a1d636ab66739d536cb0378700c90357b"></span>int *<code class="sig-name descname">rowSizes</code><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix8rowSizesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix12m_ppElementsE">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix12m_ppElementsE"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix12m_ppElementsE"></span><span id="pcl::poisson::SparseMatrix::m_ppElements__MatrixEntry:T:PP"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a126a7e0c712fcfec1f37dd80559570b4"></span>MatrixEntry&lt;T&gt; **<code class="sig-name descname">m_ppElements</code><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix12m_ppElementsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix12UseAllocatorEv">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix12UseAllocatorEv"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix12UseAllocatorEv"></span><span id="pcl::poisson::SparseMatrix::UseAllocator__void"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1aa79210bf7c666bc46b16afc469af95f0"></span>int <code class="sig-name descname">UseAllocator</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix12UseAllocatorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix12SetAllocatorEi">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix12SetAllocatorEi"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix12SetAllocatorEi"></span><span id="pcl::poisson::SparseMatrix::SetAllocator__i"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a40c6d49996392ad1d9a5a9702e81b406"></span>void <code class="sig-name descname">SetAllocator</code><span class="sig-paren">(</span>int <em>blockSize</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix12SetAllocatorEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix5SolveERK12SparseMatrixI1TERK6VectorI1TEiR6VectorI1TEK1T">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix5SolveERK12SparseMatrixI1TERK6VectorI1TEiR6VectorI1TEK1T"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix5SolveERK12SparseMatrixI1TERK6VectorI1TEiR6VectorI1TEK1T"></span><span id="pcl::poisson::SparseMatrix::Solve__SparseMatrix:T:CR.Vector:T:CR.i.Vector:T:R.TC"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a85ebdda2bde6ddeb411064d5866ea53d"></span>int <code class="sig-name descname">Solve</code><span class="sig-paren">(</span><em class="property">const</em> SparseMatrix&lt;T&gt; &amp;<em>M</em>, <em class="property">const</em> Vector&lt;T&gt; &amp;<em>b</em>, int <em>iters</em>, Vector&lt;T&gt; &amp;<em>solution</em>, <em class="property">const</em> T <em>eps</em> = 1e-8<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix5SolveERK12SparseMatrixI1TERK6VectorI1TEiR6VectorI1TEK1T" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl7poisson12SparseMatrix14SolveSymmetricEiRK12SparseMatrixI1TERK6VectorI2T2EiR6VectorI2T2EK2T2ii">
+<span id="_CPPv3I0EN3pcl7poisson12SparseMatrix14SolveSymmetricERK12SparseMatrixI1TERK6VectorI2T2EiR6VectorI2T2EK2T2ii"></span><span id="_CPPv2I0EN3pcl7poisson12SparseMatrix14SolveSymmetricERK12SparseMatrixI1TERK6VectorI2T2EiR6VectorI2T2EK2T2ii"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1a829346c91022049e8630fe8e06243193"></span>template&lt;class <code class="sig-name descname">T2</code>&gt;<br />int <code class="sig-name descname">SolveSymmetric</code><span class="sig-paren">(</span><em class="property">const</em> SparseMatrix&lt;T&gt; &amp;<em>M</em>, <em class="property">const</em> Vector&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl7poisson12SparseMatrix14SolveSymmetricEiRK12SparseMatrixI1TERK6VectorI2T2EiR6VectorI2T2EK2T2ii" title="pcl::poisson::SparseMatrix::SolveSymmetric::T2">T2</a>&gt; &amp;<em>b</em>, int <em>iters</em>, Vector&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl7poisson12SparseMatrix14SolveSymmetricEiRK12SparseMatrixI1TERK6VectorI2T2EiR6VectorI2T2EK2T2ii" title="pcl::poisson::SparseMatrix::SolveSymmetric::T2">T2</a>&gt; &amp;<em>solution</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3pcl7poisson12SparseMatrix14SolveSymmetricEiRK12SparseMatrixI1TERK6VectorI2T2EiR6VectorI2T2EK2T2ii" title="pcl::poisson::SparseMatrix::SolveSymmetric::T2">T2</a> <em>eps</em> = 1e-8, int <em>reset</em> = 1, int <em>threads</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl7poisson12SparseMatrix14SolveSymmetricEiRK12SparseMatrixI1TERK6VectorI2T2EiR6VectorI2T2EK2T2ii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl7poisson12SparseMatrix17internalAllocatorE">
+<span id="_CPPv3N3pcl7poisson12SparseMatrix17internalAllocatorE"></span><span id="_CPPv2N3pcl7poisson12SparseMatrix17internalAllocatorE"></span><span id="pcl::poisson::SparseMatrix::internalAllocator__Allocator:MatrixEntry:T::"></span><span class="target" id="classpcl_1_1poisson_1_1_sparse_matrix_1ae03ee53a045844b1140af800635c9b01"></span>Allocator&lt;MatrixEntry&lt;T&gt;&gt; <code class="sig-name descname">internalAllocator</code><a class="headerlink" href="#_CPPv4N3pcl7poisson12SparseMatrix17internalAllocatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

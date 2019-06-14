@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Struct RayCaster &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Struct RayCaster</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/structpcl_1_1gpu_1_1_ray_caster.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="struct-raycaster">
+<span id="exhale-struct-structpcl-1-1gpu-1-1-ray-caster"></span><h1>Struct RayCaster<a class="headerlink" href="#struct-raycaster" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_gpu_kinfu_include_pcl_gpu_kinfu_raycaster.h.html#file-pcl-gpu-kinfu-include-pcl-gpu-kinfu-raycaster-h"><span class="std std-ref">File raycaster.h</span></a></p></li>
+</ul>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl3gpu9RayCasterE">
+<span id="_CPPv3N3pcl3gpu9RayCasterE"></span><span id="_CPPv2N3pcl3gpu9RayCasterE"></span><span id="pcl::gpu::RayCaster"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster"></span><em class="property">struct </em><code class="sig-name descname">RayCaster</code><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCasterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class that performs raycasting for TSDF volume. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Anatoly Baskeheev, Itseez Ltd, (<a class="reference external" href="mailto:myname&#46;mysurname&#37;&#52;&#48;mycompany&#46;com">myname<span>&#46;</span>mysurname<span>&#64;</span>mycompany<span>&#46;</span>com</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu9RayCaster3PtrE">
+<span id="_CPPv3N3pcl3gpu9RayCaster3PtrE"></span><span id="_CPPv2N3pcl3gpu9RayCaster3PtrE"></span><span id="pcl::gpu::RayCaster::Ptr"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1a0fdbdb296d42e77eaec3ed07b3c0a705"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu9RayCasterE" title="pcl::gpu::RayCaster">RayCaster</a>&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCaster3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu9RayCaster6MapArrE">
+<span id="_CPPv3N3pcl3gpu9RayCaster6MapArrE"></span><span id="_CPPv2N3pcl3gpu9RayCaster6MapArrE"></span><span id="pcl::gpu::RayCaster::MapArr"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1a00fe1a69a3934947f604fd82c71abec2"></span><em class="property">typedef </em>DeviceArray2D&lt;float&gt; <code class="sig-name descname">MapArr</code><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCaster6MapArrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu9RayCaster4ViewE">
+<span id="_CPPv3N3pcl3gpu9RayCaster4ViewE"></span><span id="_CPPv2N3pcl3gpu9RayCaster4ViewE"></span><span id="pcl::gpu::RayCaster::View"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1a52fd85bf7a093f858a83d4353f5d67f5"></span><em class="property">typedef </em>DeviceArray2D&lt;<a class="reference internal" href="structpcl_1_1gpu_1_1_pixel_r_g_b.html#_CPPv4N3pcl3gpu8PixelRGBE" title="pcl::gpu::PixelRGB">PixelRGB</a>&gt; <code class="sig-name descname">View</code><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCaster4ViewE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu9RayCaster5DepthE">
+<span id="_CPPv3N3pcl3gpu9RayCaster5DepthE"></span><span id="_CPPv2N3pcl3gpu9RayCaster5DepthE"></span><span id="pcl::gpu::RayCaster::Depth"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1ad06db6b3d548cc75ab039549b2ed3215"></span><em class="property">typedef </em>DeviceArray2D&lt;unsigned short&gt; <code class="sig-name descname">Depth</code><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCaster5DepthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu9RayCaster9RayCasterEiiffff">
+<span id="_CPPv3N3pcl3gpu9RayCaster9RayCasterEiiffff"></span><span id="_CPPv2N3pcl3gpu9RayCaster9RayCasterEiiffff"></span><span id="pcl::gpu::RayCaster::RayCaster__i.i.float.float.float.float"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1ad7b64edce595a883b446cfb2006f7121"></span><code class="sig-name descname">RayCaster</code><span class="sig-paren">(</span>int <em>rows</em> = 480, int <em>cols</em> = 640, float <em>fx</em> = 525.f, float <em>fy</em> = 525.f, float <em>cx</em> = -1, float <em>cy</em> = -1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCaster9RayCasterEiiffff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rows</span></code>: image rows </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cols</span></code>: image cols </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fx</span></code>: focal x </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fy</span></code>: focal y </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cx</span></code>: principal point x </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cy</span></code>: principal point y </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu9RayCasterD0Ev">
+<span id="_CPPv3N3pcl3gpu9RayCasterD0Ev"></span><span id="_CPPv2N3pcl3gpu9RayCasterD0Ev"></span><span id="pcl::gpu::RayCaster::~RayCaster"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1aa5c5a7b6e9ca5139777d1ad8ba7ed054"></span><code class="sig-name descname">~RayCaster</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCasterD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu9RayCaster13setIntrinsicsEffff">
+<span id="_CPPv3N3pcl3gpu9RayCaster13setIntrinsicsEffff"></span><span id="_CPPv2N3pcl3gpu9RayCaster13setIntrinsicsEffff"></span><span id="pcl::gpu::RayCaster::setIntrinsics__float.float.float.float"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1aa3dfba565c7bd2b24d5b5ec26810da02"></span>void <code class="sig-name descname">setIntrinsics</code><span class="sig-paren">(</span>float <em>fx</em> = 525.f, float <em>fy</em> = 525.f, float <em>cx</em> = -1, float <em>cy</em> = -1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCaster13setIntrinsicsEffff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets camera intrinsics. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu9RayCaster3runERK10TsdfVolumeRKN5Eigen8Affine3fE">
+<span id="_CPPv3N3pcl3gpu9RayCaster3runERK10TsdfVolumeRKN5Eigen8Affine3fE"></span><span id="_CPPv2N3pcl3gpu9RayCaster3runERK10TsdfVolumeRKN5Eigen8Affine3fE"></span><span id="pcl::gpu::RayCaster::run__TsdfVolumeCR.Eigen::Affine3fCR"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1a5bc58eb25d9e80975a603fe373d3db9d"></span>void <code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1gpu_1_1_tsdf_volume.html#_CPPv4N3pcl3gpu10TsdfVolumeE" title="pcl::gpu::TsdfVolume">TsdfVolume</a> &amp;<em>volume</em>, <em class="property">const</em> Eigen::Affine3f &amp;<em>camera_pose</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCaster3runERK10TsdfVolumeRKN5Eigen8Affine3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Runs raycasting algorithm from given camera pose. </p>
+<p>It writes results to internal files. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">volume</span></code>: tsdf volume container </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">camera_pose</span></code>: camera pose </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu9RayCaster17generateSceneViewER4View">
+<span id="_CPPv3NK3pcl3gpu9RayCaster17generateSceneViewER4View"></span><span id="_CPPv2NK3pcl3gpu9RayCaster17generateSceneViewER4View"></span><span id="pcl::gpu::RayCaster::generateSceneView__ViewRC"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1abdb5814ba3cee282073b4a15c1aae061"></span>void <code class="sig-name descname">generateSceneView</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3gpu9RayCaster4ViewE" title="pcl::gpu::RayCaster::View">View</a> &amp;<em>view</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu9RayCaster17generateSceneViewER4View" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates scene view using data raycasted by run method. </p>
+<p>So call it before. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">view</span></code>: output array for <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu9RayCaster17generateSceneViewER4ViewRKN5Eigen8Vector3fE">
+<span id="_CPPv3NK3pcl3gpu9RayCaster17generateSceneViewER4ViewRKN5Eigen8Vector3fE"></span><span id="_CPPv2NK3pcl3gpu9RayCaster17generateSceneViewER4ViewRKN5Eigen8Vector3fE"></span><span id="pcl::gpu::RayCaster::generateSceneView__ViewR.Eigen::Vector3fCRC"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1a960e1bbc1ac608ceccaea355d7408098"></span>void <code class="sig-name descname">generateSceneView</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3gpu9RayCaster4ViewE" title="pcl::gpu::RayCaster::View">View</a> &amp;<em>view</em>, <em class="property">const</em> Eigen::Vector3f &amp;<em>light_source_pose</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu9RayCaster17generateSceneViewER4ViewRKN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates scene view using data raycasted by run method. </p>
+<p>So call it before. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">view</span></code>: output array for <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">light_source_pose</span></code>: pose of light source </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu9RayCaster18generateDepthImageER5Depth">
+<span id="_CPPv3NK3pcl3gpu9RayCaster18generateDepthImageER5Depth"></span><span id="_CPPv2NK3pcl3gpu9RayCaster18generateDepthImageER5Depth"></span><span id="pcl::gpu::RayCaster::generateDepthImage__DepthRC"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1a42bca75d5df767941a32bf211347850a"></span>void <code class="sig-name descname">generateDepthImage</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3gpu9RayCaster5DepthE" title="pcl::gpu::RayCaster::Depth">Depth</a> &amp;<em>depth</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu9RayCaster18generateDepthImageER5Depth" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generates depth image using data raycasted by run method. </p>
+<p>So call it before. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">depth</span></code>: output array for depth image </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu9RayCaster12getVertexMapEv">
+<span id="_CPPv3NK3pcl3gpu9RayCaster12getVertexMapEv"></span><span id="_CPPv2NK3pcl3gpu9RayCaster12getVertexMapEv"></span><span id="pcl::gpu::RayCaster::getVertexMapC"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1a2fd1629d61d7c461cf36c50b7fbe01d3"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu9RayCaster6MapArrE" title="pcl::gpu::RayCaster::MapArr">MapArr</a> <code class="sig-name descname">getVertexMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu9RayCaster12getVertexMapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns raycasterd vertex map. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu9RayCaster12getNormalMapEv">
+<span id="_CPPv3NK3pcl3gpu9RayCaster12getNormalMapEv"></span><span id="_CPPv2NK3pcl3gpu9RayCaster12getNormalMapEv"></span><span id="pcl::gpu::RayCaster::getNormalMapC"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1a77970a7c4c07f35476d078531a995e3a"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu9RayCaster6MapArrE" title="pcl::gpu::RayCaster::MapArr">MapArr</a> <code class="sig-name descname">getNormalMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu9RayCaster12getNormalMapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns raycasterd normal map. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu9RayCaster4colsE">
+<span id="_CPPv3N3pcl3gpu9RayCaster4colsE"></span><span id="_CPPv2N3pcl3gpu9RayCaster4colsE"></span><span id="pcl::gpu::RayCaster::cols__iC"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1a5585298f07e2eca21926256f9771246d"></span><em class="property">const</em> int <code class="sig-name descname">cols</code><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCaster4colsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Image with height. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu9RayCaster4rowsE">
+<span id="_CPPv3N3pcl3gpu9RayCaster4rowsE"></span><span id="_CPPv2N3pcl3gpu9RayCaster4rowsE"></span><span id="pcl::gpu::RayCaster::rows__iC"></span><span class="target" id="structpcl_1_1gpu_1_1_ray_caster_1aeacd9f8750cee64e74834c52e042d83d"></span><em class="property">const</em> int <code class="sig-name descname">rows</code><a class="headerlink" href="#_CPPv4N3pcl3gpu9RayCaster4rowsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

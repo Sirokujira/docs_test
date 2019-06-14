@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OutgoingHalfEdgeAroundVertexCirculator &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OutgoingHalfEdgeAroundVertexCirculator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-outgoinghalfedgearoundvertexcirculator">
+<span id="exhale-class-classpcl-1-1geometry-1-1-outgoing-half-edge-around-vertex-circulator"></span><h1>Template Class OutgoingHalfEdgeAroundVertexCirculator<a class="headerlink" href="#template-class-outgoinghalfedgearoundvertexcirculator" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_geometry_include_pcl_geometry_mesh_circulators.h.html#file-pcl-geometry-include-pcl-geometry-mesh-circulators-h"><span class="std std-ref">File mesh_circulators.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">boost::equality_comparable&lt;</span> <span class="pre">pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator&lt;</span> <span class="pre">MeshT</span> <span class="pre">&gt;,</span> <span class="pre">boost::unit_steppable&lt;</span> <span class="pre">pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator&lt;</span> <span class="pre">MeshT</span> <span class="pre">&gt;</span> <span class="pre">&gt;</span> <span class="pre">&gt;</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorE">
+<span id="_CPPv3I0EN3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorE"></span><span id="_CPPv2I0EN3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorE"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator"></span>template&lt;class <code class="sig-name descname">MeshT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">OutgoingHalfEdgeAroundVertexCirculator</code> : <em class="property">private</em> boost::equality_comparable&lt;pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::MeshT">MeshT</a>&gt;, boost::unit_steppable&lt;pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::MeshT">MeshT</a>&gt;&gt;&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Circulates counter-clockwise around a vertex and returns an index to the outgoing half-edge (the target). </p>
+<p>The best way to declare the circulator is to use the method <a class="reference internal" href="classpcl_1_1geometry_1_1_mesh_base.html#classpcl_1_1geometry_1_1_mesh_base_1a76d6a2a322ad9723d8c16c6ac6adb079"><span class="std std-ref">pcl::geometry::MeshBase::getOutgoingHalfEdgeAroundVertexCirculator</span></a> (). <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The circulator can’t be used to change the connectivity in the mesh (only const circulators are valid). </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Martin Saelzle </p>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MeshT</span></code>: <a class="reference internal" href="class_mesh.html#class_mesh"><span class="std std-ref">Mesh</span></a> to which this circulator belongs to. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4BaseE">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4BaseE"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4BaseE"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Base"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a52e16cc6f4e7b122a6b3460ac339b4cc"></span><em class="property">typedef </em>boost::equality_comparable&lt;pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator&lt;MeshT&gt;, boost::unit_steppable&lt;pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator&lt;MeshT&gt;&gt;&gt; <code class="sig-name descname">Base</code><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4BaseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4SelfE">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4SelfE"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4SelfE"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Self"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a417222c1d5ca9772868a8823a35074d5"></span><em class="property">typedef </em>pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator&lt;MeshT&gt; <code class="sig-name descname">Self</code><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4SelfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4MeshE">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4MeshE"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4MeshE"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Mesh"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a88dc49df2f4222101de360bb1060e7db"></span><em class="property">typedef </em>MeshT <code class="sig-name descname">Mesh</code><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4MeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator11VertexIndexE">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator11VertexIndexE"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator11VertexIndexE"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::VertexIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1ad9f27187cbc47a0aa4487f700d56fa3c"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4MeshE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Mesh">Mesh</a>::VertexIndex <code class="sig-name descname">VertexIndex</code><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator11VertexIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator13HalfEdgeIndexE">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator13HalfEdgeIndexE"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator13HalfEdgeIndexE"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::HalfEdgeIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a185956c40c09103af58d40601a8114bd"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4MeshE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Mesh">Mesh</a>::HalfEdgeIndex <code class="sig-name descname">HalfEdgeIndex</code><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator13HalfEdgeIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorEv">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorEv"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorEv"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::OutgoingHalfEdgeAroundVertexCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a6edbbaa693fd7ce001f0ecfc977a0513"></span><code class="sig-name descname">OutgoingHalfEdgeAroundVertexCirculator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor resulting in an invalid circulator. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorERK11VertexIndexPC4Mesh">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorERK11VertexIndexPC4Mesh"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorERK11VertexIndexPC4Mesh"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::OutgoingHalfEdgeAroundVertexCirculator__VertexIndexCR.MeshPC"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1aaeafa3e4b9f7950e65a215456a28d604"></span><code class="sig-name descname">OutgoingHalfEdgeAroundVertexCirculator</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator11VertexIndexE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::VertexIndex">VertexIndex</a> &amp;<em>idx_vertex</em>, <a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4MeshE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Mesh">Mesh</a> *<em class="property">const</em> <em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorERK11VertexIndexPC4Mesh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct from the vertex around which we want to circulate. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorERK13HalfEdgeIndexPC4Mesh">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorERK13HalfEdgeIndexPC4Mesh"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorERK13HalfEdgeIndexPC4Mesh"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::OutgoingHalfEdgeAroundVertexCirculator__HalfEdgeIndexCR.MeshPC"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1ac5013c9b18e0699b28d104e4af195930"></span><code class="sig-name descname">OutgoingHalfEdgeAroundVertexCirculator</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator13HalfEdgeIndexE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::HalfEdgeIndex">HalfEdgeIndex</a> &amp;<em>idx_outgoing_half_edge</em>, <a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4MeshE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Mesh">Mesh</a> *<em class="property">const</em> <em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator38OutgoingHalfEdgeAroundVertexCirculatorERK13HalfEdgeIndexPC4Mesh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct directly from the outgoing half-edge. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator7isValidEv">
+<span id="_CPPv3NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator7isValidEv"></span><span id="_CPPv2NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator7isValidEv"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::isValidC"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a7dcedad06d3dd314294f97d24dc1faba"></span>bool <code class="sig-name descname">isValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator7isValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the circulator is valid. </p>
+<p><dl class="simple">
+<dt><strong>Warning</strong></dt><dd><p>Does NOT check if the stored mesh pointer is valid. You have to ensure this yourself when constructing the circulator. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatoreqERK4Self">
+<span id="_CPPv3NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatoreqERK4Self"></span><span id="_CPPv2NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatoreqERK4Self"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::eq-operator__SelfCRC"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1ab2356a4ec36a52e9e7c7349328eb07d8"></span>bool <code class="sig-name descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4SelfE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Self">Self</a> &amp;<em>other</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatoreqERK4Self" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Comparison operators (with boost::operators): == !=. </p>
+<p><dl class="simple">
+<dt><strong>Warning</strong></dt><dd><p>Does NOT check if the circulators belong to the same mesh. Please check this yourself. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorppEv">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorppEv"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorppEv"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::inc-operator"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a653075579452b1c6bf528c5deaeedd39"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4SelfE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Self">Self</a> &amp;<code class="sig-name descname">operator++</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatorppEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Increment operators (with boost::operators): ++ (pre and post) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatormmEv">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatormmEv"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatormmEv"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::dec-operator"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a82a46faf89188647dfdbf7dde24e1a4b"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4SelfE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Self">Self</a> &amp;<code class="sig-name descname">operator--</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculatormmEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decrement operators (with boost::operators):  (pre and post) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator14getTargetIndexEv">
+<span id="_CPPv3NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator14getTargetIndexEv"></span><span id="_CPPv2NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator14getTargetIndexEv"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::getTargetIndexC"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a12a33e71c4e2eac5fa148aa8ba791179"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator13HalfEdgeIndexE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::HalfEdgeIndex">HalfEdgeIndex</a> <code class="sig-name descname">getTargetIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator14getTargetIndexEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the index to the outgoing half-edge. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator23getCurrentHalfEdgeIndexEv">
+<span id="_CPPv3NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator23getCurrentHalfEdgeIndexEv"></span><span id="_CPPv2NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator23getCurrentHalfEdgeIndexEv"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::getCurrentHalfEdgeIndexC"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a46c8401b6d759640a0242b12429f86b2"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator13HalfEdgeIndexE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::HalfEdgeIndex">HalfEdgeIndex</a> <code class="sig-name descname">getCurrentHalfEdgeIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator23getCurrentHalfEdgeIndexEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the half-edge that is currently stored in the circulator. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator5mesh_E">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator5mesh_E"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator5mesh_E"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::mesh___MeshP"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a3d9886c2f6db470c54733f0ef1cbc24f"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator4MeshE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::Mesh">Mesh</a> *<code class="sig-name descname">mesh_</code><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator5mesh_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The mesh to which this circulator belongs to. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator23idx_outgoing_half_edge_E">
+<span id="_CPPv3N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator23idx_outgoing_half_edge_E"></span><span id="_CPPv2N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator23idx_outgoing_half_edge_E"></span><span id="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::idx_outgoing_half_edge___HalfEdgeIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_outgoing_half_edge_around_vertex_circulator_1a292fc0ec0c20160158748737c69194de"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator13HalfEdgeIndexE" title="pcl::geometry::OutgoingHalfEdgeAroundVertexCirculator::HalfEdgeIndex">HalfEdgeIndex</a> <code class="sig-name descname">idx_outgoing_half_edge_</code><a class="headerlink" href="#_CPPv4N3pcl8geometry38OutgoingHalfEdgeAroundVertexCirculator23idx_outgoing_half_edge_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The outgoing half-edge of the vertex around which we want to circulate. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

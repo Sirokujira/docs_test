@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class RangeImagePlanar &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class RangeImagePlanar</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_range_image_planar.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-rangeimageplanar">
+<span id="exhale-class-classpcl-1-1-range-image-planar"></span><h1>Class RangeImagePlanar<a class="headerlink" href="#class-rangeimageplanar" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_common_include_pcl_range_image_range_image_planar.h.html#file-pcl-common-include-pcl-range-image-range-image-planar-h"><span class="std std-ref">File range_image_planar.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::RangeImage</span></code> (<a class="reference internal" href="classpcl_1_1_range_image.html#exhale-class-classpcl-1-1-range-image"><span class="std std-ref">Class RangeImage</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl16RangeImagePlanarE">
+<span id="_CPPv3N3pcl16RangeImagePlanarE"></span><span id="_CPPv2N3pcl16RangeImagePlanarE"></span><span id="pcl::RangeImagePlanar"></span><span class="target" id="classpcl_1_1_range_image_planar"></span><em class="property">class </em><code class="sig-name descname">RangeImagePlanar</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_range_image.html#_CPPv4N3pcl10RangeImageE" title="pcl::RangeImage">RangeImage</a><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanarE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_range_image_planar"><span class="std std-ref">RangeImagePlanar</span></a></strong> is derived from the original range image and differs from it because it’s not a spherical projection, but using a projection plane (as normal cameras do), therefore being better applicable for range sensors that already provide a range image by themselves (stereo cameras, ToF-cameras), so that a conversion to point cloud and then to a spherical range image becomes unnecessary. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Bastian Steder </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl16RangeImagePlanar9BaseClassE">
+<span id="_CPPv3N3pcl16RangeImagePlanar9BaseClassE"></span><span id="_CPPv2N3pcl16RangeImagePlanar9BaseClassE"></span><span id="pcl::RangeImagePlanar::BaseClass"></span><span class="target" id="classpcl_1_1_range_image_planar_1af97f4238b576879e332cf8cb5aa49f33"></span><em class="property">typedef </em><a class="reference internal" href="classpcl_1_1_range_image.html#_CPPv4N3pcl10RangeImageE" title="pcl::RangeImage">RangeImage</a> <code class="sig-name descname">BaseClass</code><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar9BaseClassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16RangeImagePlanar3PtrE">
+<span id="_CPPv3N3pcl16RangeImagePlanar3PtrE"></span><span id="_CPPv2N3pcl16RangeImagePlanar3PtrE"></span><span id="pcl::RangeImagePlanar::Ptr"></span><span class="target" id="classpcl_1_1_range_image_planar_1ad59977cb683c4ec344646ff391a87a4b"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl16RangeImagePlanarE" title="pcl::RangeImagePlanar">RangeImagePlanar</a>&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl16RangeImagePlanar8ConstPtrE">
+<span id="_CPPv3N3pcl16RangeImagePlanar8ConstPtrE"></span><span id="_CPPv2N3pcl16RangeImagePlanar8ConstPtrE"></span><span id="pcl::RangeImagePlanar::ConstPtr"></span><span class="target" id="classpcl_1_1_range_image_planar_1ab53258a981f3919c1cc5fad87cd75dc0"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl16RangeImagePlanarE" title="pcl::RangeImagePlanar">RangeImagePlanar</a>&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl16RangeImagePlanar16RangeImagePlanarEv">
+<span id="_CPPv3N3pcl16RangeImagePlanar16RangeImagePlanarEv"></span><span id="_CPPv2N3pcl16RangeImagePlanar16RangeImagePlanarEv"></span><span id="pcl::RangeImagePlanar::RangeImagePlanar"></span><span class="target" id="classpcl_1_1_range_image_planar_1aa9f19352f5b5d4655b20fb976c054d18"></span>PCL_EXPORTS <code class="sig-name descname">RangeImagePlanar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar16RangeImagePlanarEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RangeImagePlanarD0Ev">
+<span id="_CPPv3N3pcl16RangeImagePlanarD0Ev"></span><span id="_CPPv2N3pcl16RangeImagePlanarD0Ev"></span><span id="pcl::RangeImagePlanar::~RangeImagePlanar"></span><span class="target" id="classpcl_1_1_range_image_planar_1a397338f0c23eb42ea10c903563e11342"></span><em class="property">virtual</em> PCL_EXPORTS <code class="sig-name descname">~RangeImagePlanar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanarD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RangeImagePlanar6getNewEv">
+<span id="_CPPv3NK3pcl16RangeImagePlanar6getNewEv"></span><span id="_CPPv2NK3pcl16RangeImagePlanar6getNewEv"></span><span id="pcl::RangeImagePlanar::getNewC"></span><span class="target" id="classpcl_1_1_range_image_planar_1a32b6b82b559574477544219f4444e12d"></span><em class="property">virtual</em> <a class="reference internal" href="classpcl_1_1_range_image.html#_CPPv4N3pcl10RangeImageE" title="pcl::RangeImage">RangeImage</a> *<code class="sig-name descname">getNew</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RangeImagePlanar6getNewEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return a newly created <a class="reference internal" href="#classpcl_1_1_range_image_planar"><span class="std std-ref">RangeImagePlanar</span></a>. </p>
+<p>Reimplementation to return an image of the same type. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_range_image_planar_1abd9ed7e2765d0f7cbb64ae9c890543e2"></span><code class="sig-name descname">virtual PCL_EXPORTS void pcl::RangeImagePlanar::copyTo(RangeImage  &amp; other) const</code></dt>
+<dd><p>Copy *this to other. </p>
+<p>Derived version - also copying additional <a class="reference internal" href="#classpcl_1_1_range_image_planar"><span class="std std-ref">RangeImagePlanar</span></a> members </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RangeImagePlanar10makeSharedEv">
+<span id="_CPPv3N3pcl16RangeImagePlanar10makeSharedEv"></span><span id="_CPPv2N3pcl16RangeImagePlanar10makeSharedEv"></span><span id="pcl::RangeImagePlanar::makeShared"></span><span class="target" id="classpcl_1_1_range_image_planar_1a139d1db3bb9a43315aa8e360bb2902d1"></span><a class="reference internal" href="#_CPPv4N3pcl16RangeImagePlanar3PtrE" title="pcl::RangeImagePlanar::Ptr">Ptr</a> <code class="sig-name descname">makeShared</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar10makeSharedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a boost shared pointer of a copy of this. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_range_image_planar_1a751d0027979b31ccb2dbde563c8af11e"></span><code class="sig-name descname">PCL_EXPORTS void pcl::RangeImagePlanar::setDisparityImage(const float * disparity_image, int di_width, int di_height, float focal_length, float base_line, float desired_angular_resolution = -1)</code></dt>
+<dd><p>Create the image from an existing disparity image. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">disparity_image</span></code>: the input disparity image data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_width</span></code>: the disparity image width </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_height</span></code>: the disparity image height </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">focal_length</span></code>: the focal length of the primary camera that generated the disparity image </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base_line</span></code>: the baseline of the stereo pair that generated the disparity image </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">desired_angular_resolution</span></code>: If this is set, the system will skip as many pixels as necessary to get as close to this angular resolution as possible while not going over this value (the density will not be lower than this value). The value is in radians per pixel. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_range_image_planar_1ae62978a6c6a5f50a794b930d104ebd24"></span><code class="sig-name descname">PCL_EXPORTS void pcl::RangeImagePlanar::setDepthImage(const float * depth_image, int di_width, int di_height, float di_center_x, float di_center_y, float di_focal_length_x, float di_focal_length_y, float desired_angular_resolution = -1)</code></dt>
+<dd><p>Create the image from an existing depth image. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">depth_image</span></code>: the input depth image data as float values </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_width</span></code>: the disparity image width </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_height</span></code>: the disparity image height </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_center_x</span></code>: the x-coordinate of the camera’s center of projection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_center_y</span></code>: the y-coordinate of the camera’s center of projection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_focal_length_x</span></code>: the camera’s focal length in the horizontal direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_focal_length_y</span></code>: the camera’s focal length in the vertical direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">desired_angular_resolution</span></code>: If this is set, the system will skip as many pixels as necessary to get as close to this angular resolution as possible while not going over this value (the density will not be lower than this value). The value is in radians per pixel. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_range_image_planar_1a07267e36bbb35ec1e4d43d9001884a00"></span><code class="sig-name descname">PCL_EXPORTS void pcl::RangeImagePlanar::setDepthImage(const unsigned short * depth_image, int di_width, int di_height, float di_center_x, float di_center_y, float di_focal_length_x, float di_focal_length_y, float desired_angular_resolution = -1)</code></dt>
+<dd><p>Create the image from an existing depth image. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">depth_image</span></code>: the input disparity image data as short values describing millimeters </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_width</span></code>: the disparity image width </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_height</span></code>: the disparity image height </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_center_x</span></code>: the x-coordinate of the camera’s center of projection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_center_y</span></code>: the y-coordinate of the camera’s center of projection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_focal_length_x</span></code>: the camera’s focal length in the horizontal direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_focal_length_y</span></code>: the camera’s focal length in the vertical direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">desired_angular_resolution</span></code>: If this is set, the system will skip as many pixels as necessary to get as close to this angular resolution as possible while not going over this value (the density will not be lower than this value). The value is in radians per pixel. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl16RangeImagePlanar33createFromPointCloudWithFixedSizeEvRK14PointCloudTypeiiffffRKN5Eigen8Affine3fE15CoordinateFrameff">
+<span id="_CPPv3I0EN3pcl16RangeImagePlanar33createFromPointCloudWithFixedSizeERK14PointCloudTypeiiffffRKN5Eigen8Affine3fE15CoordinateFrameff"></span><span id="_CPPv2I0EN3pcl16RangeImagePlanar33createFromPointCloudWithFixedSizeERK14PointCloudTypeiiffffRKN5Eigen8Affine3fE15CoordinateFrameff"></span><span class="target" id="classpcl_1_1_range_image_planar_1a47fc71b0700792cb0b078e9bbbc537f5"></span>template&lt;typename <code class="sig-name descname">PointCloudType</code>&gt;<br />void <code class="sig-name descname">createFromPointCloudWithFixedSize</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4I0EN3pcl16RangeImagePlanar33createFromPointCloudWithFixedSizeEvRK14PointCloudTypeiiffffRKN5Eigen8Affine3fE15CoordinateFrameff" title="pcl::RangeImagePlanar::createFromPointCloudWithFixedSize::PointCloudType">PointCloudType</a> &amp;<em>point_cloud</em>, int <em>di_width</em>, int <em>di_height</em>, float <em>di_center_x</em>, float <em>di_center_y</em>, float <em>di_focal_length_x</em>, float <em>di_focal_length_y</em>, <em class="property">const</em> Eigen::Affine3f &amp;<em>sensor_pose</em>, CoordinateFrame <em>coordinate_frame</em> = CAMERA_FRAME, float <em>noise_level</em> = 0.0f, float <em>min_range</em> = 0.0f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl16RangeImagePlanar33createFromPointCloudWithFixedSizeEvRK14PointCloudTypeiiffffRKN5Eigen8Affine3fE15CoordinateFrameff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create the image from an existing point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">point_cloud</span></code>: the source point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_width</span></code>: the disparity image width </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_height</span></code>: the disparity image height </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_center_x</span></code>: the x-coordinate of the camera’s center of projection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_center_y</span></code>: the y-coordinate of the camera’s center of projection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_focal_length_x</span></code>: the camera’s focal length in the horizontal direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">di_focal_length_y</span></code>: the camera’s focal length in the vertical direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sensor_pose</span></code>: the pose of the virtual depth camera </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coordinate_frame</span></code>: the used coordinate frame of the point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">noise_level</span></code>: what is the typical noise of the sensor - is used for averaging in the z-buffer </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_range</span></code>: minimum range to consifder points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RangeImagePlanar16calculate3DPointEfffRN5Eigen8Vector3fE">
+<span id="_CPPv3NK3pcl16RangeImagePlanar16calculate3DPointEfffRN5Eigen8Vector3fE"></span><span id="_CPPv2NK3pcl16RangeImagePlanar16calculate3DPointEfffRN5Eigen8Vector3fE"></span><span id="pcl::RangeImagePlanar::calculate3DPoint__float.float.float.Eigen::Vector3fRC"></span><span class="target" id="classpcl_1_1_range_image_planar_1ad70f36ae057187661eaf644c83844f33"></span>void <code class="sig-name descname">calculate3DPoint</code><span class="sig-paren">(</span>float <em>image_x</em>, float <em>image_y</em>, float <em>range</em>, Eigen::Vector3f &amp;<em>point</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RangeImagePlanar16calculate3DPointEfffRN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the 3D point according to the given image point and range. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Implementation according to planar range images (compared to spherical as in the original) </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image_x</span></code>: the x image position </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_y</span></code>: the y image position </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code>: the range </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">point</span></code>: the resulting 3D point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RangeImagePlanar13getImagePointERKN5Eigen8Vector3fERfRfRf">
+<span id="_CPPv3NK3pcl16RangeImagePlanar13getImagePointERKN5Eigen8Vector3fERfRfRf"></span><span id="_CPPv2NK3pcl16RangeImagePlanar13getImagePointERKN5Eigen8Vector3fERfRfRf"></span><span id="pcl::RangeImagePlanar::getImagePoint__Eigen::Vector3fCR.floatR.floatR.floatRC"></span><span class="target" id="classpcl_1_1_range_image_planar_1aaf84c256b308adaf1147670f957fc95c"></span>void <code class="sig-name descname">getImagePoint</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3f &amp;<em>point</em>, float &amp;<em>image_x</em>, float &amp;<em>image_y</em>, float &amp;<em>range</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RangeImagePlanar13getImagePointERKN5Eigen8Vector3fERfRfRf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the image point and range from the given 3D point. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Implementation according to planar range images (compared to spherical as in the original) </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">point</span></code>: the resulting 3D point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_x</span></code>: the resulting x image position </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_y</span></code>: the resulting y image position </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code>: the resulting range </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_range_image_planar_1a9fc7e3fe0e7c8745b01c81e20a26678a"></span><code class="sig-name descname">virtual PCL_EXPORTS void pcl::RangeImagePlanar::getSubImage(int sub_image_image_offset_x, int sub_image_image_offset_y, int sub_image_width, int sub_image_height, int combine_pixels, RangeImage  &amp; sub_image) const</code></dt>
+<dd><p>Get a sub part of the complete image as a new range image. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sub_image_image_offset_x</span></code>: - The x coordinate of the top left pixel of the sub image. This is always according to absolute 0,0 meaning -180°,-90° and it is already in the system of the new image, so the actual pixel used in the original image is combine_pixels* (image_offset_x-image_offset_x_) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sub_image_image_offset_y</span></code>: - Same as image_offset_x for the y coordinate </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sub_image_width</span></code>: - width of the new image </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sub_image_height</span></code>: - height of the new image </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">combine_pixels</span></code>: - shrinking factor, meaning the new angular resolution is combine_pixels times the old one </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sub_image</span></code>: - the output image </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_range_image_planar_1a68bebf8ca1c0c19deaa7769b3a43be7a"></span><code class="sig-name descname">virtual PCL_EXPORTS void pcl::RangeImagePlanar::getHalfImage(RangeImage  &amp; half_image) const</code></dt>
+<dd><p>Get a range image with half the resolution. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RangeImagePlanar15getFocalLengthXEv">
+<span id="_CPPv3NK3pcl16RangeImagePlanar15getFocalLengthXEv"></span><span id="_CPPv2NK3pcl16RangeImagePlanar15getFocalLengthXEv"></span><span id="pcl::RangeImagePlanar::getFocalLengthXC"></span><span class="target" id="classpcl_1_1_range_image_planar_1aa3165ef71f905675c934684f796fbded"></span>float <code class="sig-name descname">getFocalLengthX</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RangeImagePlanar15getFocalLengthXEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Getter for the focal length in X. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RangeImagePlanar15getFocalLengthYEv">
+<span id="_CPPv3NK3pcl16RangeImagePlanar15getFocalLengthYEv"></span><span id="_CPPv2NK3pcl16RangeImagePlanar15getFocalLengthYEv"></span><span id="pcl::RangeImagePlanar::getFocalLengthYC"></span><span class="target" id="classpcl_1_1_range_image_planar_1a4c39ae227e1b926115d0d199c610840c"></span>float <code class="sig-name descname">getFocalLengthY</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RangeImagePlanar15getFocalLengthYEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Getter for the focal length in Y. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RangeImagePlanar10getCenterXEv">
+<span id="_CPPv3NK3pcl16RangeImagePlanar10getCenterXEv"></span><span id="_CPPv2NK3pcl16RangeImagePlanar10getCenterXEv"></span><span id="pcl::RangeImagePlanar::getCenterXC"></span><span class="target" id="classpcl_1_1_range_image_planar_1a1617298e3285d0d2508984f5f51e3337"></span>float <code class="sig-name descname">getCenterX</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RangeImagePlanar10getCenterXEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Getter for the principal point in X. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RangeImagePlanar10getCenterYEv">
+<span id="_CPPv3NK3pcl16RangeImagePlanar10getCenterYEv"></span><span id="_CPPv2NK3pcl16RangeImagePlanar10getCenterYEv"></span><span id="pcl::RangeImagePlanar::getCenterYC"></span><span class="target" id="classpcl_1_1_range_image_planar_1a7c9a1e092b286b7100edfce18bc16f6e"></span>float <code class="sig-name descname">getCenterY</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RangeImagePlanar10getCenterYEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Getter for the principal point in Y. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10RangeImage16calculate3DPointEv">
+<span id="_CPPv3N3pcl10RangeImage16calculate3DPointEv"></span><span id="_CPPv2N3pcl10RangeImage16calculate3DPointEv"></span><span id="pcl::RangeImage::calculate3DPoint"></span><span class="target" id="classpcl_1_1_range_image_planar_1a1acc16b4b5fb7071175bada62a5b75d0"></span>void <code class="sig-name descname">calculate3DPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10RangeImage16calculate3DPointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the 3D point according to the given image point and range. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10RangeImage16calculate3DPointEv">
+<span id="_CPPv3N3pcl10RangeImage16calculate3DPointEv"></span><span id="_CPPv2N3pcl10RangeImage16calculate3DPointEv"></span><span class="target" id="classpcl_1_1_range_image_planar_1a0f969bd0149b7848f0f26b44bb88035c"></span>void <code class="sig-name descname">calculate3DPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Calculate the 3D point according to the given image point and the range value at the closest pixel. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10RangeImage16calculate3DPointEv">
+<span id="_CPPv3N3pcl10RangeImage16calculate3DPointEv"></span><span class="target" id="classpcl_1_1_range_image_planar_1aa9e97e7487ac21a77075b5f8b64ca205"></span>void <code class="sig-name descname">calculate3DPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Calculate the 3D point according to the given image point and range. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10RangeImage16calculate3DPointEv">
+<span class="target" id="classpcl_1_1_range_image_planar_1abbb77866cf4ee5d2a619f4f8cc62cc9b"></span>void <code class="sig-name descname">calculate3DPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Calculate the 3D point according to the given image point and the range value at the closest pixel. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10RangeImage13getImagePointEv">
+<span id="_CPPv3N3pcl10RangeImage13getImagePointEv"></span><span id="_CPPv2N3pcl10RangeImage13getImagePointEv"></span><span id="pcl::RangeImage::getImagePoint"></span><span class="target" id="classpcl_1_1_range_image_planar_1a7a53bfc9f4a3365ee8e62513ae37eb5c"></span>void <code class="sig-name descname">getImagePoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10RangeImage13getImagePointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get imagePoint from 3D point in world coordinates. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10RangeImage13getImagePointEv">
+<span id="_CPPv3N3pcl10RangeImage13getImagePointEv"></span><span id="_CPPv2N3pcl10RangeImage13getImagePointEv"></span><span class="target" id="classpcl_1_1_range_image_planar_1a9295b795c8f52a90eb3af983612fea8a"></span>void <code class="sig-name descname">getImagePoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Same as above. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10RangeImage13getImagePointEv">
+<span id="_CPPv3N3pcl10RangeImage13getImagePointEv"></span><span class="target" id="classpcl_1_1_range_image_planar_1a8b9b678a491ddefc1109494157e0aa83"></span>void <code class="sig-name descname">getImagePoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Same as above. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10RangeImage13getImagePointEv">
+<span class="target" id="classpcl_1_1_range_image_planar_1aac7ef90b9c78876a492fd16701d6578e"></span>void <code class="sig-name descname">getImagePoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Same as above. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_range_image_planar_1a09c81c4b4ffd68fc5742167d15f6af87"></span>void <code class="sig-name descname">getImagePoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Same as above. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_range_image_planar_1a8123412373a87d5030ee5f8a9b3ba3e4"></span>void <code class="sig-name descname">getImagePoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Same as above. </p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1_range_image_planar_1a2ba0bfce9adcf8161feec7c59f75082c"></span>void <code class="sig-name descname">getImagePoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Same as above. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl16RangeImagePlanar15focal_length_x_E">
+<span id="_CPPv3N3pcl16RangeImagePlanar15focal_length_x_E"></span><span id="_CPPv2N3pcl16RangeImagePlanar15focal_length_x_E"></span><span id="pcl::RangeImagePlanar::focal_length_x___float"></span><span class="target" id="classpcl_1_1_range_image_planar_1a46e0235f57da18aa442985eef8a653e5"></span>float <code class="sig-name descname">focal_length_x_</code><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar15focal_length_x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16RangeImagePlanar15focal_length_y_E">
+<span id="_CPPv3N3pcl16RangeImagePlanar15focal_length_y_E"></span><span id="_CPPv2N3pcl16RangeImagePlanar15focal_length_y_E"></span><span id="pcl::RangeImagePlanar::focal_length_y___float"></span><span class="target" id="classpcl_1_1_range_image_planar_1aa329fde53679199bc7b295ad324d2d27"></span>float <code class="sig-name descname">focal_length_y_</code><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar15focal_length_y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The focal length of the image in pixels. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16RangeImagePlanar26focal_length_x_reciprocal_E">
+<span id="_CPPv3N3pcl16RangeImagePlanar26focal_length_x_reciprocal_E"></span><span id="_CPPv2N3pcl16RangeImagePlanar26focal_length_x_reciprocal_E"></span><span id="pcl::RangeImagePlanar::focal_length_x_reciprocal___float"></span><span class="target" id="classpcl_1_1_range_image_planar_1a3fe3c75dfb52a7eb75e8ee46b2042e88"></span>float <code class="sig-name descname">focal_length_x_reciprocal_</code><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar26focal_length_x_reciprocal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16RangeImagePlanar26focal_length_y_reciprocal_E">
+<span id="_CPPv3N3pcl16RangeImagePlanar26focal_length_y_reciprocal_E"></span><span id="_CPPv2N3pcl16RangeImagePlanar26focal_length_y_reciprocal_E"></span><span id="pcl::RangeImagePlanar::focal_length_y_reciprocal___float"></span><span class="target" id="classpcl_1_1_range_image_planar_1a664df606b14bc13081320a248ccd553d"></span>float <code class="sig-name descname">focal_length_y_reciprocal_</code><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar26focal_length_y_reciprocal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>1/focal_length -&gt; for internal use </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16RangeImagePlanar9center_x_E">
+<span id="_CPPv3N3pcl16RangeImagePlanar9center_x_E"></span><span id="_CPPv2N3pcl16RangeImagePlanar9center_x_E"></span><span id="pcl::RangeImagePlanar::center_x___float"></span><span class="target" id="classpcl_1_1_range_image_planar_1a280deeb2c771cda041c70d8597b79409"></span>float <code class="sig-name descname">center_x_</code><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar9center_x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16RangeImagePlanar9center_y_E">
+<span id="_CPPv3N3pcl16RangeImagePlanar9center_y_E"></span><span id="_CPPv2N3pcl16RangeImagePlanar9center_y_E"></span><span id="pcl::RangeImagePlanar::center_y___float"></span><span class="target" id="classpcl_1_1_range_image_planar_1a61fa15b24e42e2be6f4440c2b8e396ab"></span>float <code class="sig-name descname">center_y_</code><a class="headerlink" href="#_CPPv4N3pcl16RangeImagePlanar9center_y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The principle point of the image. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

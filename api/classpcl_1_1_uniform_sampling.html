@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class UniformSampling &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class UniformSampling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_uniform_sampling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-uniformsampling">
+<span id="exhale-class-classpcl-1-1-uniform-sampling"></span><h1>Template Class UniformSampling<a class="headerlink" href="#template-class-uniformsampling" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_filters_include_pcl_filters_uniform_sampling.h.html#file-pcl-filters-include-pcl-filters-uniform-sampling-h"><span class="std std-ref">File uniform_sampling.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_uniform_sampling_1_1_leaf.html#exhale-struct-structpcl-1-1-uniform-sampling-1-1-leaf"><span class="std std-ref">Struct UniformSampling::Leaf</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Filter&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_filter.html#exhale-class-classpcl-1-1-filter"><span class="std std-ref">Template Class Filter</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl15UniformSamplingE">
+<span id="_CPPv3I0EN3pcl15UniformSamplingE"></span><span id="_CPPv2I0EN3pcl15UniformSamplingE"></span><span class="target" id="classpcl_1_1_uniform_sampling"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">UniformSampling</code> : <em class="property">public</em> pcl::Filter&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl15UniformSamplingE" title="pcl::UniformSampling::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl15UniformSamplingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_uniform_sampling"><span class="std std-ref">UniformSampling</span></a></strong> assembles a local 3D grid over a given <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a>, and downsamples + filters the data. </p>
+<p>The <strong><a class="reference internal" href="#classpcl_1_1_uniform_sampling"><span class="std std-ref">UniformSampling</span></a></strong> class creates a <em>3D voxel grid</em> (think about a voxel grid as a set of tiny 3D boxes in space) over the input point cloud data. Then, in each <em>voxel</em> (i.e., 3D box), all the points present will be approximated (i.e., <em>downsampled</em>) with their centroid. This approach is a bit slower than approximating them with the center of the voxel, but it represents the underlying surface more accurately.</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Radu Bogdan Rusu </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl15UniformSampling3PtrE">
+<span id="_CPPv3N3pcl15UniformSampling3PtrE"></span><span id="_CPPv2N3pcl15UniformSampling3PtrE"></span><span id="pcl::UniformSampling::Ptr"></span><span class="target" id="classpcl_1_1_uniform_sampling_1a6204fe8e17dc82749d0008d6846fa502"></span><em class="property">typedef </em>boost::shared_ptr&lt;UniformSampling&lt;PointT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15UniformSampling8ConstPtrE">
+<span id="_CPPv3N3pcl15UniformSampling8ConstPtrE"></span><span id="_CPPv2N3pcl15UniformSampling8ConstPtrE"></span><span id="pcl::UniformSampling::ConstPtr"></span><span class="target" id="classpcl_1_1_uniform_sampling_1aa145f6dc3dab84cb3ecff24474320d86"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> UniformSampling&lt;PointT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl15UniformSampling15UniformSamplingEb">
+<span id="_CPPv3N3pcl15UniformSampling15UniformSamplingEb"></span><span id="_CPPv2N3pcl15UniformSampling15UniformSamplingEb"></span><span id="pcl::UniformSampling::UniformSampling__b"></span><span class="target" id="classpcl_1_1_uniform_sampling_1ad2ff66b4f416a6682b00cbccf191bd76"></span><code class="sig-name descname">UniformSampling</code><span class="sig-paren">(</span>bool <em>extract_removed_indices</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling15UniformSamplingEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15UniformSamplingD0Ev">
+<span id="_CPPv3N3pcl15UniformSamplingD0Ev"></span><span id="_CPPv2N3pcl15UniformSamplingD0Ev"></span><span id="pcl::UniformSampling::~UniformSampling"></span><span class="target" id="classpcl_1_1_uniform_sampling_1a395648b36153fe612f2cb651bab6f9d2"></span><em class="property">virtual</em> <code class="sig-name descname">~UniformSampling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15UniformSamplingD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15UniformSampling15setRadiusSearchEd">
+<span id="_CPPv3N3pcl15UniformSampling15setRadiusSearchEd"></span><span id="_CPPv2N3pcl15UniformSampling15setRadiusSearchEd"></span><span id="pcl::UniformSampling::setRadiusSearch__double"></span><span class="target" id="classpcl_1_1_uniform_sampling_1aca9ee065b797d845f506a6390bcdc064"></span><em class="property">virtual</em> void <code class="sig-name descname">setRadiusSearch</code><span class="sig-paren">(</span>double <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling15setRadiusSearchEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the 3D grid leaf size. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code>: the 3D grid leaf size </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl15UniformSampling11applyFilterER10PointCloud">
+<span id="_CPPv3N3pcl15UniformSampling11applyFilterER10PointCloud"></span><span id="_CPPv2N3pcl15UniformSampling11applyFilterER10PointCloud"></span><span id="pcl::UniformSampling::applyFilter__PointCloudR"></span><span class="target" id="classpcl_1_1_uniform_sampling_1ab3c48b0d51eea9eb731666a5cd83b1a7"></span>void <code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span>PointCloud &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling11applyFilterER10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Downsample a Point Cloud using a voxelized grid approach. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant point cloud message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl15UniformSampling7leaves_E">
+<span id="_CPPv3N3pcl15UniformSampling7leaves_E"></span><span id="_CPPv2N3pcl15UniformSampling7leaves_E"></span><span id="pcl::UniformSampling::leaves___boost::unordered_map:s.Leaf:"></span><span class="target" id="classpcl_1_1_uniform_sampling_1a38aca1bcb2e35f039ce853a43933c3fe"></span>boost::unordered_map&lt;size_t, <a class="reference internal" href="#_CPPv4N3pcl15UniformSampling4LeafE" title="pcl::UniformSampling::Leaf">Leaf</a>&gt; <code class="sig-name descname">leaves_</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling7leaves_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The 3D grid leaves. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15UniformSampling10leaf_size_E">
+<span id="_CPPv3N3pcl15UniformSampling10leaf_size_E"></span><span id="_CPPv2N3pcl15UniformSampling10leaf_size_E"></span><span id="pcl::UniformSampling::leaf_size___Eigen::Vector4f"></span><span class="target" id="classpcl_1_1_uniform_sampling_1a2644f4f24fff1e895cceaa6e1262af59"></span>Eigen::Vector4f <code class="sig-name descname">leaf_size_</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling10leaf_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The size of a leaf. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15UniformSampling18inverse_leaf_size_E">
+<span id="_CPPv3N3pcl15UniformSampling18inverse_leaf_size_E"></span><span id="_CPPv2N3pcl15UniformSampling18inverse_leaf_size_E"></span><span id="pcl::UniformSampling::inverse_leaf_size___Eigen::Array4f"></span><span class="target" id="classpcl_1_1_uniform_sampling_1a28cddb4338da989eae8685534409d00c"></span>Eigen::Array4f <code class="sig-name descname">inverse_leaf_size_</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling18inverse_leaf_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Internal leaf sizes stored as 1/leaf_size_ for efficiency reasons. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15UniformSampling6min_b_E">
+<span id="_CPPv3N3pcl15UniformSampling6min_b_E"></span><span id="_CPPv2N3pcl15UniformSampling6min_b_E"></span><span id="pcl::UniformSampling::min_b___Eigen::Vector4i"></span><span class="target" id="classpcl_1_1_uniform_sampling_1a03f7f1fe8c6155dbe06cb91c22ae0384"></span>Eigen::Vector4i <code class="sig-name descname">min_b_</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling6min_b_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The minimum and maximum bin coordinates, the number of divisions, and the division multiplier. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15UniformSampling6max_b_E">
+<span id="_CPPv3N3pcl15UniformSampling6max_b_E"></span><span id="_CPPv2N3pcl15UniformSampling6max_b_E"></span><span id="pcl::UniformSampling::max_b___Eigen::Vector4i"></span><span class="target" id="classpcl_1_1_uniform_sampling_1af5201929d1b623ad41e6c17f62a82706"></span>Eigen::Vector4i <code class="sig-name descname">max_b_</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling6max_b_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15UniformSampling6div_b_E">
+<span id="_CPPv3N3pcl15UniformSampling6div_b_E"></span><span id="_CPPv2N3pcl15UniformSampling6div_b_E"></span><span id="pcl::UniformSampling::div_b___Eigen::Vector4i"></span><span class="target" id="classpcl_1_1_uniform_sampling_1aeb2ec0441a486d35fa8859082f8e6dcb"></span>Eigen::Vector4i <code class="sig-name descname">div_b_</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling6div_b_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15UniformSampling9divb_mul_E">
+<span id="_CPPv3N3pcl15UniformSampling9divb_mul_E"></span><span id="_CPPv2N3pcl15UniformSampling9divb_mul_E"></span><span id="pcl::UniformSampling::divb_mul___Eigen::Vector4i"></span><span class="target" id="classpcl_1_1_uniform_sampling_1a9ff100353084756e477a09e32c32846b"></span>Eigen::Vector4i <code class="sig-name descname">divb_mul_</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling9divb_mul_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15UniformSampling14search_radius_E">
+<span id="_CPPv3N3pcl15UniformSampling14search_radius_E"></span><span id="_CPPv2N3pcl15UniformSampling14search_radius_E"></span><span id="pcl::UniformSampling::search_radius___double"></span><span class="target" id="classpcl_1_1_uniform_sampling_1a438a4a7c497e90d72bc150b7467d0852"></span>double <code class="sig-name descname">search_radius_</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling14search_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The nearest neighbors search radius for each point. </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl15UniformSampling4LeafE">
+<span id="_CPPv3N3pcl15UniformSampling4LeafE"></span><span id="_CPPv2N3pcl15UniformSampling4LeafE"></span><span id="pcl::UniformSampling::Leaf"></span><span class="target" id="structpcl_1_1_uniform_sampling_1_1_leaf"></span><em class="property">struct </em><code class="sig-name descname">Leaf</code><a class="headerlink" href="#_CPPv4N3pcl15UniformSampling4LeafE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Simple structure to hold an nD centroid and the number of points in a leaf. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl15UniformSamplingI6PointTE4Leaf4LeafEv">
+<span id="_CPPv3IEN3pcl15UniformSamplingI6PointTE4Leaf4LeafEv"></span><span id="_CPPv2IEN3pcl15UniformSamplingI6PointTE4Leaf4LeafEv"></span><span class="target" id="structpcl_1_1_uniform_sampling_1_1_leaf_1aefe7bac5401dde4ad36d64a7a1553c5e"></span>template&lt;&gt;<br /><code class="sig-name descname">Leaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl15UniformSamplingI6PointTE4Leaf4LeafEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl15UniformSamplingI6PointTE4Leaf3idxE">
+<span id="_CPPv3IEN3pcl15UniformSamplingI6PointTE4Leaf3idxE"></span><span id="_CPPv2IEN3pcl15UniformSamplingI6PointTE4Leaf3idxE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_uniform_sampling_1_1_leaf_1afad0cab7f401b218ffb8ffc16a435217"></span>int <code class="sig-name descname">idx</code><a class="headerlink" href="#_CPPv4IEN3pcl15UniformSamplingI6PointTE4Leaf3idxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

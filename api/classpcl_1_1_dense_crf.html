@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class DenseCrf &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class DenseCrf</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_dense_crf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-densecrf">
+<span id="exhale-class-classpcl-1-1-dense-crf"></span><h1>Class DenseCrf<a class="headerlink" href="#class-densecrf" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_ml_include_pcl_ml_densecrf.h.html#file-pcl-ml-include-pcl-ml-densecrf-h"><span class="std std-ref">File densecrf.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl8DenseCrfE">
+<span id="_CPPv3N3pcl8DenseCrfE"></span><span id="_CPPv2N3pcl8DenseCrfE"></span><span id="pcl::DenseCrf"></span><span class="target" id="classpcl_1_1_dense_crf"></span><em class="property">class </em><code class="sig-name descname">DenseCrf</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf8DenseCrfEii">
+<span id="_CPPv3N3pcl8DenseCrf8DenseCrfEii"></span><span id="_CPPv2N3pcl8DenseCrf8DenseCrfEii"></span><span id="pcl::DenseCrf::DenseCrf__i.i"></span><span class="target" id="classpcl_1_1_dense_crf_1a3c2aeef95d485d21c499bde46c31a3a8"></span><code class="sig-name descname">DenseCrf</code><span class="sig-paren">(</span>int <em>N</em>, int <em>m</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf8DenseCrfEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor for <a class="reference internal" href="#classpcl_1_1_dense_crf"><span class="std std-ref">DenseCrf</span></a> class. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrfD0Ev">
+<span id="_CPPv3N3pcl8DenseCrfD0Ev"></span><span id="_CPPv2N3pcl8DenseCrfD0Ev"></span><span id="pcl::DenseCrf::~DenseCrf"></span><span class="target" id="classpcl_1_1_dense_crf_1a40c6b180d6cc7445ff5467053f24ab58"></span><code class="sig-name descname">~DenseCrf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrfD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deconstructor for <a class="reference internal" href="#classpcl_1_1_dense_crf"><span class="std std-ref">DenseCrf</span></a> class. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf13setDataVectorEKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE">
+<span id="_CPPv3N3pcl8DenseCrf13setDataVectorEKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE"></span><span id="_CPPv2N3pcl8DenseCrf13setDataVectorEKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE"></span><span id="pcl::DenseCrf::setDataVector__std::vector:Eigen::Vector3i.Eigen::aligned_allocator:Eigen::Vector3i::C"></span><span class="target" id="classpcl_1_1_dense_crf_1a0441a06675da9348d73b948ee1558a97"></span>void <code class="sig-name descname">setDataVector</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;Eigen::Vector3i, Eigen::aligned_allocator&lt;Eigen::Vector3i&gt;&gt; <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf13setDataVectorEKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>set the input data vector. </p>
+<p>The input data vector holds the measurements coordinates as ijk of the voxel grid </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf14setColorVectorEKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE">
+<span id="_CPPv3N3pcl8DenseCrf14setColorVectorEKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE"></span><span id="_CPPv2N3pcl8DenseCrf14setColorVectorEKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE"></span><span id="pcl::DenseCrf::setColorVector__std::vector:Eigen::Vector3i.Eigen::aligned_allocator:Eigen::Vector3i::C"></span><span class="target" id="classpcl_1_1_dense_crf_1ae6b1eba9ec2d38bc8176c2de5647fd59"></span>void <code class="sig-name descname">setColorVector</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;Eigen::Vector3i, Eigen::aligned_allocator&lt;Eigen::Vector3i&gt;&gt; <em>color</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf14setColorVectorEKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The associated color of the data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf14setUnaryEnergyEKNSt6vectorIfEE">
+<span id="_CPPv3N3pcl8DenseCrf14setUnaryEnergyEKNSt6vectorIfEE"></span><span id="_CPPv2N3pcl8DenseCrf14setUnaryEnergyEKNSt6vectorIfEE"></span><span id="pcl::DenseCrf::setUnaryEnergy__std::vector:float:C"></span><span class="target" id="classpcl_1_1_dense_crf_1a663f306e79a003f9dbb98a7a5cdebfab"></span>void <code class="sig-name descname">setUnaryEnergy</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;float&gt; <em>unary</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf14setUnaryEnergyEKNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf17addPairwiseEnergyERKNSt6vectorIfEEKiKf">
+<span id="_CPPv3N3pcl8DenseCrf17addPairwiseEnergyERKNSt6vectorIfEEKiKf"></span><span id="_CPPv2N3pcl8DenseCrf17addPairwiseEnergyERKNSt6vectorIfEEKiKf"></span><span id="pcl::DenseCrf::addPairwiseEnergy__std::vector:float:CR.iC.floatC"></span><span class="target" id="classpcl_1_1_dense_crf_1ae66f573a26b61bdf3516bd0ff9e0e54a"></span>void <code class="sig-name descname">addPairwiseEnergy</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;float&gt; &amp;<em>feature</em>, <em class="property">const</em> int <em>feature_dimension</em>, <em class="property">const</em> float <em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf17addPairwiseEnergyERKNSt6vectorIfEEKiKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf19addPairwiseGaussianEffff">
+<span id="_CPPv3N3pcl8DenseCrf19addPairwiseGaussianEffff"></span><span id="_CPPv2N3pcl8DenseCrf19addPairwiseGaussianEffff"></span><span id="pcl::DenseCrf::addPairwiseGaussian__float.float.float.float"></span><span class="target" id="classpcl_1_1_dense_crf_1a5bb93254b147b20fff03f849353a0679"></span>void <code class="sig-name descname">addPairwiseGaussian</code><span class="sig-paren">(</span>float <em>sx</em>, float <em>sy</em>, float <em>sz</em>, float <em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf19addPairwiseGaussianEffff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a pairwise gaussian kernel. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf20addPairwiseBilateralEfffffff">
+<span id="_CPPv3N3pcl8DenseCrf20addPairwiseBilateralEfffffff"></span><span id="_CPPv2N3pcl8DenseCrf20addPairwiseBilateralEfffffff"></span><span id="pcl::DenseCrf::addPairwiseBilateral__float.float.float.float.float.float.float"></span><span class="target" id="classpcl_1_1_dense_crf_1a7bd8a262e025dcc1ea406842d9669c35"></span>void <code class="sig-name descname">addPairwiseBilateral</code><span class="sig-paren">(</span>float <em>sx</em>, float <em>sy</em>, float <em>sz</em>, float <em>sr</em>, float <em>sg</em>, float <em>sb</em>, float <em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf20addPairwiseBilateralEfffffff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a bilateral gaussian kernel. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf18addPairwiseNormalsERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEEfffffff">
+<span id="_CPPv3N3pcl8DenseCrf18addPairwiseNormalsERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEEfffffff"></span><span id="_CPPv2N3pcl8DenseCrf18addPairwiseNormalsERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEEfffffff"></span><span id="pcl::DenseCrf::addPairwiseNormals__std::vector:Eigen::Vector3i.Eigen::aligned_allocator:Eigen::Vector3i::R.std::vector:Eigen::Vector3f.Eigen::aligned_allocator:Eigen::Vector3f::R.float.float.float.float.float.float.float"></span><span class="target" id="classpcl_1_1_dense_crf_1a90b1dfd9c236933a3705a5742f7fe799"></span>void <code class="sig-name descname">addPairwiseNormals</code><span class="sig-paren">(</span>std::vector&lt;Eigen::Vector3i, Eigen::aligned_allocator&lt;Eigen::Vector3i&gt;&gt; &amp;<em>coord</em>, std::vector&lt;Eigen::Vector3f, Eigen::aligned_allocator&lt;Eigen::Vector3f&gt;&gt; &amp;<em>normals</em>, float <em>sx</em>, float <em>sy</em>, float <em>sz</em>, float <em>snx</em>, float <em>sny</em>, float <em>snz</em>, float <em>w</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf18addPairwiseNormalsERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERNSt6vectorIN5Eigen8Vector3fEN5Eigen17aligned_allocatorIN5Eigen8Vector3fEEEEEfffffff" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf9inferenceEiRNSt6vectorIfEEf">
+<span id="_CPPv3N3pcl8DenseCrf9inferenceEiRNSt6vectorIfEEf"></span><span id="_CPPv2N3pcl8DenseCrf9inferenceEiRNSt6vectorIfEEf"></span><span id="pcl::DenseCrf::inference__i.std::vector:float:R.float"></span><span class="target" id="classpcl_1_1_dense_crf_1ad9c1fb3197e784b7e43b5edea2ade874"></span>void <code class="sig-name descname">inference</code><span class="sig-paren">(</span>int <em>n_iterations</em>, std::vector&lt;float&gt; &amp;<em>result</em>, float <em>relax</em> = 1.0f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf9inferenceEiRNSt6vectorIfEEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf12mapInferenceEiRNSt6vectorIiEEf">
+<span id="_CPPv3N3pcl8DenseCrf12mapInferenceEiRNSt6vectorIiEEf"></span><span id="_CPPv2N3pcl8DenseCrf12mapInferenceEiRNSt6vectorIiEEf"></span><span id="pcl::DenseCrf::mapInference__i.std::vector:i:R.float"></span><span class="target" id="classpcl_1_1_dense_crf_1ab4194885f99688000dab1a5809c3881d"></span>void <code class="sig-name descname">mapInference</code><span class="sig-paren">(</span>int <em>n_iterations</em>, std::vector&lt;int&gt; &amp;<em>result</em>, float <em>relax</em> = 1.0f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf12mapInferenceEiRNSt6vectorIiEEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf15expAndNormalizeERNSt6vectorIfEERKNSt6vectorIfEEff">
+<span id="_CPPv3N3pcl8DenseCrf15expAndNormalizeERNSt6vectorIfEERKNSt6vectorIfEEff"></span><span id="_CPPv2N3pcl8DenseCrf15expAndNormalizeERNSt6vectorIfEERKNSt6vectorIfEEff"></span><span id="pcl::DenseCrf::expAndNormalize__std::vector:float:R.std::vector:float:CR.float.float"></span><span class="target" id="classpcl_1_1_dense_crf_1a86e7d5ca61e596ff669837af885bf571"></span>void <code class="sig-name descname">expAndNormalize</code><span class="sig-paren">(</span>std::vector&lt;float&gt; &amp;<em>out</em>, <em class="property">const</em> std::vector&lt;float&gt; &amp;<em>in</em>, float <em>scale</em>, float <em>relax</em> = 1.0f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf15expAndNormalizeERNSt6vectorIfEERKNSt6vectorIfEEff" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf18expAndNormalizeORIEPfPKfff">
+<span id="_CPPv3N3pcl8DenseCrf18expAndNormalizeORIEPfPKfff"></span><span id="_CPPv2N3pcl8DenseCrf18expAndNormalizeORIEPfPKfff"></span><span id="pcl::DenseCrf::expAndNormalizeORI__floatP.floatCP.float.float"></span><span class="target" id="classpcl_1_1_dense_crf_1a5b7cea1798122f061823e7a4c5b8d798"></span>void <code class="sig-name descname">expAndNormalizeORI</code><span class="sig-paren">(</span>float *<em>out</em>, <em class="property">const</em> float *<em>in</em>, float <em>scale</em> = 1.0f, float <em>relax</em> = 1.0f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf18expAndNormalizeORIEPfPKfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf3mapEiNSt6vectorIiEEf">
+<span id="_CPPv3N3pcl8DenseCrf3mapEiNSt6vectorIiEEf"></span><span id="_CPPv2N3pcl8DenseCrf3mapEiNSt6vectorIiEEf"></span><span id="pcl::DenseCrf::map__i.std::vector:i:.float"></span><span class="target" id="classpcl_1_1_dense_crf_1acc41b57b9c4ee903f125b25d8eb5009b"></span>void <code class="sig-name descname">map</code><span class="sig-paren">(</span>int <em>n_iterations</em>, std::vector&lt;int&gt; <em>result</em>, float <em>relax</em> = 1.0f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf3mapEiNSt6vectorIiEEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf12runInferenceEif">
+<span id="_CPPv3N3pcl8DenseCrf12runInferenceEif"></span><span id="_CPPv2N3pcl8DenseCrf12runInferenceEif"></span><span id="pcl::DenseCrf::runInference__i.float"></span><span class="target" id="classpcl_1_1_dense_crf_1ad6ab92d7c40f4eb74992e56bf81b44b1"></span>std::vector&lt;float&gt; <code class="sig-name descname">runInference</code><span class="sig-paren">(</span>int <em>n_iterations</em>, float <em>relax</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf12runInferenceEif" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf14startInferenceEv">
+<span id="_CPPv3N3pcl8DenseCrf14startInferenceEv"></span><span id="_CPPv2N3pcl8DenseCrf14startInferenceEv"></span><span id="pcl::DenseCrf::startInference"></span><span class="target" id="classpcl_1_1_dense_crf_1a1aba01f9eb609ed91c24f09390e53cd5"></span>void <code class="sig-name descname">startInference</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf14startInferenceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf13stepInferenceEf">
+<span id="_CPPv3N3pcl8DenseCrf13stepInferenceEf"></span><span id="_CPPv2N3pcl8DenseCrf13stepInferenceEf"></span><span id="pcl::DenseCrf::stepInference__float"></span><span class="target" id="classpcl_1_1_dense_crf_1ad37432f5bf0230e97d0509a6164a635d"></span>void <code class="sig-name descname">stepInference</code><span class="sig-paren">(</span>float <em>relax</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf13stepInferenceEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf12runInferenceEf">
+<span id="_CPPv3N3pcl8DenseCrf12runInferenceEf"></span><span id="_CPPv2N3pcl8DenseCrf12runInferenceEf"></span><span id="pcl::DenseCrf::runInference__float"></span><span class="target" id="classpcl_1_1_dense_crf_1a2b3a15921763f90ecdc05c3315bf29b1"></span>void <code class="sig-name descname">runInference</code><span class="sig-paren">(</span>float <em>relax</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf12runInferenceEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf14getBarycentricEiRNSt6vectorIfEE">
+<span id="_CPPv3N3pcl8DenseCrf14getBarycentricEiRNSt6vectorIfEE"></span><span id="_CPPv2N3pcl8DenseCrf14getBarycentricEiRNSt6vectorIfEE"></span><span id="pcl::DenseCrf::getBarycentric__i.std::vector:float:R"></span><span class="target" id="classpcl_1_1_dense_crf_1afce38ba1645238dc4c5cb9077f96a1da"></span>void <code class="sig-name descname">getBarycentric</code><span class="sig-paren">(</span>int <em>idx</em>, std::vector&lt;float&gt; &amp;<em>bary</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf14getBarycentricEiRNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8DenseCrf11getFeaturesEiRNSt6vectorIfEE">
+<span id="_CPPv3N3pcl8DenseCrf11getFeaturesEiRNSt6vectorIfEE"></span><span id="_CPPv2N3pcl8DenseCrf11getFeaturesEiRNSt6vectorIfEE"></span><span id="pcl::DenseCrf::getFeatures__i.std::vector:float:R"></span><span class="target" id="classpcl_1_1_dense_crf_1a08955b6b776a43ff9e95121d120f260e"></span>void <code class="sig-name descname">getFeatures</code><span class="sig-paren">(</span>int <em>idx</em>, std::vector&lt;float&gt; &amp;<em>features</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf11getFeaturesEiRNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf2N_E">
+<span id="_CPPv3N3pcl8DenseCrf2N_E"></span><span id="_CPPv2N3pcl8DenseCrf2N_E"></span><span id="pcl::DenseCrf::N___i"></span><span class="target" id="classpcl_1_1_dense_crf_1a69d37f760e543d420da781b402d38af5"></span>int <code class="sig-name descname">N_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf2N_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of variables and labels. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf2M_E">
+<span id="_CPPv3N3pcl8DenseCrf2M_E"></span><span id="_CPPv2N3pcl8DenseCrf2M_E"></span><span id="pcl::DenseCrf::M___i"></span><span class="target" id="classpcl_1_1_dense_crf_1acdeb44d154be609fe354018b6cbdf14f"></span>int <code class="sig-name descname">M_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf2M_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf5data_E">
+<span id="_CPPv3N3pcl8DenseCrf5data_E"></span><span id="_CPPv2N3pcl8DenseCrf5data_E"></span><span id="pcl::DenseCrf::data___std::vector:Eigen::Vector3i.Eigen::aligned_allocator:Eigen::Vector3i::"></span><span class="target" id="classpcl_1_1_dense_crf_1a53a954a194cf507691a238221338dc5b"></span>std::vector&lt;Eigen::Vector3i, Eigen::aligned_allocator&lt;Eigen::Vector3i&gt;&gt; <code class="sig-name descname">data_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf5data_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data vector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf6color_E">
+<span id="_CPPv3N3pcl8DenseCrf6color_E"></span><span id="_CPPv2N3pcl8DenseCrf6color_E"></span><span id="pcl::DenseCrf::color___std::vector:Eigen::Vector3i.Eigen::aligned_allocator:Eigen::Vector3i::"></span><span class="target" id="classpcl_1_1_dense_crf_1a7aa706760c61bebca66f00d2e449d26d"></span>std::vector&lt;Eigen::Vector3i, Eigen::aligned_allocator&lt;Eigen::Vector3i&gt;&gt; <code class="sig-name descname">color_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf6color_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Color vector. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf6unary_E">
+<span id="_CPPv3N3pcl8DenseCrf6unary_E"></span><span id="_CPPv2N3pcl8DenseCrf6unary_E"></span><span id="pcl::DenseCrf::unary___std::vector:float:"></span><span class="target" id="classpcl_1_1_dense_crf_1ace11861bdab6a79b56b5ae5aa65435a0"></span>std::vector&lt;float&gt; <code class="sig-name descname">unary_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf6unary_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>TODO: double might use to much memory. </p>
+<p>CRF unary potentials </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf8current_E">
+<span id="_CPPv3N3pcl8DenseCrf8current_E"></span><span id="_CPPv2N3pcl8DenseCrf8current_E"></span><span id="pcl::DenseCrf::current___std::vector:float:"></span><span class="target" id="classpcl_1_1_dense_crf_1a682df30d9499ee3ef820a4a93e891e5b"></span>std::vector&lt;float&gt; <code class="sig-name descname">current_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf8current_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf5next_E">
+<span id="_CPPv3N3pcl8DenseCrf5next_E"></span><span id="_CPPv2N3pcl8DenseCrf5next_E"></span><span id="pcl::DenseCrf::next___std::vector:float:"></span><span class="target" id="classpcl_1_1_dense_crf_1ae2ed26f8c1e7df28796a70d4eb8cc291"></span>std::vector&lt;float&gt; <code class="sig-name descname">next_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf5next_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf4tmp_E">
+<span id="_CPPv3N3pcl8DenseCrf4tmp_E"></span><span id="_CPPv2N3pcl8DenseCrf4tmp_E"></span><span id="pcl::DenseCrf::tmp___std::vector:float:"></span><span class="target" id="classpcl_1_1_dense_crf_1a200d2abf421d05c8c3cbc45611720cff"></span>std::vector&lt;float&gt; <code class="sig-name descname">tmp_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf4tmp_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf19pairwise_potential_E">
+<span id="_CPPv3N3pcl8DenseCrf19pairwise_potential_E"></span><span id="_CPPv2N3pcl8DenseCrf19pairwise_potential_E"></span><span id="pcl::DenseCrf::pairwise_potential___std::vector:PairwisePotentialP:"></span><span class="target" id="classpcl_1_1_dense_crf_1a6cf7d318334ffbffcc7a20975f05352f"></span>std::vector&lt;<a class="reference internal" href="classpcl_1_1_pairwise_potential.html#_CPPv4N3pcl17PairwisePotentialE" title="pcl::PairwisePotential">PairwisePotential</a> *&gt; <code class="sig-name descname">pairwise_potential_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf19pairwise_potential_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>pairwise potentials </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf4xyz_E">
+<span id="_CPPv3N3pcl8DenseCrf4xyz_E"></span><span id="_CPPv2N3pcl8DenseCrf4xyz_E"></span><span id="pcl::DenseCrf::xyz___b"></span><span class="target" id="classpcl_1_1_dense_crf_1a1d518d1dea6ea4b91eb88b69ca0c2625"></span>bool <code class="sig-name descname">xyz_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf4xyz_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>input types </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf4rgb_E">
+<span id="_CPPv3N3pcl8DenseCrf4rgb_E"></span><span id="_CPPv2N3pcl8DenseCrf4rgb_E"></span><span id="pcl::DenseCrf::rgb___b"></span><span class="target" id="classpcl_1_1_dense_crf_1a5f733b0e11ff6e5a305065ede003704b"></span>bool <code class="sig-name descname">rgb_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf4rgb_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8DenseCrf7normal_E">
+<span id="_CPPv3N3pcl8DenseCrf7normal_E"></span><span id="_CPPv2N3pcl8DenseCrf7normal_E"></span><span id="pcl::DenseCrf::normal___b"></span><span class="target" id="classpcl_1_1_dense_crf_1a6e774a2115e0b43ee7678ceeb92ce5e4"></span>bool <code class="sig-name descname">normal_</code><a class="headerlink" href="#_CPPv4N3pcl8DenseCrf7normal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

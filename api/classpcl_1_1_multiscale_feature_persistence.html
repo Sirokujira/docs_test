@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class MultiscaleFeaturePersistence &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class MultiscaleFeaturePersistence</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_multiscale_feature_persistence.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-multiscalefeaturepersistence">
+<span id="exhale-class-classpcl-1-1-multiscale-feature-persistence"></span><h1>Template Class MultiscaleFeaturePersistence<a class="headerlink" href="#template-class-multiscalefeaturepersistence" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_features_include_pcl_features_multiscale_feature_persistence.h.html#file-pcl-features-include-pcl-features-multiscale-feature-persistence-h"><span class="std std-ref">File multiscale_feature_persistence.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PCLBase&lt;</span> <span class="pre">PointSource</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_c_l_base.html#exhale-class-classpcl-1-1-p-c-l-base"><span class="std std-ref">Template Class PCLBase</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl28MultiscaleFeaturePersistenceE">
+<span id="_CPPv3I00EN3pcl28MultiscaleFeaturePersistenceE"></span><span id="_CPPv2I00EN3pcl28MultiscaleFeaturePersistenceE"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence"></span>template&lt;typename <code class="sig-name descname">PointSource</code>, typename <code class="sig-name descname">PointFeature</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">MultiscaleFeaturePersistence</code> : <em class="property">public</em> pcl::PCLBase&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl28MultiscaleFeaturePersistenceE" title="pcl::MultiscaleFeaturePersistence::PointSource">PointSource</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl28MultiscaleFeaturePersistenceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generic class for extracting the persistent features from an input point cloud It can be given any <a class="reference internal" href="classpcl_1_1_feature.html#classpcl_1_1_feature"><span class="std std-ref">Feature</span></a> estimator instance and will compute the features of the input over a multiscale representation of the cloud and output the unique ones over those scales. </p>
+<p>Please refer to the following publication for more details: Radu Bogdan Rusu, Zoltan Csaba Marton, Nico Blodow, and Michael Beetz Persistent Point <a class="reference internal" href="classpcl_1_1_feature.html#classpcl_1_1_feature"><span class="std std-ref">Feature</span></a> Histograms for 3D Point Clouds Proceedings of the 10th International Conference on Intelligent Autonomous Systems (IAS-10) 2008, Baden-Baden, Germany</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Alexandru-Eugen Ichim </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence3PtrE">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence3PtrE"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence3PtrE"></span><span id="pcl::MultiscaleFeaturePersistence::Ptr"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a925cc47f5ea0366e53c3cf8f000d3dfa"></span><em class="property">typedef </em>boost::shared_ptr&lt;MultiscaleFeaturePersistence&lt;PointSource, PointFeature&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence8ConstPtrE">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence8ConstPtrE"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence8ConstPtrE"></span><span id="pcl::MultiscaleFeaturePersistence::ConstPtr"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1af61797a1937a75772e2f2400cbf26e65"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> MultiscaleFeaturePersistence&lt;PointSource, PointFeature&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence12FeatureCloudE">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence12FeatureCloudE"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence12FeatureCloudE"></span><span id="pcl::MultiscaleFeaturePersistence::FeatureCloud"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a4e45d58445a8ae803d2d44a87ff87778"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointFeature&gt; <code class="sig-name descname">FeatureCloud</code><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence12FeatureCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence15FeatureCloudPtrE">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence15FeatureCloudPtrE"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence15FeatureCloudPtrE"></span><span id="pcl::MultiscaleFeaturePersistence::FeatureCloudPtr"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a44d67167d9fa53d8d2234d20db659f94"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointFeature&gt;::Ptr <code class="sig-name descname">FeatureCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence15FeatureCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence19FeatureEstimatorPtrE">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence19FeatureEstimatorPtrE"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence19FeatureEstimatorPtrE"></span><span id="pcl::MultiscaleFeaturePersistence::FeatureEstimatorPtr"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1ac0caa0af69f533bce17ef56d0a140e92"></span><em class="property">typedef </em>pcl::Feature&lt;PointSource, PointFeature&gt;::Ptr <code class="sig-name descname">FeatureEstimatorPtr</code><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence19FeatureEstimatorPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence29FeatureRepresentationConstPtrE">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence29FeatureRepresentationConstPtrE"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence29FeatureRepresentationConstPtrE"></span><span id="pcl::MultiscaleFeaturePersistence::FeatureRepresentationConstPtr"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a6129e2335e7ca284eaba0f9915232e0a"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> pcl::PointRepresentation&lt;PointFeature&gt;&gt; <code class="sig-name descname">FeatureRepresentationConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence29FeatureRepresentationConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence28MultiscaleFeaturePersistenceEv">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence28MultiscaleFeaturePersistenceEv"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence28MultiscaleFeaturePersistenceEv"></span><span id="pcl::MultiscaleFeaturePersistence::MultiscaleFeaturePersistence"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1acad907a232d8f53922d837685a7a1d88"></span><code class="sig-name descname">MultiscaleFeaturePersistence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence28MultiscaleFeaturePersistenceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistenceD0Ev">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistenceD0Ev"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistenceD0Ev"></span><span id="pcl::MultiscaleFeaturePersistence::~MultiscaleFeaturePersistence"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1ab28f54af5e815535bc41d6e58c5a94f4"></span><em class="property">virtual</em> <code class="sig-name descname">~MultiscaleFeaturePersistence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistenceD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence26computeFeaturesAtAllScalesEv">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence26computeFeaturesAtAllScalesEv"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence26computeFeaturesAtAllScalesEv"></span><span id="pcl::MultiscaleFeaturePersistence::computeFeaturesAtAllScales"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1aa6dd84394b9f1c382e026843f48ff75b"></span>void <code class="sig-name descname">computeFeaturesAtAllScales</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence26computeFeaturesAtAllScalesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that calls computeFeatureAtScale () for each scale parameter. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence27determinePersistentFeaturesER12FeatureCloudRN5boost10shared_ptrINSt6vectorIiEEEE">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence27determinePersistentFeaturesER12FeatureCloudRN5boost10shared_ptrINSt6vectorIiEEEE"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence27determinePersistentFeaturesER12FeatureCloudRN5boost10shared_ptrINSt6vectorIiEEEE"></span><span id="pcl::MultiscaleFeaturePersistence::determinePersistentFeatures__FeatureCloudR.boost::shared_ptr:std::vector:i::R"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1abd1ef078eadb07a1c91276957f197865"></span>void <code class="sig-name descname">determinePersistentFeatures</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence12FeatureCloudE" title="pcl::MultiscaleFeaturePersistence::FeatureCloud">FeatureCloud</a> &amp;<em>output_features</em>, boost::shared_ptr&lt;std::vector&lt;int&gt;&gt; &amp;<em>output_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence27determinePersistentFeaturesER12FeatureCloudRN5boost10shared_ptrINSt6vectorIiEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Central function that computes the persistent features. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output_features</span></code>: a cloud containing the persistent features </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_indices</span></code>: vector containing the indices of the points in the input cloud that have persistent features, under a one-to-one correspondence with the output_features cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence15setScalesVectorERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence15setScalesVectorERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence15setScalesVectorERNSt6vectorIfEE"></span><span id="pcl::MultiscaleFeaturePersistence::setScalesVector__std::vector:float:R"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a8fb4b0b29389719ebdf3363e6c3067d7"></span>void <code class="sig-name descname">setScalesVector</code><span class="sig-paren">(</span>std::vector&lt;float&gt; &amp;<em>scale_values</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence15setScalesVectorERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method for setting the scale parameters for the algorithm. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scale_values</span></code>: vector of scales to determine the characteristic of each scaling step </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence15getScalesVectorEv">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence15getScalesVectorEv"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence15getScalesVectorEv"></span><span id="pcl::MultiscaleFeaturePersistence::getScalesVector"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a0ca6498bd8734bd1a36d9a4b3adacc92"></span>std::vector&lt;float&gt; <code class="sig-name descname">getScalesVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence15getScalesVectorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method for getting the scale parameters vector. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence19setFeatureEstimatorE19FeatureEstimatorPtr">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence19setFeatureEstimatorE19FeatureEstimatorPtr"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence19setFeatureEstimatorE19FeatureEstimatorPtr"></span><span id="pcl::MultiscaleFeaturePersistence::setFeatureEstimator__FeatureEstimatorPtr"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a18007684230068263a72634de5b14578"></span>void <code class="sig-name descname">setFeatureEstimator</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence19FeatureEstimatorPtrE" title="pcl::MultiscaleFeaturePersistence::FeatureEstimatorPtr">FeatureEstimatorPtr</a> <em>feature_estimator</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence19setFeatureEstimatorE19FeatureEstimatorPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Setter method for the feature estimator. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>the feature estimator instance should already have the input data given beforehand and everything set, ready to be given the compute () command </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">feature_estimator</span></code>: pointer to the feature estimator instance that will be used </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence19getFeatureEstimatorEv">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence19getFeatureEstimatorEv"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence19getFeatureEstimatorEv"></span><span id="pcl::MultiscaleFeaturePersistence::getFeatureEstimator"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a538fb17e9871ba4c61745aec350c32df"></span><a class="reference internal" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence19FeatureEstimatorPtrE" title="pcl::MultiscaleFeaturePersistence::FeatureEstimatorPtr">FeatureEstimatorPtr</a> <code class="sig-name descname">getFeatureEstimator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence19getFeatureEstimatorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Getter method for the feature estimator. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence22setPointRepresentationERK29FeatureRepresentationConstPtr">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence22setPointRepresentationERK29FeatureRepresentationConstPtr"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence22setPointRepresentationERK29FeatureRepresentationConstPtr"></span><span id="pcl::MultiscaleFeaturePersistence::setPointRepresentation__FeatureRepresentationConstPtrCR"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1abdd02a2d62fd46cb88be143d7f99a447"></span>void <code class="sig-name descname">setPointRepresentation</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence29FeatureRepresentationConstPtrE" title="pcl::MultiscaleFeaturePersistence::FeatureRepresentationConstPtr">FeatureRepresentationConstPtr</a> &amp;<em>feature_representation</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence22setPointRepresentationERK29FeatureRepresentationConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the feature representation to use to convert features to k-D vectors. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">feature_representation</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_representation.html#classpcl_1_1_point_representation"><span class="std std-ref">PointRepresentation</span></a> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence22getPointRepresentationEv">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence22getPointRepresentationEv"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence22getPointRepresentationEv"></span><span id="pcl::MultiscaleFeaturePersistence::getPointRepresentation"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1afdcd18345933acf55ba85d7bfd2fcf18"></span><a class="reference internal" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence29FeatureRepresentationConstPtrE" title="pcl::MultiscaleFeaturePersistence::FeatureRepresentationConstPtr">FeatureRepresentationConstPtr</a> <em class="property">const</em> <code class="sig-name descname">getPointRepresentation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence22getPointRepresentationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the feature representation used when converting features into k-D vectors. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence8setAlphaEf">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence8setAlphaEf"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence8setAlphaEf"></span><span id="pcl::MultiscaleFeaturePersistence::setAlpha__float"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a5f4d13f11010d2d880c29ebf8e362342"></span>void <code class="sig-name descname">setAlpha</code><span class="sig-paren">(</span>float <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence8setAlphaEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the alpha parameter. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">alpha</span></code>: value to replace the current alpha with </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence8getAlphaEv">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence8getAlphaEv"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence8getAlphaEv"></span><span id="pcl::MultiscaleFeaturePersistence::getAlpha"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1abd04ca7424554af79ab6c9c3b7f4c108"></span>float <code class="sig-name descname">getAlpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence8getAlphaEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the value of the alpha parameter. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence17setDistanceMetricE8NormType">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence17setDistanceMetricE8NormType"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence17setDistanceMetricE8NormType"></span><span id="pcl::MultiscaleFeaturePersistence::setDistanceMetric__NormType"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1a6a5b892e4253a4ef49350d98d7f05ef3"></span>void <code class="sig-name descname">setDistanceMetric</code><span class="sig-paren">(</span><a class="reference internal" href="enum_group__common_1ga9d37f00989a9de11b48deb263649463c.html#_CPPv4N3pcl8NormTypeE" title="pcl::NormType">NormType</a> <em>distance_metric</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence17setDistanceMetricE8NormType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method for setting the distance metric that will be used for computing the difference between feature vectors. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">distance_metric</span></code>: the new distance metric chosen from the NormType enum </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28MultiscaleFeaturePersistence17getDistanceMetricEv">
+<span id="_CPPv3N3pcl28MultiscaleFeaturePersistence17getDistanceMetricEv"></span><span id="_CPPv2N3pcl28MultiscaleFeaturePersistence17getDistanceMetricEv"></span><span id="pcl::MultiscaleFeaturePersistence::getDistanceMetric"></span><span class="target" id="classpcl_1_1_multiscale_feature_persistence_1ab661523592facfa58cee5b77b5b08ed1"></span><a class="reference internal" href="enum_group__common_1ga9d37f00989a9de11b48deb263649463c.html#_CPPv4N3pcl8NormTypeE" title="pcl::NormType">NormType</a> <code class="sig-name descname">getDistanceMetric</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28MultiscaleFeaturePersistence17getDistanceMetricEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the distance metric that is currently used to calculate the difference between feature vectors. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

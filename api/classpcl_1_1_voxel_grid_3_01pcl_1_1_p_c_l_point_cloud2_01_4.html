@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class VoxelGrid&lt; pcl::PCLPointCloud2 &gt; &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class VoxelGrid&lt; pcl::PCLPointCloud2 &gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-voxelgrid-pcl-pclpointcloud2">
+<span id="exhale-class-classpcl-1-1-voxel-grid-3-01pcl-1-1-p-c-l-point-cloud2-01-4"></span><h1>Template Class VoxelGrid&lt; pcl::PCLPointCloud2 &gt;<a class="headerlink" href="#template-class-voxelgrid-pcl-pclpointcloud2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_filters_include_pcl_filters_voxel_grid.h.html#file-pcl-filters-include-pcl-filters-voxel-grid-h"><span class="std std-ref">File voxel_grid.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Filter&lt;</span> <span class="pre">pcl::PCLPointCloud2</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_filter_3_01pcl_1_1_p_c_l_point_cloud2_01_4.html#exhale-class-classpcl-1-1-filter-3-01pcl-1-1-p-c-l-point-cloud2-01-4"><span class="std std-ref">Template Class Filter&lt; pcl::PCLPointCloud2 &gt;</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4IEN3pcl9VoxelGridIN3pcl14PCLPointCloud2EEE">
+<span id="_CPPv3IEN3pcl9VoxelGridIN3pcl14PCLPointCloud2EEE"></span><span id="_CPPv2IEN3pcl9VoxelGridIN3pcl14PCLPointCloud2EEE"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4"></span>template&lt;&gt;<br /><em class="property">class </em><code class="sig-name descname">VoxelGrid</code>&lt;pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>&gt; : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_filter_3_01pcl_1_1_p_c_l_point_cloud2_01_4.html#_CPPv4IEN3pcl6FilterIN3pcl14PCLPointCloud2EEE" title="pcl::Filter&lt;pcl::PCLPointCloud2&gt;">Filter</a>&lt;pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a>&gt;<a class="headerlink" href="#_CPPv4IEN3pcl9VoxelGridIN3pcl14PCLPointCloud2EEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_voxel_grid.html#classpcl_1_1_voxel_grid"><span class="std std-ref">VoxelGrid</span></a> assembles a local 3D grid over a given <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a>, and downsamples + filters the data. </p>
+<p>The <a class="reference internal" href="classpcl_1_1_voxel_grid.html#classpcl_1_1_voxel_grid"><span class="std std-ref">VoxelGrid</span></a> class creates a <em>3D voxel grid</em> (think about a voxel grid as a set of tiny 3D boxes in space) over the input point cloud data. Then, in each <em>voxel</em> (i.e., 3D box), all the points present will be approximated (i.e., <em>downsampled</em>) with their centroid. This approach is a bit slower than approximating them with the center of the voxel, but it represents the underlying surface more accurately.</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Radu B. Rusu, Bastian Steder, Radoslaw Cybulski </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid9VoxelGridEv">
+<span id="_CPPv3N3pcl9VoxelGrid9VoxelGridEv"></span><span id="_CPPv2N3pcl9VoxelGrid9VoxelGridEv"></span><span id="pcl::VoxelGrid::VoxelGrid"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a64cef7948e827c6f1cdaf837f21d823c"></span><code class="sig-name descname">VoxelGrid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGridD0Ev">
+<span id="_CPPv3N3pcl9VoxelGridD0Ev"></span><span id="_CPPv2N3pcl9VoxelGridD0Ev"></span><span id="pcl::VoxelGrid::~VoxelGrid"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a9606cf74b770af30dee23aa97326709f"></span><em class="property">virtual</em> <code class="sig-name descname">~VoxelGrid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid11setLeafSizeERKN5Eigen8Vector4fE">
+<span id="_CPPv3N3pcl9VoxelGrid11setLeafSizeERKN5Eigen8Vector4fE"></span><span id="_CPPv2N3pcl9VoxelGrid11setLeafSizeERKN5Eigen8Vector4fE"></span><span id="pcl::VoxelGrid::setLeafSize__Eigen::Vector4fCR"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a5a3768360da74a45768b00d8fc7cd179"></span>void <code class="sig-name descname">setLeafSize</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>leaf_size</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Set the voxel grid leaf size. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">leaf_size</span></code>: the voxel grid leaf size </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid11setLeafSizeEfff">
+<span id="_CPPv3N3pcl9VoxelGrid11setLeafSizeEfff"></span><span id="_CPPv2N3pcl9VoxelGrid11setLeafSizeEfff"></span><span id="pcl::VoxelGrid::setLeafSize__float.float.float"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1ad3efe8cb07386b291c88c5178e8b135d"></span>void <code class="sig-name descname">setLeafSize</code><span class="sig-paren">(</span>float <em>lx</em>, float <em>ly</em>, float <em>lz</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Set the voxel grid leaf size. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">lx</span></code>: the leaf size for X </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ly</span></code>: the leaf size for Y </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">lz</span></code>: the leaf size for Z </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid11getLeafSizeEv">
+<span id="_CPPv3NK3pcl9VoxelGrid11getLeafSizeEv"></span><span id="_CPPv2NK3pcl9VoxelGrid11getLeafSizeEv"></span><span id="pcl::VoxelGrid::getLeafSizeC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a38ebba2949b9da50efe947345a76354c"></span>Eigen::Vector3f <code class="sig-name descname">getLeafSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get the voxel grid leaf size. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid20setDownsampleAllDataEb">
+<span id="_CPPv3N3pcl9VoxelGrid20setDownsampleAllDataEb"></span><span id="_CPPv2N3pcl9VoxelGrid20setDownsampleAllDataEb"></span><span id="pcl::VoxelGrid::setDownsampleAllData__b"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a2c93ac4fcbc8183ad5618e633dd7de7e"></span>void <code class="sig-name descname">setDownsampleAllData</code><span class="sig-paren">(</span>bool <em>downsample</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Set to true if all fields need to be downsampled, or false if just XYZ. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">downsample</span></code>: the new value (true/false) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid20getDownsampleAllDataEv">
+<span id="_CPPv3NK3pcl9VoxelGrid20getDownsampleAllDataEv"></span><span id="_CPPv2NK3pcl9VoxelGrid20getDownsampleAllDataEv"></span><span id="pcl::VoxelGrid::getDownsampleAllDataC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a7f6971c09fa7c785205fbee29d91a986"></span>bool <code class="sig-name descname">getDownsampleAllData</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get the state of the internal downsampling parameter (true if all fields need to be downsampled, false if just XYZ). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid30setMinimumPointsNumberPerVoxelEj">
+<span id="_CPPv3N3pcl9VoxelGrid30setMinimumPointsNumberPerVoxelEj"></span><span id="_CPPv2N3pcl9VoxelGrid30setMinimumPointsNumberPerVoxelEj"></span><span id="pcl::VoxelGrid::setMinimumPointsNumberPerVoxel__unsigned-i"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1ae3eafa1ff8820f85536916c62cfb4de1"></span>void <code class="sig-name descname">setMinimumPointsNumberPerVoxel</code><span class="sig-paren">(</span>unsigned int <em>min_points_per_voxel</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Set the minimum number of points required for a voxel to be used. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_points_per_voxel</span></code>: the minimum number of points for required for a voxel to be used </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid30getMinimumPointsNumberPerVoxelEv">
+<span id="_CPPv3NK3pcl9VoxelGrid30getMinimumPointsNumberPerVoxelEv"></span><span id="_CPPv2NK3pcl9VoxelGrid30getMinimumPointsNumberPerVoxelEv"></span><span id="pcl::VoxelGrid::getMinimumPointsNumberPerVoxelC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a5926bcf4fbe49a27b5864861cd6cdcee"></span>unsigned int <code class="sig-name descname">getMinimumPointsNumberPerVoxel</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Return the minimum number of points required for a voxel to be used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid17setSaveLeafLayoutEb">
+<span id="_CPPv3N3pcl9VoxelGrid17setSaveLeafLayoutEb"></span><span id="_CPPv2N3pcl9VoxelGrid17setSaveLeafLayoutEb"></span><span id="pcl::VoxelGrid::setSaveLeafLayout__b"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1ac224d8287578b0faa84c0dd7a70e50c9"></span>void <code class="sig-name descname">setSaveLeafLayout</code><span class="sig-paren">(</span>bool <em>save_leaf_layout</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Set to true if leaf layout information needs to be saved for later access. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">save_leaf_layout</span></code>: the new value (true/false) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid17getSaveLeafLayoutEv">
+<span id="_CPPv3NK3pcl9VoxelGrid17getSaveLeafLayoutEv"></span><span id="_CPPv2NK3pcl9VoxelGrid17getSaveLeafLayoutEv"></span><span id="pcl::VoxelGrid::getSaveLeafLayoutC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a813a96f8aa6231bb7830b7735320665a"></span>bool <code class="sig-name descname">getSaveLeafLayout</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Returns true if leaf layout information will to be saved for later access. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid20getMinBoxCoordinatesEv">
+<span id="_CPPv3NK3pcl9VoxelGrid20getMinBoxCoordinatesEv"></span><span id="_CPPv2NK3pcl9VoxelGrid20getMinBoxCoordinatesEv"></span><span id="pcl::VoxelGrid::getMinBoxCoordinatesC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a5665d865555efa03159ed47482d54e37"></span>Eigen::Vector3i <code class="sig-name descname">getMinBoxCoordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get the minimum coordinates of the bounding box (after filtering is performed). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid20getMaxBoxCoordinatesEv">
+<span id="_CPPv3NK3pcl9VoxelGrid20getMaxBoxCoordinatesEv"></span><span id="_CPPv2NK3pcl9VoxelGrid20getMaxBoxCoordinatesEv"></span><span id="pcl::VoxelGrid::getMaxBoxCoordinatesC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1ab1e793b2405800c8f3cc3eebd9bebf50"></span>Eigen::Vector3i <code class="sig-name descname">getMaxBoxCoordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get the minimum coordinates of the bounding box (after filtering is performed). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid14getNrDivisionsEv">
+<span id="_CPPv3NK3pcl9VoxelGrid14getNrDivisionsEv"></span><span id="_CPPv2NK3pcl9VoxelGrid14getNrDivisionsEv"></span><span id="pcl::VoxelGrid::getNrDivisionsC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a55fce5d6317718a6a083febde47534c7"></span>Eigen::Vector3i <code class="sig-name descname">getNrDivisions</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get the number of divisions along all 3 axes (after filtering is performed). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid21getDivisionMultiplierEv">
+<span id="_CPPv3NK3pcl9VoxelGrid21getDivisionMultiplierEv"></span><span id="_CPPv2NK3pcl9VoxelGrid21getDivisionMultiplierEv"></span><span id="pcl::VoxelGrid::getDivisionMultiplierC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a03e2ee3cd6fb7ac45336bdb4231275c8"></span>Eigen::Vector3i <code class="sig-name descname">getDivisionMultiplier</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get the multipliers to be applied to the grid coordinates in order to find the centroid index (after filtering is performed). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid16getCentroidIndexEfff">
+<span id="_CPPv3NK3pcl9VoxelGrid16getCentroidIndexEfff"></span><span id="_CPPv2NK3pcl9VoxelGrid16getCentroidIndexEfff"></span><span id="pcl::VoxelGrid::getCentroidIndex__float.float.floatC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1aece434baae13f766fa8f8e89498a67ed"></span>int <code class="sig-name descname">getCentroidIndex</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9VoxelGrid16getCentroidIndexEfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the index in the resulting downsampled cloud of the specified point. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>for efficiency, user must make sure that the saving of the leaf layout is enabled and filtering performed, and that the point is inside the grid, to avoid invalid access (or use getGridCoordinates+getCentroidIndexAt) </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: the X point coordinate to get the index at </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">y</span></code>: the Y point coordinate to get the index at </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">z</span></code>: the Z point coordinate to get the index at </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid26getNeighborCentroidIndicesEfffRKN5Eigen8MatrixXiE">
+<span id="_CPPv3NK3pcl9VoxelGrid26getNeighborCentroidIndicesEfffRKN5Eigen8MatrixXiE"></span><span id="_CPPv2NK3pcl9VoxelGrid26getNeighborCentroidIndicesEfffRKN5Eigen8MatrixXiE"></span><span id="pcl::VoxelGrid::getNeighborCentroidIndices__float.float.float.Eigen::MatrixXiCRC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a1972fb83ab7c0ca8c620bded237d4a50"></span>std::vector&lt;int&gt; <code class="sig-name descname">getNeighborCentroidIndices</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em>, <em class="property">const</em> Eigen::MatrixXi &amp;<em>relative_coordinates</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9VoxelGrid26getNeighborCentroidIndicesEfffRKN5Eigen8MatrixXiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the indices in the resulting downsampled cloud of the points at the specified grid coordinates, relative to the grid coordinates of the specified point (or -1 if the cell was empty/out of bounds). </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>for efficiency, user must make sure that the saving of the leaf layout is enabled and filtering performed </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: the X coordinate of the reference point (corresponding cell is allowed to be empty/out of bounds) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">y</span></code>: the Y coordinate of the reference point (corresponding cell is allowed to be empty/out of bounds) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">z</span></code>: the Z coordinate of the reference point (corresponding cell is allowed to be empty/out of bounds) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">relative_coordinates</span></code>: matrix with the columns being the coordinates of the requested cells, relative to the reference point’s cell </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid26getNeighborCentroidIndicesEfffRKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE">
+<span id="_CPPv3NK3pcl9VoxelGrid26getNeighborCentroidIndicesEfffRKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE"></span><span id="_CPPv2NK3pcl9VoxelGrid26getNeighborCentroidIndicesEfffRKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE"></span><span id="pcl::VoxelGrid::getNeighborCentroidIndices__float.float.float.std::vector:Eigen::Vector3i.Eigen::aligned_allocator:Eigen::Vector3i::CRC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a71699cc0931fdc3df6ab65a6e9209771"></span>std::vector&lt;int&gt; <code class="sig-name descname">getNeighborCentroidIndices</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em>, <em class="property">const</em> std::vector&lt;Eigen::Vector3i, Eigen::aligned_allocator&lt;Eigen::Vector3i&gt;&gt; &amp;<em>relative_coordinates</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9VoxelGrid26getNeighborCentroidIndicesEfffRKNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the indices in the resulting downsampled cloud of the points at the specified grid coordinates, relative to the grid coordinates of the specified point (or -1 if the cell was empty/out of bounds). </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>for efficiency, user must make sure that the saving of the leaf layout is enabled and filtering performed </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: the X coordinate of the reference point (corresponding cell is allowed to be empty/out of bounds) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">y</span></code>: the Y coordinate of the reference point (corresponding cell is allowed to be empty/out of bounds) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">z</span></code>: the Z coordinate of the reference point (corresponding cell is allowed to be empty/out of bounds) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">relative_coordinates</span></code>: vector with the elements being the coordinates of the requested cells, relative to the reference point’s cell </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid13getLeafLayoutEv">
+<span id="_CPPv3NK3pcl9VoxelGrid13getLeafLayoutEv"></span><span id="_CPPv2NK3pcl9VoxelGrid13getLeafLayoutEv"></span><span id="pcl::VoxelGrid::getLeafLayoutC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a879a24cd4c44bdc02c6fcb7880e22db7"></span>std::vector&lt;int&gt; <code class="sig-name descname">getLeafLayout</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Returns the layout of the leafs for fast access to cells relative to current position. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>position at (i-min_x) + (j-min_y)*div_x + (k-min_z)*div_x*div_y holds the index of the element at coordinates (i,j,k) in the grid (-1 if empty) </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid18getGridCoordinatesEfff">
+<span id="_CPPv3NK3pcl9VoxelGrid18getGridCoordinatesEfff"></span><span id="_CPPv2NK3pcl9VoxelGrid18getGridCoordinatesEfff"></span><span id="pcl::VoxelGrid::getGridCoordinates__float.float.floatC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a7c98b6ed0a97bd6c1197db422f1b1508"></span>Eigen::Vector3i <code class="sig-name descname">getGridCoordinates</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Returns the corresponding (i,j,k) coordinates in the grid of point (x,y,z). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: the X point coordinate to get the (i, j, k) index at </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">y</span></code>: the Y point coordinate to get the (i, j, k) index at </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">z</span></code>: the Z point coordinate to get the (i, j, k) index at </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid18getCentroidIndexAtERKN5Eigen8Vector3iE">
+<span id="_CPPv3NK3pcl9VoxelGrid18getCentroidIndexAtERKN5Eigen8Vector3iE"></span><span id="_CPPv2NK3pcl9VoxelGrid18getCentroidIndexAtERKN5Eigen8Vector3iE"></span><span id="pcl::VoxelGrid::getCentroidIndexAt__Eigen::Vector3iCRC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a03c106b531301c7d1ab74b110a8a2a1d"></span>int <code class="sig-name descname">getCentroidIndexAt</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>ijk</em><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Returns the index in the downsampled cloud corresponding to a given set of coordinates. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ijk</span></code>: the coordinates (i,j,k) in the grid (-1 if empty) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid18setFilterFieldNameERKNSt6stringE">
+<span id="_CPPv3N3pcl9VoxelGrid18setFilterFieldNameERKNSt6stringE"></span><span id="_CPPv2N3pcl9VoxelGrid18setFilterFieldNameERKNSt6stringE"></span><span id="pcl::VoxelGrid::setFilterFieldName__ssCR"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1ab936d6808f9d9f98b6c0db24be0a41de"></span>void <code class="sig-name descname">setFilterFieldName</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>field_name</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Provide the name of the field to be used for filtering data. </p>
+<p>In conjunction with <em>setFilterLimits</em>, points having values outside this interval will be discarded. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">field_name</span></code>: the name of the field that contains values used for filtering </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid18getFilterFieldNameEv">
+<span id="_CPPv3NK3pcl9VoxelGrid18getFilterFieldNameEv"></span><span id="_CPPv2NK3pcl9VoxelGrid18getFilterFieldNameEv"></span><span id="pcl::VoxelGrid::getFilterFieldNameC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a9cf89370c22b35351cac7dbebcdb4d8d"></span>std::string <em class="property">const</em> <code class="sig-name descname">getFilterFieldName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get the name of the field used for filtering. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid15setFilterLimitsERKdRKd">
+<span id="_CPPv3N3pcl9VoxelGrid15setFilterLimitsERKdRKd"></span><span id="_CPPv2N3pcl9VoxelGrid15setFilterLimitsERKdRKd"></span><span id="pcl::VoxelGrid::setFilterLimits__doubleCR.doubleCR"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a30dd6eb2db4530a79de192731019ac14"></span>void <code class="sig-name descname">setFilterLimits</code><span class="sig-paren">(</span><em class="property">const</em> double &amp;<em>limit_min</em>, <em class="property">const</em> double &amp;<em>limit_max</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Set the field filter limits. </p>
+<p>All points having field values outside this interval will be discarded. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">limit_min</span></code>: the minimum allowed field value </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">limit_max</span></code>: the maximum allowed field value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid15getFilterLimitsERdRd">
+<span id="_CPPv3NK3pcl9VoxelGrid15getFilterLimitsERdRd"></span><span id="_CPPv2NK3pcl9VoxelGrid15getFilterLimitsERdRd"></span><span id="pcl::VoxelGrid::getFilterLimits__doubleR.doubleRC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a5f4178472db0c02e3e5b097d8cbad8ff"></span>void <code class="sig-name descname">getFilterLimits</code><span class="sig-paren">(</span>double &amp;<em>limit_min</em>, double &amp;<em>limit_max</em><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get the field filter limits (min/max) set by the user. </p>
+<p>The default values are -FLT_MAX, FLT_MAX. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">limit_min</span></code>: the minimum allowed field value </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">limit_max</span></code>: the maximum allowed field value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid23setFilterLimitsNegativeEKb">
+<span id="_CPPv3N3pcl9VoxelGrid23setFilterLimitsNegativeEKb"></span><span id="_CPPv2N3pcl9VoxelGrid23setFilterLimitsNegativeEKb"></span><span id="pcl::VoxelGrid::setFilterLimitsNegative__bC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1ac7dc7ae35053e955da166a66a7e98aa6"></span>void <code class="sig-name descname">setFilterLimitsNegative</code><span class="sig-paren">(</span><em class="property">const</em> bool <em>limit_negative</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Set to true if we want to return the data outside the interval specified by setFilterLimits (min, max). </p>
+<p>Default: false. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">limit_negative</span></code>: return data inside the interval (false) or outside (true) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid23getFilterLimitsNegativeERb">
+<span id="_CPPv3NK3pcl9VoxelGrid23getFilterLimitsNegativeERb"></span><span id="_CPPv2NK3pcl9VoxelGrid23getFilterLimitsNegativeERb"></span><span id="pcl::VoxelGrid::getFilterLimitsNegative__bRC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1aba9c4e0516b42ce19b0b33efd2cf69f0"></span>void <code class="sig-name descname">getFilterLimitsNegative</code><span class="sig-paren">(</span>bool &amp;<em>limit_negative</em><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get whether the data outside the interval (min/max) is to be returned (true) or inside (false). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">limit_negative</span></code>: true if data <strong>outside</strong> the interval [min; max] is to be returned, false otherwise </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9VoxelGrid23getFilterLimitsNegativeEv">
+<span id="_CPPv3NK3pcl9VoxelGrid23getFilterLimitsNegativeEv"></span><span id="_CPPv2NK3pcl9VoxelGrid23getFilterLimitsNegativeEv"></span><span id="pcl::VoxelGrid::getFilterLimitsNegativeC"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a0b4b2721c369af7b2aaca4a8dc99a40f"></span>bool <code class="sig-name descname">getFilterLimitsNegative</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Get whether the data outside the interval (min/max) is to be returned (true) or inside (false). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if data <strong>outside</strong> the interval [min; max] is to be returned, false otherwise </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl9VoxelGrid11applyFilterER14PCLPointCloud2">
+<span id="_CPPv3N3pcl9VoxelGrid11applyFilterER14PCLPointCloud2"></span><span id="_CPPv2N3pcl9VoxelGrid11applyFilterER14PCLPointCloud2"></span><span id="pcl::VoxelGrid::applyFilter__PCLPointCloud2R"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a94c3a5c79711a5cffff8dcd223df605c"></span>void <code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span><a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9VoxelGrid11applyFilterER14PCLPointCloud2" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Downsample a Point Cloud using a voxelized grid approach. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant point cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid10leaf_size_E">
+<span id="_CPPv3N3pcl9VoxelGrid10leaf_size_E"></span><span id="_CPPv2N3pcl9VoxelGrid10leaf_size_E"></span><span id="pcl::VoxelGrid::leaf_size___Eigen::Vector4f"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1aefb7ae0b4f979af11f5cb1e64595d4ff"></span>Eigen::Vector4f <code class="sig-name descname">leaf_size_</code><br /></dt>
+<dd><p>The size of a leaf. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid18inverse_leaf_size_E">
+<span id="_CPPv3N3pcl9VoxelGrid18inverse_leaf_size_E"></span><span id="_CPPv2N3pcl9VoxelGrid18inverse_leaf_size_E"></span><span id="pcl::VoxelGrid::inverse_leaf_size___Eigen::Array4f"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1adfab7417c9c38da8bf84f363c480a479"></span>Eigen::Array4f <code class="sig-name descname">inverse_leaf_size_</code><br /></dt>
+<dd><p>Internal leaf sizes stored as 1/leaf_size_ for efficiency reasons. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid20downsample_all_data_E">
+<span id="_CPPv3N3pcl9VoxelGrid20downsample_all_data_E"></span><span id="_CPPv2N3pcl9VoxelGrid20downsample_all_data_E"></span><span id="pcl::VoxelGrid::downsample_all_data___b"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a3aced43dc1214b6a5f664ddda59b5fad"></span>bool <code class="sig-name descname">downsample_all_data_</code><br /></dt>
+<dd><p>Set to true if all fields need to be downsampled, or false if just XYZ. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid17save_leaf_layout_E">
+<span id="_CPPv3N3pcl9VoxelGrid17save_leaf_layout_E"></span><span id="_CPPv2N3pcl9VoxelGrid17save_leaf_layout_E"></span><span id="pcl::VoxelGrid::save_leaf_layout___b"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1ac1202fd3ac1dcb29884f14d690520f02"></span>bool <code class="sig-name descname">save_leaf_layout_</code><br /></dt>
+<dd><p>Set to true if leaf layout information needs to be saved in <em>leaf_layout</em>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid12leaf_layout_E">
+<span id="_CPPv3N3pcl9VoxelGrid12leaf_layout_E"></span><span id="_CPPv2N3pcl9VoxelGrid12leaf_layout_E"></span><span id="pcl::VoxelGrid::leaf_layout___std::vector:i:"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a25b1e276cf28a05712d79d2fa72a70c1"></span>std::vector&lt;int&gt; <code class="sig-name descname">leaf_layout_</code><br /></dt>
+<dd><p>The leaf layout information for fast access to cells relative to current position. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid6min_b_E">
+<span id="_CPPv3N3pcl9VoxelGrid6min_b_E"></span><span id="_CPPv2N3pcl9VoxelGrid6min_b_E"></span><span id="pcl::VoxelGrid::min_b___Eigen::Vector4i"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a3848566ad3c84944b7aa6d0d1879d22b"></span>Eigen::Vector4i <code class="sig-name descname">min_b_</code><br /></dt>
+<dd><p>The minimum and maximum bin coordinates, the number of divisions, and the division multiplier. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid6max_b_E">
+<span id="_CPPv3N3pcl9VoxelGrid6max_b_E"></span><span id="_CPPv2N3pcl9VoxelGrid6max_b_E"></span><span id="pcl::VoxelGrid::max_b___Eigen::Vector4i"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1afe6f86dd5b984ec85a8f7e4c8748c498"></span>Eigen::Vector4i <code class="sig-name descname">max_b_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid6div_b_E">
+<span id="_CPPv3N3pcl9VoxelGrid6div_b_E"></span><span id="_CPPv2N3pcl9VoxelGrid6div_b_E"></span><span id="pcl::VoxelGrid::div_b___Eigen::Vector4i"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1acc9473d66f7fb62d85e2ba8243365090"></span>Eigen::Vector4i <code class="sig-name descname">div_b_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid9divb_mul_E">
+<span id="_CPPv3N3pcl9VoxelGrid9divb_mul_E"></span><span id="_CPPv2N3pcl9VoxelGrid9divb_mul_E"></span><span id="pcl::VoxelGrid::divb_mul___Eigen::Vector4i"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1af597df227dea9b0e2b5b1fa7ae327b13"></span>Eigen::Vector4i <code class="sig-name descname">divb_mul_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid18filter_field_name_E">
+<span id="_CPPv3N3pcl9VoxelGrid18filter_field_name_E"></span><span id="_CPPv2N3pcl9VoxelGrid18filter_field_name_E"></span><span id="pcl::VoxelGrid::filter_field_name___ss"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a1cbeb76cb1f0d48a5dbeec93fe0e028b"></span>std::string <code class="sig-name descname">filter_field_name_</code><br /></dt>
+<dd><p>The desired user filter field name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid17filter_limit_min_E">
+<span id="_CPPv3N3pcl9VoxelGrid17filter_limit_min_E"></span><span id="_CPPv2N3pcl9VoxelGrid17filter_limit_min_E"></span><span id="pcl::VoxelGrid::filter_limit_min___double"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1abbc2d44932141daf9e665e5862e35234"></span>double <code class="sig-name descname">filter_limit_min_</code><br /></dt>
+<dd><p>The minimum allowed filter value a point will be considered from. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid17filter_limit_max_E">
+<span id="_CPPv3N3pcl9VoxelGrid17filter_limit_max_E"></span><span id="_CPPv2N3pcl9VoxelGrid17filter_limit_max_E"></span><span id="pcl::VoxelGrid::filter_limit_max___double"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1ab185d719494bb4f3fd02beddf416b557"></span>double <code class="sig-name descname">filter_limit_max_</code><br /></dt>
+<dd><p>The maximum allowed filter value a point will be considered from. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid22filter_limit_negative_E">
+<span id="_CPPv3N3pcl9VoxelGrid22filter_limit_negative_E"></span><span id="_CPPv2N3pcl9VoxelGrid22filter_limit_negative_E"></span><span id="pcl::VoxelGrid::filter_limit_negative___b"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a650f3a4c1ca3ed2dc4b272876b4bf717"></span>bool <code class="sig-name descname">filter_limit_negative_</code><br /></dt>
+<dd><p>Set to true if we want to return the data outside (<em>filter_limit_min_</em>;<em>filter_limit_max_</em>). </p>
+<p>Default: false. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9VoxelGrid21min_points_per_voxel_E">
+<span id="_CPPv3N3pcl9VoxelGrid21min_points_per_voxel_E"></span><span id="_CPPv2N3pcl9VoxelGrid21min_points_per_voxel_E"></span><span id="pcl::VoxelGrid::min_points_per_voxel___unsigned-i"></span><span class="target" id="classpcl_1_1_voxel_grid_3_01pcl_1_1_p_c_l_point_cloud2_01_4_1a5ed9bc7d2ca7c8b965e5d61c4921a4b9"></span>unsigned int <code class="sig-name descname">min_points_per_voxel_</code><br /></dt>
+<dd><p>Minimum number of points per voxel for the centroid to be computed. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

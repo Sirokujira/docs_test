@@ -1,0 +1,977 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class OpenNIGrabber &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class OpenNIGrabber</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_open_n_i_grabber.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-opennigrabber">
+<span id="exhale-class-classpcl-1-1-open-n-i-grabber"></span><h1>Class OpenNIGrabber<a class="headerlink" href="#class-opennigrabber" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_openni_grabber.h.html#file-pcl-io-include-pcl-io-openni-grabber-h"><span class="std std-ref">File openni_grabber.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_open_n_i_grabber_1_1mode_comp.html#exhale-struct-structpcl-1-1-open-n-i-grabber-1-1mode-comp"><span class="std std-ref">Struct OpenNIGrabber::modeComp</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Grabber</span></code> (<a class="reference internal" href="classpcl_1_1_grabber.html#exhale-class-classpcl-1-1-grabber"><span class="std std-ref">Class Grabber</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl13OpenNIGrabberE">
+<span id="_CPPv3N3pcl13OpenNIGrabberE"></span><span id="_CPPv2N3pcl13OpenNIGrabberE"></span><span id="pcl::OpenNIGrabber"></span><span class="target" id="classpcl_1_1_open_n_i_grabber"></span><em class="property">class </em><code class="sig-name descname">OpenNIGrabber</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_grabber.html#_CPPv4N3pcl7GrabberE" title="pcl::Grabber">Grabber</a><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabberE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_grabber.html#classpcl_1_1_grabber"><span class="std std-ref">Grabber</span></a> for OpenNI devices (i.e., Primesense PSDK, Microsoft Kinect, Asus XTion Pro/Live) </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Nico Blodow <a class="reference external" href="mailto:blodow&#37;&#52;&#48;cs&#46;tum&#46;edu">blodow<span>&#64;</span>cs<span>&#46;</span>tum<span>&#46;</span>edu</a>, Suat Gedikli <a class="reference external" href="mailto:gedikli&#37;&#52;&#48;willowgarage&#46;com">gedikli<span>&#64;</span>willowgarage<span>&#46;</span>com</a> </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl13OpenNIGrabber4ModeE">
+<span id="_CPPv3N3pcl13OpenNIGrabber4ModeE"></span><span id="_CPPv2N3pcl13OpenNIGrabber4ModeE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44"></span><em class="property">enum </em><code class="sig-name descname">Mode</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber19OpenNI_Default_ModeE">
+<span id="_CPPv3N3pcl13OpenNIGrabber19OpenNI_Default_ModeE"></span><span id="_CPPv2N3pcl13OpenNIGrabber19OpenNI_Default_ModeE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44a0db6a45a8d905697cac1604cc36d5679"></span><code class="sig-name descname">OpenNI_Default_Mode</code> = 0<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber19OpenNI_Default_ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber16OpenNI_SXGA_15HzE">
+<span id="_CPPv3N3pcl13OpenNIGrabber16OpenNI_SXGA_15HzE"></span><span id="_CPPv2N3pcl13OpenNIGrabber16OpenNI_SXGA_15HzE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44a9ec33de1a1be96f523468c707a11f0c2"></span><code class="sig-name descname">OpenNI_SXGA_15Hz</code> = 1<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber16OpenNI_SXGA_15HzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber15OpenNI_VGA_30HzE">
+<span id="_CPPv3N3pcl13OpenNIGrabber15OpenNI_VGA_30HzE"></span><span id="_CPPv2N3pcl13OpenNIGrabber15OpenNI_VGA_30HzE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44af7ea664003b50116b7dcdb608c82ed18"></span><code class="sig-name descname">OpenNI_VGA_30Hz</code> = 2<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber15OpenNI_VGA_30HzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber15OpenNI_VGA_25HzE">
+<span id="_CPPv3N3pcl13OpenNIGrabber15OpenNI_VGA_25HzE"></span><span id="_CPPv2N3pcl13OpenNIGrabber15OpenNI_VGA_25HzE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44a56539af11d3157b792c5ca2605ddc5d2"></span><code class="sig-name descname">OpenNI_VGA_25Hz</code> = 3<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber15OpenNI_VGA_25HzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber16OpenNI_QVGA_25HzE">
+<span id="_CPPv3N3pcl13OpenNIGrabber16OpenNI_QVGA_25HzE"></span><span id="_CPPv2N3pcl13OpenNIGrabber16OpenNI_QVGA_25HzE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44af9e156c91953d7bdf39391f9d9e35610"></span><code class="sig-name descname">OpenNI_QVGA_25Hz</code> = 4<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber16OpenNI_QVGA_25HzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber16OpenNI_QVGA_30HzE">
+<span id="_CPPv3N3pcl13OpenNIGrabber16OpenNI_QVGA_30HzE"></span><span id="_CPPv2N3pcl13OpenNIGrabber16OpenNI_QVGA_30HzE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44a37ce6036d7b5ed7a244275f998b08fb6"></span><code class="sig-name descname">OpenNI_QVGA_30Hz</code> = 5<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber16OpenNI_QVGA_30HzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber16OpenNI_QVGA_60HzE">
+<span id="_CPPv3N3pcl13OpenNIGrabber16OpenNI_QVGA_60HzE"></span><span id="_CPPv2N3pcl13OpenNIGrabber16OpenNI_QVGA_60HzE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44a4e8e81cd059babab555444cba79b1b0e"></span><code class="sig-name descname">OpenNI_QVGA_60Hz</code> = 6<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber16OpenNI_QVGA_60HzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber17OpenNI_QQVGA_25HzE">
+<span id="_CPPv3N3pcl13OpenNIGrabber17OpenNI_QQVGA_25HzE"></span><span id="_CPPv2N3pcl13OpenNIGrabber17OpenNI_QQVGA_25HzE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44a3a93da9105531cefd12ea41868fcad95"></span><code class="sig-name descname">OpenNI_QQVGA_25Hz</code> = 7<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber17OpenNI_QQVGA_25HzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber17OpenNI_QQVGA_30HzE">
+<span id="_CPPv3N3pcl13OpenNIGrabber17OpenNI_QQVGA_30HzE"></span><span id="_CPPv2N3pcl13OpenNIGrabber17OpenNI_QQVGA_30HzE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44a808a1db6ddb5a621a6c978f502348b45"></span><code class="sig-name descname">OpenNI_QQVGA_30Hz</code> = 8<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber17OpenNI_QQVGA_30HzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl13OpenNIGrabber17OpenNI_QQVGA_60HzE">
+<span id="_CPPv3N3pcl13OpenNIGrabber17OpenNI_QQVGA_60HzE"></span><span id="_CPPv2N3pcl13OpenNIGrabber17OpenNI_QQVGA_60HzE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af6cedf2b409b9c7e1a231dd71c799c44aed70d3d7acdeed9ef72c99dd75ad3ee5"></span><code class="sig-name descname">OpenNI_QQVGA_60Hz</code> = 9<a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber17OpenNI_QQVGA_60HzE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13OpenNIGrabber3PtrE">
+<span id="_CPPv3N3pcl13OpenNIGrabber3PtrE"></span><span id="_CPPv2N3pcl13OpenNIGrabber3PtrE"></span><span id="pcl::OpenNIGrabber::Ptr"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a9fc2dbddee2f33d96bba236b442726f1"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabberE" title="pcl::OpenNIGrabber">OpenNIGrabber</a>&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13OpenNIGrabber8ConstPtrE">
+<span id="_CPPv3N3pcl13OpenNIGrabber8ConstPtrE"></span><span id="_CPPv2N3pcl13OpenNIGrabber8ConstPtrE"></span><span id="pcl::OpenNIGrabber::ConstPtr"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a4181156d4d312ef914a4d46e63d822e0"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabberE" title="pcl::OpenNIGrabber">OpenNIGrabber</a>&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_open_n_i_grabber_1aecb64340a1a3752ff265809c13791a3c"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::OpenNIGrabber::sig_cb_openni_image(const boost::shared_ptr&lt; openni_wrapper::Image &gt; &amp;)</code></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_open_n_i_grabber_1a2ddc7c72cf3683bc7742190ad939de60"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::OpenNIGrabber::sig_cb_openni_depth_image(const boost::shared_ptr&lt; openni_wrapper::DepthImage &gt; &amp;)</code></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_open_n_i_grabber_1a814455c19ef3863b5e04e9031bd2f83d"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::OpenNIGrabber::sig_cb_openni_ir_image(const boost::shared_ptr&lt; openni_wrapper::IRImage &gt; &amp;)</code></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_open_n_i_grabber_1a1d2eba84abf66fb7d8a4ab8bb32e9eb0"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::OpenNIGrabber::sig_cb_openni_image_depth_image(const boost::shared_ptr&lt; openni_wrapper::Image &gt; &amp;, const boost::shared_ptr&lt; openni_wrapper::DepthImage &gt; &amp;, float constant)</code></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_open_n_i_grabber_1ade68771029817bce150994571fa6643f"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::OpenNIGrabber::sig_cb_openni_ir_depth_image(const boost::shared_ptr&lt; openni_wrapper::IRImage &gt; &amp;, const boost::shared_ptr&lt; openni_wrapper::DepthImage &gt; &amp;, float constant)</code></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_open_n_i_grabber_1a50eef6cd67c7ab4e8e11781537eebe1e"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::OpenNIGrabber::sig_cb_openni_point_cloud(const boost::shared_ptr&lt; const pcl::PointCloud&lt; pcl::PointXYZ &gt; &gt; &amp;)</code></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_open_n_i_grabber_1adc72c94ede73dfded868e5831895274c"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::OpenNIGrabber::sig_cb_openni_point_cloud_rgb(const boost::shared_ptr&lt; const pcl::PointCloud&lt; pcl::PointXYZRGB &gt; &gt; &amp;)</code></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_open_n_i_grabber_1aa684207ae0bf082e0dd8af330af067da"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::OpenNIGrabber::sig_cb_openni_point_cloud_rgba(const boost::shared_ptr&lt; const pcl::PointCloud&lt; pcl::PointXYZRGBA &gt; &gt; &amp;)</code></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_open_n_i_grabber_1a4caed05a231089fffaa790d5dd5d6b85"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::OpenNIGrabber::sig_cb_openni_point_cloud_i(const boost::shared_ptr&lt; const pcl::PointCloud&lt; pcl::PointXYZI &gt; &gt; &amp;)</code></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber13OpenNIGrabberERKNSt6stringERK4ModeRK4Mode">
+<span id="_CPPv3N3pcl13OpenNIGrabber13OpenNIGrabberERKNSt6stringERK4ModeRK4Mode"></span><span id="_CPPv2N3pcl13OpenNIGrabber13OpenNIGrabberERKNSt6stringERK4ModeRK4Mode"></span><span id="pcl::OpenNIGrabber::OpenNIGrabber__ssCR.ModeCR.ModeCR"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a5753a422ff92067c9065797697d69244"></span><code class="sig-name descname">OpenNIGrabber</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>device_id</em> = &quot;&quot;, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabber4ModeE" title="pcl::OpenNIGrabber::Mode">Mode</a> &amp;<em>depth_mode</em> = <a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabber19OpenNI_Default_ModeE" title="pcl::OpenNIGrabber::OpenNI_Default_Mode">OpenNI_Default_Mode</a>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabber4ModeE" title="pcl::OpenNIGrabber::Mode">Mode</a> &amp;<em>image_mode</em> = <a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabber19OpenNI_Default_ModeE" title="pcl::OpenNIGrabber::OpenNI_Default_Mode">OpenNI_Default_Mode</a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber13OpenNIGrabberERKNSt6stringERK4ModeRK4Mode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">device_id</span></code>: ID of the device, which might be a serial number, bus&#64;address or the index of the device. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_mode</span></code>: the mode of the depth stream </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">image_mode</span></code>: the mode of the image stream </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabberD0Ev">
+<span id="_CPPv3N3pcl13OpenNIGrabberD0Ev"></span><span id="_CPPv2N3pcl13OpenNIGrabberD0Ev"></span><span id="pcl::OpenNIGrabber::~OpenNIGrabber"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a03845eca8a38c61469ee52f9e5837732"></span><em class="property">virtual</em> <code class="sig-name descname">~OpenNIGrabber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabberD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>virtual Destructor inherited from the <a class="reference internal" href="classpcl_1_1_grabber.html#classpcl_1_1_grabber"><span class="std std-ref">Grabber</span></a> interface. </p>
+<p>It never throws. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber5startEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber5startEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber5startEv"></span><span id="pcl::OpenNIGrabber::start"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aafd7fa70ecb40969912728e177bb3035"></span><em class="property">virtual</em> void <code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber5startEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Start the data acquisition. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber4stopEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber4stopEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber4stopEv"></span><span id="pcl::OpenNIGrabber::stop"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a146ad2d9e603b94ed2f94ae0c7182d69"></span><em class="property">virtual</em> void <code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber4stopEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stop the data acquisition. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber9isRunningEv">
+<span id="_CPPv3NK3pcl13OpenNIGrabber9isRunningEv"></span><span id="_CPPv2NK3pcl13OpenNIGrabber9isRunningEv"></span><span id="pcl::OpenNIGrabber::isRunningC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a2cfdac0b40a96ebd4e321f6a6051a20d"></span><em class="property">virtual</em> bool <code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber9isRunningEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the data acquisition is still running. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber7getNameEv">
+<span id="_CPPv3NK3pcl13OpenNIGrabber7getNameEv"></span><span id="_CPPv2NK3pcl13OpenNIGrabber7getNameEv"></span><span id="pcl::OpenNIGrabber::getNameC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a729b6ae20cb3693c2e369a44fae4cab1"></span><em class="property">virtual</em> std::string <code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber7getNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>returns the name of the concrete subclass. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the name of the concrete driver. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber18getFramesPerSecondEv">
+<span id="_CPPv3NK3pcl13OpenNIGrabber18getFramesPerSecondEv"></span><span id="_CPPv2NK3pcl13OpenNIGrabber18getFramesPerSecondEv"></span><span id="pcl::OpenNIGrabber::getFramesPerSecondC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1abddd2bf96d0fa21cf4414390675ffba7"></span><em class="property">virtual</em> float <code class="sig-name descname">getFramesPerSecond</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber18getFramesPerSecondEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain the number of frames per second (FPS). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber9getDeviceEv">
+<span id="_CPPv3NK3pcl13OpenNIGrabber9getDeviceEv"></span><span id="_CPPv2NK3pcl13OpenNIGrabber9getDeviceEv"></span><span id="pcl::OpenNIGrabber::getDeviceC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a86ede3d7049b610db85b8c1cb5c6925d"></span>boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>&gt; <code class="sig-name descname">getDevice</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber9getDeviceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a boost shared pointer to the pcl::openni_wrapper::OpenNIDevice object. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber22getAvailableDepthModesEv">
+<span id="_CPPv3NK3pcl13OpenNIGrabber22getAvailableDepthModesEv"></span><span id="_CPPv2NK3pcl13OpenNIGrabber22getAvailableDepthModesEv"></span><span id="pcl::OpenNIGrabber::getAvailableDepthModesC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a5415396723f8804cd66bb954bc023194"></span>std::vector&lt;std::pair&lt;int, XnMapOutputMode&gt;&gt; <code class="sig-name descname">getAvailableDepthModes</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber22getAvailableDepthModesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain a list of the available depth modes that this device supports. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber22getAvailableImageModesEv">
+<span id="_CPPv3NK3pcl13OpenNIGrabber22getAvailableImageModesEv"></span><span id="_CPPv2NK3pcl13OpenNIGrabber22getAvailableImageModesEv"></span><span id="pcl::OpenNIGrabber::getAvailableImageModesC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aab6d657319dad6e9eeac9e4298fd853a"></span>std::vector&lt;std::pair&lt;int, XnMapOutputMode&gt;&gt; <code class="sig-name descname">getAvailableImageModes</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber22getAvailableImageModesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain a list of the available image modes that this device supports. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber22setRGBCameraIntrinsicsEKdKdKdKd">
+<span id="_CPPv3N3pcl13OpenNIGrabber22setRGBCameraIntrinsicsEKdKdKdKd"></span><span id="_CPPv2N3pcl13OpenNIGrabber22setRGBCameraIntrinsicsEKdKdKdKd"></span><span id="pcl::OpenNIGrabber::setRGBCameraIntrinsics__doubleC.doubleC.doubleC.doubleC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aa663153d483d3736442b43911e0088b7"></span>void <code class="sig-name descname">setRGBCameraIntrinsics</code><span class="sig-paren">(</span><em class="property">const</em> double <em>rgb_focal_length_x</em>, <em class="property">const</em> double <em>rgb_focal_length_y</em>, <em class="property">const</em> double <em>rgb_principal_point_x</em>, <em class="property">const</em> double <em>rgb_principal_point_y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber22setRGBCameraIntrinsicsEKdKdKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> camera parameters (fx, fy, cx, cy) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rgb_focal_length_x</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length (fx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rgb_focal_length_y</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length (fy) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rgb_principal_point_x</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> principal point (cx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rgb_principal_point_y</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> principal point (cy) Setting the parameters to non-finite values (e.g., NaN, Inf) invalidates them and the grabber will use the default values from the camera instead. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber22getRGBCameraIntrinsicsERdRdRdRd">
+<span id="_CPPv3NK3pcl13OpenNIGrabber22getRGBCameraIntrinsicsERdRdRdRd"></span><span id="_CPPv2NK3pcl13OpenNIGrabber22getRGBCameraIntrinsicsERdRdRdRd"></span><span id="pcl::OpenNIGrabber::getRGBCameraIntrinsics__doubleR.doubleR.doubleR.doubleRC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a096b9aa28660d57e9409a01a67b82fa9"></span>void <code class="sig-name descname">getRGBCameraIntrinsics</code><span class="sig-paren">(</span>double &amp;<em>rgb_focal_length_x</em>, double &amp;<em>rgb_focal_length_y</em>, double &amp;<em>rgb_principal_point_x</em>, double &amp;<em>rgb_principal_point_y</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber22getRGBCameraIntrinsicsERdRdRdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> camera parameters (fx, fy, cx, cy) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rgb_focal_length_x</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length (fx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rgb_focal_length_y</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length (fy) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rgb_principal_point_x</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> principal point (cx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rgb_principal_point_y</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> principal point (cy) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber17setRGBFocalLengthEKd">
+<span id="_CPPv3N3pcl13OpenNIGrabber17setRGBFocalLengthEKd"></span><span id="_CPPv2N3pcl13OpenNIGrabber17setRGBFocalLengthEKd"></span><span id="pcl::OpenNIGrabber::setRGBFocalLength__doubleC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a41bbc0960ae737bd682a7b213f1de3c2"></span>void <code class="sig-name descname">setRGBFocalLength</code><span class="sig-paren">(</span><em class="property">const</em> double <em>rgb_focal_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber17setRGBFocalLengthEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image focal length (fx = fy). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rgb_focal_length</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length (assumes fx = fy) Setting the parameter to a non-finite value (e.g., NaN, Inf) invalidates it and the grabber will use the default values from the camera instead. These parameters will be used for XYZRGBA clouds. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber17setRGBFocalLengthEKdKd">
+<span id="_CPPv3N3pcl13OpenNIGrabber17setRGBFocalLengthEKdKd"></span><span id="_CPPv2N3pcl13OpenNIGrabber17setRGBFocalLengthEKdKd"></span><span id="pcl::OpenNIGrabber::setRGBFocalLength__doubleC.doubleC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a5a54ea6c9cc6d4411ef076179948af59"></span>void <code class="sig-name descname">setRGBFocalLength</code><span class="sig-paren">(</span><em class="property">const</em> double <em>rgb_focal_length_x</em>, <em class="property">const</em> double <em>rgb_focal_length_y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber17setRGBFocalLengthEKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image focal length. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rgb_focal_length_x</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length (fx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rgb_focal_length_y</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length (fy) Setting the parameters to non-finite values (e.g., NaN, Inf) invalidates them and the grabber will use the default values from the camera instead. These parameters will be used for XYZRGBA clouds. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber17getRGBFocalLengthERdRd">
+<span id="_CPPv3NK3pcl13OpenNIGrabber17getRGBFocalLengthERdRd"></span><span id="_CPPv2NK3pcl13OpenNIGrabber17getRGBFocalLengthERdRd"></span><span id="pcl::OpenNIGrabber::getRGBFocalLength__doubleR.doubleRC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ac134ad216746b08ffa4c55579338c5c8"></span>void <code class="sig-name descname">getRGBFocalLength</code><span class="sig-paren">(</span>double &amp;<em>rgb_focal_length_x</em>, double &amp;<em>rgb_focal_length_y</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber17getRGBFocalLengthERdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length parameters (fx, fy) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rgb_focal_length_x</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length (fx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rgb_focal_length_y</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> focal length (fy) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber24setDepthCameraIntrinsicsEKdKdKdKd">
+<span id="_CPPv3N3pcl13OpenNIGrabber24setDepthCameraIntrinsicsEKdKdKdKd"></span><span id="_CPPv2N3pcl13OpenNIGrabber24setDepthCameraIntrinsicsEKdKdKdKd"></span><span id="pcl::OpenNIGrabber::setDepthCameraIntrinsics__doubleC.doubleC.doubleC.doubleC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a9488a7a9f9aa43c506d9e437308f29f5"></span>void <code class="sig-name descname">setDepthCameraIntrinsics</code><span class="sig-paren">(</span><em class="property">const</em> double <em>depth_focal_length_x</em>, <em class="property">const</em> double <em>depth_focal_length_y</em>, <em class="property">const</em> double <em>depth_principal_point_x</em>, <em class="property">const</em> double <em>depth_principal_point_y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber24setDepthCameraIntrinsicsEKdKdKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the Depth camera parameters (fx, fy, cx, cy) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_focal_length_x</span></code>: the Depth focal length (fx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_focal_length_y</span></code>: the Depth focal length (fy) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_principal_point_x</span></code>: the Depth principal point (cx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_principal_point_y</span></code>: the Depth principal point (cy) Setting the parameters to non-finite values (e.g., NaN, Inf) invalidates them and the grabber will use the default values from the camera instead. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber24getDepthCameraIntrinsicsERdRdRdRd">
+<span id="_CPPv3NK3pcl13OpenNIGrabber24getDepthCameraIntrinsicsERdRdRdRd"></span><span id="_CPPv2NK3pcl13OpenNIGrabber24getDepthCameraIntrinsicsERdRdRdRd"></span><span id="pcl::OpenNIGrabber::getDepthCameraIntrinsics__doubleR.doubleR.doubleR.doubleRC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aecbe1778e7518e6e9f74f259e4658e59"></span>void <code class="sig-name descname">getDepthCameraIntrinsics</code><span class="sig-paren">(</span>double &amp;<em>depth_focal_length_x</em>, double &amp;<em>depth_focal_length_y</em>, double &amp;<em>depth_principal_point_x</em>, double &amp;<em>depth_principal_point_y</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber24getDepthCameraIntrinsicsERdRdRdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the Depth camera parameters (fx, fy, cx, cy) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">depth_focal_length_x</span></code>: the Depth focal length (fx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">depth_focal_length_y</span></code>: the Depth focal length (fy) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">depth_principal_point_x</span></code>: the Depth principal point (cx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">depth_principal_point_y</span></code>: the Depth principal point (cy) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber19setDepthFocalLengthEKd">
+<span id="_CPPv3N3pcl13OpenNIGrabber19setDepthFocalLengthEKd"></span><span id="_CPPv2N3pcl13OpenNIGrabber19setDepthFocalLengthEKd"></span><span id="pcl::OpenNIGrabber::setDepthFocalLength__doubleC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a19bd494a9dbd53b575fbf0140babb7e7"></span>void <code class="sig-name descname">setDepthFocalLength</code><span class="sig-paren">(</span><em class="property">const</em> double <em>depth_focal_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber19setDepthFocalLengthEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the Depth image focal length (fx = fy). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_focal_length</span></code>: the Depth focal length (assumes fx = fy) Setting the parameter to a non-finite value (e.g., NaN, Inf) invalidates it and the grabber will use the default values from the camera instead. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber19setDepthFocalLengthEKdKd">
+<span id="_CPPv3N3pcl13OpenNIGrabber19setDepthFocalLengthEKdKd"></span><span id="_CPPv2N3pcl13OpenNIGrabber19setDepthFocalLengthEKdKd"></span><span id="pcl::OpenNIGrabber::setDepthFocalLength__doubleC.doubleC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a00f922ce1380d0f6200b0285d139cdd5"></span>void <code class="sig-name descname">setDepthFocalLength</code><span class="sig-paren">(</span><em class="property">const</em> double <em>depth_focal_length_x</em>, <em class="property">const</em> double <em>depth_focal_length_y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber19setDepthFocalLengthEKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the Depth image focal length. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_focal_length_x</span></code>: the Depth focal length (fx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_focal_length_y</span></code>: the Depth focal length (fy) Setting the parameter to non-finite values (e.g., NaN, Inf) invalidates them and the grabber will use the default values from the camera instead. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber19getDepthFocalLengthERdRd">
+<span id="_CPPv3NK3pcl13OpenNIGrabber19getDepthFocalLengthERdRd"></span><span id="_CPPv2NK3pcl13OpenNIGrabber19getDepthFocalLengthERdRd"></span><span id="pcl::OpenNIGrabber::getDepthFocalLength__doubleR.doubleRC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ae71d720c8612518c2f2104c6d939b4c1"></span>void <code class="sig-name descname">getDepthFocalLength</code><span class="sig-paren">(</span>double &amp;<em>depth_focal_length_x</em>, double &amp;<em>depth_focal_length_y</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber19getDepthFocalLengthERdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the Depth focal length parameters (fx, fy) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">depth_focal_length_x</span></code>: the Depth focal length (fx) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">depth_focal_length_y</span></code>: the Depth focal length (fy) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber19convertShiftToDepthEPK8uint16_tP8uint16_tNSt6size_tE">
+<span id="_CPPv3NK3pcl13OpenNIGrabber19convertShiftToDepthEPK8uint16_tP8uint16_tNSt6size_tE"></span><span id="_CPPv2NK3pcl13OpenNIGrabber19convertShiftToDepthEPK8uint16_tP8uint16_tNSt6size_tE"></span><span id="pcl::OpenNIGrabber::convertShiftToDepth__uint16_tCP.uint16_tP.std::sC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a18c808a5af14154cca452adc19d12ad8"></span>void <code class="sig-name descname">convertShiftToDepth</code><span class="sig-paren">(</span><em class="property">const</em> uint16_t *<em>shift_data_ptr</em>, uint16_t *<em>depth_data_ptr</em>, std::size_t <em>size</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber19convertShiftToDepthEPK8uint16_tP8uint16_tNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert vector of raw shift values to depth values. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">shift_data_ptr</span></code>: input shift data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">depth_data_ptr</span></code>: generated depth data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">size</span></code>: of shift and depth buffer </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber6onInitERKNSt6stringERK4ModeRK4Mode">
+<span id="_CPPv3N3pcl13OpenNIGrabber6onInitERKNSt6stringERK4ModeRK4Mode"></span><span id="_CPPv2N3pcl13OpenNIGrabber6onInitERKNSt6stringERK4ModeRK4Mode"></span><span id="pcl::OpenNIGrabber::onInit__ssCR.ModeCR.ModeCR"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a11b0f740980c1c6e88b263b5fa5fe559"></span>void <code class="sig-name descname">onInit</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>device_id</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabber4ModeE" title="pcl::OpenNIGrabber::Mode">Mode</a> &amp;<em>depth_mode</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabber4ModeE" title="pcl::OpenNIGrabber::Mode">Mode</a> &amp;<em>image_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber6onInitERKNSt6stringERK4ModeRK4Mode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>On initialization processing. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber11setupDeviceERKNSt6stringERK4ModeRK4Mode">
+<span id="_CPPv3N3pcl13OpenNIGrabber11setupDeviceERKNSt6stringERK4ModeRK4Mode"></span><span id="_CPPv2N3pcl13OpenNIGrabber11setupDeviceERKNSt6stringERK4ModeRK4Mode"></span><span id="pcl::OpenNIGrabber::setupDevice__ssCR.ModeCR.ModeCR"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ade3a93860f27f2cfad5e25f6d72c1087"></span>void <code class="sig-name descname">setupDevice</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>device_id</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabber4ModeE" title="pcl::OpenNIGrabber::Mode">Mode</a> &amp;<em>depth_mode</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13OpenNIGrabber4ModeE" title="pcl::OpenNIGrabber::Mode">Mode</a> &amp;<em>image_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber11setupDeviceERKNSt6stringERK4ModeRK4Mode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets up an OpenNI device. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber14updateModeMapsEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber14updateModeMapsEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber14updateModeMapsEv"></span><span id="pcl::OpenNIGrabber::updateModeMaps"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ae32b29de88db6568020135b1c2ef3117"></span>void <code class="sig-name descname">updateModeMaps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber14updateModeMapsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Update mode maps. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber20startSynchronizationEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber20startSynchronizationEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber20startSynchronizationEv"></span><span id="pcl::OpenNIGrabber::startSynchronization"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ac8e482a5c1b8e288bc5df7883ba7f616"></span>void <code class="sig-name descname">startSynchronization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber20startSynchronizationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Start synchronization. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber19stopSynchronizationEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber19stopSynchronizationEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber19stopSynchronizationEv"></span><span id="pcl::OpenNIGrabber::stopSynchronization"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a2106d7ff29af6e4c6c1a5600a2ee18bd"></span>void <code class="sig-name descname">stopSynchronization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber19stopSynchronizationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stop synchronization. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber20mapConfigMode2XnModeEiR15XnMapOutputMode">
+<span id="_CPPv3NK3pcl13OpenNIGrabber20mapConfigMode2XnModeEiR15XnMapOutputMode"></span><span id="_CPPv2NK3pcl13OpenNIGrabber20mapConfigMode2XnModeEiR15XnMapOutputMode"></span><span id="pcl::OpenNIGrabber::mapConfigMode2XnMode__i.XnMapOutputModeRC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a751c4b89f5418bddcfc6d9a8882da7a0"></span>bool <code class="sig-name descname">mapConfigMode2XnMode</code><span class="sig-paren">(</span>int <em>mode</em>, XnMapOutputMode &amp;<em>xnmode</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber20mapConfigMode2XnModeEiR15XnMapOutputMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Map config modes. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber13imageCallbackEN5boost10shared_ptrIN14openni_wrapper5ImageEEEPv">
+<span id="_CPPv3N3pcl13OpenNIGrabber13imageCallbackEN5boost10shared_ptrIN14openni_wrapper5ImageEEEPv"></span><span id="_CPPv2N3pcl13OpenNIGrabber13imageCallbackEN5boost10shared_ptrIN14openni_wrapper5ImageEEEPv"></span><span id="pcl::OpenNIGrabber::imageCallback__boost::shared_ptr:openni_wrapper::Image:.voidP"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a1757d78bae0b4df590c7e34e87d1b918"></span><em class="property">virtual</em> void <code class="sig-name descname">imageCallback</code><span class="sig-paren">(</span>boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_image.html#_CPPv4N14openni_wrapper5ImageE" title="openni_wrapper::Image">Image</a>&gt; <em>image</em>, void *<em>cookie</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber13imageCallbackEN5boost10shared_ptrIN14openni_wrapper5ImageEEEPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image callback. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber13depthCallbackEN5boost10shared_ptrIN14openni_wrapper10DepthImageEEEPv">
+<span id="_CPPv3N3pcl13OpenNIGrabber13depthCallbackEN5boost10shared_ptrIN14openni_wrapper10DepthImageEEEPv"></span><span id="_CPPv2N3pcl13OpenNIGrabber13depthCallbackEN5boost10shared_ptrIN14openni_wrapper10DepthImageEEEPv"></span><span id="pcl::OpenNIGrabber::depthCallback__boost::shared_ptr:openni_wrapper::DepthImage:.voidP"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a97cd1811c027ba0d3e87817433b966bc"></span><em class="property">virtual</em> void <code class="sig-name descname">depthCallback</code><span class="sig-paren">(</span>boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_depth_image.html#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt; <em>depth_image</em>, void *<em>cookie</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber13depthCallbackEN5boost10shared_ptrIN14openni_wrapper10DepthImageEEEPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Depth image callback. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber10irCallbackEN5boost10shared_ptrIN14openni_wrapper7IRImageEEEPv">
+<span id="_CPPv3N3pcl13OpenNIGrabber10irCallbackEN5boost10shared_ptrIN14openni_wrapper7IRImageEEEPv"></span><span id="_CPPv2N3pcl13OpenNIGrabber10irCallbackEN5boost10shared_ptrIN14openni_wrapper7IRImageEEEPv"></span><span id="pcl::OpenNIGrabber::irCallback__boost::shared_ptr:openni_wrapper::IRImage:.voidP"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af7881416e0be7f5ad6e18cda3ad605e1"></span><em class="property">virtual</em> void <code class="sig-name descname">irCallback</code><span class="sig-paren">(</span>boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_i_r_image.html#_CPPv4N14openni_wrapper7IRImageE" title="openni_wrapper::IRImage">IRImage</a>&gt; <em>ir_image</em>, void *<em>cookie</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber10irCallbackEN5boost10shared_ptrIN14openni_wrapper7IRImageEEEPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>IR image callback. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber23imageDepthImageCallbackERKN5boost10shared_ptrIN14openni_wrapper5ImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE">
+<span id="_CPPv3N3pcl13OpenNIGrabber23imageDepthImageCallbackERKN5boost10shared_ptrIN14openni_wrapper5ImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span id="_CPPv2N3pcl13OpenNIGrabber23imageDepthImageCallbackERKN5boost10shared_ptrIN14openni_wrapper5ImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span id="pcl::OpenNIGrabber::imageDepthImageCallback__boost::shared_ptr:openni_wrapper::Image:CR.boost::shared_ptr:openni_wrapper::DepthImage:CR"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a1d17480b7e17148e8b0c2e4804144bec"></span><em class="property">virtual</em> void <code class="sig-name descname">imageDepthImageCallback</code><span class="sig-paren">(</span><em class="property">const</em> boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_image.html#_CPPv4N14openni_wrapper5ImageE" title="openni_wrapper::Image">Image</a>&gt; &amp;<em>image</em>, <em class="property">const</em> boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_depth_image.html#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt; &amp;<em>depth_image</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber23imageDepthImageCallbackERKN5boost10shared_ptrIN14openni_wrapper5ImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> + Depth image callback. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber20irDepthImageCallbackERKN5boost10shared_ptrIN14openni_wrapper7IRImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE">
+<span id="_CPPv3N3pcl13OpenNIGrabber20irDepthImageCallbackERKN5boost10shared_ptrIN14openni_wrapper7IRImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span id="_CPPv2N3pcl13OpenNIGrabber20irDepthImageCallbackERKN5boost10shared_ptrIN14openni_wrapper7IRImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span id="pcl::OpenNIGrabber::irDepthImageCallback__boost::shared_ptr:openni_wrapper::IRImage:CR.boost::shared_ptr:openni_wrapper::DepthImage:CR"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a64b29d3f3eff3970f4c7179ff96e1d9c"></span><em class="property">virtual</em> void <code class="sig-name descname">irDepthImageCallback</code><span class="sig-paren">(</span><em class="property">const</em> boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_i_r_image.html#_CPPv4N14openni_wrapper7IRImageE" title="openni_wrapper::IRImage">IRImage</a>&gt; &amp;<em>image</em>, <em class="property">const</em> boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_depth_image.html#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt; &amp;<em>depth_image</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber20irDepthImageCallbackERKN5boost10shared_ptrIN14openni_wrapper7IRImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>IR + Depth image callback. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber14signalsChangedEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber14signalsChangedEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber14signalsChangedEv"></span><span id="pcl::OpenNIGrabber::signalsChanged"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a4b8e5aebc2761244e204bfd4ce4378ce"></span><em class="property">virtual</em> void <code class="sig-name descname">signalsChanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber14signalsChangedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Process changed signals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber41checkImageAndDepthSynchronizationRequiredEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber41checkImageAndDepthSynchronizationRequiredEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber41checkImageAndDepthSynchronizationRequiredEv"></span><span id="pcl::OpenNIGrabber::checkImageAndDepthSynchronizationRequired"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ae1d7290671cab357636a85f595193f0a"></span><em class="property">virtual</em> void <code class="sig-name descname">checkImageAndDepthSynchronizationRequired</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber41checkImageAndDepthSynchronizationRequiredEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> and Depth images are required to be synchronized or not. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber24checkImageStreamRequiredEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber24checkImageStreamRequiredEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber24checkImageStreamRequiredEv"></span><span id="pcl::OpenNIGrabber::checkImageStreamRequired"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a9e334b0a4da2b201f027f7e0582471a4"></span><em class="property">virtual</em> void <code class="sig-name descname">checkImageStreamRequired</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber24checkImageStreamRequiredEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image stream is required or not. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber24checkDepthStreamRequiredEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber24checkDepthStreamRequiredEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber24checkDepthStreamRequiredEv"></span><span id="pcl::OpenNIGrabber::checkDepthStreamRequired"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aa0e11241034eb7f6102914b3cfaba2a1"></span><em class="property">virtual</em> void <code class="sig-name descname">checkDepthStreamRequired</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber24checkDepthStreamRequiredEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the depth stream is required or not. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13OpenNIGrabber21checkIRStreamRequiredEv">
+<span id="_CPPv3N3pcl13OpenNIGrabber21checkIRStreamRequiredEv"></span><span id="_CPPv2N3pcl13OpenNIGrabber21checkIRStreamRequiredEv"></span><span id="pcl::OpenNIGrabber::checkIRStreamRequired"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1adafbb14634fdb486fc4895848e65240a"></span><em class="property">virtual</em> void <code class="sig-name descname">checkIRStreamRequired</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber21checkIRStreamRequiredEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the IR image stream is required or not. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber22convertToXYZPointCloudERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE">
+<span id="_CPPv3NK3pcl13OpenNIGrabber22convertToXYZPointCloudERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span id="_CPPv2NK3pcl13OpenNIGrabber22convertToXYZPointCloudERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span id="pcl::OpenNIGrabber::convertToXYZPointCloud__boost::shared_ptr:openni_wrapper::DepthImage:CRC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ad975bc93d65e4e3f18cc03beb4b2ca56"></span>boost::shared_ptr&lt;pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt;&gt; <code class="sig-name descname">convertToXYZPointCloud</code><span class="sig-paren">(</span><em class="property">const</em> boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_depth_image.html#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt; &amp;<em>depth</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber22convertToXYZPointCloudERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert a Depth image to a pcl::PointCloud&lt;pcl::PointXYZ&gt; </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth</span></code>: the depth image to convert </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0ENK3pcl13OpenNIGrabber25convertToXYZRGBPointCloudEN3pcl10PointCloudI6PointTE3PtrERKN5boost10shared_ptrIN14openni_wrapper5ImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE">
+<span id="_CPPv3I0ENK3pcl13OpenNIGrabber25convertToXYZRGBPointCloudERKN5boost10shared_ptrIN14openni_wrapper5ImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span id="_CPPv2I0ENK3pcl13OpenNIGrabber25convertToXYZRGBPointCloudERKN5boost10shared_ptrIN14openni_wrapper5ImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1abdb8a65d8a431b5a02b870c5de716498"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br />pcl::PointCloud&lt;<a class="reference internal" href="#_CPPv4I0ENK3pcl13OpenNIGrabber25convertToXYZRGBPointCloudEN3pcl10PointCloudI6PointTE3PtrERKN5boost10shared_ptrIN14openni_wrapper5ImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE" title="pcl::OpenNIGrabber::convertToXYZRGBPointCloud::PointT">PointT</a>&gt;::Ptr <code class="sig-name descname">convertToXYZRGBPointCloud</code><span class="sig-paren">(</span><em class="property">const</em> boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_image.html#_CPPv4N14openni_wrapper5ImageE" title="openni_wrapper::Image">Image</a>&gt; &amp;<em>image</em>, <em class="property">const</em> boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_depth_image.html#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt; &amp;<em>depth_image</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I0ENK3pcl13OpenNIGrabber25convertToXYZRGBPointCloudEN3pcl10PointCloudI6PointTE3PtrERKN5boost10shared_ptrIN14openni_wrapper5ImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert a Depth + <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image pair to a pcl::PointCloud&lt;PointT&gt; </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">image</span></code>: the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image to convert </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_image</span></code>: the depth image to convert </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber23convertToXYZIPointCloudERKN5boost10shared_ptrIN14openni_wrapper7IRImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE">
+<span id="_CPPv3NK3pcl13OpenNIGrabber23convertToXYZIPointCloudERKN5boost10shared_ptrIN14openni_wrapper7IRImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span id="_CPPv2NK3pcl13OpenNIGrabber23convertToXYZIPointCloudERKN5boost10shared_ptrIN14openni_wrapper7IRImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE"></span><span id="pcl::OpenNIGrabber::convertToXYZIPointCloud__boost::shared_ptr:openni_wrapper::IRImage:CR.boost::shared_ptr:openni_wrapper::DepthImage:CRC"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aecc51b84d3b946de9d896efd7c86dd06"></span>boost::shared_ptr&lt;pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_i.html#_CPPv4N3pcl9PointXYZIE" title="pcl::PointXYZI">PointXYZI</a>&gt;&gt; <code class="sig-name descname">convertToXYZIPointCloud</code><span class="sig-paren">(</span><em class="property">const</em> boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_i_r_image.html#_CPPv4N14openni_wrapper7IRImageE" title="openni_wrapper::IRImage">IRImage</a>&gt; &amp;<em>image</em>, <em class="property">const</em> boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_depth_image.html#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt; &amp;<em>depth_image</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber23convertToXYZIPointCloudERKN5boost10shared_ptrIN14openni_wrapper7IRImageEEERKN5boost10shared_ptrIN14openni_wrapper10DepthImageEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert a Depth + <a class="reference internal" href="structpcl_1_1_intensity.html#structpcl_1_1_intensity"><span class="std std-ref">Intensity</span></a> image pair to a pcl::PointCloud&lt;pcl::PointXYZI&gt; </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">image</span></code>: the IR image to convert </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_image</span></code>: the depth image to convert </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber9rgb_sync_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber9rgb_sync_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber9rgb_sync_E"></span><span id="pcl::OpenNIGrabber::rgb_sync___Synchronizer:boost::shared_ptr:openni_wrapper::Image:.boost::shared_ptr:openni_wrapper::DepthImage::"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aedaba704b83bf4a6e8bd3e62b91ce62d"></span>Synchronizer&lt;boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_image.html#_CPPv4N14openni_wrapper5ImageE" title="openni_wrapper::Image">Image</a>&gt;, boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_depth_image.html#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt;&gt; <code class="sig-name descname">rgb_sync_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber9rgb_sync_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber8ir_sync_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber8ir_sync_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber8ir_sync_E"></span><span id="pcl::OpenNIGrabber::ir_sync___Synchronizer:boost::shared_ptr:openni_wrapper::IRImage:.boost::shared_ptr:openni_wrapper::DepthImage::"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1afa3ebd77e069e5378e12c9e35364ae53"></span>Synchronizer&lt;boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_i_r_image.html#_CPPv4N14openni_wrapper7IRImageE" title="openni_wrapper::IRImage">IRImage</a>&gt;, boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_depth_image.html#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt;&gt; <code class="sig-name descname">ir_sync_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber8ir_sync_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber7device_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber7device_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber7device_E"></span><span id="pcl::OpenNIGrabber::device___boost::shared_ptr:openni_wrapper::OpenNIDevice:"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ac36898e344bdd2cc500a3323cec20456"></span>boost::shared_ptr&lt;openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>&gt; <code class="sig-name descname">device_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber7device_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The actual openni device. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber13rgb_frame_id_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber13rgb_frame_id_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber13rgb_frame_id_E"></span><span id="pcl::OpenNIGrabber::rgb_frame_id___ss"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af1ae4c990da16adeafd491e937318063"></span>std::string <code class="sig-name descname">rgb_frame_id_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber13rgb_frame_id_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber15depth_frame_id_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber15depth_frame_id_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber15depth_frame_id_E"></span><span id="pcl::OpenNIGrabber::depth_frame_id___ss"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aef047ade1b08e6843621499916300dac"></span>std::string <code class="sig-name descname">depth_frame_id_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber15depth_frame_id_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber12image_width_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber12image_width_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber12image_width_E"></span><span id="pcl::OpenNIGrabber::image_width___unsigned"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1adca7002599e1d22a015079790e95c8aa"></span>unsigned <code class="sig-name descname">image_width_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber12image_width_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber13image_height_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber13image_height_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber13image_height_E"></span><span id="pcl::OpenNIGrabber::image_height___unsigned"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a5dfa9ee8e1f46617222be48ce4bff305"></span>unsigned <code class="sig-name descname">image_height_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber13image_height_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber12depth_width_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber12depth_width_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber12depth_width_E"></span><span id="pcl::OpenNIGrabber::depth_width___unsigned"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aee8a270a454d51a80ff3f88b6e742b70"></span>unsigned <code class="sig-name descname">depth_width_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber12depth_width_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber13depth_height_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber13depth_height_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber13depth_height_E"></span><span id="pcl::OpenNIGrabber::depth_height___unsigned"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a0d25da0176dcb32c333ef3d0d650b6d9"></span>unsigned <code class="sig-name descname">depth_height_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber13depth_height_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber15image_required_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber15image_required_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber15image_required_E"></span><span id="pcl::OpenNIGrabber::image_required___b"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aa4488817965e744599cfef9ee8e0600f"></span>bool <code class="sig-name descname">image_required_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber15image_required_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber15depth_required_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber15depth_required_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber15depth_required_E"></span><span id="pcl::OpenNIGrabber::depth_required___b"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a3b18426917e8243060310c79bccb75c3"></span>bool <code class="sig-name descname">depth_required_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber15depth_required_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber12ir_required_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber12ir_required_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber12ir_required_E"></span><span id="pcl::OpenNIGrabber::ir_required___b"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1abd31694c15e040d39dd298f14b69c520"></span>bool <code class="sig-name descname">ir_required_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber12ir_required_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber14sync_required_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber14sync_required_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber14sync_required_E"></span><span id="pcl::OpenNIGrabber::sync_required___b"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a57dd707a921ffe1a5c288a731d6be321"></span>bool <code class="sig-name descname">sync_required_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber14sync_required_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber13image_signal_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber13image_signal_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber13image_signal_E"></span><span id="pcl::OpenNIGrabber::image_signal___boost::signals2::signal:sig_cb_openni_image:P"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a7db05dda071e674b895abbd2556fba8f"></span>boost::signals2::signal&lt;sig_cb_openni_image&gt; *<code class="sig-name descname">image_signal_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber13image_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber19depth_image_signal_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber19depth_image_signal_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber19depth_image_signal_E"></span><span id="pcl::OpenNIGrabber::depth_image_signal___boost::signals2::signal:sig_cb_openni_depth_image:P"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ab202c89764d4035773133d778b3c0e0b"></span>boost::signals2::signal&lt;sig_cb_openni_depth_image&gt; *<code class="sig-name descname">depth_image_signal_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber19depth_image_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber16ir_image_signal_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber16ir_image_signal_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber16ir_image_signal_E"></span><span id="pcl::OpenNIGrabber::ir_image_signal___boost::signals2::signal:sig_cb_openni_ir_image:P"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a08a9cc74295df3a3669b2da56a738512"></span>boost::signals2::signal&lt;sig_cb_openni_ir_image&gt; *<code class="sig-name descname">ir_image_signal_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber16ir_image_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber25image_depth_image_signal_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber25image_depth_image_signal_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber25image_depth_image_signal_E"></span><span id="pcl::OpenNIGrabber::image_depth_image_signal___boost::signals2::signal:sig_cb_openni_image_depth_image:P"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ac3a50d2ef1bb63aa77fdb080cbc7ccd5"></span>boost::signals2::signal&lt;sig_cb_openni_image_depth_image&gt; *<code class="sig-name descname">image_depth_image_signal_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber25image_depth_image_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber22ir_depth_image_signal_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber22ir_depth_image_signal_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber22ir_depth_image_signal_E"></span><span id="pcl::OpenNIGrabber::ir_depth_image_signal___boost::signals2::signal:sig_cb_openni_ir_depth_image:P"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a8ddb4bc3667cb8d1aa2cefb59bcb5279"></span>boost::signals2::signal&lt;sig_cb_openni_ir_depth_image&gt; *<code class="sig-name descname">ir_depth_image_signal_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber22ir_depth_image_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber19point_cloud_signal_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber19point_cloud_signal_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber19point_cloud_signal_E"></span><span id="pcl::OpenNIGrabber::point_cloud_signal___boost::signals2::signal:sig_cb_openni_point_cloud:P"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a4c633b9d77b3867718b5d680dd6627d9"></span>boost::signals2::signal&lt;sig_cb_openni_point_cloud&gt; *<code class="sig-name descname">point_cloud_signal_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber19point_cloud_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber21point_cloud_i_signal_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber21point_cloud_i_signal_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber21point_cloud_i_signal_E"></span><span id="pcl::OpenNIGrabber::point_cloud_i_signal___boost::signals2::signal:sig_cb_openni_point_cloud_i:P"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1aed1467abde60393ceb11b9bc04ae973e"></span>boost::signals2::signal&lt;sig_cb_openni_point_cloud_i&gt; *<code class="sig-name descname">point_cloud_i_signal_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber21point_cloud_i_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber23point_cloud_rgb_signal_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber23point_cloud_rgb_signal_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber23point_cloud_rgb_signal_E"></span><span id="pcl::OpenNIGrabber::point_cloud_rgb_signal___boost::signals2::signal:sig_cb_openni_point_cloud_rgb:P"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a2f9b060f1d4071f8e4e46815df7ab51d"></span>boost::signals2::signal&lt;sig_cb_openni_point_cloud_rgb&gt; *<code class="sig-name descname">point_cloud_rgb_signal_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber23point_cloud_rgb_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber24point_cloud_rgba_signal_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber24point_cloud_rgba_signal_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber24point_cloud_rgba_signal_E"></span><span id="pcl::OpenNIGrabber::point_cloud_rgba_signal___boost::signals2::signal:sig_cb_openni_point_cloud_rgba:P"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a443e18d36e04e226745236523090823e"></span>boost::signals2::signal&lt;sig_cb_openni_point_cloud_rgba&gt; *<code class="sig-name descname">point_cloud_rgba_signal_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber24point_cloud_rgba_signal_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber14config2xn_map_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber14config2xn_map_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber14config2xn_map_E"></span><span id="pcl::OpenNIGrabber::config2xn_map___std::map:i.XnMapOutputMode:"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a44c70eb398252190a2a256938f772dab"></span>std::map&lt;int, XnMapOutputMode&gt; <code class="sig-name descname">config2xn_map_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber14config2xn_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber21depth_callback_handleE">
+<span id="_CPPv3N3pcl13OpenNIGrabber21depth_callback_handleE"></span><span id="_CPPv2N3pcl13OpenNIGrabber21depth_callback_handleE"></span><span id="pcl::OpenNIGrabber::depth_callback_handle__openni_wrapper::OpenNIDevice::CallbackHandle"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a14e8568a7e4d615a4f66a02975916dbe"></span>openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>::<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDevice14CallbackHandleE" title="openni_wrapper::OpenNIDevice::CallbackHandle">CallbackHandle</a> <code class="sig-name descname">depth_callback_handle</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber21depth_callback_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber21image_callback_handleE">
+<span id="_CPPv3N3pcl13OpenNIGrabber21image_callback_handleE"></span><span id="_CPPv2N3pcl13OpenNIGrabber21image_callback_handleE"></span><span id="pcl::OpenNIGrabber::image_callback_handle__openni_wrapper::OpenNIDevice::CallbackHandle"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a21e50ddde468d9a3f8f65055553e09f5"></span>openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>::<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDevice14CallbackHandleE" title="openni_wrapper::OpenNIDevice::CallbackHandle">CallbackHandle</a> <code class="sig-name descname">image_callback_handle</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber21image_callback_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber18ir_callback_handleE">
+<span id="_CPPv3N3pcl13OpenNIGrabber18ir_callback_handleE"></span><span id="_CPPv2N3pcl13OpenNIGrabber18ir_callback_handleE"></span><span id="pcl::OpenNIGrabber::ir_callback_handle__openni_wrapper::OpenNIDevice::CallbackHandle"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a32c7fc81dcff338a7b69513ce80131d8"></span>openni_wrapper::<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDeviceE" title="openni_wrapper::OpenNIDevice">OpenNIDevice</a>::<a class="reference internal" href="classopenni__wrapper_1_1_open_n_i_device.html#_CPPv4N14openni_wrapper12OpenNIDevice14CallbackHandleE" title="openni_wrapper::OpenNIDevice::CallbackHandle">CallbackHandle</a> <code class="sig-name descname">ir_callback_handle</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber18ir_callback_handleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber8running_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber8running_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber8running_E"></span><span id="pcl::OpenNIGrabber::running___b"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ac8435f0a7ca2787d9ac559bae7f325dd"></span>bool <code class="sig-name descname">running_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber8running_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber15rgb_array_size_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber15rgb_array_size_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber15rgb_array_size_E"></span><span id="pcl::OpenNIGrabber::rgb_array_size___unsigned"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a230d8774c1a43646ed9553523be16f57"></span>unsigned <code class="sig-name descname">rgb_array_size_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber15rgb_array_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber18depth_buffer_size_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber18depth_buffer_size_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber18depth_buffer_size_E"></span><span id="pcl::OpenNIGrabber::depth_buffer_size___unsigned"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a2cdb16bafd810cac209fbb2af75c0af0"></span>unsigned <code class="sig-name descname">depth_buffer_size_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber18depth_buffer_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber10rgb_array_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber10rgb_array_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber10rgb_array_E"></span><span id="pcl::OpenNIGrabber::rgb_array___boost::shared_array:unsigned-c:"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a8e459b918fdfa8a393c4538e45ff7db0"></span>boost::shared_array&lt;unsigned char&gt; <code class="sig-name descname">rgb_array_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber10rgb_array_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber13depth_buffer_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber13depth_buffer_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber13depth_buffer_E"></span><span id="pcl::OpenNIGrabber::depth_buffer___boost::shared_array:unsigned-short:"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a077242083db56b96ac4790979ade4f2c"></span>boost::shared_array&lt;unsigned short&gt; <code class="sig-name descname">depth_buffer_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber13depth_buffer_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber10ir_buffer_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber10ir_buffer_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber10ir_buffer_E"></span><span id="pcl::OpenNIGrabber::ir_buffer___boost::shared_array:unsigned-short:"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a45e64bdbd65a4fbc09b7e922f6846e76"></span>boost::shared_array&lt;unsigned short&gt; <code class="sig-name descname">ir_buffer_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber10ir_buffer_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber19rgb_focal_length_x_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber19rgb_focal_length_x_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber19rgb_focal_length_x_E"></span><span id="pcl::OpenNIGrabber::rgb_focal_length_x___double"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1af2bcda231fd7e675745f11adbd4a9089"></span>double <code class="sig-name descname">rgb_focal_length_x_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber19rgb_focal_length_x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image focal length (fx). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber19rgb_focal_length_y_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber19rgb_focal_length_y_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber19rgb_focal_length_y_E"></span><span id="pcl::OpenNIGrabber::rgb_focal_length_y___double"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a67d427b8b8970a252fcc2bc396c2160e"></span>double <code class="sig-name descname">rgb_focal_length_y_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber19rgb_focal_length_y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image focal length (fy). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber22rgb_principal_point_x_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber22rgb_principal_point_x_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber22rgb_principal_point_x_E"></span><span id="pcl::OpenNIGrabber::rgb_principal_point_x___double"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a40454a2477a1a2ef60a863c5aae84ce4"></span>double <code class="sig-name descname">rgb_principal_point_x_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber22rgb_principal_point_x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image principal point (cx). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber22rgb_principal_point_y_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber22rgb_principal_point_y_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber22rgb_principal_point_y_E"></span><span id="pcl::OpenNIGrabber::rgb_principal_point_y___double"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a5e3acec12668c77ee9bcb177dab26d9e"></span>double <code class="sig-name descname">rgb_principal_point_y_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber22rgb_principal_point_y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image principal point (cy). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber21depth_focal_length_x_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber21depth_focal_length_x_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber21depth_focal_length_x_E"></span><span id="pcl::OpenNIGrabber::depth_focal_length_x___double"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a26633d4f4d546edac6b2383db4a7c2e0"></span>double <code class="sig-name descname">depth_focal_length_x_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber21depth_focal_length_x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The depth image focal length (fx). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber21depth_focal_length_y_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber21depth_focal_length_y_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber21depth_focal_length_y_E"></span><span id="pcl::OpenNIGrabber::depth_focal_length_y___double"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ab8cb48213136483c8e6d6993dde62803"></span>double <code class="sig-name descname">depth_focal_length_y_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber21depth_focal_length_y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The depth image focal length (fy). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber24depth_principal_point_x_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber24depth_principal_point_x_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber24depth_principal_point_x_E"></span><span id="pcl::OpenNIGrabber::depth_principal_point_x___double"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1a94a592528983f7e8729121f777c73ee6"></span>double <code class="sig-name descname">depth_principal_point_x_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber24depth_principal_point_x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The depth image principal point (cx). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13OpenNIGrabber24depth_principal_point_y_E">
+<span id="_CPPv3N3pcl13OpenNIGrabber24depth_principal_point_y_E"></span><span id="_CPPv2N3pcl13OpenNIGrabber24depth_principal_point_y_E"></span><span id="pcl::OpenNIGrabber::depth_principal_point_y___double"></span><span class="target" id="classpcl_1_1_open_n_i_grabber_1ab1bad9fc219df85ce55a9256d06a300c"></span>double <code class="sig-name descname">depth_principal_point_y_</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber24depth_principal_point_y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The depth image principal point (cy). </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl13OpenNIGrabber8modeCompE">
+<span id="_CPPv3N3pcl13OpenNIGrabber8modeCompE"></span><span id="_CPPv2N3pcl13OpenNIGrabber8modeCompE"></span><span id="pcl::OpenNIGrabber::modeComp"></span><span class="target" id="structpcl_1_1_open_n_i_grabber_1_1mode_comp"></span><em class="property">struct </em><code class="sig-name descname">modeComp</code><a class="headerlink" href="#_CPPv4N3pcl13OpenNIGrabber8modeCompE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl13OpenNIGrabber8modeCompclERK15XnMapOutputModeRK15XnMapOutputMode">
+<span id="_CPPv3NK3pcl13OpenNIGrabber8modeCompclERK15XnMapOutputModeRK15XnMapOutputMode"></span><span id="_CPPv2NK3pcl13OpenNIGrabber8modeCompclERK15XnMapOutputModeRK15XnMapOutputMode"></span><span id="pcl::OpenNIGrabber::modeComp::call-operator__XnMapOutputModeCR.XnMapOutputModeCRC"></span><span class="target" id="structpcl_1_1_open_n_i_grabber_1_1mode_comp_1a35fcde4f64ee4f1cb0c844cea6c43036"></span>bool <code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> XnMapOutputMode &amp;<em>mode1</em>, <em class="property">const</em> XnMapOutputMode &amp;<em>mode2</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13OpenNIGrabber8modeCompclERK15XnMapOutputModeRK15XnMapOutputMode" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

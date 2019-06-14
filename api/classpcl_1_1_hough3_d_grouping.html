@@ -1,0 +1,728 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class Hough3DGrouping &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class Hough3DGrouping</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_hough3_d_grouping.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-hough3dgrouping">
+<span id="exhale-class-classpcl-1-1-hough3-d-grouping"></span><h1>Template Class Hough3DGrouping<a class="headerlink" href="#template-class-hough3dgrouping" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_recognition_include_pcl_recognition_cg_hough_3d.h.html#file-pcl-recognition-include-pcl-recognition-cg-hough-3d-h"><span class="std std-ref">File hough_3d.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::CorrespondenceGrouping&lt;</span> <span class="pre">PointModelT,</span> <span class="pre">PointSceneT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_correspondence_grouping.html#exhale-class-classpcl-1-1-correspondence-grouping"><span class="std std-ref">Template Class CorrespondenceGrouping</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0000EN3pcl15Hough3DGroupingE">
+<span id="_CPPv3I0000EN3pcl15Hough3DGroupingE"></span><span id="_CPPv2I0000EN3pcl15Hough3DGroupingE"></span><span class="target" id="classpcl_1_1_hough3_d_grouping"></span>template&lt;typename <code class="sig-name descname">PointModelT</code>, typename <code class="sig-name descname">PointSceneT</code>, typename <code class="sig-name descname">PointModelRfT</code> = pcl::<a class="reference internal" href="structpcl_1_1_reference_frame.html#_CPPv4N3pcl14ReferenceFrameE" title="pcl::ReferenceFrame">ReferenceFrame</a>, typename <code class="sig-name descname">PointSceneRfT</code> = pcl::<a class="reference internal" href="structpcl_1_1_reference_frame.html#_CPPv4N3pcl14ReferenceFrameE" title="pcl::ReferenceFrame">ReferenceFrame</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">Hough3DGrouping</code> : <em class="property">public</em> pcl::CorrespondenceGrouping&lt;<a class="reference internal" href="#_CPPv4I0000EN3pcl15Hough3DGroupingE" title="pcl::Hough3DGrouping::PointModelT">PointModelT</a>, <a class="reference internal" href="#_CPPv4I0000EN3pcl15Hough3DGroupingE" title="pcl::Hough3DGrouping::PointSceneT">PointSceneT</a>&gt;<a class="headerlink" href="#_CPPv4I0000EN3pcl15Hough3DGroupingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class implementing a 3D correspondence grouping algorithm that can deal with multiple instances of a model template found into a given scene. </p>
+<p>Each correspondence casts a vote for a reference point in a 3D Hough Space. The remaining 3 DOF are taken into account by associating each correspondence with a local Reference Frame. The suggested PointModelRfT is <a class="reference internal" href="structpcl_1_1_reference_frame.html#structpcl_1_1_reference_frame"><span class="std std-ref">pcl::ReferenceFrame</span></a></p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>If you use this code in any academic work, please cite the original paper:<ul class="simple">
+<li><p>F. Tombari, L. Di Stefano: <a class="reference internal" href="class_object.html#class_object"><span class="std std-ref">Object</span></a> recognition in 3D scenes with occlusions and clutter by Hough voting. 2010, Fourth Pacific-Rim Symposium on Image and Video Technology</p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Federico Tombari (original), Tommaso Cavallari (PCL port) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping12ModelRfCloudE">
+<span id="_CPPv3N3pcl15Hough3DGrouping12ModelRfCloudE"></span><span id="_CPPv2N3pcl15Hough3DGrouping12ModelRfCloudE"></span><span id="pcl::Hough3DGrouping::ModelRfCloud"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1ae98628cfa3c621969338701bb20f3d96"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointModelRfT&gt; <code class="sig-name descname">ModelRfCloud</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping12ModelRfCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping15ModelRfCloudPtrE">
+<span id="_CPPv3N3pcl15Hough3DGrouping15ModelRfCloudPtrE"></span><span id="_CPPv2N3pcl15Hough3DGrouping15ModelRfCloudPtrE"></span><span id="pcl::Hough3DGrouping::ModelRfCloudPtr"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a6e490bc42a9403eaa399e63e29100e87"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping12ModelRfCloudE" title="pcl::Hough3DGrouping::ModelRfCloud">ModelRfCloud</a>::Ptr <code class="sig-name descname">ModelRfCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping15ModelRfCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping20ModelRfCloudConstPtrE">
+<span id="_CPPv3N3pcl15Hough3DGrouping20ModelRfCloudConstPtrE"></span><span id="_CPPv2N3pcl15Hough3DGrouping20ModelRfCloudConstPtrE"></span><span id="pcl::Hough3DGrouping::ModelRfCloudConstPtr"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1af18b7f2abeae56e36523c105bf85e4dd"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping12ModelRfCloudE" title="pcl::Hough3DGrouping::ModelRfCloud">ModelRfCloud</a>::ConstPtr <code class="sig-name descname">ModelRfCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping20ModelRfCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping12SceneRfCloudE">
+<span id="_CPPv3N3pcl15Hough3DGrouping12SceneRfCloudE"></span><span id="_CPPv2N3pcl15Hough3DGrouping12SceneRfCloudE"></span><span id="pcl::Hough3DGrouping::SceneRfCloud"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a1d783906724b14dd89f44f21f6f218cb"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointSceneRfT&gt; <code class="sig-name descname">SceneRfCloud</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping12SceneRfCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping15SceneRfCloudPtrE">
+<span id="_CPPv3N3pcl15Hough3DGrouping15SceneRfCloudPtrE"></span><span id="_CPPv2N3pcl15Hough3DGrouping15SceneRfCloudPtrE"></span><span id="pcl::Hough3DGrouping::SceneRfCloudPtr"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a4657a81175113cb1e307bc3458198b16"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping12SceneRfCloudE" title="pcl::Hough3DGrouping::SceneRfCloud">SceneRfCloud</a>::Ptr <code class="sig-name descname">SceneRfCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping15SceneRfCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping20SceneRfCloudConstPtrE">
+<span id="_CPPv3N3pcl15Hough3DGrouping20SceneRfCloudConstPtrE"></span><span id="_CPPv2N3pcl15Hough3DGrouping20SceneRfCloudConstPtrE"></span><span id="pcl::Hough3DGrouping::SceneRfCloudConstPtr"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a97210004db062e6fd929b5e4e6781bac"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping12SceneRfCloudE" title="pcl::Hough3DGrouping::SceneRfCloud">SceneRfCloud</a>::ConstPtr <code class="sig-name descname">SceneRfCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping20SceneRfCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping10PointCloudE">
+<span id="_CPPv3N3pcl15Hough3DGrouping10PointCloudE"></span><span id="_CPPv2N3pcl15Hough3DGrouping10PointCloudE"></span><span id="pcl::Hough3DGrouping::PointCloud"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a240a40f147e359893d1b6c473e37145c"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointModelT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping13PointCloudPtrE">
+<span id="_CPPv3N3pcl15Hough3DGrouping13PointCloudPtrE"></span><span id="_CPPv2N3pcl15Hough3DGrouping13PointCloudPtrE"></span><span id="pcl::Hough3DGrouping::PointCloudPtr"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a43cf882a9e0e68ad9a536ef7d2cec93d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping10PointCloudE" title="pcl::Hough3DGrouping::PointCloud">PointCloud</a>::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl15Hough3DGrouping18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl15Hough3DGrouping18PointCloudConstPtrE"></span><span id="pcl::Hough3DGrouping::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1afa5132f374a3078c670c6f9afbcd7b59"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping10PointCloudE" title="pcl::Hough3DGrouping::PointCloud">PointCloud</a>::ConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15Hough3DGrouping18SceneCloudConstPtrE">
+<span id="_CPPv3N3pcl15Hough3DGrouping18SceneCloudConstPtrE"></span><span id="_CPPv2N3pcl15Hough3DGrouping18SceneCloudConstPtrE"></span><span id="pcl::Hough3DGrouping::SceneCloudConstPtr"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1adc46486efea1fcbb9ae16d75e0be603e"></span><em class="property">typedef </em>pcl::CorrespondenceGrouping&lt;PointModelT, PointSceneT&gt;::SceneCloudConstPtr <code class="sig-name descname">SceneCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping18SceneCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping15Hough3DGroupingEv">
+<span id="_CPPv3N3pcl15Hough3DGrouping15Hough3DGroupingEv"></span><span id="_CPPv2N3pcl15Hough3DGrouping15Hough3DGroupingEv"></span><span id="pcl::Hough3DGrouping::Hough3DGrouping"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1ad4aa8ea44d4c35082b7beac6cc3cc730"></span><code class="sig-name descname">Hough3DGrouping</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping15Hough3DGroupingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping13setInputCloudERK18PointCloudConstPtr">
+<span id="_CPPv3N3pcl15Hough3DGrouping13setInputCloudERK18PointCloudConstPtr"></span><span id="_CPPv2N3pcl15Hough3DGrouping13setInputCloudERK18PointCloudConstPtr"></span><span id="pcl::Hough3DGrouping::setInputCloud__PointCloudConstPtrCR"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a128db6281c9d8e0b38c6d430ef058116"></span>void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping18PointCloudConstPtrE" title="pcl::Hough3DGrouping::PointCloudConstPtr">PointCloudConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping13setInputCloudERK18PointCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping10setInputRfERK20ModelRfCloudConstPtr">
+<span id="_CPPv3N3pcl15Hough3DGrouping10setInputRfERK20ModelRfCloudConstPtr"></span><span id="_CPPv2N3pcl15Hough3DGrouping10setInputRfERK20ModelRfCloudConstPtr"></span><span id="pcl::Hough3DGrouping::setInputRf__ModelRfCloudConstPtrCR"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a8f7af4b86f2f7effa2eabd844f4ffe28"></span>void <code class="sig-name descname">setInputRf</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping20ModelRfCloudConstPtrE" title="pcl::Hough3DGrouping::ModelRfCloudConstPtr">ModelRfCloudConstPtr</a> &amp;<em>input_rf</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping10setInputRfERK20ModelRfCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset’s reference frames. </p>
+<p>Each point in the reference frame cloud should be the reference frame of the correspondent point in the input dataset.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input_rf</span></code>: the pointer to the input cloud’s reference frames. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15Hough3DGrouping10getInputRfEv">
+<span id="_CPPv3NK3pcl15Hough3DGrouping10getInputRfEv"></span><span id="_CPPv2NK3pcl15Hough3DGrouping10getInputRfEv"></span><span id="pcl::Hough3DGrouping::getInputRfC"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a052ec949ec7c04d06e79c9a8068a433b"></span><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping20ModelRfCloudConstPtrE" title="pcl::Hough3DGrouping::ModelRfCloudConstPtr">ModelRfCloudConstPtr</a> <code class="sig-name descname">getInputRf</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15Hough3DGrouping10getInputRfEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Getter for the input dataset’s reference frames. </p>
+<p>Each point in the reference frame cloud should be the reference frame of the correspondent point in the input dataset.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the pointer to the input cloud’s reference frames. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping13setSceneCloudERK18SceneCloudConstPtr">
+<span id="_CPPv3N3pcl15Hough3DGrouping13setSceneCloudERK18SceneCloudConstPtr"></span><span id="_CPPv2N3pcl15Hough3DGrouping13setSceneCloudERK18SceneCloudConstPtr"></span><span id="pcl::Hough3DGrouping::setSceneCloud__SceneCloudConstPtrCR"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a877d543207cc31cb21536ec566f5b3e9"></span>void <code class="sig-name descname">setSceneCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping18SceneCloudConstPtrE" title="pcl::Hough3DGrouping::SceneCloudConstPtr">SceneCloudConstPtr</a> &amp;<em>scene</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping13setSceneCloudERK18SceneCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the scene dataset (i.e. </p>
+<p>the cloud in which the algorithm has to search for instances of the input model)</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">scene</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping10setSceneRfERK20SceneRfCloudConstPtr">
+<span id="_CPPv3N3pcl15Hough3DGrouping10setSceneRfERK20SceneRfCloudConstPtr"></span><span id="_CPPv2N3pcl15Hough3DGrouping10setSceneRfERK20SceneRfCloudConstPtr"></span><span id="pcl::Hough3DGrouping::setSceneRf__SceneRfCloudConstPtrCR"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a2ad258fd1cd391d8e3ee09adc4cc94e3"></span>void <code class="sig-name descname">setSceneRf</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping20SceneRfCloudConstPtrE" title="pcl::Hough3DGrouping::SceneRfCloudConstPtr">SceneRfCloudConstPtr</a> &amp;<em>scene_rf</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping10setSceneRfERK20SceneRfCloudConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the scene dataset’s reference frames. </p>
+<p>Each point in the reference frame cloud should be the reference frame of the correspondent point in the scene dataset.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">scene_rf</span></code>: the pointer to the scene cloud’s reference frames. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15Hough3DGrouping10getSceneRfEv">
+<span id="_CPPv3NK3pcl15Hough3DGrouping10getSceneRfEv"></span><span id="_CPPv2NK3pcl15Hough3DGrouping10getSceneRfEv"></span><span id="pcl::Hough3DGrouping::getSceneRfC"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1adc098cef4277d39060683e4cbffd020e"></span><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping20SceneRfCloudConstPtrE" title="pcl::Hough3DGrouping::SceneRfCloudConstPtr">SceneRfCloudConstPtr</a> <code class="sig-name descname">getSceneRf</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15Hough3DGrouping10getSceneRfEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Getter for the scene dataset’s reference frames. </p>
+<p>Each point in the reference frame cloud should be the reference frame of the correspondent point in the scene dataset.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the pointer to the scene cloud’s reference frames. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping28setModelSceneCorrespondencesERK23CorrespondencesConstPtr">
+<span id="_CPPv3N3pcl15Hough3DGrouping28setModelSceneCorrespondencesERK23CorrespondencesConstPtr"></span><span id="_CPPv2N3pcl15Hough3DGrouping28setModelSceneCorrespondencesERK23CorrespondencesConstPtr"></span><span id="pcl::Hough3DGrouping::setModelSceneCorrespondences__CorrespondencesConstPtrCR"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a597bc71af146923a2717359e8ed45e50"></span>void <code class="sig-name descname">setModelSceneCorrespondences</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="typedef_namespacepcl_1af92455681166fe784da760c485d0a15e.html#_CPPv4N3pcl23CorrespondencesConstPtrE" title="pcl::CorrespondencesConstPtr">CorrespondencesConstPtr</a> &amp;<em>corrs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping28setModelSceneCorrespondencesERK23CorrespondencesConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the precomputed correspondences between points in the input dataset and points in the scene dataset. </p>
+<p>The correspondences are going to be clustered into different model instances by the algorithm.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">corrs</span></code>: the correspondences between the model and the scene. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping17setHoughThresholdEd">
+<span id="_CPPv3N3pcl15Hough3DGrouping17setHoughThresholdEd"></span><span id="_CPPv2N3pcl15Hough3DGrouping17setHoughThresholdEd"></span><span id="pcl::Hough3DGrouping::setHoughThreshold__double"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1ac832e662f91a1442357102e1fcc86ead"></span>void <code class="sig-name descname">setHoughThreshold</code><span class="sig-paren">(</span>double <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping17setHoughThresholdEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the minimum number of votes in the Hough space needed to infer the presence of a model instance into the scene cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: the threshold for the Hough space voting, if set between -1 and 0 the maximum vote in the entire space is automatically calculated and -threshold the maximum value is used as a threshold. This means that a value between -1 and 0 should be used only if at least one instance of the model is always present in the scene, or if this false positive can be filtered later. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15Hough3DGrouping17getHoughThresholdEv">
+<span id="_CPPv3NK3pcl15Hough3DGrouping17getHoughThresholdEv"></span><span id="_CPPv2NK3pcl15Hough3DGrouping17getHoughThresholdEv"></span><span id="pcl::Hough3DGrouping::getHoughThresholdC"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a55521f52145fad420cfae41ce4740150"></span>double <code class="sig-name descname">getHoughThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15Hough3DGrouping17getHoughThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the minimum number of votes in the Hough space needed to infer the presence of a model instance into the scene cloud. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the threshold for the Hough space voting. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping15setHoughBinSizeEd">
+<span id="_CPPv3N3pcl15Hough3DGrouping15setHoughBinSizeEd"></span><span id="_CPPv2N3pcl15Hough3DGrouping15setHoughBinSizeEd"></span><span id="pcl::Hough3DGrouping::setHoughBinSize__double"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a866d42f0b08775aae337d2ed61c1c834"></span>void <code class="sig-name descname">setHoughBinSize</code><span class="sig-paren">(</span>double <em>bin_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping15setHoughBinSizeEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the size of each bin into the Hough space. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">bin_size</span></code>: the size of each Hough space’s bin. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15Hough3DGrouping15getHoughBinSizeEv">
+<span id="_CPPv3NK3pcl15Hough3DGrouping15getHoughBinSizeEv"></span><span id="_CPPv2NK3pcl15Hough3DGrouping15getHoughBinSizeEv"></span><span id="pcl::Hough3DGrouping::getHoughBinSizeC"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a8d4be09609f69be04a2a992a08f9ab78"></span>double <code class="sig-name descname">getHoughBinSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15Hough3DGrouping15getHoughBinSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets the size of each bin into the Hough space. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the size of each Hough space’s bin. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping19setUseInterpolationEb">
+<span id="_CPPv3N3pcl15Hough3DGrouping19setUseInterpolationEb"></span><span id="_CPPv2N3pcl15Hough3DGrouping19setUseInterpolationEb"></span><span id="pcl::Hough3DGrouping::setUseInterpolation__b"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a0102fa52853e876fe4d778303f5141a5"></span>void <code class="sig-name descname">setUseInterpolation</code><span class="sig-paren">(</span>bool <em>use_interpolation</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping19setUseInterpolationEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets whether the vote casting procedure interpolates the score between neighboring bins of the Hough space or not. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">use_interpolation</span></code>: the algorithm should interpolate the vote score between neighboring bins. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15Hough3DGrouping19getUseInterpolationEv">
+<span id="_CPPv3NK3pcl15Hough3DGrouping19getUseInterpolationEv"></span><span id="_CPPv2NK3pcl15Hough3DGrouping19getUseInterpolationEv"></span><span id="pcl::Hough3DGrouping::getUseInterpolationC"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a20edaa2c36dc80fca9b9d1f4d11624d5"></span>bool <code class="sig-name descname">getUseInterpolation</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15Hough3DGrouping19getUseInterpolationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets whether the vote casting procedure interpolates the score between neighboring bins of the Hough space or not. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>if the algorithm should interpolate the vote score between neighboring bins. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping20setUseDistanceWeightEb">
+<span id="_CPPv3N3pcl15Hough3DGrouping20setUseDistanceWeightEb"></span><span id="_CPPv2N3pcl15Hough3DGrouping20setUseDistanceWeightEb"></span><span id="pcl::Hough3DGrouping::setUseDistanceWeight__b"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1acc900a577b052056bff781bef095884e"></span>void <code class="sig-name descname">setUseDistanceWeight</code><span class="sig-paren">(</span>bool <em>use_distance_weight</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping20setUseDistanceWeightEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets whether the vote casting procedure uses the correspondence’s distance as a score. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">use_distance_weight</span></code>: the algorithm should use the weighted distance when calculating the Hough voting score. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15Hough3DGrouping20getUseDistanceWeightEv">
+<span id="_CPPv3NK3pcl15Hough3DGrouping20getUseDistanceWeightEv"></span><span id="_CPPv2NK3pcl15Hough3DGrouping20getUseDistanceWeightEv"></span><span id="pcl::Hough3DGrouping::getUseDistanceWeightC"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a14d39812313f7f882c3a3299ec80344d"></span>bool <code class="sig-name descname">getUseDistanceWeight</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15Hough3DGrouping20getUseDistanceWeightEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gets whether the vote casting procedure uses the correspondence’s distance as a score. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>if the algorithm should use the weighted distance when calculating the Hough voting score. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping29setLocalRfNormalsSearchRadiusEf">
+<span id="_CPPv3N3pcl15Hough3DGrouping29setLocalRfNormalsSearchRadiusEf"></span><span id="_CPPv2N3pcl15Hough3DGrouping29setLocalRfNormalsSearchRadiusEf"></span><span id="pcl::Hough3DGrouping::setLocalRfNormalsSearchRadius__float"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a215586d8e29fb530c8aa6ab461699492"></span>void <code class="sig-name descname">setLocalRfNormalsSearchRadius</code><span class="sig-paren">(</span>float <em>local_rf_normals_search_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping29setLocalRfNormalsSearchRadiusEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the Local reference frame has not been set for either the model cloud or the scene cloud, this algorithm makes the computation itself but needs a suitable search radius to compute the normals in order to subsequently compute the RF (if not set a default 15 nearest neighbors search is performed). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">local_rf_normals_search_radius</span></code>: the normals search radius for the local reference frame calculation. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15Hough3DGrouping29getLocalRfNormalsSearchRadiusEv">
+<span id="_CPPv3NK3pcl15Hough3DGrouping29getLocalRfNormalsSearchRadiusEv"></span><span id="_CPPv2NK3pcl15Hough3DGrouping29getLocalRfNormalsSearchRadiusEv"></span><span id="pcl::Hough3DGrouping::getLocalRfNormalsSearchRadiusC"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a387031f74f038380cb956db04e34f4d1"></span>float <code class="sig-name descname">getLocalRfNormalsSearchRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15Hough3DGrouping29getLocalRfNormalsSearchRadiusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the Local reference frame has not been set for either the model cloud or the scene cloud, this algorithm makes the computation itself but needs a suitable search radius to compute the normals in order to subsequently compute the RF (if not set a default 15 nearest neighbors search is performed). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the normals search radius for the local reference frame calculation. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping22setLocalRfSearchRadiusEf">
+<span id="_CPPv3N3pcl15Hough3DGrouping22setLocalRfSearchRadiusEf"></span><span id="_CPPv2N3pcl15Hough3DGrouping22setLocalRfSearchRadiusEf"></span><span id="pcl::Hough3DGrouping::setLocalRfSearchRadius__float"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a2291ba9d84199dce9b29195edf771b30"></span>void <code class="sig-name descname">setLocalRfSearchRadius</code><span class="sig-paren">(</span>float <em>local_rf_search_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping22setLocalRfSearchRadiusEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the Local reference frame has not been set for either the model cloud or the scene cloud, this algorithm makes the computation itself but needs a suitable search radius to do so. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>This parameter NEEDS to be set if the reference frames are not precomputed externally, otherwise the recognition results won’t be correct.</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">local_rf_search_radius</span></code>: the search radius for the local reference frame calculation. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15Hough3DGrouping22getLocalRfSearchRadiusEv">
+<span id="_CPPv3NK3pcl15Hough3DGrouping22getLocalRfSearchRadiusEv"></span><span id="_CPPv2NK3pcl15Hough3DGrouping22getLocalRfSearchRadiusEv"></span><span id="pcl::Hough3DGrouping::getLocalRfSearchRadiusC"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a5e7826f875f742293f0ed25808899552"></span>float <code class="sig-name descname">getLocalRfSearchRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15Hough3DGrouping22getLocalRfSearchRadiusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the Local reference frame has not been set for either the model cloud or the scene cloud, this algorithm makes the computation itself but needs a suitable search radius to do so. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>This parameter NEEDS to be set if the reference frames are not precomputed externally, otherwise the recognition results won’t be correct.</p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>the search radius for the local reference frame calculation. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping5trainEv">
+<span id="_CPPv3N3pcl15Hough3DGrouping5trainEv"></span><span id="_CPPv2N3pcl15Hough3DGrouping5trainEv"></span><span id="pcl::Hough3DGrouping::train"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a5e20d3e6f7946b303bf7ed0426ed940a"></span>bool <code class="sig-name descname">train</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping5trainEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Call this function after setting the input, the input_rf and the hough_bin_size parameters to perform an off line training of the algorithm. </p>
+<p>This might be useful if one wants to perform once and for all a pre-computation of votes that only concern the models, increasing the on-line efficiency of the grouping algorithm. The algorithm is automatically trained on the first invocation of the recognize method or the cluster method if this training function has not been manually invoked.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if the training had been successful or false if errors have occurred. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping9recognizeERNSt6vectorIN5Eigen8Matrix4fEN5Eigen17aligned_allocatorIN5Eigen8Matrix4fEEEEE">
+<span id="_CPPv3N3pcl15Hough3DGrouping9recognizeERNSt6vectorIN5Eigen8Matrix4fEN5Eigen17aligned_allocatorIN5Eigen8Matrix4fEEEEE"></span><span id="_CPPv2N3pcl15Hough3DGrouping9recognizeERNSt6vectorIN5Eigen8Matrix4fEN5Eigen17aligned_allocatorIN5Eigen8Matrix4fEEEEE"></span><span id="pcl::Hough3DGrouping::recognize__std::vector:Eigen::Matrix4f.Eigen::aligned_allocator:Eigen::Matrix4f::R"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a39a0170877c51fbaf51e1119ecc34c05"></span>bool <code class="sig-name descname">recognize</code><span class="sig-paren">(</span>std::vector&lt;Eigen::Matrix4f, Eigen::aligned_allocator&lt;Eigen::Matrix4f&gt;&gt; &amp;<em>transformations</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping9recognizeERNSt6vectorIN5Eigen8Matrix4fEN5Eigen17aligned_allocatorIN5Eigen8Matrix4fEEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The main function, recognizes instances of the model into the scene set by the user. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if the recognition had been successful or false if errors have occurred. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transformations</span></code>: a vector containing one transformation matrix for each instance of the model recognized into the scene.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping9recognizeERNSt6vectorIN5Eigen8Matrix4fEN5Eigen17aligned_allocatorIN5Eigen8Matrix4fEEEEERNSt6vectorIN3pcl15CorrespondencesEEE">
+<span id="_CPPv3N3pcl15Hough3DGrouping9recognizeERNSt6vectorIN5Eigen8Matrix4fEN5Eigen17aligned_allocatorIN5Eigen8Matrix4fEEEEERNSt6vectorIN3pcl15CorrespondencesEEE"></span><span id="_CPPv2N3pcl15Hough3DGrouping9recognizeERNSt6vectorIN5Eigen8Matrix4fEN5Eigen17aligned_allocatorIN5Eigen8Matrix4fEEEEERNSt6vectorIN3pcl15CorrespondencesEEE"></span><span id="pcl::Hough3DGrouping::recognize__std::vector:Eigen::Matrix4f.Eigen::aligned_allocator:Eigen::Matrix4f::R.std::vector:pcl::Correspondences:R"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1addef52d8b2bfbfa9416a42aa3dce28d9"></span>bool <code class="sig-name descname">recognize</code><span class="sig-paren">(</span>std::vector&lt;Eigen::Matrix4f, Eigen::aligned_allocator&lt;Eigen::Matrix4f&gt;&gt; &amp;<em>transformations</em>, std::vector&lt;pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a>&gt; &amp;<em>clustered_corrs</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping9recognizeERNSt6vectorIN5Eigen8Matrix4fEN5Eigen17aligned_allocatorIN5Eigen8Matrix4fEEEEERNSt6vectorIN3pcl15CorrespondencesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The main function, recognizes instances of the model into the scene set by the user. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if the recognition had been successful or false if errors have occurred. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transformations</span></code>: a vector containing one transformation matrix for each instance of the model recognized into the scene. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">clustered_corrs</span></code>: a vector containing the correspondences for each instance of the model found within the input data (the same output of clusterCorrespondences).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping22clusterCorrespondencesERNSt6vectorI15CorrespondencesEE">
+<span id="_CPPv3N3pcl15Hough3DGrouping22clusterCorrespondencesERNSt6vectorI15CorrespondencesEE"></span><span id="_CPPv2N3pcl15Hough3DGrouping22clusterCorrespondencesERNSt6vectorI15CorrespondencesEE"></span><span id="pcl::Hough3DGrouping::clusterCorrespondences__std::vector:Correspondences:R"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a2ce0b05ab0847a9719dfa7e6f05bb64f"></span>void <code class="sig-name descname">clusterCorrespondences</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a>&gt; &amp;<em>model_instances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping22clusterCorrespondencesERNSt6vectorI15CorrespondencesEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Cluster the input correspondences in order to distinguish between different instances of the model into the scene. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if the clustering had been successful or false if errors have occurred. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">model_instances</span></code>: a vector containing the clustered correspondences for each model found on the scene. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15Hough3DGrouping11houghVotingEv">
+<span id="_CPPv3N3pcl15Hough3DGrouping11houghVotingEv"></span><span id="_CPPv2N3pcl15Hough3DGrouping11houghVotingEv"></span><span id="pcl::Hough3DGrouping::houghVoting"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a5653b21af3d636a5660ad6c2af95240b"></span>bool <code class="sig-name descname">houghVoting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping11houghVotingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The Hough space voting procedure. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if the voting had been successful or false if errors have occurred. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I00EN3pcl15Hough3DGrouping9computeRfEvRKN5boost10shared_ptrIKN3pcl10PointCloudI9PointTypeEEEERN3pcl10PointCloudI11PointRfTypeEE">
+<span id="_CPPv3I00EN3pcl15Hough3DGrouping9computeRfERKN5boost10shared_ptrIKN3pcl10PointCloudI9PointTypeEEEERN3pcl10PointCloudI11PointRfTypeEE"></span><span id="_CPPv2I00EN3pcl15Hough3DGrouping9computeRfERKN5boost10shared_ptrIKN3pcl10PointCloudI9PointTypeEEEERN3pcl10PointCloudI11PointRfTypeEE"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a778fa8404b2562b23f3dcaf71a5afe58"></span>template&lt;typename <code class="sig-name descname">PointType</code>, typename <code class="sig-name descname">PointRfType</code>&gt;<br />void <code class="sig-name descname">computeRf</code><span class="sig-paren">(</span><em class="property">const</em> boost::shared_ptr&lt;<em class="property">const</em> pcl::PointCloud&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl15Hough3DGrouping9computeRfEvRKN5boost10shared_ptrIKN3pcl10PointCloudI9PointTypeEEEERN3pcl10PointCloudI11PointRfTypeEE" title="pcl::Hough3DGrouping::computeRf::PointType">PointType</a>&gt;&gt; &amp;<em>input</em>, pcl::PointCloud&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl15Hough3DGrouping9computeRfEvRKN5boost10shared_ptrIKN3pcl10PointCloudI9PointTypeEEEERN3pcl10PointCloudI11PointRfTypeEE" title="pcl::Hough3DGrouping::computeRf::PointRfType">PointRfType</a>&gt; &amp;<em>rf</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00EN3pcl15Hough3DGrouping9computeRfEvRKN5boost10shared_ptrIKN3pcl10PointCloudI9PointTypeEEEERN3pcl10PointCloudI11PointRfTypeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the reference frame for an input cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: the input cloud. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">rf</span></code>: the resulting reference frame. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping9input_rf_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping9input_rf_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping9input_rf_E"></span><span id="pcl::Hough3DGrouping::input_rf___ModelRfCloudConstPtr"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1ac15a3f73f40e24c79fcd74bf35ffe045"></span><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping20ModelRfCloudConstPtrE" title="pcl::Hough3DGrouping::ModelRfCloudConstPtr">ModelRfCloudConstPtr</a> <code class="sig-name descname">input_rf_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping9input_rf_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The input Rf cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping9scene_rf_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping9scene_rf_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping9scene_rf_E"></span><span id="pcl::Hough3DGrouping::scene_rf___SceneRfCloudConstPtr"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1af5117555131a60e60ba2928005981f7a"></span><a class="reference internal" href="#_CPPv4N3pcl15Hough3DGrouping20SceneRfCloudConstPtrE" title="pcl::Hough3DGrouping::SceneRfCloudConstPtr">SceneRfCloudConstPtr</a> <code class="sig-name descname">scene_rf_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping9scene_rf_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The scene Rf cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping15needs_training_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping15needs_training_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping15needs_training_E"></span><span id="pcl::Hough3DGrouping::needs_training___b"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a565b7cd857b83ecfb6b89c64c2fc4067"></span>bool <code class="sig-name descname">needs_training_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping15needs_training_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the training of the Hough space is needed; set on change of either the input cloud or the input_rf. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping12model_votes_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping12model_votes_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping12model_votes_E"></span><span id="pcl::Hough3DGrouping::model_votes___std::vector:Eigen::Vector3f.Eigen::aligned_allocator:Eigen::Vector3f::"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a857b94d7c2951510b6e4990e5561b049"></span>std::vector&lt;Eigen::Vector3f, Eigen::aligned_allocator&lt;Eigen::Vector3f&gt;&gt; <code class="sig-name descname">model_votes_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping12model_votes_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The result of the training. </p>
+<p>The vector between each model point and the centroid of the model adjusted by its local reference frame. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping16hough_threshold_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping16hough_threshold_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping16hough_threshold_E"></span><span id="pcl::Hough3DGrouping::hough_threshold___double"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a4143dedbc983daf41a4a1247ae93fb61"></span>double <code class="sig-name descname">hough_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping16hough_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The minimum number of votes in the Hough space needed to infer the presence of a model instance into the scene cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping15hough_bin_size_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping15hough_bin_size_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping15hough_bin_size_E"></span><span id="pcl::Hough3DGrouping::hough_bin_size___double"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a6f8845c48f998be01898b5e98dde61df"></span>double <code class="sig-name descname">hough_bin_size_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping15hough_bin_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The size of each bin of the hough space. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping18use_interpolation_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping18use_interpolation_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping18use_interpolation_E"></span><span id="pcl::Hough3DGrouping::use_interpolation___b"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1aee23f5064417bd6cbee419ab57d65d67"></span>bool <code class="sig-name descname">use_interpolation_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping18use_interpolation_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use the interpolation between neighboring Hough bins when casting votes. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping20use_distance_weight_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping20use_distance_weight_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping20use_distance_weight_E"></span><span id="pcl::Hough3DGrouping::use_distance_weight___b"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a54c782e31602fd647fd4973871c70002"></span>bool <code class="sig-name descname">use_distance_weight_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping20use_distance_weight_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Use the weighted correspondence distance when casting votes. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping31local_rf_normals_search_radius_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping31local_rf_normals_search_radius_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping31local_rf_normals_search_radius_E"></span><span id="pcl::Hough3DGrouping::local_rf_normals_search_radius___float"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a167c6e65e18cf2b7524630ce7c4f8b53"></span>float <code class="sig-name descname">local_rf_normals_search_radius_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping31local_rf_normals_search_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Normals search radius for the potential Rf calculation. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping23local_rf_search_radius_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping23local_rf_search_radius_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping23local_rf_search_radius_E"></span><span id="pcl::Hough3DGrouping::local_rf_search_radius___float"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1aea394d09fe22404ae9487c762c034c08"></span>float <code class="sig-name descname">local_rf_search_radius_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping23local_rf_search_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Search radius for the potential Rf calculation. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping12hough_space_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping12hough_space_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping12hough_space_E"></span><span id="pcl::Hough3DGrouping::hough_space___boost::shared_ptr:pcl::recognition::HoughSpace3D:"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a8273da7056cb2fedbfb86e29ea3b188b"></span>boost::shared_ptr&lt;pcl::recognition::<a class="reference internal" href="classpcl_1_1recognition_1_1_hough_space3_d.html#_CPPv4N3pcl11recognition12HoughSpace3DE" title="pcl::recognition::HoughSpace3D">HoughSpace3D</a>&gt; <code class="sig-name descname">hough_space_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping12hough_space_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The Hough space. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping22found_transformations_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping22found_transformations_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping22found_transformations_E"></span><span id="pcl::Hough3DGrouping::found_transformations___std::vector:Eigen::Matrix4f.Eigen::aligned_allocator:Eigen::Matrix4f::"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a93db7b188c28ab188c34070408bc0940"></span>std::vector&lt;Eigen::Matrix4f, Eigen::aligned_allocator&lt;Eigen::Matrix4f&gt;&gt; <code class="sig-name descname">found_transformations_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping22found_transformations_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Transformations found by clusterCorrespondences method. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15Hough3DGrouping24hough_space_initialized_E">
+<span id="_CPPv3N3pcl15Hough3DGrouping24hough_space_initialized_E"></span><span id="_CPPv2N3pcl15Hough3DGrouping24hough_space_initialized_E"></span><span id="pcl::Hough3DGrouping::hough_space_initialized___b"></span><span class="target" id="classpcl_1_1_hough3_d_grouping_1a693bad31eef837767c419eafef1c369f"></span>bool <code class="sig-name descname">hough_space_initialized_</code><a class="headerlink" href="#_CPPv4N3pcl15Hough3DGrouping24hough_space_initialized_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Whether the Hough space already contains the correct votes for the current input parameters and so the cluster and recognize calls don’t need to recompute each value. </p>
+<p>Reset on the change of any parameter except the hough_threshold. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

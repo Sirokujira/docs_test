@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class Kmeans &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class Kmeans</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_kmeans.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-kmeans">
+<span id="exhale-class-classpcl-1-1-kmeans"></span><h1>Class Kmeans<a class="headerlink" href="#class-kmeans" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_ml_include_pcl_ml_kmeans.h.html#file-pcl-ml-include-pcl-ml-kmeans-h"><span class="std std-ref">File kmeans.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl6KmeansE">
+<span id="_CPPv3N3pcl6KmeansE"></span><span id="_CPPv2N3pcl6KmeansE"></span><span id="pcl::Kmeans"></span><span class="target" id="classpcl_1_1_kmeans"></span><em class="property">class </em><code class="sig-name descname">Kmeans</code><a class="headerlink" href="#_CPPv4N3pcl6KmeansE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong>K-means</strong> clustering. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Christian Potthast </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl6Kmeans7PointIdE">
+<span id="_CPPv3N3pcl6Kmeans7PointIdE"></span><span id="_CPPv2N3pcl6Kmeans7PointIdE"></span><span id="pcl::Kmeans::PointId"></span><span class="target" id="classpcl_1_1_kmeans_1af0573e4ccc803e8f98afb3eed061c17a"></span><em class="property">typedef </em>unsigned int <code class="sig-name descname">PointId</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans7PointIdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6Kmeans9ClusterIdE">
+<span id="_CPPv3N3pcl6Kmeans9ClusterIdE"></span><span id="_CPPv2N3pcl6Kmeans9ClusterIdE"></span><span id="pcl::Kmeans::ClusterId"></span><span class="target" id="classpcl_1_1_kmeans_1aedf967a87d7186657f42f8b10b9ba7a3"></span><em class="property">typedef </em>unsigned int <code class="sig-name descname">ClusterId</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans9ClusterIdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6Kmeans9SetPointsE">
+<span id="_CPPv3N3pcl6Kmeans9SetPointsE"></span><span id="_CPPv2N3pcl6Kmeans9SetPointsE"></span><span id="pcl::Kmeans::SetPoints"></span><span class="target" id="classpcl_1_1_kmeans_1a069dfe0b6c1ff3b17d3df9321b77db75"></span><em class="property">typedef </em>std::set&lt;<a class="reference internal" href="#_CPPv4N3pcl6Kmeans7PointIdE" title="pcl::Kmeans::PointId">PointId</a>&gt; <code class="sig-name descname">SetPoints</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans9SetPointsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6Kmeans5PointE">
+<span id="_CPPv3N3pcl6Kmeans5PointE"></span><span id="_CPPv2N3pcl6Kmeans5PointE"></span><span id="pcl::Kmeans::Point"></span><span class="target" id="classpcl_1_1_kmeans_1adbf09807cefb0b729939cd13dbc31dfa"></span><em class="property">typedef </em>std::vector&lt;float&gt; <code class="sig-name descname">Point</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans5PointE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6Kmeans16ClustersToPointsE">
+<span id="_CPPv3N3pcl6Kmeans16ClustersToPointsE"></span><span id="_CPPv2N3pcl6Kmeans16ClustersToPointsE"></span><span id="pcl::Kmeans::ClustersToPoints"></span><span class="target" id="classpcl_1_1_kmeans_1a4aff9275868eb01aa98291a7d2fca261"></span><em class="property">typedef </em>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl6Kmeans9SetPointsE" title="pcl::Kmeans::SetPoints">SetPoints</a>&gt; <code class="sig-name descname">ClustersToPoints</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans16ClustersToPointsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6Kmeans16PointsToClustersE">
+<span id="_CPPv3N3pcl6Kmeans16PointsToClustersE"></span><span id="_CPPv2N3pcl6Kmeans16PointsToClustersE"></span><span id="pcl::Kmeans::PointsToClusters"></span><span class="target" id="classpcl_1_1_kmeans_1aaff2ab5a7eeaf6d580a10ce4df652451"></span><em class="property">typedef </em>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl6Kmeans9ClusterIdE" title="pcl::Kmeans::ClusterId">ClusterId</a>&gt; <code class="sig-name descname">PointsToClusters</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans16PointsToClustersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6Kmeans9CentroidsE">
+<span id="_CPPv3N3pcl6Kmeans9CentroidsE"></span><span id="_CPPv2N3pcl6Kmeans9CentroidsE"></span><span id="pcl::Kmeans::Centroids"></span><span class="target" id="classpcl_1_1_kmeans_1a245e98b7173b12303dd42ae6765fa0ea"></span><em class="property">typedef </em>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl6Kmeans5PointE" title="pcl::Kmeans::Point">Point</a>&gt; <code class="sig-name descname">Centroids</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans9CentroidsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6Kmeans6KmeansEjj">
+<span id="_CPPv3N3pcl6Kmeans6KmeansEjj"></span><span id="_CPPv2N3pcl6Kmeans6KmeansEjj"></span><span id="pcl::Kmeans::Kmeans__unsigned-i.unsigned-i"></span><span class="target" id="classpcl_1_1_kmeans_1a8788bd4098ea370e018119fc516a5eb4"></span><code class="sig-name descname">Kmeans</code><span class="sig-paren">(</span>unsigned int <em>num_points</em>, unsigned int <em>num_dimensions</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6Kmeans6KmeansEjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6KmeansD0Ev">
+<span id="_CPPv3N3pcl6KmeansD0Ev"></span><span id="_CPPv2N3pcl6KmeansD0Ev"></span><span id="pcl::Kmeans::~Kmeans"></span><span class="target" id="classpcl_1_1_kmeans_1a47501eb8e76a63d1d8c9b9af1ec349bf"></span><code class="sig-name descname">~Kmeans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6KmeansD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This destructor destroys. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6Kmeans14setClusterSizeEj">
+<span id="_CPPv3N3pcl6Kmeans14setClusterSizeEj"></span><span id="_CPPv2N3pcl6Kmeans14setClusterSizeEj"></span><span id="pcl::Kmeans::setClusterSize__unsigned-i"></span><span class="target" id="classpcl_1_1_kmeans_1a8823feefb720e8d9c70076cc8becdde0"></span>void <code class="sig-name descname">setClusterSize</code><span class="sig-paren">(</span>unsigned int <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6Kmeans14setClusterSizeEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method sets the k-means cluster size. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">k</span></code>: number of clusters </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6Kmeans6kMeansEv">
+<span id="_CPPv3N3pcl6Kmeans6kMeansEv"></span><span id="_CPPv2N3pcl6Kmeans6kMeansEv"></span><span id="pcl::Kmeans::kMeans"></span><span class="target" id="classpcl_1_1_kmeans_1adfc25cfe3fc36da8fe6b8902858df42a"></span>void <code class="sig-name descname">kMeans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6Kmeans6kMeansEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6Kmeans12setInputDataERNSt6vectorI5PointEE">
+<span id="_CPPv3N3pcl6Kmeans12setInputDataERNSt6vectorI5PointEE"></span><span id="_CPPv2N3pcl6Kmeans12setInputDataERNSt6vectorI5PointEE"></span><span id="pcl::Kmeans::setInputData__std::vector:Point:R"></span><span class="target" id="classpcl_1_1_kmeans_1a1fc47e82575a675f1e55b954f605a95c"></span>void <code class="sig-name descname">setInputData</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl6Kmeans5PointE" title="pcl::Kmeans::Point">Point</a>&gt; &amp;<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6Kmeans12setInputDataERNSt6vectorI5PointEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6Kmeans12addDataPointER5Point">
+<span id="_CPPv3N3pcl6Kmeans12addDataPointER5Point"></span><span id="_CPPv2N3pcl6Kmeans12addDataPointER5Point"></span><span id="pcl::Kmeans::addDataPoint__PointR"></span><span class="target" id="classpcl_1_1_kmeans_1a8334b39219f90335b549192cace35580"></span>void <code class="sig-name descname">addDataPoint</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl6Kmeans5PointE" title="pcl::Kmeans::Point">Point</a> &amp;<em>data_point</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6Kmeans12addDataPointER5Point" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6Kmeans20initialClusterPointsEv">
+<span id="_CPPv3N3pcl6Kmeans20initialClusterPointsEv"></span><span id="_CPPv2N3pcl6Kmeans20initialClusterPointsEv"></span><span id="pcl::Kmeans::initialClusterPoints"></span><span class="target" id="classpcl_1_1_kmeans_1a6f70e12a373cf09366f8460c1e2d703e"></span>void <code class="sig-name descname">initialClusterPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6Kmeans20initialClusterPointsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6Kmeans16computeCentroidsEv">
+<span id="_CPPv3N3pcl6Kmeans16computeCentroidsEv"></span><span id="_CPPv2N3pcl6Kmeans16computeCentroidsEv"></span><span id="pcl::Kmeans::computeCentroids"></span><span class="target" id="classpcl_1_1_kmeans_1ac72bb2821a8676694ec25bd81e0a447f"></span>void <code class="sig-name descname">computeCentroids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6Kmeans16computeCentroidsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6Kmeans8distanceERK5PointRK5Point">
+<span id="_CPPv3N3pcl6Kmeans8distanceERK5PointRK5Point"></span><span id="_CPPv2N3pcl6Kmeans8distanceERK5PointRK5Point"></span><span id="pcl::Kmeans::distance__PointCR.PointCR"></span><span class="target" id="classpcl_1_1_kmeans_1aaa3ba6c4e42276aecb01ce789cb69f14"></span>float <code class="sig-name descname">distance</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6Kmeans5PointE" title="pcl::Kmeans::Point">Point</a> &amp;<em>x</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6Kmeans5PointE" title="pcl::Kmeans::Point">Point</a> &amp;<em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6Kmeans8distanceERK5PointRK5Point" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6Kmeans13get_centroidsEv">
+<span id="_CPPv3N3pcl6Kmeans13get_centroidsEv"></span><span id="_CPPv2N3pcl6Kmeans13get_centroidsEv"></span><span id="pcl::Kmeans::get_centroids"></span><span class="target" id="classpcl_1_1_kmeans_1a2a56413edef42034c819854867495ea9"></span><a class="reference internal" href="#_CPPv4N3pcl6Kmeans9CentroidsE" title="pcl::Kmeans::Centroids">Centroids</a> <code class="sig-name descname">get_centroids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6Kmeans13get_centroidsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl6Kmeans11num_points_E">
+<span id="_CPPv3N3pcl6Kmeans11num_points_E"></span><span id="_CPPv2N3pcl6Kmeans11num_points_E"></span><span id="pcl::Kmeans::num_points___unsigned-i"></span><span class="target" id="classpcl_1_1_kmeans_1af27022ddb92b2e543389b43ae86a8436"></span>unsigned int <code class="sig-name descname">num_points_</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans11num_points_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6Kmeans15num_dimensions_E">
+<span id="_CPPv3N3pcl6Kmeans15num_dimensions_E"></span><span id="_CPPv2N3pcl6Kmeans15num_dimensions_E"></span><span id="pcl::Kmeans::num_dimensions___unsigned-i"></span><span class="target" id="classpcl_1_1_kmeans_1a23f8cff02c5ef8bae44cb47de08b5f6c"></span>unsigned int <code class="sig-name descname">num_dimensions_</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans15num_dimensions_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6Kmeans13num_clusters_E">
+<span id="_CPPv3N3pcl6Kmeans13num_clusters_E"></span><span id="_CPPv2N3pcl6Kmeans13num_clusters_E"></span><span id="pcl::Kmeans::num_clusters___unsigned-i"></span><span class="target" id="classpcl_1_1_kmeans_1a119b4a7a1ee839797406471ebbaaf212"></span>unsigned int <code class="sig-name descname">num_clusters_</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans13num_clusters_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of clusters. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6Kmeans5data_E">
+<span id="_CPPv3N3pcl6Kmeans5data_E"></span><span id="_CPPv2N3pcl6Kmeans5data_E"></span><span id="pcl::Kmeans::data___std::vector:Point:"></span><span class="target" id="classpcl_1_1_kmeans_1ae34b2e388cea4dd1921fe111976e8123"></span>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl6Kmeans5PointE" title="pcl::Kmeans::Point">Point</a>&gt; <code class="sig-name descname">data_</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans5data_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The cluster centroids. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6Kmeans19clusters_to_points_E">
+<span id="_CPPv3N3pcl6Kmeans19clusters_to_points_E"></span><span id="_CPPv2N3pcl6Kmeans19clusters_to_points_E"></span><span id="pcl::Kmeans::clusters_to_points___ClustersToPoints"></span><span class="target" id="classpcl_1_1_kmeans_1a08a2eeae0fa28d26bc24d576993a00e7"></span><a class="reference internal" href="#_CPPv4N3pcl6Kmeans16ClustersToPointsE" title="pcl::Kmeans::ClustersToPoints">ClustersToPoints</a> <code class="sig-name descname">clusters_to_points_</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans19clusters_to_points_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6Kmeans19points_to_clusters_E">
+<span id="_CPPv3N3pcl6Kmeans19points_to_clusters_E"></span><span id="_CPPv2N3pcl6Kmeans19points_to_clusters_E"></span><span id="pcl::Kmeans::points_to_clusters___PointsToClusters"></span><span class="target" id="classpcl_1_1_kmeans_1a97b5d9d8fa96a3cc597bfa91e56d3cc9"></span><a class="reference internal" href="#_CPPv4N3pcl6Kmeans16PointsToClustersE" title="pcl::Kmeans::PointsToClusters">PointsToClusters</a> <code class="sig-name descname">points_to_clusters_</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans19points_to_clusters_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6Kmeans10centroids_E">
+<span id="_CPPv3N3pcl6Kmeans10centroids_E"></span><span id="_CPPv2N3pcl6Kmeans10centroids_E"></span><span id="pcl::Kmeans::centroids___Centroids"></span><span class="target" id="classpcl_1_1_kmeans_1af2220fc2338109a7e02b04874e1beb9d"></span><a class="reference internal" href="#_CPPv4N3pcl6Kmeans9CentroidsE" title="pcl::Kmeans::Centroids">Centroids</a> <code class="sig-name descname">centroids_</code><a class="headerlink" href="#_CPPv4N3pcl6Kmeans10centroids_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,507 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class RealSenseGrabber &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class RealSenseGrabber</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_real_sense_grabber.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-realsensegrabber">
+<span id="exhale-class-classpcl-1-1-real-sense-grabber"></span><h1>Class RealSenseGrabber<a class="headerlink" href="#class-realsensegrabber" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_real_sense_grabber.h.html#file-pcl-io-include-pcl-io-real-sense-grabber-h"><span class="std std-ref">File real_sense_grabber.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_real_sense_grabber_1_1_mode.html#exhale-struct-structpcl-1-1-real-sense-grabber-1-1-mode"><span class="std std-ref">Struct RealSenseGrabber::Mode</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Grabber</span></code> (<a class="reference internal" href="classpcl_1_1_grabber.html#exhale-class-classpcl-1-1-grabber"><span class="std std-ref">Class Grabber</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl16RealSenseGrabberE">
+<span id="_CPPv3N3pcl16RealSenseGrabberE"></span><span id="_CPPv2N3pcl16RealSenseGrabberE"></span><span id="pcl::RealSenseGrabber"></span><span class="target" id="classpcl_1_1_real_sense_grabber"></span><em class="property">class </em><code class="sig-name descname">RealSenseGrabber</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_grabber.html#_CPPv4N3pcl7GrabberE" title="pcl::Grabber">Grabber</a><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabberE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl16RealSenseGrabber21TemporalFilteringTypeE">
+<span id="_CPPv3N3pcl16RealSenseGrabber21TemporalFilteringTypeE"></span><span id="_CPPv2N3pcl16RealSenseGrabber21TemporalFilteringTypeE"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1af8dac16c26e23cfdaeaac9622a6075e9"></span><em class="property">enum </em><code class="sig-name descname">TemporalFilteringType</code><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber21TemporalFilteringTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl16RealSenseGrabber14RealSense_NoneE">
+<span id="_CPPv3N3pcl16RealSenseGrabber14RealSense_NoneE"></span><span id="_CPPv2N3pcl16RealSenseGrabber14RealSense_NoneE"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1af8dac16c26e23cfdaeaac9622a6075e9a9af9ca5e309a999197394269b5aeeade"></span><code class="sig-name descname">RealSense_None</code> = 0<a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber14RealSense_NoneE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl16RealSenseGrabber16RealSense_MedianE">
+<span id="_CPPv3N3pcl16RealSenseGrabber16RealSense_MedianE"></span><span id="_CPPv2N3pcl16RealSenseGrabber16RealSense_MedianE"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1af8dac16c26e23cfdaeaac9622a6075e9aa44e4238b0ced3c98c7935c28b07d8b6"></span><code class="sig-name descname">RealSense_Median</code> = 1<a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber16RealSense_MedianE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl16RealSenseGrabber17RealSense_AverageE">
+<span id="_CPPv3N3pcl16RealSenseGrabber17RealSense_AverageE"></span><span id="_CPPv2N3pcl16RealSenseGrabber17RealSense_AverageE"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1af8dac16c26e23cfdaeaac9622a6075e9af9359fb1db12cf0d96648c38df31ba4d"></span><code class="sig-name descname">RealSense_Average</code> = 2<a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber17RealSense_AverageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_real_sense_grabber_1ad819f35c51dbdc06980da46fe45d59c3"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::RealSenseGrabber::sig_cb_real_sense_point_cloud(const pcl::PointCloud&lt; pcl::PointXYZ &gt;::ConstPtr &amp;)</code></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="classpcl_1_1_real_sense_grabber_1a1f8ad0dde7d1392f7e39a8ae512ca776"></span><em class="property">typedef </em><code class="sig-name descname">void() pcl::RealSenseGrabber::sig_cb_real_sense_point_cloud_rgba(const pcl::PointCloud&lt; pcl::PointXYZRGBA &gt;::ConstPtr &amp;)</code></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber16RealSenseGrabberERKNSt6stringERK4Modeb">
+<span id="_CPPv3N3pcl16RealSenseGrabber16RealSenseGrabberERKNSt6stringERK4Modeb"></span><span id="_CPPv2N3pcl16RealSenseGrabber16RealSenseGrabberERKNSt6stringERK4Modeb"></span><span id="pcl::RealSenseGrabber::RealSenseGrabber__ssCR.ModeCR.b"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1ac2db013955b4a5eda639a8f7de8636d4"></span><code class="sig-name descname">RealSenseGrabber</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>device_id</em> = &quot;&quot;, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl16RealSenseGrabber4ModeE" title="pcl::RealSenseGrabber::Mode">Mode</a> &amp;<em>mode</em> = <a class="reference internal" href="#_CPPv4N3pcl16RealSenseGrabber4ModeE" title="pcl::RealSenseGrabber::Mode">Mode</a>(), bool <em>strict</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber16RealSenseGrabberERKNSt6stringERK4Modeb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a grabber for a RealSense device. </p>
+<p>The grabber “captures” the device, making it impossible for other grabbers to interact with it. The device is “released” when the grabber is destructed.</p>
+<p>This will throw <a class="reference internal" href="classpcl_1_1io_1_1_i_o_exception.html#classpcl_1_1io_1_1_i_o_exception"><span class="std std-ref">pcl::io::IOException</span></a> if there are no free devices that match the supplied <em>device_id</em>.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">device_id</span></code>: device identifier, which can be a serial number, a zero-based index (with ‘#’ prefix), or an empty string (to select the first available device) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mode</span></code>: desired framerate and stream resolution (see <a class="reference internal" href="structpcl_1_1_real_sense_grabber_1_1_mode.html#structpcl_1_1_real_sense_grabber_1_1_mode"><span class="std std-ref">Mode</span></a>). If the default is supplied, then the mode closest to VGA at 30 Hz will be chosen. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">strict</span></code>: if set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, an exception will be thrown if device does not support exactly the mode requested. Otherwise the closest available mode is selected. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabberD0Ev">
+<span id="_CPPv3N3pcl16RealSenseGrabberD0Ev"></span><span id="_CPPv2N3pcl16RealSenseGrabberD0Ev"></span><span id="pcl::RealSenseGrabber::~RealSenseGrabber"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1a52f8fbedffad0c3e600ed08811daf844"></span><em class="property">virtual</em> <code class="sig-name descname">~RealSenseGrabber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabberD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber5startEv">
+<span id="_CPPv3N3pcl16RealSenseGrabber5startEv"></span><span id="_CPPv2N3pcl16RealSenseGrabber5startEv"></span><span id="pcl::RealSenseGrabber::start"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1a2a313562aa36f4a39234bebde1317b6e"></span><em class="property">virtual</em> void <code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber5startEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>For devices that are streaming, the streams are started by calling this method. </p>
+<p>Trigger-based devices, just trigger the device once for each call of start. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4stopEv">
+<span id="_CPPv3N3pcl16RealSenseGrabber4stopEv"></span><span id="_CPPv2N3pcl16RealSenseGrabber4stopEv"></span><span id="pcl::RealSenseGrabber::stop"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1a2bef56efffa3d29f0f98c170f10971a2"></span><em class="property">virtual</em> void <code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4stopEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>For devices that are streaming, the streams are stopped. </p>
+<p>This method has no effect for triggered devices. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RealSenseGrabber9isRunningEv">
+<span id="_CPPv3NK3pcl16RealSenseGrabber9isRunningEv"></span><span id="_CPPv2NK3pcl16RealSenseGrabber9isRunningEv"></span><span id="pcl::RealSenseGrabber::isRunningC"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1a3d33159677dfd031e408b9b0b627b367"></span><em class="property">virtual</em> bool <code class="sig-name descname">isRunning</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RealSenseGrabber9isRunningEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Indicates whether the grabber is streaming or not. </p>
+<p>This value is not defined for triggered devices. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if grabber is running / streaming. False otherwise. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RealSenseGrabber7getNameEv">
+<span id="_CPPv3NK3pcl16RealSenseGrabber7getNameEv"></span><span id="_CPPv2NK3pcl16RealSenseGrabber7getNameEv"></span><span id="pcl::RealSenseGrabber::getNameC"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1a922a07c6f3e1c1b811c42fa1fd2422bb"></span><em class="property">virtual</em> std::string <code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RealSenseGrabber7getNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>returns the name of the concrete subclass. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the name of the concrete driver. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RealSenseGrabber18getFramesPerSecondEv">
+<span id="_CPPv3NK3pcl16RealSenseGrabber18getFramesPerSecondEv"></span><span id="_CPPv2NK3pcl16RealSenseGrabber18getFramesPerSecondEv"></span><span id="pcl::RealSenseGrabber::getFramesPerSecondC"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1a6a0764d728d493060dc8fe81d75f8429"></span><em class="property">virtual</em> float <code class="sig-name descname">getFramesPerSecond</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RealSenseGrabber18getFramesPerSecondEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>returns fps. </p>
+<p>0 if trigger based. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber22setConfidenceThresholdEj">
+<span id="_CPPv3N3pcl16RealSenseGrabber22setConfidenceThresholdEj"></span><span id="_CPPv2N3pcl16RealSenseGrabber22setConfidenceThresholdEj"></span><span id="pcl::RealSenseGrabber::setConfidenceThreshold__unsigned-i"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1acceb4d31e228cbde706747a7d55115fb"></span>void <code class="sig-name descname">setConfidenceThreshold</code><span class="sig-paren">(</span>unsigned int <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber22setConfidenceThresholdEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the confidence threshold for depth data. </p>
+<p>Valid range is [0..15]. Discarded points will have their coordinates set to NaNs). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber23enableTemporalFilteringE21TemporalFilteringType6size_t">
+<span id="_CPPv3N3pcl16RealSenseGrabber23enableTemporalFilteringE21TemporalFilteringType6size_t"></span><span id="_CPPv2N3pcl16RealSenseGrabber23enableTemporalFilteringE21TemporalFilteringType6size_t"></span><span id="pcl::RealSenseGrabber::enableTemporalFiltering__TemporalFilteringType.s"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1af71b1ad3fdbea98346f125e42eebc376"></span>void <code class="sig-name descname">enableTemporalFiltering</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl16RealSenseGrabber21TemporalFilteringTypeE" title="pcl::RealSenseGrabber::TemporalFilteringType">TemporalFilteringType</a> <em>type</em>, size_t <em>window_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber23enableTemporalFilteringE21TemporalFilteringType6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enable temporal filtering of the depth data received from the device. </p>
+<p>The window size parameter is not relevant for <code class="docutils literal notranslate"><span class="pre">RealSense_None</span></code> filtering type.</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>if the grabber is running and the new parameters are different from the current parameters, grabber will be restarted. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber24disableTemporalFilteringEv">
+<span id="_CPPv3N3pcl16RealSenseGrabber24disableTemporalFilteringEv"></span><span id="_CPPv2N3pcl16RealSenseGrabber24disableTemporalFilteringEv"></span><span id="pcl::RealSenseGrabber::disableTemporalFiltering"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1a809db639fd84dd583a4e330bfb388691"></span>void <code class="sig-name descname">disableTemporalFiltering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber24disableTemporalFilteringEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Disable temporal filtering. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RealSenseGrabber21getDeviceSerialNumberEv">
+<span id="_CPPv3NK3pcl16RealSenseGrabber21getDeviceSerialNumberEv"></span><span id="_CPPv2NK3pcl16RealSenseGrabber21getDeviceSerialNumberEv"></span><span id="pcl::RealSenseGrabber::getDeviceSerialNumberC"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1ac6a59a3fa0670328434f6a4d0003aba7"></span><em class="property">const</em> std::string &amp;<code class="sig-name descname">getDeviceSerialNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RealSenseGrabber21getDeviceSerialNumberEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the serial number of device captured by the grabber. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RealSenseGrabber17getAvailableModesEb">
+<span id="_CPPv3NK3pcl16RealSenseGrabber17getAvailableModesEb"></span><span id="_CPPv2NK3pcl16RealSenseGrabber17getAvailableModesEb"></span><span id="pcl::RealSenseGrabber::getAvailableModes__bC"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1a51a86f26171309d24e10bf0283c02e31"></span>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl16RealSenseGrabber4ModeE" title="pcl::RealSenseGrabber::Mode">Mode</a>&gt; <code class="sig-name descname">getAvailableModes</code><span class="sig-paren">(</span>bool <em>only_depth</em> = false<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RealSenseGrabber17getAvailableModesEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a list of capturing modes supported by the PXC device controlled by this grabber. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>: this list exclude modes where framerates of the depth and color streams do not match. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">only_depth</span></code>: list depth-only modes</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber7setModeERK4Modeb">
+<span id="_CPPv3N3pcl16RealSenseGrabber7setModeERK4Modeb"></span><span id="_CPPv2N3pcl16RealSenseGrabber7setModeERK4Modeb"></span><span id="pcl::RealSenseGrabber::setMode__ModeCR.b"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1a12137a917228ddab4669ada9b603cb33"></span>void <code class="sig-name descname">setMode</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl16RealSenseGrabber4ModeE" title="pcl::RealSenseGrabber::Mode">Mode</a> &amp;<em>mode</em>, bool <em>strict</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber7setModeERK4Modeb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set desired capturing mode. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>if the grabber is running and the new mode is different the one requested previously, grabber will be restarted. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RealSenseGrabber7getModeEv">
+<span id="_CPPv3NK3pcl16RealSenseGrabber7getModeEv"></span><span id="_CPPv2NK3pcl16RealSenseGrabber7getModeEv"></span><span id="pcl::RealSenseGrabber::getModeC"></span><span class="target" id="classpcl_1_1_real_sense_grabber_1abfc4e17662cc68283ce1c8a983275eb1"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl16RealSenseGrabber4ModeE" title="pcl::RealSenseGrabber::Mode">Mode</a> &amp;<code class="sig-name descname">getMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RealSenseGrabber7getModeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get currently active capturing mode. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>: capturing mode is selected when <a class="reference internal" href="#classpcl_1_1_real_sense_grabber_1a2a313562aa36f4a39234bebde1317b6e"><span class="std std-ref">start()</span></a> is called; output of this function before grabber was started is undefined. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4ModeE">
+<span id="_CPPv3N3pcl16RealSenseGrabber4ModeE"></span><span id="_CPPv2N3pcl16RealSenseGrabber4ModeE"></span><span id="pcl::RealSenseGrabber::Mode"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode"></span><em class="property">struct </em><code class="sig-name descname">Mode</code><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A descriptor for capturing mode. </p>
+<p>Consists of framerate and resolutions of depth and color streams. Serves two purposes: to describe the desired capturing mode when creating a grabber, and to list the available modes supported by the grabber (see <a class="reference internal" href="#classpcl_1_1_real_sense_grabber_1a51a86f26171309d24e10bf0283c02e31"><span class="std std-ref">getAvailableModes()</span></a>). In the first case setting some fields to zero means “don’t care”, i.e. the grabber is allowed to decide itself which concrete values to use. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEv">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode4ModeEv"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode4ModeEv"></span><span id="pcl::RealSenseGrabber::Mode::Mode"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1a56b86f89b583be9cb021fb3fd042d954"></span><code class="sig-name descname">Mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set all fields to zero (i.e. </p>
+<p>“don’t care”). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEj">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode4ModeEj"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode4ModeEj"></span><span id="pcl::RealSenseGrabber::Mode::Mode__unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1a24acc3a6384ba8e42635bd0de202dce1"></span><code class="sig-name descname">Mode</code><span class="sig-paren">(</span>unsigned int <em>fps</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set desired framerate, the rest is “don’t care”. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEjj">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode4ModeEjj"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode4ModeEjj"></span><span id="pcl::RealSenseGrabber::Mode::Mode__unsigned-i.unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1ace7748bd8f2a9e447d390fe25392efb6"></span><code class="sig-name descname">Mode</code><span class="sig-paren">(</span>unsigned int <em>depth_width</em>, unsigned int <em>depth_height</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set desired depth resolution, the rest is “don’t care”. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEjjj">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode4ModeEjjj"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode4ModeEjjj"></span><span id="pcl::RealSenseGrabber::Mode::Mode__unsigned-i.unsigned-i.unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1a156be4f3ec85a39c17401a0be2f2d7a7"></span><code class="sig-name descname">Mode</code><span class="sig-paren">(</span>unsigned int <em>fps</em>, unsigned int <em>depth_width</em>, unsigned int <em>depth_height</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEjjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Set desired framerate and depth resolution, the rest is “don’t</p>
+<p>care”. </p>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEjjjj">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode4ModeEjjjj"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode4ModeEjjjj"></span><span id="pcl::RealSenseGrabber::Mode::Mode__unsigned-i.unsigned-i.unsigned-i.unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1a15d8a2f8904d0453c5cc2c6bce0160f5"></span><code class="sig-name descname">Mode</code><span class="sig-paren">(</span>unsigned int <em>depth_width</em>, unsigned int <em>depth_height</em>, unsigned int <em>color_width</em>, unsigned int <em>color_height</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEjjjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><p>Set desired depth and color resolution, the rest is “don’t</p>
+<p>care”. </p>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEjjjjj">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode4ModeEjjjjj"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode4ModeEjjjjj"></span><span id="pcl::RealSenseGrabber::Mode::Mode__unsigned-i.unsigned-i.unsigned-i.unsigned-i.unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1a438481ff0eec705f885f2a962c322151"></span><code class="sig-name descname">Mode</code><span class="sig-paren">(</span>unsigned int <em>fps</em>, unsigned int <em>depth_width</em>, unsigned int <em>depth_height</em>, unsigned int <em>color_width</em>, unsigned int <em>color_height</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode4ModeEjjjjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set desired framerate, depth and color resolution. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl16RealSenseGrabber4ModeeqERKN3pcl16RealSenseGrabber4ModeE">
+<span id="_CPPv3NK3pcl16RealSenseGrabber4ModeeqERKN3pcl16RealSenseGrabber4ModeE"></span><span id="_CPPv2NK3pcl16RealSenseGrabber4ModeeqERKN3pcl16RealSenseGrabber4ModeE"></span><span id="pcl::RealSenseGrabber::Mode::eq-operator__pcl::RealSenseGrabber::ModeCRC"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1a17431a981db45eb2517c1b995ec8fe09"></span>bool <code class="sig-name descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="#_CPPv4N3pcl16RealSenseGrabberE" title="pcl::RealSenseGrabber">RealSenseGrabber</a>::<a class="reference internal" href="#_CPPv4N3pcl16RealSenseGrabber4ModeE" title="pcl::RealSenseGrabber::Mode">Mode</a> &amp;<em>m</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl16RealSenseGrabber4ModeeqERKN3pcl16RealSenseGrabber4ModeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode3fpsE">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode3fpsE"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode3fpsE"></span><span id="pcl::RealSenseGrabber::Mode::fps__unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1a63f0bbe3ea24a4803dee0ea2bcb3dedc"></span>unsigned int <code class="sig-name descname">fps</code><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode3fpsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode11depth_widthE">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode11depth_widthE"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode11depth_widthE"></span><span id="pcl::RealSenseGrabber::Mode::depth_width__unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1ac0dd6fa287a88b639440e8c366e139b6"></span>unsigned int <code class="sig-name descname">depth_width</code><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode11depth_widthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode12depth_heightE">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode12depth_heightE"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode12depth_heightE"></span><span id="pcl::RealSenseGrabber::Mode::depth_height__unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1a46aec98d1f1be6ec3f0dac3324c13cd5"></span>unsigned int <code class="sig-name descname">depth_height</code><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode12depth_heightE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode11color_widthE">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode11color_widthE"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode11color_widthE"></span><span id="pcl::RealSenseGrabber::Mode::color_width__unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1a6c9c07d729fb4807f476714d13ff8a5e"></span>unsigned int <code class="sig-name descname">color_width</code><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode11color_widthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl16RealSenseGrabber4Mode12color_heightE">
+<span id="_CPPv3N3pcl16RealSenseGrabber4Mode12color_heightE"></span><span id="_CPPv2N3pcl16RealSenseGrabber4Mode12color_heightE"></span><span id="pcl::RealSenseGrabber::Mode::color_height__unsigned-i"></span><span class="target" id="structpcl_1_1_real_sense_grabber_1_1_mode_1adacb72467f886798478a03b723405614"></span>unsigned int <code class="sig-name descname">color_height</code><a class="headerlink" href="#_CPPv4N3pcl16RealSenseGrabber4Mode12color_heightE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

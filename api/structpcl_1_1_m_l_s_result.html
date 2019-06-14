@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Struct MLSResult &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Struct MLSResult</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/structpcl_1_1_m_l_s_result.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="struct-mlsresult">
+<span id="exhale-struct-structpcl-1-1-m-l-s-result"></span><h1>Struct MLSResult<a class="headerlink" href="#struct-mlsresult" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_mls.h.html#file-pcl-surface-include-pcl-surface-mls-h"><span class="std std-ref">File mls.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results.html#exhale-struct-structpcl-1-1-m-l-s-result-1-1-m-l-s-projection-results"><span class="std std-ref">Struct MLSResult::MLSProjectionResults</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1_m_l_s_result_1_1_polynomial_partial_derivative.html#exhale-struct-structpcl-1-1-m-l-s-result-1-1-polynomial-partial-derivative"><span class="std std-ref">Struct MLSResult::PolynomialPartialDerivative</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl9MLSResultE">
+<span id="_CPPv3N3pcl9MLSResultE"></span><span id="_CPPv2N3pcl9MLSResultE"></span><span id="pcl::MLSResult"></span><span class="target" id="structpcl_1_1_m_l_s_result"></span><em class="property">struct </em><code class="sig-name descname">MLSResult</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResultE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data structure used to store the results of the MLS fitting. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl9MLSResult16ProjectionMethodE">
+<span id="_CPPv3N3pcl9MLSResult16ProjectionMethodE"></span><span id="_CPPv2N3pcl9MLSResult16ProjectionMethodE"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a73f8d03ee5a24992108291acb3866e74"></span><em class="property">enum </em><code class="sig-name descname">ProjectionMethod</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult16ProjectionMethodE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl9MLSResult4NONEE">
+<span id="_CPPv3N3pcl9MLSResult4NONEE"></span><span id="_CPPv2N3pcl9MLSResult4NONEE"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a73f8d03ee5a24992108291acb3866e74a243ce8fd2f0133486993ffe1970bf37c"></span><code class="sig-name descname">NONE</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult4NONEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project to the mls plane. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl9MLSResult6SIMPLEE">
+<span id="_CPPv3N3pcl9MLSResult6SIMPLEE"></span><span id="_CPPv2N3pcl9MLSResult6SIMPLEE"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a73f8d03ee5a24992108291acb3866e74a1e39815ecd73a12c09adb5b4996e580c"></span><code class="sig-name descname">SIMPLE</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult6SIMPLEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project along the mls plane normal to the polynomial surface. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl9MLSResult10ORTHOGONALE">
+<span id="_CPPv3N3pcl9MLSResult10ORTHOGONALE"></span><span id="_CPPv2N3pcl9MLSResult10ORTHOGONALE"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a73f8d03ee5a24992108291acb3866e74a0e4f0ae2e4d624b7bf85dc26e7c1c834"></span><code class="sig-name descname">ORTHOGONAL</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult10ORTHOGONALE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project to the closest point on the polynonomial surface. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl9MLSResult9MLSResultEv">
+<span id="_CPPv3N3pcl9MLSResult9MLSResultEv"></span><span id="_CPPv2N3pcl9MLSResult9MLSResultEv"></span><span id="pcl::MLSResult::MLSResult"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a02d5c062526c6ed23ad57100c1c66330"></span><code class="sig-name descname">MLSResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9MLSResult9MLSResultEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9MLSResult9MLSResultERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8VectorXdEKiKfKi">
+<span id="_CPPv3N3pcl9MLSResult9MLSResultERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8VectorXdEKiKfKi"></span><span id="_CPPv2N3pcl9MLSResult9MLSResultERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8VectorXdEKiKfKi"></span><span id="pcl::MLSResult::MLSResult__Eigen::Vector3dCR.Eigen::Vector3dCR.Eigen::Vector3dCR.Eigen::Vector3dCR.Eigen::Vector3dCR.Eigen::VectorXdCR.iC.floatC.iC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a138c28bbeba83e4faa25bacce8dfd500"></span><code class="sig-name descname">MLSResult</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>a_query_point</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>a_mean</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>a_plane_normal</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>a_u</em>, <em class="property">const</em> Eigen::Vector3d &amp;<em>a_v</em>, <em class="property">const</em> Eigen::VectorXd &amp;<em>a_c_vec</em>, <em class="property">const</em> int <em>a_num_neighbors</em>, <em class="property">const</em> float <em>a_curvature</em>, <em class="property">const</em> int <em>a_order</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9MLSResult9MLSResultERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8Vector3dERKN5Eigen8VectorXdEKiKfKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult17getMLSCoordinatesERKN5Eigen8Vector3dERdRdRd">
+<span id="_CPPv3NK3pcl9MLSResult17getMLSCoordinatesERKN5Eigen8Vector3dERdRdRd"></span><span id="_CPPv2NK3pcl9MLSResult17getMLSCoordinatesERKN5Eigen8Vector3dERdRdRd"></span><span id="pcl::MLSResult::getMLSCoordinates__Eigen::Vector3dCR.doubleR.doubleR.doubleRC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a9acc6c2bce619b5b256cb6433d669f51"></span>void <code class="sig-name descname">getMLSCoordinates</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>pt</em>, double &amp;<em>u</em>, double &amp;<em>v</em>, double &amp;<em>w</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult17getMLSCoordinatesERKN5Eigen8Vector3dERdRdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given a point calculate it’s 3D location in the MLS frame. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: The point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">u</span></code>: The u-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">v</span></code>: The v-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">w</span></code>: The w-coordinate of the point in local MLS frame. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult17getMLSCoordinatesERKN5Eigen8Vector3dERdRd">
+<span id="_CPPv3NK3pcl9MLSResult17getMLSCoordinatesERKN5Eigen8Vector3dERdRd"></span><span id="_CPPv2NK3pcl9MLSResult17getMLSCoordinatesERKN5Eigen8Vector3dERdRd"></span><span id="pcl::MLSResult::getMLSCoordinates__Eigen::Vector3dCR.doubleR.doubleRC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a810a7d5d528b8de0f9173849bbc7d8dc"></span>void <code class="sig-name descname">getMLSCoordinates</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>pt</em>, double &amp;<em>u</em>, double &amp;<em>v</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult17getMLSCoordinatesERKN5Eigen8Vector3dERdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Given a point calculate it’s 2D location in the MLS frame. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: The point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">u</span></code>: The u-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">v</span></code>: The v-coordinate of the point in local MLS frame. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult18getPolynomialValueEKdKd">
+<span id="_CPPv3NK3pcl9MLSResult18getPolynomialValueEKdKd"></span><span id="_CPPv2NK3pcl9MLSResult18getPolynomialValueEKdKd"></span><span id="pcl::MLSResult::getPolynomialValue__doubleC.doubleCC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1ad50dbecbd0489275935f8b0e9f08a41b"></span>double <code class="sig-name descname">getPolynomialValue</code><span class="sig-paren">(</span><em class="property">const</em> double <em>u</em>, <em class="property">const</em> double <em>v</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult18getPolynomialValueEKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the polynomial. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The polynomial value at the provide uv coordinates. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">u</span></code>: The u-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">v</span></code>: The v-coordinate of the point in local MLS frame. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult30getPolynomialPartialDerivativeEKdKd">
+<span id="_CPPv3NK3pcl9MLSResult30getPolynomialPartialDerivativeEKdKd"></span><span id="_CPPv2NK3pcl9MLSResult30getPolynomialPartialDerivativeEKdKd"></span><span id="pcl::MLSResult::getPolynomialPartialDerivative__doubleC.doubleCC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1aafb3cf07a2fec6bb3f6531bab7b0444f"></span>pcl::<a class="reference internal" href="#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>::<a class="reference internal" href="#_CPPv4N3pcl9MLSResult27PolynomialPartialDerivativeE" title="pcl::MLSResult::PolynomialPartialDerivative">PolynomialPartialDerivative</a> <code class="sig-name descname">getPolynomialPartialDerivative</code><span class="sig-paren">(</span><em class="property">const</em> double <em>u</em>, <em class="property">const</em> double <em>v</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult30getPolynomialPartialDerivativeEKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the polynomial’s first and second partial derivatives. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The polynomial partial derivatives at the provide uv coordinates. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">u</span></code>: The u-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">v</span></code>: The v-coordinate of the point in local MLS frame. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult28calculatePrincipleCurvaturesEKdKd">
+<span id="_CPPv3NK3pcl9MLSResult28calculatePrincipleCurvaturesEKdKd"></span><span id="_CPPv2NK3pcl9MLSResult28calculatePrincipleCurvaturesEKdKd"></span><span id="pcl::MLSResult::calculatePrincipleCurvatures__doubleC.doubleCC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a627cb1cba8aa675558e716f518652c74"></span>Eigen::Vector2f <code class="sig-name descname">calculatePrincipleCurvatures</code><span class="sig-paren">(</span><em class="property">const</em> double <em>u</em>, <em class="property">const</em> double <em>v</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult28calculatePrincipleCurvaturesEKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the principle curvatures using the polynomial surface. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The principle curvature [k1, k2] at the provided ub coordinates. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If an error occurs the MLS_MINIMUM_PRINCIPLE_CURVATURE is returned. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">u</span></code>: The u-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">v</span></code>: The v-coordinate of the point in local MLS frame. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult41projectPointOrthogonalToPolynomialSurfaceEKdKdKd">
+<span id="_CPPv3NK3pcl9MLSResult41projectPointOrthogonalToPolynomialSurfaceEKdKdKd"></span><span id="_CPPv2NK3pcl9MLSResult41projectPointOrthogonalToPolynomialSurfaceEKdKdKd"></span><span id="pcl::MLSResult::projectPointOrthogonalToPolynomialSurface__doubleC.doubleC.doubleCC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a4ca9f4257b61aed7686cd6ff9f1d6760"></span>pcl::<a class="reference internal" href="#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>::<a class="reference internal" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResultsE" title="pcl::MLSResult::MLSProjectionResults">MLSProjectionResults</a> <code class="sig-name descname">projectPointOrthogonalToPolynomialSurface</code><span class="sig-paren">(</span><em class="property">const</em> double <em>u</em>, <em class="property">const</em> double <em>v</em>, <em class="property">const</em> double <em>w</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult41projectPointOrthogonalToPolynomialSurfaceEKdKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project a point orthogonal to the polynomial surface. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The <a class="reference internal" href="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results.html#structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results"><span class="std std-ref">MLSProjectionResults</span></a> for the input data. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If the MLSResults does not contain polynomial data it projects the point onto the mls plane. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If the optimization diverges it performs a simple projection on to the polynomial surface. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>This was implemented based on this <a class="reference external" href="https://math.stackexchange.com/questions/1497093/shortest-distance-between-point-and-surface">https://math.stackexchange.com/questions/1497093/shortest-distance-between-point-and-surface</a> </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">u</span></code>: The u-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">v</span></code>: The v-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">w</span></code>: The w-coordinate of the point in local MLS frame. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult22projectPointToMLSPlaneEKdKd">
+<span id="_CPPv3NK3pcl9MLSResult22projectPointToMLSPlaneEKdKd"></span><span id="_CPPv2NK3pcl9MLSResult22projectPointToMLSPlaneEKdKd"></span><span id="pcl::MLSResult::projectPointToMLSPlane__doubleC.doubleCC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1ab6da74ee6e182a160b5bc1de2fe3b7ff"></span>pcl::<a class="reference internal" href="#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>::<a class="reference internal" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResultsE" title="pcl::MLSResult::MLSProjectionResults">MLSProjectionResults</a> <code class="sig-name descname">projectPointToMLSPlane</code><span class="sig-paren">(</span><em class="property">const</em> double <em>u</em>, <em class="property">const</em> double <em>v</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult22projectPointToMLSPlaneEKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project a point onto the MLS plane. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The <a class="reference internal" href="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results.html#structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results"><span class="std std-ref">MLSProjectionResults</span></a> for the input data. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">u</span></code>: The u-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">v</span></code>: The v-coordinate of the point in local MLS frame. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult37projectPointSimpleToPolynomialSurfaceEKdKd">
+<span id="_CPPv3NK3pcl9MLSResult37projectPointSimpleToPolynomialSurfaceEKdKd"></span><span id="_CPPv2NK3pcl9MLSResult37projectPointSimpleToPolynomialSurfaceEKdKd"></span><span id="pcl::MLSResult::projectPointSimpleToPolynomialSurface__doubleC.doubleCC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1ab0c3a1d2af32b1fca5104ab6d72f252d"></span>pcl::<a class="reference internal" href="#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>::<a class="reference internal" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResultsE" title="pcl::MLSResult::MLSProjectionResults">MLSProjectionResults</a> <code class="sig-name descname">projectPointSimpleToPolynomialSurface</code><span class="sig-paren">(</span><em class="property">const</em> double <em>u</em>, <em class="property">const</em> double <em>v</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult37projectPointSimpleToPolynomialSurfaceEKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project a point along the MLS plane normal to the polynomial surface. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The <a class="reference internal" href="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results.html#structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results"><span class="std std-ref">MLSProjectionResults</span></a> for the input data. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If the MLSResults does not contain polynomial data it projects the point onto the mls plane. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">u</span></code>: The u-coordinate of the point in local MLS frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">v</span></code>: The v-coordinate of the point in local MLS frame. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult12projectPointERKN5Eigen8Vector3dE16ProjectionMethodi">
+<span id="_CPPv3NK3pcl9MLSResult12projectPointERKN5Eigen8Vector3dE16ProjectionMethodi"></span><span id="_CPPv2NK3pcl9MLSResult12projectPointERKN5Eigen8Vector3dE16ProjectionMethodi"></span><span id="pcl::MLSResult::projectPoint__Eigen::Vector3dCR.ProjectionMethod.iC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a00b97f7dcff22fc18b5fc64c58c015dc"></span>pcl::<a class="reference internal" href="#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>::<a class="reference internal" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResultsE" title="pcl::MLSResult::MLSProjectionResults">MLSProjectionResults</a> <code class="sig-name descname">projectPoint</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3d &amp;<em>pt</em>, <a class="reference internal" href="#_CPPv4N3pcl9MLSResult16ProjectionMethodE" title="pcl::MLSResult::ProjectionMethod">ProjectionMethod</a> <em>method</em>, int <em>required_neighbors</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult12projectPointERKN5Eigen8Vector3dE16ProjectionMethodi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project a point using the specified method. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>If required_neighbors then any number of neighbors is allowed. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If required_neighbors is not satisfied it projects to the mls plane. </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>The <a class="reference internal" href="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results.html#structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results"><span class="std std-ref">MLSProjectionResults</span></a> for the input data. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: The point to be project. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">method</span></code>: The projection method to be used. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">required_neighbors</span></code>: The minimum number of neighbors required. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl9MLSResult17projectQueryPointE16ProjectionMethodi">
+<span id="_CPPv3NK3pcl9MLSResult17projectQueryPointE16ProjectionMethodi"></span><span id="_CPPv2NK3pcl9MLSResult17projectQueryPointE16ProjectionMethodi"></span><span id="pcl::MLSResult::projectQueryPoint__ProjectionMethod.iC"></span><span class="target" id="structpcl_1_1_m_l_s_result_1af14ba783b697d5d42576c0de84615001"></span>pcl::<a class="reference internal" href="#_CPPv4N3pcl9MLSResultE" title="pcl::MLSResult">MLSResult</a>::<a class="reference internal" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResultsE" title="pcl::MLSResult::MLSProjectionResults">MLSProjectionResults</a> <code class="sig-name descname">projectQueryPoint</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl9MLSResult16ProjectionMethodE" title="pcl::MLSResult::ProjectionMethod">ProjectionMethod</a> <em>method</em>, int <em>required_neighbors</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl9MLSResult17projectQueryPointE16ProjectionMethodi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Project the query point used to generate the mls surface about using the specified method. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>If required_neighbors then any number of neighbors is allowed. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>If required_neighbors is not satisfied it projects to the mls plane. </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>The <a class="reference internal" href="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results.html#structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results"><span class="std std-ref">MLSProjectionResults</span></a> for the input data. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">method</span></code>: The projection method to be used. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">required_neighbors</span></code>: The minimum number of neighbors required. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl9MLSResult17computeMLSSurfaceEvRKN3pcl10PointCloudI6PointTEEiRKNSt6vectorIiEEdiN5boost8functionIFdKdEEE">
+<span id="_CPPv3I0EN3pcl9MLSResult17computeMLSSurfaceERKN3pcl10PointCloudI6PointTEEiRKNSt6vectorIiEEdiN5boost8functionIFdKdEEE"></span><span id="_CPPv2I0EN3pcl9MLSResult17computeMLSSurfaceERKN3pcl10PointCloudI6PointTEEiRKNSt6vectorIiEEdiN5boost8functionIFdKdEEE"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a7a34cb0cca4f7d47551cb399868fc427"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br />void <code class="sig-name descname">computeMLSSurface</code><span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl9MLSResult17computeMLSSurfaceEvRKN3pcl10PointCloudI6PointTEEiRKNSt6vectorIiEEdiN5boost8functionIFdKdEEE" title="pcl::MLSResult::computeMLSSurface::PointT">PointT</a>&gt; &amp;<em>cloud</em>, int <em>index</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>nn_indices</em>, double <em>search_radius</em>, int <em>polynomial_order</em> = 2, boost::function&lt;double<span class="sig-paren">(</span><em class="property">const</em> double<span class="sig-paren">)</span>&gt; <em>weight_func</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl9MLSResult17computeMLSSurfaceEvRKN3pcl10PointCloudI6PointTEEiRKNSt6vectorIiEEdiN5boost8functionIFdKdEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Smooth a given point and its neighborghood using Moving Least Squares. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: the index of the query point in the input cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nn_indices</span></code>: the set of nearest neighbors indices for pt </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">search_radius</span></code>: the search radius used to find nearest neighbors for pt </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">polynomial_order</span></code>: the order of the polynomial to fit to the nearest neighbors </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">weight_func</span></code>: defines the weight function for the polynomial fit </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult11query_pointE">
+<span id="_CPPv3N3pcl9MLSResult11query_pointE"></span><span id="_CPPv2N3pcl9MLSResult11query_pointE"></span><span id="pcl::MLSResult::query_point__Eigen::Vector3d"></span><span class="target" id="structpcl_1_1_m_l_s_result_1af14435098e9f578fd8b11721eabea4d2"></span>Eigen::Vector3d <code class="sig-name descname">query_point</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult11query_pointE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The query point about which the mls surface was generated. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult4meanE">
+<span id="_CPPv3N3pcl9MLSResult4meanE"></span><span id="_CPPv2N3pcl9MLSResult4meanE"></span><span id="pcl::MLSResult::mean__Eigen::Vector3d"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a41eac3b0d58f6142ccfb7354068a4270"></span>Eigen::Vector3d <code class="sig-name descname">mean</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult4meanE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The mean point of all the neighbors. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult12plane_normalE">
+<span id="_CPPv3N3pcl9MLSResult12plane_normalE"></span><span id="_CPPv2N3pcl9MLSResult12plane_normalE"></span><span id="pcl::MLSResult::plane_normal__Eigen::Vector3d"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a6824c62fbb614889ea483041e457882d"></span>Eigen::Vector3d <code class="sig-name descname">plane_normal</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult12plane_normalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The normal of the local plane of the query point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult6u_axisE">
+<span id="_CPPv3N3pcl9MLSResult6u_axisE"></span><span id="_CPPv2N3pcl9MLSResult6u_axisE"></span><span id="pcl::MLSResult::u_axis__Eigen::Vector3d"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a5bd3442a407dba15290dbf7f39ec0e57"></span>Eigen::Vector3d <code class="sig-name descname">u_axis</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult6u_axisE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The axis corresponding to the u-coordinates of the local plane of the query point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult6v_axisE">
+<span id="_CPPv3N3pcl9MLSResult6v_axisE"></span><span id="_CPPv2N3pcl9MLSResult6v_axisE"></span><span id="pcl::MLSResult::v_axis__Eigen::Vector3d"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a749d0312b967c0e50ce8c48db24da340"></span>Eigen::Vector3d <code class="sig-name descname">v_axis</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult6v_axisE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The axis corresponding to the v-coordinates of the local plane of the query point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult5c_vecE">
+<span id="_CPPv3N3pcl9MLSResult5c_vecE"></span><span id="_CPPv2N3pcl9MLSResult5c_vecE"></span><span id="pcl::MLSResult::c_vec__Eigen::VectorXd"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a7d8c3544f19902ea42d8c68ccffe5940"></span>Eigen::VectorXd <code class="sig-name descname">c_vec</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult5c_vecE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The polynomial coefficients Example: z = c_vec[0] + c_vec[1]*v + c_vec[2]*v^2 + c_vec[3]*u + c_vec[4]*u*v + c_vec[5]*u^2. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult13num_neighborsE">
+<span id="_CPPv3N3pcl9MLSResult13num_neighborsE"></span><span id="_CPPv2N3pcl9MLSResult13num_neighborsE"></span><span id="pcl::MLSResult::num_neighbors__i"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a7b8c1dbe57c9902da290102f15e25c5b"></span>int <code class="sig-name descname">num_neighbors</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult13num_neighborsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of neighbors used to create the mls surface. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult9curvatureE">
+<span id="_CPPv3N3pcl9MLSResult9curvatureE"></span><span id="_CPPv2N3pcl9MLSResult9curvatureE"></span><span id="pcl::MLSResult::curvature__float"></span><span class="target" id="structpcl_1_1_m_l_s_result_1a9ed183ed854866b81ac3e9992e3e39a9"></span>float <code class="sig-name descname">curvature</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult9curvatureE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The curvature at the query point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult5orderE">
+<span id="_CPPv3N3pcl9MLSResult5orderE"></span><span id="_CPPv2N3pcl9MLSResult5orderE"></span><span id="pcl::MLSResult::order__i"></span><span class="target" id="structpcl_1_1_m_l_s_result_1afa6a8a7cad336f01f21ada1464506b78"></span>int <code class="sig-name descname">order</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult5orderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The order of the polynomial. </p>
+<p>If order &gt; 1 then use polynomial fit </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult5validE">
+<span id="_CPPv3N3pcl9MLSResult5validE"></span><span id="_CPPv2N3pcl9MLSResult5validE"></span><span id="pcl::MLSResult::valid__b"></span><span class="target" id="structpcl_1_1_m_l_s_result_1afbb23d6cecba1bd6358f7237f65092ac"></span>bool <code class="sig-name descname">valid</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult5validE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If True, the mls results data is valid, otherwise False. </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl9MLSResult20MLSProjectionResultsE">
+<span id="_CPPv3N3pcl9MLSResult20MLSProjectionResultsE"></span><span id="_CPPv2N3pcl9MLSResult20MLSProjectionResultsE"></span><span id="pcl::MLSResult::MLSProjectionResults"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results"></span><em class="property">struct </em><code class="sig-name descname">MLSProjectionResults</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResultsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data structure used to store the MLS projection results. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl9MLSResult20MLSProjectionResults20MLSProjectionResultsEv">
+<span id="_CPPv3N3pcl9MLSResult20MLSProjectionResults20MLSProjectionResultsEv"></span><span id="_CPPv2N3pcl9MLSResult20MLSProjectionResults20MLSProjectionResultsEv"></span><span id="pcl::MLSResult::MLSProjectionResults::MLSProjectionResults"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results_1aac3f01208e1b09c2447ef856d845afc9"></span><code class="sig-name descname">MLSProjectionResults</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResults20MLSProjectionResultsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult20MLSProjectionResults1uE">
+<span id="_CPPv3N3pcl9MLSResult20MLSProjectionResults1uE"></span><span id="_CPPv2N3pcl9MLSResult20MLSProjectionResults1uE"></span><span id="pcl::MLSResult::MLSProjectionResults::u__double"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results_1ac827dfc8a834d79d62e80ce14d31ac57"></span>double <code class="sig-name descname">u</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResults1uE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The u-coordinate of the projected point in local MLS frame. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult20MLSProjectionResults1vE">
+<span id="_CPPv3N3pcl9MLSResult20MLSProjectionResults1vE"></span><span id="_CPPv2N3pcl9MLSResult20MLSProjectionResults1vE"></span><span id="pcl::MLSResult::MLSProjectionResults::v__double"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results_1a3f6a4ec0c4220653fd2b4ac278b61d9e"></span>double <code class="sig-name descname">v</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResults1vE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The u-coordinate of the projected point in local MLS frame. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult20MLSProjectionResults5pointE">
+<span id="_CPPv3N3pcl9MLSResult20MLSProjectionResults5pointE"></span><span id="_CPPv2N3pcl9MLSResult20MLSProjectionResults5pointE"></span><span id="pcl::MLSResult::MLSProjectionResults::point__Eigen::Vector3d"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results_1a23d1e0d32395a87ab4e491a6ce354943"></span>Eigen::Vector3d <code class="sig-name descname">point</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResults5pointE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The projected point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult20MLSProjectionResults6normalE">
+<span id="_CPPv3N3pcl9MLSResult20MLSProjectionResults6normalE"></span><span id="_CPPv2N3pcl9MLSResult20MLSProjectionResults6normalE"></span><span id="pcl::MLSResult::MLSProjectionResults::normal__Eigen::Vector3d"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_m_l_s_projection_results_1a7637a80e30b98dde2e7e7382d565a907"></span>Eigen::Vector3d <code class="sig-name descname">normal</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult20MLSProjectionResults6normalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The projected point’s normal. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl9MLSResult27PolynomialPartialDerivativeE">
+<span id="_CPPv3N3pcl9MLSResult27PolynomialPartialDerivativeE"></span><span id="_CPPv2N3pcl9MLSResult27PolynomialPartialDerivativeE"></span><span id="pcl::MLSResult::PolynomialPartialDerivative"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_polynomial_partial_derivative"></span><em class="property">struct </em><code class="sig-name descname">PolynomialPartialDerivative</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult27PolynomialPartialDerivativeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data structure used to store the MLS polynomial partial derivatives. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative1zE">
+<span id="_CPPv3N3pcl9MLSResult27PolynomialPartialDerivative1zE"></span><span id="_CPPv2N3pcl9MLSResult27PolynomialPartialDerivative1zE"></span><span id="pcl::MLSResult::PolynomialPartialDerivative::z__double"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_polynomial_partial_derivative_1a97f875f00b9a224ec5097d0321ca4401"></span>double <code class="sig-name descname">z</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative1zE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The z component of the polynomial evaluated at z(u, v). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative3z_uE">
+<span id="_CPPv3N3pcl9MLSResult27PolynomialPartialDerivative3z_uE"></span><span id="_CPPv2N3pcl9MLSResult27PolynomialPartialDerivative3z_uE"></span><span id="pcl::MLSResult::PolynomialPartialDerivative::z_u__double"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_polynomial_partial_derivative_1a2832191e38869d165facca3bfeabad16"></span>double <code class="sig-name descname">z_u</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative3z_uE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The partial derivative dz/du. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative3z_vE">
+<span id="_CPPv3N3pcl9MLSResult27PolynomialPartialDerivative3z_vE"></span><span id="_CPPv2N3pcl9MLSResult27PolynomialPartialDerivative3z_vE"></span><span id="pcl::MLSResult::PolynomialPartialDerivative::z_v__double"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_polynomial_partial_derivative_1ac24314c6dcdbc8e9e423cc0740d2dedc"></span>double <code class="sig-name descname">z_v</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative3z_vE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The partial derivative dz/dv. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative4z_uuE">
+<span id="_CPPv3N3pcl9MLSResult27PolynomialPartialDerivative4z_uuE"></span><span id="_CPPv2N3pcl9MLSResult27PolynomialPartialDerivative4z_uuE"></span><span id="pcl::MLSResult::PolynomialPartialDerivative::z_uu__double"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_polynomial_partial_derivative_1a7413de03d2692ee6a284d9b5b00d12ed"></span>double <code class="sig-name descname">z_uu</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative4z_uuE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The partial derivative d^2z/du^2. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative4z_vvE">
+<span id="_CPPv3N3pcl9MLSResult27PolynomialPartialDerivative4z_vvE"></span><span id="_CPPv2N3pcl9MLSResult27PolynomialPartialDerivative4z_vvE"></span><span id="pcl::MLSResult::PolynomialPartialDerivative::z_vv__double"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_polynomial_partial_derivative_1a9e33c443e314b3565a8238e51839d9aa"></span>double <code class="sig-name descname">z_vv</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative4z_vvE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The partial derivative d^2z/dv^2. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative4z_uvE">
+<span id="_CPPv3N3pcl9MLSResult27PolynomialPartialDerivative4z_uvE"></span><span id="_CPPv2N3pcl9MLSResult27PolynomialPartialDerivative4z_uvE"></span><span id="pcl::MLSResult::PolynomialPartialDerivative::z_uv__double"></span><span class="target" id="structpcl_1_1_m_l_s_result_1_1_polynomial_partial_derivative_1a21abe8a77b5df59d847d63b87a47a033"></span>double <code class="sig-name descname">z_uv</code><a class="headerlink" href="#_CPPv4N3pcl9MLSResult27PolynomialPartialDerivative4z_uvE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The partial derivative d^2z/dudv. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

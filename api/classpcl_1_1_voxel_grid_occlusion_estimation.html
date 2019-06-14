@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class VoxelGridOcclusionEstimation &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class VoxelGridOcclusionEstimation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_voxel_grid_occlusion_estimation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-voxelgridocclusionestimation">
+<span id="exhale-class-classpcl-1-1-voxel-grid-occlusion-estimation"></span><h1>Template Class VoxelGridOcclusionEstimation<a class="headerlink" href="#template-class-voxelgridocclusionestimation" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_filters_include_pcl_filters_voxel_grid_occlusion_estimation.h.html#file-pcl-filters-include-pcl-filters-voxel-grid-occlusion-estimation-h"><span class="std std-ref">File voxel_grid_occlusion_estimation.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::VoxelGrid&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_voxel_grid.html#exhale-class-classpcl-1-1-voxel-grid"><span class="std std-ref">Template Class VoxelGrid</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl28VoxelGridOcclusionEstimationE">
+<span id="_CPPv3I0EN3pcl28VoxelGridOcclusionEstimationE"></span><span id="_CPPv2I0EN3pcl28VoxelGridOcclusionEstimationE"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">VoxelGridOcclusionEstimation</code> : <em class="property">public</em> pcl::VoxelGrid&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl28VoxelGridOcclusionEstimationE" title="pcl::VoxelGridOcclusionEstimation::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl28VoxelGridOcclusionEstimationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_voxel_grid.html#classpcl_1_1_voxel_grid"><span class="std std-ref">VoxelGrid</span></a> to estimate occluded space in the scene. </p>
+<p>The ray traversal algorithm is implemented by the work of ‘John Amanatides and Andrew Woo, A Fast Voxel Traversal Algorithm for Ray Tracing’</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Christian Potthast </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation28VoxelGridOcclusionEstimationEv">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation28VoxelGridOcclusionEstimationEv"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation28VoxelGridOcclusionEstimationEv"></span><span id="pcl::VoxelGridOcclusionEstimation::VoxelGridOcclusionEstimation"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1aa4a05cf935084f01556844c507a969aa"></span><code class="sig-name descname">VoxelGridOcclusionEstimation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation28VoxelGridOcclusionEstimationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimationD0Ev">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimationD0Ev"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimationD0Ev"></span><span id="pcl::VoxelGridOcclusionEstimation::~VoxelGridOcclusionEstimation"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a068ab0617c94013b5ad602f93db26015"></span><em class="property">virtual</em> <code class="sig-name descname">~VoxelGridOcclusionEstimation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimationD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation19initializeVoxelGridEv">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation19initializeVoxelGridEv"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation19initializeVoxelGridEv"></span><span id="pcl::VoxelGridOcclusionEstimation::initializeVoxelGrid"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a2a7aa2a6a31a4c7a8fdaf480b8f44cca"></span>void <code class="sig-name descname">initializeVoxelGrid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation19initializeVoxelGridEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the voxel grid, needs to be called first Builts the voxel grid and computes additional values for the ray traversal algorithm. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation19occlusionEstimationERiRKN5Eigen8Vector3iE">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation19occlusionEstimationERiRKN5Eigen8Vector3iE"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation19occlusionEstimationERiRKN5Eigen8Vector3iE"></span><span id="pcl::VoxelGridOcclusionEstimation::occlusionEstimation__iR.Eigen::Vector3iCR"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1ada571e881ed4c22607d81fce8df62227"></span>int <code class="sig-name descname">occlusionEstimation</code><span class="sig-paren">(</span>int &amp;<em>out_state</em>, <em class="property">const</em> Eigen::Vector3i &amp;<em>in_target_voxel</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation19occlusionEstimationERiRKN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the state (free = 0, occluded = 1) of the voxel after utilizing a ray traversal algorithm to a target voxel in (i, j, k) coordinates. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 upon success and -1 if an error occurs </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out_state</span></code>: The state of the voxel. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_target_voxel</span></code>: The target voxel coordinate (i, j, k) of the voxel. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation19occlusionEstimationERiRNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERKN5Eigen8Vector3iE">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation19occlusionEstimationERiRNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERKN5Eigen8Vector3iE"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation19occlusionEstimationERiRNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERKN5Eigen8Vector3iE"></span><span id="pcl::VoxelGridOcclusionEstimation::occlusionEstimation__iR.std::vector:Eigen::Vector3i.Eigen::aligned_allocator:Eigen::Vector3i::R.Eigen::Vector3iCR"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1ab9caaf4a51888c55c4aecba30fd55695"></span>int <code class="sig-name descname">occlusionEstimation</code><span class="sig-paren">(</span>int &amp;<em>out_state</em>, std::vector&lt;Eigen::Vector3i, Eigen::aligned_allocator&lt;Eigen::Vector3i&gt;&gt; &amp;<em>out_ray</em>, <em class="property">const</em> Eigen::Vector3i &amp;<em>in_target_voxel</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation19occlusionEstimationERiRNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERKN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the state (free = 0, occluded = 1) of the voxel after utilizing a ray traversal algorithm to a target voxel in (i, j, k) coordinates. </p>
+<p>Additionally, this function returns the voxels penetrated of the ray-traversal algorithm till reaching the target voxel. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 upon success and -1 if an error occurs </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out_state</span></code>: The state of the voxel. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out_ray</span></code>: The voxels penetrated of the ray-traversal algorithm. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">in_target_voxel</span></code>: The target voxel coordinate (i, j, k) of the voxel. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation22occlusionEstimationAllERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation22occlusionEstimationAllERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation22occlusionEstimationAllERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE"></span><span id="pcl::VoxelGridOcclusionEstimation::occlusionEstimationAll__std::vector:Eigen::Vector3i.Eigen::aligned_allocator:Eigen::Vector3i::R"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a2c2ba288edaa06131e3a6ba0f8a8bb81"></span>int <code class="sig-name descname">occlusionEstimationAll</code><span class="sig-paren">(</span>std::vector&lt;Eigen::Vector3i, Eigen::aligned_allocator&lt;Eigen::Vector3i&gt;&gt; &amp;<em>occluded_voxels</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation22occlusionEstimationAllERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the voxel coordinates (i, j, k) of all occluded voxels in the voxel grid. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 upon success and -1 if an error occurs </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">occluded_voxels</span></code>: the coordinates (i, j, k) of all occluded voxels </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation21getFilteredPointCloudEv">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation21getFilteredPointCloudEv"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation21getFilteredPointCloudEv"></span><span id="pcl::VoxelGridOcclusionEstimation::getFilteredPointCloud"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a50cce6b18b40581ff4abb06cc838480d"></span><a class="reference internal" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation10PointCloudE" title="pcl::VoxelGridOcclusionEstimation::PointCloud">PointCloud</a> <code class="sig-name descname">getFilteredPointCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation21getFilteredPointCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the voxel grid filtered point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The voxel grid filtered point cloud </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation22getMinBoundCoordinatesEv">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation22getMinBoundCoordinatesEv"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation22getMinBoundCoordinatesEv"></span><span id="pcl::VoxelGridOcclusionEstimation::getMinBoundCoordinates"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1ae9aa43b955a456dd9e1fcfb2da994ff0"></span>Eigen::Vector3f <code class="sig-name descname">getMinBoundCoordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation22getMinBoundCoordinatesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the minimum bounding of coordinates of the voxel grid (x,y,z). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the minimum coordinates (x,y,z) </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation22getMaxBoundCoordinatesEv">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation22getMaxBoundCoordinatesEv"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation22getMaxBoundCoordinatesEv"></span><span id="pcl::VoxelGridOcclusionEstimation::getMaxBoundCoordinates"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a7d2422572a7bbbe08bcb8fa8b64718e2"></span>Eigen::Vector3f <code class="sig-name descname">getMaxBoundCoordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation22getMaxBoundCoordinatesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the maximum bounding of coordinates of the voxel grid (x,y,z). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the maximum coordinates (x,y,z) </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation21getCentroidCoordinateERKN5Eigen8Vector3iE">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation21getCentroidCoordinateERKN5Eigen8Vector3iE"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation21getCentroidCoordinateERKN5Eigen8Vector3iE"></span><span id="pcl::VoxelGridOcclusionEstimation::getCentroidCoordinate__Eigen::Vector3iCR"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1afa409d3f099e4c71d922f4999887f787"></span>Eigen::Vector4f <code class="sig-name descname">getCentroidCoordinate</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>ijk</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation21getCentroidCoordinateERKN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the corresponding centroid (x,y,z) coordinates in the grid of voxel (i,j,k). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the (x,y,z) coordinate of the voxel centroid </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ijk</span></code>: the coordinate (i, j, k) of the voxel </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation10PointCloudE">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation10PointCloudE"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation10PointCloudE"></span><span id="pcl::VoxelGridOcclusionEstimation::PointCloud"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1ab570d12d662e2adf831dec2e82dcd167"></span><em class="property">typedef </em>Filter&lt;PointT&gt;::PointCloud <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation13PointCloudPtrE">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation13PointCloudPtrE"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation13PointCloudPtrE"></span><span id="pcl::VoxelGridOcclusionEstimation::PointCloudPtr"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a4324960b944104e4cd4af77e6a8bedf0"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation10PointCloudE" title="pcl::VoxelGridOcclusionEstimation::PointCloud">PointCloud</a>::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation18PointCloudConstPtrE"></span><span id="pcl::VoxelGridOcclusionEstimation::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a37ad4126af8218de0a6b7b7144fd9292"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation10PointCloudE" title="pcl::VoxelGridOcclusionEstimation::PointCloud">PointCloud</a>::ConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation18rayBoxIntersectionERKN5Eigen8Vector4fERKN5Eigen8Vector4fE">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation18rayBoxIntersectionERKN5Eigen8Vector4fERKN5Eigen8Vector4fE"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation18rayBoxIntersectionERKN5Eigen8Vector4fERKN5Eigen8Vector4fE"></span><span id="pcl::VoxelGridOcclusionEstimation::rayBoxIntersection__Eigen::Vector4fCR.Eigen::Vector4fCR"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a73e48f89db0b088caa22a1935ec15ecf"></span>float <code class="sig-name descname">rayBoxIntersection</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector4f &amp;<em>origin</em>, <em class="property">const</em> Eigen::Vector4f &amp;<em>direction</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation18rayBoxIntersectionERKN5Eigen8Vector4fERKN5Eigen8Vector4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the scaling value (tmin) were the ray intersects with the voxel grid bounding box. </p>
+<p>(p_entry = origin + tmin * orientation) <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the scaling value </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">origin</span></code>: The sensor origin </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: The sensor orientation </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation12rayTraversalERKN5Eigen8Vector3iERKN5Eigen8Vector4fERKN5Eigen8Vector4fEKf">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation12rayTraversalERKN5Eigen8Vector3iERKN5Eigen8Vector4fERKN5Eigen8Vector4fEKf"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation12rayTraversalERKN5Eigen8Vector3iERKN5Eigen8Vector4fERKN5Eigen8Vector4fEKf"></span><span id="pcl::VoxelGridOcclusionEstimation::rayTraversal__Eigen::Vector3iCR.Eigen::Vector4fCR.Eigen::Vector4fCR.floatC"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a809a45f306299a20ae44a5cc6e01aff5"></span>int <code class="sig-name descname">rayTraversal</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3i &amp;<em>target_voxel</em>, <em class="property">const</em> Eigen::Vector4f &amp;<em>origin</em>, <em class="property">const</em> Eigen::Vector4f &amp;<em>direction</em>, <em class="property">const</em> float <em>t_min</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation12rayTraversalERKN5Eigen8Vector3iERKN5Eigen8Vector4fERKN5Eigen8Vector4fEKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the state of the target voxel (0 = visible, 1 = occupied) unsing a ray traversal algorithm. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The estimated voxel state. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target_voxel</span></code>: The target voxel in the voxel grid with coordinate (i, j, k). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">origin</span></code>: The sensor origin. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: The sensor orientation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">t_min</span></code>: The scaling value (tmin). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation12rayTraversalERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERKN5Eigen8Vector3iERKN5Eigen8Vector4fERKN5Eigen8Vector4fEKf">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation12rayTraversalERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERKN5Eigen8Vector3iERKN5Eigen8Vector4fERKN5Eigen8Vector4fEKf"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation12rayTraversalERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERKN5Eigen8Vector3iERKN5Eigen8Vector4fERKN5Eigen8Vector4fEKf"></span><span id="pcl::VoxelGridOcclusionEstimation::rayTraversal__std::vector:Eigen::Vector3i.Eigen::aligned_allocator:Eigen::Vector3i::R.Eigen::Vector3iCR.Eigen::Vector4fCR.Eigen::Vector4fCR.floatC"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a04dc2590897e65a6412eb9bda5eeb3d3"></span>int <code class="sig-name descname">rayTraversal</code><span class="sig-paren">(</span>std::vector&lt;Eigen::Vector3i, Eigen::aligned_allocator&lt;Eigen::Vector3i&gt;&gt; &amp;<em>out_ray</em>, <em class="property">const</em> Eigen::Vector3i &amp;<em>target_voxel</em>, <em class="property">const</em> Eigen::Vector4f &amp;<em>origin</em>, <em class="property">const</em> Eigen::Vector4f &amp;<em>direction</em>, <em class="property">const</em> float <em>t_min</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation12rayTraversalERNSt6vectorIN5Eigen8Vector3iEN5Eigen17aligned_allocatorIN5Eigen8Vector3iEEEEERKN5Eigen8Vector3iERKN5Eigen8Vector4fERKN5Eigen8Vector4fEKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the state of the target voxel (0 = visible, 1 = occupied) and the voxels penetrated by the ray unsing a ray traversal algorithm. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>The estimated voxel state. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">out_ray</span></code>: The voxels penetrated by the ray in (i, j, k) coordinates </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">target_voxel</span></code>: The target voxel in the voxel grid with coordinate (i, j, k). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">origin</span></code>: The sensor origin. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">direction</span></code>: The sensor orientation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">t_min</span></code>: The scaling value (tmin). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation5roundEf">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation5roundEf"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation5roundEf"></span><span id="pcl::VoxelGridOcclusionEstimation::round__float"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a3fa600274aee939eba0e317dcbd6d6cf"></span>float <code class="sig-name descname">round</code><span class="sig-paren">(</span>float <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation5roundEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a rounded value. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>rounded value </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">d</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation23getGridCoordinatesRoundEfff">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation23getGridCoordinatesRoundEfff"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation23getGridCoordinatesRoundEfff"></span><span id="pcl::VoxelGridOcclusionEstimation::getGridCoordinatesRound__float.float.float"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a4cf0240b7785108db75da2ad64523c2e"></span>Eigen::Vector3i <code class="sig-name descname">getGridCoordinatesRound</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation23getGridCoordinatesRoundEfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the corresponding (i,j,k) coordinates in the grid of point (x,y,z). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: the X point coordinate to get the (i, j, k) index at </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">y</span></code>: the Y point coordinate to get the (i, j, k) index at </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">z</span></code>: the Z point coordinate to get the (i, j, k) index at </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation12initialized_E">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation12initialized_E"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation12initialized_E"></span><span id="pcl::VoxelGridOcclusionEstimation::initialized___b"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a0dbf87852093a9a9726d8cf36d5e3807"></span>bool <code class="sig-name descname">initialized_</code><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation12initialized_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation14sensor_origin_E">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation14sensor_origin_E"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation14sensor_origin_E"></span><span id="pcl::VoxelGridOcclusionEstimation::sensor_origin___Eigen::Vector4f"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1ad76aac40dbdd19f16d082721c18029da"></span>Eigen::Vector4f <code class="sig-name descname">sensor_origin_</code><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation14sensor_origin_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation19sensor_orientation_E">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation19sensor_orientation_E"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation19sensor_orientation_E"></span><span id="pcl::VoxelGridOcclusionEstimation::sensor_orientation___Eigen::Quaternionf"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a2df831418b7d95a2523dd5975a9215bd"></span>Eigen::Quaternionf <code class="sig-name descname">sensor_orientation_</code><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation19sensor_orientation_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation6b_min_E">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation6b_min_E"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation6b_min_E"></span><span id="pcl::VoxelGridOcclusionEstimation::b_min___Eigen::Vector4f"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a9ce235b745b6d2c605c2f21d50d792ce"></span>Eigen::Vector4f <code class="sig-name descname">b_min_</code><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation6b_min_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation6b_max_E">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation6b_max_E"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation6b_max_E"></span><span id="pcl::VoxelGridOcclusionEstimation::b_max___Eigen::Vector4f"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1a2dbc77bbb8890f18d0949a81ed09e7c9"></span>Eigen::Vector4f <code class="sig-name descname">b_max_</code><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation6b_max_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28VoxelGridOcclusionEstimation15filtered_cloud_E">
+<span id="_CPPv3N3pcl28VoxelGridOcclusionEstimation15filtered_cloud_E"></span><span id="_CPPv2N3pcl28VoxelGridOcclusionEstimation15filtered_cloud_E"></span><span id="pcl::VoxelGridOcclusionEstimation::filtered_cloud___PointCloud"></span><span class="target" id="classpcl_1_1_voxel_grid_occlusion_estimation_1ac83985e8c93aacb8de062db1b277724b"></span><a class="reference internal" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation10PointCloudE" title="pcl::VoxelGridOcclusionEstimation::PointCloud">PointCloud</a> <code class="sig-name descname">filtered_cloud_</code><a class="headerlink" href="#_CPPv4N3pcl28VoxelGridOcclusionEstimation15filtered_cloud_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

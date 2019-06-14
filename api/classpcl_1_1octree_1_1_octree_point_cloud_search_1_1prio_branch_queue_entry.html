@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class OctreePointCloudSearch::prioBranchQueueEntry &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class OctreePointCloudSearch::prioBranchQueueEntry</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-octreepointcloudsearch-priobranchqueueentry">
+<span id="exhale-class-classpcl-1-1octree-1-1-octree-point-cloud-search-1-1prio-branch-queue-entry"></span><h1>Class OctreePointCloudSearch::prioBranchQueueEntry<a class="headerlink" href="#class-octreepointcloudsearch-priobranchqueueentry" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_octree_include_pcl_octree_octree_search.h.html#file-pcl-octree-include-pcl-octree-octree-search-h"><span class="std std-ref">File octree_search.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<p>This class is a nested type of <a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud_search.html#exhale-class-classpcl-1-1octree-1-1-octree-point-cloud-search"><span class="std std-ref">Template Class OctreePointCloudSearch</span></a>.</p>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl6octree22OctreePointCloudSearch20prioBranchQueueEntryE">
+<span id="_CPPv3N3pcl6octree22OctreePointCloudSearch20prioBranchQueueEntryE"></span><span id="_CPPv2N3pcl6octree22OctreePointCloudSearch20prioBranchQueueEntryE"></span><span id="pcl::octree::OctreePointCloudSearch::prioBranchQueueEntry"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry"></span><em class="property">class </em><code class="sig-name descname">prioBranchQueueEntry</code><br /></dt>
+<dd><p><strong>Priority</strong> queue entry for branch nodes </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This class defines priority queue entries for the nearest neighbor search. </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEv">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEv"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEv"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a88de2ae8393ffd95e498261587a6e724"></span>template&lt;&gt;<br /><code class="sig-name descname">prioBranchQueueEntry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEP10OctreeNodeR9OctreeKeyf">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEP10OctreeNodeR9OctreeKeyf"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry20prioBranchQueueEntryEP10OctreeNodeR9OctreeKeyf"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a723b50b3869f2da1796cce6bacaa4b77"></span>template&lt;&gt;<br /><code class="sig-name descname">prioBranchQueueEntry</code><span class="sig-paren">(</span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<em>_node</em>, <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>_key</em>, float <em>_point_distance</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Constructor for initializing priority queue entry. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_node</span></code>: pointer to octree node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_key</span></code>: octree key addressing voxel in octree structure </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">_point_distance</span></code>: distance of query point to voxel center </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntryltEbK20prioBranchQueueEntry">
+<span id="_CPPv3IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntryltEK20prioBranchQueueEntry"></span><span id="_CPPv2IENK3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntryltEK20prioBranchQueueEntry"></span><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a200c873f71fff21737682411df8735d7"></span>template&lt;&gt;<br />bool <code class="sig-name descname">operator&lt;</code><span class="sig-paren">(</span><em class="property">const</em> prioBranchQueueEntry <em>rhs</em><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd><p>Operator&lt; for comparing priority queue entries with each other. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rhs</span></code>: the priority queue to compare this against </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry4nodeE">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry4nodeE"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry4nodeE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a31c6a920e3d2442810286263a2faf1e8"></span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<code class="sig-name descname">node</code><br /></dt>
+<dd><p>Pointer to octree node. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry14point_distanceE">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry14point_distanceE"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry14point_distanceE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1ac6896fd3b626b908917d5da9786e91c6"></span>float <code class="sig-name descname">point_distance</code><br /></dt>
+<dd><p>Distance to query point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry3keyE">
+<span id="_CPPv3IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry3keyE"></span><span id="_CPPv2IEN3pcl6octree22OctreePointCloudSearchI6PointT14LeafContainerT16BranchContainerTE20prioBranchQueueEntry3keyE"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1octree_1_1_octree_point_cloud_search_1_1prio_branch_queue_entry_1a25f1aa98e82f8ad00b4d2a549fa4257e"></span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> <code class="sig-name descname">key</code><br /></dt>
+<dd><p>Octree key. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class ON_RTree &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class ON_RTree</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/class_o_n___r_tree.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-on-rtree">
+<span id="exhale-class-class-o-n-r-tree"></span><h1>Class ON_RTree<a class="headerlink" href="#class-on-rtree" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_3rdparty_opennurbs_opennurbs_rtree.h.html#file-pcl-surface-include-pcl-surface-3rdparty-opennurbs-opennurbs-rtree-h"><span class="std std-ref">File opennurbs_rtree.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv48ON_RTree">
+<span id="_CPPv38ON_RTree"></span><span id="_CPPv28ON_RTree"></span><span id="ON_RTree"></span><span class="target" id="class_o_n___r_tree"></span><em class="property">class </em><code class="sig-name descname">ON_RTree</code><a class="headerlink" href="#_CPPv48ON_RTree" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree8ON_RTreeEP14ON_MEMORY_POOL6size_t">
+<span id="_CPPv3N8ON_RTree8ON_RTreeEP14ON_MEMORY_POOL6size_t"></span><span id="_CPPv2N8ON_RTree8ON_RTreeEP14ON_MEMORY_POOL6size_t"></span><span id="ON_RTree::ON_RTree__ON_MEMORY_POOLP.s"></span><span class="target" id="class_o_n___r_tree_1a2cfc5a37ff19b40a88a7dc849c9bc7de"></span><code class="sig-name descname">ON_RTree</code><span class="sig-paren">(</span>ON_MEMORY_POOL *<em>heap</em> = 0, size_t <em>leaf_count</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree8ON_RTreeEP14ON_MEMORY_POOL6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTreeD0Ev">
+<span id="_CPPv3N8ON_RTreeD0Ev"></span><span id="_CPPv2N8ON_RTreeD0Ev"></span><span id="ON_RTree::~ON_RTree"></span><span class="target" id="class_o_n___r_tree_1a3bc1ab729e917fa616de40980fea494b"></span><code class="sig-name descname">~ON_RTree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTreeD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree18CreateMeshFaceTreeEPK7ON_Mesh">
+<span id="_CPPv3N8ON_RTree18CreateMeshFaceTreeEPK7ON_Mesh"></span><span id="_CPPv2N8ON_RTree18CreateMeshFaceTreeEPK7ON_Mesh"></span><span id="ON_RTree::CreateMeshFaceTree__ON_MeshCP"></span><span class="target" id="class_o_n___r_tree_1aeaaa332119e0045797d276cf5d593dc2"></span>bool <code class="sig-name descname">CreateMeshFaceTree</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">class</em> <a class="reference internal" href="class_o_n___mesh.html#_CPPv47ON_Mesh" title="ON_Mesh">ON_Mesh</a> *<em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree18CreateMeshFaceTreeEPK7ON_Mesh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree6InsertEAL3E_KdAL3E_KdPv">
+<span id="_CPPv3N8ON_RTree6InsertEAL3E_KdAL3E_KdPv"></span><span id="_CPPv2N8ON_RTree6InsertEA3_KdA3_KdPv"></span><span id="ON_RTree::Insert__doubleCA.doubleCA.voidP"></span><span class="target" id="class_o_n___r_tree_1a9de21d768597267474047dda81932e2c"></span>bool <code class="sig-name descname">Insert</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[3], <em class="property">const</em> double <em>a_max</em>[3], void *<em>a_element_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree6InsertEAL3E_KdAL3E_KdPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree6InsertEAL3E_KdAL3E_Kdi">
+<span id="_CPPv3N8ON_RTree6InsertEAL3E_KdAL3E_Kdi"></span><span id="_CPPv2N8ON_RTree6InsertEA3_KdA3_Kdi"></span><span id="ON_RTree::Insert__doubleCA.doubleCA.i"></span><span class="target" id="class_o_n___r_tree_1a8de2fc8ec53bfbda3eb7ebbbc88d4134"></span>bool <code class="sig-name descname">Insert</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[3], <em class="property">const</em> double <em>a_max</em>[3], int <em>a_element_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree6InsertEAL3E_KdAL3E_Kdi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree8Insert2dEAL2E_KdAL2E_KdPv">
+<span id="_CPPv3N8ON_RTree8Insert2dEAL2E_KdAL2E_KdPv"></span><span id="_CPPv2N8ON_RTree8Insert2dEA2_KdA2_KdPv"></span><span id="ON_RTree::Insert2d__doubleCA.doubleCA.voidP"></span><span class="target" id="class_o_n___r_tree_1a97725a6bd12416b8239635208ba80630"></span>bool <code class="sig-name descname">Insert2d</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[2], <em class="property">const</em> double <em>a_max</em>[2], void *<em>a_element_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree8Insert2dEAL2E_KdAL2E_KdPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree8Insert2dEAL2E_KdAL2E_Kdi">
+<span id="_CPPv3N8ON_RTree8Insert2dEAL2E_KdAL2E_Kdi"></span><span id="_CPPv2N8ON_RTree8Insert2dEA2_KdA2_Kdi"></span><span id="ON_RTree::Insert2d__doubleCA.doubleCA.i"></span><span class="target" id="class_o_n___r_tree_1a6aa006eb044d4bc8f134d1bf7a0be6cf"></span>bool <code class="sig-name descname">Insert2d</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[2], <em class="property">const</em> double <em>a_max</em>[2], int <em>a_element_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree8Insert2dEAL2E_KdAL2E_Kdi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree6RemoveEAL3E_KdAL3E_KdPv">
+<span id="_CPPv3N8ON_RTree6RemoveEAL3E_KdAL3E_KdPv"></span><span id="_CPPv2N8ON_RTree6RemoveEA3_KdA3_KdPv"></span><span id="ON_RTree::Remove__doubleCA.doubleCA.voidP"></span><span class="target" id="class_o_n___r_tree_1aa1dad8a204492af25fd33fb1fde74758"></span>bool <code class="sig-name descname">Remove</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[3], <em class="property">const</em> double <em>a_max</em>[3], void *<em>a_elementId</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree6RemoveEAL3E_KdAL3E_KdPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree6RemoveEAL3E_KdAL3E_Kdi">
+<span id="_CPPv3N8ON_RTree6RemoveEAL3E_KdAL3E_Kdi"></span><span id="_CPPv2N8ON_RTree6RemoveEA3_KdA3_Kdi"></span><span id="ON_RTree::Remove__doubleCA.doubleCA.i"></span><span class="target" id="class_o_n___r_tree_1afc1e12e01dc16b1a0b550a71497f0482"></span>bool <code class="sig-name descname">Remove</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[3], <em class="property">const</em> double <em>a_max</em>[3], int <em>a_elementId</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree6RemoveEAL3E_KdAL3E_Kdi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree8Remove2dEAL2E_KdAL2E_KdPv">
+<span id="_CPPv3N8ON_RTree8Remove2dEAL2E_KdAL2E_KdPv"></span><span id="_CPPv2N8ON_RTree8Remove2dEA2_KdA2_KdPv"></span><span id="ON_RTree::Remove2d__doubleCA.doubleCA.voidP"></span><span class="target" id="class_o_n___r_tree_1aa597272cc74d45a57a9049350329c44e"></span>bool <code class="sig-name descname">Remove2d</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[2], <em class="property">const</em> double <em>a_max</em>[2], void *<em>a_elementId</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree8Remove2dEAL2E_KdAL2E_KdPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree8Remove2dEAL2E_KdAL2E_Kdi">
+<span id="_CPPv3N8ON_RTree8Remove2dEAL2E_KdAL2E_Kdi"></span><span id="_CPPv2N8ON_RTree8Remove2dEA2_KdA2_Kdi"></span><span id="ON_RTree::Remove2d__doubleCA.doubleCA.i"></span><span class="target" id="class_o_n___r_tree_1ae800b17ab98147356110941ef0f72ecb"></span>bool <code class="sig-name descname">Remove2d</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[2], <em class="property">const</em> double <em>a_max</em>[2], int <em>a_elementId</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree8Remove2dEAL2E_KdAL2E_Kdi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree9RemoveAllEv">
+<span id="_CPPv3N8ON_RTree9RemoveAllEv"></span><span id="_CPPv2N8ON_RTree9RemoveAllEv"></span><span id="ON_RTree::RemoveAll"></span><span class="target" id="class_o_n___r_tree_1a46db5e9d84bc480f1fa7550b09e1fbd1"></span>void <code class="sig-name descname">RemoveAll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree9RemoveAllEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n___r_tree_1aa822e47f214a853a1036c38a1efd633d"></span><code class="sig-name descname">bool ON_RTree::Search(ON_RTreeSphere  * a_sphere, bool ON_MSC_CDECL  resultCallbackvoid *a_context, ON__INT_PTR a_id, void * a_context) const</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n___r_tree_1a40f0f98b443c97f8776f0325056c74a5"></span><code class="sig-name descname">bool ON_RTree::Search(ON_RTreeCapsule  * a_capsule, bool ON_MSC_CDECL  resultCallbackvoid *a_context, ON__INT_PTR a_id, void * a_context) const</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n___r_tree_1a65e513af972614ba5fdba42719654064"></span><code class="sig-name descname">bool ON_RTree::Search(ON_RTreeBBox  * a_rect, bool ON_MSC_CDECL  resultCallbackvoid *a_context, ON__INT_PTR a_id, void * a_context) const</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n___r_tree_1a74e00f7cac7d0ff5c9f791c331eed2c5"></span><code class="sig-name descname">bool ON_RTree::Search(const double a_plane_eqn[4], double a_min, double a_max, bool ON_MSC_CDECL  resultCallbackvoid *a_context, ON__INT_PTR a_id, void * a_context) const</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n___r_tree_1a8a05293bb07c324306f359b1a74671d9"></span><code class="sig-name descname">bool ON_RTree::Search(const double a_min[3], const double a_max[3], bool ON_MSC_CDECL  resultCallbackvoid *a_context, ON__INT_PTR a_id, void * a_context) const</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree6SearchEAL3E_KdAL3E_KdR20ON_RTreeSearchResult">
+<span id="_CPPv3NK8ON_RTree6SearchEAL3E_KdAL3E_KdR20ON_RTreeSearchResult"></span><span id="_CPPv2NK8ON_RTree6SearchEA3_KdA3_KdR20ON_RTreeSearchResult"></span><span id="ON_RTree::Search__doubleCA.doubleCA.ON_RTreeSearchResultRC"></span><span class="target" id="class_o_n___r_tree_1a14df7f1392e2f2c98ad5d4ced530187e"></span>bool <code class="sig-name descname">Search</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[3], <em class="property">const</em> double <em>a_max</em>[3], <a class="reference internal" href="struct_o_n___r_tree_search_result.html#_CPPv420ON_RTreeSearchResult" title="ON_RTreeSearchResult">ON_RTreeSearchResult</a> &amp;<em>a_result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree6SearchEAL3E_KdAL3E_KdR20ON_RTreeSearchResult" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree6SearchEAL3E_KdAL3E_KdR14ON_SimpleArrayI12ON_RTreeLeafE">
+<span id="_CPPv3NK8ON_RTree6SearchEAL3E_KdAL3E_KdR14ON_SimpleArrayI12ON_RTreeLeafE"></span><span id="_CPPv2NK8ON_RTree6SearchEA3_KdA3_KdR14ON_SimpleArrayI12ON_RTreeLeafE"></span><span id="ON_RTree::Search__doubleCA.doubleCA.ON_SimpleArray:ON_RTreeLeaf:RC"></span><span class="target" id="class_o_n___r_tree_1aad04555e76f86ddd5359ceb6948a7df7"></span>bool <code class="sig-name descname">Search</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[3], <em class="property">const</em> double <em>a_max</em>[3], ON_SimpleArray&lt;<a class="reference internal" href="struct_o_n___r_tree_leaf.html#_CPPv412ON_RTreeLeaf" title="ON_RTreeLeaf">ON_RTreeLeaf</a>&gt; &amp;<em>a_result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree6SearchEAL3E_KdAL3E_KdR14ON_SimpleArrayI12ON_RTreeLeafE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree6SearchEAL3E_KdAL3E_KdR14ON_SimpleArrayIPvE">
+<span id="_CPPv3NK8ON_RTree6SearchEAL3E_KdAL3E_KdR14ON_SimpleArrayIPvE"></span><span id="_CPPv2NK8ON_RTree6SearchEA3_KdA3_KdR14ON_SimpleArrayIPvE"></span><span id="ON_RTree::Search__doubleCA.doubleCA.ON_SimpleArray:voidP:RC"></span><span class="target" id="class_o_n___r_tree_1a3b2149ea0203541285b3d5ca3c2c57c3"></span>bool <code class="sig-name descname">Search</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[3], <em class="property">const</em> double <em>a_max</em>[3], ON_SimpleArray&lt;void *&gt; &amp;<em>a_result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree6SearchEAL3E_KdAL3E_KdR14ON_SimpleArrayIPvE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree6SearchEAL3E_KdAL3E_KdR14ON_SimpleArrayIiE">
+<span id="_CPPv3NK8ON_RTree6SearchEAL3E_KdAL3E_KdR14ON_SimpleArrayIiE"></span><span id="_CPPv2NK8ON_RTree6SearchEA3_KdA3_KdR14ON_SimpleArrayIiE"></span><span id="ON_RTree::Search__doubleCA.doubleCA.ON_SimpleArray:i:RC"></span><span class="target" id="class_o_n___r_tree_1ae18942534add216538d971d266ef62f3"></span>bool <code class="sig-name descname">Search</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[3], <em class="property">const</em> double <em>a_max</em>[3], ON_SimpleArray&lt;int&gt; &amp;<em>a_result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree6SearchEAL3E_KdAL3E_KdR14ON_SimpleArrayIiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n___r_tree_1a0f3caf83c5192978dc41b29f98050d5a"></span><code class="sig-name descname">bool ON_RTree::Search2d(const double a_min[2], const double a_max[2], bool ON_MSC_CDECL  resultCallbackvoid *a_context, ON__INT_PTR a_id, void * a_context) const</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR20ON_RTreeSearchResult">
+<span id="_CPPv3NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR20ON_RTreeSearchResult"></span><span id="_CPPv2NK8ON_RTree8Search2dEA2_KdA2_KdR20ON_RTreeSearchResult"></span><span id="ON_RTree::Search2d__doubleCA.doubleCA.ON_RTreeSearchResultRC"></span><span class="target" id="class_o_n___r_tree_1a183fe6167390c34f7ddf4346c815d3f3"></span>bool <code class="sig-name descname">Search2d</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[2], <em class="property">const</em> double <em>a_max</em>[2], <a class="reference internal" href="struct_o_n___r_tree_search_result.html#_CPPv420ON_RTreeSearchResult" title="ON_RTreeSearchResult">ON_RTreeSearchResult</a> &amp;<em>a_result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR20ON_RTreeSearchResult" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR14ON_SimpleArrayI12ON_RTreeLeafE">
+<span id="_CPPv3NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR14ON_SimpleArrayI12ON_RTreeLeafE"></span><span id="_CPPv2NK8ON_RTree8Search2dEA2_KdA2_KdR14ON_SimpleArrayI12ON_RTreeLeafE"></span><span id="ON_RTree::Search2d__doubleCA.doubleCA.ON_SimpleArray:ON_RTreeLeaf:RC"></span><span class="target" id="class_o_n___r_tree_1ac12daf0578b650d8fb176c6bfd0551ea"></span>bool <code class="sig-name descname">Search2d</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[2], <em class="property">const</em> double <em>a_max</em>[2], ON_SimpleArray&lt;<a class="reference internal" href="struct_o_n___r_tree_leaf.html#_CPPv412ON_RTreeLeaf" title="ON_RTreeLeaf">ON_RTreeLeaf</a>&gt; &amp;<em>a_result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR14ON_SimpleArrayI12ON_RTreeLeafE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR14ON_SimpleArrayIPvE">
+<span id="_CPPv3NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR14ON_SimpleArrayIPvE"></span><span id="_CPPv2NK8ON_RTree8Search2dEA2_KdA2_KdR14ON_SimpleArrayIPvE"></span><span id="ON_RTree::Search2d__doubleCA.doubleCA.ON_SimpleArray:voidP:RC"></span><span class="target" id="class_o_n___r_tree_1a0796e641e7182e2627dc603934de7cac"></span>bool <code class="sig-name descname">Search2d</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[2], <em class="property">const</em> double <em>a_max</em>[2], ON_SimpleArray&lt;void *&gt; &amp;<em>a_result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR14ON_SimpleArrayIPvE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR14ON_SimpleArrayIiE">
+<span id="_CPPv3NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR14ON_SimpleArrayIiE"></span><span id="_CPPv2NK8ON_RTree8Search2dEA2_KdA2_KdR14ON_SimpleArrayIiE"></span><span id="ON_RTree::Search2d__doubleCA.doubleCA.ON_SimpleArray:i:RC"></span><span class="target" id="class_o_n___r_tree_1a4385c53c34dcf30080c8db40417352d2"></span>bool <code class="sig-name descname">Search2d</code><span class="sig-paren">(</span><em class="property">const</em> double <em>a_min</em>[2], <em class="property">const</em> double <em>a_max</em>[2], ON_SimpleArray&lt;int&gt; &amp;<em>a_result</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree8Search2dEAL2E_KdAL2E_KdR14ON_SimpleArrayIiE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree12ElementCountEv">
+<span id="_CPPv3N8ON_RTree12ElementCountEv"></span><span id="_CPPv2N8ON_RTree12ElementCountEv"></span><span id="ON_RTree::ElementCount"></span><span class="target" id="class_o_n___r_tree_1a553c28a6189ab8b336aad9d0cc5d1ae1"></span>int <code class="sig-name descname">ElementCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree12ElementCountEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree4RootEv">
+<span id="_CPPv3NK8ON_RTree4RootEv"></span><span id="_CPPv2NK8ON_RTree4RootEv"></span><span id="ON_RTree::RootC"></span><span class="target" id="class_o_n___r_tree_1adc2e00cbb7018e8ebce40218565ae0f2"></span><em class="property">const</em> <a class="reference internal" href="struct_o_n___r_tree_node.html#_CPPv412ON_RTreeNode" title="ON_RTreeNode">ON_RTreeNode</a> *<code class="sig-name descname">Root</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree4RootEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree11BoundingBoxEv">
+<span id="_CPPv3NK8ON_RTree11BoundingBoxEv"></span><span id="_CPPv2NK8ON_RTree11BoundingBoxEv"></span><span id="ON_RTree::BoundingBoxC"></span><span class="target" id="class_o_n___r_tree_1acf66798ce1ab81e70c4d2ad971db1117"></span><a class="reference internal" href="class_o_n___bounding_box.html#_CPPv414ON_BoundingBox" title="ON_BoundingBox">ON_BoundingBox</a> <code class="sig-name descname">BoundingBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree11BoundingBoxEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK8ON_RTree6SizeOfEv">
+<span id="_CPPv3NK8ON_RTree6SizeOfEv"></span><span id="_CPPv2NK8ON_RTree6SizeOfEv"></span><span id="ON_RTree::SizeOfC"></span><span class="target" id="class_o_n___r_tree_1aafee383d7c1af961a7608376d7ce7154"></span>size_t <code class="sig-name descname">SizeOf</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK8ON_RTree6SizeOfEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N8ON_RTree6SearchERK8ON_RTreeRK8ON_RTreedR14ON_SimpleArrayI7ON_2dexE">
+<span id="_CPPv3N8ON_RTree6SearchERK8ON_RTreeRK8ON_RTreedR14ON_SimpleArrayI7ON_2dexE"></span><span id="_CPPv2N8ON_RTree6SearchERK8ON_RTreeRK8ON_RTreedR14ON_SimpleArrayI7ON_2dexE"></span><span id="ON_RTree::Search__ON_RTreeCR.ON_RTreeCR.double.ON_SimpleArray:ON_2dex:R"></span><span class="target" id="class_o_n___r_tree_1a89495554a3643a1ceccf18fc3de4028f"></span><em class="property">static</em> bool <code class="sig-name descname">Search</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv48ON_RTree" title="ON_RTree">ON_RTree</a> &amp;<em>a_rtreeA</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv48ON_RTree" title="ON_RTree">ON_RTree</a> &amp;<em>a_rtreeB</em>, double <em>tolerance</em>, ON_SimpleArray&lt;<a class="reference internal" href="typedef_opennurbs__defines_8h_1a18cafb068adc9fce476b3348f6c2f3a9.html#_CPPv47ON_2dex" title="ON_2dex">ON_2dex</a>&gt; &amp;<em>a_result</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8ON_RTree6SearchERK8ON_RTreeRK8ON_RTreedR14ON_SimpleArrayI7ON_2dexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n___r_tree_1aa9cbe4ee2124ca38fad5484e4c7260a8"></span><code class="sig-name descname">static bool ON_RTree::Search(const  ON_RTree  &amp; a_rtreeA, const  ON_RTree  &amp; a_rtreeB, double tolerance, void ON_MSC_CDECL  resultCallbackvoid *a_context, ON__INT_PTR a_idA, ON__INT_PTR a_idB, void * a_context)</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="class_o_n___r_tree_1a6786343166a9beff033bc7de90db5a2e"></span><code class="sig-name descname">static bool ON_RTree::Search(const  ON_RTree  &amp; a_rtreeA, const  ON_RTree  &amp; a_rtreeB, double tolerance, bool ON_MSC_CDECL  resultCallbackvoid *a_context, ON__INT_PTR a_idA, ON__INT_PTR a_idB, void * a_context)</code></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

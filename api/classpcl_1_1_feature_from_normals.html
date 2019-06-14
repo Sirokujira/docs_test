@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class FeatureFromNormals &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class FeatureFromNormals</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_feature_from_normals.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-featurefromnormals">
+<span id="exhale-class-classpcl-1-1-feature-from-normals"></span><h1>Template Class FeatureFromNormals<a class="headerlink" href="#template-class-featurefromnormals" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_features_include_pcl_features_feature.h.html#file-pcl-features-include-pcl-features-feature-h"><span class="std std-ref">File feature.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Feature&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_feature.html#exhale-class-classpcl-1-1-feature"><span class="std std-ref">Template Class Feature</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::BOARDLocalReferenceFrameEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_b_o_a_r_d_local_reference_frame_estimation.html#exhale-class-classpcl-1-1-b-o-a-r-d-local-reference-frame-estimation"><span class="std std-ref">Template Class BOARDLocalReferenceFrameEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::BoundaryEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_boundary_estimation.html#exhale-class-classpcl-1-1-boundary-estimation"><span class="std std-ref">Template Class BoundaryEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::CPPFEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_c_p_p_f_estimation.html#exhale-class-classpcl-1-1-c-p-p-f-estimation"><span class="std std-ref">Template Class CPPFEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::CRHEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_c_r_h_estimation.html#exhale-class-classpcl-1-1-c-r-h-estimation"><span class="std std-ref">Template Class CRHEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::CVFHEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_c_v_f_h_estimation.html#exhale-class-classpcl-1-1-c-v-f-h-estimation"><span class="std std-ref">Template Class CVFHEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::FLARELocalReferenceFrameEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT,</span> <span class="pre">SignedDistanceT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_f_l_a_r_e_local_reference_frame_estimation.html#exhale-class-classpcl-1-1-f-l-a-r-e-local-reference-frame-estimation"><span class="std std-ref">Template Class FLARELocalReferenceFrameEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::FPFHEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_f_p_f_h_estimation.html#exhale-class-classpcl-1-1-f-p-f-h-estimation"><span class="std std-ref">Template Class FPFHEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::GRSDEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_g_r_s_d_estimation.html#exhale-class-classpcl-1-1-g-r-s-d-estimation"><span class="std std-ref">Template Class GRSDEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::IntensityGradientEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT,</span> <span class="pre">IntensitySelectorT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_intensity_gradient_estimation.html#exhale-class-classpcl-1-1-intensity-gradient-estimation"><span class="std std-ref">Template Class IntensityGradientEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::OURCVFHEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_o_u_r_c_v_f_h_estimation.html#exhale-class-classpcl-1-1-o-u-r-c-v-f-h-estimation"><span class="std std-ref">Template Class OURCVFHEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PFHEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_f_h_estimation.html#exhale-class-classpcl-1-1-p-f-h-estimation"><span class="std std-ref">Template Class PFHEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PFHRGBEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_f_h_r_g_b_estimation.html#exhale-class-classpcl-1-1-p-f-h-r-g-b-estimation"><span class="std std-ref">Template Class PFHRGBEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PPFEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_p_f_estimation.html#exhale-class-classpcl-1-1-p-p-f-estimation"><span class="std std-ref">Template Class PPFEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PPFRGBEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_p_f_r_g_b_estimation.html#exhale-class-classpcl-1-1-p-p-f-r-g-b-estimation"><span class="std std-ref">Template Class PPFRGBEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PPFRGBRegionEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_p_f_r_g_b_region_estimation.html#exhale-class-classpcl-1-1-p-p-f-r-g-b-region-estimation"><span class="std std-ref">Template Class PPFRGBRegionEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PrincipalCurvaturesEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_principal_curvatures_estimation.html#exhale-class-classpcl-1-1-principal-curvatures-estimation"><span class="std std-ref">Template Class PrincipalCurvaturesEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::RSDEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_r_s_d_estimation.html#exhale-class-classpcl-1-1-r-s-d-estimation"><span class="std std-ref">Template Class RSDEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::ShapeContext3DEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_shape_context3_d_estimation.html#exhale-class-classpcl-1-1-shape-context3-d-estimation"><span class="std std-ref">Template Class ShapeContext3DEstimation</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SHOTEstimationBase&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT,</span> <span class="pre">PointRFT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_s_h_o_t_estimation_base.html#exhale-class-classpcl-1-1-s-h-o-t-estimation-base"><span class="std std-ref">Template Class SHOTEstimationBase</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::VFHEstimation&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointNT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_v_f_h_estimation.html#exhale-class-classpcl-1-1-v-f-h-estimation"><span class="std std-ref">Template Class VFHEstimation</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I000EN3pcl18FeatureFromNormalsE">
+<span id="_CPPv3I000EN3pcl18FeatureFromNormalsE"></span><span id="_CPPv2I000EN3pcl18FeatureFromNormalsE"></span><span class="target" id="classpcl_1_1_feature_from_normals"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">PointNT</code>, typename <code class="sig-name descname">PointOutT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">FeatureFromNormals</code> : <em class="property">public</em> pcl::Feature&lt;<a class="reference internal" href="#_CPPv4I000EN3pcl18FeatureFromNormalsE" title="pcl::FeatureFromNormals::PointInT">PointInT</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl18FeatureFromNormalsE" title="pcl::FeatureFromNormals::PointOutT">PointOutT</a>&gt;<a class="headerlink" href="#_CPPv4I000EN3pcl18FeatureFromNormalsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Subclassed by <a class="reference internal" href="classpcl_1_1_b_o_a_r_d_local_reference_frame_estimation.html#classpcl_1_1_b_o_a_r_d_local_reference_frame_estimation"><span class="std std-ref">pcl::BOARDLocalReferenceFrameEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_boundary_estimation.html#classpcl_1_1_boundary_estimation"><span class="std std-ref">pcl::BoundaryEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_c_p_p_f_estimation.html#classpcl_1_1_c_p_p_f_estimation"><span class="std std-ref">pcl::CPPFEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_c_r_h_estimation.html#classpcl_1_1_c_r_h_estimation"><span class="std std-ref">pcl::CRHEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_c_v_f_h_estimation.html#classpcl_1_1_c_v_f_h_estimation"><span class="std std-ref">pcl::CVFHEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_f_l_a_r_e_local_reference_frame_estimation.html#classpcl_1_1_f_l_a_r_e_local_reference_frame_estimation"><span class="std std-ref">pcl::FLARELocalReferenceFrameEstimation&lt; PointInT, PointNT, PointOutT, SignedDistanceT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_f_p_f_h_estimation.html#classpcl_1_1_f_p_f_h_estimation"><span class="std std-ref">pcl::FPFHEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_g_r_s_d_estimation.html#classpcl_1_1_g_r_s_d_estimation"><span class="std std-ref">pcl::GRSDEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_intensity_gradient_estimation.html#classpcl_1_1_intensity_gradient_estimation"><span class="std std-ref">pcl::IntensityGradientEstimation&lt; PointInT, PointNT, PointOutT, IntensitySelectorT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_o_u_r_c_v_f_h_estimation.html#classpcl_1_1_o_u_r_c_v_f_h_estimation"><span class="std std-ref">pcl::OURCVFHEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_p_f_h_estimation.html#classpcl_1_1_p_f_h_estimation"><span class="std std-ref">pcl::PFHEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_p_f_h_r_g_b_estimation.html#classpcl_1_1_p_f_h_r_g_b_estimation"><span class="std std-ref">pcl::PFHRGBEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_p_p_f_estimation.html#classpcl_1_1_p_p_f_estimation"><span class="std std-ref">pcl::PPFEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_p_p_f_r_g_b_estimation.html#classpcl_1_1_p_p_f_r_g_b_estimation"><span class="std std-ref">pcl::PPFRGBEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_p_p_f_r_g_b_region_estimation.html#classpcl_1_1_p_p_f_r_g_b_region_estimation"><span class="std std-ref">pcl::PPFRGBRegionEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_principal_curvatures_estimation.html#classpcl_1_1_principal_curvatures_estimation"><span class="std std-ref">pcl::PrincipalCurvaturesEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_r_s_d_estimation.html#classpcl_1_1_r_s_d_estimation"><span class="std std-ref">pcl::RSDEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_shape_context3_d_estimation.html#classpcl_1_1_shape_context3_d_estimation"><span class="std std-ref">pcl::ShapeContext3DEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_s_h_o_t_estimation_base.html#classpcl_1_1_s_h_o_t_estimation_base"><span class="std std-ref">pcl::SHOTEstimationBase&lt; PointInT, PointNT, PointOutT, PointRFT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_v_f_h_estimation.html#classpcl_1_1_v_f_h_estimation"><span class="std std-ref">pcl::VFHEstimation&lt; PointInT, PointNT, PointOutT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl18FeatureFromNormals11PointCloudNE">
+<span id="_CPPv3N3pcl18FeatureFromNormals11PointCloudNE"></span><span id="_CPPv2N3pcl18FeatureFromNormals11PointCloudNE"></span><span id="pcl::FeatureFromNormals::PointCloudN"></span><span class="target" id="classpcl_1_1_feature_from_normals_1adb19459573ad41ae12697d3abcef1eab"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointNT&gt; <code class="sig-name descname">PointCloudN</code><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormals11PointCloudNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18FeatureFromNormals14PointCloudNPtrE">
+<span id="_CPPv3N3pcl18FeatureFromNormals14PointCloudNPtrE"></span><span id="_CPPv2N3pcl18FeatureFromNormals14PointCloudNPtrE"></span><span id="pcl::FeatureFromNormals::PointCloudNPtr"></span><span class="target" id="classpcl_1_1_feature_from_normals_1aa35439d057f157a3018231d92df8320f"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl18FeatureFromNormals11PointCloudNE" title="pcl::FeatureFromNormals::PointCloudN">PointCloudN</a>::Ptr <code class="sig-name descname">PointCloudNPtr</code><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormals14PointCloudNPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18FeatureFromNormals19PointCloudNConstPtrE">
+<span id="_CPPv3N3pcl18FeatureFromNormals19PointCloudNConstPtrE"></span><span id="_CPPv2N3pcl18FeatureFromNormals19PointCloudNConstPtrE"></span><span id="pcl::FeatureFromNormals::PointCloudNConstPtr"></span><span class="target" id="classpcl_1_1_feature_from_normals_1a87676df85743527c2b32333737381156"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl18FeatureFromNormals11PointCloudNE" title="pcl::FeatureFromNormals::PointCloudN">PointCloudN</a>::ConstPtr <code class="sig-name descname">PointCloudNConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormals19PointCloudNConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18FeatureFromNormals3PtrE">
+<span id="_CPPv3N3pcl18FeatureFromNormals3PtrE"></span><span id="_CPPv2N3pcl18FeatureFromNormals3PtrE"></span><span id="pcl::FeatureFromNormals::Ptr"></span><span class="target" id="classpcl_1_1_feature_from_normals_1af090b60d7fca913bd606bdac3f02135e"></span><em class="property">typedef </em>boost::shared_ptr&lt;FeatureFromNormals&lt;PointInT, PointNT, PointOutT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormals3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18FeatureFromNormals8ConstPtrE">
+<span id="_CPPv3N3pcl18FeatureFromNormals8ConstPtrE"></span><span id="_CPPv2N3pcl18FeatureFromNormals8ConstPtrE"></span><span id="pcl::FeatureFromNormals::ConstPtr"></span><span class="target" id="classpcl_1_1_feature_from_normals_1abdd77bd53985c9a6a2583a0f679a624c"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> FeatureFromNormals&lt;PointInT, PointNT, PointOutT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormals8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl18FeatureFromNormals18FeatureFromNormalsEv">
+<span id="_CPPv3N3pcl18FeatureFromNormals18FeatureFromNormalsEv"></span><span id="_CPPv2N3pcl18FeatureFromNormals18FeatureFromNormalsEv"></span><span id="pcl::FeatureFromNormals::FeatureFromNormals"></span><span class="target" id="classpcl_1_1_feature_from_normals_1a158bd4a3ec52800cc8a883ceaefa51c6"></span><code class="sig-name descname">FeatureFromNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormals18FeatureFromNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18FeatureFromNormalsD0Ev">
+<span id="_CPPv3N3pcl18FeatureFromNormalsD0Ev"></span><span id="_CPPv2N3pcl18FeatureFromNormalsD0Ev"></span><span id="pcl::FeatureFromNormals::~FeatureFromNormals"></span><span class="target" id="classpcl_1_1_feature_from_normals_1a59bc12a33b1893b361bf246e32282e4f"></span><em class="property">virtual</em> <code class="sig-name descname">~FeatureFromNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormalsD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18FeatureFromNormals15setInputNormalsERK19PointCloudNConstPtr">
+<span id="_CPPv3N3pcl18FeatureFromNormals15setInputNormalsERK19PointCloudNConstPtr"></span><span id="_CPPv2N3pcl18FeatureFromNormals15setInputNormalsERK19PointCloudNConstPtr"></span><span id="pcl::FeatureFromNormals::setInputNormals__PointCloudNConstPtrCR"></span><span class="target" id="classpcl_1_1_feature_from_normals_1a349685ac9deb723502de9f399d0286dc"></span>void <code class="sig-name descname">setInputNormals</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl18FeatureFromNormals19PointCloudNConstPtrE" title="pcl::FeatureFromNormals::PointCloudNConstPtr">PointCloudNConstPtr</a> &amp;<em>normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormals15setInputNormalsERK19PointCloudNConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset that contains the point normals of the XYZ dataset. </p>
+<p>In case of search surface is set to be different from the input cloud, normals should correspond to the search surface, not the input cloud! <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normals</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> of normals. By convention, L2 norm of each normal should be 1. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18FeatureFromNormals15getInputNormalsEv">
+<span id="_CPPv3NK3pcl18FeatureFromNormals15getInputNormalsEv"></span><span id="_CPPv2NK3pcl18FeatureFromNormals15getInputNormalsEv"></span><span id="pcl::FeatureFromNormals::getInputNormalsC"></span><span class="target" id="classpcl_1_1_feature_from_normals_1a2eb5090f6a3413a436d5900b386bf8e0"></span><a class="reference internal" href="#_CPPv4N3pcl18FeatureFromNormals19PointCloudNConstPtrE" title="pcl::FeatureFromNormals::PointCloudNConstPtr">PointCloudNConstPtr</a> <code class="sig-name descname">getInputNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18FeatureFromNormals15getInputNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the normals of the input XYZ point cloud dataset. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl18FeatureFromNormals11initComputeEv">
+<span id="_CPPv3N3pcl18FeatureFromNormals11initComputeEv"></span><span id="_CPPv2N3pcl18FeatureFromNormals11initComputeEv"></span><span id="pcl::FeatureFromNormals::initCompute"></span><span class="target" id="classpcl_1_1_feature_from_normals_1a2720af3323c9bb15c073156fe568ced3"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormals11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method should get called before starting the actual computation. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl18FeatureFromNormals8normals_E">
+<span id="_CPPv3N3pcl18FeatureFromNormals8normals_E"></span><span id="_CPPv2N3pcl18FeatureFromNormals8normals_E"></span><span id="pcl::FeatureFromNormals::normals___PointCloudNConstPtr"></span><span class="target" id="classpcl_1_1_feature_from_normals_1aabc97906d7c9620d70c5a16de5a48c31"></span><a class="reference internal" href="#_CPPv4N3pcl18FeatureFromNormals19PointCloudNConstPtrE" title="pcl::FeatureFromNormals::PointCloudNConstPtr">PointCloudNConstPtr</a> <code class="sig-name descname">normals_</code><a class="headerlink" href="#_CPPv4N3pcl18FeatureFromNormals8normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A pointer to the input dataset that contains the point normals of the XYZ dataset. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

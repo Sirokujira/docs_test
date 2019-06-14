@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class Convolution &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class Convolution</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1filters_1_1_convolution.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-convolution">
+<span id="exhale-class-classpcl-1-1filters-1-1-convolution"></span><h1>Template Class Convolution<a class="headerlink" href="#template-class-convolution" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_filters_include_pcl_filters_convolution.h.html#file-pcl-filters-include-pcl-filters-convolution-h"><span class="std std-ref">File convolution.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl7filters11ConvolutionE">
+<span id="_CPPv3I00EN3pcl7filters11ConvolutionE"></span><span id="_CPPv2I00EN3pcl7filters11ConvolutionE"></span><span class="target" id="classpcl_1_1filters_1_1_convolution"></span>template&lt;typename <code class="sig-name descname">PointIn</code>, typename <code class="sig-name descname">PointOut</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">Convolution</code><a class="headerlink" href="#_CPPv4I00EN3pcl7filters11ConvolutionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1filters_1_1_convolution"><span class="std std-ref">Convolution</span></a> is a mathematical operation on two functions f and g, producing a third function that is typically viewed as a modified version of one of the original functions. </p>
+<p>see <a class="reference external" href="http://en.wikipedia.org/wiki/Convolution">http://en.wikipedia.org/wiki/Convolution</a>.</p>
+<p>The class provides rows, column and separate convolving operations of a point cloud. Columns and separate convolution is only allowed on organised point clouds.</p>
+<p>When convolving, computing the rows and cols elements at 1/2 kernel width distance from the borders is not defined. We allow for 3 policies:<ul class="simple">
+<li><p>Ignoring: elements at special locations are filled with zero (default behaviour)</p></li>
+<li><p>Mirroring: the missing rows or columns are obtained through mirroring</p></li>
+<li><p>Duplicating: the missing rows or columns are obtained through duplicating</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Nizar Sallem </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl7filters11Convolution14BORDERS_POLICYE">
+<span id="_CPPv3N3pcl7filters11Convolution14BORDERS_POLICYE"></span><span id="_CPPv2N3pcl7filters11Convolution14BORDERS_POLICYE"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1ae9da4579c89dba3c56e860c8e6b96d9f"></span><em class="property">enum </em><code class="sig-name descname">BORDERS_POLICY</code><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution14BORDERS_POLICYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The borders policy available. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl7filters11Convolution21BORDERS_POLICY_IGNOREE">
+<span id="_CPPv3N3pcl7filters11Convolution21BORDERS_POLICY_IGNOREE"></span><span id="_CPPv2N3pcl7filters11Convolution21BORDERS_POLICY_IGNOREE"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1ae9da4579c89dba3c56e860c8e6b96d9fa069183c674d2d6237aee763653619871"></span><code class="sig-name descname">BORDERS_POLICY_IGNORE</code> = -1<a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution21BORDERS_POLICY_IGNOREE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl7filters11Convolution21BORDERS_POLICY_MIRRORE">
+<span id="_CPPv3N3pcl7filters11Convolution21BORDERS_POLICY_MIRRORE"></span><span id="_CPPv2N3pcl7filters11Convolution21BORDERS_POLICY_MIRRORE"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1ae9da4579c89dba3c56e860c8e6b96d9fa3f4f98063ef8de67f5350f73995afb1b"></span><code class="sig-name descname">BORDERS_POLICY_MIRROR</code> = 0<a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution21BORDERS_POLICY_MIRRORE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl7filters11Convolution24BORDERS_POLICY_DUPLICATEE">
+<span id="_CPPv3N3pcl7filters11Convolution24BORDERS_POLICY_DUPLICATEE"></span><span id="_CPPv2N3pcl7filters11Convolution24BORDERS_POLICY_DUPLICATEE"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1ae9da4579c89dba3c56e860c8e6b96d9fa2a037c56567849b56093582ac15179ec"></span><code class="sig-name descname">BORDERS_POLICY_DUPLICATE</code> = 1<a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution24BORDERS_POLICY_DUPLICATEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl7filters11Convolution12PointCloudInE">
+<span id="_CPPv3N3pcl7filters11Convolution12PointCloudInE"></span><span id="_CPPv2N3pcl7filters11Convolution12PointCloudInE"></span><span id="pcl::filters::Convolution::PointCloudIn"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a5e9d619066750316beb2709d9c0d7645"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointIn&gt; <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl7filters11Convolution15PointCloudInPtrE">
+<span id="_CPPv3N3pcl7filters11Convolution15PointCloudInPtrE"></span><span id="_CPPv2N3pcl7filters11Convolution15PointCloudInPtrE"></span><span id="pcl::filters::Convolution::PointCloudInPtr"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a9a83ad2759e74adbd2db2fba1800f1c6"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution12PointCloudInE" title="pcl::filters::Convolution::PointCloudIn">PointCloudIn</a>::Ptr <code class="sig-name descname">PointCloudInPtr</code><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution15PointCloudInPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl7filters11Convolution20PointCloudInConstPtrE">
+<span id="_CPPv3N3pcl7filters11Convolution20PointCloudInConstPtrE"></span><span id="_CPPv2N3pcl7filters11Convolution20PointCloudInConstPtrE"></span><span id="pcl::filters::Convolution::PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a94de97eb74fba1ee20c3658ac4ea4cec"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution12PointCloudInE" title="pcl::filters::Convolution::PointCloudIn">PointCloudIn</a>::ConstPtr <code class="sig-name descname">PointCloudInConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution20PointCloudInConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl7filters11Convolution13PointCloudOutE">
+<span id="_CPPv3N3pcl7filters11Convolution13PointCloudOutE"></span><span id="_CPPv2N3pcl7filters11Convolution13PointCloudOutE"></span><span id="pcl::filters::Convolution::PointCloudOut"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a2fbb2bd7574402f3f73057652f720a07"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointOut&gt; <code class="sig-name descname">PointCloudOut</code><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl7filters11Convolution3PtrE">
+<span id="_CPPv3N3pcl7filters11Convolution3PtrE"></span><span id="_CPPv2N3pcl7filters11Convolution3PtrE"></span><span id="pcl::filters::Convolution::Ptr"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a0a57817ecc2760e9ffb660b4bbfe4042"></span><em class="property">typedef </em>boost::shared_ptr&lt;Convolution&lt;PointIn, PointOut&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl7filters11Convolution8ConstPtrE">
+<span id="_CPPv3N3pcl7filters11Convolution8ConstPtrE"></span><span id="_CPPv2N3pcl7filters11Convolution8ConstPtrE"></span><span id="pcl::filters::Convolution::ConstPtr"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a77fcdca3b7a962b5a60405e24c4efadf"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> Convolution&lt;PointIn, PointOut&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution11ConvolutionEv">
+<span id="_CPPv3N3pcl7filters11Convolution11ConvolutionEv"></span><span id="_CPPv2N3pcl7filters11Convolution11ConvolutionEv"></span><span id="pcl::filters::Convolution::Convolution"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a14b0365f33721dae85cef7246bfcf539"></span><code class="sig-name descname">Convolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution11ConvolutionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11ConvolutionD0Ev">
+<span id="_CPPv3N3pcl7filters11ConvolutionD0Ev"></span><span id="_CPPv2N3pcl7filters11ConvolutionD0Ev"></span><span id="pcl::filters::Convolution::~Convolution"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a10210b349ac1dec4fe217712980b588b"></span><code class="sig-name descname">~Convolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11ConvolutionD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution13setInputCloudERK20PointCloudInConstPtr">
+<span id="_CPPv3N3pcl7filters11Convolution13setInputCloudERK20PointCloudInConstPtr"></span><span id="_CPPv2N3pcl7filters11Convolution13setInputCloudERK20PointCloudInConstPtr"></span><span id="pcl::filters::Convolution::setInputCloud__PointCloudInConstPtrCR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a16fbbdf38948fed054d2b8b6514ef42d"></span>void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution20PointCloudInConstPtrE" title="pcl::filters::Convolution::PointCloudInConstPtr">PointCloudInConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution13setInputCloudERK20PointCloudInConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset. </p>
+<p><dl class="simple">
+<dt><strong>Remark</strong></dt><dd><p>Will perform a deep copy </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution9setKernelERKN5Eigen7ArrayXfE">
+<span id="_CPPv3N3pcl7filters11Convolution9setKernelERKN5Eigen7ArrayXfE"></span><span id="_CPPv2N3pcl7filters11Convolution9setKernelERKN5Eigen7ArrayXfE"></span><span id="pcl::filters::Convolution::setKernel__Eigen::ArrayXfCR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1acd355932b0334275e14ee26a248c15c4"></span>void <code class="sig-name descname">setKernel</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::ArrayXf &amp;<em>kernel</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution9setKernelERKN5Eigen7ArrayXfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set convolving kernel. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">kernel</span></code>: convolving element </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution16setBordersPolicyEi">
+<span id="_CPPv3N3pcl7filters11Convolution16setBordersPolicyEi"></span><span id="_CPPv2N3pcl7filters11Convolution16setBordersPolicyEi"></span><span id="pcl::filters::Convolution::setBordersPolicy__i"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1ac6c3cc194c0bf3a9e29b6748d3e0b5de"></span>void <code class="sig-name descname">setBordersPolicy</code><span class="sig-paren">(</span>int <em>policy</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution16setBordersPolicyEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the borders policy. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution16getBordersPolicyEv">
+<span id="_CPPv3N3pcl7filters11Convolution16getBordersPolicyEv"></span><span id="_CPPv2N3pcl7filters11Convolution16getBordersPolicyEv"></span><span id="pcl::filters::Convolution::getBordersPolicy"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a537d5529df268fd120351ff0e24d8244"></span>int <code class="sig-name descname">getBordersPolicy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution16getBordersPolicyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the borders policy. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution20setDistanceThresholdERKf">
+<span id="_CPPv3N3pcl7filters11Convolution20setDistanceThresholdERKf"></span><span id="_CPPv2N3pcl7filters11Convolution20setDistanceThresholdERKf"></span><span id="pcl::filters::Convolution::setDistanceThreshold__floatCR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1aac0496f56b859fb46e39a52bf14ed853"></span>void <code class="sig-name descname">setDistanceThreshold</code><span class="sig-paren">(</span><em class="property">const</em> float &amp;<em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution20setDistanceThresholdERKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Remark</strong></dt><dd><p>this is critical so please read it carefully. In 3D the next point in (u,v) coordinate can be really far so a distance threshold is used to keep us from ghost points. The value you set here is strongly related to the sensor. A good value for kinect data is 0.001. Default is std::numeric&lt;float&gt;::infinity () </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: maximum allowed distance between 2 juxtaposed points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl7filters11Convolution20getDistanceThresholdEv">
+<span id="_CPPv3NK3pcl7filters11Convolution20getDistanceThresholdEv"></span><span id="_CPPv2NK3pcl7filters11Convolution20getDistanceThresholdEv"></span><span id="pcl::filters::Convolution::getDistanceThresholdC"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a00cd1ceb0545dd8468fe0e6a37531180"></span><em class="property">const</em> float &amp;<code class="sig-name descname">getDistanceThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl7filters11Convolution20getDistanceThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the distance threshold </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution18setNumberOfThreadsEj">
+<span id="_CPPv3N3pcl7filters11Convolution18setNumberOfThreadsEj"></span><span id="_CPPv2N3pcl7filters11Convolution18setNumberOfThreadsEj"></span><span id="pcl::filters::Convolution::setNumberOfThreads__unsigned-i"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a2836bdcb1bbc026eaa38d4378617de53"></span>void <code class="sig-name descname">setNumberOfThreads</code><span class="sig-paren">(</span>unsigned int <em>nr_threads</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution18setNumberOfThreadsEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the scheduler and set the number of threads to use. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nr_threads</span></code>: the number of hardware threads to use (0 sets the value back to automatic) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution12convolveRowsER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution12convolveRowsER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution12convolveRowsER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolveRows__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a8700c664ebc38288155d4c872c117c81"></span>void <code class="sig-name descname">convolveRows</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution12convolveRowsER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convolve a float image rows by a given kernel. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>if output doesn’t fit in input i.e. output.rows () &lt; input.rows () or output.cols () &lt; input.cols () then output is resized to input sizes. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the convolved cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution12convolveColsER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution12convolveColsER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution12convolveColsER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolveCols__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a12ad33ee524c323fb108142c2736957f"></span>void <code class="sig-name descname">convolveCols</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution12convolveColsER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convolve a float image columns by a given kernel. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>if output doesn’t fit in input i.e. output.rows () &lt; input.rows () or output.cols () &lt; input.cols () then output is resized to input sizes. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the convolved image </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution8convolveERKN5Eigen7ArrayXfERKN5Eigen7ArrayXfER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution8convolveERKN5Eigen7ArrayXfERKN5Eigen7ArrayXfER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution8convolveERKN5Eigen7ArrayXfERKN5Eigen7ArrayXfER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolve__Eigen::ArrayXfCR.Eigen::ArrayXfCR.PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1aa517e36975cab3ef6dc048552449d1e2"></span>void <code class="sig-name descname">convolve</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::ArrayXf &amp;<em>h_kernel</em>, <em class="property">const</em> Eigen::ArrayXf &amp;<em>v_kernel</em>, <a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution8convolveERKN5Eigen7ArrayXfERKN5Eigen7ArrayXfER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convolve point cloud with an horizontal kernel along rows then vertical kernel along columns : convolve separately. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>if output doesn’t fit in input i.e. output.rows () &lt; input.rows () or output.cols () &lt; input.cols () then output is resized to input sizes. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">h_kernel</span></code>: kernel for convolving rows </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">v_kernel</span></code>: kernel for convolving columns </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the convolved cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution8convolveER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution8convolveER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution8convolveER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolve__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1abe4b8e7eb8d700d72fc673ab496edc3e"></span>void <code class="sig-name descname">convolve</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution8convolveER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convolve point cloud with same kernel along rows and columns separately. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>if output doesn’t fit in input i.e. output.rows () &lt; input.rows () or output.cols () &lt; input.cols () then output is resized to input sizes. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the convolved cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution13convolve_rowsER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution13convolve_rowsER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution13convolve_rowsER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolve_rows__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1aa0d05344455a5a9595515b02d5669cd9"></span>void <code class="sig-name descname">convolve_rows</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution13convolve_rowsER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>convolve rows and ignore borders </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution13convolve_colsER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution13convolve_colsER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution13convolve_colsER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolve_cols__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a90a14cfd2090f0defaee6a0b261ef697"></span>void <code class="sig-name descname">convolve_cols</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution13convolve_colsER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>convolve cols and ignore borders </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution20convolve_rows_mirrorER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution20convolve_rows_mirrorER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution20convolve_rows_mirrorER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolve_rows_mirror__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a2ef019b0be2516b7935827732936bc96"></span>void <code class="sig-name descname">convolve_rows_mirror</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution20convolve_rows_mirrorER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>convolve rows and mirror borders </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution20convolve_cols_mirrorER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution20convolve_cols_mirrorER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution20convolve_cols_mirrorER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolve_cols_mirror__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a99fecb92edac3c7a6f7d3a1c03c5223f"></span>void <code class="sig-name descname">convolve_cols_mirror</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution20convolve_cols_mirrorER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>convolve cols and mirror borders </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution23convolve_rows_duplicateER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution23convolve_rows_duplicateER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution23convolve_rows_duplicateER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolve_rows_duplicate__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a800c77925077f233061f5c409cb9cf21"></span>void <code class="sig-name descname">convolve_rows_duplicate</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution23convolve_rows_duplicateER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>convolve rows and duplicate borders </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution23convolve_cols_duplicateER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution23convolve_cols_duplicateER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution23convolve_cols_duplicateER13PointCloudOut"></span><span id="pcl::filters::Convolution::convolve_cols_duplicate__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a5e21016ab2b2fe7ed370834a162c7b40"></span>void <code class="sig-name descname">convolve_cols_duplicate</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution23convolve_cols_duplicateER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>convolve cols and duplicate borders </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution11initComputeER13PointCloudOut">
+<span id="_CPPv3N3pcl7filters11Convolution11initComputeER13PointCloudOut"></span><span id="_CPPv2N3pcl7filters11Convolution11initComputeER13PointCloudOut"></span><span id="pcl::filters::Convolution::initCompute__PointCloudOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1ac6ea4184e4763e573694d01cdf047592"></span>void <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl7filters11Convolution13PointCloudOutE" title="pcl::filters::Convolution::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution11initComputeER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>init compute is an internal method called before computation </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">output</span></code>: </p></li>
+</ul>
+</dd>
+<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><a class="reference internal" href="classpcl_1_1_init_failed_exception.html#classpcl_1_1_init_failed_exception"><span class="std std-ref"><span class="pre">pcl::InitFailedException</span></span></a></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl7filters11Convolution12makeInfiniteER8PointOut">
+<span id="_CPPv3N3pcl7filters11Convolution12makeInfiniteER8PointOut"></span><span id="_CPPv2N3pcl7filters11Convolution12makeInfiniteER8PointOut"></span><span id="pcl::filters::Convolution::makeInfinite__PointOutR"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a48626c49bc8797817fbf0d2b5719dc43"></span>void <code class="sig-name descname">makeInfinite</code><span class="sig-paren">(</span>PointOut &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution12makeInfiniteER8PointOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl7filters11Convolution12makeInfiniteEvRN3pcl3RGBE">
+<span id="_CPPv3IEN3pcl7filters11Convolution12makeInfiniteERN3pcl3RGBE"></span><span id="_CPPv2IEN3pcl7filters11Convolution12makeInfiniteERN3pcl3RGBE"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1a6950936200694cfd6ff5b6cfbb486c39"></span>template&lt;&gt;<br />void <code class="sig-name descname">makeInfinite</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a> &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl7filters11Convolution12makeInfiniteEvRN3pcl3RGBE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl7filters11Convolution8threads_E">
+<span id="_CPPv3N3pcl7filters11Convolution8threads_E"></span><span id="_CPPv2N3pcl7filters11Convolution8threads_E"></span><span id="pcl::filters::Convolution::threads___unsigned-i"></span><span class="target" id="classpcl_1_1filters_1_1_convolution_1adec8e2fca1a93fab4b558ee2fc9418bd"></span>unsigned int <code class="sig-name descname">threads_</code><a class="headerlink" href="#_CPPv4N3pcl7filters11Convolution8threads_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of threads the scheduler should use. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

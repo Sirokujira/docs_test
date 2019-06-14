@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class IterativeClosestPoint &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class IterativeClosestPoint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_iterative_closest_point.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-iterativeclosestpoint">
+<span id="exhale-class-classpcl-1-1-iterative-closest-point"></span><h1>Template Class IterativeClosestPoint<a class="headerlink" href="#template-class-iterativeclosestpoint" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_registration_include_pcl_registration_icp.h.html#file-pcl-registration-include-pcl-registration-icp-h"><span class="std std-ref">File icp.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Registration&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget,</span> <span class="pre">Scalar</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_registration.html#exhale-class-classpcl-1-1-registration"><span class="std std-ref">Template Class Registration</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::IterativeClosestPointNonLinear&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget,</span> <span class="pre">Scalar</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_iterative_closest_point_non_linear.html#exhale-class-classpcl-1-1-iterative-closest-point-non-linear"><span class="std std-ref">Template Class IterativeClosestPointNonLinear</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::IterativeClosestPointWithNormals&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget,</span> <span class="pre">Scalar</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_iterative_closest_point_with_normals.html#exhale-class-classpcl-1-1-iterative-closest-point-with-normals"><span class="std std-ref">Template Class IterativeClosestPointWithNormals</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::JointIterativeClosestPoint&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget,</span> <span class="pre">Scalar</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_joint_iterative_closest_point.html#exhale-class-classpcl-1-1-joint-iterative-closest-point"><span class="std std-ref">Template Class JointIterativeClosestPoint</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I000EN3pcl21IterativeClosestPointE">
+<span id="_CPPv3I000EN3pcl21IterativeClosestPointE"></span><span id="_CPPv2I000EN3pcl21IterativeClosestPointE"></span><span class="target" id="classpcl_1_1_iterative_closest_point"></span>template&lt;typename <code class="sig-name descname">PointSource</code>, typename <code class="sig-name descname">PointTarget</code>, typename <code class="sig-name descname">Scalar</code> = float&gt;<br /><em class="property">class </em><code class="sig-name descname">IterativeClosestPoint</code> : <em class="property">public</em> pcl::Registration&lt;<a class="reference internal" href="#_CPPv4I000EN3pcl21IterativeClosestPointE" title="pcl::IterativeClosestPoint::PointSource">PointSource</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl21IterativeClosestPointE" title="pcl::IterativeClosestPoint::PointTarget">PointTarget</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl21IterativeClosestPointE" title="pcl::IterativeClosestPoint::Scalar">Scalar</a>&gt;<a class="headerlink" href="#_CPPv4I000EN3pcl21IterativeClosestPointE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_iterative_closest_point"><span class="std std-ref">IterativeClosestPoint</span></a></strong> provides a base implementation of the Iterative Closest Point algorithm. </p>
+<p>The transformation is estimated based on Singular Value Decomposition (SVD).</p>
+<p>The algorithm has several termination criteria:</p>
+<p><ol class="arabic simple">
+<li><p>Number of iterations has reached the maximum user imposed number of iterations (via <a class="reference internal" href="classpcl_1_1_registration.html#classpcl_1_1_registration_1a3844d186f7a99d15464368e0f25635ed"><span class="std std-ref">setMaximumIterations</span></a>) </p></li>
+<li><p>The epsilon (difference) between the previous transformation and the current estimated transformation is smaller than an user imposed value (via <a class="reference internal" href="classpcl_1_1_registration.html#classpcl_1_1_registration_1aec74ab878cca8d62fd1be9942685a8c1"><span class="std std-ref">setTransformationEpsilon</span></a>) </p></li>
+<li><p>The sum of Euclidean squared errors is smaller than a user defined threshold (via <a class="reference internal" href="classpcl_1_1_registration.html#classpcl_1_1_registration_1aeb0bb4577dbe144bd467d4a9632b84d8"><span class="std std-ref">setEuclideanFitnessEpsilon</span></a>) </p></li>
+</ol>
+</p>
+<p>Usage example: <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">IterativeClosestPoint</span><span class="o">&lt;</span><span class="n">PointXYZ</span><span class="p">,</span> <span class="n">PointXYZ</span><span class="o">&gt;</span> <span class="n">icp</span><span class="p">;</span>
+<span class="c1">// Set the input source and target</span>
+<span class="n">icp</span><span class="p">.</span><span class="n">setInputCloud</span> <span class="p">(</span><span class="n">cloud_source</span><span class="p">);</span>
+<span class="n">icp</span><span class="p">.</span><span class="n">setInputTarget</span> <span class="p">(</span><span class="n">cloud_target</span><span class="p">);</span>
+
+<span class="c1">// Set the max correspondence distance to 5cm (e.g., correspondences with higher distances will be ignored)</span>
+<span class="n">icp</span><span class="p">.</span><span class="n">setMaxCorrespondenceDistance</span> <span class="p">(</span><span class="mf">0.05</span><span class="p">);</span>
+<span class="c1">// Set the maximum number of iterations (criterion 1)</span>
+<span class="n">icp</span><span class="p">.</span><span class="n">setMaximumIterations</span> <span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<span class="c1">// Set the transformation epsilon (criterion 2)</span>
+<span class="n">icp</span><span class="p">.</span><span class="n">setTransformationEpsilon</span> <span class="p">(</span><span class="mf">1e-8</span><span class="p">);</span>
+<span class="c1">// Set the euclidean distance difference epsilon (criterion 3)</span>
+<span class="n">icp</span><span class="p">.</span><span class="n">setEuclideanFitnessEpsilon</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// Perform the alignment</span>
+<span class="n">icp</span><span class="p">.</span><span class="n">align</span> <span class="p">(</span><span class="n">cloud_source_registered</span><span class="p">);</span>
+
+<span class="c1">// Obtain the transformation that aligned cloud_source to cloud_source_registered</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix4f</span> <span class="n">transformation</span> <span class="o">=</span> <span class="n">icp</span><span class="p">.</span><span class="n">getFinalTransformation</span> <span class="p">();</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Radu B. Rusu, Michael Dixon </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_iterative_closest_point_non_linear.html#classpcl_1_1_iterative_closest_point_non_linear"><span class="std std-ref">pcl::IterativeClosestPointNonLinear&lt; PointSource, PointTarget, Scalar &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_iterative_closest_point_with_normals.html#classpcl_1_1_iterative_closest_point_with_normals"><span class="std std-ref">pcl::IterativeClosestPointWithNormals&lt; PointSource, PointTarget, Scalar &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_joint_iterative_closest_point.html#classpcl_1_1_joint_iterative_closest_point"><span class="std std-ref">pcl::JointIterativeClosestPoint&lt; PointSource, PointTarget, Scalar &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint16PointCloudSourceE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint16PointCloudSourceE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint16PointCloudSourceE"></span><span id="pcl::IterativeClosestPoint::PointCloudSource"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a06140c8793ffca57ea520e09cb147a08"></span><em class="property">typedef </em>Registration&lt;PointSource, PointTarget, Scalar&gt;::PointCloudSource <code class="sig-name descname">PointCloudSource</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint16PointCloudSourceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint19PointCloudSourcePtrE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint19PointCloudSourcePtrE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint19PointCloudSourcePtrE"></span><span id="pcl::IterativeClosestPoint::PointCloudSourcePtr"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a7c1041812cb98662e8a76f4d4388d02a"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint16PointCloudSourceE" title="pcl::IterativeClosestPoint::PointCloudSource">PointCloudSource</a>::Ptr <code class="sig-name descname">PointCloudSourcePtr</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint19PointCloudSourcePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint24PointCloudSourceConstPtrE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint24PointCloudSourceConstPtrE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint24PointCloudSourceConstPtrE"></span><span id="pcl::IterativeClosestPoint::PointCloudSourceConstPtr"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a9396ea9f5eee1d3b50e4b0aeaac89caf"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint16PointCloudSourceE" title="pcl::IterativeClosestPoint::PointCloudSource">PointCloudSource</a>::ConstPtr <code class="sig-name descname">PointCloudSourceConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint24PointCloudSourceConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint16PointCloudTargetE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint16PointCloudTargetE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint16PointCloudTargetE"></span><span id="pcl::IterativeClosestPoint::PointCloudTarget"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a0089c6a0f83e293a03ee2c5520e75305"></span><em class="property">typedef </em>Registration&lt;PointSource, PointTarget, Scalar&gt;::PointCloudTarget <code class="sig-name descname">PointCloudTarget</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint16PointCloudTargetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint19PointCloudTargetPtrE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint19PointCloudTargetPtrE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint19PointCloudTargetPtrE"></span><span id="pcl::IterativeClosestPoint::PointCloudTargetPtr"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1af370c572014efa0c351c5a464c3fea21"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint16PointCloudTargetE" title="pcl::IterativeClosestPoint::PointCloudTarget">PointCloudTarget</a>::Ptr <code class="sig-name descname">PointCloudTargetPtr</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint19PointCloudTargetPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint24PointCloudTargetConstPtrE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint24PointCloudTargetConstPtrE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint24PointCloudTargetConstPtrE"></span><span id="pcl::IterativeClosestPoint::PointCloudTargetConstPtr"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a7904ad55c770ecd58440b286dce62f76"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint16PointCloudTargetE" title="pcl::IterativeClosestPoint::PointCloudTarget">PointCloudTarget</a>::ConstPtr <code class="sig-name descname">PointCloudTargetConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint24PointCloudTargetConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint15PointIndicesPtrE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint15PointIndicesPtrE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint15PointIndicesPtrE"></span><span id="pcl::IterativeClosestPoint::PointIndicesPtr"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1af5b499afcccb6b7379da311117a6dd50"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndices3PtrE" title="pcl::PointIndices::Ptr">Ptr</a> <code class="sig-name descname">PointIndicesPtr</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint15PointIndicesPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint20PointIndicesConstPtrE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint20PointIndicesConstPtrE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint20PointIndicesConstPtrE"></span><span id="pcl::IterativeClosestPoint::PointIndicesConstPtr"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a121ab97a90799c38e850aafc6d694f24"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndices8ConstPtrE" title="pcl::PointIndices::ConstPtr">ConstPtr</a> <code class="sig-name descname">PointIndicesConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint20PointIndicesConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint3PtrE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint3PtrE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint3PtrE"></span><span id="pcl::IterativeClosestPoint::Ptr"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a3109df4aa6d8df7ed83a33804872bc9c"></span><em class="property">typedef </em>boost::shared_ptr&lt;IterativeClosestPoint&lt;PointSource, PointTarget, Scalar&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint8ConstPtrE">
+<span id="_CPPv3N3pcl21IterativeClosestPoint8ConstPtrE"></span><span id="_CPPv2N3pcl21IterativeClosestPoint8ConstPtrE"></span><span id="pcl::IterativeClosestPoint::ConstPtr"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a61102b78ee629424fae2ebceb041846f"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> IterativeClosestPoint&lt;PointSource, PointTarget, Scalar&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint7Matrix4E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint7Matrix4E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint7Matrix4E"></span><span id="pcl::IterativeClosestPoint::Matrix4"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a87c59c8a79802eb1fdf4ddeb0fa2017a"></span><em class="property">typedef </em>Registration&lt;PointSource, PointTarget, Scalar&gt;::Matrix4 <code class="sig-name descname">Matrix4</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint7Matrix4E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint21IterativeClosestPointEv">
+<span id="_CPPv3N3pcl21IterativeClosestPoint21IterativeClosestPointEv"></span><span id="_CPPv2N3pcl21IterativeClosestPoint21IterativeClosestPointEv"></span><span id="pcl::IterativeClosestPoint::IterativeClosestPoint"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a8a45affbd2ef281d58e0741adc9d07ae"></span><code class="sig-name descname">IterativeClosestPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint21IterativeClosestPointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21IterativeClosestPointD0Ev">
+<span id="_CPPv3N3pcl21IterativeClosestPointD0Ev"></span><span id="_CPPv2N3pcl21IterativeClosestPointD0Ev"></span><span id="pcl::IterativeClosestPoint::~IterativeClosestPoint"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a205be1f82ff55fcb88b8787a06cf5bdb"></span><em class="property">virtual</em> <code class="sig-name descname">~IterativeClosestPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPointD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint19getConvergeCriteriaEv">
+<span id="_CPPv3N3pcl21IterativeClosestPoint19getConvergeCriteriaEv"></span><span id="_CPPv2N3pcl21IterativeClosestPoint19getConvergeCriteriaEv"></span><span id="pcl::IterativeClosestPoint::getConvergeCriteria"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1ac78bef717f7a6270194511c66fe16b36"></span>pcl::registration::DefaultConvergenceCriteria&lt;Scalar&gt;::Ptr <code class="sig-name descname">getConvergeCriteria</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint19getConvergeCriteriaEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a pointer to the DefaultConvergenceCriteria used by the <a class="reference internal" href="#classpcl_1_1_iterative_closest_point"><span class="std std-ref">IterativeClosestPoint</span></a> class. </p>
+<p>This allows to check the convergence state after the <a class="reference internal" href="classpcl_1_1_registration.html#classpcl_1_1_registration_1a96212303ca16b6d60020824086887c4f"><span class="std std-ref">align()</span></a> method as well as to configure DefaultConvergenceCriteria’s parameters not available through the ICP API before the <a class="reference internal" href="classpcl_1_1_registration.html#classpcl_1_1_registration_1a96212303ca16b6d60020824086887c4f"><span class="std std-ref">align()</span></a> method is called. Please note that the align method sets max_iterations_, euclidean_fitness_epsilon_ and transformation_epsilon_ and therefore overrides the default / set values of the DefaultConvergenceCriteria instance. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Pointer to the <a class="reference internal" href="#classpcl_1_1_iterative_closest_point"><span class="std std-ref">IterativeClosestPoint</span></a>’s DefaultConvergenceCriteria. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint14setInputSourceERK24PointCloudSourceConstPtr">
+<span id="_CPPv3N3pcl21IterativeClosestPoint14setInputSourceERK24PointCloudSourceConstPtr"></span><span id="_CPPv2N3pcl21IterativeClosestPoint14setInputSourceERK24PointCloudSourceConstPtr"></span><span id="pcl::IterativeClosestPoint::setInputSource__PointCloudSourceConstPtrCR"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1ad5215429e057c8760ac48e9bdb09b12c"></span><em class="property">virtual</em> void <code class="sig-name descname">setInputSource</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint24PointCloudSourceConstPtrE" title="pcl::IterativeClosestPoint::PointCloudSourceConstPtr">PointCloudSourceConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint14setInputSourceERK24PointCloudSourceConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input source (e.g., the point cloud that we want to align to the target) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the input point cloud source </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint14setInputTargetERK24PointCloudTargetConstPtr">
+<span id="_CPPv3N3pcl21IterativeClosestPoint14setInputTargetERK24PointCloudTargetConstPtr"></span><span id="_CPPv2N3pcl21IterativeClosestPoint14setInputTargetERK24PointCloudTargetConstPtr"></span><span id="pcl::IterativeClosestPoint::setInputTarget__PointCloudTargetConstPtrCR"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a8876f743cc31471a975e950e66c179d4"></span><em class="property">virtual</em> void <code class="sig-name descname">setInputTarget</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint24PointCloudTargetConstPtrE" title="pcl::IterativeClosestPoint::PointCloudTargetConstPtr">PointCloudTargetConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint14setInputTargetERK24PointCloudTargetConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input target (e.g., the point cloud that we want to align to the target) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the input point cloud target </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint31setUseReciprocalCorrespondencesEb">
+<span id="_CPPv3N3pcl21IterativeClosestPoint31setUseReciprocalCorrespondencesEb"></span><span id="_CPPv2N3pcl21IterativeClosestPoint31setUseReciprocalCorrespondencesEb"></span><span id="pcl::IterativeClosestPoint::setUseReciprocalCorrespondences__b"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a22c5480a073da9c53fcb0d387e1c997b"></span>void <code class="sig-name descname">setUseReciprocalCorrespondences</code><span class="sig-paren">(</span>bool <em>use_reciprocal_correspondence</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint31setUseReciprocalCorrespondencesEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set whether to use reciprocal correspondence or not. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">use_reciprocal_correspondence</span></code>: whether to use reciprocal correspondence or not </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21IterativeClosestPoint31getUseReciprocalCorrespondencesEv">
+<span id="_CPPv3NK3pcl21IterativeClosestPoint31getUseReciprocalCorrespondencesEv"></span><span id="_CPPv2NK3pcl21IterativeClosestPoint31getUseReciprocalCorrespondencesEv"></span><span id="pcl::IterativeClosestPoint::getUseReciprocalCorrespondencesC"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a767cf980c6f268fb030fe12754ca32e3"></span>bool <code class="sig-name descname">getUseReciprocalCorrespondences</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21IterativeClosestPoint31getUseReciprocalCorrespondencesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Obtain whether reciprocal correspondence are used or not. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint21convergence_criteria_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint21convergence_criteria_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint21convergence_criteria_E"></span><span id="pcl::IterativeClosestPoint::convergence_criteria___pcl::registration::DefaultConvergenceCriteria:Scalar:::Ptr"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a6271a9c8a9e4d4c532408007630973a8"></span>pcl::registration::DefaultConvergenceCriteria&lt;Scalar&gt;::Ptr <code class="sig-name descname">convergence_criteria_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint21convergence_criteria_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint14transformCloudERK16PointCloudSourceR16PointCloudSourceRK7Matrix4">
+<span id="_CPPv3N3pcl21IterativeClosestPoint14transformCloudERK16PointCloudSourceR16PointCloudSourceRK7Matrix4"></span><span id="_CPPv2N3pcl21IterativeClosestPoint14transformCloudERK16PointCloudSourceR16PointCloudSourceRK7Matrix4"></span><span id="pcl::IterativeClosestPoint::transformCloud__PointCloudSourceCR.PointCloudSourceR.Matrix4CR"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a9e5609b6e348a9592b12871d175dabbf"></span>void <code class="sig-name descname">transformCloud</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint16PointCloudSourceE" title="pcl::IterativeClosestPoint::PointCloudSource">PointCloudSource</a> &amp;<em>input</em>, <a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint16PointCloudSourceE" title="pcl::IterativeClosestPoint::PointCloudSource">PointCloudSource</a> &amp;<em>output</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint7Matrix4E" title="pcl::IterativeClosestPoint::Matrix4">Matrix4</a> &amp;<em>transform</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint14transformCloudERK16PointCloudSourceR16PointCloudSourceRK7Matrix4" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Apply a rigid transform to a given dataset. </p>
+<p>Here we check whether whether the dataset has surface normals in addition to XYZ, and rotate normals as well. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Can be used with cloud_in equal to cloud_out </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: the input point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant output point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">transform</span></code>: a 4x4 rigid transformation </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint21computeTransformationER16PointCloudSourceRK7Matrix4">
+<span id="_CPPv3N3pcl21IterativeClosestPoint21computeTransformationER16PointCloudSourceRK7Matrix4"></span><span id="_CPPv2N3pcl21IterativeClosestPoint21computeTransformationER16PointCloudSourceRK7Matrix4"></span><span id="pcl::IterativeClosestPoint::computeTransformation__PointCloudSourceR.Matrix4CR"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a64a35f2fcda230eaf9b168384763d3d0"></span>void <code class="sig-name descname">computeTransformation</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint16PointCloudSourceE" title="pcl::IterativeClosestPoint::PointCloudSource">PointCloudSource</a> &amp;<em>output</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl21IterativeClosestPoint7Matrix4E" title="pcl::IterativeClosestPoint::Matrix4">Matrix4</a> &amp;<em>guess</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint21computeTransformationER16PointCloudSourceRK7Matrix4" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Rigid transformation computation method with initial guess. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">output</span></code>: the transformed input point cloud dataset using the rigid transformation found </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guess</span></code>: the initial guess of the transformation to compute </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint25determineRequiredBlobDataEv">
+<span id="_CPPv3N3pcl21IterativeClosestPoint25determineRequiredBlobDataEv"></span><span id="_CPPv2N3pcl21IterativeClosestPoint25determineRequiredBlobDataEv"></span><span id="pcl::IterativeClosestPoint::determineRequiredBlobData"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1aa51eb8b9d92dbb56ae7a74958aac54b6"></span>void <code class="sig-name descname">determineRequiredBlobData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint25determineRequiredBlobDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Looks at the Estimators and Rejectors and determines whether their blob-setter methods need to be called. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint13x_idx_offset_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint13x_idx_offset_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint13x_idx_offset_E"></span><span id="pcl::IterativeClosestPoint::x_idx_offset___s"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a18878bca5d363e3179a45024540a3e87"></span>size_t <code class="sig-name descname">x_idx_offset_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint13x_idx_offset_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>XYZ fields offset. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint13y_idx_offset_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint13y_idx_offset_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint13y_idx_offset_E"></span><span id="pcl::IterativeClosestPoint::y_idx_offset___s"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a190834427e02893366e5e2bc8f865829"></span>size_t <code class="sig-name descname">y_idx_offset_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint13y_idx_offset_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint13z_idx_offset_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint13z_idx_offset_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint13z_idx_offset_E"></span><span id="pcl::IterativeClosestPoint::z_idx_offset___s"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1ad9a73dda587a49ef9cbb39410285090d"></span>size_t <code class="sig-name descname">z_idx_offset_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint13z_idx_offset_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint14nx_idx_offset_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint14nx_idx_offset_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint14nx_idx_offset_E"></span><span id="pcl::IterativeClosestPoint::nx_idx_offset___s"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a0d653506661f5d101c50253a46dc3ce0"></span>size_t <code class="sig-name descname">nx_idx_offset_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint14nx_idx_offset_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="structpcl_1_1_normal.html#structpcl_1_1_normal"><span class="std std-ref">Normal</span></a> fields offset. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint14ny_idx_offset_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint14ny_idx_offset_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint14ny_idx_offset_E"></span><span id="pcl::IterativeClosestPoint::ny_idx_offset___s"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a1ef29338b36d09141fd19628b9d2882b"></span>size_t <code class="sig-name descname">ny_idx_offset_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint14ny_idx_offset_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint14nz_idx_offset_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint14nz_idx_offset_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint14nz_idx_offset_E"></span><span id="pcl::IterativeClosestPoint::nz_idx_offset___s"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1acadb589d6e6d7d974bb3df3e7abbe975"></span>size_t <code class="sig-name descname">nz_idx_offset_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint14nz_idx_offset_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint30use_reciprocal_correspondence_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint30use_reciprocal_correspondence_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint30use_reciprocal_correspondence_E"></span><span id="pcl::IterativeClosestPoint::use_reciprocal_correspondence___b"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a1c4cebbb2d9789f5f55e6831e335b15d"></span>bool <code class="sig-name descname">use_reciprocal_correspondence_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint30use_reciprocal_correspondence_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The correspondence type used for correspondence estimation. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint19source_has_normals_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint19source_has_normals_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint19source_has_normals_E"></span><span id="pcl::IterativeClosestPoint::source_has_normals___b"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a9c473bc941c384d52d8af7cc34e4d703"></span>bool <code class="sig-name descname">source_has_normals_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint19source_has_normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Internal check whether source dataset has normals or not. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint19target_has_normals_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint19target_has_normals_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint19target_has_normals_E"></span><span id="pcl::IterativeClosestPoint::target_has_normals___b"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1aed96da82ec7cdef9e3bad46c28dfc9be"></span>bool <code class="sig-name descname">target_has_normals_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint19target_has_normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Internal check whether target dataset has normals or not. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint17need_source_blob_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint17need_source_blob_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint17need_source_blob_E"></span><span id="pcl::IterativeClosestPoint::need_source_blob___b"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a4ed9b4b47ccd4dc2da120a021d73122c"></span>bool <code class="sig-name descname">need_source_blob_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint17need_source_blob_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Checks for whether estimators and rejectors need various data. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl21IterativeClosestPoint17need_target_blob_E">
+<span id="_CPPv3N3pcl21IterativeClosestPoint17need_target_blob_E"></span><span id="_CPPv2N3pcl21IterativeClosestPoint17need_target_blob_E"></span><span id="pcl::IterativeClosestPoint::need_target_blob___b"></span><span class="target" id="classpcl_1_1_iterative_closest_point_1a2b5280d4564584ec9b1483210db067ad"></span>bool <code class="sig-name descname">need_target_blob_</code><a class="headerlink" href="#_CPPv4N3pcl21IterativeClosestPoint17need_target_blob_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,833 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class PyramidalKLTTracker &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class PyramidalKLTTracker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-pyramidalklttracker">
+<span id="exhale-class-classpcl-1-1tracking-1-1-pyramidal-k-l-t-tracker"></span><h1>Template Class PyramidalKLTTracker<a class="headerlink" href="#template-class-pyramidalklttracker" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_tracking_include_pcl_tracking_pyramidal_klt.h.html#file-pcl-tracking-include-pcl-tracking-pyramidal-klt-h"><span class="std std-ref">File pyramidal_klt.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::tracking::Tracker&lt;</span> <span class="pre">PointInT,</span> <span class="pre">Eigen::Affine3f</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1tracking_1_1_tracker.html#exhale-class-classpcl-1-1tracking-1-1-tracker"><span class="std std-ref">Template Class Tracker</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl8tracking19PyramidalKLTTrackerE">
+<span id="_CPPv3I00EN3pcl8tracking19PyramidalKLTTrackerE"></span><span id="_CPPv2I00EN3pcl8tracking19PyramidalKLTTrackerE"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">IntensityT</code> = pcl::common::IntensityFieldAccessor&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl8tracking19PyramidalKLTTrackerE" title="pcl::tracking::PyramidalKLTTracker::PointInT">PointInT</a>&gt;&gt;<br /><em class="property">class </em><code class="sig-name descname">PyramidalKLTTracker</code> : <em class="property">public</em> pcl::tracking::Tracker&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl8tracking19PyramidalKLTTrackerE" title="pcl::tracking::PyramidalKLTTracker::PointInT">PointInT</a>, Eigen::Affine3f&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl8tracking19PyramidalKLTTrackerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pyramidal Kanade Lucas Tomasi tracker. </p>
+<p>This is an implementation of the Pyramidal Kanade Lucas Tomasi tracker that operates on organized 3D keypoints with color/intensity information (this is the default behaviour but you can alterate it by providing another operator as second template argument). It is an affine tracker that iteratively computes the optical flow to find the best guess for a point p at t given its location at t-1. User is advised to respect the Tomasi condition: the response computed is the maximum eigenvalue of the second moment matrix but no restrictin are applied to points to track so you can use a detector of your choice to indicate points to track.</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Nizar Sallem </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker11TrackerBaseE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker11TrackerBaseE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker11TrackerBaseE"></span><span id="pcl::tracking::PyramidalKLTTracker::TrackerBase"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a01f33b4e4283d8ac2b31a6b16e713939"></span><em class="property">typedef </em>pcl::tracking::Tracker&lt;PointInT, Eigen::Affine3f&gt; <code class="sig-name descname">TrackerBase</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker11TrackerBaseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker12PointCloudInE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker12PointCloudInE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker12PointCloudInE"></span><span id="pcl::tracking::PyramidalKLTTracker::PointCloudIn"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1ab4859763444041846ac22e260a44b1f2"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker11TrackerBaseE" title="pcl::tracking::PyramidalKLTTracker::TrackerBase">TrackerBase</a>::PointCloudIn <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker15PointCloudInPtrE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker15PointCloudInPtrE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker15PointCloudInPtrE"></span><span id="pcl::tracking::PyramidalKLTTracker::PointCloudInPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1af84d53549fd170ea3b6b5a9ffd4cd74a"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker12PointCloudInE" title="pcl::tracking::PyramidalKLTTracker::PointCloudIn">PointCloudIn</a>::Ptr <code class="sig-name descname">PointCloudInPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker15PointCloudInPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker20PointCloudInConstPtrE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker20PointCloudInConstPtrE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker20PointCloudInConstPtrE"></span><span id="pcl::tracking::PyramidalKLTTracker::PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a7b242fd42bfa53c1806718275251c627"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker12PointCloudInE" title="pcl::tracking::PyramidalKLTTracker::PointCloudIn">PointCloudIn</a>::ConstPtr <code class="sig-name descname">PointCloudInConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker20PointCloudInConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker10FloatImageE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker10FloatImageE"></span><span id="pcl::tracking::PyramidalKLTTracker::FloatImage"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a6820d2fa24a70f91bfb2e467da66edcd"></span><em class="property">typedef </em>pcl::PointCloud&lt;float&gt; <code class="sig-name descname">FloatImage</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker13FloatImagePtrE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker13FloatImagePtrE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker13FloatImagePtrE"></span><span id="pcl::tracking::PyramidalKLTTracker::FloatImagePtr"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a2b2ec5603e65e88556dbcf09a64eb222"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a>::Ptr <code class="sig-name descname">FloatImagePtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker13FloatImagePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE"></span><span id="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1afb9177f930f233524e34232a8b828f28"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a>::ConstPtr <code class="sig-name descname">FloatImageConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker19PyramidalKLTTrackerEiii">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker19PyramidalKLTTrackerEiii"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker19PyramidalKLTTrackerEiii"></span><span id="pcl::tracking::PyramidalKLTTracker::PyramidalKLTTracker__i.i.i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a6f7e2789efeeadd76c5e1025862e34e5"></span><code class="sig-name descname">PyramidalKLTTracker</code><span class="sig-paren">(</span>int <em>nb_levels</em> = 5, int <em>tracking_window_width</em> = 7, int <em>tracking_window_height</em> = 7<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker19PyramidalKLTTrackerEiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTrackerD0Ev">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTrackerD0Ev"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTrackerD0Ev"></span><span id="pcl::tracking::PyramidalKLTTracker::~PyramidalKLTTracker"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a425aa7759eb414f155a9eaf9f21ab7d7"></span><em class="property">virtual</em> <code class="sig-name descname">~PyramidalKLTTracker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTrackerD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker24setNumberOfPyramidLevelsEi">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker24setNumberOfPyramidLevelsEi"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker24setNumberOfPyramidLevelsEi"></span><span id="pcl::tracking::PyramidalKLTTracker::setNumberOfPyramidLevels__i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a157d73fb7eac0161e9183616a45ed99c"></span>void <code class="sig-name descname">setNumberOfPyramidLevels</code><span class="sig-paren">(</span>int <em>levels</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker24setNumberOfPyramidLevelsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the number of pyramid levels. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">levels</span></code>: desired number of pyramid levels </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker24getNumberOfPyramidLevelsEv">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker24getNumberOfPyramidLevelsEv"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker24getNumberOfPyramidLevelsEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getNumberOfPyramidLevelsC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a1eb598d35b2134f593803d97263172f3"></span>int <code class="sig-name descname">getNumberOfPyramidLevels</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker24getNumberOfPyramidLevelsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the number of pyramid levels </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker11setAccuracyEf">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker11setAccuracyEf"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker11setAccuracyEf"></span><span id="pcl::tracking::PyramidalKLTTracker::setAccuracy__float"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a64dcc53c044c27861b5441b2f99d099f"></span>void <code class="sig-name descname">setAccuracy</code><span class="sig-paren">(</span>float <em>accuracy</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker11setAccuracyEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set accuracy. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">accuracy</span></code>: desired accuracy. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker11getAccuracyEv">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker11getAccuracyEv"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker11getAccuracyEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getAccuracyC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a0ed1edfc6d2f4834ac30b3a42f9e8cd1"></span>float <code class="sig-name descname">getAccuracy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker11getAccuracyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the accuracy </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker10setEpsilonEf">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker10setEpsilonEf"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker10setEpsilonEf"></span><span id="pcl::tracking::PyramidalKLTTracker::setEpsilon__float"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a68ddbe4094f0a5d94bde3cb912c8f0c7"></span>void <code class="sig-name descname">setEpsilon</code><span class="sig-paren">(</span>float <em>epsilon</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10setEpsilonEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set epsilon. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">epsilon</span></code>: desired epsilon. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker10getEpsilonEv">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker10getEpsilonEv"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker10getEpsilonEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getEpsilonC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a06637cb498ff4377e0dbc53c1e78105c"></span>float <code class="sig-name descname">getEpsilon</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker10getEpsilonEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the epsilon </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker20setNumberOfKeypointsENSt6size_tE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker20setNumberOfKeypointsENSt6size_tE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker20setNumberOfKeypointsENSt6size_tE"></span><span id="pcl::tracking::PyramidalKLTTracker::setNumberOfKeypoints__std::s"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1ae3c809675ea924f5a6a9167bbed8e0a5"></span>void <code class="sig-name descname">setNumberOfKeypoints</code><span class="sig-paren">(</span>std::size_t <em>number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker20setNumberOfKeypointsENSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of points to track. </p>
+<p>Only the first keypoints_nbr_ are used as points to track after sorting detected keypoints according to their response measure. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">number</span></code>: the desired number of points to detect. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker20getNumberOfKeypointsEv">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker20getNumberOfKeypointsEv"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker20getNumberOfKeypointsEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getNumberOfKeypoints"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1afef9543e6cbaa5245bd837a4366868c3"></span>std::size_t <code class="sig-name descname">getNumberOfKeypoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker20getNumberOfKeypointsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the maximum number of keypoints to keep </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker21setTrackingWindowSizeEii">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker21setTrackingWindowSizeEii"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker21setTrackingWindowSizeEii"></span><span id="pcl::tracking::PyramidalKLTTracker::setTrackingWindowSize__i.i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a90e1723b09ffd63f88972b892d7c509b"></span>void <code class="sig-name descname">setTrackingWindowSize</code><span class="sig-paren">(</span>int <em>width</em>, int <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker21setTrackingWindowSizeEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>set the tracking window size </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">width</span></code>: the tracking window width </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">height</span></code>: the tracking window height </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker22setTrackingWindowWidthEi">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker22setTrackingWindowWidthEi"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker22setTrackingWindowWidthEi"></span><span id="pcl::tracking::PyramidalKLTTracker::setTrackingWindowWidth__i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1abfd704e6b78a0c616bdcd18374cbc12c"></span>void <code class="sig-name descname">setTrackingWindowWidth</code><span class="sig-paren">(</span>int <em>width</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker22setTrackingWindowWidthEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set tracking window width. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker22getTrackingWindowWidthEv">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker22getTrackingWindowWidthEv"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker22getTrackingWindowWidthEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getTrackingWindowWidth"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a82dbfec83a2f31125255eba2dedfe5c9"></span>int <code class="sig-name descname">getTrackingWindowWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker22getTrackingWindowWidthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the tracking window size </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker23setTrackingWindowHeightEi">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker23setTrackingWindowHeightEi"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker23setTrackingWindowHeightEi"></span><span id="pcl::tracking::PyramidalKLTTracker::setTrackingWindowHeight__i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a9d782182dcfba1d46a866269316b79a4"></span>void <code class="sig-name descname">setTrackingWindowHeight</code><span class="sig-paren">(</span>int <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker23setTrackingWindowHeightEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set tracking window height. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker23getTrackingWindowHeightEv">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker23getTrackingWindowHeightEv"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker23getTrackingWindowHeightEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getTrackingWindowHeight"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1aac93a627c1eed2685af0ae5c0941892a"></span>int <code class="sig-name descname">getTrackingWindowHeight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker23getTrackingWindowHeightEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the tracking window size </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker18setNumberOfThreadsEj">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker18setNumberOfThreadsEj"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker18setNumberOfThreadsEj"></span><span id="pcl::tracking::PyramidalKLTTracker::setNumberOfThreads__unsigned-i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a62d2f8d0c8efbee3b166b9ab7bd1167e"></span>void <code class="sig-name descname">setNumberOfThreads</code><span class="sig-paren">(</span>unsigned int <em>nr_threads</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18setNumberOfThreadsEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the scheduler and set the number of threads to use. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nr_threads</span></code>: the number of hardware threads to use (0 sets the value back to automatic). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker17getReferenceCloudEv">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker17getReferenceCloudEv"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker17getReferenceCloudEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getReferenceCloudC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1ad0460b03dcfc7a2937c46ca46c94d562"></span><a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker20PointCloudInConstPtrE" title="pcl::tracking::PyramidalKLTTracker::PointCloudInConstPtr">PointCloudInConstPtr</a> <code class="sig-name descname">getReferenceCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker17getReferenceCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer of the cloud at t-1. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker22setMaxIterationsNumberEj">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker22setMaxIterationsNumberEj"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker22setMaxIterationsNumberEj"></span><span id="pcl::tracking::PyramidalKLTTracker::setMaxIterationsNumber__unsigned-i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a03167bf6b569e40b3c846b1e113b39f5"></span>void <code class="sig-name descname">setMaxIterationsNumber</code><span class="sig-paren">(</span>unsigned int <em>max</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker22setMaxIterationsNumberEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of iterations in the Lucas Kanade loop. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max</span></code>: the desired maximum number of iterations </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker22getMaxIterationsNumberEv">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker22getMaxIterationsNumberEv"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker22getMaxIterationsNumberEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getMaxIterationsNumberC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a04af46fe581d00fbda8593ac379851ff"></span>unsigned int <code class="sig-name descname">getMaxIterationsNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker22getMaxIterationsNumberEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the maximum iterations number </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker16setPointsToTrackERKN3pcl20PointIndicesConstPtrE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker16setPointsToTrackERKN3pcl20PointIndicesConstPtrE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker16setPointsToTrackERKN3pcl20PointIndicesConstPtrE"></span><span id="pcl::tracking::PyramidalKLTTracker::setPointsToTrack__pcl::PointIndicesConstPtrCR"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a825ff7281312ad78b2a94bab22046a3e"></span>void <code class="sig-name descname">setPointsToTrack</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="typedef_namespacepcl_1a1657df464bdc60d40c792724e44b4e1c.html#_CPPv4N3pcl20PointIndicesConstPtrE" title="pcl::PointIndicesConstPtr">PointIndicesConstPtr</a> &amp;<em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker16setPointsToTrackERKN3pcl20PointIndicesConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to points to track. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">points</span></code>: the const boost shared pointer to a <a class="reference internal" href="structpcl_1_1_point_indices.html#structpcl_1_1_point_indices"><span class="std std-ref">PointIndices</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker16setPointsToTrackERKN3pcl10PointCloudIN3pcl7PointUVEE8ConstPtrE">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker16setPointsToTrackERKN3pcl10PointCloudIN3pcl7PointUVEE8ConstPtrE"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker16setPointsToTrackERKN3pcl10PointCloudIN3pcl7PointUVEE8ConstPtrE"></span><span id="pcl::tracking::PyramidalKLTTracker::setPointsToTrack__pcl::PointCloud:pcl::PointUV:::ConstPtrCR"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a29e239fcf58bc8ff7120aa3e47f01ef6"></span>void <code class="sig-name descname">setPointsToTrack</code><span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_u_v.html#_CPPv4N3pcl7PointUVE" title="pcl::PointUV">PointUV</a>&gt;::ConstPtr &amp;<em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker16setPointsToTrackERKN3pcl10PointCloudIN3pcl7PointUVEE8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to points to track. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">points</span></code>: the const boost shared pointer to a <a class="reference internal" href="structpcl_1_1_point_indices.html#structpcl_1_1_point_indices"><span class="std std-ref">PointIndices</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker16getTrackedPointsEv">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker16getTrackedPointsEv"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker16getTrackedPointsEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getTrackedPointsC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a6506c6e1ea932082c7f76c988afa85c1"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_u_v.html#_CPPv4N3pcl7PointUVE" title="pcl::PointUV">PointUV</a>&gt;::ConstPtr <code class="sig-name descname">getTrackedPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker16getTrackedPointsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a pointer to the points successfully tracked. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker22getPointsToTrackStatusEv">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker22getPointsToTrackStatusEv"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker22getPointsToTrackStatusEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getPointsToTrackStatusC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1ac6b068b18f45c46ca91bd01a8d6818eb"></span>pcl::<a class="reference internal" href="typedef_namespacepcl_1a1657df464bdc60d40c792724e44b4e1c.html#_CPPv4N3pcl20PointIndicesConstPtrE" title="pcl::PointIndicesConstPtr">PointIndicesConstPtr</a> <code class="sig-name descname">getPointsToTrackStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker22getPointsToTrackStatusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the status of points to track. Status == 0 &gt; points successfully tracked; Status &lt; 0 &gt; point is lost; Status == -1 &gt; point is out of bond; Status == -2 &gt; optical flow can not be computed for this point. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker9getResultEv">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker9getResultEv"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker9getResultEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getResultC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1afc4f01cbacb9750e1ec6bf06068f8534"></span>Eigen::Affine3f <code class="sig-name descname">getResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker9getResultEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the computed transformation from tracked points. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker14getInitializedEv">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker14getInitializedEv"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker14getInitializedEv"></span><span id="pcl::tracking::PyramidalKLTTracker::getInitializedC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a3707355d4aa473f3e2ccce1e9de11bfb"></span>bool <code class="sig-name descname">getInitialized</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker14getInitializedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>initialization state </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker11initComputeEv">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker11initComputeEv"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker11initComputeEv"></span><span id="pcl::tracking::PyramidalKLTTracker::initCompute"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1aaa669cfc2ebbb9778be5475d69c6efce"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method should get called before starting the actual computation. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker11derivativesERK10FloatImageR10FloatImageR10FloatImage">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker11derivativesERK10FloatImageR10FloatImageR10FloatImage"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker11derivativesERK10FloatImageR10FloatImageR10FloatImage"></span><span id="pcl::tracking::PyramidalKLTTracker::derivatives__FloatImageCR.FloatImageR.FloatImageRC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a1291f82b866df89fd94b4e2bf5dbd386"></span>void <code class="sig-name descname">derivatives</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>src</em>, <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>grad_x</em>, <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>grad_y</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker11derivativesERK10FloatImageR10FloatImageR10FloatImage" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>compute Scharr derivatives of a source cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">src</span></code>: the image for which gradients are to be computed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">grad_x</span></code>: image gradient along X direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">grad_y</span></code>: image gradient along Y direction </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker10downsampleERK18FloatImageConstPtrR18FloatImageConstPtr">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker10downsampleERK18FloatImageConstPtrR18FloatImageConstPtr"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker10downsampleERK18FloatImageConstPtrR18FloatImageConstPtr"></span><span id="pcl::tracking::PyramidalKLTTracker::downsample__FloatImageConstPtrCR.FloatImageConstPtrRC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a99549bf819b6eae79b2c0fe98e524d1b"></span>void <code class="sig-name descname">downsample</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a> &amp;<em>input</em>, <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker10downsampleERK18FloatImageConstPtrR18FloatImageConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>downsample input </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: the image to downsample </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the downsampled image </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker10downsampleERK18FloatImageConstPtrR18FloatImageConstPtrR18FloatImageConstPtrR18FloatImageConstPtr">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker10downsampleERK18FloatImageConstPtrR18FloatImageConstPtrR18FloatImageConstPtrR18FloatImageConstPtr"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker10downsampleERK18FloatImageConstPtrR18FloatImageConstPtrR18FloatImageConstPtrR18FloatImageConstPtr"></span><span id="pcl::tracking::PyramidalKLTTracker::downsample__FloatImageConstPtrCR.FloatImageConstPtrR.FloatImageConstPtrR.FloatImageConstPtrRC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a6d346b3cc0ce8d73d018b97080576e58"></span>void <code class="sig-name descname">downsample</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a> &amp;<em>input</em>, <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a> &amp;<em>output</em>, <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a> &amp;<em>output_grad_x</em>, <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a> &amp;<em>output_grad_y</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker10downsampleERK18FloatImageConstPtrR18FloatImageConstPtrR18FloatImageConstPtrR18FloatImageConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>downsample input and compute output gradients. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: the image to downsample </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the downsampled image </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output_grad_x</span></code>: downsampled image gradient along X direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output_grad_y</span></code>: downsampled image gradient along Y direction </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker8convolveERK18FloatImageConstPtrR10FloatImage">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker8convolveERK18FloatImageConstPtrR10FloatImage"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker8convolveERK18FloatImageConstPtrR10FloatImage"></span><span id="pcl::tracking::PyramidalKLTTracker::convolve__FloatImageConstPtrCR.FloatImageRC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1afd0d46566a85573a1d467f86a145dea8"></span>void <code class="sig-name descname">convolve</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a> &amp;<em>input</em>, <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker8convolveERK18FloatImageConstPtrR10FloatImage" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Separately convolve image with decomposable convolution kernel. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: input the image to convolve </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: output the convolved image </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker12convolveColsERK18FloatImageConstPtrR10FloatImage">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker12convolveColsERK18FloatImageConstPtrR10FloatImage"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker12convolveColsERK18FloatImageConstPtrR10FloatImage"></span><span id="pcl::tracking::PyramidalKLTTracker::convolveCols__FloatImageConstPtrCR.FloatImageRC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1af00aa146a5122444e596060a26fc1bc6"></span>void <code class="sig-name descname">convolveCols</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a> &amp;<em>input</em>, <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker12convolveColsERK18FloatImageConstPtrR10FloatImage" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convolve image columns. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: input the image to convolve </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: output the convolved image </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker12convolveRowsERK18FloatImageConstPtrR10FloatImage">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker12convolveRowsERK18FloatImageConstPtrR10FloatImage"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker12convolveRowsERK18FloatImageConstPtrR10FloatImage"></span><span id="pcl::tracking::PyramidalKLTTracker::convolveRows__FloatImageConstPtrCR.FloatImageRC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1ad8d75914e16311af2381c23b1d81e04f"></span>void <code class="sig-name descname">convolveRows</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a> &amp;<em>input</em>, <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker12convolveRowsERK18FloatImageConstPtrR10FloatImage" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convolve image rows. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: input the image to convolve </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: output the convolved image </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker15spatialGradientERK10FloatImageRK10FloatImageRK10FloatImageRKN5Eigen7Array2iERKN5Eigen7Array4fERN5Eigen8ArrayXXfERN5Eigen8ArrayXXfERN5Eigen8ArrayXXfERN5Eigen7Array3fE">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker15spatialGradientERK10FloatImageRK10FloatImageRK10FloatImageRKN5Eigen7Array2iERKN5Eigen7Array4fERN5Eigen8ArrayXXfERN5Eigen8ArrayXXfERN5Eigen8ArrayXXfERN5Eigen7Array3fE"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker15spatialGradientERK10FloatImageRK10FloatImageRK10FloatImageRKN5Eigen7Array2iERKN5Eigen7Array4fERN5Eigen8ArrayXXfERN5Eigen8ArrayXXfERN5Eigen8ArrayXXfERN5Eigen7Array3fE"></span><span id="pcl::tracking::PyramidalKLTTracker::spatialGradient__FloatImageCR.FloatImageCR.FloatImageCR.Eigen::Array2iCR.Eigen::Array4fCR.Eigen::ArrayXXfR.Eigen::ArrayXXfR.Eigen::ArrayXXfR.Eigen::Array3fRC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a9f85940b6be97925fc57ee052dd8e158"></span>void <code class="sig-name descname">spatialGradient</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>img</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>grad_x</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>grad_y</em>, <em class="property">const</em> Eigen::Array2i &amp;<em>location</em>, <em class="property">const</em> Eigen::Array4f &amp;<em>weights</em>, Eigen::ArrayXXf &amp;<em>win</em>, Eigen::ArrayXXf &amp;<em>grad_x_win</em>, Eigen::ArrayXXf &amp;<em>grad_y_win</em>, Eigen::Array3f &amp;<em>covariance</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker15spatialGradientERK10FloatImageRK10FloatImageRK10FloatImageRKN5Eigen7Array2iERKN5Eigen7Array4fERN5Eigen8ArrayXXfERN5Eigen8ArrayXXfERN5Eigen8ArrayXXfERN5Eigen7Array3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>extract the patch from the previous image, previous image gradients surrounding pixel alocation while interpolating image and gradients data and compute covariation matrix of derivatives. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">img</span></code>: original image </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">grad_x</span></code>: original image gradient along X direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">grad_y</span></code>: original image gradient along Y direction </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">location</span></code>: pixel at the center of the patch </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">weights</span></code>: bilinear interpolation weights at this location computed from subpixel location </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">win</span></code>: patch with interpolated intensity values </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">grad_x_win</span></code>: patch with interpolated gradient along X values </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">grad_y_win</span></code>: patch with interpolated gradient along Y values </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">covariance</span></code>: covariance matrix coefficients </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker14mismatchVectorERKN5Eigen8ArrayXXfERKN5Eigen8ArrayXXfERKN5Eigen8ArrayXXfERK10FloatImageRKN5Eigen7Array2iERKN5Eigen7Array4fERN5Eigen7Array2fE">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker14mismatchVectorERKN5Eigen8ArrayXXfERKN5Eigen8ArrayXXfERKN5Eigen8ArrayXXfERK10FloatImageRKN5Eigen7Array2iERKN5Eigen7Array4fERN5Eigen7Array2fE"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker14mismatchVectorERKN5Eigen8ArrayXXfERKN5Eigen8ArrayXXfERKN5Eigen8ArrayXXfERK10FloatImageRKN5Eigen7Array2iERKN5Eigen7Array4fERN5Eigen7Array2fE"></span><span id="pcl::tracking::PyramidalKLTTracker::mismatchVector__Eigen::ArrayXXfCR.Eigen::ArrayXXfCR.Eigen::ArrayXXfCR.FloatImageCR.Eigen::Array2iCR.Eigen::Array4fCR.Eigen::Array2fRC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a0ca3900df6b883042d58d75038a4ddbc"></span>void <code class="sig-name descname">mismatchVector</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::ArrayXXf &amp;<em>prev</em>, <em class="property">const</em> Eigen::ArrayXXf &amp;<em>prev_grad_x</em>, <em class="property">const</em> Eigen::ArrayXXf &amp;<em>prev_grad_y</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10FloatImageE" title="pcl::tracking::PyramidalKLTTracker::FloatImage">FloatImage</a> &amp;<em>next</em>, <em class="property">const</em> Eigen::Array2i &amp;<em>location</em>, <em class="property">const</em> Eigen::Array4f &amp;<em>weights</em>, Eigen::Array2f &amp;<em>b</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker14mismatchVectorERKN5Eigen8ArrayXXfERKN5Eigen8ArrayXXfERKN5Eigen8ArrayXXfERK10FloatImageRKN5Eigen7Array2iERKN5Eigen7Array4fERN5Eigen7Array2fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker15computePyramidsERK20PointCloudInConstPtrRNSt6vectorI18FloatImageConstPtrEEN3pcl17InterpolationTypeE">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker15computePyramidsERK20PointCloudInConstPtrRNSt6vectorI18FloatImageConstPtrEEN3pcl17InterpolationTypeE"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker15computePyramidsERK20PointCloudInConstPtrRNSt6vectorI18FloatImageConstPtrEEN3pcl17InterpolationTypeE"></span><span id="pcl::tracking::PyramidalKLTTracker::computePyramids__PointCloudInConstPtrCR.std::vector:FloatImageConstPtr:R.pcl::InterpolationTypeC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a9168e3b0b3758e1d39fbce80f512e03c"></span>void <code class="sig-name descname">computePyramids</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker20PointCloudInConstPtrE" title="pcl::tracking::PyramidalKLTTracker::PointCloudInConstPtr">PointCloudInConstPtr</a> &amp;<em>input</em>, std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a>&gt; &amp;<em>pyramid</em>, pcl::<a class="reference internal" href="enum_namespacepcl_1a223710941333ffcbfd147e4f4c9a1485.html#_CPPv4N3pcl17InterpolationTypeE" title="pcl::InterpolationType">InterpolationType</a> <em>border_type</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker15computePyramidsERK20PointCloudInConstPtrRNSt6vectorI18FloatImageConstPtrEEN3pcl17InterpolationTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the pyramidal representation of an image. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: the input cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pyramid</span></code>: computed pyramid levels along with their respective gradients </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">border_type</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8tracking19PyramidalKLTTracker5trackERK20PointCloudInConstPtrRK20PointCloudInConstPtrRKNSt6vectorI18FloatImageConstPtrEERKNSt6vectorI18FloatImageConstPtrEERKN3pcl10PointCloudIN3pcl7PointUVEE8ConstPtrERN3pcl10PointCloudIN3pcl7PointUVEE3PtrERNSt6vectorIiEERN5Eigen8Affine3fE">
+<span id="_CPPv3NK3pcl8tracking19PyramidalKLTTracker5trackERK20PointCloudInConstPtrRK20PointCloudInConstPtrRKNSt6vectorI18FloatImageConstPtrEERKNSt6vectorI18FloatImageConstPtrEERKN3pcl10PointCloudIN3pcl7PointUVEE8ConstPtrERN3pcl10PointCloudIN3pcl7PointUVEE3PtrERNSt6vectorIiEERN5Eigen8Affine3fE"></span><span id="_CPPv2NK3pcl8tracking19PyramidalKLTTracker5trackERK20PointCloudInConstPtrRK20PointCloudInConstPtrRKNSt6vectorI18FloatImageConstPtrEERKNSt6vectorI18FloatImageConstPtrEERKN3pcl10PointCloudIN3pcl7PointUVEE8ConstPtrERN3pcl10PointCloudIN3pcl7PointUVEE3PtrERNSt6vectorIiEERN5Eigen8Affine3fE"></span><span id="pcl::tracking::PyramidalKLTTracker::track__PointCloudInConstPtrCR.PointCloudInConstPtrCR.std::vector:FloatImageConstPtr:CR.std::vector:FloatImageConstPtr:CR.pcl::PointCloud:pcl::PointUV:::ConstPtrCR.pcl::PointCloud:pcl::PointUV:::PtrR.std::vector:i:R.Eigen::Affine3fRC"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a9e94ed5e077752d3f13d2a33e28d1a4a"></span>void <code class="sig-name descname">track</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker20PointCloudInConstPtrE" title="pcl::tracking::PyramidalKLTTracker::PointCloudInConstPtr">PointCloudInConstPtr</a> &amp;<em>previous_input</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker20PointCloudInConstPtrE" title="pcl::tracking::PyramidalKLTTracker::PointCloudInConstPtr">PointCloudInConstPtr</a> &amp;<em>current_input</em>, <em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a>&gt; &amp;<em>previous_pyramid</em>, <em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a>&gt; &amp;<em>current_pyramid</em>, <em class="property">const</em> pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_u_v.html#_CPPv4N3pcl7PointUVE" title="pcl::PointUV">PointUV</a>&gt;::ConstPtr &amp;<em>previous_keypoints</em>, pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_u_v.html#_CPPv4N3pcl7PointUVE" title="pcl::PointUV">PointUV</a>&gt;::Ptr &amp;<em>current_keypoints</em>, std::vector&lt;int&gt; &amp;<em>status</em>, Eigen::Affine3f &amp;<em>motion</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8tracking19PyramidalKLTTracker5trackERK20PointCloudInConstPtrRK20PointCloudInConstPtrRKNSt6vectorI18FloatImageConstPtrEERKNSt6vectorI18FloatImageConstPtrEERKN3pcl10PointCloudIN3pcl7PointUVEE8ConstPtrERN3pcl10PointCloudIN3pcl7PointUVEE3PtrERNSt6vectorIiEERN5Eigen8Affine3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker15computeTrackingEv">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker15computeTrackingEv"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker15computeTrackingEv"></span><span id="pcl::tracking::PyramidalKLTTracker::computeTracking"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a66cf5039c8b3b50823b4847e062ea317"></span>void <code class="sig-name descname">computeTracking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker15computeTrackingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract tracking method. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker12ref_pyramid_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker12ref_pyramid_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker12ref_pyramid_E"></span><span id="pcl::tracking::PyramidalKLTTracker::ref_pyramid___std::vector:FloatImageConstPtr:"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a5d459c85a97df059644a826290c959e9"></span>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker18FloatImageConstPtrE" title="pcl::tracking::PyramidalKLTTracker::FloatImageConstPtr">FloatImageConstPtr</a>&gt; <code class="sig-name descname">ref_pyramid_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker12ref_pyramid_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>input pyranid at t-1 </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker4ref_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker4ref_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker4ref_E"></span><span id="pcl::tracking::PyramidalKLTTracker::ref___PointCloudInConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1afdbf86b279b7eea6b6bd61d1dbeb4795"></span><a class="reference internal" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker20PointCloudInConstPtrE" title="pcl::tracking::PyramidalKLTTracker::PointCloudInConstPtr">PointCloudInConstPtr</a> <code class="sig-name descname">ref_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker4ref_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>point cloud at t-1 </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker10nb_levels_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker10nb_levels_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker10nb_levels_E"></span><span id="pcl::tracking::PyramidalKLTTracker::nb_levels___i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a5421324722282216177334d23adb93f4"></span>int <code class="sig-name descname">nb_levels_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10nb_levels_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>number of pyramid levels </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker10keypoints_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker10keypoints_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker10keypoints_E"></span><span id="pcl::tracking::PyramidalKLTTracker::keypoints___pcl::PointCloud:pcl::PointUV:::ConstPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1aff99e3ce9e53287e4d139a7e438f8c1f"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_u_v.html#_CPPv4N3pcl7PointUVE" title="pcl::PointUV">PointUV</a>&gt;::ConstPtr <code class="sig-name descname">keypoints_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10keypoints_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>detected keypoints 2D coordinates </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker17keypoints_status_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker17keypoints_status_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker17keypoints_status_E"></span><span id="pcl::tracking::PyramidalKLTTracker::keypoints_status___pcl::PointIndicesPtr"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a105002a257afbcb4c0e8fc378fe73155"></span>pcl::<a class="reference internal" href="typedef_namespacepcl_1a53792858d78862a698389664d6720a40.html#_CPPv4N3pcl15PointIndicesPtrE" title="pcl::PointIndicesPtr">PointIndicesPtr</a> <code class="sig-name descname">keypoints_status_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker17keypoints_status_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>status of keypoints of t-1 at t </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker14keypoints_nbr_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker14keypoints_nbr_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker14keypoints_nbr_E"></span><span id="pcl::tracking::PyramidalKLTTracker::keypoints_nbr___std::s"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a39345a55890862cd5e85e037bfa6de0d"></span>std::size_t <code class="sig-name descname">keypoints_nbr_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker14keypoints_nbr_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>number of points to detect </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker12track_width_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker12track_width_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker12track_width_E"></span><span id="pcl::tracking::PyramidalKLTTracker::track_width___i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a10c45e67c08299e009a626a8705f2bfa"></span>int <code class="sig-name descname">track_width_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker12track_width_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>tracking width </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker14track_width_2_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker14track_width_2_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker14track_width_2_E"></span><span id="pcl::tracking::PyramidalKLTTracker::track_width_2___i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a3eb2c64bcfaa0189719c2e29c5bb69a4"></span>int <code class="sig-name descname">track_width_2_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker14track_width_2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>half of tracking window width </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker13track_height_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker13track_height_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker13track_height_E"></span><span id="pcl::tracking::PyramidalKLTTracker::track_height___i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a5625d4bc6bdd33d9bf03ab9cb9e724e7"></span>int <code class="sig-name descname">track_height_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker13track_height_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>tracking height </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker15track_height_2_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker15track_height_2_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker15track_height_2_E"></span><span id="pcl::tracking::PyramidalKLTTracker::track_height_2___i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a4728bd3a60efc0a7559e9f76d5cb976c"></span>int <code class="sig-name descname">track_height_2_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker15track_height_2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>half of tracking window height </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker15max_iterations_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker15max_iterations_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker15max_iterations_E"></span><span id="pcl::tracking::PyramidalKLTTracker::max_iterations___unsigned-i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1aaa2c686306516b0181854772032d496c"></span>unsigned int <code class="sig-name descname">max_iterations_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker15max_iterations_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>maximum number of iterations </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker9accuracy_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker9accuracy_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker9accuracy_E"></span><span id="pcl::tracking::PyramidalKLTTracker::accuracy___float"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1aada859c02149ccc171bffc2425017dad"></span>float <code class="sig-name descname">accuracy_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker9accuracy_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>accuracy criterion to stop iterating </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker25min_eigenvalue_threshold_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker25min_eigenvalue_threshold_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker25min_eigenvalue_threshold_E"></span><span id="pcl::tracking::PyramidalKLTTracker::min_eigenvalue_threshold___float"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a46a66cb0ef54417144721c3282d71c7f"></span>float <code class="sig-name descname">min_eigenvalue_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker25min_eigenvalue_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker8epsilon_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker8epsilon_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker8epsilon_E"></span><span id="pcl::tracking::PyramidalKLTTracker::epsilon___float"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a7c1cb7572b19a0edbb66b50e6ab30956"></span>float <code class="sig-name descname">epsilon_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker8epsilon_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>epsilon for subpixel computation </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker12max_residue_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker12max_residue_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker12max_residue_E"></span><span id="pcl::tracking::PyramidalKLTTracker::max_residue___float"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a6a14e6e52ed653a111ee602330437945"></span>float <code class="sig-name descname">max_residue_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker12max_residue_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker8threads_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker8threads_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker8threads_E"></span><span id="pcl::tracking::PyramidalKLTTracker::threads___unsigned-i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1aca8f4cfc01035b62b9e65a51b1a7e2f6"></span>unsigned int <code class="sig-name descname">threads_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker8threads_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>number of hardware threads </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker10intensity_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker10intensity_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker10intensity_E"></span><span id="pcl::tracking::PyramidalKLTTracker::intensity___IntensityT"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a81d0a12e407b621b2cb0da45f5d22d77"></span>IntensityT <code class="sig-name descname">intensity_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker10intensity_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>intensity accessor </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker12initialized_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker12initialized_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker12initialized_E"></span><span id="pcl::tracking::PyramidalKLTTracker::initialized___b"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a88dc4e774d1c73233e935d4a34a46bca"></span>bool <code class="sig-name descname">initialized_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker12initialized_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>is the tracker initialized ? </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker24transformation_computer_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker24transformation_computer_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker24transformation_computer_E"></span><span id="pcl::tracking::PyramidalKLTTracker::transformation_computer___pcl::TransformationFromCorrespondences"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1ae3763f66911a0a3b061aab1403dc70a5"></span>pcl::<a class="reference internal" href="classpcl_1_1_transformation_from_correspondences.html#_CPPv4N3pcl33TransformationFromCorrespondencesE" title="pcl::TransformationFromCorrespondences">TransformationFromCorrespondences</a> <code class="sig-name descname">transformation_computer_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker24transformation_computer_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>compute transformation from successfully tracked points </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker7motion_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker7motion_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker7motion_E"></span><span id="pcl::tracking::PyramidalKLTTracker::motion___Eigen::Affine3f"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a6ae04755e3d16163e1502ae7c23a703f"></span>Eigen::Affine3f <code class="sig-name descname">motion_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker7motion_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>computed transformation between tracked points </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker7kernel_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker7kernel_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker7kernel_E"></span><span id="pcl::tracking::PyramidalKLTTracker::kernel___Eigen::Array:float.5.1:"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1aa9c1a5b03eec314beff8a64340735a9b"></span>Eigen::Array&lt;float, 5, 1&gt; <code class="sig-name descname">kernel_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker7kernel_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>smoothing kernel </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker14kernel_size_2_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker14kernel_size_2_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker14kernel_size_2_E"></span><span id="pcl::tracking::PyramidalKLTTracker::kernel_size_2___i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a52ea392e8a3f85b0313017f73fea7630"></span>int <code class="sig-name descname">kernel_size_2_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker14kernel_size_2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>smoothing kernel half size </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8tracking19PyramidalKLTTracker12kernel_last_E">
+<span id="_CPPv3N3pcl8tracking19PyramidalKLTTracker12kernel_last_E"></span><span id="_CPPv2N3pcl8tracking19PyramidalKLTTracker12kernel_last_E"></span><span id="pcl::tracking::PyramidalKLTTracker::kernel_last___i"></span><span class="target" id="classpcl_1_1tracking_1_1_pyramidal_k_l_t_tracker_1a10af9d16b10416c5a0b81e1ba8dbc225"></span>int <code class="sig-name descname">kernel_last_</code><a class="headerlink" href="#_CPPv4N3pcl8tracking19PyramidalKLTTracker12kernel_last_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>index of last element in kernel </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

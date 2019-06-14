@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class LRUCache &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class LRUCache</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/class_l_r_u_cache.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-lrucache">
+<span id="exhale-class-class-l-r-u-cache"></span><h1>Template Class LRUCache<a class="headerlink" href="#template-class-lrucache" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_outofcore_include_pcl_outofcore_impl_lru_cache.hpp.html#file-pcl-outofcore-include-pcl-outofcore-impl-lru-cache-hpp"><span class="std std-ref">File lru_cache.hpp</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00E8LRUCache">
+<span id="_CPPv3I00E8LRUCache"></span><span id="_CPPv2I00E8LRUCache"></span><span class="target" id="class_l_r_u_cache"></span>template&lt;typename <code class="sig-name descname">KeyT</code>, typename <code class="sig-name descname">CacheItemT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">LRUCache</code><a class="headerlink" href="#_CPPv4I00E8LRUCache" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N8LRUCache8KeyIndexE">
+<span id="_CPPv3N8LRUCache8KeyIndexE"></span><span id="_CPPv2N8LRUCache8KeyIndexE"></span><span id="LRUCache::KeyIndex"></span><span class="target" id="class_l_r_u_cache_1a2608a2881e75cb6bfe1a756bd89d7200"></span><em class="property">typedef </em>std::list&lt;KeyT&gt; <code class="sig-name descname">KeyIndex</code><a class="headerlink" href="#_CPPv4N8LRUCache8KeyIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N8LRUCache16KeyIndexIteratorE">
+<span id="_CPPv3N8LRUCache16KeyIndexIteratorE"></span><span id="_CPPv2N8LRUCache16KeyIndexIteratorE"></span><span id="LRUCache::KeyIndexIterator"></span><span class="target" id="class_l_r_u_cache_1a3400fe6996434c5734873aca0318a279"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N8LRUCache8KeyIndexE" title="LRUCache::KeyIndex">KeyIndex</a>::iterator <code class="sig-name descname">KeyIndexIterator</code><a class="headerlink" href="#_CPPv4N8LRUCache16KeyIndexIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N8LRUCache5CacheE">
+<span id="_CPPv3N8LRUCache5CacheE"></span><span id="_CPPv2N8LRUCache5CacheE"></span><span id="LRUCache::Cache"></span><span class="target" id="class_l_r_u_cache_1a4de256fa009ad24a5070368cb7f1e7bb"></span><em class="property">typedef </em>std::map&lt;KeyT, std::pair&lt;CacheItemT, <em class="property">typename</em> <a class="reference internal" href="#_CPPv4N8LRUCache8KeyIndexE" title="LRUCache::KeyIndex">KeyIndex</a>::iterator&gt;&gt; <code class="sig-name descname">Cache</code><a class="headerlink" href="#_CPPv4N8LRUCache5CacheE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N8LRUCache13CacheIteratorE">
+<span id="_CPPv3N8LRUCache13CacheIteratorE"></span><span id="_CPPv2N8LRUCache13CacheIteratorE"></span><span id="LRUCache::CacheIterator"></span><span class="target" id="class_l_r_u_cache_1a4003b6ef7dd56a45b22d274ae3888a3d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N8LRUCache5CacheE" title="LRUCache::Cache">Cache</a>::iterator <code class="sig-name descname">CacheIterator</code><a class="headerlink" href="#_CPPv4N8LRUCache13CacheIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N8LRUCache8LRUCacheE6size_t">
+<span id="_CPPv3N8LRUCache8LRUCacheE6size_t"></span><span id="_CPPv2N8LRUCache8LRUCacheE6size_t"></span><span id="LRUCache::LRUCache__s"></span><span class="target" id="class_l_r_u_cache_1a7cc532cb2a7b59b42d137a6e6d84ad90"></span><code class="sig-name descname">LRUCache</code><span class="sig-paren">(</span>size_t <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8LRUCache8LRUCacheE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8LRUCache6hasKeyERK4KeyT">
+<span id="_CPPv3N8LRUCache6hasKeyERK4KeyT"></span><span id="_CPPv2N8LRUCache6hasKeyERK4KeyT"></span><span id="LRUCache::hasKey__KeyTCR"></span><span class="target" id="class_l_r_u_cache_1a159be4370b1641da09dca80973f0327f"></span>bool <code class="sig-name descname">hasKey</code><span class="sig-paren">(</span><em class="property">const</em> KeyT &amp;<em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8LRUCache6hasKeyERK4KeyT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8LRUCache3getERK4KeyT">
+<span id="_CPPv3N8LRUCache3getERK4KeyT"></span><span id="_CPPv2N8LRUCache3getERK4KeyT"></span><span id="LRUCache::get__KeyTCR"></span><span class="target" id="class_l_r_u_cache_1aa82467f57955e52020a7c26b0510df94"></span>CacheItemT &amp;<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="property">const</em> KeyT &amp;<em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8LRUCache3getERK4KeyT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8LRUCache5touchERK4KeyT">
+<span id="_CPPv3N8LRUCache5touchERK4KeyT"></span><span id="_CPPv2N8LRUCache5touchERK4KeyT"></span><span id="LRUCache::touch__KeyTCR"></span><span class="target" id="class_l_r_u_cache_1a55266cf5d77336a159cca1d5020ee101"></span>void <code class="sig-name descname">touch</code><span class="sig-paren">(</span><em class="property">const</em> KeyT &amp;<em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8LRUCache5touchERK4KeyT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8LRUCache6insertERK4KeyTRK10CacheItemT">
+<span id="_CPPv3N8LRUCache6insertERK4KeyTRK10CacheItemT"></span><span id="_CPPv2N8LRUCache6insertERK4KeyTRK10CacheItemT"></span><span id="LRUCache::insert__KeyTCR.CacheItemTCR"></span><span class="target" id="class_l_r_u_cache_1a071553bc4998d83fa872f3269a339b76"></span>bool <code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="property">const</em> KeyT &amp;<em>key</em>, <em class="property">const</em> CacheItemT &amp;<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8LRUCache6insertERK4KeyTRK10CacheItemT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8LRUCache11setCapacityE6size_t">
+<span id="_CPPv3N8LRUCache11setCapacityE6size_t"></span><span id="_CPPv2N8LRUCache11setCapacityE6size_t"></span><span id="LRUCache::setCapacity__s"></span><span class="target" id="class_l_r_u_cache_1a3546c21e638a3e2b8c1bc701f95b60ff"></span>void <code class="sig-name descname">setCapacity</code><span class="sig-paren">(</span>size_t <em>capacity</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8LRUCache11setCapacityE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8LRUCache8tailItemEv">
+<span id="_CPPv3N8LRUCache8tailItemEv"></span><span id="_CPPv2N8LRUCache8tailItemEv"></span><span id="LRUCache::tailItem"></span><span class="target" id="class_l_r_u_cache_1aaf8226fea4e5b65f5231561b00dd915e"></span>CacheItemT &amp;<code class="sig-name descname">tailItem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8LRUCache8tailItemEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8LRUCache6sizeOfERK10CacheItemT">
+<span id="_CPPv3N8LRUCache6sizeOfERK10CacheItemT"></span><span id="_CPPv2N8LRUCache6sizeOfERK10CacheItemT"></span><span id="LRUCache::sizeOf__CacheItemTCR"></span><span class="target" id="class_l_r_u_cache_1a3f8be136071836e20dd507161ea73cd0"></span>size_t <code class="sig-name descname">sizeOf</code><span class="sig-paren">(</span><em class="property">const</em> CacheItemT &amp;<em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8LRUCache6sizeOfERK10CacheItemT" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N8LRUCache5evictEi">
+<span id="_CPPv3N8LRUCache5evictEi"></span><span id="_CPPv2N8LRUCache5evictEi"></span><span id="LRUCache::evict__i"></span><span class="target" id="class_l_r_u_cache_1ab67d50307bfc661fbef234eca6a0ad19"></span>bool <code class="sig-name descname">evict</code><span class="sig-paren">(</span>int <em>item_count</em> = 1<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8LRUCache5evictEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N8LRUCache9capacity_E">
+<span id="_CPPv3N8LRUCache9capacity_E"></span><span id="_CPPv2N8LRUCache9capacity_E"></span><span id="LRUCache::capacity___s"></span><span class="target" id="class_l_r_u_cache_1a34e41053b4dd18a4d495989397dfa48c"></span>size_t <code class="sig-name descname">capacity_</code><a class="headerlink" href="#_CPPv4N8LRUCache9capacity_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N8LRUCache5size_E">
+<span id="_CPPv3N8LRUCache5size_E"></span><span id="_CPPv2N8LRUCache5size_E"></span><span id="LRUCache::size___s"></span><span class="target" id="class_l_r_u_cache_1a04c5b690aaa9c89674142705d2282d6c"></span>size_t <code class="sig-name descname">size_</code><a class="headerlink" href="#_CPPv4N8LRUCache5size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N8LRUCache10key_index_E">
+<span id="_CPPv3N8LRUCache10key_index_E"></span><span id="_CPPv2N8LRUCache10key_index_E"></span><span id="LRUCache::key_index___KeyIndex"></span><span class="target" id="class_l_r_u_cache_1a5dd8d1a70adc93067461e18041891495"></span><a class="reference internal" href="#_CPPv4N8LRUCache8KeyIndexE" title="LRUCache::KeyIndex">KeyIndex</a> <code class="sig-name descname">key_index_</code><a class="headerlink" href="#_CPPv4N8LRUCache10key_index_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N8LRUCache6cache_E">
+<span id="_CPPv3N8LRUCache6cache_E"></span><span id="_CPPv2N8LRUCache6cache_E"></span><span id="LRUCache::cache___Cache"></span><span class="target" id="class_l_r_u_cache_1ad0e8775ad21d826842b0126b94bfde01"></span><a class="reference internal" href="#_CPPv4N8LRUCache5CacheE" title="LRUCache::Cache">Cache</a> <code class="sig-name descname">cache_</code><a class="headerlink" href="#_CPPv4N8LRUCache6cache_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

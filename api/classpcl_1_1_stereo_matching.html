@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class StereoMatching &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class StereoMatching</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_stereo_matching.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-stereomatching">
+<span id="exhale-class-classpcl-1-1-stereo-matching"></span><h1>Class StereoMatching<a class="headerlink" href="#class-stereomatching" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_stereo_include_pcl_stereo_stereo_matching.h.html#file-pcl-stereo-include-pcl-stereo-stereo-matching-h"><span class="std std-ref">File stereo_matching.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::GrayStereoMatching</span></code> (<a class="reference internal" href="classpcl_1_1_gray_stereo_matching.html#exhale-class-classpcl-1-1-gray-stereo-matching"><span class="std std-ref">Class GrayStereoMatching</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl14StereoMatchingE">
+<span id="_CPPv3N3pcl14StereoMatchingE"></span><span id="_CPPv2N3pcl14StereoMatchingE"></span><span id="pcl::StereoMatching"></span><span class="target" id="classpcl_1_1_stereo_matching"></span><em class="property">class </em><code class="sig-name descname">StereoMatching</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatchingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stereo Matching abstract class. </p>
+<p>The class performs stereo matching on a rectified stereo pair Includes the following functionalities:<ul class="simple">
+<li><p>preprocessing of the image pair, to improve robustness against photometric distortions (wrt. to a spatially constant additive photometric factor)</p></li>
+<li><p>postprocessing: filtering of wrong disparities via Peak <a class="reference internal" href="classpcl_1_1_filter.html#classpcl_1_1_filter"><span class="std std-ref">Filter</span></a> (eliminating ambiguities due to low-textured regions) and Ratio <a class="reference internal" href="classpcl_1_1_filter.html#classpcl_1_1_filter"><span class="std std-ref">Filter</span></a> (eliminating generic matching ambiguities, similar to that present in OpenCV Block Matching Stereo)</p></li>
+<li><p>postprocessing: Left-Right consistency check (eliminates wrong disparities at the cost of twice the stereo matching computation)</p></li>
+<li><p>postprocessing: subpixel refinement of computed disparities, to reduce the depth quantization effect</p></li>
+<li><p>postprocessing: smoothing of the disparity map via median filter</p></li>
+<li><p>after stereo matching a PCL point cloud can be computed, given the stereo intrinsic (focal, principal point <p> coordinates) and extrinsic (baseline) calibration parameters</p>
+</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Federico Tombari (<a class="reference external" href="mailto:federico&#46;tombari&#37;&#52;&#48;unibo&#46;it">federico<span>&#46;</span>tombari<span>&#64;</span>unibo<span>&#46;</span>it</a>) </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_gray_stereo_matching.html#classpcl_1_1_gray_stereo_matching"><span class="std std-ref">pcl::GrayStereoMatching</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching14StereoMatchingEv">
+<span id="_CPPv3N3pcl14StereoMatching14StereoMatchingEv"></span><span id="_CPPv2N3pcl14StereoMatching14StereoMatchingEv"></span><span id="pcl::StereoMatching::StereoMatching__void"></span><span class="target" id="classpcl_1_1_stereo_matching_1a5239fc680dee80c56d7c6b7cf80a8d2e"></span><code class="sig-name descname">StereoMatching</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching14StereoMatchingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatchingD0Ev">
+<span id="_CPPv3N3pcl14StereoMatchingD0Ev"></span><span id="_CPPv2N3pcl14StereoMatchingD0Ev"></span><span id="pcl::StereoMatching::~StereoMatching__void"></span><span class="target" id="classpcl_1_1_stereo_matching_1ad65e633a0180d5a3aeda0f5653204198"></span><em class="property">virtual</em> <code class="sig-name descname">~StereoMatching</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatchingD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching15setMaxDisparityEi">
+<span id="_CPPv3N3pcl14StereoMatching15setMaxDisparityEi"></span><span id="_CPPv2N3pcl14StereoMatching15setMaxDisparityEi"></span><span id="pcl::StereoMatching::setMaxDisparity__i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a1a579e7d63cb1387602a4f0fdfe90419"></span>void <code class="sig-name descname">setMaxDisparity</code><span class="sig-paren">(</span>int <em>max_disp</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching15setMaxDisparityEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>setter for number of disparity candidates (disparity range) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_disp</span></code>: number of disparity candidates (disparity range); has to be &gt; 0 </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching10setXOffsetEi">
+<span id="_CPPv3N3pcl14StereoMatching10setXOffsetEi"></span><span id="_CPPv2N3pcl14StereoMatching10setXOffsetEi"></span><span id="pcl::StereoMatching::setXOffset__i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a2e6382c53f7b89a3aa904abdd8fe5fec"></span>void <code class="sig-name descname">setXOffset</code><span class="sig-paren">(</span>int <em>x_off</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching10setXOffsetEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>setter for horizontal offset, i.e. </p>
+<p>number of pixels to shift the disparity range over the target image</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x_off</span></code>: horizontal offset value; has to be &gt;= 0 </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching14setRatioFilterEi">
+<span id="_CPPv3N3pcl14StereoMatching14setRatioFilterEi"></span><span id="_CPPv2N3pcl14StereoMatching14setRatioFilterEi"></span><span id="pcl::StereoMatching::setRatioFilter__i"></span><span class="target" id="classpcl_1_1_stereo_matching_1aa37fb215c40ea6e9bb2617667bcbd17e"></span>void <code class="sig-name descname">setRatioFilter</code><span class="sig-paren">(</span>int <em>ratio_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching14setRatioFilterEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>setter for the value of the ratio filter </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ratio_filter</span></code>: value of the ratio filter; it is a number in the range [0, 100] (0: no filtering action; 100: all disparities are filtered) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching13setPeakFilterEi">
+<span id="_CPPv3N3pcl14StereoMatching13setPeakFilterEi"></span><span id="_CPPv2N3pcl14StereoMatching13setPeakFilterEi"></span><span id="pcl::StereoMatching::setPeakFilter__i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a047a59ada6606c9dea36b263f8c99136"></span>void <code class="sig-name descname">setPeakFilter</code><span class="sig-paren">(</span>int <em>peak_filter</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching13setPeakFilterEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>setter for the value of the peak filter </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">peak_filter</span></code>: value of the peak filter; it is a number in the range [0, inf] (0: no filtering action) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching16setPreProcessingEb">
+<span id="_CPPv3N3pcl14StereoMatching16setPreProcessingEb"></span><span id="_CPPv2N3pcl14StereoMatching16setPreProcessingEb"></span><span id="pcl::StereoMatching::setPreProcessing__b"></span><span class="target" id="classpcl_1_1_stereo_matching_1ac9613b9bcbd5e606bc6d5bf193d5625c"></span>void <code class="sig-name descname">setPreProcessing</code><span class="sig-paren">(</span>bool <em>is_pre_proc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching16setPreProcessingEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>setter for the pre processing step </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">is_pre_proc</span></code>: setting the boolean to true activates the pre-processing step for both stereo images </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching17setLeftRightCheckEb">
+<span id="_CPPv3N3pcl14StereoMatching17setLeftRightCheckEb"></span><span id="_CPPv2N3pcl14StereoMatching17setLeftRightCheckEb"></span><span id="pcl::StereoMatching::setLeftRightCheck__b"></span><span class="target" id="classpcl_1_1_stereo_matching_1a585b2b60aa7a9eef0bcb2d08be4334be"></span>void <code class="sig-name descname">setLeftRightCheck</code><span class="sig-paren">(</span>bool <em>is_lr_check</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching17setLeftRightCheckEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>setter for the left-right consistency check stage, that eliminates inconsistent/wrong disparity values from the disparity map at approx. </p>
+<p>twice the processing cost of the selected stereo algorithm</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">is_lr_check</span></code>: setting the boolean to true activates the left-right consistency check </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching26setLeftRightCheckThresholdEi">
+<span id="_CPPv3N3pcl14StereoMatching26setLeftRightCheckThresholdEi"></span><span id="_CPPv2N3pcl14StereoMatching26setLeftRightCheckThresholdEi"></span><span id="pcl::StereoMatching::setLeftRightCheckThreshold__i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a8123aa5819a47c068c8e126481dcdc36"></span>void <code class="sig-name descname">setLeftRightCheckThreshold</code><span class="sig-paren">(</span>int <em>lr_check_th</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching26setLeftRightCheckThresholdEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>setter for the left-right consistency check threshold </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">lr_check_th</span></code>: sets the value of the left-right consistency check threshold only has some influence if the left-right check is active typically has either the value 0 (“strong” consistency check, more points being filtered) or 1 (“weak” consistency check, less points being filtered) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching7computeEPhPhii">
+<span id="_CPPv3N3pcl14StereoMatching7computeEPhPhii"></span><span id="_CPPv2N3pcl14StereoMatching7computeEPhPhii"></span><span id="pcl::StereoMatching::compute__unsigned-cP.unsigned-cP.i.i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a6dfc0a33f0afc34852ce4addf2a5f828"></span><em class="property">virtual</em> void <code class="sig-name descname">compute</code><span class="sig-paren">(</span>unsigned char *<em>ref_img</em>, unsigned char *<em>trg_img</em>, int <em>width</em>, int <em>height</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl14StereoMatching7computeEPhPhii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>stereo processing, it computes a disparity map stored internally by the class </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ref_img</span></code>: reference array of image pixels (left image) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">trg_img</span></code>: target array of image pixels (right image) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">width</span></code>: number of elements per row for both input arrays </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">height</span></code>: number of elements per column for both input arrays </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching7computeERN3pcl10PointCloudIN3pcl3RGBEEERN3pcl10PointCloudIN3pcl3RGBEEE">
+<span id="_CPPv3N3pcl14StereoMatching7computeERN3pcl10PointCloudIN3pcl3RGBEEERN3pcl10PointCloudIN3pcl3RGBEEE"></span><span id="_CPPv2N3pcl14StereoMatching7computeERN3pcl10PointCloudIN3pcl3RGBEEERN3pcl10PointCloudIN3pcl3RGBEEE"></span><span id="pcl::StereoMatching::compute__pcl::PointCloud:pcl::RGB:R.pcl::PointCloud:pcl::RGB:R"></span><span class="target" id="classpcl_1_1_stereo_matching_1aa1dd7ee550d99d00a56727ad6e226f48"></span><em class="property">virtual</em> void <code class="sig-name descname">compute</code><span class="sig-paren">(</span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a>&gt; &amp;<em>ref</em>, pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a>&gt; &amp;<em>trg</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl14StereoMatching7computeERN3pcl10PointCloudIN3pcl3RGBEEERN3pcl10PointCloudIN3pcl3RGBEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>stereo processing, it computes a disparity map stored internally by the class </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ref</span></code>: point cloud of <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">pcl::RGB</span></a> type containing the pixels of the reference image (left image) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">trg</span></code>: point cloud of <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">pcl::RGB</span></a> type containing the pixels of the target image (right image) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching12medianFilterEi">
+<span id="_CPPv3N3pcl14StereoMatching12medianFilterEi"></span><span id="_CPPv2N3pcl14StereoMatching12medianFilterEi"></span><span id="pcl::StereoMatching::medianFilter__i"></span><span class="target" id="classpcl_1_1_stereo_matching_1aabedfd59ee3b38b52d9bc7510bcca142"></span>void <code class="sig-name descname">medianFilter</code><span class="sig-paren">(</span>int <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching12medianFilterEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>median filter applied on the previously computed disparity map Note: the “compute” method must have been previously called at least once in order for this function to have any effect </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: radius of the squared window used to compute the median filter; the window side is equal to 2*radius + 1 </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching13getPointCloudEffffN3pcl10PointCloudIN3pcl8PointXYZEE3PtrE">
+<span id="_CPPv3N3pcl14StereoMatching13getPointCloudEffffN3pcl10PointCloudIN3pcl8PointXYZEE3PtrE"></span><span id="_CPPv2N3pcl14StereoMatching13getPointCloudEffffN3pcl10PointCloudIN3pcl8PointXYZEE3PtrE"></span><span id="pcl::StereoMatching::getPointCloud__float.float.float.float.pcl::PointCloud:pcl::PointXYZ:::Ptr"></span><span class="target" id="classpcl_1_1_stereo_matching_1ad5cb4b96c50b127e38ff3b291e602c00"></span><em class="property">virtual</em> bool <code class="sig-name descname">getPointCloud</code><span class="sig-paren">(</span>float <em>u_c</em>, float <em>v_c</em>, float <em>focal</em>, float <em>baseline</em>, pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt;::Ptr <em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching13getPointCloudEffffN3pcl10PointCloudIN3pcl8PointXYZEE3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>computation of the 3D point cloud from the previously computed disparity map without color information Note: the “compute” method must have been previously called at least once in order for this function to have any effect </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">u_c</span></code>: horizontal coordinate of the principal point (calibration parameter) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">v_c</span></code>: vertical coordinate of the principal point (calibration parameter) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">focal</span></code>: focal length in pixels (calibration parameter) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">baseline</span></code>: distance between the two cameras (calibration parameter); the measure unit used to specify this parameter will be the same as the 3D points in the output point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: output 3D point cloud; it is organized and non-dense, with NaNs where 3D points are invalid </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching13getPointCloudEffffN3pcl10PointCloudIN3pcl11PointXYZRGBEE3PtrEN3pcl10PointCloudIN3pcl3RGBEE3PtrE">
+<span id="_CPPv3N3pcl14StereoMatching13getPointCloudEffffN3pcl10PointCloudIN3pcl11PointXYZRGBEE3PtrEN3pcl10PointCloudIN3pcl3RGBEE3PtrE"></span><span id="_CPPv2N3pcl14StereoMatching13getPointCloudEffffN3pcl10PointCloudIN3pcl11PointXYZRGBEE3PtrEN3pcl10PointCloudIN3pcl3RGBEE3PtrE"></span><span id="pcl::StereoMatching::getPointCloud__float.float.float.float.pcl::PointCloud:pcl::PointXYZRGB:::Ptr.pcl::PointCloud:pcl::RGB:::Ptr"></span><span class="target" id="classpcl_1_1_stereo_matching_1adae373bb5275a9c3ea35a69e9c3c2cbb"></span><em class="property">virtual</em> bool <code class="sig-name descname">getPointCloud</code><span class="sig-paren">(</span>float <em>u_c</em>, float <em>v_c</em>, float <em>focal</em>, float <em>baseline</em>, pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b.html#_CPPv4N3pcl11PointXYZRGBE" title="pcl::PointXYZRGB">PointXYZRGB</a>&gt;::Ptr <em>cloud</em>, pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a>&gt;::Ptr <em>texture</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching13getPointCloudEffffN3pcl10PointCloudIN3pcl11PointXYZRGBEE3PtrEN3pcl10PointCloudIN3pcl3RGBEE3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>computation of the 3D point cloud from the previously computed disparity map including color information Note: the “compute” method must have been previously called at least once in order for this function to have any effect </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">u_c</span></code>: horizontal coordinate of the principal point (calibration parameter) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">v_c</span></code>: vertical coordinate of the principal point (calibration parameter) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">focal</span></code>: focal length in pixels (calibration parameter) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">baseline</span></code>: distance between the two cameras (calibration parameter); the measure unit used to specify this parameter will be the same as the 3D points in the output point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: output 3D point cloud; it is organized and non-dense, with NaNs where 3D points are invalid </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">texture</span></code>: 3D cloud (same size of the output cloud) used to associate to each 3D point of the output cloud a color triplet </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching12getVisualMapEN3pcl10PointCloudIN3pcl3RGBEE3PtrE">
+<span id="_CPPv3N3pcl14StereoMatching12getVisualMapEN3pcl10PointCloudIN3pcl3RGBEE3PtrE"></span><span id="_CPPv2N3pcl14StereoMatching12getVisualMapEN3pcl10PointCloudIN3pcl3RGBEE3PtrE"></span><span id="pcl::StereoMatching::getVisualMap__pcl::PointCloud:pcl::RGB:::Ptr"></span><span class="target" id="classpcl_1_1_stereo_matching_1a9457e333d4c281d5a45e2495775c6fd2"></span>void <code class="sig-name descname">getVisualMap</code><span class="sig-paren">(</span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a>&gt;::Ptr <em>vMap</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching12getVisualMapEN3pcl10PointCloudIN3pcl3RGBEE3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>computation of a <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">pcl::RGB</span></a> cloud with scaled disparity values it can be used to display a rescaled version of the disparity map by means of the pcl::ImageViewer invalid disparity values are shown in green Note: the “compute” method must have been previously called at least once in order for this function to have any effect </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">vMap</span></code>: output cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching13preProcessingEPhPh">
+<span id="_CPPv3N3pcl14StereoMatching13preProcessingEPhPh"></span><span id="_CPPv2N3pcl14StereoMatching13preProcessingEPhPh"></span><span id="pcl::StereoMatching::preProcessing__unsigned-cP.unsigned-cP"></span><span class="target" id="classpcl_1_1_stereo_matching_1aa1d7137996736d81c99c32d808446277"></span><em class="property">virtual</em> void <code class="sig-name descname">preProcessing</code><span class="sig-paren">(</span>unsigned char *<em>img</em>, unsigned char *<em>pp_img</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl14StereoMatching13preProcessingEPhPh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching7imgFlipERPh">
+<span id="_CPPv3N3pcl14StereoMatching7imgFlipERPh"></span><span id="_CPPv2N3pcl14StereoMatching7imgFlipERPh"></span><span id="pcl::StereoMatching::imgFlip__unsigned-cPR"></span><span class="target" id="classpcl_1_1_stereo_matching_1a2ee6a8cf913ee01b29d0e364f321c1f0"></span><em class="property">virtual</em> void <code class="sig-name descname">imgFlip</code><span class="sig-paren">(</span>unsigned char *&amp;<em>img</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl14StereoMatching7imgFlipERPh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching12compute_implEPhPh">
+<span id="_CPPv3N3pcl14StereoMatching12compute_implEPhPh"></span><span id="_CPPv2N3pcl14StereoMatching12compute_implEPhPh"></span><span id="pcl::StereoMatching::compute_impl__unsigned-cP.unsigned-cP"></span><span class="target" id="classpcl_1_1_stereo_matching_1a19bf5ae6750a92921e5dfebb809026f9"></span><em class="property">virtual</em> void <code class="sig-name descname">compute_impl</code><span class="sig-paren">(</span>unsigned char *<em>ref_img</em>, unsigned char *<em>trg_img</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl14StereoMatching12compute_implEPhPh" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching14leftRightCheckEv">
+<span id="_CPPv3N3pcl14StereoMatching14leftRightCheckEv"></span><span id="_CPPv2N3pcl14StereoMatching14leftRightCheckEv"></span><span id="pcl::StereoMatching::leftRightCheck"></span><span class="target" id="classpcl_1_1_stereo_matching_1a2014d3b1a18a6778b41dd290c130216c"></span>void <code class="sig-name descname">leftRightCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching14leftRightCheckEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching21computeStereoSubpixelEiiii">
+<span id="_CPPv3N3pcl14StereoMatching21computeStereoSubpixelEiiii"></span><span id="_CPPv2N3pcl14StereoMatching21computeStereoSubpixelEiiii"></span><span id="pcl::StereoMatching::computeStereoSubpixel__i.i.i.i"></span><span class="target" id="classpcl_1_1_stereo_matching_1acb4f32b96743d8c2414f1b482966fde6"></span>short int <code class="sig-name descname">computeStereoSubpixel</code><span class="sig-paren">(</span>int <em>dbest</em>, int <em>s1</em>, int <em>s2</em>, int <em>s3</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching21computeStereoSubpixelEiiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching21computeStereoSubpixelEifff">
+<span id="_CPPv3N3pcl14StereoMatching21computeStereoSubpixelEifff"></span><span id="_CPPv2N3pcl14StereoMatching21computeStereoSubpixelEifff"></span><span id="pcl::StereoMatching::computeStereoSubpixel__i.float.float.float"></span><span class="target" id="classpcl_1_1_stereo_matching_1a16fad1370dfee4b6ed95bb1e4236a455"></span>short int <code class="sig-name descname">computeStereoSubpixel</code><span class="sig-paren">(</span>int <em>dbest</em>, float <em>s1</em>, float <em>s2</em>, float <em>s3</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching21computeStereoSubpixelEifff" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching19doStereoRatioFilterEPisiiii">
+<span id="_CPPv3N3pcl14StereoMatching19doStereoRatioFilterEPisiiii"></span><span id="_CPPv2N3pcl14StereoMatching19doStereoRatioFilterEPisiiii"></span><span id="pcl::StereoMatching::doStereoRatioFilter__iP.short-i.i.i.i.i"></span><span class="target" id="classpcl_1_1_stereo_matching_1aa4659267b17bfd4d85ceacc56ba2fcfc"></span>short int <code class="sig-name descname">doStereoRatioFilter</code><span class="sig-paren">(</span>int *<em>acc</em>, short int <em>dbest</em>, int <em>sad_min</em>, int <em>ratio_filter</em>, int <em>maxdisp</em>, int <em>precision</em> = 100<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching19doStereoRatioFilterEPisiiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching19doStereoRatioFilterEPfsfiii">
+<span id="_CPPv3N3pcl14StereoMatching19doStereoRatioFilterEPfsfiii"></span><span id="_CPPv2N3pcl14StereoMatching19doStereoRatioFilterEPfsfiii"></span><span id="pcl::StereoMatching::doStereoRatioFilter__floatP.short-i.float.i.i.i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a39235622a3b5ae1ef36f184865021702"></span>short int <code class="sig-name descname">doStereoRatioFilter</code><span class="sig-paren">(</span>float *<em>acc</em>, short int <em>dbest</em>, float <em>sad_min</em>, int <em>ratio_filter</em>, int <em>maxdisp</em>, int <em>precision</em> = 100<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching19doStereoRatioFilterEPfsfiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching18doStereoPeakFilterEPisii">
+<span id="_CPPv3N3pcl14StereoMatching18doStereoPeakFilterEPisii"></span><span id="_CPPv2N3pcl14StereoMatching18doStereoPeakFilterEPisii"></span><span id="pcl::StereoMatching::doStereoPeakFilter__iP.short-i.i.i"></span><span class="target" id="classpcl_1_1_stereo_matching_1ac01c29475023650cd0fc20609689222f"></span>short int <code class="sig-name descname">doStereoPeakFilter</code><span class="sig-paren">(</span>int *<em>acc</em>, short int <em>dbest</em>, int <em>peak_filter</em>, int <em>maxdisp</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching18doStereoPeakFilterEPisii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14StereoMatching18doStereoPeakFilterEPfsii">
+<span id="_CPPv3N3pcl14StereoMatching18doStereoPeakFilterEPfsii"></span><span id="_CPPv2N3pcl14StereoMatching18doStereoPeakFilterEPfsii"></span><span id="pcl::StereoMatching::doStereoPeakFilter__floatP.short-i.i.i"></span><span class="target" id="classpcl_1_1_stereo_matching_1ae1ef96f2fd6311e1dd7b1ef2c8713d49"></span>short int <code class="sig-name descname">doStereoPeakFilter</code><span class="sig-paren">(</span>float *<em>acc</em>, short int <em>dbest</em>, int <em>peak_filter</em>, int <em>maxdisp</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching18doStereoPeakFilterEPfsii" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching9disp_map_E">
+<span id="_CPPv3N3pcl14StereoMatching9disp_map_E"></span><span id="_CPPv2N3pcl14StereoMatching9disp_map_E"></span><span id="pcl::StereoMatching::disp_map___short-iP"></span><span class="target" id="classpcl_1_1_stereo_matching_1ad75ea73c80e843b4f8348afb9d3dcf9b"></span>short int *<code class="sig-name descname">disp_map_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching9disp_map_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The internal disparity map. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching8ref_img_E">
+<span id="_CPPv3N3pcl14StereoMatching8ref_img_E"></span><span id="_CPPv2N3pcl14StereoMatching8ref_img_E"></span><span id="pcl::StereoMatching::ref_img___unsigned-cP"></span><span class="target" id="classpcl_1_1_stereo_matching_1a626e46826cb843f91635e00a5a710e4f"></span>unsigned char *<code class="sig-name descname">ref_img_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching8ref_img_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Local aligned copies of the cloud data. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching8trg_img_E">
+<span id="_CPPv3N3pcl14StereoMatching8trg_img_E"></span><span id="_CPPv2N3pcl14StereoMatching8trg_img_E"></span><span id="pcl::StereoMatching::trg_img___unsigned-cP"></span><span class="target" id="classpcl_1_1_stereo_matching_1af2bd0254e06d8fafa50ca25ab5c7ffda"></span>unsigned char *<code class="sig-name descname">trg_img_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching8trg_img_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching13disp_map_trg_E">
+<span id="_CPPv3N3pcl14StereoMatching13disp_map_trg_E"></span><span id="_CPPv2N3pcl14StereoMatching13disp_map_trg_E"></span><span id="pcl::StereoMatching::disp_map_trg___short-iP"></span><span class="target" id="classpcl_1_1_stereo_matching_1a5b91204848cdbca8f7d4a759744cc853"></span>short int *<code class="sig-name descname">disp_map_trg_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching13disp_map_trg_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Disparity map used for left-right check. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching11pp_ref_img_E">
+<span id="_CPPv3N3pcl14StereoMatching11pp_ref_img_E"></span><span id="_CPPv2N3pcl14StereoMatching11pp_ref_img_E"></span><span id="pcl::StereoMatching::pp_ref_img___unsigned-cP"></span><span class="target" id="classpcl_1_1_stereo_matching_1a1f2ad6fe5bfc335a9ef44ef1e6605e2c"></span>unsigned char *<code class="sig-name descname">pp_ref_img_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching11pp_ref_img_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Local aligned copies used for pre processing. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching11pp_trg_img_E">
+<span id="_CPPv3N3pcl14StereoMatching11pp_trg_img_E"></span><span id="_CPPv2N3pcl14StereoMatching11pp_trg_img_E"></span><span id="pcl::StereoMatching::pp_trg_img___unsigned-cP"></span><span class="target" id="classpcl_1_1_stereo_matching_1a7c1e0706fcc18be1b240187d9c109b32"></span>unsigned char *<code class="sig-name descname">pp_trg_img_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching11pp_trg_img_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching6width_E">
+<span id="_CPPv3N3pcl14StereoMatching6width_E"></span><span id="_CPPv2N3pcl14StereoMatching6width_E"></span><span id="pcl::StereoMatching::width___i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a6dee0d80b91b1a85bba4f5f647424de7"></span>int <code class="sig-name descname">width_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching6width_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>number of pixels per column of the input stereo pair . </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching7height_E">
+<span id="_CPPv3N3pcl14StereoMatching7height_E"></span><span id="_CPPv2N3pcl14StereoMatching7height_E"></span><span id="pcl::StereoMatching::height___i"></span><span class="target" id="classpcl_1_1_stereo_matching_1aaef4538d3f38fe1f9676e40a9e906686"></span>int <code class="sig-name descname">height_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching7height_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>number of pixels per row of the input stereo pair . </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching9max_disp_E">
+<span id="_CPPv3N3pcl14StereoMatching9max_disp_E"></span><span id="_CPPv2N3pcl14StereoMatching9max_disp_E"></span><span id="pcl::StereoMatching::max_disp___i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a991b1fd18ba88d09637a1d3b0504153b"></span>int <code class="sig-name descname">max_disp_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching9max_disp_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Disparity range used for stereo processing. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching6x_off_E">
+<span id="_CPPv3N3pcl14StereoMatching6x_off_E"></span><span id="_CPPv2N3pcl14StereoMatching6x_off_E"></span><span id="pcl::StereoMatching::x_off___i"></span><span class="target" id="classpcl_1_1_stereo_matching_1abc8a13b6d22e1b08fc9937333b0504e7"></span>int <code class="sig-name descname">x_off_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching6x_off_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Horizontal displacemente (x offset) used for stereo processing. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching13ratio_filter_E">
+<span id="_CPPv3N3pcl14StereoMatching13ratio_filter_E"></span><span id="_CPPv2N3pcl14StereoMatching13ratio_filter_E"></span><span id="pcl::StereoMatching::ratio_filter___i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a8567c368513b675fc5e86e95c9e9d1f0"></span>int <code class="sig-name descname">ratio_filter_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching13ratio_filter_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Threshold for the ratio filter, <span class="math">\in [0 100]</span>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching12peak_filter_E">
+<span id="_CPPv3N3pcl14StereoMatching12peak_filter_E"></span><span id="_CPPv2N3pcl14StereoMatching12peak_filter_E"></span><span id="pcl::StereoMatching::peak_filter___i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a275e0342aea6c51ccab9d529d74a2831"></span>int <code class="sig-name descname">peak_filter_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching12peak_filter_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Threshold for the peak filter, <span class="math">\in [0 \infty]</span>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching12is_pre_proc_E">
+<span id="_CPPv3N3pcl14StereoMatching12is_pre_proc_E"></span><span id="_CPPv2N3pcl14StereoMatching12is_pre_proc_E"></span><span id="pcl::StereoMatching::is_pre_proc___b"></span><span class="target" id="classpcl_1_1_stereo_matching_1ae5891b7558f219781df47c59476aa7cc"></span>bool <code class="sig-name descname">is_pre_proc_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching12is_pre_proc_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>toggle for the activation of the pre-processing stage </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching12is_lr_check_E">
+<span id="_CPPv3N3pcl14StereoMatching12is_lr_check_E"></span><span id="_CPPv2N3pcl14StereoMatching12is_lr_check_E"></span><span id="pcl::StereoMatching::is_lr_check___b"></span><span class="target" id="classpcl_1_1_stereo_matching_1a3262d09c0cdb69059c63c7578f499445"></span>bool <code class="sig-name descname">is_lr_check_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching12is_lr_check_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>toggle for the activation of the left-right consistency check stage </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14StereoMatching12lr_check_th_E">
+<span id="_CPPv3N3pcl14StereoMatching12lr_check_th_E"></span><span id="_CPPv2N3pcl14StereoMatching12lr_check_th_E"></span><span id="pcl::StereoMatching::lr_check_th___i"></span><span class="target" id="classpcl_1_1_stereo_matching_1a656a1e68728d6332e42aeb349379e369"></span>int <code class="sig-name descname">lr_check_th_</code><a class="headerlink" href="#_CPPv4N3pcl14StereoMatching12lr_check_th_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Threshold for the left-right consistency check, typically either 0 or 1. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

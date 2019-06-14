@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class PolygonMesh &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class PolygonMesh</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1geometry_1_1_polygon_mesh.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-polygonmesh">
+<span id="exhale-class-classpcl-1-1geometry-1-1-polygon-mesh"></span><h1>Template Class PolygonMesh<a class="headerlink" href="#template-class-polygonmesh" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_geometry_include_pcl_geometry_polygon_mesh.h.html#file-pcl-geometry-include-pcl-geometry-polygon-mesh-h"><span class="std std-ref">File polygon_mesh.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::geometry::MeshBase&lt;</span> <span class="pre">PolygonMesh&lt;</span> <span class="pre">MeshTraitsT</span> <span class="pre">&gt;,</span> <span class="pre">MeshTraitsT,</span> <span class="pre">PolygonMeshTag</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1geometry_1_1_mesh_base.html#exhale-class-classpcl-1-1geometry-1-1-mesh-base"><span class="std std-ref">Template Class MeshBase</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl8geometry11PolygonMeshE">
+<span id="_CPPv3I0EN3pcl8geometry11PolygonMeshE"></span><span id="_CPPv2I0EN3pcl8geometry11PolygonMeshE"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh"></span>template&lt;class <code class="sig-name descname">MeshTraitsT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">PolygonMesh</code> : <em class="property">public</em> pcl::geometry::MeshBase&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl8geometry11PolygonMeshE" title="pcl::geometry::PolygonMesh">PolygonMesh</a>&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl8geometry11PolygonMeshE" title="pcl::geometry::PolygonMesh::MeshTraitsT">MeshTraitsT</a>&gt;, <a class="reference internal" href="#_CPPv4I0EN3pcl8geometry11PolygonMeshE" title="pcl::geometry::PolygonMesh::MeshTraitsT">MeshTraitsT</a>, <a class="reference internal" href="structpcl_1_1geometry_1_1_polygon_mesh_tag.html#_CPPv4N3pcl8geometry14PolygonMeshTagE" title="pcl::geometry::PolygonMeshTag">PolygonMeshTag</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl8geometry11PolygonMeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>General half-edge mesh that can store any polygon with a minimum number of vertices of 3. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Martin Saelzle </p>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MeshTraitsT</span></code>: Please have a look at <a class="reference internal" href="structpcl_1_1geometry_1_1_default_mesh_traits.html#structpcl_1_1geometry_1_1_default_mesh_traits"><span class="std std-ref">pcl::geometry::DefaultMeshTraits</span></a>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh4BaseE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh4BaseE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh4BaseE"></span><span id="pcl::geometry::PolygonMesh::Base"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a645a2c681f54f2e9918bfda6e4141f48"></span><em class="property">typedef </em>pcl::geometry::MeshBase&lt;PolygonMesh&lt;MeshTraitsT&gt;, MeshTraitsT, <a class="reference internal" href="structpcl_1_1geometry_1_1_polygon_mesh_tag.html#_CPPv4N3pcl8geometry14PolygonMeshTagE" title="pcl::geometry::PolygonMeshTag">PolygonMeshTag</a>&gt; <code class="sig-name descname">Base</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh4SelfE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh4SelfE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh4SelfE"></span><span id="pcl::geometry::PolygonMesh::Self"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a3fe89b7d94cd091adc493f620de4de69"></span><em class="property">typedef </em>PolygonMesh&lt;MeshTraitsT&gt; <code class="sig-name descname">Self</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh4SelfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh3PtrE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh3PtrE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh3PtrE"></span><span id="pcl::geometry::PolygonMesh::Ptr"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a34e799695e964e61ac3c0ef0e1302039"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4SelfE" title="pcl::geometry::PolygonMesh::Self">Self</a>&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh8ConstPtrE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh8ConstPtrE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh8ConstPtrE"></span><span id="pcl::geometry::PolygonMesh::ConstPtr"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1aa5fc8fcd9fb3d70a83f120db7fff1cc6"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4SelfE" title="pcl::geometry::PolygonMesh::Self">Self</a>&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh10VertexDataE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh10VertexDataE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh10VertexDataE"></span><span id="pcl::geometry::PolygonMesh::VertexData"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1ab5aa98d59c3f3495b2d27370021fb23f"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::VertexData <code class="sig-name descname">VertexData</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh10VertexDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh12HalfEdgeDataE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh12HalfEdgeDataE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh12HalfEdgeDataE"></span><span id="pcl::geometry::PolygonMesh::HalfEdgeData"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1abb8750bb9d736af18026a0116960d2a1"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::HalfEdgeData <code class="sig-name descname">HalfEdgeData</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh12HalfEdgeDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh8EdgeDataE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh8EdgeDataE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh8EdgeDataE"></span><span id="pcl::geometry::PolygonMesh::EdgeData"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a2a19d0e3fab9da9d5bd4ac368b82d8c0"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::EdgeData <code class="sig-name descname">EdgeData</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh8EdgeDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh8FaceDataE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh8FaceDataE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh8FaceDataE"></span><span id="pcl::geometry::PolygonMesh::FaceData"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a5033c77536013ec0b77d554a5a5f074d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::FaceData <code class="sig-name descname">FaceData</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh8FaceDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh10IsManifoldE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh10IsManifoldE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh10IsManifoldE"></span><span id="pcl::geometry::PolygonMesh::IsManifold"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a9c95df550cd917759ec981d30c96d3e2"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::IsManifold <code class="sig-name descname">IsManifold</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh10IsManifoldE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh7MeshTagE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh7MeshTagE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh7MeshTagE"></span><span id="pcl::geometry::PolygonMesh::MeshTag"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a472172999a96220fc1e3bb3b84433880"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::MeshTag <code class="sig-name descname">MeshTag</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh7MeshTagE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh13HasVertexDataE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh13HasVertexDataE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh13HasVertexDataE"></span><span id="pcl::geometry::PolygonMesh::HasVertexData"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a0725fdfe1451e79c5313f796ebe17e2a"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::HasVertexData <code class="sig-name descname">HasVertexData</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh13HasVertexDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh15HasHalfEdgeDataE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh15HasHalfEdgeDataE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh15HasHalfEdgeDataE"></span><span id="pcl::geometry::PolygonMesh::HasHalfEdgeData"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1aa5de2c4200c68e8dafd25cc304a8053d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::HasHalfEdgeData <code class="sig-name descname">HasHalfEdgeData</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh15HasHalfEdgeDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh11HasEdgeDataE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh11HasEdgeDataE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh11HasEdgeDataE"></span><span id="pcl::geometry::PolygonMesh::HasEdgeData"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1aea5868616ff10c8c5b49c6028e78f26a"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::HasEdgeData <code class="sig-name descname">HasEdgeData</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh11HasEdgeDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh11HasFaceDataE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh11HasFaceDataE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh11HasFaceDataE"></span><span id="pcl::geometry::PolygonMesh::HasFaceData"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1aaccd8fc4fec8bdd7ee813c6e3cddf232"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::HasFaceData <code class="sig-name descname">HasFaceData</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh11HasFaceDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh15VertexDataCloudE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh15VertexDataCloudE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh15VertexDataCloudE"></span><span id="pcl::geometry::PolygonMesh::VertexDataCloud"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a1361467273885abc10af9ad06b392225"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::VertexDataCloud <code class="sig-name descname">VertexDataCloud</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh15VertexDataCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh17HalfEdgeDataCloudE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh17HalfEdgeDataCloudE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh17HalfEdgeDataCloudE"></span><span id="pcl::geometry::PolygonMesh::HalfEdgeDataCloud"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a271031ba86732ff5cb3d21e5872033b2"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::HalfEdgeDataCloud <code class="sig-name descname">HalfEdgeDataCloud</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh17HalfEdgeDataCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh13EdgeDataCloudE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh13EdgeDataCloudE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh13EdgeDataCloudE"></span><span id="pcl::geometry::PolygonMesh::EdgeDataCloud"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a963ba6c894383cfe47c58d23e07d8095"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::EdgeDataCloud <code class="sig-name descname">EdgeDataCloud</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh13EdgeDataCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh13FaceDataCloudE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh13FaceDataCloudE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh13FaceDataCloudE"></span><span id="pcl::geometry::PolygonMesh::FaceDataCloud"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a8e7c917ff6aec82684dfce7f49083d7f"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::FaceDataCloud <code class="sig-name descname">FaceDataCloud</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh13FaceDataCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh11VertexIndexE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh11VertexIndexE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh11VertexIndexE"></span><span id="pcl::geometry::PolygonMesh::VertexIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1ad0181a302924bdf810d11b7b59e323de"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::VertexIndex <code class="sig-name descname">VertexIndex</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh11VertexIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh13HalfEdgeIndexE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh13HalfEdgeIndexE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh13HalfEdgeIndexE"></span><span id="pcl::geometry::PolygonMesh::HalfEdgeIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a88a8d9bcc6150c2a025c411f69653565"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::HalfEdgeIndex <code class="sig-name descname">HalfEdgeIndex</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh13HalfEdgeIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh9EdgeIndexE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh9EdgeIndexE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh9EdgeIndexE"></span><span id="pcl::geometry::PolygonMesh::EdgeIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a7fca480e1658b42b3a09717c6f8ddfb0"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::EdgeIndex <code class="sig-name descname">EdgeIndex</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh9EdgeIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh9FaceIndexE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh9FaceIndexE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh9FaceIndexE"></span><span id="pcl::geometry::PolygonMesh::FaceIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1af112409df9b2b26e5bf9f5c3378c8014"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::FaceIndex <code class="sig-name descname">FaceIndex</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh9FaceIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh13VertexIndicesE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh13VertexIndicesE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh13VertexIndicesE"></span><span id="pcl::geometry::PolygonMesh::VertexIndices"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a5ee6d488b60cd6d11b99d9e2f398c39b"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::VertexIndices <code class="sig-name descname">VertexIndices</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh13VertexIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh15HalfEdgeIndicesE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh15HalfEdgeIndicesE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh15HalfEdgeIndicesE"></span><span id="pcl::geometry::PolygonMesh::HalfEdgeIndices"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1aa44bcf3a6730d6b9eca8ad425af8cdd7"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::HalfEdgeIndices <code class="sig-name descname">HalfEdgeIndices</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh15HalfEdgeIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh11EdgeIndicesE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh11EdgeIndicesE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh11EdgeIndicesE"></span><span id="pcl::geometry::PolygonMesh::EdgeIndices"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a6ae46b4718c6bdfad427e0a3cf6700d8"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::EdgeIndices <code class="sig-name descname">EdgeIndices</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh11EdgeIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh11FaceIndicesE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh11FaceIndicesE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh11FaceIndicesE"></span><span id="pcl::geometry::PolygonMesh::FaceIndices"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1ad1a37ad3414cc48407c568d47f291c35"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::FaceIndices <code class="sig-name descname">FaceIndices</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh11FaceIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh28VertexAroundVertexCirculatorE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh28VertexAroundVertexCirculatorE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh28VertexAroundVertexCirculatorE"></span><span id="pcl::geometry::PolygonMesh::VertexAroundVertexCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1ac805ca302ab9b0af8517ae4dc4c6f7af"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::VertexAroundVertexCirculator <code class="sig-name descname">VertexAroundVertexCirculator</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh28VertexAroundVertexCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh38OutgoingHalfEdgeAroundVertexCirculatorE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh38OutgoingHalfEdgeAroundVertexCirculatorE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh38OutgoingHalfEdgeAroundVertexCirculatorE"></span><span id="pcl::geometry::PolygonMesh::OutgoingHalfEdgeAroundVertexCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1ac014e2e038dfead5a8332784e15d1959"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::OutgoingHalfEdgeAroundVertexCirculator <code class="sig-name descname">OutgoingHalfEdgeAroundVertexCirculator</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh38OutgoingHalfEdgeAroundVertexCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh38IncomingHalfEdgeAroundVertexCirculatorE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh38IncomingHalfEdgeAroundVertexCirculatorE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh38IncomingHalfEdgeAroundVertexCirculatorE"></span><span id="pcl::geometry::PolygonMesh::IncomingHalfEdgeAroundVertexCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a8743920ae915afe8a52f58780050c08a"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::IncomingHalfEdgeAroundVertexCirculator <code class="sig-name descname">IncomingHalfEdgeAroundVertexCirculator</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh38IncomingHalfEdgeAroundVertexCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh26FaceAroundVertexCirculatorE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh26FaceAroundVertexCirculatorE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh26FaceAroundVertexCirculatorE"></span><span id="pcl::geometry::PolygonMesh::FaceAroundVertexCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a1aa0ba418e4ee4d35febae8a34c30202"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::FaceAroundVertexCirculator <code class="sig-name descname">FaceAroundVertexCirculator</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh26FaceAroundVertexCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh26VertexAroundFaceCirculatorE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh26VertexAroundFaceCirculatorE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh26VertexAroundFaceCirculatorE"></span><span id="pcl::geometry::PolygonMesh::VertexAroundFaceCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a1f11caa669fe7172a129e6508dd18d6b"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::VertexAroundFaceCirculator <code class="sig-name descname">VertexAroundFaceCirculator</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh26VertexAroundFaceCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh33InnerHalfEdgeAroundFaceCirculatorE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh33InnerHalfEdgeAroundFaceCirculatorE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh33InnerHalfEdgeAroundFaceCirculatorE"></span><span id="pcl::geometry::PolygonMesh::InnerHalfEdgeAroundFaceCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a9614a2985de3aeb4e62ddfa353cd1262"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::InnerHalfEdgeAroundFaceCirculator <code class="sig-name descname">InnerHalfEdgeAroundFaceCirculator</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh33InnerHalfEdgeAroundFaceCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh33OuterHalfEdgeAroundFaceCirculatorE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh33OuterHalfEdgeAroundFaceCirculatorE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh33OuterHalfEdgeAroundFaceCirculatorE"></span><span id="pcl::geometry::PolygonMesh::OuterHalfEdgeAroundFaceCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a18072a930164a0ee84e9ed1f91432979"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::OuterHalfEdgeAroundFaceCirculator <code class="sig-name descname">OuterHalfEdgeAroundFaceCirculator</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh33OuterHalfEdgeAroundFaceCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh24FaceAroundFaceCirculatorE">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh24FaceAroundFaceCirculatorE"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh24FaceAroundFaceCirculatorE"></span><span id="pcl::geometry::PolygonMesh::FaceAroundFaceCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a5c901c2c7a2dfbf82277c1eddae284e9"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh4BaseE" title="pcl::geometry::PolygonMesh::Base">Base</a>::FaceAroundFaceCirculator <code class="sig-name descname">FaceAroundFaceCirculator</code><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh24FaceAroundFaceCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh11PolygonMeshEv">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh11PolygonMeshEv"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh11PolygonMeshEv"></span><span id="pcl::geometry::PolygonMesh::PolygonMesh"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a744914c3029e17ed01e12ee19a29f068"></span><code class="sig-name descname">PolygonMesh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh11PolygonMeshEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh7addFaceERK11VertexIndexRK11VertexIndexRK11VertexIndexRK8FaceDataRK8EdgeDataRK12HalfEdgeData">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh7addFaceERK11VertexIndexRK11VertexIndexRK11VertexIndexRK8FaceDataRK8EdgeDataRK12HalfEdgeData"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh7addFaceERK11VertexIndexRK11VertexIndexRK11VertexIndexRK8FaceDataRK8EdgeDataRK12HalfEdgeData"></span><span id="pcl::geometry::PolygonMesh::addFace__VertexIndexCR.VertexIndexCR.VertexIndexCR.FaceDataCR.EdgeDataCR.HalfEdgeDataCR"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1afc59c7aa14982d42ed46d4b05e387a89"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh9FaceIndexE" title="pcl::geometry::PolygonMesh::FaceIndex">FaceIndex</a> <code class="sig-name descname">addFace</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh11VertexIndexE" title="pcl::geometry::PolygonMesh::VertexIndex">VertexIndex</a> &amp;<em>idx_v_0</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh11VertexIndexE" title="pcl::geometry::PolygonMesh::VertexIndex">VertexIndex</a> &amp;<em>idx_v_1</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh11VertexIndexE" title="pcl::geometry::PolygonMesh::VertexIndex">VertexIndex</a> &amp;<em>idx_v_2</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh8FaceDataE" title="pcl::geometry::PolygonMesh::FaceData">FaceData</a> &amp;<em>face_data</em> = <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh8FaceDataE" title="pcl::geometry::PolygonMesh::FaceData">FaceData</a>(), <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh8EdgeDataE" title="pcl::geometry::PolygonMesh::EdgeData">EdgeData</a> &amp;<em>edge_data</em> = <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh8EdgeDataE" title="pcl::geometry::PolygonMesh::EdgeData">EdgeData</a>(), <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh12HalfEdgeDataE" title="pcl::geometry::PolygonMesh::HalfEdgeData">HalfEdgeData</a> &amp;<em>half_edge_data</em> = <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh12HalfEdgeDataE" title="pcl::geometry::PolygonMesh::HalfEdgeData">HalfEdgeData</a>()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh7addFaceERK11VertexIndexRK11VertexIndexRK11VertexIndexRK8FaceDataRK8EdgeDataRK12HalfEdgeData" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a triangle to the mesh. </p>
+<p>Data is only added if it is associated with the elements. The last vertex is connected with the first one. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Index to the new face. Failure is signaled by returning an invalid face index. </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>The vertices must be valid and unique (each vertex may be contained only once). Not complying with this requirement results in undefined behavior! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx_v_0</span></code>: Index to the first vertex. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx_v_1</span></code>: Index to the second vertex. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx_v_2</span></code>: Index to the third vertex. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">face_data</span></code>: Data that is set for the face. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">half_edge_data</span></code>: Data that is set for all added half-edges. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">edge_data</span></code>: Data that is set for all added edges. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry11PolygonMesh7addFaceERK11VertexIndexRK11VertexIndexRK11VertexIndexRK11VertexIndexRK8FaceDataRK8EdgeDataRK12HalfEdgeData">
+<span id="_CPPv3N3pcl8geometry11PolygonMesh7addFaceERK11VertexIndexRK11VertexIndexRK11VertexIndexRK11VertexIndexRK8FaceDataRK8EdgeDataRK12HalfEdgeData"></span><span id="_CPPv2N3pcl8geometry11PolygonMesh7addFaceERK11VertexIndexRK11VertexIndexRK11VertexIndexRK11VertexIndexRK8FaceDataRK8EdgeDataRK12HalfEdgeData"></span><span id="pcl::geometry::PolygonMesh::addFace__VertexIndexCR.VertexIndexCR.VertexIndexCR.VertexIndexCR.FaceDataCR.EdgeDataCR.HalfEdgeDataCR"></span><span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a1e271eee782a857f6428bc9ba2dee27b"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh9FaceIndexE" title="pcl::geometry::PolygonMesh::FaceIndex">FaceIndex</a> <code class="sig-name descname">addFace</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh11VertexIndexE" title="pcl::geometry::PolygonMesh::VertexIndex">VertexIndex</a> &amp;<em>idx_v_0</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh11VertexIndexE" title="pcl::geometry::PolygonMesh::VertexIndex">VertexIndex</a> &amp;<em>idx_v_1</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh11VertexIndexE" title="pcl::geometry::PolygonMesh::VertexIndex">VertexIndex</a> &amp;<em>idx_v_2</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh11VertexIndexE" title="pcl::geometry::PolygonMesh::VertexIndex">VertexIndex</a> &amp;<em>idx_v_3</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh8FaceDataE" title="pcl::geometry::PolygonMesh::FaceData">FaceData</a> &amp;<em>face_data</em> = <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh8FaceDataE" title="pcl::geometry::PolygonMesh::FaceData">FaceData</a>(), <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh8EdgeDataE" title="pcl::geometry::PolygonMesh::EdgeData">EdgeData</a> &amp;<em>edge_data</em> = <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh8EdgeDataE" title="pcl::geometry::PolygonMesh::EdgeData">EdgeData</a>(), <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh12HalfEdgeDataE" title="pcl::geometry::PolygonMesh::HalfEdgeData">HalfEdgeData</a> &amp;<em>half_edge_data</em> = <a class="reference internal" href="#_CPPv4N3pcl8geometry11PolygonMesh12HalfEdgeDataE" title="pcl::geometry::PolygonMesh::HalfEdgeData">HalfEdgeData</a>()<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry11PolygonMesh7addFaceERK11VertexIndexRK11VertexIndexRK11VertexIndexRK11VertexIndexRK8FaceDataRK8EdgeDataRK12HalfEdgeData" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Add a quad to the mesh. </p>
+<p>Data is only added if it is associated with the elements. The last vertex is connected with the first one. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Index to the new face. Failure is signaled by returning an invalid face index. </p>
+</dd>
+<dt><strong>Warning</strong></dt><dd><p>The vertices must be valid and unique (each vertex may be contained only once). Not complying with this requirement results in undefined behavior! </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx_v_0</span></code>: Index to the first vertex. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx_v_1</span></code>: Index to the second vertex. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx_v_2</span></code>: Index to the third vertex. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">idx_v_3</span></code>: Index to the fourth vertex. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">face_data</span></code>: Data that is set for the face. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">half_edge_data</span></code>: Data that is set for all added half-edges. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">edge_data</span></code>: Data that is set for all added edges. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1geometry_1_1_polygon_mesh_1a2ef7afd25981137f1114f7d9a590c8a4"></span><em class="property">friend </em><code class="sig-name descname">pcl::geometry::PolygonMesh::pcl::geometry::MeshBase&lt; PolygonMesh&lt; MeshTraitsT &gt;, MeshTraitsT, pcl::geometry::PolygonMeshTag &gt;</code></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

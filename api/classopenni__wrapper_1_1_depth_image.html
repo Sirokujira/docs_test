@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class DepthImage &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class DepthImage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classopenni__wrapper_1_1_depth_image.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-depthimage">
+<span id="exhale-class-classopenni-wrapper-1-1-depth-image"></span><h1>Class DepthImage<a class="headerlink" href="#class-depthimage" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_openni_camera_openni_depth_image.h.html#file-pcl-io-include-pcl-io-openni-camera-openni-depth-image-h"><span class="std std-ref">File openni_depth_image.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N14openni_wrapper10DepthImageE">
+<span id="_CPPv3N14openni_wrapper10DepthImageE"></span><span id="_CPPv2N14openni_wrapper10DepthImageE"></span><span id="openni_wrapper::DepthImage"></span><span class="target" id="classopenni__wrapper_1_1_depth_image"></span><em class="property">class </em><code class="sig-name descname">DepthImage</code><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImageE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This class provides methods to fill a depth or disparity image. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Suat Gedikli </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N14openni_wrapper10DepthImage3PtrE">
+<span id="_CPPv3N14openni_wrapper10DepthImage3PtrE"></span><span id="_CPPv2N14openni_wrapper10DepthImage3PtrE"></span><span id="openni_wrapper::DepthImage::Ptr"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1aed28d9743057992233703a21c2b53238"></span><em class="property">typedef </em>boost::shared_ptr&lt;<a class="reference internal" href="#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImage3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N14openni_wrapper10DepthImage8ConstPtrE">
+<span id="_CPPv3N14openni_wrapper10DepthImage8ConstPtrE"></span><span id="_CPPv2N14openni_wrapper10DepthImage8ConstPtrE"></span><span id="openni_wrapper::DepthImage::ConstPtr"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1af47cd13c7311030fa65bef38af2370f8"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> <a class="reference internal" href="#_CPPv4N14openni_wrapper10DepthImageE" title="openni_wrapper::DepthImage">DepthImage</a>&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImage8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper10DepthImage10DepthImageEN5boost10shared_ptrIN2xn13DepthMetaDataEEEff8XnUInt648XnUInt64">
+<span id="_CPPv3N14openni_wrapper10DepthImage10DepthImageEN5boost10shared_ptrIN2xn13DepthMetaDataEEEff8XnUInt648XnUInt64"></span><span id="_CPPv2N14openni_wrapper10DepthImage10DepthImageEN5boost10shared_ptrIN2xn13DepthMetaDataEEEff8XnUInt648XnUInt64"></span><span id="openni_wrapper::DepthImage::DepthImage__boost::shared_ptr:xn::DepthMetaData:.float.float.XnUInt64.XnUInt64"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1ac30474de54569b8be37a15f770a3399f"></span><code class="sig-name descname">DepthImage</code><span class="sig-paren">(</span>boost::shared_ptr&lt;xn::DepthMetaData&gt; <em>depth_meta_data</em>, float <em>baseline</em>, float <em>focal_length</em>, XnUInt64 <em>shadow_value</em>, XnUInt64 <em>no_sample_value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImage10DepthImageEN5boost10shared_ptrIN2xn13DepthMetaDataEEEff8XnUInt648XnUInt64" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>The focal length may change, depending whether the depth stream is registered/mapped to the RGB stream or not. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">depth_meta_data</span></code>: the actual data from the OpenNI library </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">baseline</span></code>: the baseline of the “stereo” camera, i.e. the distance between the projector and the IR camera for Primesense like cameras. e.g. 7.5cm for PSDK5 and PSDK6 reference design. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">focal_length</span></code>: focal length of the “stereo” frame. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">shadow_value</span></code>: defines which values in the depth data are indicating shadow (resulting from the parallax between projector and IR camera) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">no_sample_value</span></code>: defines which values in the depth data are indicating that no depth (disparity) could be determined . </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N14openni_wrapper10DepthImageD0Ev">
+<span id="_CPPv3N14openni_wrapper10DepthImageD0Ev"></span><span id="_CPPv2N14openni_wrapper10DepthImageD0Ev"></span><span id="openni_wrapper::DepthImage::~DepthImage"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1aa4188d61cb0e8a68a1cf0c6bef0d2a76"></span><code class="sig-name descname">~DepthImage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImageD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+<p>Never throws an exception. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage16getDepthMetaDataEv">
+<span id="_CPPv3NK14openni_wrapper10DepthImage16getDepthMetaDataEv"></span><span id="_CPPv2NK14openni_wrapper10DepthImage16getDepthMetaDataEv"></span><span id="openni_wrapper::DepthImage::getDepthMetaDataC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a3abc41260689104f5658c6333c52f7ab"></span><em class="property">const</em> xn::DepthMetaData &amp;<code class="sig-name descname">getDepthMetaData</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage16getDepthMetaDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to access the internal data structure from OpenNI. </p>
+<p>If the data is accessed just read-only, then this method is faster than a fillXXX method <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the actual depth data of type xn::DepthMetaData. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage18fillDisparityImageEjjPfj">
+<span id="_CPPv3NK14openni_wrapper10DepthImage18fillDisparityImageEjjPfj"></span><span id="_CPPv2NK14openni_wrapper10DepthImage18fillDisparityImageEjjPfj"></span><span id="openni_wrapper::DepthImage::fillDisparityImage__unsigned.unsigned.floatP.unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a1ffaa0e359b562114818f5b80c8c6623"></span>void <code class="sig-name descname">fillDisparityImage</code><span class="sig-paren">(</span>unsigned <em>width</em>, unsigned <em>height</em>, float *<em>disparity_buffer</em>, unsigned <em>line_step</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage18fillDisparityImageEjjPfj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>fills a user given block of memory with the disparity values with additional nearest-neighbor down-scaling. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">width</span></code>: the width of the desired disparity image. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">height</span></code>: the height of the desired disparity image. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">disparity_buffer</span></code>: the float pointer to the actual memory buffer to be filled with the disparity values. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">line_step</span></code>: if only a rectangular sub region of the buffer needs to be filled, then line_step is the width in bytes (not floats) of the original width of the depth buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage14fillDepthImageEjjPfj">
+<span id="_CPPv3NK14openni_wrapper10DepthImage14fillDepthImageEjjPfj"></span><span id="_CPPv2NK14openni_wrapper10DepthImage14fillDepthImageEjjPfj"></span><span id="openni_wrapper::DepthImage::fillDepthImage__unsigned.unsigned.floatP.unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1ab23810f60bbd818b6e103c78f0e4bdfa"></span>void <code class="sig-name descname">fillDepthImage</code><span class="sig-paren">(</span>unsigned <em>width</em>, unsigned <em>height</em>, float *<em>depth_buffer</em>, unsigned <em>line_step</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage14fillDepthImageEjjPfj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>fills a user given block of memory with the disparity values with additional nearest-neighbor down-scaling. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">width</span></code>: width the width of the desired depth image. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">height</span></code>: height the height of the desired depth image. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">depth_buffer</span></code>: the float pointer to the actual memory buffer to be filled with the depth values. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">line_step</span></code>: if only a rectangular sub region of the buffer needs to be filled, then line_step is the width in bytes (not floats) of the original width of the depth buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage17fillDepthImageRawEjjPtj">
+<span id="_CPPv3NK14openni_wrapper10DepthImage17fillDepthImageRawEjjPtj"></span><span id="_CPPv2NK14openni_wrapper10DepthImage17fillDepthImageRawEjjPtj"></span><span id="openni_wrapper::DepthImage::fillDepthImageRaw__unsigned.unsigned.unsigned-shortP.unsignedC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a60a778e32e58971b6d0e9c25c9ddc59c"></span>void <code class="sig-name descname">fillDepthImageRaw</code><span class="sig-paren">(</span>unsigned <em>width</em>, unsigned <em>height</em>, unsigned short *<em>depth_buffer</em>, unsigned <em>line_step</em> = 0<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage17fillDepthImageRawEjjPtj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>fills a user given block of memory with the raw values with additional nearest-neighbor down-scaling. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">width</span></code>: width the width of the desired raw image. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">height</span></code>: height the height of the desired raw image. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">depth_buffer</span></code>: the unsigned short pointer to the actual memory buffer to be filled with the raw values. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">line_step</span></code>: if only a rectangular sub region of the buffer needs to be filled, then line_step is the width in bytes (not floats) of the original width of the depth buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage11getBaselineEv">
+<span id="_CPPv3NK14openni_wrapper10DepthImage11getBaselineEv"></span><span id="_CPPv2NK14openni_wrapper10DepthImage11getBaselineEv"></span><span id="openni_wrapper::DepthImage::getBaselineC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a535563b6d47095bbde9634e69a1522a1"></span>float <code class="sig-name descname">getBaseline</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage11getBaselineEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to access the baseline of the “stereo” frame that was used to retrieve the depth image. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>baseline in meters </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage14getFocalLengthEv">
+<span id="_CPPv3NK14openni_wrapper10DepthImage14getFocalLengthEv"></span><span id="_CPPv2NK14openni_wrapper10DepthImage14getFocalLengthEv"></span><span id="openni_wrapper::DepthImage::getFocalLengthC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1abf2ad09d1f733de1f09bf5c748fba489"></span>float <code class="sig-name descname">getFocalLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage14getFocalLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to access the focal length of the “stereo” frame that was used to retrieve the depth image. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>focal length in pixels </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage14getShadowValueEv">
+<span id="_CPPv3NK14openni_wrapper10DepthImage14getShadowValueEv"></span><span id="_CPPv2NK14openni_wrapper10DepthImage14getShadowValueEv"></span><span id="openni_wrapper::DepthImage::getShadowValueC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a5fd1f4d334f6c73bfef33ac181a04a3d"></span>XnUInt64 <code class="sig-name descname">getShadowValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage14getShadowValueEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to access the shadow value, that indicates pixels lying in shadow in the depth image. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>shadow value </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage16getNoSampleValueEv">
+<span id="_CPPv3NK14openni_wrapper10DepthImage16getNoSampleValueEv"></span><span id="_CPPv2NK14openni_wrapper10DepthImage16getNoSampleValueEv"></span><span id="openni_wrapper::DepthImage::getNoSampleValueC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a27f5eb14fcd8e2398718e9d93c7da7a4"></span>XnUInt64 <code class="sig-name descname">getNoSampleValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage16getNoSampleValueEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>method to access the no-sample value, that indicates pixels where no disparity could be determined for the depth image. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>no-sample value </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage8getWidthEv">
+<span id="_CPPv3NK14openni_wrapper10DepthImage8getWidthEv"></span><span id="_CPPv2NK14openni_wrapper10DepthImage8getWidthEv"></span><span id="openni_wrapper::DepthImage::getWidthC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a495669c71e2dc5ebd84f9745cb06cd5e"></span>unsigned <code class="sig-name descname">getWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage8getWidthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the width of the depth image </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage9getHeightEv">
+<span id="_CPPv3NK14openni_wrapper10DepthImage9getHeightEv"></span><span id="_CPPv2NK14openni_wrapper10DepthImage9getHeightEv"></span><span id="openni_wrapper::DepthImage::getHeightC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1ad4dbd5471b2a98450f190d4edc336d57"></span>unsigned <code class="sig-name descname">getHeight</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage9getHeightEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the height of the depth image </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage10getFrameIDEv">
+<span id="_CPPv3NK14openni_wrapper10DepthImage10getFrameIDEv"></span><span id="_CPPv2NK14openni_wrapper10DepthImage10getFrameIDEv"></span><span id="openni_wrapper::DepthImage::getFrameIDC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1ab3559134a7cbc6fc058916d0f494f275"></span>unsigned <code class="sig-name descname">getFrameID</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage10getFrameIDEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>an ascending id for the depth frame </p>
+</dd>
+<dt><strong>Attention</strong></dt><dd><p>not necessarily synchronized with other streams </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK14openni_wrapper10DepthImage12getTimeStampEv">
+<span id="_CPPv3NK14openni_wrapper10DepthImage12getTimeStampEv"></span><span id="_CPPv2NK14openni_wrapper10DepthImage12getTimeStampEv"></span><span id="openni_wrapper::DepthImage::getTimeStampC"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a3305ebfd3732eb021a8dbcec1bde85b9"></span>unsigned long <code class="sig-name descname">getTimeStamp</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK14openni_wrapper10DepthImage12getTimeStampEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a ascending timestamp for the depth frame </p>
+</dd>
+<dt><strong>Attention</strong></dt><dd><p>its not the system time, thus can not be used directly to synchronize different sensors. But definitely synchronized with other streams </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper10DepthImage9depth_md_E">
+<span id="_CPPv3N14openni_wrapper10DepthImage9depth_md_E"></span><span id="_CPPv2N14openni_wrapper10DepthImage9depth_md_E"></span><span id="openni_wrapper::DepthImage::depth_md___boost::shared_ptr:xn::DepthMetaData:"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a1a10d73a0e99f40f3f9c11ae8434e0f5"></span>boost::shared_ptr&lt;xn::DepthMetaData&gt; <code class="sig-name descname">depth_md_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImage9depth_md_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper10DepthImage9baseline_E">
+<span id="_CPPv3N14openni_wrapper10DepthImage9baseline_E"></span><span id="_CPPv2N14openni_wrapper10DepthImage9baseline_E"></span><span id="openni_wrapper::DepthImage::baseline___float"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a186882113682ea8e0c0aff2bc1de7edd"></span>float <code class="sig-name descname">baseline_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImage9baseline_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper10DepthImage13focal_length_E">
+<span id="_CPPv3N14openni_wrapper10DepthImage13focal_length_E"></span><span id="_CPPv2N14openni_wrapper10DepthImage13focal_length_E"></span><span id="openni_wrapper::DepthImage::focal_length___float"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1a692dd37f7fc58451e3dc8800e7b4366d"></span>float <code class="sig-name descname">focal_length_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImage13focal_length_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper10DepthImage13shadow_value_E">
+<span id="_CPPv3N14openni_wrapper10DepthImage13shadow_value_E"></span><span id="_CPPv2N14openni_wrapper10DepthImage13shadow_value_E"></span><span id="openni_wrapper::DepthImage::shadow_value___XnUInt64"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1acf211fd2e8b5be681f42d7c78779e523"></span>XnUInt64 <code class="sig-name descname">shadow_value_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImage13shadow_value_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14openni_wrapper10DepthImage16no_sample_value_E">
+<span id="_CPPv3N14openni_wrapper10DepthImage16no_sample_value_E"></span><span id="_CPPv2N14openni_wrapper10DepthImage16no_sample_value_E"></span><span id="openni_wrapper::DepthImage::no_sample_value___XnUInt64"></span><span class="target" id="classopenni__wrapper_1_1_depth_image_1ad17ba317c5c5ee2842f752dcd2ac4977"></span>XnUInt64 <code class="sig-name descname">no_sample_value_</code><a class="headerlink" href="#_CPPv4N14openni_wrapper10DepthImage16no_sample_value_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class MarchingCubes &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class MarchingCubes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_marching_cubes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-marchingcubes">
+<span id="exhale-class-classpcl-1-1-marching-cubes"></span><h1>Template Class MarchingCubes<a class="headerlink" href="#template-class-marchingcubes" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_marching_cubes.h.html#file-pcl-surface-include-pcl-surface-marching-cubes-h"><span class="std std-ref">File marching_cubes.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SurfaceReconstruction&lt;</span> <span class="pre">PointNT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_surface_reconstruction.html#exhale-class-classpcl-1-1-surface-reconstruction"><span class="std std-ref">Template Class SurfaceReconstruction</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::MarchingCubesHoppe&lt;</span> <span class="pre">PointNT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_marching_cubes_hoppe.html#exhale-class-classpcl-1-1-marching-cubes-hoppe"><span class="std std-ref">Template Class MarchingCubesHoppe</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::MarchingCubesRBF&lt;</span> <span class="pre">PointNT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_marching_cubes_r_b_f.html#exhale-class-classpcl-1-1-marching-cubes-r-b-f"><span class="std std-ref">Template Class MarchingCubesRBF</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl13MarchingCubesE">
+<span id="_CPPv3I0EN3pcl13MarchingCubesE"></span><span id="_CPPv2I0EN3pcl13MarchingCubesE"></span><span class="target" id="classpcl_1_1_marching_cubes"></span>template&lt;typename <code class="sig-name descname">PointNT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">MarchingCubes</code> : <em class="property">public</em> pcl::SurfaceReconstruction&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl13MarchingCubesE" title="pcl::MarchingCubes::PointNT">PointNT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl13MarchingCubesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The marching cubes surface reconstruction algorithm. </p>
+<p>This is an abstract class that takes a grid and extracts the isosurface as a mesh, based on the original marching cubes paper:</p>
+<p>Lorensen W.E., Cline H.E., “Marching cubes: A high resolution 3d surface construction algorithm”, SIGGRAPH ‘87</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Alexandru E. Ichim </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_marching_cubes_hoppe.html#classpcl_1_1_marching_cubes_hoppe"><span class="std std-ref">pcl::MarchingCubesHoppe&lt; PointNT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1_marching_cubes_r_b_f.html#classpcl_1_1_marching_cubes_r_b_f"><span class="std std-ref">pcl::MarchingCubesRBF&lt; PointNT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl13MarchingCubes3PtrE">
+<span id="_CPPv3N3pcl13MarchingCubes3PtrE"></span><span id="_CPPv2N3pcl13MarchingCubes3PtrE"></span><span id="pcl::MarchingCubes::Ptr"></span><span class="target" id="classpcl_1_1_marching_cubes_1adfc0b1840bc00f7302926fe41af332cb"></span><em class="property">typedef </em>boost::shared_ptr&lt;MarchingCubes&lt;PointNT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13MarchingCubes8ConstPtrE">
+<span id="_CPPv3N3pcl13MarchingCubes8ConstPtrE"></span><span id="_CPPv2N3pcl13MarchingCubes8ConstPtrE"></span><span id="pcl::MarchingCubes::ConstPtr"></span><span class="target" id="classpcl_1_1_marching_cubes_1a20d20bc7c406d7027eec36b5e1e58365"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> MarchingCubes&lt;PointNT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13MarchingCubes13PointCloudPtrE">
+<span id="_CPPv3N3pcl13MarchingCubes13PointCloudPtrE"></span><span id="_CPPv2N3pcl13MarchingCubes13PointCloudPtrE"></span><span id="pcl::MarchingCubes::PointCloudPtr"></span><span class="target" id="classpcl_1_1_marching_cubes_1ab7b1f1accd8024a7bf04282df267717a"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointNT&gt;::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13MarchingCubes6KdTreeE">
+<span id="_CPPv3N3pcl13MarchingCubes6KdTreeE"></span><span id="_CPPv2N3pcl13MarchingCubes6KdTreeE"></span><span id="pcl::MarchingCubes::KdTree"></span><span class="target" id="classpcl_1_1_marching_cubes_1a4c54b992e0df0382e6780a672b9e3795"></span><em class="property">typedef </em>pcl::KdTree&lt;PointNT&gt; <code class="sig-name descname">KdTree</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes6KdTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13MarchingCubes9KdTreePtrE">
+<span id="_CPPv3N3pcl13MarchingCubes9KdTreePtrE"></span><span id="_CPPv2N3pcl13MarchingCubes9KdTreePtrE"></span><span id="pcl::MarchingCubes::KdTreePtr"></span><span class="target" id="classpcl_1_1_marching_cubes_1aec5f4bc77de7c7fd25908c109d8672a7"></span><em class="property">typedef </em>pcl::KdTree&lt;PointNT&gt;::Ptr <code class="sig-name descname">KdTreePtr</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes9KdTreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes13MarchingCubesEKfKf">
+<span id="_CPPv3N3pcl13MarchingCubes13MarchingCubesEKfKf"></span><span id="_CPPv2N3pcl13MarchingCubes13MarchingCubesEKfKf"></span><span id="pcl::MarchingCubes::MarchingCubes__floatC.floatC"></span><span class="target" id="classpcl_1_1_marching_cubes_1a8d13581bbfcbb943044f2e5a336bfb3d"></span><code class="sig-name descname">MarchingCubes</code><span class="sig-paren">(</span><em class="property">const</em> float <em>percentage_extend_grid</em> = 0.0f, <em class="property">const</em> float <em>iso_level</em> = 0.0f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes13MarchingCubesEKfKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubesD0Ev">
+<span id="_CPPv3N3pcl13MarchingCubesD0Ev"></span><span id="_CPPv2N3pcl13MarchingCubesD0Ev"></span><span id="pcl::MarchingCubes::~MarchingCubes"></span><span class="target" id="classpcl_1_1_marching_cubes_1afdfe5735007c26f7395baf477fab59b7"></span><code class="sig-name descname">~MarchingCubes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubesD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes11setIsoLevelEf">
+<span id="_CPPv3N3pcl13MarchingCubes11setIsoLevelEf"></span><span id="_CPPv2N3pcl13MarchingCubes11setIsoLevelEf"></span><span id="pcl::MarchingCubes::setIsoLevel__float"></span><span class="target" id="classpcl_1_1_marching_cubes_1a64dba57c71a3c123f7d6038d0fdfa4eb"></span>void <code class="sig-name descname">setIsoLevel</code><span class="sig-paren">(</span>float <em>iso_level</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes11setIsoLevelEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that sets the iso level of the surface to be extracted. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">iso_level</span></code>: the iso level. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes11getIsoLevelEv">
+<span id="_CPPv3N3pcl13MarchingCubes11getIsoLevelEv"></span><span id="_CPPv2N3pcl13MarchingCubes11getIsoLevelEv"></span><span id="pcl::MarchingCubes::getIsoLevel"></span><span class="target" id="classpcl_1_1_marching_cubes_1aa9d9ebf25d347e3c4f209be645b52c21"></span>float <code class="sig-name descname">getIsoLevel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes11getIsoLevelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that returns the iso level of the surface to be extracted. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes17setGridResolutionEiii">
+<span id="_CPPv3N3pcl13MarchingCubes17setGridResolutionEiii"></span><span id="_CPPv2N3pcl13MarchingCubes17setGridResolutionEiii"></span><span id="pcl::MarchingCubes::setGridResolution__i.i.i"></span><span class="target" id="classpcl_1_1_marching_cubes_1aa525f9b2f018d8b0011c943eefb9dcee"></span>void <code class="sig-name descname">setGridResolution</code><span class="sig-paren">(</span>int <em>res_x</em>, int <em>res_y</em>, int <em>res_z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes17setGridResolutionEiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that sets the marching cubes grid resolution. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">res_x</span></code>: the resolution of the grid along the x-axis </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">res_y</span></code>: the resolution of the grid along the y-axis </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">res_z</span></code>: the resolution of the grid along the z-axis </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes17getGridResolutionERiRiRi">
+<span id="_CPPv3N3pcl13MarchingCubes17getGridResolutionERiRiRi"></span><span id="_CPPv2N3pcl13MarchingCubes17getGridResolutionERiRiRi"></span><span id="pcl::MarchingCubes::getGridResolution__iR.iR.iR"></span><span class="target" id="classpcl_1_1_marching_cubes_1aea042206805d3f6a03bfbbef53ab0e6d"></span>void <code class="sig-name descname">getGridResolution</code><span class="sig-paren">(</span>int &amp;<em>res_x</em>, int &amp;<em>res_y</em>, int &amp;<em>res_z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes17getGridResolutionERiRiRi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method to get the marching cubes grid resolution. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">res_x</span></code>: the resolution of the grid along the x-axis </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">res_y</span></code>: the resolution of the grid along the y-axis </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">res_z</span></code>: the resolution of the grid along the z-axis </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes23setPercentageExtendGridEf">
+<span id="_CPPv3N3pcl13MarchingCubes23setPercentageExtendGridEf"></span><span id="_CPPv2N3pcl13MarchingCubes23setPercentageExtendGridEf"></span><span id="pcl::MarchingCubes::setPercentageExtendGrid__float"></span><span class="target" id="classpcl_1_1_marching_cubes_1a4c84675b01ac7e3dfd1282d2ff6bf822"></span>void <code class="sig-name descname">setPercentageExtendGrid</code><span class="sig-paren">(</span>float <em>percentage</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes23setPercentageExtendGridEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that sets the parameter that defines how much free space should be left inside the grid between the bounding box of the point cloud and the grid limits. </p>
+<p>Does not affect the resolution of the grid, it just changes the voxel size accordingly. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">percentage</span></code>: the percentage of the bounding box that should be left empty between the bounding box and the grid limits. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes23getPercentageExtendGridEv">
+<span id="_CPPv3N3pcl13MarchingCubes23getPercentageExtendGridEv"></span><span id="_CPPv2N3pcl13MarchingCubes23getPercentageExtendGridEv"></span><span id="pcl::MarchingCubes::getPercentageExtendGrid"></span><span class="target" id="classpcl_1_1_marching_cubes_1a1763c8a089cd10977e58f389291757f6"></span>float <code class="sig-name descname">getPercentageExtendGrid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes23getPercentageExtendGridEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that gets the parameter that defines how much free space should be left inside the grid between the bounding box of the point cloud and the grid limits, as a percentage of the bounding box. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes12voxelizeDataEv">
+<span id="_CPPv3N3pcl13MarchingCubes12voxelizeDataEv"></span><span id="_CPPv2N3pcl13MarchingCubes12voxelizeDataEv"></span><span id="pcl::MarchingCubes::voxelizeData"></span><span class="target" id="classpcl_1_1_marching_cubes_1a5f7430b8dfd6eecd480525959eb6c669"></span><em class="property">virtual</em> void <code class="sig-name descname">voxelizeData</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes12voxelizeDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert the point cloud into voxel data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes15interpolateEdgeERN5Eigen8Vector3fERN5Eigen8Vector3fEffRN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl13MarchingCubes15interpolateEdgeERN5Eigen8Vector3fERN5Eigen8Vector3fEffRN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl13MarchingCubes15interpolateEdgeERN5Eigen8Vector3fERN5Eigen8Vector3fEffRN5Eigen8Vector3fE"></span><span id="pcl::MarchingCubes::interpolateEdge__Eigen::Vector3fR.Eigen::Vector3fR.float.float.Eigen::Vector3fR"></span><span class="target" id="classpcl_1_1_marching_cubes_1aafe0e216b2da0d7645f7d1ba5fff8b2c"></span>void <code class="sig-name descname">interpolateEdge</code><span class="sig-paren">(</span>Eigen::Vector3f &amp;<em>p1</em>, Eigen::Vector3f &amp;<em>p2</em>, float <em>val_p1</em>, float <em>val_p2</em>, Eigen::Vector3f &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes15interpolateEdgeERN5Eigen8Vector3fERN5Eigen8Vector3fEffRN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Interpolate along the voxel edge. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p1</span></code>: The first point on the edge </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p2</span></code>: The second point on the edge </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">val_p1</span></code>: The scalar value at p1 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">val_p2</span></code>: The scalar value at p2 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: The interpolated point along the edge </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes13createSurfaceERKNSt6vectorIfEERKN5Eigen8Vector3iERN3pcl10PointCloudI7PointNTEE">
+<span id="_CPPv3N3pcl13MarchingCubes13createSurfaceERKNSt6vectorIfEERKN5Eigen8Vector3iERN3pcl10PointCloudI7PointNTEE"></span><span id="_CPPv2N3pcl13MarchingCubes13createSurfaceERKNSt6vectorIfEERKN5Eigen8Vector3iERN3pcl10PointCloudI7PointNTEE"></span><span id="pcl::MarchingCubes::createSurface__std::vector:float:CR.Eigen::Vector3iCR.pcl::PointCloud:PointNT:R"></span><span class="target" id="classpcl_1_1_marching_cubes_1acb28445ab4c23fa2dba878424b29932b"></span>void <code class="sig-name descname">createSurface</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;float&gt; &amp;<em>leaf_node</em>, <em class="property">const</em> Eigen::Vector3i &amp;<em>index_3d</em>, pcl::PointCloud&lt;PointNT&gt; &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes13createSurfaceERKNSt6vectorIfEERKN5Eigen8Vector3iERN3pcl10PointCloudI7PointNTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate out the corresponding polygons in the leaf node. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">leaf_node</span></code>: the leaf node to be checked </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index_3d</span></code>: the 3d index of the leaf node to be checked </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud</span></code>: point cloud to store the vertices of the polygon </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes14getBoundingBoxEv">
+<span id="_CPPv3N3pcl13MarchingCubes14getBoundingBoxEv"></span><span id="_CPPv2N3pcl13MarchingCubes14getBoundingBoxEv"></span><span id="pcl::MarchingCubes::getBoundingBox"></span><span class="target" id="classpcl_1_1_marching_cubes_1a9be29d409a9f84b6b5c15dde60ade1a0"></span>void <code class="sig-name descname">getBoundingBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes14getBoundingBoxEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the bounding box for the input data points. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes12getGridValueEN5Eigen8Vector3iE">
+<span id="_CPPv3N3pcl13MarchingCubes12getGridValueEN5Eigen8Vector3iE"></span><span id="_CPPv2N3pcl13MarchingCubes12getGridValueEN5Eigen8Vector3iE"></span><span id="pcl::MarchingCubes::getGridValue__Eigen::Vector3i"></span><span class="target" id="classpcl_1_1_marching_cubes_1a869ec9eeb1ec0543ab3ea67cb27fbfc9"></span>float <code class="sig-name descname">getGridValue</code><span class="sig-paren">(</span>Eigen::Vector3i <em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes12getGridValueEN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that returns the scalar value at the given grid position. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pos</span></code>: The 3D position in the grid </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes17getNeighborList1DERNSt6vectorIfEERN5Eigen8Vector3iE">
+<span id="_CPPv3N3pcl13MarchingCubes17getNeighborList1DERNSt6vectorIfEERN5Eigen8Vector3iE"></span><span id="_CPPv2N3pcl13MarchingCubes17getNeighborList1DERNSt6vectorIfEERN5Eigen8Vector3iE"></span><span id="pcl::MarchingCubes::getNeighborList1D__std::vector:float:R.Eigen::Vector3iR"></span><span class="target" id="classpcl_1_1_marching_cubes_1aee54b8224b31fad1671cec5c276d35cd"></span>void <code class="sig-name descname">getNeighborList1D</code><span class="sig-paren">(</span>std::vector&lt;float&gt; &amp;<em>leaf</em>, Eigen::Vector3i &amp;<em>index3d</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes17getNeighborList1DERNSt6vectorIfEERN5Eigen8Vector3iE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that returns the scalar values of the neighbors of a given 3D position in the grid. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index3d</span></code>: the point in the grid </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">leaf</span></code>: the set of values </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13MarchingCubes12getClassNameEv">
+<span id="_CPPv3NK3pcl13MarchingCubes12getClassNameEv"></span><span id="_CPPv2NK3pcl13MarchingCubes12getClassNameEv"></span><span id="pcl::MarchingCubes::getClassNameC"></span><span class="target" id="classpcl_1_1_marching_cubes_1ac8444e62030bb73343ebcb74dfe1ddeb"></span>std::string <code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13MarchingCubes12getClassNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class get name method. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes21performReconstructionERN3pcl11PolygonMeshE">
+<span id="_CPPv3N3pcl13MarchingCubes21performReconstructionERN3pcl11PolygonMeshE"></span><span id="_CPPv2N3pcl13MarchingCubes21performReconstructionERN3pcl11PolygonMeshE"></span><span id="pcl::MarchingCubes::performReconstruction__pcl::PolygonMeshR"></span><span class="target" id="classpcl_1_1_marching_cubes_1a8f9be8dba860549426fe3fbac21c453c"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_polygon_mesh.html#_CPPv4N3pcl11PolygonMeshE" title="pcl::PolygonMesh">PolygonMesh</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes21performReconstructionERN3pcl11PolygonMeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the surface. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant polygonal mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13MarchingCubes21performReconstructionERN3pcl10PointCloudI7PointNTEERNSt6vectorIN3pcl8VerticesEEE">
+<span id="_CPPv3N3pcl13MarchingCubes21performReconstructionERN3pcl10PointCloudI7PointNTEERNSt6vectorIN3pcl8VerticesEEE"></span><span id="_CPPv2N3pcl13MarchingCubes21performReconstructionERN3pcl10PointCloudI7PointNTEERNSt6vectorIN3pcl8VerticesEEE"></span><span id="pcl::MarchingCubes::performReconstruction__pcl::PointCloud:PointNT:R.std::vector:pcl::Vertices:R"></span><span class="target" id="classpcl_1_1_marching_cubes_1a9dfd91eba77209ce1f1e67d2571aa14d"></span>void <code class="sig-name descname">performReconstruction</code><span class="sig-paren">(</span>pcl::PointCloud&lt;PointNT&gt; &amp;<em>points</em>, std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_vertices.html#_CPPv4N3pcl8VerticesE" title="pcl::Vertices">Vertices</a>&gt; &amp;<em>polygons</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes21performReconstructionERN3pcl10PointCloudI7PointNTEERNSt6vectorIN3pcl8VerticesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract the surface. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">points</span></code>: the points of the extracted mesh </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">polygons</span></code>: the connectivity between the point of the extracted mesh. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl13MarchingCubes5grid_E">
+<span id="_CPPv3N3pcl13MarchingCubes5grid_E"></span><span id="_CPPv2N3pcl13MarchingCubes5grid_E"></span><span id="pcl::MarchingCubes::grid___std::vector:float:"></span><span class="target" id="classpcl_1_1_marching_cubes_1a1fe3ace141259294aa47489cf0d8a83c"></span>std::vector&lt;float&gt; <code class="sig-name descname">grid_</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes5grid_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The data structure storing the 3D grid. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13MarchingCubes6res_x_E">
+<span id="_CPPv3N3pcl13MarchingCubes6res_x_E"></span><span id="_CPPv2N3pcl13MarchingCubes6res_x_E"></span><span id="pcl::MarchingCubes::res_x___i"></span><span class="target" id="classpcl_1_1_marching_cubes_1a206a6bc55b35bc64c27179c1a303e4d1"></span>int <code class="sig-name descname">res_x_</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes6res_x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The grid resolution. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13MarchingCubes6res_y_E">
+<span id="_CPPv3N3pcl13MarchingCubes6res_y_E"></span><span id="_CPPv2N3pcl13MarchingCubes6res_y_E"></span><span id="pcl::MarchingCubes::res_y___i"></span><span class="target" id="classpcl_1_1_marching_cubes_1a9554a259acd2469adc16ae36244215fc"></span>int <code class="sig-name descname">res_y_</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes6res_y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13MarchingCubes6res_z_E">
+<span id="_CPPv3N3pcl13MarchingCubes6res_z_E"></span><span id="_CPPv2N3pcl13MarchingCubes6res_z_E"></span><span id="pcl::MarchingCubes::res_z___i"></span><span class="target" id="classpcl_1_1_marching_cubes_1ac45e5686ebb864addfcbad1ee60cf362"></span>int <code class="sig-name descname">res_z_</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes6res_z_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13MarchingCubes15upper_boundary_E">
+<span id="_CPPv3N3pcl13MarchingCubes15upper_boundary_E"></span><span id="_CPPv2N3pcl13MarchingCubes15upper_boundary_E"></span><span id="pcl::MarchingCubes::upper_boundary___Eigen::Array3f"></span><span class="target" id="classpcl_1_1_marching_cubes_1a5aa1c48c038e2b254da273e7c4732048"></span>Eigen::Array3f <code class="sig-name descname">upper_boundary_</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes15upper_boundary_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>bounding box </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13MarchingCubes15lower_boundary_E">
+<span id="_CPPv3N3pcl13MarchingCubes15lower_boundary_E"></span><span id="_CPPv2N3pcl13MarchingCubes15lower_boundary_E"></span><span id="pcl::MarchingCubes::lower_boundary___Eigen::Array3f"></span><span class="target" id="classpcl_1_1_marching_cubes_1ae9080248256274804408ed6e6c64bb0b"></span>Eigen::Array3f <code class="sig-name descname">lower_boundary_</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes15lower_boundary_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13MarchingCubes11size_voxel_E">
+<span id="_CPPv3N3pcl13MarchingCubes11size_voxel_E"></span><span id="_CPPv2N3pcl13MarchingCubes11size_voxel_E"></span><span id="pcl::MarchingCubes::size_voxel___Eigen::Array3f"></span><span class="target" id="classpcl_1_1_marching_cubes_1a8bd249feefa494f22da2c9890d110024"></span>Eigen::Array3f <code class="sig-name descname">size_voxel_</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes11size_voxel_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>size of voxels </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13MarchingCubes23percentage_extend_grid_E">
+<span id="_CPPv3N3pcl13MarchingCubes23percentage_extend_grid_E"></span><span id="_CPPv2N3pcl13MarchingCubes23percentage_extend_grid_E"></span><span id="pcl::MarchingCubes::percentage_extend_grid___float"></span><span class="target" id="classpcl_1_1_marching_cubes_1a939a63ca1f45d1845526672b2de31b69"></span>float <code class="sig-name descname">percentage_extend_grid_</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes23percentage_extend_grid_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Parameter that defines how much free space should be left inside the grid between the bounding box of the point cloud and the grid limits, as a percentage of the bounding box. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13MarchingCubes10iso_level_E">
+<span id="_CPPv3N3pcl13MarchingCubes10iso_level_E"></span><span id="_CPPv2N3pcl13MarchingCubes10iso_level_E"></span><span id="pcl::MarchingCubes::iso_level___float"></span><span class="target" id="classpcl_1_1_marching_cubes_1a68c8035d359bd6f6716be4b62e199c5c"></span>float <code class="sig-name descname">iso_level_</code><a class="headerlink" href="#_CPPv4N3pcl13MarchingCubes10iso_level_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The iso level to be extracted. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

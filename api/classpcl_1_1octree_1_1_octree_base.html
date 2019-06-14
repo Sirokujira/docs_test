@@ -1,0 +1,1048 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class OctreeBase &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class OctreeBase</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1octree_1_1_octree_base.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-octreebase">
+<span id="exhale-class-classpcl-1-1octree-1-1-octree-base"></span><h1>Template Class OctreeBase<a class="headerlink" href="#template-class-octreebase" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_octree_include_pcl_octree_octree_base.h.html#file-pcl-octree-include-pcl-octree-octree-base-h"><span class="std std-ref">File octree_base.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreePointCloud&lt;</span> <span class="pre">PointT,</span> <span class="pre">LeafContainerT,</span> <span class="pre">BranchContainerT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud.html#exhale-class-classpcl-1-1octree-1-1-octree-point-cloud"><span class="std std-ref">Template Class OctreePointCloud</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::octree::OctreePointCloud&lt;</span> <span class="pre">PointT,</span> <span class="pre">LeafContainerT,</span> <span class="pre">BranchContainerT,</span> <span class="pre">OctreeBase&lt;</span> <span class="pre">LeafContainerT,</span> <span class="pre">BranchContainerT</span> <span class="pre">&gt;</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud.html#exhale-class-classpcl-1-1octree-1-1-octree-point-cloud"><span class="std std-ref">Template Class OctreePointCloud</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl6octree10OctreeBaseE">
+<span id="_CPPv3I00EN3pcl6octree10OctreeBaseE"></span><span id="_CPPv2I00EN3pcl6octree10OctreeBaseE"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base"></span>template&lt;typename <code class="sig-name descname">LeafContainerT</code> = int, typename <code class="sig-name descname">BranchContainerT</code> = <a class="reference internal" href="classpcl_1_1octree_1_1_octree_container_empty.html#_CPPv4N3pcl6octree20OctreeContainerEmptyE" title="pcl::octree::OctreeContainerEmpty">OctreeContainerEmpty</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">OctreeBase</code><a class="headerlink" href="#_CPPv4I00EN3pcl6octree10OctreeBaseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Octree class. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The tree depth defines the maximum amount of octree voxels / leaf nodes (should be initially defined). </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>All leaf nodes are addressed by integer indices. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>Note: The tree depth equates to the bit length of the voxel indices.</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Julius Kammerl (<a class="reference external" href="mailto:julius&#37;&#52;&#48;kammerl&#46;de">julius<span>&#64;</span>kammerl<span>&#46;</span>de</a>) </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud.html#classpcl_1_1octree_1_1_octree_point_cloud"><span class="std std-ref">pcl::octree::OctreePointCloud&lt; PointT, LeafContainerT, BranchContainerT &gt;</span></a>, <a class="reference internal" href="classpcl_1_1octree_1_1_octree_point_cloud.html#classpcl_1_1octree_1_1_octree_point_cloud"><span class="std std-ref">pcl::octree::OctreePointCloud&lt; PointT, LeafContainerT, BranchContainerT, OctreeBase&lt; LeafContainerT, BranchContainerT &gt; &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase7OctreeTE">
+<span id="_CPPv3N3pcl6octree10OctreeBase7OctreeTE"></span><span id="_CPPv2N3pcl6octree10OctreeBase7OctreeTE"></span><span id="pcl::octree::OctreeBase::OctreeT"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a75c739169220404bd10cb1a8daf9d26e"></span><em class="property">typedef </em>OctreeBase&lt;LeafContainerT, BranchContainerT&gt; <code class="sig-name descname">OctreeT</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10BranchNodeE">
+<span id="_CPPv3N3pcl6octree10OctreeBase10BranchNodeE"></span><span id="_CPPv2N3pcl6octree10OctreeBase10BranchNodeE"></span><span id="pcl::octree::OctreeBase::BranchNode"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a59d89fa2baebe87e9f40f82b3fafdce9"></span><em class="property">typedef </em>OctreeBranchNode&lt;BranchContainerT&gt; <code class="sig-name descname">BranchNode</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase8LeafNodeE">
+<span id="_CPPv3N3pcl6octree10OctreeBase8LeafNodeE"></span><span id="_CPPv2N3pcl6octree10OctreeBase8LeafNodeE"></span><span id="pcl::octree::OctreeBase::LeafNode"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ae5c5e3243297d85e138962225a8cef98"></span><em class="property">typedef </em>OctreeLeafNode&lt;LeafContainerT&gt; <code class="sig-name descname">LeafNode</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase8LeafNodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase15BranchContainerE">
+<span id="_CPPv3N3pcl6octree10OctreeBase15BranchContainerE"></span><span id="_CPPv2N3pcl6octree10OctreeBase15BranchContainerE"></span><span id="pcl::octree::OctreeBase::BranchContainer"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ace34402a120c21a7e1e6b9c7a82dd781"></span><em class="property">typedef </em>BranchContainerT <code class="sig-name descname">BranchContainer</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase15BranchContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase13LeafContainerE">
+<span id="_CPPv3N3pcl6octree10OctreeBase13LeafContainerE"></span><span id="_CPPv2N3pcl6octree10OctreeBase13LeafContainerE"></span><span id="pcl::octree::OctreeBase::LeafContainer"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ac06e5e8e54bc3365aabf05b0cf895acd"></span><em class="property">typedef </em>LeafContainerT <code class="sig-name descname">LeafContainer</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase13LeafContainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase8IteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase8IteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase8IteratorE"></span><span id="pcl::octree::OctreeBase::Iterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a074dafbb60d1b44f539da230f05e3691"></span><em class="property">typedef </em>OctreeDepthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">Iterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase8IteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase13ConstIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase13ConstIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase13ConstIteratorE"></span><span id="pcl::octree::OctreeBase::ConstIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1adc245e92766188028f9a59273a59f37d"></span><em class="property">typedef </em><em class="property">const</em> OctreeDepthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">ConstIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase13ConstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase16LeafNodeIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase16LeafNodeIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase16LeafNodeIteratorE"></span><span id="pcl::octree::OctreeBase::LeafNodeIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1af6761e5aa6e6135390765a4fe669c03e"></span><em class="property">typedef </em>OctreeLeafNodeDepthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">LeafNodeIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase16LeafNodeIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase21ConstLeafNodeIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase21ConstLeafNodeIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase21ConstLeafNodeIteratorE"></span><span id="pcl::octree::OctreeBase::ConstLeafNodeIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a91177ea67eaeccb99c6c493cdb505d4d"></span><em class="property">typedef </em><em class="property">const</em> OctreeLeafNodeDepthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">ConstLeafNodeIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase21ConstLeafNodeIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase26LeafNodeDepthFirstIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase26LeafNodeDepthFirstIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase26LeafNodeDepthFirstIteratorE"></span><span id="pcl::octree::OctreeBase::LeafNodeDepthFirstIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a952acc00ddc9c580d9b0985e5aa961f1"></span><em class="property">typedef </em>OctreeLeafNodeDepthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">LeafNodeDepthFirstIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase26LeafNodeDepthFirstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase31ConstLeafNodeDepthFirstIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase31ConstLeafNodeDepthFirstIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase31ConstLeafNodeDepthFirstIteratorE"></span><span id="pcl::octree::OctreeBase::ConstLeafNodeDepthFirstIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ac66d01d623bbef244362775f731ef9ea"></span><em class="property">typedef </em><em class="property">const</em> OctreeLeafNodeDepthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">ConstLeafNodeDepthFirstIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase31ConstLeafNodeDepthFirstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase18DepthFirstIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase18DepthFirstIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase18DepthFirstIteratorE"></span><span id="pcl::octree::OctreeBase::DepthFirstIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1aa56d6e9a0bc7a5cc55ec3229a3e685ba"></span><em class="property">typedef </em>OctreeDepthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">DepthFirstIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase18DepthFirstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase23ConstDepthFirstIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase23ConstDepthFirstIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase23ConstDepthFirstIteratorE"></span><span id="pcl::octree::OctreeBase::ConstDepthFirstIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a6c957452dc76d7c7014901affd6993c5"></span><em class="property">typedef </em><em class="property">const</em> OctreeDepthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">ConstDepthFirstIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase23ConstDepthFirstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase20BreadthFirstIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase20BreadthFirstIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase20BreadthFirstIteratorE"></span><span id="pcl::octree::OctreeBase::BreadthFirstIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a0a49f93bc114440e695c9a5853cbe348"></span><em class="property">typedef </em>OctreeBreadthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">BreadthFirstIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase20BreadthFirstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase25ConstBreadthFirstIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase25ConstBreadthFirstIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase25ConstBreadthFirstIteratorE"></span><span id="pcl::octree::OctreeBase::ConstBreadthFirstIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a93f4e0b8aacde941fe102914e543e1f4"></span><em class="property">typedef </em><em class="property">const</em> OctreeBreadthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">ConstBreadthFirstIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase25ConstBreadthFirstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase18FixedDepthIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase18FixedDepthIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase18FixedDepthIteratorE"></span><span id="pcl::octree::OctreeBase::FixedDepthIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a7bbbc253fb46908c85b9d7b2d8f057eb"></span><em class="property">typedef </em>OctreeFixedDepthIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">FixedDepthIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase18FixedDepthIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase23ConstFixedDepthIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase23ConstFixedDepthIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase23ConstFixedDepthIteratorE"></span><span id="pcl::octree::OctreeBase::ConstFixedDepthIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a217e0308cf7c774a85d300b81b1f62ca"></span><em class="property">typedef </em><em class="property">const</em> OctreeFixedDepthIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">ConstFixedDepthIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase23ConstFixedDepthIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase28LeafNodeBreadthFirstIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase28LeafNodeBreadthFirstIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase28LeafNodeBreadthFirstIteratorE"></span><span id="pcl::octree::OctreeBase::LeafNodeBreadthFirstIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a55a1ffc0e923fe960bbe67998a6a910c"></span><em class="property">typedef </em>OctreeLeafNodeBreadthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">LeafNodeBreadthFirstIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase28LeafNodeBreadthFirstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl6octree10OctreeBase33ConstLeafNodeBreadthFirstIteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase33ConstLeafNodeBreadthFirstIteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase33ConstLeafNodeBreadthFirstIteratorE"></span><span id="pcl::octree::OctreeBase::ConstLeafNodeBreadthFirstIterator"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a99385d226de3d5703d039b7559443e2d"></span><em class="property">typedef </em><em class="property">const</em> OctreeLeafNodeBreadthFirstIterator&lt;<a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase7OctreeTE" title="pcl::octree::OctreeBase::OctreeT">OctreeT</a>&gt; <code class="sig-name descname">ConstLeafNodeBreadthFirstIterator</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase33ConstLeafNodeBreadthFirstIteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase5beginEj">
+<span id="_CPPv3N3pcl6octree10OctreeBase5beginEj"></span><span id="_CPPv2N3pcl6octree10OctreeBase5beginEj"></span><span id="pcl::octree::OctreeBase::begin__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ae5d0a4d66499bdae73b13f37698f4275"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase8IteratorE" title="pcl::octree::OctreeBase::Iterator">Iterator</a> <code class="sig-name descname">begin</code><span class="sig-paren">(</span>unsigned int <em>max_depth_arg</em> = 0u<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase5beginEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase3endEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase3endEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase3endEv"></span><span id="pcl::octree::OctreeBase::end"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1aa3dd39dddf230b39a2fc045ec103abb7"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase8IteratorE" title="pcl::octree::OctreeBase::Iterator">Iterator</a> <code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase3endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10leaf_beginEj">
+<span id="_CPPv3N3pcl6octree10OctreeBase10leaf_beginEj"></span><span id="_CPPv2N3pcl6octree10OctreeBase10leaf_beginEj"></span><span id="pcl::octree::OctreeBase::leaf_begin__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a7b1dce3e450fcfadf04383c0326d10d7"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase16LeafNodeIteratorE" title="pcl::octree::OctreeBase::LeafNodeIterator">LeafNodeIterator</a> <code class="sig-name descname">leaf_begin</code><span class="sig-paren">(</span>unsigned int <em>max_depth_arg</em> = 0u<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10leaf_beginEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase8leaf_endEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase8leaf_endEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase8leaf_endEv"></span><span id="pcl::octree::OctreeBase::leaf_end"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a1e14d8fab1cfd74381c27aadf6d8b093"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase16LeafNodeIteratorE" title="pcl::octree::OctreeBase::LeafNodeIterator">LeafNodeIterator</a> <code class="sig-name descname">leaf_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase8leaf_endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase16leaf_depth_beginEj">
+<span id="_CPPv3N3pcl6octree10OctreeBase16leaf_depth_beginEj"></span><span id="_CPPv2N3pcl6octree10OctreeBase16leaf_depth_beginEj"></span><span id="pcl::octree::OctreeBase::leaf_depth_begin__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a76ca0b3561226269765c0fe292cd85ae"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase26LeafNodeDepthFirstIteratorE" title="pcl::octree::OctreeBase::LeafNodeDepthFirstIterator">LeafNodeDepthFirstIterator</a> <code class="sig-name descname">leaf_depth_begin</code><span class="sig-paren">(</span>unsigned int <em>max_depth_arg</em> = 0u<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase16leaf_depth_beginEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase14leaf_depth_endEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase14leaf_depth_endEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase14leaf_depth_endEv"></span><span id="pcl::octree::OctreeBase::leaf_depth_end"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ab82c8d6f2284512476bccd15c2f3a89b"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase26LeafNodeDepthFirstIteratorE" title="pcl::octree::OctreeBase::LeafNodeDepthFirstIterator">LeafNodeDepthFirstIterator</a> <code class="sig-name descname">leaf_depth_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase14leaf_depth_endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase11depth_beginEj">
+<span id="_CPPv3N3pcl6octree10OctreeBase11depth_beginEj"></span><span id="_CPPv2N3pcl6octree10OctreeBase11depth_beginEj"></span><span id="pcl::octree::OctreeBase::depth_begin__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a4a6e0b67242fcfc849c82fe5da19253e"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase18DepthFirstIteratorE" title="pcl::octree::OctreeBase::DepthFirstIterator">DepthFirstIterator</a> <code class="sig-name descname">depth_begin</code><span class="sig-paren">(</span>unsigned int <em>max_depth_arg</em> = 0u<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase11depth_beginEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase9depth_endEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase9depth_endEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase9depth_endEv"></span><span id="pcl::octree::OctreeBase::depth_end"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1aeb2f5f162fc65bea502e16a4d440e3c3"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase18DepthFirstIteratorE" title="pcl::octree::OctreeBase::DepthFirstIterator">DepthFirstIterator</a> <code class="sig-name descname">depth_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase9depth_endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase13breadth_beginEj">
+<span id="_CPPv3N3pcl6octree10OctreeBase13breadth_beginEj"></span><span id="_CPPv2N3pcl6octree10OctreeBase13breadth_beginEj"></span><span id="pcl::octree::OctreeBase::breadth_begin__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a032f2e31ff9913b2cfb236bc708cbe4e"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase20BreadthFirstIteratorE" title="pcl::octree::OctreeBase::BreadthFirstIterator">BreadthFirstIterator</a> <code class="sig-name descname">breadth_begin</code><span class="sig-paren">(</span>unsigned int <em>max_depth_arg</em> = 0u<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase13breadth_beginEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase11breadth_endEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase11breadth_endEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase11breadth_endEv"></span><span id="pcl::octree::OctreeBase::breadth_end"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a3c6d18a296ed5f2667a4b6a511d46575"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase20BreadthFirstIteratorE" title="pcl::octree::OctreeBase::BreadthFirstIterator">BreadthFirstIterator</a> <code class="sig-name descname">breadth_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase11breadth_endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase17fixed_depth_beginEj">
+<span id="_CPPv3N3pcl6octree10OctreeBase17fixed_depth_beginEj"></span><span id="_CPPv2N3pcl6octree10OctreeBase17fixed_depth_beginEj"></span><span id="pcl::octree::OctreeBase::fixed_depth_begin__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a070973c513a7aee802d88a85c9ddc74e"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase18FixedDepthIteratorE" title="pcl::octree::OctreeBase::FixedDepthIterator">FixedDepthIterator</a> <code class="sig-name descname">fixed_depth_begin</code><span class="sig-paren">(</span>unsigned int <em>fixed_depth_arg</em> = 0u<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase17fixed_depth_beginEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase15fixed_depth_endEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase15fixed_depth_endEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase15fixed_depth_endEv"></span><span id="pcl::octree::OctreeBase::fixed_depth_end"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a84ee696e39f092b29d0b5e596dc70396"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase18FixedDepthIteratorE" title="pcl::octree::OctreeBase::FixedDepthIterator">FixedDepthIterator</a> <code class="sig-name descname">fixed_depth_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase15fixed_depth_endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase18leaf_breadth_beginEj">
+<span id="_CPPv3N3pcl6octree10OctreeBase18leaf_breadth_beginEj"></span><span id="_CPPv2N3pcl6octree10OctreeBase18leaf_breadth_beginEj"></span><span id="pcl::octree::OctreeBase::leaf_breadth_begin__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1aa494708e1fb6d02f4520babf3c00eb79"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase28LeafNodeBreadthFirstIteratorE" title="pcl::octree::OctreeBase::LeafNodeBreadthFirstIterator">LeafNodeBreadthFirstIterator</a> <code class="sig-name descname">leaf_breadth_begin</code><span class="sig-paren">(</span>unsigned int <em>max_depth_arg</em> = 0u<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase18leaf_breadth_beginEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase16leaf_breadth_endEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase16leaf_breadth_endEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase16leaf_breadth_endEv"></span><span id="pcl::octree::OctreeBase::leaf_breadth_end"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a118294b7fb44a899326ef876edc65ec4"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase28LeafNodeBreadthFirstIteratorE" title="pcl::octree::OctreeBase::LeafNodeBreadthFirstIterator">LeafNodeBreadthFirstIterator</a> <code class="sig-name descname">leaf_breadth_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase16leaf_breadth_endEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10OctreeBaseEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase10OctreeBaseEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase10OctreeBaseEv"></span><span id="pcl::octree::OctreeBase::OctreeBase"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ae7fe4a307dc3c87adefb3bac2758a862"></span><code class="sig-name descname">OctreeBase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10OctreeBaseEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBaseD0Ev">
+<span id="_CPPv3N3pcl6octree10OctreeBaseD0Ev"></span><span id="_CPPv2N3pcl6octree10OctreeBaseD0Ev"></span><span id="pcl::octree::OctreeBase::~OctreeBase"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a3576546beaf804d801ca93c541d76697"></span><code class="sig-name descname">~OctreeBase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBaseD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty deconstructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10OctreeBaseERK10OctreeBase">
+<span id="_CPPv3N3pcl6octree10OctreeBase10OctreeBaseERK10OctreeBase"></span><span id="_CPPv2N3pcl6octree10OctreeBase10OctreeBaseERK10OctreeBase"></span><span id="pcl::octree::OctreeBase::OctreeBase__OctreeBaseCR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ad76bd21badf86e9b47d0c8689f6a860b"></span><code class="sig-name descname">OctreeBase</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10OctreeBaseEv" title="pcl::octree::OctreeBase::OctreeBase">OctreeBase</a> &amp;<em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10OctreeBaseERK10OctreeBase" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBaseaSERK10OctreeBase">
+<span id="_CPPv3N3pcl6octree10OctreeBaseaSERK10OctreeBase"></span><span id="_CPPv2N3pcl6octree10OctreeBaseaSERK10OctreeBase"></span><span id="pcl::octree::OctreeBase::assign-operator__OctreeBaseCR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1aae40b7560b7aaa1f70d95bc95e093601"></span>OctreeBase &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> OctreeBase &amp;<em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBaseaSERK10OctreeBase" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy operator. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase16setMaxVoxelIndexEj">
+<span id="_CPPv3N3pcl6octree10OctreeBase16setMaxVoxelIndexEj"></span><span id="_CPPv2N3pcl6octree10OctreeBase16setMaxVoxelIndexEj"></span><span id="pcl::octree::OctreeBase::setMaxVoxelIndex__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a2b65a6dadccce46ef7c2434f80d907d7"></span>void <code class="sig-name descname">setMaxVoxelIndex</code><span class="sig-paren">(</span>unsigned int <em>max_voxel_index_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase16setMaxVoxelIndexEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum amount of voxels per dimension. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_voxel_index_arg</span></code>: maximum amount of voxels per dimension </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase12setTreeDepthEj">
+<span id="_CPPv3N3pcl6octree10OctreeBase12setTreeDepthEj"></span><span id="_CPPv2N3pcl6octree10OctreeBase12setTreeDepthEj"></span><span id="pcl::octree::OctreeBase::setTreeDepth__unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1af7de0fe2ec6f460d6e448b846318526b"></span>void <code class="sig-name descname">setTreeDepth</code><span class="sig-paren">(</span>unsigned int <em>max_depth_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase12setTreeDepthEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum depth of the octree. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth_arg</span></code>: maximum depth of octree </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase12getTreeDepthEv">
+<span id="_CPPv3NK3pcl6octree10OctreeBase12getTreeDepthEv"></span><span id="_CPPv2NK3pcl6octree10OctreeBase12getTreeDepthEv"></span><span id="pcl::octree::OctreeBase::getTreeDepthC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1aaedf340984f00bf088c8fac94fb176d7"></span>unsigned int <code class="sig-name descname">getTreeDepth</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase12getTreeDepthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum depth of the octree. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>depth_arg: maximum depth of octree </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10createLeafEjjj">
+<span id="_CPPv3N3pcl6octree10OctreeBase10createLeafEjjj"></span><span id="_CPPv2N3pcl6octree10OctreeBase10createLeafEjjj"></span><span id="pcl::octree::OctreeBase::createLeaf__unsigned-i.unsigned-i.unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a62ea5ae9440654d09b0db929675ed5da"></span>LeafContainerT *<code class="sig-name descname">createLeaf</code><span class="sig-paren">(</span>unsigned int <em>idx_x_arg</em>, unsigned int <em>idx_y_arg</em>, unsigned int <em>idx_z_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10createLeafEjjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create new leaf node at (idx_x_arg, idx_y_arg, idx_z_arg). </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>If leaf node already exist, this method returns the existing node </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>pointer to new leaf node container. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_x_arg</span></code>: index of leaf node in the X axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_y_arg</span></code>: index of leaf node in the Y axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_z_arg</span></code>: index of leaf node in the Z axis. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase8findLeafEjjj">
+<span id="_CPPv3N3pcl6octree10OctreeBase8findLeafEjjj"></span><span id="_CPPv2N3pcl6octree10OctreeBase8findLeafEjjj"></span><span id="pcl::octree::OctreeBase::findLeaf__unsigned-i.unsigned-i.unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a8cb31ab9a56944b96eef0ace8dedacbe"></span>LeafContainerT *<code class="sig-name descname">findLeaf</code><span class="sig-paren">(</span>unsigned int <em>idx_x_arg</em>, unsigned int <em>idx_y_arg</em>, unsigned int <em>idx_z_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase8findLeafEjjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Find leaf node at (idx_x_arg, idx_y_arg, idx_z_arg). </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>If leaf node already exist, this method returns the existing node </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>pointer to leaf node container if found, null pointer otherwise. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_x_arg</span></code>: index of leaf node in the X axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_y_arg</span></code>: index of leaf node in the Y axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_z_arg</span></code>: index of leaf node in the Z axis. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase9existLeafEjjj">
+<span id="_CPPv3NK3pcl6octree10OctreeBase9existLeafEjjj"></span><span id="_CPPv2NK3pcl6octree10OctreeBase9existLeafEjjj"></span><span id="pcl::octree::OctreeBase::existLeaf__unsigned-i.unsigned-i.unsigned-iC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1adde845dfa80aec70762f8297e2b2e97c"></span>bool <code class="sig-name descname">existLeaf</code><span class="sig-paren">(</span>unsigned int <em>idx_x_arg</em>, unsigned int <em>idx_y_arg</em>, unsigned int <em>idx_z_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase9existLeafEjjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>idx_x_arg for the existence of leaf node at (idx_x_arg, idx_y_arg, idx_z_arg). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if leaf node search is successful, otherwise it returns “false”. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_x_arg</span></code>: index of leaf node in the X axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_y_arg</span></code>: index of leaf node in the Y axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_z_arg</span></code>: index of leaf node in the Z axis. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10removeLeafEjjj">
+<span id="_CPPv3N3pcl6octree10OctreeBase10removeLeafEjjj"></span><span id="_CPPv2N3pcl6octree10OctreeBase10removeLeafEjjj"></span><span id="pcl::octree::OctreeBase::removeLeaf__unsigned-i.unsigned-i.unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1af316c0dedeb707141de115778016c969"></span>void <code class="sig-name descname">removeLeaf</code><span class="sig-paren">(</span>unsigned int <em>idx_x_arg</em>, unsigned int <em>idx_y_arg</em>, unsigned int <em>idx_z_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10removeLeafEjjj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove leaf node at (idx_x_arg, idx_y_arg, idx_z_arg). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_x_arg</span></code>: index of leaf node in the X axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_y_arg</span></code>: index of leaf node in the Y axis. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx_z_arg</span></code>: index of leaf node in the Z axis. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase12getLeafCountEv">
+<span id="_CPPv3NK3pcl6octree10OctreeBase12getLeafCountEv"></span><span id="_CPPv2NK3pcl6octree10OctreeBase12getLeafCountEv"></span><span id="pcl::octree::OctreeBase::getLeafCountC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ac2bed940d92096c56cb9efc08aee0af9"></span>std::size_t <code class="sig-name descname">getLeafCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase12getLeafCountEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the amount of existing leafs in the octree. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>amount of registered leaf nodes. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase14getBranchCountEv">
+<span id="_CPPv3NK3pcl6octree10OctreeBase14getBranchCountEv"></span><span id="_CPPv2NK3pcl6octree10OctreeBase14getBranchCountEv"></span><span id="pcl::octree::OctreeBase::getBranchCountC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a6969af4d54d7c8d41b16cc00579744d0"></span>std::size_t <code class="sig-name descname">getBranchCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase14getBranchCountEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the amount of existing branch nodes in the octree. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>amount of branch nodes. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10deleteTreeEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase10deleteTreeEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase10deleteTreeEv"></span><span id="pcl::octree::OctreeBase::deleteTree"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a9abc561a4c6672aba260f688c8250682"></span>void <code class="sig-name descname">deleteTree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10deleteTreeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete the octree structure and its leaf nodes. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase13serializeTreeERNSt6vectorIcEE">
+<span id="_CPPv3N3pcl6octree10OctreeBase13serializeTreeERNSt6vectorIcEE"></span><span id="_CPPv2N3pcl6octree10OctreeBase13serializeTreeERNSt6vectorIcEE"></span><span id="pcl::octree::OctreeBase::serializeTree__std::vector:c:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1aa0be9db52726ff7e1e58fd384e0f5e54"></span>void <code class="sig-name descname">serializeTree</code><span class="sig-paren">(</span>std::vector&lt;char&gt; &amp;<em>binary_tree_out_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase13serializeTreeERNSt6vectorIcEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Serialize octree into a binary output vector describing its branch node structure. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">binary_tree_out_arg</span></code>: reference to output vector for writing binary tree structure. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase13serializeTreeERNSt6vectorIcEERNSt6vectorIP14LeafContainerTEE">
+<span id="_CPPv3N3pcl6octree10OctreeBase13serializeTreeERNSt6vectorIcEERNSt6vectorIP14LeafContainerTEE"></span><span id="_CPPv2N3pcl6octree10OctreeBase13serializeTreeERNSt6vectorIcEERNSt6vectorIP14LeafContainerTEE"></span><span id="pcl::octree::OctreeBase::serializeTree__std::vector:c:R.std::vector:LeafContainerTP:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a899bd26d9484f061238c915b354ec7db"></span>void <code class="sig-name descname">serializeTree</code><span class="sig-paren">(</span>std::vector&lt;char&gt; &amp;<em>binary_tree_out_arg</em>, std::vector&lt;LeafContainerT *&gt; &amp;<em>leaf_container_vector_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase13serializeTreeERNSt6vectorIcEERNSt6vectorIP14LeafContainerTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Serialize octree into a binary output vector describing its branch node structure and push all LeafContainerT elements stored in the octree to a vector. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">binary_tree_out_arg</span></code>: reference to output vector for writing binary tree structure. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leaf_container_vector_arg</span></code>: pointer to all LeafContainerT objects in the octree </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase14serializeLeafsERNSt6vectorIP14LeafContainerTEE">
+<span id="_CPPv3N3pcl6octree10OctreeBase14serializeLeafsERNSt6vectorIP14LeafContainerTEE"></span><span id="_CPPv2N3pcl6octree10OctreeBase14serializeLeafsERNSt6vectorIP14LeafContainerTEE"></span><span id="pcl::octree::OctreeBase::serializeLeafs__std::vector:LeafContainerTP:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a20f6c31b2fe390d5212246a5e73be68a"></span>void <code class="sig-name descname">serializeLeafs</code><span class="sig-paren">(</span>std::vector&lt;LeafContainerT *&gt; &amp;<em>leaf_container_vector_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase14serializeLeafsERNSt6vectorIP14LeafContainerTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Outputs a vector of all LeafContainerT elements that are stored within the octree leaf nodes. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">leaf_container_vector_arg</span></code>: pointers to LeafContainerT vector that receives a copy of all LeafContainerT objects in the octree. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase15deserializeTreeERNSt6vectorIcEE">
+<span id="_CPPv3N3pcl6octree10OctreeBase15deserializeTreeERNSt6vectorIcEE"></span><span id="_CPPv2N3pcl6octree10OctreeBase15deserializeTreeERNSt6vectorIcEE"></span><span id="pcl::octree::OctreeBase::deserializeTree__std::vector:c:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a7fcd3895195eb4102f46d4d54826f554"></span>void <code class="sig-name descname">deserializeTree</code><span class="sig-paren">(</span>std::vector&lt;char&gt; &amp;<em>binary_tree_input_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase15deserializeTreeERNSt6vectorIcEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deserialize a binary octree description vector and create a corresponding octree structure. </p>
+<p>Leaf nodes are initialized with getDataTByKey(..). <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">binary_tree_input_arg</span></code>: reference to input vector for reading binary tree structure. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase15deserializeTreeERNSt6vectorIcEERNSt6vectorIP14LeafContainerTEE">
+<span id="_CPPv3N3pcl6octree10OctreeBase15deserializeTreeERNSt6vectorIcEERNSt6vectorIP14LeafContainerTEE"></span><span id="_CPPv2N3pcl6octree10OctreeBase15deserializeTreeERNSt6vectorIcEERNSt6vectorIP14LeafContainerTEE"></span><span id="pcl::octree::OctreeBase::deserializeTree__std::vector:c:R.std::vector:LeafContainerTP:R"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1adda10dbbe2a2a101cadebf0c659f6f9a"></span>void <code class="sig-name descname">deserializeTree</code><span class="sig-paren">(</span>std::vector&lt;char&gt; &amp;<em>binary_tree_input_arg</em>, std::vector&lt;LeafContainerT *&gt; &amp;<em>leaf_container_vector_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase15deserializeTreeERNSt6vectorIcEERNSt6vectorIP14LeafContainerTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deserialize a binary octree description and create a corresponding octree structure. </p>
+<p>Leaf nodes are initialized with LeafContainerT elements from the dataVector. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">binary_tree_input_arg</span></code>: reference to input vector for reading binary tree structure. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leaf_container_vector_arg</span></code>: pointer to container vector. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10createLeafERK9OctreeKey">
+<span id="_CPPv3N3pcl6octree10OctreeBase10createLeafERK9OctreeKey"></span><span id="_CPPv2N3pcl6octree10OctreeBase10createLeafERK9OctreeKey"></span><span id="pcl::octree::OctreeBase::createLeaf__OctreeKeyCR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a9bb6a5ef1f56528bf949e4c3e9b3dcdc"></span>LeafContainerT *<code class="sig-name descname">createLeaf</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10createLeafERK9OctreeKey" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a leaf node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>pointer to leaf node </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: octree key addressing a leaf node. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase8findLeafERK9OctreeKey">
+<span id="_CPPv3NK3pcl6octree10OctreeBase8findLeafERK9OctreeKey"></span><span id="_CPPv2NK3pcl6octree10OctreeBase8findLeafERK9OctreeKey"></span><span id="pcl::octree::OctreeBase::findLeaf__OctreeKeyCRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a08e5792b29cd493d54ba400a23505b40"></span>LeafContainerT *<code class="sig-name descname">findLeaf</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase8findLeafERK9OctreeKey" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Find leaf node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>pointer to leaf node. If leaf node is not found, this pointer returns 0. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: octree key addressing a leaf node. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase9existLeafERK9OctreeKey">
+<span id="_CPPv3NK3pcl6octree10OctreeBase9existLeafERK9OctreeKey"></span><span id="_CPPv2NK3pcl6octree10OctreeBase9existLeafERK9OctreeKey"></span><span id="pcl::octree::OctreeBase::existLeaf__OctreeKeyCRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ae54aebbcf08f825f5426fc1f6f66e0b2"></span>bool <code class="sig-name descname">existLeaf</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase9existLeafERK9OctreeKey" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check for existence of a leaf node in the octree. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if leaf node is found; “false” otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: octree key addressing a leaf node. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10removeLeafERK9OctreeKey">
+<span id="_CPPv3N3pcl6octree10OctreeBase10removeLeafERK9OctreeKey"></span><span id="_CPPv2N3pcl6octree10OctreeBase10removeLeafERK9OctreeKey"></span><span id="pcl::octree::OctreeBase::removeLeaf__OctreeKeyCR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a4fc084486bee5e49223e52b5ea1a40c8"></span>void <code class="sig-name descname">removeLeaf</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10removeLeafERK9OctreeKey" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove leaf node from octree. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: octree key addressing a leaf node. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase11getRootNodeEv">
+<span id="_CPPv3NK3pcl6octree10OctreeBase11getRootNodeEv"></span><span id="_CPPv2NK3pcl6octree10OctreeBase11getRootNodeEv"></span><span id="pcl::octree::OctreeBase::getRootNodeC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1acd59f91dbfa1671c2d1e37e04712b286"></span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<code class="sig-name descname">getRootNode</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase11getRootNodeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieve root node. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase14branchHasChildERK10BranchNodeh">
+<span id="_CPPv3NK3pcl6octree10OctreeBase14branchHasChildERK10BranchNodeh"></span><span id="_CPPv2NK3pcl6octree10OctreeBase14branchHasChildERK10BranchNodeh"></span><span id="pcl::octree::OctreeBase::branchHasChild__BranchNodeCR.unsigned-cC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a39c116718d47fb0086ff94117551fc1d"></span>bool <code class="sig-name descname">branchHasChild</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> &amp;<em>branch_arg</em>, unsigned char <em>child_idx_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase14branchHasChildERK10BranchNodeh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if branch is pointing to a particular child node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if pointer to child node exists; “false” otherwise </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: reference to octree branch class </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">child_idx_arg</span></code>: index to child node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase17getBranchChildPtrERK10BranchNodeh">
+<span id="_CPPv3NK3pcl6octree10OctreeBase17getBranchChildPtrERK10BranchNodeh"></span><span id="_CPPv2NK3pcl6octree10OctreeBase17getBranchChildPtrERK10BranchNodeh"></span><span id="pcl::octree::OctreeBase::getBranchChildPtr__BranchNodeCR.unsigned-cC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a9a4721b246ca10cb45f130835e6e5f5b"></span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<code class="sig-name descname">getBranchChildPtr</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> &amp;<em>branch_arg</em>, unsigned char <em>child_idx_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase17getBranchChildPtrERK10BranchNodeh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Retrieve a child node pointer for child node at child_idx. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>pointer to octree child node class </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: reference to octree branch class </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">child_idx_arg</span></code>: index to child node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase17setBranchChildPtrER10BranchNodehP10OctreeNode">
+<span id="_CPPv3N3pcl6octree10OctreeBase17setBranchChildPtrER10BranchNodehP10OctreeNode"></span><span id="_CPPv2N3pcl6octree10OctreeBase17setBranchChildPtrER10BranchNodehP10OctreeNode"></span><span id="pcl::octree::OctreeBase::setBranchChildPtr__BranchNodeR.unsigned-c.OctreeNodeP"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a61d7ddd454369c5e23054bb1cdadc540"></span>void <code class="sig-name descname">setBranchChildPtr</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> &amp;<em>branch_arg</em>, unsigned char <em>child_idx_arg</em>, <a class="reference internal" href="classpcl_1_1octree_1_1_octree_node.html#_CPPv4N3pcl6octree10OctreeNodeE" title="pcl::octree::OctreeNode">OctreeNode</a> *<em>new_child_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase17setBranchChildPtrER10BranchNodehP10OctreeNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Assign new child node to branch. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: reference to octree branch class </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">child_idx_arg</span></code>: index to child node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_child_arg</span></code>: pointer to new child node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase19getBranchBitPatternERK10BranchNode">
+<span id="_CPPv3NK3pcl6octree10OctreeBase19getBranchBitPatternERK10BranchNode"></span><span id="_CPPv2NK3pcl6octree10OctreeBase19getBranchBitPatternERK10BranchNode"></span><span id="pcl::octree::OctreeBase::getBranchBitPattern__BranchNodeCRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1abe9d23b2322f32b2ee26c1d9c02dcea3"></span>char <code class="sig-name descname">getBranchBitPattern</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> &amp;<em>branch_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase19getBranchBitPatternERK10BranchNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generate bit pattern reflecting the existence of child node pointers. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>a single byte with 8 bits of child node information </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: reference to octree branch class </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase17deleteBranchChildER10BranchNodeh">
+<span id="_CPPv3N3pcl6octree10OctreeBase17deleteBranchChildER10BranchNodeh"></span><span id="_CPPv2N3pcl6octree10OctreeBase17deleteBranchChildER10BranchNodeh"></span><span id="pcl::octree::OctreeBase::deleteBranchChild__BranchNodeR.unsigned-c"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1aeb95bc5e61e5c7c5e80030be0fda5997"></span>void <code class="sig-name descname">deleteBranchChild</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> &amp;<em>branch_arg</em>, unsigned char <em>child_idx_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase17deleteBranchChildER10BranchNodeh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete child node and all its subchilds from octree. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: reference to octree branch class </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">child_idx_arg</span></code>: index to child node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase12deleteBranchER10BranchNode">
+<span id="_CPPv3N3pcl6octree10OctreeBase12deleteBranchER10BranchNode"></span><span id="_CPPv2N3pcl6octree10OctreeBase12deleteBranchER10BranchNode"></span><span id="pcl::octree::OctreeBase::deleteBranch__BranchNodeR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a4766cdedf01eac19a565648b372dac93"></span>void <code class="sig-name descname">deleteBranch</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> &amp;<em>branch_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase12deleteBranchER10BranchNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Delete branch and all its subchilds from octree. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: reference to octree branch class </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase17createBranchChildER10BranchNodeh">
+<span id="_CPPv3N3pcl6octree10OctreeBase17createBranchChildER10BranchNodeh"></span><span id="_CPPv2N3pcl6octree10OctreeBase17createBranchChildER10BranchNodeh"></span><span id="pcl::octree::OctreeBase::createBranchChild__BranchNodeR.unsigned-c"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a2cec91269a5138bf75973e866015c660"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> *<code class="sig-name descname">createBranchChild</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> &amp;<em>branch_arg</em>, unsigned char <em>child_idx_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase17createBranchChildER10BranchNodeh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create and add a new branch child to a branch class. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>pointer of new branch child to this reference </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: reference to octree branch class </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">child_idx_arg</span></code>: index to child node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase15createLeafChildER10BranchNodeh">
+<span id="_CPPv3N3pcl6octree10OctreeBase15createLeafChildER10BranchNodeh"></span><span id="_CPPv2N3pcl6octree10OctreeBase15createLeafChildER10BranchNodeh"></span><span id="pcl::octree::OctreeBase::createLeafChild__BranchNodeR.unsigned-c"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1afca846cfd2002a905d1304bf663394f0"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase8LeafNodeE" title="pcl::octree::OctreeBase::LeafNode">LeafNode</a> *<code class="sig-name descname">createLeafChild</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> &amp;<em>branch_arg</em>, unsigned char <em>child_idx_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase15createLeafChildER10BranchNodeh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create and add a new leaf child to a branch class. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>pointer of new leaf child to this reference </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: reference to octree branch class </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">child_idx_arg</span></code>: index to child node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase19createLeafRecursiveERK9OctreeKeyjP10BranchNodeRP8LeafNodeRP10BranchNode">
+<span id="_CPPv3N3pcl6octree10OctreeBase19createLeafRecursiveERK9OctreeKeyjP10BranchNodeRP8LeafNodeRP10BranchNode"></span><span id="_CPPv2N3pcl6octree10OctreeBase19createLeafRecursiveERK9OctreeKeyjP10BranchNodeRP8LeafNodeRP10BranchNode"></span><span id="pcl::octree::OctreeBase::createLeafRecursive__OctreeKeyCR.unsigned-i.BranchNodeP.LeafNodePR.BranchNodePR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a441fbe7d3df743a9e13be569c9620c55"></span>unsigned int <code class="sig-name descname">createLeafRecursive</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em>, unsigned int <em>depth_mask_arg</em>, <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> *<em>branch_arg</em>, <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase8LeafNodeE" title="pcl::octree::OctreeBase::LeafNode">LeafNode</a> *&amp;<em>return_leaf_arg</em>, <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> *&amp;<em>parent_of_leaf_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase19createLeafRecursiveERK9OctreeKeyjP10BranchNodeRP8LeafNodeRP10BranchNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create a leaf node at octree key. </p>
+<p>If leaf node does already exist, it is returned. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>depth mask at which leaf node was created </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: reference to an octree key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">depth_mask_arg</span></code>: depth mask used for octree key analysis and for branch depth indicator </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: current branch node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return_leaf_arg</span></code>: return pointer to leaf node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parent_of_leaf_arg</span></code>: return pointer to parent of leaf node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase17findLeafRecursiveERK9OctreeKeyjP10BranchNodeRP14LeafContainerT">
+<span id="_CPPv3NK3pcl6octree10OctreeBase17findLeafRecursiveERK9OctreeKeyjP10BranchNodeRP14LeafContainerT"></span><span id="_CPPv2NK3pcl6octree10OctreeBase17findLeafRecursiveERK9OctreeKeyjP10BranchNodeRP14LeafContainerT"></span><span id="pcl::octree::OctreeBase::findLeafRecursive__OctreeKeyCR.unsigned-i.BranchNodeP.LeafContainerTPRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ab3f8693893b6ee4925cf082716a607ed"></span>void <code class="sig-name descname">findLeafRecursive</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em>, unsigned int <em>depth_mask_arg</em>, <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> *<em>branch_arg</em>, LeafContainerT *&amp;<em>result_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase17findLeafRecursiveERK9OctreeKeyjP10BranchNodeRP14LeafContainerT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively search for a given leaf node and return a pointer. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>If leaf node does not exist, a 0 pointer is returned. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: reference to an octree key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">depth_mask_arg</span></code>: depth mask used for octree key analysis and for branch depth indicator </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: current branch node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result_arg</span></code>: pointer to leaf node class </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase19deleteLeafRecursiveERK9OctreeKeyjP10BranchNode">
+<span id="_CPPv3N3pcl6octree10OctreeBase19deleteLeafRecursiveERK9OctreeKeyjP10BranchNode"></span><span id="_CPPv2N3pcl6octree10OctreeBase19deleteLeafRecursiveERK9OctreeKeyjP10BranchNode"></span><span id="pcl::octree::OctreeBase::deleteLeafRecursive__OctreeKeyCR.unsigned-i.BranchNodeP"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a6304cd86b4c714e949c68c328f10e8c6"></span>bool <code class="sig-name descname">deleteLeafRecursive</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em>, unsigned int <em>depth_mask_arg</em>, <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> *<em>branch_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase19deleteLeafRecursiveERK9OctreeKeyjP10BranchNode" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively search and delete leaf node. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” if branch does not contain any childs; “false” otherwise. This indicates if current branch can be deleted, too. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: reference to an octree key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">depth_mask_arg</span></code>: depth mask used for octree key analysis and branch depth indicator </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: current branch node </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase22serializeTreeRecursiveEPK10BranchNodeR9OctreeKeyPNSt6vectorIcEEPNSt6vectorIP14LeafContainerTEE">
+<span id="_CPPv3NK3pcl6octree10OctreeBase22serializeTreeRecursiveEPK10BranchNodeR9OctreeKeyPNSt6vectorIcEEPNSt6vectorIP14LeafContainerTEE"></span><span id="_CPPv2NK3pcl6octree10OctreeBase22serializeTreeRecursiveEPK10BranchNodeR9OctreeKeyPNSt6vectorIcEEPNSt6vectorIP14LeafContainerTEE"></span><span id="pcl::octree::OctreeBase::serializeTreeRecursive__BranchNodeCP.OctreeKeyR.std::vector:c:P.std::vector:LeafContainerTP:PC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a758aff678a92108ad4af067ede0f2f5d"></span>void <code class="sig-name descname">serializeTreeRecursive</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> *<em>branch_arg</em>, <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em>, std::vector&lt;char&gt; *<em>binary_tree_out_arg</em>, <em class="property">typename</em> std::vector&lt;LeafContainerT *&gt; *<em>leaf_container_vector_arg</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase22serializeTreeRecursiveEPK10BranchNodeR9OctreeKeyPNSt6vectorIcEEPNSt6vectorIP14LeafContainerTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursively explore the octree and output binary octree description together with a vector of leaf node LeafContainerTs. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: current branch node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: reference to an octree key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">binary_tree_out_arg</span></code>: binary output vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leaf_container_vector_arg</span></code>: writes LeafContainerT pointers to this LeafContainerT* vector. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase24deserializeTreeRecursiveEP10BranchNodejR9OctreeKeyRNSt6vectorIcE14const_iteratorERNSt6vectorIcE14const_iteratorEPNSt6vectorIP14LeafContainerTE14const_iteratorEPNSt6vectorIP14LeafContainerTE14const_iteratorE">
+<span id="_CPPv3N3pcl6octree10OctreeBase24deserializeTreeRecursiveEP10BranchNodejR9OctreeKeyRNSt6vectorIcE14const_iteratorERNSt6vectorIcE14const_iteratorEPNSt6vectorIP14LeafContainerTE14const_iteratorEPNSt6vectorIP14LeafContainerTE14const_iteratorE"></span><span id="_CPPv2N3pcl6octree10OctreeBase24deserializeTreeRecursiveEP10BranchNodejR9OctreeKeyRNSt6vectorIcE14const_iteratorERNSt6vectorIcE14const_iteratorEPNSt6vectorIP14LeafContainerTE14const_iteratorEPNSt6vectorIP14LeafContainerTE14const_iteratorE"></span><span id="pcl::octree::OctreeBase::deserializeTreeRecursive__BranchNodeP.unsigned-i.OctreeKeyR.std::vector:c:::const_iteratorR.std::vector:c:::const_iteratorR.std::vector:LeafContainerTP:::const_iteratorP.std::vector:LeafContainerTP:::const_iteratorP"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ad22f38ecf99476d40f57ede4bd8dbdba"></span>void <code class="sig-name descname">deserializeTreeRecursive</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> *<em>branch_arg</em>, unsigned int <em>depth_mask_arg</em>, <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> &amp;<em>key_arg</em>, <em class="property">typename</em> std::vector&lt;char&gt;::const_iterator &amp;<em>binary_tree_input_it_arg</em>, <em class="property">typename</em> std::vector&lt;char&gt;::const_iterator &amp;<em>binary_tree_input_it_end_arg</em>, <em class="property">typename</em> std::vector&lt;LeafContainerT *&gt;::const_iterator *<em>leaf_container_vector_it_arg</em>, <em class="property">typename</em> std::vector&lt;LeafContainerT *&gt;::const_iterator *<em>leaf_container_vector_it_end_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase24deserializeTreeRecursiveEP10BranchNodejR9OctreeKeyRNSt6vectorIcE14const_iteratorERNSt6vectorIcE14const_iteratorEPNSt6vectorIP14LeafContainerTE14const_iteratorEPNSt6vectorIP14LeafContainerTE14const_iteratorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Recursive method for deserializing octree structure. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">branch_arg</span></code>: current branch node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">depth_mask_arg</span></code>: depth mask used for octree key analysis and branch depth indicator </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">key_arg</span></code>: reference to an octree key </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">binary_tree_input_it_arg</span></code>: iterator to binary input vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">binary_tree_input_it_end_arg</span></code>: end iterator of binary input vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leaf_container_vector_it_arg</span></code>: iterator pointing to current LeafContainerT object to be added to a leaf node </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leaf_container_vector_it_end_arg</span></code>: iterator pointing to last object in LeafContainerT input vector. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl6octree10OctreeBase21serializeTreeCallbackER14LeafContainerTRK9OctreeKey">
+<span id="_CPPv3NK3pcl6octree10OctreeBase21serializeTreeCallbackER14LeafContainerTRK9OctreeKey"></span><span id="_CPPv2NK3pcl6octree10OctreeBase21serializeTreeCallbackER14LeafContainerTRK9OctreeKey"></span><span id="pcl::octree::OctreeBase::serializeTreeCallback__LeafContainerTR.OctreeKeyCRC"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a0822f6b8272dfe619009873bba7a1211"></span><em class="property">virtual</em> void <code class="sig-name descname">serializeTreeCallback</code><span class="sig-paren">(</span>LeafContainerT&amp;, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a>&amp;<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl6octree10OctreeBase21serializeTreeCallbackER14LeafContainerTRK9OctreeKey" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback executed for every leaf node during serialization. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase23deserializeTreeCallbackER14LeafContainerTRK9OctreeKey">
+<span id="_CPPv3N3pcl6octree10OctreeBase23deserializeTreeCallbackER14LeafContainerTRK9OctreeKey"></span><span id="_CPPv2N3pcl6octree10OctreeBase23deserializeTreeCallbackER14LeafContainerTRK9OctreeKey"></span><span id="pcl::octree::OctreeBase::deserializeTreeCallback__LeafContainerTR.OctreeKeyCR"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1afac6e5f2cf2e95a27b4a529275e7ba7e"></span><em class="property">virtual</em> void <code class="sig-name descname">deserializeTreeCallback</code><span class="sig-paren">(</span>LeafContainerT&amp;, <em class="property">const</em> <a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a>&amp;<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase23deserializeTreeCallbackER14LeafContainerTRK9OctreeKey" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Callback executed for every leaf node during deserialization. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase4Log2Ed">
+<span id="_CPPv3N3pcl6octree10OctreeBase4Log2Ed"></span><span id="_CPPv2N3pcl6octree10OctreeBase4Log2Ed"></span><span id="pcl::octree::OctreeBase::Log2__double"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a84f6098ca21b73b3cf13ca2596238326"></span>double <code class="sig-name descname">Log2</code><span class="sig-paren">(</span>double <em>n_arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase4Log2Ed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Helper function to calculate the binary logarithm. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>binary logarithm (log2) of argument n_arg </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_arg</span></code>: some value </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl6octree10OctreeBase15octreeCanResizeEv">
+<span id="_CPPv3N3pcl6octree10OctreeBase15octreeCanResizeEv"></span><span id="_CPPv2N3pcl6octree10OctreeBase15octreeCanResizeEv"></span><span id="pcl::octree::OctreeBase::octreeCanResize"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a4cf92b5f2a5b59e679c12aab3dd276d6"></span>bool <code class="sig-name descname">octreeCanResize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase15octreeCanResizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Test if octree is able to dynamically change its depth. </p>
+<p>This is required for adaptive bounding box adjustment. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>”true” </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree10OctreeBase11leaf_count_E">
+<span id="_CPPv3N3pcl6octree10OctreeBase11leaf_count_E"></span><span id="_CPPv2N3pcl6octree10OctreeBase11leaf_count_E"></span><span id="pcl::octree::OctreeBase::leaf_count___std::s"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a2a74d829fa6bc41a9823e42b9bbb5e59"></span>std::size_t <code class="sig-name descname">leaf_count_</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase11leaf_count_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Amount of leaf nodes. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree10OctreeBase13branch_count_E">
+<span id="_CPPv3N3pcl6octree10OctreeBase13branch_count_E"></span><span id="_CPPv2N3pcl6octree10OctreeBase13branch_count_E"></span><span id="pcl::octree::OctreeBase::branch_count___std::s"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a554d101328545d88304af3d817fb4f19"></span>std::size_t <code class="sig-name descname">branch_count_</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase13branch_count_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Amount of branch nodes. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree10OctreeBase10root_node_E">
+<span id="_CPPv3N3pcl6octree10OctreeBase10root_node_E"></span><span id="_CPPv2N3pcl6octree10OctreeBase10root_node_E"></span><span id="pcl::octree::OctreeBase::root_node___BranchNodeP"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a2ea6c9036575ec8e55ae59938036478a"></span><a class="reference internal" href="#_CPPv4N3pcl6octree10OctreeBase10BranchNodeE" title="pcl::octree::OctreeBase::BranchNode">BranchNode</a> *<code class="sig-name descname">root_node_</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase10root_node_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to root branch node of octree. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree10OctreeBase11depth_mask_E">
+<span id="_CPPv3N3pcl6octree10OctreeBase11depth_mask_E"></span><span id="_CPPv2N3pcl6octree10OctreeBase11depth_mask_E"></span><span id="pcl::octree::OctreeBase::depth_mask___unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1af37a3e55a658f428b6190dcdcec28b89"></span>unsigned int <code class="sig-name descname">depth_mask_</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase11depth_mask_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Depth mask based on octree depth. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree10OctreeBase13octree_depth_E">
+<span id="_CPPv3N3pcl6octree10OctreeBase13octree_depth_E"></span><span id="_CPPv2N3pcl6octree10OctreeBase13octree_depth_E"></span><span id="pcl::octree::OctreeBase::octree_depth___unsigned-i"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a2727267eed42ae776bbd8ea84b91187d"></span>unsigned int <code class="sig-name descname">octree_depth_</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase13octree_depth_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Octree depth. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree10OctreeBase22dynamic_depth_enabled_E">
+<span id="_CPPv3N3pcl6octree10OctreeBase22dynamic_depth_enabled_E"></span><span id="_CPPv2N3pcl6octree10OctreeBase22dynamic_depth_enabled_E"></span><span id="pcl::octree::OctreeBase::dynamic_depth_enabled___b"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1a6044a82930ab95b427828ff022e7d1e3"></span>bool <code class="sig-name descname">dynamic_depth_enabled_</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase22dynamic_depth_enabled_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enable dynamic_depth. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl6octree10OctreeBase8max_key_E">
+<span id="_CPPv3N3pcl6octree10OctreeBase8max_key_E"></span><span id="_CPPv2N3pcl6octree10OctreeBase8max_key_E"></span><span id="pcl::octree::OctreeBase::max_key___OctreeKey"></span><span class="target" id="classpcl_1_1octree_1_1_octree_base_1ae03f7feba50b4bca74c8a6aeba9aba3c"></span><a class="reference internal" href="classpcl_1_1octree_1_1_octree_key.html#_CPPv4N3pcl6octree9OctreeKeyE" title="pcl::octree::OctreeKey">OctreeKey</a> <code class="sig-name descname">max_key_</code><a class="headerlink" href="#_CPPv4N3pcl6octree10OctreeBase8max_key_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>key range </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1octree_1_1_octree_base_1afbffbe37e9f198bcca90f04596e3644b"></span><em class="property">friend </em><code class="sig-name descname">pcl::octree::OctreeBase::OctreeIteratorBase&lt; OctreeT &gt;</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1octree_1_1_octree_base_1a006bd41bf2a4e5477c5c12b1cbc64893"></span><em class="property">friend </em><code class="sig-name descname">pcl::octree::OctreeBase::OctreeDepthFirstIterator&lt; OctreeT &gt;</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1octree_1_1_octree_base_1a72445f2ef197d672452ba776f9afc8e0"></span><em class="property">friend </em><code class="sig-name descname">pcl::octree::OctreeBase::OctreeBreadthFirstIterator&lt; OctreeT &gt;</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1octree_1_1_octree_base_1a7be3db4690dddf703079fbd1cda6cdce"></span><em class="property">friend </em><code class="sig-name descname">pcl::octree::OctreeBase::OctreeFixedDepthIterator&lt; OctreeT &gt;</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1octree_1_1_octree_base_1a3e0525be495b103398406edd081c4440"></span><em class="property">friend </em><code class="sig-name descname">pcl::octree::OctreeBase::OctreeLeafNodeDepthFirstIterator&lt; OctreeT &gt;</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1octree_1_1_octree_base_1a703e4ec37e294ca131ded549d13b561f"></span><em class="property">friend </em><code class="sig-name descname">pcl::octree::OctreeBase::OctreeLeafNodeBreadthFirstIterator&lt; OctreeT &gt;</code></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

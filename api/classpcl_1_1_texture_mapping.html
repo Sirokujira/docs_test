@@ -1,0 +1,687 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class TextureMapping &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class TextureMapping</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_texture_mapping.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-texturemapping">
+<span id="exhale-class-classpcl-1-1-texture-mapping"></span><h1>Template Class TextureMapping<a class="headerlink" href="#template-class-texturemapping" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_texture_mapping.h.html#file-pcl-surface-include-pcl-surface-texture-mapping-h"><span class="std std-ref">File texture_mapping.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl14TextureMappingE">
+<span id="_CPPv3I0EN3pcl14TextureMappingE"></span><span id="_CPPv2I0EN3pcl14TextureMappingE"></span><span class="target" id="classpcl_1_1_texture_mapping"></span>template&lt;typename <code class="sig-name descname">PointInT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">TextureMapping</code><a class="headerlink" href="#_CPPv4I0EN3pcl14TextureMappingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The texture mapping algorithm. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Khai Tran, Raphael Favier </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping3PtrE">
+<span id="_CPPv3N3pcl14TextureMapping3PtrE"></span><span id="_CPPv2N3pcl14TextureMapping3PtrE"></span><span id="pcl::TextureMapping::Ptr"></span><span class="target" id="classpcl_1_1_texture_mapping_1a63c9a66b199b1846d9f2e4fdaade8717"></span><em class="property">typedef </em>boost::shared_ptr&lt;TextureMapping&lt;PointInT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping8ConstPtrE">
+<span id="_CPPv3N3pcl14TextureMapping8ConstPtrE"></span><span id="_CPPv2N3pcl14TextureMapping8ConstPtrE"></span><span id="pcl::TextureMapping::ConstPtr"></span><span class="target" id="classpcl_1_1_texture_mapping_1a6a38cb2231c79f18788991147017369e"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> TextureMapping&lt;PointInT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping10PointCloudE">
+<span id="_CPPv3N3pcl14TextureMapping10PointCloudE"></span><span id="_CPPv2N3pcl14TextureMapping10PointCloudE"></span><span id="pcl::TextureMapping::PointCloud"></span><span class="target" id="classpcl_1_1_texture_mapping_1aebe610869ca039c5600af1aa27581807"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointInT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping13PointCloudPtrE">
+<span id="_CPPv3N3pcl14TextureMapping13PointCloudPtrE"></span><span id="_CPPv2N3pcl14TextureMapping13PointCloudPtrE"></span><span id="pcl::TextureMapping::PointCloudPtr"></span><span class="target" id="classpcl_1_1_texture_mapping_1ad0d6acb3c05de6f5e84b6e286769bc97"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl14TextureMapping10PointCloudE" title="pcl::TextureMapping::PointCloud">PointCloud</a>::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl14TextureMapping18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl14TextureMapping18PointCloudConstPtrE"></span><span id="pcl::TextureMapping::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_texture_mapping_1ae7e70f0218fd44be8c650b73d2596e85"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl14TextureMapping10PointCloudE" title="pcl::TextureMapping::PointCloud">PointCloud</a>::ConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping6OctreeE">
+<span id="_CPPv3N3pcl14TextureMapping6OctreeE"></span><span id="_CPPv2N3pcl14TextureMapping6OctreeE"></span><span id="pcl::TextureMapping::Octree"></span><span class="target" id="classpcl_1_1_texture_mapping_1a7b4d1e4b53d08c0eb73a796ab226fc5a"></span><em class="property">typedef </em>pcl::octree::OctreePointCloudSearch&lt;PointInT&gt; <code class="sig-name descname">Octree</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping6OctreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping9OctreePtrE">
+<span id="_CPPv3N3pcl14TextureMapping9OctreePtrE"></span><span id="_CPPv2N3pcl14TextureMapping9OctreePtrE"></span><span id="pcl::TextureMapping::OctreePtr"></span><span class="target" id="classpcl_1_1_texture_mapping_1aed55445e9eeed8b696381f9c23b19d26"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl14TextureMapping6OctreeE" title="pcl::TextureMapping::Octree">Octree</a>::Ptr <code class="sig-name descname">OctreePtr</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping9OctreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping14OctreeConstPtrE">
+<span id="_CPPv3N3pcl14TextureMapping14OctreeConstPtrE"></span><span id="_CPPv2N3pcl14TextureMapping14OctreeConstPtrE"></span><span id="pcl::TextureMapping::OctreeConstPtr"></span><span class="target" id="classpcl_1_1_texture_mapping_1a71ef3522e7fbb6cf3a98a2737bb2899e"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl14TextureMapping6OctreeE" title="pcl::TextureMapping::Octree">Octree</a>::ConstPtr <code class="sig-name descname">OctreeConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping14OctreeConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping6CameraE">
+<span id="_CPPv3N3pcl14TextureMapping6CameraE"></span><span id="_CPPv2N3pcl14TextureMapping6CameraE"></span><span id="pcl::TextureMapping::Camera"></span><span class="target" id="classpcl_1_1_texture_mapping_1afa7ae2a870108655c8aebd2cce91a422"></span><em class="property">typedef </em>pcl::texture_mapping::<a class="reference internal" href="structpcl_1_1texture__mapping_1_1_camera.html#_CPPv4N3pcl15texture_mapping6CameraE" title="pcl::texture_mapping::Camera">Camera</a> <code class="sig-name descname">Camera</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping6CameraE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl14TextureMapping7UvIndexE">
+<span id="_CPPv3N3pcl14TextureMapping7UvIndexE"></span><span id="_CPPv2N3pcl14TextureMapping7UvIndexE"></span><span id="pcl::TextureMapping::UvIndex"></span><span class="target" id="classpcl_1_1_texture_mapping_1a40d8bfdafa880a6246ee1dfec7a29413"></span><em class="property">typedef </em>pcl::texture_mapping::<a class="reference internal" href="structpcl_1_1texture__mapping_1_1_uv_index.html#_CPPv4N3pcl15texture_mapping7UvIndexE" title="pcl::texture_mapping::UvIndex">UvIndex</a> <code class="sig-name descname">UvIndex</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping7UvIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping14TextureMappingEv">
+<span id="_CPPv3N3pcl14TextureMapping14TextureMappingEv"></span><span id="_CPPv2N3pcl14TextureMapping14TextureMappingEv"></span><span id="pcl::TextureMapping::TextureMapping"></span><span class="target" id="classpcl_1_1_texture_mapping_1a7f8310f1e2131ab5e152d99f328108a0"></span><code class="sig-name descname">TextureMapping</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping14TextureMappingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMappingD0Ev">
+<span id="_CPPv3N3pcl14TextureMappingD0Ev"></span><span id="_CPPv2N3pcl14TextureMappingD0Ev"></span><span id="pcl::TextureMapping::~TextureMapping"></span><span class="target" id="classpcl_1_1_texture_mapping_1a0ae7d29f08c19599a3f454be8ce4a29a"></span><code class="sig-name descname">~TextureMapping</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMappingD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping4setFEf">
+<span id="_CPPv3N3pcl14TextureMapping4setFEf"></span><span id="_CPPv2N3pcl14TextureMapping4setFEf"></span><span id="pcl::TextureMapping::setF__float"></span><span class="target" id="classpcl_1_1_texture_mapping_1a0a508845259dea63b936135a6ba96060"></span>void <code class="sig-name descname">setF</code><span class="sig-paren">(</span>float <em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping4setFEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set mesh scale control. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">f</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping14setVectorFieldEfff">
+<span id="_CPPv3N3pcl14TextureMapping14setVectorFieldEfff"></span><span id="_CPPv2N3pcl14TextureMapping14setVectorFieldEfff"></span><span id="pcl::TextureMapping::setVectorField__float.float.float"></span><span class="target" id="classpcl_1_1_texture_mapping_1a8fd726305e3876c0d93bc586c4b0c686"></span>void <code class="sig-name descname">setVectorField</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping14setVectorFieldEfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set vector field. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: data point x </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">y</span></code>: data point y </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">z</span></code>: data point z </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping15setTextureFilesENSt6vectorINSt6stringEEE">
+<span id="_CPPv3N3pcl14TextureMapping15setTextureFilesENSt6vectorINSt6stringEEE"></span><span id="_CPPv2N3pcl14TextureMapping15setTextureFilesENSt6vectorINSt6stringEEE"></span><span id="pcl::TextureMapping::setTextureFiles__std::vector:ss:"></span><span class="target" id="classpcl_1_1_texture_mapping_1a6033d2ddf3eee43b1c633e6ac6ca4b09"></span>void <code class="sig-name descname">setTextureFiles</code><span class="sig-paren">(</span>std::vector&lt;std::string&gt; <em>tex_files</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping15setTextureFilesENSt6vectorINSt6stringEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set texture files. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tex_files</span></code>: list of texture files </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping19setTextureMaterialsE11TexMaterial">
+<span id="_CPPv3N3pcl14TextureMapping19setTextureMaterialsE11TexMaterial"></span><span id="_CPPv2N3pcl14TextureMapping19setTextureMaterialsE11TexMaterial"></span><span id="pcl::TextureMapping::setTextureMaterials__TexMaterial"></span><span class="target" id="classpcl_1_1_texture_mapping_1aee83a0bba3702a875749c80bdbb39510"></span>void <code class="sig-name descname">setTextureMaterials</code><span class="sig-paren">(</span><a class="reference internal" href="structpcl_1_1_tex_material.html#_CPPv4N3pcl11TexMaterialE" title="pcl::TexMaterial">TexMaterial</a> <em>tex_material</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping19setTextureMaterialsE11TexMaterial" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set texture materials. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tex_material</span></code>: texture material </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping15mapTexture2MeshERN3pcl11TextureMeshE">
+<span id="_CPPv3N3pcl14TextureMapping15mapTexture2MeshERN3pcl11TextureMeshE"></span><span id="_CPPv2N3pcl14TextureMapping15mapTexture2MeshERN3pcl11TextureMeshE"></span><span id="pcl::TextureMapping::mapTexture2Mesh__pcl::TextureMeshR"></span><span class="target" id="classpcl_1_1_texture_mapping_1a2dfb6a986d530ec88fecd432cfeac159"></span>void <code class="sig-name descname">mapTexture2Mesh</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>tex_mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping15mapTexture2MeshERN3pcl11TextureMeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Map texture to a mesh synthesis algorithm. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tex_mesh</span></code>: texture mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping17mapTexture2MeshUVERN3pcl11TextureMeshE">
+<span id="_CPPv3N3pcl14TextureMapping17mapTexture2MeshUVERN3pcl11TextureMeshE"></span><span id="_CPPv2N3pcl14TextureMapping17mapTexture2MeshUVERN3pcl11TextureMeshE"></span><span id="pcl::TextureMapping::mapTexture2MeshUV__pcl::TextureMeshR"></span><span class="target" id="classpcl_1_1_texture_mapping_1a24745f8647a7442647ba6be0a89abae0"></span>void <code class="sig-name descname">mapTexture2MeshUV</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>tex_mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping17mapTexture2MeshUVERN3pcl11TextureMeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Map texture to a mesh UV mapping. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tex_mesh</span></code>: texture mesh </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping27mapMultipleTexturesToMeshUVERN3pcl11TextureMeshERN3pcl15texture_mapping12CameraVectorE">
+<span id="_CPPv3N3pcl14TextureMapping27mapMultipleTexturesToMeshUVERN3pcl11TextureMeshERN3pcl15texture_mapping12CameraVectorE"></span><span id="_CPPv2N3pcl14TextureMapping27mapMultipleTexturesToMeshUVERN3pcl11TextureMeshERN3pcl15texture_mapping12CameraVectorE"></span><span id="pcl::TextureMapping::mapMultipleTexturesToMeshUV__pcl::TextureMeshR.pcl::texture_mapping::CameraVectorR"></span><span class="target" id="classpcl_1_1_texture_mapping_1ae6e358a02f339cbf136db601bbdafc1d"></span>void <code class="sig-name descname">mapMultipleTexturesToMeshUV</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>tex_mesh</em>, pcl::texture_mapping::<a class="reference internal" href="typedef_texture__mapping_8h_1a5bc6ac3305dc4f1d3b39e696e9b3e3bf.html#_CPPv4N3pcl15texture_mapping12CameraVectorE" title="pcl::texture_mapping::CameraVector">CameraVector</a> &amp;<em>cams</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping27mapMultipleTexturesToMeshUVERN3pcl11TextureMeshERN3pcl15texture_mapping12CameraVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Map textures acquired from a set of cameras onto a mesh. </p>
+<p>With UV mapping, the mesh must be divided into NbCamera + 1 sub-meshes. Each sub-mesh corresponding to the faces visible by one camera. The last submesh containing all non-visible faces <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tex_mesh</span></code>: texture mesh </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cams</span></code>: cameras used for UV mapping </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping21getPointUVCoordinatesERK8PointInTRK6CameraRN5Eigen8Vector2fE">
+<span id="_CPPv3N3pcl14TextureMapping21getPointUVCoordinatesERK8PointInTRK6CameraRN5Eigen8Vector2fE"></span><span id="_CPPv2N3pcl14TextureMapping21getPointUVCoordinatesERK8PointInTRK6CameraRN5Eigen8Vector2fE"></span><span id="pcl::TextureMapping::getPointUVCoordinates__PointInTCR.CameraCR.Eigen::Vector2fR"></span><span class="target" id="classpcl_1_1_texture_mapping_1a183d45e708fa4aaf6d5e2e898c5cf1ec"></span>bool <code class="sig-name descname">getPointUVCoordinates</code><span class="sig-paren">(</span><em class="property">const</em> PointInT &amp;<em>pt</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl14TextureMapping6CameraE" title="pcl::TextureMapping::Camera">Camera</a> &amp;<em>cam</em>, Eigen::Vector2f &amp;<em>UV_coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping21getPointUVCoordinatesERK8PointInTRK6CameraRN5Eigen8Vector2fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>computes UV coordinates of point, observed by one particular camera </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>false if the point is not visible by the camera </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: XYZ point to project on camera plane </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cam</span></code>: the camera used for projection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">UV_coordinates</span></code>: the resulting uv coordinates. Set to (-1.0,-1.0) if the point is not visible by the camera </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping15isPointOccludedERK8PointInTK9OctreePtr">
+<span id="_CPPv3N3pcl14TextureMapping15isPointOccludedERK8PointInTK9OctreePtr"></span><span id="_CPPv2N3pcl14TextureMapping15isPointOccludedERK8PointInTK9OctreePtr"></span><span id="pcl::TextureMapping::isPointOccluded__PointInTCR.OctreePtrC"></span><span class="target" id="classpcl_1_1_texture_mapping_1a668faabadd56405940c58e37f30e357f"></span>bool <code class="sig-name descname">isPointOccluded</code><span class="sig-paren">(</span><em class="property">const</em> PointInT &amp;<em>pt</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl14TextureMapping9OctreePtrE" title="pcl::TextureMapping::OctreePtr">OctreePtr</a> <em>octree</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping15isPointOccludedERK8PointInTK9OctreePtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if a point is occluded using raycasting on octree. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if the point is occluded. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: XYZ from which the ray will start (toward the camera) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree</span></code>: the octree used for raycasting. It must be initialized with a cloud transformed into the camera’s frame </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping20removeOccludedPointsERK13PointCloudPtrR13PointCloudPtrKdRNSt6vectorIiEERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl14TextureMapping20removeOccludedPointsERK13PointCloudPtrR13PointCloudPtrKdRNSt6vectorIiEERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl14TextureMapping20removeOccludedPointsERK13PointCloudPtrR13PointCloudPtrKdRNSt6vectorIiEERNSt6vectorIiEE"></span><span id="pcl::TextureMapping::removeOccludedPoints__PointCloudPtrCR.PointCloudPtrR.doubleC.std::vector:i:R.std::vector:i:R"></span><span class="target" id="classpcl_1_1_texture_mapping_1a9b7b447112268bd059e798397b991ad5"></span>void <code class="sig-name descname">removeOccludedPoints</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl14TextureMapping13PointCloudPtrE" title="pcl::TextureMapping::PointCloudPtr">PointCloudPtr</a> &amp;<em>input_cloud</em>, <a class="reference internal" href="#_CPPv4N3pcl14TextureMapping13PointCloudPtrE" title="pcl::TextureMapping::PointCloudPtr">PointCloudPtr</a> &amp;<em>filtered_cloud</em>, <em class="property">const</em> double <em>octree_voxel_size</em>, std::vector&lt;int&gt; &amp;<em>visible_indices</em>, std::vector&lt;int&gt; &amp;<em>occluded_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping20removeOccludedPointsERK13PointCloudPtrR13PointCloudPtrKdRNSt6vectorIiEERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove occluded points from a point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input_cloud</span></code>: the cloud on which to perform occlusion detection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">filtered_cloud</span></code>: resulting cloud, containing only visible points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_voxel_size</span></code>: octree resolution (in meters) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">visible_indices</span></code>: will contain indices of visible points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">occluded_indices</span></code>: will contain indices of occluded points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping20removeOccludedPointsERKN3pcl11TextureMeshERN3pcl11TextureMeshEKd">
+<span id="_CPPv3N3pcl14TextureMapping20removeOccludedPointsERKN3pcl11TextureMeshERN3pcl11TextureMeshEKd"></span><span id="_CPPv2N3pcl14TextureMapping20removeOccludedPointsERKN3pcl11TextureMeshERN3pcl11TextureMeshEKd"></span><span id="pcl::TextureMapping::removeOccludedPoints__pcl::TextureMeshCR.pcl::TextureMeshR.doubleC"></span><span class="target" id="classpcl_1_1_texture_mapping_1a92eac4246bb64174edd7d8f7512b61bb"></span>void <code class="sig-name descname">removeOccludedPoints</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>tex_mesh</em>, pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>cleaned_mesh</em>, <em class="property">const</em> double <em>octree_voxel_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping20removeOccludedPointsERKN3pcl11TextureMeshERN3pcl11TextureMeshEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove occluded points from a textureMesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tex_mesh</span></code>: input mesh, on witch to perform occlusion detection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cleaned_mesh</span></code>: resulting mesh, containing only visible points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_voxel_size</span></code>: octree resolution (in meters) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping20removeOccludedPointsERKN3pcl11TextureMeshER13PointCloudPtrKd">
+<span id="_CPPv3N3pcl14TextureMapping20removeOccludedPointsERKN3pcl11TextureMeshER13PointCloudPtrKd"></span><span id="_CPPv2N3pcl14TextureMapping20removeOccludedPointsERKN3pcl11TextureMeshER13PointCloudPtrKd"></span><span id="pcl::TextureMapping::removeOccludedPoints__pcl::TextureMeshCR.PointCloudPtrR.doubleC"></span><span class="target" id="classpcl_1_1_texture_mapping_1acf6fb14f4d6989c1fee3c2c1b88bf475"></span>void <code class="sig-name descname">removeOccludedPoints</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>tex_mesh</em>, <a class="reference internal" href="#_CPPv4N3pcl14TextureMapping13PointCloudPtrE" title="pcl::TextureMapping::PointCloudPtr">PointCloudPtr</a> &amp;<em>filtered_cloud</em>, <em class="property">const</em> double <em>octree_voxel_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping20removeOccludedPointsERKN3pcl11TextureMeshER13PointCloudPtrKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Remove occluded points from a textureMesh. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tex_mesh</span></code>: input mesh, on witch to perform occlusion detection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">filtered_cloud</span></code>: resulting cloud, containing only visible points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_voxel_size</span></code>: octree resolution (in meters) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping17sortFacesByCameraERN3pcl11TextureMeshERN3pcl11TextureMeshERKN3pcl15texture_mapping12CameraVectorEKdR10PointCloud">
+<span id="_CPPv3N3pcl14TextureMapping17sortFacesByCameraERN3pcl11TextureMeshERN3pcl11TextureMeshERKN3pcl15texture_mapping12CameraVectorEKdR10PointCloud"></span><span id="_CPPv2N3pcl14TextureMapping17sortFacesByCameraERN3pcl11TextureMeshERN3pcl11TextureMeshERKN3pcl15texture_mapping12CameraVectorEKdR10PointCloud"></span><span id="pcl::TextureMapping::sortFacesByCamera__pcl::TextureMeshR.pcl::TextureMeshR.pcl::texture_mapping::CameraVectorCR.doubleC.PointCloudR"></span><span class="target" id="classpcl_1_1_texture_mapping_1ac06f666bb26be80837319317f30bfff0"></span>int <code class="sig-name descname">sortFacesByCamera</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>tex_mesh</em>, pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>sorted_mesh</em>, <em class="property">const</em> pcl::texture_mapping::<a class="reference internal" href="typedef_texture__mapping_8h_1a5bc6ac3305dc4f1d3b39e696e9b3e3bf.html#_CPPv4N3pcl15texture_mapping12CameraVectorE" title="pcl::texture_mapping::CameraVector">CameraVector</a> &amp;<em>cameras</em>, <em class="property">const</em> double <em>octree_voxel_size</em>, <a class="reference internal" href="#_CPPv4N3pcl14TextureMapping10PointCloudE" title="pcl::TextureMapping::PointCloud">PointCloud</a> &amp;<em>visible_pts</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping17sortFacesByCameraERN3pcl11TextureMeshERN3pcl11TextureMeshERKN3pcl15texture_mapping12CameraVectorEKdR10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Segment faces by camera visibility. </p>
+<p>Point-based segmentation.</p>
+<p>With N camera, faces will be arranged into N+1 groups: 1 for each camera, plus 1 for faces not visible from any camera. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tex_mesh</span></code>: input mesh that needs sorting. Must contain only 1 sub-mesh. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sorted_mesh</span></code>: resulting mesh, will contain nbCamera + 1 sub-mesh. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cameras</span></code>: vector containing the cameras used for texture mapping. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_voxel_size</span></code>: octree resolution (in meters) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">visible_pts</span></code>: cloud containing only visible points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping14showOcclusionsERK13PointCloudPtrRN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEKdKbKi">
+<span id="_CPPv3N3pcl14TextureMapping14showOcclusionsERK13PointCloudPtrRN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEKdKbKi"></span><span id="_CPPv2N3pcl14TextureMapping14showOcclusionsERK13PointCloudPtrRN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEKdKbKi"></span><span id="pcl::TextureMapping::showOcclusions__PointCloudPtrCR.pcl::PointCloud:pcl::PointXYZI:::PtrR.doubleC.bC.iC"></span><span class="target" id="classpcl_1_1_texture_mapping_1ac440f553e49d9561fb18ba0da27f0faa"></span>void <code class="sig-name descname">showOcclusions</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl14TextureMapping13PointCloudPtrE" title="pcl::TextureMapping::PointCloudPtr">PointCloudPtr</a> &amp;<em>input_cloud</em>, pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_i.html#_CPPv4N3pcl9PointXYZIE" title="pcl::PointXYZI">PointXYZI</a>&gt;::Ptr &amp;<em>colored_cloud</em>, <em class="property">const</em> double <em>octree_voxel_size</em>, <em class="property">const</em> bool <em>show_nb_occlusions</em> = true, <em class="property">const</em> int <em>max_occlusions</em> = 4<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping14showOcclusionsERK13PointCloudPtrRN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEKdKbKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Colors a point cloud, depending on its occlusions. </p>
+<p>If showNbOcclusions is set to True, each point is colored depending on the number of points occluding it. Else, each point is given a different a 0 value is not occluded, 1 if occluded. By default, the number of occlusions is bounded to 4. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input_cloud</span></code>: input cloud on which occlusions will be computed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">colored_cloud</span></code>: resulting colored cloud showing the number of occlusions per point. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_voxel_size</span></code>: octree resolution (in meters). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">show_nb_occlusions</span></code>: If false, color information will only represent. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_occlusions</span></code>: Limit the number of occlusions per point. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping14showOcclusionsERN3pcl11TextureMeshERN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEdbi">
+<span id="_CPPv3N3pcl14TextureMapping14showOcclusionsERN3pcl11TextureMeshERN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEdbi"></span><span id="_CPPv2N3pcl14TextureMapping14showOcclusionsERN3pcl11TextureMeshERN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEdbi"></span><span id="pcl::TextureMapping::showOcclusions__pcl::TextureMeshR.pcl::PointCloud:pcl::PointXYZI:::PtrR.double.b.i"></span><span class="target" id="classpcl_1_1_texture_mapping_1a677f729b4300b423ff407ac8cb48fd81"></span>void <code class="sig-name descname">showOcclusions</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>tex_mesh</em>, pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_i.html#_CPPv4N3pcl9PointXYZIE" title="pcl::PointXYZI">PointXYZI</a>&gt;::Ptr &amp;<em>colored_cloud</em>, double <em>octree_voxel_size</em>, bool <em>show_nb_occlusions</em> = true, int <em>max_occlusions</em> = 4<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping14showOcclusionsERN3pcl11TextureMeshERN3pcl10PointCloudIN3pcl9PointXYZIEE3PtrEdbi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Colors the point cloud of a <a class="reference internal" href="class_mesh.html#class_mesh"><span class="std std-ref">Mesh</span></a>, depending on its occlusions. </p>
+<p>If showNbOcclusions is set to True, each point is colored depending on the number of points occluding it. Else, each point is given a different a 0 value is not occluded, 1 if occluded. By default, the number of occlusions is bounded to 4. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tex_mesh</span></code>: input mesh on which occlusions will be computed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">colored_cloud</span></code>: resulting colored cloud showing the number of occlusions per point. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">octree_voxel_size</span></code>: octree resolution (in meters). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">show_nb_occlusions</span></code>: If false, color information will only represent. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_occlusions</span></code>: Limit the number of occlusions per point. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping30textureMeshwithMultipleCamerasERN3pcl11TextureMeshERKN3pcl15texture_mapping12CameraVectorE">
+<span id="_CPPv3N3pcl14TextureMapping30textureMeshwithMultipleCamerasERN3pcl11TextureMeshERKN3pcl15texture_mapping12CameraVectorE"></span><span id="_CPPv2N3pcl14TextureMapping30textureMeshwithMultipleCamerasERN3pcl11TextureMeshERKN3pcl15texture_mapping12CameraVectorE"></span><span id="pcl::TextureMapping::textureMeshwithMultipleCameras__pcl::TextureMeshR.pcl::texture_mapping::CameraVectorCR"></span><span class="target" id="classpcl_1_1_texture_mapping_1afd2e4cbe8463c5f18e013c9e84e86c25"></span>void <code class="sig-name descname">textureMeshwithMultipleCameras</code><span class="sig-paren">(</span>pcl::<a class="reference internal" href="structpcl_1_1_texture_mesh.html#_CPPv4N3pcl11TextureMeshE" title="pcl::TextureMesh">TextureMesh</a> &amp;<em>mesh</em>, <em class="property">const</em> pcl::texture_mapping::<a class="reference internal" href="typedef_texture__mapping_8h_1a5bc6ac3305dc4f1d3b39e696e9b3e3bf.html#_CPPv4N3pcl15texture_mapping12CameraVectorE" title="pcl::texture_mapping::CameraVector">CameraVector</a> &amp;<em>cameras</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping30textureMeshwithMultipleCamerasERN3pcl11TextureMeshERKN3pcl15texture_mapping12CameraVectorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Segment and texture faces by camera visibility. </p>
+<p>Face-based segmentation.</p>
+<p>With N camera, faces will be arranged into N+1 groups: 1 for each camera, plus 1 for faces not visible from any camera. The mesh will also contain uv coordinates for each face <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mesh</span></code>: input mesh that needs sorting. Should contain only 1 sub-mesh. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cameras</span></code>: vector containing the cameras used for texture mapping. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping15mapTexture2FaceERKN5Eigen8Vector3fERKN5Eigen8Vector3fERKN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl14TextureMapping15mapTexture2FaceERKN5Eigen8Vector3fERKN5Eigen8Vector3fERKN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl14TextureMapping15mapTexture2FaceERKN5Eigen8Vector3fERKN5Eigen8Vector3fERKN5Eigen8Vector3fE"></span><span id="pcl::TextureMapping::mapTexture2Face__Eigen::Vector3fCR.Eigen::Vector3fCR.Eigen::Vector3fCR"></span><span class="target" id="classpcl_1_1_texture_mapping_1ab39c3bef6cc6df60c12e295da9d1a3f7"></span>std::vector&lt;Eigen::Vector2f, Eigen::aligned_allocator&lt;Eigen::Vector2f&gt;&gt; <code class="sig-name descname">mapTexture2Face</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3f &amp;<em>p1</em>, <em class="property">const</em> Eigen::Vector3f &amp;<em>p2</em>, <em class="property">const</em> Eigen::Vector3f &amp;<em>p3</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping15mapTexture2FaceERKN5Eigen8Vector3fERKN5Eigen8Vector3fERKN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Map texture to a face. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p1</span></code>: the first point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p2</span></code>: the second point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p3</span></code>: the third point </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping30getTriangleCircumcenterAndSizeERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERN3pcl7PointXYERd">
+<span id="_CPPv3N3pcl14TextureMapping30getTriangleCircumcenterAndSizeERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERN3pcl7PointXYERd"></span><span id="_CPPv2N3pcl14TextureMapping30getTriangleCircumcenterAndSizeERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERN3pcl7PointXYERd"></span><span id="pcl::TextureMapping::getTriangleCircumcenterAndSize__pcl::PointXYCR.pcl::PointXYCR.pcl::PointXYCR.pcl::PointXYR.doubleR"></span><span class="target" id="classpcl_1_1_texture_mapping_1ac2b1de77bab539d4fd9045b8ae9a2a03"></span>void <code class="sig-name descname">getTriangleCircumcenterAndSize</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>p1</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>p2</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>p3</em>, pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>circumcenter</em>, double &amp;<em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping30getTriangleCircumcenterAndSizeERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERN3pcl7PointXYERd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the circumcenter of a triangle and the circle’s radius. </p>
+<p>see <a class="reference external" href="http://en.wikipedia.org/wiki/Circumcenter">http://en.wikipedia.org/wiki/Circumcenter</a> for formulas. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p1</span></code>: first point of the triangle. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p2</span></code>: second point of the triangle. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p3</span></code>: third point of the triangle. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">circumcenter</span></code>: resulting circumcenter </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">radius</span></code>: the radius of the circumscribed circle. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping39getTriangleCircumcscribedCircleCentroidERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERN3pcl7PointXYERd">
+<span id="_CPPv3N3pcl14TextureMapping39getTriangleCircumcscribedCircleCentroidERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERN3pcl7PointXYERd"></span><span id="_CPPv2N3pcl14TextureMapping39getTriangleCircumcscribedCircleCentroidERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERN3pcl7PointXYERd"></span><span id="pcl::TextureMapping::getTriangleCircumcscribedCircleCentroid__pcl::PointXYCR.pcl::PointXYCR.pcl::PointXYCR.pcl::PointXYR.doubleR"></span><span class="target" id="classpcl_1_1_texture_mapping_1a38629b0142eda69ab2f18676017a60f6"></span>void <code class="sig-name descname">getTriangleCircumcscribedCircleCentroid</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>p1</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>p2</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>p3</em>, pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>circumcenter</em>, double &amp;<em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping39getTriangleCircumcscribedCircleCentroidERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERN3pcl7PointXYERd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the centroid of a triangle and the corresponding circumscribed circle’s radius. </p>
+<p>yield a tighter circle than getTriangleCircumcenterAndSize. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p1</span></code>: first point of the triangle. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p2</span></code>: second point of the triangle. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p3</span></code>: third point of the triangle. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">circumcenter</span></code>: resulting circumcenter </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">radius</span></code>: the radius of the circumscribed circle. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping21getPointUVCoordinatesERK8PointInTRK6CameraRN3pcl7PointXYE">
+<span id="_CPPv3N3pcl14TextureMapping21getPointUVCoordinatesERK8PointInTRK6CameraRN3pcl7PointXYE"></span><span id="_CPPv2N3pcl14TextureMapping21getPointUVCoordinatesERK8PointInTRK6CameraRN3pcl7PointXYE"></span><span id="pcl::TextureMapping::getPointUVCoordinates__PointInTCR.CameraCR.pcl::PointXYR"></span><span class="target" id="classpcl_1_1_texture_mapping_1a8eddf168d0dd4929191126f9a73a9ed0"></span>bool <code class="sig-name descname">getPointUVCoordinates</code><span class="sig-paren">(</span><em class="property">const</em> PointInT &amp;<em>pt</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl14TextureMapping6CameraE" title="pcl::TextureMapping::Camera">Camera</a> &amp;<em>cam</em>, pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>UV_coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping21getPointUVCoordinatesERK8PointInTRK6CameraRN3pcl7PointXYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>computes UV coordinates of point, observed by one particular camera </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>false if the point is not visible by the camera </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: XYZ point to project on camera plane </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cam</span></code>: the camera used for projection </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">UV_coordinates</span></code>: the resulting UV coordinates. Set to (-1.0,-1.0) if the point is not visible by the camera </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping15isFaceProjectedERK6CameraRK8PointInTRK8PointInTRK8PointInTRN3pcl7PointXYERN3pcl7PointXYERN3pcl7PointXYE">
+<span id="_CPPv3N3pcl14TextureMapping15isFaceProjectedERK6CameraRK8PointInTRK8PointInTRK8PointInTRN3pcl7PointXYERN3pcl7PointXYERN3pcl7PointXYE"></span><span id="_CPPv2N3pcl14TextureMapping15isFaceProjectedERK6CameraRK8PointInTRK8PointInTRK8PointInTRN3pcl7PointXYERN3pcl7PointXYERN3pcl7PointXYE"></span><span id="pcl::TextureMapping::isFaceProjected__CameraCR.PointInTCR.PointInTCR.PointInTCR.pcl::PointXYR.pcl::PointXYR.pcl::PointXYR"></span><span class="target" id="classpcl_1_1_texture_mapping_1a9aa4543f638fb7530cf94f0f266ddab2"></span>bool <code class="sig-name descname">isFaceProjected</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl14TextureMapping6CameraE" title="pcl::TextureMapping::Camera">Camera</a> &amp;<em>camera</em>, <em class="property">const</em> PointInT &amp;<em>p1</em>, <em class="property">const</em> PointInT &amp;<em>p2</em>, <em class="property">const</em> PointInT &amp;<em>p3</em>, pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>proj1</em>, pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>proj2</em>, pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>proj3</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping15isFaceProjectedERK6CameraRK8PointInTRK8PointInTRK8PointInTRN3pcl7PointXYERN3pcl7PointXYERN3pcl7PointXYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if all the vertices of one face are projected on the camera’s image plane. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">camera</span></code>: camera on which to project the face. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p1</span></code>: first point of the face. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p2</span></code>: second point of the face. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p3</span></code>: third point of the face. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">proj1</span></code>: UV coordinates corresponding to p1. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">proj2</span></code>: UV coordinates corresponding to p2. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">proj3</span></code>: UV coordinates corresponding to p3. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl14TextureMapping24checkPointInsideTriangleERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYE">
+<span id="_CPPv3N3pcl14TextureMapping24checkPointInsideTriangleERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYE"></span><span id="_CPPv2N3pcl14TextureMapping24checkPointInsideTriangleERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYE"></span><span id="pcl::TextureMapping::checkPointInsideTriangle__pcl::PointXYCR.pcl::PointXYCR.pcl::PointXYCR.pcl::PointXYCR"></span><span class="target" id="classpcl_1_1_texture_mapping_1a993ae9f20e030ee9cda61e5f5f48075c"></span>bool <code class="sig-name descname">checkPointInsideTriangle</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>p1</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>p2</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>p3</em>, <em class="property">const</em> pcl::<a class="reference internal" href="structpcl_1_1_point_x_y.html#_CPPv4N3pcl7PointXYE" title="pcl::PointXY">PointXY</a> &amp;<em>pt</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping24checkPointInsideTriangleERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYERKN3pcl7PointXYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns True if a point lays within a triangle. </p>
+<p>see <a class="reference external" href="http://www.blackpawn.com/texts/pointinpoly/default.html">http://www.blackpawn.com/texts/pointinpoly/default.html</a> <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p1</span></code>: first point of the triangle. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p2</span></code>: second point of the triangle. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p3</span></code>: third point of the triangle. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pt</span></code>: the querry point. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl14TextureMapping12getClassNameEv">
+<span id="_CPPv3NK3pcl14TextureMapping12getClassNameEv"></span><span id="_CPPv2NK3pcl14TextureMapping12getClassNameEv"></span><span id="pcl::TextureMapping::getClassNameC"></span><span class="target" id="classpcl_1_1_texture_mapping_1a52e5f0d32ebf24c4998ea8b545d82a46"></span>std::string <code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl14TextureMapping12getClassNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class get name method. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl14TextureMapping2f_E">
+<span id="_CPPv3N3pcl14TextureMapping2f_E"></span><span id="_CPPv2N3pcl14TextureMapping2f_E"></span><span id="pcl::TextureMapping::f___float"></span><span class="target" id="classpcl_1_1_texture_mapping_1a65ec2f3576b5b85ea03feaf8ff9ee94c"></span>float <code class="sig-name descname">f_</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping2f_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>mesh scale control. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14TextureMapping13vector_field_E">
+<span id="_CPPv3N3pcl14TextureMapping13vector_field_E"></span><span id="_CPPv2N3pcl14TextureMapping13vector_field_E"></span><span id="pcl::TextureMapping::vector_field___Eigen::Vector3f"></span><span class="target" id="classpcl_1_1_texture_mapping_1aba6fee2519e146ec51c1b6f9cde61655"></span>Eigen::Vector3f <code class="sig-name descname">vector_field_</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping13vector_field_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>vector field </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14TextureMapping10tex_files_E">
+<span id="_CPPv3N3pcl14TextureMapping10tex_files_E"></span><span id="_CPPv2N3pcl14TextureMapping10tex_files_E"></span><span id="pcl::TextureMapping::tex_files___std::vector:ss:"></span><span class="target" id="classpcl_1_1_texture_mapping_1ab1b0076f1c3dc0352342d57135d16c90"></span>std::vector&lt;std::string&gt; <code class="sig-name descname">tex_files_</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping10tex_files_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>list of texture files </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl14TextureMapping13tex_material_E">
+<span id="_CPPv3N3pcl14TextureMapping13tex_material_E"></span><span id="_CPPv2N3pcl14TextureMapping13tex_material_E"></span><span id="pcl::TextureMapping::tex_material___TexMaterial"></span><span class="target" id="classpcl_1_1_texture_mapping_1a2b81bcd32e1c14e3fb48d60ef21462f2"></span><a class="reference internal" href="structpcl_1_1_tex_material.html#_CPPv4N3pcl11TexMaterialE" title="pcl::TexMaterial">TexMaterial</a> <code class="sig-name descname">tex_material_</code><a class="headerlink" href="#_CPPv4N3pcl14TextureMapping13tex_material_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>list of texture materials </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

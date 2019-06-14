@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class SimpleOctree::Node &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class SimpleOctree::Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1recognition_1_1_simple_octree_1_1_node.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-simpleoctree-node">
+<span id="exhale-class-classpcl-1-1recognition-1-1-simple-octree-1-1-node"></span><h1>Class SimpleOctree::Node<a class="headerlink" href="#class-simpleoctree-node" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_recognition_include_pcl_recognition_ransac_based_simple_octree.h.html#file-pcl-recognition-include-pcl-recognition-ransac-based-simple-octree-h"><span class="std std-ref">File simple_octree.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<p>This class is a nested type of <a class="reference internal" href="classpcl_1_1recognition_1_1_simple_octree.html#exhale-class-classpcl-1-1recognition-1-1-simple-octree"><span class="std std-ref">Template Class SimpleOctree</span></a>.</p>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl11recognition12SimpleOctree4NodeE">
+<span id="_CPPv3N3pcl11recognition12SimpleOctree4NodeE"></span><span id="_CPPv2N3pcl11recognition12SimpleOctree4NodeE"></span><span id="pcl::recognition::SimpleOctree::Node"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node"></span><em class="property">class </em><code class="sig-name descname">Node</code><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node4NodeEv">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node4NodeEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node4NodeEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a64297fe36bc082b3ea3324d3c8034cda"></span>template&lt;&gt;<br /><code class="sig-name descname">Node</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1ac4a8ae6e310b57a4d9110876d31dd646"></span><code class="sig-name descname">virtual pcl::recognition::SimpleOctree&lt; NodeData, NodeDataCreator, Scalar &gt;::Node::~ Node()</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9setCenterEvPK6Scalar">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9setCenterEPK6Scalar"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9setCenterEPK6Scalar"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a7db542398fe13eeb6a3c33d6d05bb6f6"></span>template&lt;&gt;<br />void <code class="sig-name descname">setCenter</code><span class="sig-paren">(</span><em class="property">const</em> Scalar *<em>c</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9setBoundsEvPK6Scalar">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9setBoundsEPK6Scalar"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9setBoundsEPK6Scalar"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a5705c0a5f0c8a524140688401d2d7043"></span>template&lt;&gt;<br />void <code class="sig-name descname">setBounds</code><span class="sig-paren">(</span><em class="property">const</em> Scalar *<em>b</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getCenterEPK6Scalarv">
+<span id="_CPPv3IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getCenterEv"></span><span id="_CPPv2IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getCenterEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1ac6718b6f312ebd18014353352e2e17b2"></span>template&lt;&gt;<br /><em class="property">const</em> Scalar *<code class="sig-name descname">getCenter</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getBoundsEPK6Scalarv">
+<span id="_CPPv3IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getBoundsEv"></span><span id="_CPPv2IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getBoundsEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a28bdbcc7ac26a3b39d4239b9015c1fee"></span>template&lt;&gt;<br /><em class="property">const</em> Scalar *<code class="sig-name descname">getBounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getBoundsEvAL6E_6Scalar">
+<span id="_CPPv3IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getBoundsEAL6E_6Scalar"></span><span id="_CPPv2IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getBoundsEA6_6Scalar"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a6710362411144f8dcd3f9ce18ffe1f20"></span>template&lt;&gt;<br />void <code class="sig-name descname">getBounds</code><span class="sig-paren">(</span>Scalar <em>b</em>[6]<span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node8getChildEP4Nodei">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node8getChildEi"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node8getChildEi"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1aff10a314b92fdc6296162eb983629790"></span>template&lt;&gt;<br />Node *<code class="sig-name descname">getChild</code><span class="sig-paren">(</span>int <em>id</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node11getChildrenEP4Nodev">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node11getChildrenEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node11getChildrenEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a4b92309758d841a53b676248ff963170"></span>template&lt;&gt;<br />Node *<code class="sig-name descname">getChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7setDataEvRK8NodeData">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7setDataERK8NodeData"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7setDataERK8NodeData"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a6e00e34e98a494fed39ec5dcb8d36aa0"></span>template&lt;&gt;<br />void <code class="sig-name descname">setData</code><span class="sig-paren">(</span><em class="property">const</em> NodeData &amp;<em>src</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7getDataER8NodeDatav">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7getDataEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7getDataEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a3fc88518064a819fa0830f41f96f695c"></span>template&lt;&gt;<br />NodeData &amp;<code class="sig-name descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7getDataERK8NodeDatav">
+<span id="_CPPv3IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7getDataEv"></span><span id="_CPPv2IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7getDataEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1ab6cc7434725da0bfc596e39a4f509ebd"></span>template&lt;&gt;<br /><em class="property">const</em> NodeData &amp;<code class="sig-name descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getParentEP4Nodev">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getParentEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getParentEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a134c57ad3e4b2cb3349809afef47ae63"></span>template&lt;&gt;<br />Node *<code class="sig-name descname">getParent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getRadiusEfv">
+<span id="_CPPv3IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getRadiusEv"></span><span id="_CPPv2IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9getRadiusEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a4f03d305c7b0379b1230bd6c5d54cb4c"></span>template&lt;&gt;<br />float <code class="sig-name descname">getRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7hasDataEbv">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7hasDataEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7hasDataEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a872eb390839f14da22694da30957a84a"></span>template&lt;&gt;<br />bool <code class="sig-name descname">hasData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node11hasChildrenEbv">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node11hasChildrenEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node11hasChildrenEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a80042875999f18dfde86bcd14362f89a"></span>template&lt;&gt;<br />bool <code class="sig-name descname">hasChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node12getNeighborsERKNSt3setIP4NodeEEv">
+<span id="_CPPv3IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node12getNeighborsEv"></span><span id="_CPPv2IENK3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node12getNeighborsEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a66999d061662c93ad2af02cf954840ff"></span>template&lt;&gt;<br /><em class="property">const</em> std::set&lt;Node *&gt; &amp;<code class="sig-name descname">getNeighbors</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node14deleteChildrenEvv">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node14deleteChildrenEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node14deleteChildrenEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1ad69226a8cf2566f1a2d10cd72e7eeb5c"></span>template&lt;&gt;<br />void <code class="sig-name descname">deleteChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node10deleteDataEvv">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node10deleteDataEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node10deleteDataEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a9db05aefd5a8a9e44b9e7bf9d94cab8d"></span>template&lt;&gt;<br />void <code class="sig-name descname">deleteData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7setDataEvP8NodeData">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7setDataEP8NodeData"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7setDataEP8NodeData"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a72ca4f9c762ca80a4011d74e2a61b259"></span>template&lt;&gt;<br />void <code class="sig-name descname">setData</code><span class="sig-paren">(</span>NodeData *<em>data</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node14createChildrenEbv">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node14createChildrenEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node14createChildrenEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1adbccf1b7fdaf6b45a04e043dccf83d96"></span>template&lt;&gt;<br />bool <code class="sig-name descname">createChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node13makeNeighborsEvP4Node">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node13makeNeighborsEP4Node"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node13makeNeighborsEP4Node"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a58a5f386b7c4e41334af8abe230b7821"></span>template&lt;&gt;<br />void <code class="sig-name descname">makeNeighbors</code><span class="sig-paren">(</span>Node *<em>node</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Make this and ‘node’ neighbors by inserting each node in the others node neighbor set. </p>
+<p>Nothing happens of either of the nodes has no data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9setParentEvP4Node">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9setParentEP4Node"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9setParentEP4Node"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a6b2ee2248ff4b5cfcafa2e3a49e32cc9"></span>template&lt;&gt;<br />void <code class="sig-name descname">setParent</code><span class="sig-paren">(</span>Node *<em>parent</em><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node13computeRadiusEvv">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node13computeRadiusEv"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node13computeRadiusEv"></span><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a686c25aec44e3bb1d9c92ec71b37569c"></span>template&lt;&gt;<br />void <code class="sig-name descname">computeRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Computes the “radius” of the node which is half the diagonal length. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node5data_E">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node5data_E"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node5data_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1ab03639fe22a78d7b74fd1b899bbf6474"></span>NodeData *<code class="sig-name descname">data_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7center_E">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7center_E"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7center_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a40eed3d8379ee650ef79afccc2f3b46f"></span>Scalar <code class="sig-name descname">center_</code>[3]<br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7bounds_E">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7bounds_E"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7bounds_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1ae3df955d705deae333198eed4ec73f64"></span>Scalar <code class="sig-name descname">bounds_</code>[6]<br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7parent_E">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7parent_E"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7parent_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a5ba1769388c937f18bcbb6b199bb028f"></span>Node *<code class="sig-name descname">parent_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9children_E">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9children_E"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node9children_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a6b69e41f58c0c484acfd84e5641c887f"></span>Node *<code class="sig-name descname">children_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7radius_E">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7radius_E"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node7radius_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a1a70e52a9a3c55d8b5ec7e9631c56bfb"></span>Scalar <code class="sig-name descname">radius_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node20full_leaf_neighbors_E">
+<span id="_CPPv3IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node20full_leaf_neighbors_E"></span><span id="_CPPv2IEN3pcl11recognition12SimpleOctreeI8NodeData15NodeDataCreator6ScalarE4Node20full_leaf_neighbors_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a1f3b19f660576e114a94879707670672"></span>std::set&lt;Node *&gt; <code class="sig-name descname">full_leaf_neighbors_</code><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1recognition_1_1_simple_octree_1_1_node_1a9d85ada8f365181e06739c972b5d367b"></span><em class="property">friend </em><code class="sig-name descname">pcl::recognition::SimpleOctree::Node::SimpleOctree</code></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

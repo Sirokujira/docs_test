@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class FileReader &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class FileReader</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_file_reader.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-filereader">
+<span id="exhale-class-classpcl-1-1-file-reader"></span><h1>Class FileReader<a class="headerlink" href="#class-filereader" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_file_io.h.html#file-pcl-io-include-pcl-io-file-io-h"><span class="std std-ref">File file_io.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::ASCIIReader</span></code> (<a class="reference internal" href="classpcl_1_1_a_s_c_i_i_reader.html#exhale-class-classpcl-1-1-a-s-c-i-i-reader"><span class="std std-ref">Class ASCIIReader</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::OBJReader</span></code> (<a class="reference internal" href="classpcl_1_1_o_b_j_reader.html#exhale-class-classpcl-1-1-o-b-j-reader"><span class="std std-ref">Class OBJReader</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PCDReader</span></code> (<a class="reference internal" href="classpcl_1_1_p_c_d_reader.html#exhale-class-classpcl-1-1-p-c-d-reader"><span class="std std-ref">Class PCDReader</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PLYReader</span></code> (<a class="reference internal" href="classpcl_1_1_p_l_y_reader.html#exhale-class-classpcl-1-1-p-l-y-reader"><span class="std std-ref">Class PLYReader</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl10FileReaderE">
+<span id="_CPPv3N3pcl10FileReaderE"></span><span id="_CPPv2N3pcl10FileReaderE"></span><span id="pcl::FileReader"></span><span class="target" id="classpcl_1_1_file_reader"></span><em class="property">class </em><code class="sig-name descname">FileReader</code><a class="headerlink" href="#_CPPv4N3pcl10FileReaderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point Cloud Data (FILE) file format reader interface. </p>
+<p>Any (FILE) format file reader should implement its virtual methods. <dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Nizar Sallem </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_a_s_c_i_i_reader.html#classpcl_1_1_a_s_c_i_i_reader"><span class="std std-ref">pcl::ASCIIReader</span></a>, <a class="reference internal" href="classpcl_1_1_o_b_j_reader.html#classpcl_1_1_o_b_j_reader"><span class="std std-ref">pcl::OBJReader</span></a>, <a class="reference internal" href="classpcl_1_1_p_c_d_reader.html#classpcl_1_1_p_c_d_reader"><span class="std std-ref">pcl::PCDReader</span></a>, <a class="reference internal" href="classpcl_1_1_p_l_y_reader.html#classpcl_1_1_p_l_y_reader"><span class="std std-ref">pcl::PLYReader</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl10FileReader10FileReaderEv">
+<span id="_CPPv3N3pcl10FileReader10FileReaderEv"></span><span id="_CPPv2N3pcl10FileReader10FileReaderEv"></span><span id="pcl::FileReader::FileReader"></span><span class="target" id="classpcl_1_1_file_reader_1a94072e7c2380c4c1da3465c2b69af9f9"></span><code class="sig-name descname">FileReader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10FileReader10FileReaderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>empty constructor </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10FileReaderD0Ev">
+<span id="_CPPv3N3pcl10FileReaderD0Ev"></span><span id="_CPPv2N3pcl10FileReaderD0Ev"></span><span id="pcl::FileReader::~FileReader"></span><span class="target" id="classpcl_1_1_file_reader_1a7edf7999f66456a8dff01ff2ac157513"></span><em class="property">virtual</em> <code class="sig-name descname">~FileReader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10FileReaderD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>empty destructor </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10FileReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRjKi">
+<span id="_CPPv3N3pcl10FileReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRjKi"></span><span id="_CPPv2N3pcl10FileReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRjKi"></span><span id="pcl::FileReader::readHeader__ssCR.pcl::PCLPointCloud2R.Eigen::Vector4fR.Eigen::QuaternionfR.iR.iR.unsigned-iR.iC"></span><span class="target" id="classpcl_1_1_file_reader_1ae51784cb6db39877b912df20377eaef1"></span><em class="property">virtual</em> int <code class="sig-name descname">readHeader</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, Eigen::Vector4f &amp;<em>origin</em>, Eigen::Quaternionf &amp;<em>orientation</em>, int &amp;<em>file_version</em>, int &amp;<em>data_type</em>, unsigned int &amp;<em>data_idx</em>, <em class="property">const</em> int <em>offset</em> = 0<span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl10FileReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRjKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a point cloud data header from a FILE file. </p>
+<p>Load only the meta information (number of points, their types, etc), and not the points themselves, from a given FILE file. Useful for fast evaluation of the underlying data structure.</p>
+<p>Returns:<ul class="simple">
+<li><p>&lt; 0 (-1) on error</p></li>
+<li><p>&gt; 0 on success <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the file to load </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant point cloud dataset (only the header will be filled) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">origin</span></code>: the sensor acquisition origin (only for &gt; FILE_V7 - null if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">orientation</span></code>: the sensor acquisition orientation (only for &gt; FILE_V7 - identity if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">file_version</span></code>: the FILE version of the file (either FILE_V6 or FILE_V7) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">data_type</span></code>: the type of data (binary data=1, ascii=0, etc) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">data_idx</span></code>: the offset of cloud data within the file </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the offset in the file where to expect the true header to begin. One usage example for setting the offset parameter is for reading data from a TAR “archive containing multiple files: TAR files always add a 512 byte header in front of the actual file, so set the offset to the next byte after the header (e.g., 513). </p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10FileReader4readERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiKi">
+<span id="_CPPv3N3pcl10FileReader4readERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiKi"></span><span id="_CPPv2N3pcl10FileReader4readERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiKi"></span><span id="pcl::FileReader::read__ssCR.pcl::PCLPointCloud2R.Eigen::Vector4fR.Eigen::QuaternionfR.iR.iC"></span><span class="target" id="classpcl_1_1_file_reader_1a6c7b7ed00b43536739a8465064426c1b"></span><em class="property">virtual</em> int <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, Eigen::Vector4f &amp;<em>origin</em>, Eigen::Quaternionf &amp;<em>orientation</em>, int &amp;<em>file_version</em>, <em class="property">const</em> int <em>offset</em> = 0<span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N3pcl10FileReader4readERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a point cloud data from a FILE file and store it into a pcl/PCLPointCloud2. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the file containing the actual <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message read from disk </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">origin</span></code>: the sensor acquisition origin (only for &gt; FILE_V7 - null if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">orientation</span></code>: the sensor acquisition orientation (only for &gt; FILE_V7 - identity if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">file_version</span></code>: the FILE version of the file (either FILE_V6 or FILE_V7) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the offset in the file where to expect the true header to begin. One usage example for setting the offset parameter is for reading data from a TAR “archive containing multiple files: TAR files always add a 512 byte header in front of the actual file, so set the offset to the next byte after the header (e.g., 513). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl10FileReader4readERKNSt6stringERN3pcl14PCLPointCloud2EKi">
+<span id="_CPPv3N3pcl10FileReader4readERKNSt6stringERN3pcl14PCLPointCloud2EKi"></span><span id="_CPPv2N3pcl10FileReader4readERKNSt6stringERN3pcl14PCLPointCloud2EKi"></span><span id="pcl::FileReader::read__ssCR.pcl::PCLPointCloud2R.iC"></span><span class="target" id="classpcl_1_1_file_reader_1abfa34c71c7f148557a5d3ab0517e1c29"></span>int <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, <em class="property">const</em> int <em>offset</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl10FileReader4readERKNSt6stringERN3pcl14PCLPointCloud2EKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a point cloud data from a FILE file (FILE_V6 only!) and store it into a pcl/PCLPointCloud2. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This function is provided for backwards compatibility only and it can only read FILE_V6 files correctly, as <a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#structpcl_1_1_p_c_l_point_cloud2"><span class="std std-ref">pcl::PCLPointCloud2</span></a> does not contain a sensor origin/orientation. Reading any file </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the file containing the actual <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message read from disk</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the offset in the file where to expect the true header to begin. One usage example for setting the offset parameter is for reading data from a TAR “archive containing multiple files: TAR files always add a 512 byte header in front of the actual file, so set the offset to the next byte after the header (e.g., 513). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl10FileReader4readEiRKNSt6stringERN3pcl10PointCloudI6PointTEEKi">
+<span id="_CPPv3I0EN3pcl10FileReader4readERKNSt6stringERN3pcl10PointCloudI6PointTEEKi"></span><span id="_CPPv2I0EN3pcl10FileReader4readERKNSt6stringERN3pcl10PointCloudI6PointTEEKi"></span><span class="target" id="classpcl_1_1_file_reader_1aa38fa10dc5ca8f8a9b3e7c41f1cf36af"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br />int <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, pcl::PointCloud&lt;<a class="reference internal" href="classpcl_1_1_a_s_c_i_i_reader.html#_CPPv4I0EN3pcl10FileReader4readEiRKNSt6stringERN3pcl10PointCloudI6PointTEEKi" title="pcl::FileReader::read::PointT">PointT</a>&gt; &amp;<em>cloud</em>, <em class="property">const</em> int <em>offset</em> = 0<span class="sig-paren">)</span><br /></dt>
+<dd><p>Read a point cloud data from any FILE file, and convert it to the given template format. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the file containing the actual <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message read from disk </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the offset in the file where to expect the true header to begin. One usage example for setting the offset parameter is for reading data from a TAR “archive containing multiple files: TAR files always add a 512 byte header in front of the actual file, so set the offset to the next byte after the header (e.g., 513). </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

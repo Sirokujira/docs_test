@@ -1,0 +1,709 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class TransformationEstimationPointToPlaneWeighted &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class TransformationEstimationPointToPlaneWeighted</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-transformationestimationpointtoplaneweighted">
+<span id="exhale-class-classpcl-1-1registration-1-1-transformation-estimation-point-to-plane-weighted"></span><h1>Template Class TransformationEstimationPointToPlaneWeighted<a class="headerlink" href="#template-class-transformationestimationpointtoplaneweighted" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_registration_include_pcl_registration_transformation_estimation_point_to_plane_weighted.h.html#file-pcl-registration-include-pcl-registration-transformation-estimation-point-to-plane-weighted-h"><span class="std std-ref">File transformation_estimation_point_to_plane_weighted.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor.html#exhale-struct-structpcl-1-1registration-1-1-transformation-estimation-point-to-plane-weighted-1-1-functor"><span class="std std-ref">Template Struct TransformationEstimationPointToPlaneWeighted::Functor</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor.html#exhale-struct-structpcl-1-1registration-1-1-transformation-estimation-point-to-plane-weighted-1-1-optimization-functor"><span class="std std-ref">Struct TransformationEstimationPointToPlaneWeighted::OptimizationFunctor</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_with_indices.html#exhale-struct-structpcl-1-1registration-1-1-transformation-estimation-point-to-plane-weighted-1-1-optimization-functor-with-indices"><span class="std std-ref">Struct TransformationEstimationPointToPlaneWeighted::OptimizationFunctorWithIndices</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::registration::TransformationEstimationPointToPlane&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget,</span> <span class="pre">MatScalar</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane.html#exhale-class-classpcl-1-1registration-1-1-transformation-estimation-point-to-plane"><span class="std std-ref">Template Class TransformationEstimationPointToPlane</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I000EN3pcl12registration44TransformationEstimationPointToPlaneWeightedE">
+<span id="_CPPv3I000EN3pcl12registration44TransformationEstimationPointToPlaneWeightedE"></span><span id="_CPPv2I000EN3pcl12registration44TransformationEstimationPointToPlaneWeightedE"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted"></span>template&lt;typename <code class="sig-name descname">PointSource</code>, typename <code class="sig-name descname">PointTarget</code>, typename <code class="sig-name descname">MatScalar</code> = float&gt;<br /><em class="property">class </em><code class="sig-name descname">TransformationEstimationPointToPlaneWeighted</code> : <em class="property">public</em> pcl::registration::TransformationEstimationPointToPlane&lt;<a class="reference internal" href="#_CPPv4I000EN3pcl12registration44TransformationEstimationPointToPlaneWeightedE" title="pcl::registration::TransformationEstimationPointToPlaneWeighted::PointSource">PointSource</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl12registration44TransformationEstimationPointToPlaneWeightedE" title="pcl::registration::TransformationEstimationPointToPlaneWeighted::PointTarget">PointTarget</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl12registration44TransformationEstimationPointToPlaneWeightedE" title="pcl::registration::TransformationEstimationPointToPlaneWeighted::MatScalar">MatScalar</a>&gt;<a class="headerlink" href="#_CPPv4I000EN3pcl12registration44TransformationEstimationPointToPlaneWeightedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted"><span class="std std-ref">TransformationEstimationPointToPlaneWeighted</span></a></strong> uses Levenberg Marquardt optimization to find the transformation that minimizes the point-to-plane distance between the given correspondences. </p>
+<p>In addition to the <a class="reference internal" href="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane.html#classpcl_1_1registration_1_1_transformation_estimation_point_to_plane"><span class="std std-ref">TransformationEstimationPointToPlane</span></a> class, this version takes per-correspondence weights and optimizes accordingly.</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Alexandru-Eugen Ichim </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted3PtrE">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted3PtrE"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted3PtrE"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::Ptr"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a6b4c6d9d5cdf42c94ac17bf026dc18c7"></span><em class="property">typedef </em>boost::shared_ptr&lt;TransformationEstimationPointToPlaneWeighted&lt;PointSource, PointTarget, MatScalar&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted8ConstPtrE">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted8ConstPtrE"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted8ConstPtrE"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::ConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1aaee8c07cb7426fa0893e5979093582c0"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> TransformationEstimationPointToPlaneWeighted&lt;PointSource, PointTarget, MatScalar&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7VectorXE">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted7VectorXE"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted7VectorXE"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::VectorX"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a3be63e19840a70d60564867572fd482c"></span><em class="property">typedef </em>Eigen::Matrix&lt;MatScalar, Eigen::Dynamic, 1&gt; <code class="sig-name descname">VectorX</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7VectorXE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Vector4E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Vector4E"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Vector4E"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::Vector4"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1ab2da57cb429342b5b17b995b1618e68c"></span><em class="property">typedef </em>Eigen::Matrix&lt;MatScalar, 4, 1&gt; <code class="sig-name descname">Vector4</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Vector4E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Matrix4E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Matrix4E"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Matrix4E"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::Matrix4"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1ae95393d0a6db41216b71d578ded3845a"></span><em class="property">typedef </em>TransformationEstimation&lt;PointSource, PointTarget, MatScalar&gt;::Matrix4 <code class="sig-name descname">Matrix4</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Matrix4E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted44TransformationEstimationPointToPlaneWeightedEv">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted44TransformationEstimationPointToPlaneWeightedEv"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted44TransformationEstimationPointToPlaneWeightedEv"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::TransformationEstimationPointToPlaneWeighted"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1aa1ef683e7e3a8d91e6397ef54508db2e"></span><code class="sig-name descname">TransformationEstimationPointToPlaneWeighted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted44TransformationEstimationPointToPlaneWeightedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted44TransformationEstimationPointToPlaneWeightedERK44TransformationEstimationPointToPlaneWeighted">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted44TransformationEstimationPointToPlaneWeightedERK44TransformationEstimationPointToPlaneWeighted"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted44TransformationEstimationPointToPlaneWeightedERK44TransformationEstimationPointToPlaneWeighted"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::TransformationEstimationPointToPlaneWeighted__TransformationEstimationPointToPlaneWeightedCR"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a31190d3f78a943a90fa905514d3d8f15"></span><code class="sig-name descname">TransformationEstimationPointToPlaneWeighted</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted44TransformationEstimationPointToPlaneWeightedEv" title="pcl::registration::TransformationEstimationPointToPlaneWeighted::TransformationEstimationPointToPlaneWeighted">TransformationEstimationPointToPlaneWeighted</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted44TransformationEstimationPointToPlaneWeightedERK44TransformationEstimationPointToPlaneWeighted" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">src</span></code>: the <a class="reference internal" href="#classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted"><span class="std std-ref">TransformationEstimationPointToPlaneWeighted</span></a> object to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeightedaSERK44TransformationEstimationPointToPlaneWeighted">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeightedaSERK44TransformationEstimationPointToPlaneWeighted"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeightedaSERK44TransformationEstimationPointToPlaneWeighted"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::assign-operator__TransformationEstimationPointToPlaneWeightedCR"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a9d584791047ba8edaca454ba5e09c36c"></span>TransformationEstimationPointToPlaneWeighted &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> TransformationEstimationPointToPlaneWeighted &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeightedaSERK44TransformationEstimationPointToPlaneWeighted" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy operator. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">src</span></code>: the <a class="reference internal" href="#classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted"><span class="std std-ref">TransformationEstimationPointToPlaneWeighted</span></a> object to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeightedD0Ev">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeightedD0Ev"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeightedD0Ev"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::~TransformationEstimationPointToPlaneWeighted"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a6f10cd509f62acd1409e7b16f3eac574"></span><em class="property">virtual</em> <code class="sig-name descname">~TransformationEstimationPointToPlaneWeighted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeightedD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKN3pcl10PointCloudI11PointTargetEER7Matrix4">
+<span id="_CPPv3NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKN3pcl10PointCloudI11PointTargetEER7Matrix4"></span><span id="_CPPv2NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKN3pcl10PointCloudI11PointTargetEER7Matrix4"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::estimateRigidTransformation__pcl::PointCloud:PointSource:CR.pcl::PointCloud:PointTarget:CR.Matrix4RC"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a8077fa4e2aca0cb22546b1973c8a0bd2"></span>void <code class="sig-name descname">estimateRigidTransformation</code><span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;PointSource&gt; &amp;<em>cloud_src</em>, <em class="property">const</em> pcl::PointCloud&lt;PointTarget&gt; &amp;<em>cloud_tgt</em>, <a class="reference internal" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Matrix4E" title="pcl::registration::TransformationEstimationPointToPlaneWeighted::Matrix4">Matrix4</a> &amp;<em>transformation_matrix</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKN3pcl10PointCloudI11PointTargetEER7Matrix4" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate a rigid rotation transformation between a source and a target point cloud using LM. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Uses the weights given by setWeights. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_src</span></code>: the source point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_tgt</span></code>: the target point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transformation_matrix</span></code>: the resultant transformation matrix </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKNSt6vectorIiEERKN3pcl10PointCloudI11PointTargetEER7Matrix4">
+<span id="_CPPv3NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKNSt6vectorIiEERKN3pcl10PointCloudI11PointTargetEER7Matrix4"></span><span id="_CPPv2NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKNSt6vectorIiEERKN3pcl10PointCloudI11PointTargetEER7Matrix4"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::estimateRigidTransformation__pcl::PointCloud:PointSource:CR.std::vector:i:CR.pcl::PointCloud:PointTarget:CR.Matrix4RC"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a4b7616190a77dff7009546c3b0baa7a6"></span>void <code class="sig-name descname">estimateRigidTransformation</code><span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;PointSource&gt; &amp;<em>cloud_src</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices_src</em>, <em class="property">const</em> pcl::PointCloud&lt;PointTarget&gt; &amp;<em>cloud_tgt</em>, <a class="reference internal" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Matrix4E" title="pcl::registration::TransformationEstimationPointToPlaneWeighted::Matrix4">Matrix4</a> &amp;<em>transformation_matrix</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKNSt6vectorIiEERKN3pcl10PointCloudI11PointTargetEER7Matrix4" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate a rigid rotation transformation between a source and a target point cloud using LM. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Uses the weights given by setWeights. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_src</span></code>: the source point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices_src</span></code>: the vector of indices describing the points of interest in <em>cloud_src</em> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_tgt</span></code>: the target point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transformation_matrix</span></code>: the resultant transformation matrix </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKNSt6vectorIiEERKN3pcl10PointCloudI11PointTargetEERKNSt6vectorIiEER7Matrix4">
+<span id="_CPPv3NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKNSt6vectorIiEERKN3pcl10PointCloudI11PointTargetEERKNSt6vectorIiEER7Matrix4"></span><span id="_CPPv2NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKNSt6vectorIiEERKN3pcl10PointCloudI11PointTargetEERKNSt6vectorIiEER7Matrix4"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::estimateRigidTransformation__pcl::PointCloud:PointSource:CR.std::vector:i:CR.pcl::PointCloud:PointTarget:CR.std::vector:i:CR.Matrix4RC"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1affa31251ac3df980cac958242aec9893"></span>void <code class="sig-name descname">estimateRigidTransformation</code><span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;PointSource&gt; &amp;<em>cloud_src</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices_src</em>, <em class="property">const</em> pcl::PointCloud&lt;PointTarget&gt; &amp;<em>cloud_tgt</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices_tgt</em>, <a class="reference internal" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Matrix4E" title="pcl::registration::TransformationEstimationPointToPlaneWeighted::Matrix4">Matrix4</a> &amp;<em>transformation_matrix</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKNSt6vectorIiEERKN3pcl10PointCloudI11PointTargetEERKNSt6vectorIiEER7Matrix4" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate a rigid rotation transformation between a source and a target point cloud using LM. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Uses the weights given by setWeights. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_src</span></code>: the source point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices_src</span></code>: the vector of indices describing the points of interest in <em>cloud_src</em> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_tgt</span></code>: the target point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices_tgt</span></code>: the vector of indices describing the correspondences of the interest points from <em>indices_src</em> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transformation_matrix</span></code>: the resultant transformation matrix </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKN3pcl10PointCloudI11PointTargetEERKN3pcl15CorrespondencesER7Matrix4">
+<span id="_CPPv3NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKN3pcl10PointCloudI11PointTargetEERKN3pcl15CorrespondencesER7Matrix4"></span><span id="_CPPv2NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKN3pcl10PointCloudI11PointTargetEERKN3pcl15CorrespondencesER7Matrix4"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::estimateRigidTransformation__pcl::PointCloud:PointSource:CR.pcl::PointCloud:PointTarget:CR.pcl::CorrespondencesCR.Matrix4RC"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a5041facc55af4c6ef2b2f108b37845da"></span>void <code class="sig-name descname">estimateRigidTransformation</code><span class="sig-paren">(</span><em class="property">const</em> pcl::PointCloud&lt;PointSource&gt; &amp;<em>cloud_src</em>, <em class="property">const</em> pcl::PointCloud&lt;PointTarget&gt; &amp;<em>cloud_tgt</em>, <em class="property">const</em> pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>correspondences</em>, <a class="reference internal" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted7Matrix4E" title="pcl::registration::TransformationEstimationPointToPlaneWeighted::Matrix4">Matrix4</a> &amp;<em>transformation_matrix</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration44TransformationEstimationPointToPlaneWeighted27estimateRigidTransformationERKN3pcl10PointCloudI11PointSourceEERKN3pcl10PointCloudI11PointTargetEERKN3pcl15CorrespondencesER7Matrix4" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate a rigid rotation transformation between a source and a target point cloud using LM. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Uses the weights given by setWeights. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_src</span></code>: the source point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud_tgt</span></code>: the target point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">correspondences</span></code>: the vector of correspondences between source and target point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">transformation_matrix</span></code>: the resultant transformation matrix </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted10setWeightsERKNSt6vectorIdEE">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted10setWeightsERKNSt6vectorIdEE"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted10setWeightsERKNSt6vectorIdEE"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::setWeights__std::vector:double:CR"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a0d62ee9439baf9b9cda6c06d0f3fd77b"></span>void <code class="sig-name descname">setWeights</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>weights</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted10setWeightsERKNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted27setUseCorrespondenceWeightsEb">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted27setUseCorrespondenceWeightsEb"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted27setUseCorrespondenceWeightsEb"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::setUseCorrespondenceWeights__b"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a509f761b6fd51f9a29db11623ae021d0"></span>void <code class="sig-name descname">setUseCorrespondenceWeights</code><span class="sig-paren">(</span>bool <em>use_correspondence_weights</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted27setUseCorrespondenceWeightsEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>use the weights given in the pcl::CorrespondencesPtr for one of the estimateTransformation (…) methods </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted15setWarpFunctionERKN5boost10shared_ptrI14WarpPointRigidI11PointSource11PointTarget9MatScalarEEE">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted15setWarpFunctionERKN5boost10shared_ptrI14WarpPointRigidI11PointSource11PointTarget9MatScalarEEE"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted15setWarpFunctionERKN5boost10shared_ptrI14WarpPointRigidI11PointSource11PointTarget9MatScalarEEE"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::setWarpFunction__boost::shared_ptr:WarpPointRigid:PointSource.PointTarget.MatScalar::CR"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1ac02dcb949529eb673d902353c436ad03"></span>void <code class="sig-name descname">setWarpFunction</code><span class="sig-paren">(</span><em class="property">const</em> boost::shared_ptr&lt;WarpPointRigid&lt;PointSource, PointTarget, MatScalar&gt;&gt; &amp;<em>warp_fcn</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted15setWarpFunctionERKN5boost10shared_ptrI14WarpPointRigidI11PointSource11PointTarget9MatScalarEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the function we use to warp points. </p>
+<p>Defaults to rigid 6D warp. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">warp_fcn</span></code>: a shared pointer to an object that warps points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted27use_correspondence_weights_E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted27use_correspondence_weights_E"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted27use_correspondence_weights_E"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::use_correspondence_weights___b"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a985ed4de1d830a7bb93f1bd22caf0ac6"></span>bool <code class="sig-name descname">use_correspondence_weights_</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted27use_correspondence_weights_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted23correspondence_weights_E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted23correspondence_weights_E"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted23correspondence_weights_E"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::correspondence_weights___std::vector:double:"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1adb7692888a703510a5f83b7d007223ee"></span>std::vector&lt;double&gt; <code class="sig-name descname">correspondence_weights_</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted23correspondence_weights_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted8tmp_src_E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted8tmp_src_E"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted8tmp_src_E"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::tmp_src___PointCloudSourceCP"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a9a76f8ffc1af3381de3ffe52256dc9ce"></span><em class="property">const</em> PointCloudSource *<code class="sig-name descname">tmp_src_</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted8tmp_src_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Temporary pointer to the source dataset. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted8tmp_tgt_E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted8tmp_tgt_E"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted8tmp_tgt_E"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::tmp_tgt___PointCloudTargetCP"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a25c896f93f052ad72bcd4268beac017f"></span><em class="property">const</em> PointCloudTarget *<code class="sig-name descname">tmp_tgt_</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted8tmp_tgt_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Temporary pointer to the target dataset. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted12tmp_idx_src_E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted12tmp_idx_src_E"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted12tmp_idx_src_E"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::tmp_idx_src___std::vector:i:CP"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a9623915c6e1a55cc2d6019553cac3a1f"></span><em class="property">const</em> std::vector&lt;int&gt; *<code class="sig-name descname">tmp_idx_src_</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted12tmp_idx_src_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Temporary pointer to the source dataset indices. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted12tmp_idx_tgt_E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted12tmp_idx_tgt_E"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted12tmp_idx_tgt_E"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::tmp_idx_tgt___std::vector:i:CP"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1aa4cd3f6b20447bac66d6c02c5af69c67"></span><em class="property">const</em> std::vector&lt;int&gt; *<code class="sig-name descname">tmp_idx_tgt_</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted12tmp_idx_tgt_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Temporary pointer to the target dataset indices. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted11warp_point_E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted11warp_point_E"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted11warp_point_E"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::warp_point___boost::shared_ptr:pcl::registration::WarpPointRigid:PointSource.PointTarget.MatScalar::"></span><span class="target" id="classpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1a89c7b6260885beaf2ced53bca74b1f13"></span>boost::shared_ptr&lt;pcl::registration::WarpPointRigid&lt;PointSource, PointTarget, MatScalar&gt;&gt; <code class="sig-name descname">warp_point_</code><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted11warp_point_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The parameterized function used to warp the source to the target. </p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4I0_i_iEN3pcl12registration44TransformationEstimationPointToPlaneWeighted7FunctorE">
+<span id="_CPPv3I0_i_iEN3pcl12registration44TransformationEstimationPointToPlaneWeighted7FunctorE"></span><span id="_CPPv2I0_i_iEN3pcl12registration44TransformationEstimationPointToPlaneWeighted7FunctorE"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor"></span>template&lt;typename <code class="sig-name descname">_Scalar</code>, int <code class="sig-name descname">NX</code> = Eigen::Dynamic, int <code class="sig-name descname">NY</code> = Eigen::Dynamic&gt;<br /><em class="property">struct </em><code class="sig-name descname">Functor</code><a class="headerlink" href="#_CPPv4I0_i_iEN3pcl12registration44TransformationEstimationPointToPlaneWeighted7FunctorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Base functor all the models that need non linear optimization must define their own one and implement operator() (const Eigen::VectorXd&amp; x, Eigen::VectorXd&amp; fvec) or operator() (const Eigen::VectorXf&amp; x, Eigen::VectorXf&amp; fvec) depending on the chosen _Scalar. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeightedUt8_anon_133E">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeightedUt8_anon_133E"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1a94a49e43b61ef42406444901287831df"></span><em class="property">enum </em><strong>[anonymous]</strong><a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeightedUt8_anon_133E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted19InputsAtCompileTimeE">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted19InputsAtCompileTimeE"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted19InputsAtCompileTimeE"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1a94a49e43b61ef42406444901287831dfa98773171e20df717dcf305f1976023a9"></span><code class="sig-name descname">InputsAtCompileTime</code> = NX<a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted19InputsAtCompileTimeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted19ValuesAtCompileTimeE">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted19ValuesAtCompileTimeE"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted19ValuesAtCompileTimeE"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1a94a49e43b61ef42406444901287831dfafa474a9de90b6e08cd007e1a6cf6da53"></span><code class="sig-name descname">ValuesAtCompileTime</code> = NY<a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted19ValuesAtCompileTimeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor6ScalarE">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor6ScalarE"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor6ScalarE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1aeed20c9e392c0e3bb8864000b268ac2b"></span><em class="property">typedef </em>_Scalar <code class="sig-name descname">Scalar</code><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor6ScalarE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor9InputTypeE">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor9InputTypeE"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor9InputTypeE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1a274f5f91b3aa1d323b1e75224d6dbe8b"></span><em class="property">typedef </em>Eigen::Matrix&lt;_Scalar, InputsAtCompileTime, 1&gt; <code class="sig-name descname">InputType</code><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor9InputTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor9ValueTypeE">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor9ValueTypeE"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor9ValueTypeE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1a0bb09f92969ba73230b1ece54214bfdd"></span><em class="property">typedef </em>Eigen::Matrix&lt;_Scalar, ValuesAtCompileTime, 1&gt; <code class="sig-name descname">ValueType</code><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor9ValueTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor12JacobianTypeE">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor12JacobianTypeE"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor12JacobianTypeE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1a2983ac92381c663486251286d563122d"></span><em class="property">typedef </em>Eigen::Matrix&lt;_Scalar, ValuesAtCompileTime, InputsAtCompileTime&gt; <code class="sig-name descname">JacobianType</code><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor12JacobianTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor7FunctorEv">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor7FunctorEv"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor7FunctorEv"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1af43ba6b7aff18edd2128a409bcc3bb75"></span>template&lt;&gt;<br /><code class="sig-name descname">Functor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor7FunctorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor7FunctorEi">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor7FunctorEi"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor7FunctorEi"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1aa9ff67909b2efa27e1739fbfc06795c5"></span>template&lt;&gt;<br /><code class="sig-name descname">Functor</code><span class="sig-paren">(</span>int <em>m_data_points</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor7FunctorEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">m_data_points</span></code>: number of data points to evaluate. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7FunctorD0Ev">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7FunctorD0Ev"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7FunctorD0Ev"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1a63cf8d06c2913ef909fc9ef00f77133f"></span>template&lt;&gt;<br /><em class="property">virtual</em> <code class="sig-name descname">~Functor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7FunctorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor6valuesEiv">
+<span id="_CPPv3IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor6valuesEv"></span><span id="_CPPv2IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor6valuesEv"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1a429be0de2f236ad12cf74cb64826545e"></span>template&lt;&gt;<br />int <code class="sig-name descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor6valuesEiv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of values. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor14m_data_points_E">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor14m_data_points_E"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor14m_data_points_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor_1a221bbf42c5878450b01ca14e3ff3d17d"></span>int <code class="sig-name descname">m_data_points_</code><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE7Functor14m_data_points_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted19OptimizationFunctorE">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted19OptimizationFunctorE"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted19OptimizationFunctorE"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::OptimizationFunctor"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor"></span><em class="property">struct </em><code class="sig-name descname">OptimizationFunctor</code> : <em class="property">public</em> pcl::registration::TransformationEstimationPointToPlaneWeighted&lt;PointSource, PointTarget, MatScalar&gt;::Functor&lt;MatScalar&gt;<a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted19OptimizationFunctorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor19OptimizationFunctorEiPK44TransformationEstimationPointToPlaneWeighted">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor19OptimizationFunctorEiPK44TransformationEstimationPointToPlaneWeighted"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor19OptimizationFunctorEiPK44TransformationEstimationPointToPlaneWeighted"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_1a0f7e0c89582eda9989cfe4e032a3a192"></span>template&lt;&gt;<br /><code class="sig-name descname">OptimizationFunctor</code><span class="sig-paren">(</span>int <em>m_data_points</em>, <em class="property">const</em> TransformationEstimationPointToPlaneWeighted *<em>estimator</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor19OptimizationFunctorEiPK44TransformationEstimationPointToPlaneWeighted" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor.html#structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor"><span class="std std-ref">Functor</span></a> constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">m_data_points</span></code>: the number of data points to evaluate </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">estimator</span></code>: pointer to the estimator object </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor19OptimizationFunctorERK19OptimizationFunctor">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor19OptimizationFunctorERK19OptimizationFunctor"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor19OptimizationFunctorERK19OptimizationFunctor"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_1a2eb5223add9de97bed868990f6c888d1"></span>template&lt;&gt;<br /><code class="sig-name descname">OptimizationFunctor</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor19OptimizationFunctorEiPK44TransformationEstimationPointToPlaneWeighted" title="pcl::registration::TransformationEstimationPointToPlaneWeighted&lt;PointSource, PointTarget, MatScalar&gt;::OptimizationFunctor::OptimizationFunctor">OptimizationFunctor</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor19OptimizationFunctorERK19OptimizationFunctor" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">src</span></code>: the optimization functor to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctoraSER19OptimizationFunctorRK19OptimizationFunctor">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctoraSERK19OptimizationFunctor"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctoraSERK19OptimizationFunctor"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_1acd82b599947bc7790fe1f6b7108a6370"></span>template&lt;&gt;<br />OptimizationFunctor &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> OptimizationFunctor &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctoraSER19OptimizationFunctorRK19OptimizationFunctor" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy operator. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">src</span></code>: the optimization functor to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctorD0Ev">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctorD0Ev"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctorD0Ev"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_1ac4d93786748df75f7656a93f67557420"></span>template&lt;&gt;<br /><em class="property">virtual</em> <code class="sig-name descname">~OptimizationFunctor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctorD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctorclEiRK7VectorXR7VectorX">
+<span id="_CPPv3IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctorclERK7VectorXR7VectorX"></span><span id="_CPPv2IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctorclERK7VectorXR7VectorX"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_1ae89a29bdcb00645d22dac7bca7ac8519"></span>template&lt;&gt;<br />int <code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> VectorX &amp;<em>x</em>, VectorX &amp;<em>fvec</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctorclEiRK7VectorXR7VectorX" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill fvec from x. </p>
+<p>For the current state vector x fill the f values <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: state vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">fvec</span></code>: f values vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor10estimator_E">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor10estimator_E"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor10estimator_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_1a71bb6b637a658347b9b6253d7257b288"></span><em class="property">const</em> TransformationEstimationPointToPlaneWeighted&lt;PointSource, PointTarget, MatScalar&gt; *<code class="sig-name descname">estimator_</code><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE19OptimizationFunctor10estimator_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted30OptimizationFunctorWithIndicesE">
+<span id="_CPPv3N3pcl12registration44TransformationEstimationPointToPlaneWeighted30OptimizationFunctorWithIndicesE"></span><span id="_CPPv2N3pcl12registration44TransformationEstimationPointToPlaneWeighted30OptimizationFunctorWithIndicesE"></span><span id="pcl::registration::TransformationEstimationPointToPlaneWeighted::OptimizationFunctorWithIndices"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_with_indices"></span><em class="property">struct </em><code class="sig-name descname">OptimizationFunctorWithIndices</code> : <em class="property">public</em> pcl::registration::TransformationEstimationPointToPlaneWeighted&lt;PointSource, PointTarget, MatScalar&gt;::Functor&lt;MatScalar&gt;<a class="headerlink" href="#_CPPv4N3pcl12registration44TransformationEstimationPointToPlaneWeighted30OptimizationFunctorWithIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesEiPK44TransformationEstimationPointToPlaneWeighted">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesEiPK44TransformationEstimationPointToPlaneWeighted"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesEiPK44TransformationEstimationPointToPlaneWeighted"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_with_indices_1ae1e74c878a938120deb6b3135225f334"></span>template&lt;&gt;<br /><code class="sig-name descname">OptimizationFunctorWithIndices</code><span class="sig-paren">(</span>int <em>m_data_points</em>, <em class="property">const</em> TransformationEstimationPointToPlaneWeighted *<em>estimator</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesEiPK44TransformationEstimationPointToPlaneWeighted" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor.html#structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_functor"><span class="std std-ref">Functor</span></a> constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">m_data_points</span></code>: the number of data points to evaluate </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">estimator</span></code>: pointer to the estimator object </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesERK30OptimizationFunctorWithIndices">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesERK30OptimizationFunctorWithIndices"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesERK30OptimizationFunctorWithIndices"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_with_indices_1a536aeab06d1210b7695471aff0029af0"></span>template&lt;&gt;<br /><code class="sig-name descname">OptimizationFunctorWithIndices</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesEiPK44TransformationEstimationPointToPlaneWeighted" title="pcl::registration::TransformationEstimationPointToPlaneWeighted&lt;PointSource, PointTarget, MatScalar&gt;::OptimizationFunctorWithIndices::OptimizationFunctorWithIndices">OptimizationFunctorWithIndices</a> &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices30OptimizationFunctorWithIndicesERK30OptimizationFunctorWithIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">src</span></code>: the optimization functor to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesaSER30OptimizationFunctorWithIndicesRK30OptimizationFunctorWithIndices">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesaSERK30OptimizationFunctorWithIndices"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesaSERK30OptimizationFunctorWithIndices"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_with_indices_1a46c8b467b50f25702ba030411a8e5b89"></span>template&lt;&gt;<br />OptimizationFunctorWithIndices &amp;<code class="sig-name descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> OptimizationFunctorWithIndices &amp;<em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesaSER30OptimizationFunctorWithIndicesRK30OptimizationFunctorWithIndices" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Copy operator. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">src</span></code>: the optimization functor to copy into this </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesD0Ev">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesD0Ev"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesD0Ev"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_with_indices_1a2be695cc326abc1299db2f5c6acac3f0"></span>template&lt;&gt;<br /><em class="property">virtual</em> <code class="sig-name descname">~OptimizationFunctorWithIndices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesclEiRK7VectorXR7VectorX">
+<span id="_CPPv3IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesclERK7VectorXR7VectorX"></span><span id="_CPPv2IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesclERK7VectorXR7VectorX"></span><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_with_indices_1aa0fe3b4fb7eb08c8ea7d8774ec19ae4d"></span>template&lt;&gt;<br />int <code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> VectorX &amp;<em>x</em>, VectorX &amp;<em>fvec</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndicesclEiRK7VectorXR7VectorX" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fill fvec from x. </p>
+<p>For the current state vector x fill the f values <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: state vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">fvec</span></code>: f values vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices10estimator_E">
+<span id="_CPPv3IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices10estimator_E"></span><span id="_CPPv2IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices10estimator_E"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1registration_1_1_transformation_estimation_point_to_plane_weighted_1_1_optimization_functor_with_indices_1a6082a5889a067151642f794c1989f7d9"></span><em class="property">const</em> TransformationEstimationPointToPlaneWeighted&lt;PointSource, PointTarget, MatScalar&gt; *<code class="sig-name descname">estimator_</code><a class="headerlink" href="#_CPPv4IEN3pcl12registration44TransformationEstimationPointToPlaneWeightedI11PointSource11PointTarget9MatScalarE30OptimizationFunctorWithIndices10estimator_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

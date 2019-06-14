@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class SACSegmentation &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class SACSegmentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_s_a_c_segmentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-sacsegmentation">
+<span id="exhale-class-classpcl-1-1-s-a-c-segmentation"></span><h1>Template Class SACSegmentation<a class="headerlink" href="#template-class-sacsegmentation" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_segmentation_include_pcl_segmentation_sac_segmentation.h.html#file-pcl-segmentation-include-pcl-segmentation-sac-segmentation-h"><span class="std std-ref">File sac_segmentation.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PCLBase&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_c_l_base.html#exhale-class-classpcl-1-1-p-c-l-base"><span class="std std-ref">Template Class PCLBase</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SACSegmentationFromNormals&lt;</span> <span class="pre">PointT,</span> <span class="pre">PointNT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_s_a_c_segmentation_from_normals.html#exhale-class-classpcl-1-1-s-a-c-segmentation-from-normals"><span class="std std-ref">Template Class SACSegmentationFromNormals</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl15SACSegmentationE">
+<span id="_CPPv3I0EN3pcl15SACSegmentationE"></span><span id="_CPPv2I0EN3pcl15SACSegmentationE"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">SACSegmentation</code> : <em class="property">public</em> pcl::PCLBase&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl15SACSegmentationE" title="pcl::SACSegmentation::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl15SACSegmentationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1_s_a_c_segmentation"><span class="std std-ref">SACSegmentation</span></a></strong> represents the Nodelet segmentation class for Sample Consensus methods and models, in the sense that it just creates a Nodelet wrapper for generic-purpose SAC-based segmentation. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Radu Bogdan Rusu </p>
+</dd>
+</dl>
+</p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_s_a_c_segmentation_from_normals.html#classpcl_1_1_s_a_c_segmentation_from_normals"><span class="std std-ref">pcl::SACSegmentationFromNormals&lt; PointT, PointNT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl15SACSegmentation10PointCloudE">
+<span id="_CPPv3N3pcl15SACSegmentation10PointCloudE"></span><span id="_CPPv2N3pcl15SACSegmentation10PointCloudE"></span><span id="pcl::SACSegmentation::PointCloud"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1aa09fbf509ac114962b171cfd14a5dc45"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15SACSegmentation13PointCloudPtrE">
+<span id="_CPPv3N3pcl15SACSegmentation13PointCloudPtrE"></span><span id="_CPPv2N3pcl15SACSegmentation13PointCloudPtrE"></span><span id="pcl::SACSegmentation::PointCloudPtr"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a6059dcf8a4237ea31407f8dd2f09caed"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl15SACSegmentation10PointCloudE" title="pcl::SACSegmentation::PointCloud">PointCloud</a>::Ptr <code class="sig-name descname">PointCloudPtr</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation13PointCloudPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15SACSegmentation18PointCloudConstPtrE">
+<span id="_CPPv3N3pcl15SACSegmentation18PointCloudConstPtrE"></span><span id="_CPPv2N3pcl15SACSegmentation18PointCloudConstPtrE"></span><span id="pcl::SACSegmentation::PointCloudConstPtr"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1ada56bae375c5de607293ab075ab6d5cb"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl15SACSegmentation10PointCloudE" title="pcl::SACSegmentation::PointCloud">PointCloud</a>::ConstPtr <code class="sig-name descname">PointCloudConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation18PointCloudConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15SACSegmentation9SearchPtrE">
+<span id="_CPPv3N3pcl15SACSegmentation9SearchPtrE"></span><span id="_CPPv2N3pcl15SACSegmentation9SearchPtrE"></span><span id="pcl::SACSegmentation::SearchPtr"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a6daa80c444944c4c1bff9574e5507b0b"></span><em class="property">typedef </em>pcl::search::Search&lt;PointT&gt;::Ptr <code class="sig-name descname">SearchPtr</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation9SearchPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15SACSegmentation18SampleConsensusPtrE">
+<span id="_CPPv3N3pcl15SACSegmentation18SampleConsensusPtrE"></span><span id="_CPPv2N3pcl15SACSegmentation18SampleConsensusPtrE"></span><span id="pcl::SACSegmentation::SampleConsensusPtr"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a690cd433d894b90418e00f7d5867cc07"></span><em class="property">typedef </em>SampleConsensus&lt;PointT&gt;::Ptr <code class="sig-name descname">SampleConsensusPtr</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation18SampleConsensusPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15SACSegmentation23SampleConsensusModelPtrE">
+<span id="_CPPv3N3pcl15SACSegmentation23SampleConsensusModelPtrE"></span><span id="_CPPv2N3pcl15SACSegmentation23SampleConsensusModelPtrE"></span><span id="pcl::SACSegmentation::SampleConsensusModelPtr"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1ad0cfee2da069f7bddef93b279b3a61d6"></span><em class="property">typedef </em>SampleConsensusModel&lt;PointT&gt;::Ptr <code class="sig-name descname">SampleConsensusModelPtr</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation23SampleConsensusModelPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation15SACSegmentationEb">
+<span id="_CPPv3N3pcl15SACSegmentation15SACSegmentationEb"></span><span id="_CPPv2N3pcl15SACSegmentation15SACSegmentationEb"></span><span id="pcl::SACSegmentation::SACSegmentation__b"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1addeabe3a311db251ef7d0a25879f1f4a"></span><code class="sig-name descname">SACSegmentation</code><span class="sig-paren">(</span>bool <em>random</em> = false<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation15SACSegmentationEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">random</span></code>: if true set the random seed to the current time, else set to 12345 (default: false) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentationD0Ev">
+<span id="_CPPv3N3pcl15SACSegmentationD0Ev"></span><span id="_CPPv2N3pcl15SACSegmentationD0Ev"></span><span id="pcl::SACSegmentation::~SACSegmentation"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a0a6a501237dea40ae68c62f364e99cdf"></span><em class="property">virtual</em> <code class="sig-name descname">~SACSegmentation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentationD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation12setModelTypeEi">
+<span id="_CPPv3N3pcl15SACSegmentation12setModelTypeEi"></span><span id="_CPPv2N3pcl15SACSegmentation12setModelTypeEi"></span><span id="pcl::SACSegmentation::setModelType__i"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1aaf3488729fa23a602cc0ef2e9480c5f5"></span>void <code class="sig-name descname">setModelType</code><span class="sig-paren">(</span>int <em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation12setModelTypeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The type of model to use (user given parameter). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model</span></code>: the model type (check <em>model_types.h</em>) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation12getModelTypeEv">
+<span id="_CPPv3NK3pcl15SACSegmentation12getModelTypeEv"></span><span id="_CPPv2NK3pcl15SACSegmentation12getModelTypeEv"></span><span id="pcl::SACSegmentation::getModelTypeC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1aa6ca63b1a3068f27ad7c9aeae462dfe2"></span>int <code class="sig-name descname">getModelType</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation12getModelTypeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the type of SAC model used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation9getMethodEv">
+<span id="_CPPv3NK3pcl15SACSegmentation9getMethodEv"></span><span id="_CPPv2NK3pcl15SACSegmentation9getMethodEv"></span><span id="pcl::SACSegmentation::getMethodC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a5fde989b5cec51bbec33cb0973186fe2"></span><a class="reference internal" href="#_CPPv4N3pcl15SACSegmentation18SampleConsensusPtrE" title="pcl::SACSegmentation::SampleConsensusPtr">SampleConsensusPtr</a> <code class="sig-name descname">getMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation9getMethodEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the SAC method used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation8getModelEv">
+<span id="_CPPv3NK3pcl15SACSegmentation8getModelEv"></span><span id="_CPPv2NK3pcl15SACSegmentation8getModelEv"></span><span id="pcl::SACSegmentation::getModelC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1ac7b9564ceba35754837b4848cf448d78"></span><a class="reference internal" href="#_CPPv4N3pcl15SACSegmentation23SampleConsensusModelPtrE" title="pcl::SACSegmentation::SampleConsensusModelPtr">SampleConsensusModelPtr</a> <code class="sig-name descname">getModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation8getModelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a pointer to the SAC model used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation13setMethodTypeEi">
+<span id="_CPPv3N3pcl15SACSegmentation13setMethodTypeEi"></span><span id="_CPPv2N3pcl15SACSegmentation13setMethodTypeEi"></span><span id="pcl::SACSegmentation::setMethodType__i"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a1f01af4b5cc22e916c4facc145bc9297"></span>void <code class="sig-name descname">setMethodType</code><span class="sig-paren">(</span>int <em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation13setMethodTypeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The type of sample consensus method to use (user given parameter). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">method</span></code>: the method type (check <em>method_types.h</em>) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation13getMethodTypeEv">
+<span id="_CPPv3NK3pcl15SACSegmentation13getMethodTypeEv"></span><span id="_CPPv2NK3pcl15SACSegmentation13getMethodTypeEv"></span><span id="pcl::SACSegmentation::getMethodTypeC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a063b9f3f9beebfe252ef206dfa8fb6f5"></span>int <code class="sig-name descname">getMethodType</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation13getMethodTypeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the type of sample consensus method used. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation20setDistanceThresholdEd">
+<span id="_CPPv3N3pcl15SACSegmentation20setDistanceThresholdEd"></span><span id="_CPPv2N3pcl15SACSegmentation20setDistanceThresholdEd"></span><span id="pcl::SACSegmentation::setDistanceThreshold__double"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1ab303bdf338af51e757095fdcdd7dcf5a"></span>void <code class="sig-name descname">setDistanceThreshold</code><span class="sig-paren">(</span>double <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation20setDistanceThresholdEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Distance to the model threshold (user given parameter). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: the distance threshold to use </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation20getDistanceThresholdEv">
+<span id="_CPPv3NK3pcl15SACSegmentation20getDistanceThresholdEv"></span><span id="_CPPv2NK3pcl15SACSegmentation20getDistanceThresholdEv"></span><span id="pcl::SACSegmentation::getDistanceThresholdC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a37153f3267f908eb64719749dd9a5428"></span>double <code class="sig-name descname">getDistanceThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation20getDistanceThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the distance to the model threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation16setMaxIterationsEi">
+<span id="_CPPv3N3pcl15SACSegmentation16setMaxIterationsEi"></span><span id="_CPPv2N3pcl15SACSegmentation16setMaxIterationsEi"></span><span id="pcl::SACSegmentation::setMaxIterations__i"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a47c5241af3824ee197e3a9c1b89806c4"></span>void <code class="sig-name descname">setMaxIterations</code><span class="sig-paren">(</span>int <em>max_iterations</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation16setMaxIterationsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of iterations before giving up. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_iterations</span></code>: the maximum number of iterations the sample consensus method will run </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation16getMaxIterationsEv">
+<span id="_CPPv3NK3pcl15SACSegmentation16getMaxIterationsEv"></span><span id="_CPPv2NK3pcl15SACSegmentation16getMaxIterationsEv"></span><span id="pcl::SACSegmentation::getMaxIterationsC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1adad96aff89dd14bd02ae5790b701e519"></span>int <code class="sig-name descname">getMaxIterations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation16getMaxIterationsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get maximum number of iterations before giving up. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation14setProbabilityEd">
+<span id="_CPPv3N3pcl15SACSegmentation14setProbabilityEd"></span><span id="_CPPv2N3pcl15SACSegmentation14setProbabilityEd"></span><span id="pcl::SACSegmentation::setProbability__double"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a6c436f52078056b626aba0c36b819235"></span>void <code class="sig-name descname">setProbability</code><span class="sig-paren">(</span>double <em>probability</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation14setProbabilityEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the probability of choosing at least one sample free from outliers. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">probability</span></code>: the model fitting probability </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation14getProbabilityEv">
+<span id="_CPPv3NK3pcl15SACSegmentation14getProbabilityEv"></span><span id="_CPPv2NK3pcl15SACSegmentation14getProbabilityEv"></span><span id="pcl::SACSegmentation::getProbabilityC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a41f0f4101d35fcffd17923204989fbf0"></span>double <code class="sig-name descname">getProbability</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation14getProbabilityEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the probability of choosing at least one sample free from outliers. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation23setOptimizeCoefficientsEb">
+<span id="_CPPv3N3pcl15SACSegmentation23setOptimizeCoefficientsEb"></span><span id="_CPPv2N3pcl15SACSegmentation23setOptimizeCoefficientsEb"></span><span id="pcl::SACSegmentation::setOptimizeCoefficients__b"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1acd7cb38442e52a3df81bc0fd28c07646"></span>void <code class="sig-name descname">setOptimizeCoefficients</code><span class="sig-paren">(</span>bool <em>optimize</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation23setOptimizeCoefficientsEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set to true if a coefficient refinement is required. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">optimize</span></code>: true for enabling model coefficient refinement, false otherwise </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation23getOptimizeCoefficientsEv">
+<span id="_CPPv3NK3pcl15SACSegmentation23getOptimizeCoefficientsEv"></span><span id="_CPPv2NK3pcl15SACSegmentation23getOptimizeCoefficientsEv"></span><span id="pcl::SACSegmentation::getOptimizeCoefficientsC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a5f2152f5157113171a2d0a077ad17731"></span>bool <code class="sig-name descname">getOptimizeCoefficients</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation23getOptimizeCoefficientsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the coefficient refinement internal flag. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation15setRadiusLimitsERKdRKd">
+<span id="_CPPv3N3pcl15SACSegmentation15setRadiusLimitsERKdRKd"></span><span id="_CPPv2N3pcl15SACSegmentation15setRadiusLimitsERKdRKd"></span><span id="pcl::SACSegmentation::setRadiusLimits__doubleCR.doubleCR"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a18ba57a99fbbcb0f2d0500b0d21579d2"></span>void <code class="sig-name descname">setRadiusLimits</code><span class="sig-paren">(</span><em class="property">const</em> double &amp;<em>min_radius</em>, <em class="property">const</em> double &amp;<em>max_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation15setRadiusLimitsERKdRKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the minimum and maximum allowable radius limits for the model (applicable to models that estimate a radius) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_radius</span></code>: the minimum radius model </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_radius</span></code>: the maximum radius model </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation15getRadiusLimitsERdRd">
+<span id="_CPPv3N3pcl15SACSegmentation15getRadiusLimitsERdRd"></span><span id="_CPPv2N3pcl15SACSegmentation15getRadiusLimitsERdRd"></span><span id="pcl::SACSegmentation::getRadiusLimits__doubleR.doubleR"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1ae02b4d2a62f5dc94deb71f3412b93916"></span>void <code class="sig-name descname">getRadiusLimits</code><span class="sig-paren">(</span>double &amp;<em>min_radius</em>, double &amp;<em>max_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation15getRadiusLimitsERdRd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the minimum and maximum allowable radius limits for the model as set by the user. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">min_radius</span></code>: the resultant minimum radius model </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">max_radius</span></code>: the resultant maximum radius model </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation17setSamplesMaxDistERKd9SearchPtr">
+<span id="_CPPv3N3pcl15SACSegmentation17setSamplesMaxDistERKd9SearchPtr"></span><span id="_CPPv2N3pcl15SACSegmentation17setSamplesMaxDistERKd9SearchPtr"></span><span id="pcl::SACSegmentation::setSamplesMaxDist__doubleCR.SearchPtr"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1ac8a399afca15a3e2dcbf491a8de3e2f1"></span>void <code class="sig-name descname">setSamplesMaxDist</code><span class="sig-paren">(</span><em class="property">const</em> double &amp;<em>radius</em>, <a class="reference internal" href="#_CPPv4N3pcl15SACSegmentation9SearchPtrE" title="pcl::SACSegmentation::SearchPtr">SearchPtr</a> <em>search</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation17setSamplesMaxDistERKd9SearchPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum distance allowed when drawing random samples. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">radius</span></code>: the maximum distance (L2 norm) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">search</span></code>: </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation17getSamplesMaxDistERd">
+<span id="_CPPv3N3pcl15SACSegmentation17getSamplesMaxDistERd"></span><span id="_CPPv2N3pcl15SACSegmentation17getSamplesMaxDistERd"></span><span id="pcl::SACSegmentation::getSamplesMaxDist__doubleR"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a968404675723ac44d5cb8fca689fd620"></span>void <code class="sig-name descname">getSamplesMaxDist</code><span class="sig-paren">(</span>double &amp;<em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation17getSamplesMaxDistERd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get maximum distance allowed when drawing random samples. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">radius</span></code>: the maximum distance (L2 norm) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation7setAxisERKN5Eigen8Vector3fE">
+<span id="_CPPv3N3pcl15SACSegmentation7setAxisERKN5Eigen8Vector3fE"></span><span id="_CPPv2N3pcl15SACSegmentation7setAxisERKN5Eigen8Vector3fE"></span><span id="pcl::SACSegmentation::setAxis__Eigen::Vector3fCR"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a23abc3e522ccb2b2846a6c9b0cf7b7d3"></span>void <code class="sig-name descname">setAxis</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Vector3f &amp;<em>ax</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation7setAxisERKN5Eigen8Vector3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the axis along which we need to search for a model perpendicular to. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ax</span></code>: the axis along which we need to search for a model perpendicular to </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation7getAxisEv">
+<span id="_CPPv3NK3pcl15SACSegmentation7getAxisEv"></span><span id="_CPPv2NK3pcl15SACSegmentation7getAxisEv"></span><span id="pcl::SACSegmentation::getAxisC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1af521155221e948e151b726cd76495fd0"></span>Eigen::Vector3f <code class="sig-name descname">getAxis</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation7getAxisEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the axis along which we need to search for a model perpendicular to. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation11setEpsAngleEd">
+<span id="_CPPv3N3pcl15SACSegmentation11setEpsAngleEd"></span><span id="_CPPv2N3pcl15SACSegmentation11setEpsAngleEd"></span><span id="pcl::SACSegmentation::setEpsAngle__double"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a7a2dc31039a1717f83ca281f6970eb18"></span>void <code class="sig-name descname">setEpsAngle</code><span class="sig-paren">(</span>double <em>ea</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation11setEpsAngleEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the angle epsilon (delta) threshold. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">ea</span></code>: the maximum allowed difference between the model normal and the given axis in radians. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation11getEpsAngleEv">
+<span id="_CPPv3NK3pcl15SACSegmentation11getEpsAngleEv"></span><span id="_CPPv2NK3pcl15SACSegmentation11getEpsAngleEv"></span><span id="pcl::SACSegmentation::getEpsAngleC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a93f67b554b55b3f10170065713263910"></span>double <code class="sig-name descname">getEpsAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation11getEpsAngleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the epsilon (delta) model angle threshold in radians. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation7segmentER12PointIndicesR17ModelCoefficients">
+<span id="_CPPv3N3pcl15SACSegmentation7segmentER12PointIndicesR17ModelCoefficients"></span><span id="_CPPv2N3pcl15SACSegmentation7segmentER12PointIndicesR17ModelCoefficients"></span><span id="pcl::SACSegmentation::segment__PointIndicesR.ModelCoefficientsR"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a514043477fc0efc79aaae0b595cc566c"></span>void <code class="sig-name descname">segment</code><span class="sig-paren">(</span><a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a> &amp;<em>inliers</em>, <a class="reference internal" href="structpcl_1_1_model_coefficients.html#_CPPv4N3pcl17ModelCoefficientsE" title="pcl::ModelCoefficients">ModelCoefficients</a> &amp;<em>model_coefficients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation7segmentER12PointIndicesR17ModelCoefficients" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Base method for segmentation of a model in a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> given by &lt;setInputCloud (), setIndices ()&gt; </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">inliers</span></code>: the resultant point indices that support the model found (inliers) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">model_coefficients</span></code>: the resultant model coefficients </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation12initSACModelEKi">
+<span id="_CPPv3N3pcl15SACSegmentation12initSACModelEKi"></span><span id="_CPPv2N3pcl15SACSegmentation12initSACModelEKi"></span><span id="pcl::SACSegmentation::initSACModel__iC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a73f671838c3ec8c0f08a3c78a7cac80b"></span>bool <code class="sig-name descname">initSACModel</code><span class="sig-paren">(</span><em class="property">const</em> int <em>model_type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation12initSACModelEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the Sample Consensus model and set its parameters. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">model_type</span></code>: the type of SAC model that is to be used </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15SACSegmentation7initSACEKi">
+<span id="_CPPv3N3pcl15SACSegmentation7initSACEKi"></span><span id="_CPPv2N3pcl15SACSegmentation7initSACEKi"></span><span id="pcl::SACSegmentation::initSAC__iC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a2524fe5506c0c43c425dbe492da133ed"></span>void <code class="sig-name descname">initSAC</code><span class="sig-paren">(</span><em class="property">const</em> int <em>method_type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation7initSACEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the Sample Consensus method and set its parameters. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">method_type</span></code>: the type of SAC method to be used </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15SACSegmentation12getClassNameEv">
+<span id="_CPPv3NK3pcl15SACSegmentation12getClassNameEv"></span><span id="_CPPv2NK3pcl15SACSegmentation12getClassNameEv"></span><span id="pcl::SACSegmentation::getClassNameC"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a87f8b0013e358f2bffa6c44149bc2e66"></span><em class="property">virtual</em> std::string <code class="sig-name descname">getClassName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15SACSegmentation12getClassNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class get name method. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation6model_E">
+<span id="_CPPv3N3pcl15SACSegmentation6model_E"></span><span id="_CPPv2N3pcl15SACSegmentation6model_E"></span><span id="pcl::SACSegmentation::model___SampleConsensusModelPtr"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a196b024d56223dd122e0a1c23773acab"></span><a class="reference internal" href="#_CPPv4N3pcl15SACSegmentation23SampleConsensusModelPtrE" title="pcl::SACSegmentation::SampleConsensusModelPtr">SampleConsensusModelPtr</a> <code class="sig-name descname">model_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation6model_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The model that needs to be segmented. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation4sac_E">
+<span id="_CPPv3N3pcl15SACSegmentation4sac_E"></span><span id="_CPPv2N3pcl15SACSegmentation4sac_E"></span><span id="pcl::SACSegmentation::sac___SampleConsensusPtr"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a7e9ad0f4cd31e45c2ff03da17d0c9bce"></span><a class="reference internal" href="#_CPPv4N3pcl15SACSegmentation18SampleConsensusPtrE" title="pcl::SACSegmentation::SampleConsensusPtr">SampleConsensusPtr</a> <code class="sig-name descname">sac_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation4sac_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The sample consensus segmentation method. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation11model_type_E">
+<span id="_CPPv3N3pcl15SACSegmentation11model_type_E"></span><span id="_CPPv2N3pcl15SACSegmentation11model_type_E"></span><span id="pcl::SACSegmentation::model_type___i"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a444d6de9dcabbe20ad1a152bea746dab"></span>int <code class="sig-name descname">model_type_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation11model_type_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The type of model to use (user given parameter). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation12method_type_E">
+<span id="_CPPv3N3pcl15SACSegmentation12method_type_E"></span><span id="_CPPv2N3pcl15SACSegmentation12method_type_E"></span><span id="pcl::SACSegmentation::method_type___i"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1af22b2d5e01d6c549b5d7c14caaa28539"></span>int <code class="sig-name descname">method_type_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation12method_type_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The type of sample consensus method to use (user given parameter). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation10threshold_E">
+<span id="_CPPv3N3pcl15SACSegmentation10threshold_E"></span><span id="_CPPv2N3pcl15SACSegmentation10threshold_E"></span><span id="pcl::SACSegmentation::threshold___double"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1af262dd025eb187cfc6cb4e638562735a"></span>double <code class="sig-name descname">threshold_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation10threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Distance to the model threshold (user given parameter). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation22optimize_coefficients_E">
+<span id="_CPPv3N3pcl15SACSegmentation22optimize_coefficients_E"></span><span id="_CPPv2N3pcl15SACSegmentation22optimize_coefficients_E"></span><span id="pcl::SACSegmentation::optimize_coefficients___b"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1abe8902ffbc5fd352e38c08f8b9b3601b"></span>bool <code class="sig-name descname">optimize_coefficients_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation22optimize_coefficients_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set to true if a coefficient refinement is required. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation11radius_min_E">
+<span id="_CPPv3N3pcl15SACSegmentation11radius_min_E"></span><span id="_CPPv2N3pcl15SACSegmentation11radius_min_E"></span><span id="pcl::SACSegmentation::radius_min___double"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a873c817931f20ad93869526584c67e22"></span>double <code class="sig-name descname">radius_min_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation11radius_min_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The minimum and maximum radius limits for the model. </p>
+<p>Applicable to all models that estimate a radius. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation11radius_max_E">
+<span id="_CPPv3N3pcl15SACSegmentation11radius_max_E"></span><span id="_CPPv2N3pcl15SACSegmentation11radius_max_E"></span><span id="pcl::SACSegmentation::radius_max___double"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a1b78e575f1e6eb2b6f32f8c60e777343"></span>double <code class="sig-name descname">radius_max_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation11radius_max_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation15samples_radius_E">
+<span id="_CPPv3N3pcl15SACSegmentation15samples_radius_E"></span><span id="_CPPv2N3pcl15SACSegmentation15samples_radius_E"></span><span id="pcl::SACSegmentation::samples_radius___double"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1acfefedfd77b047203d70b9a73c1cbec8"></span>double <code class="sig-name descname">samples_radius_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation15samples_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum distance of subsequent samples from the first (radius search) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation22samples_radius_search_E">
+<span id="_CPPv3N3pcl15SACSegmentation22samples_radius_search_E"></span><span id="_CPPv2N3pcl15SACSegmentation22samples_radius_search_E"></span><span id="pcl::SACSegmentation::samples_radius_search___SearchPtr"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a8decd0cf3fa904cd8d2530879a7c726b"></span><a class="reference internal" href="#_CPPv4N3pcl15SACSegmentation9SearchPtrE" title="pcl::SACSegmentation::SearchPtr">SearchPtr</a> <code class="sig-name descname">samples_radius_search_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation22samples_radius_search_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The search object for picking subsequent samples using radius search. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation10eps_angle_E">
+<span id="_CPPv3N3pcl15SACSegmentation10eps_angle_E"></span><span id="_CPPv2N3pcl15SACSegmentation10eps_angle_E"></span><span id="pcl::SACSegmentation::eps_angle___double"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1ac40b9cd690894f581d507dabbeb89c3c"></span>double <code class="sig-name descname">eps_angle_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation10eps_angle_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum allowed difference between the model normal and the given axis. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation5axis_E">
+<span id="_CPPv3N3pcl15SACSegmentation5axis_E"></span><span id="_CPPv2N3pcl15SACSegmentation5axis_E"></span><span id="pcl::SACSegmentation::axis___Eigen::Vector3f"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1abc9924cedf7d0d013f860b8ad3054b69"></span>Eigen::Vector3f <code class="sig-name descname">axis_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation5axis_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The axis along which we need to search for a model perpendicular to. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation15max_iterations_E">
+<span id="_CPPv3N3pcl15SACSegmentation15max_iterations_E"></span><span id="_CPPv2N3pcl15SACSegmentation15max_iterations_E"></span><span id="pcl::SACSegmentation::max_iterations___i"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1af99af32608e22a07bc0d8e0cf92d20fb"></span>int <code class="sig-name descname">max_iterations_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation15max_iterations_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximum number of iterations before giving up (user given parameter). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation12probability_E">
+<span id="_CPPv3N3pcl15SACSegmentation12probability_E"></span><span id="_CPPv2N3pcl15SACSegmentation12probability_E"></span><span id="pcl::SACSegmentation::probability___double"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a29d30627faa3b625702191de4fb3da9b"></span>double <code class="sig-name descname">probability_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation12probability_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Desired probability of choosing at least one sample free from outliers (user given parameter). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl15SACSegmentation7random_E">
+<span id="_CPPv3N3pcl15SACSegmentation7random_E"></span><span id="_CPPv2N3pcl15SACSegmentation7random_E"></span><span id="pcl::SACSegmentation::random___b"></span><span class="target" id="classpcl_1_1_s_a_c_segmentation_1a7e4799ad1df36ce3b56a8c592a67bbf2"></span>bool <code class="sig-name descname">random_</code><a class="headerlink" href="#_CPPv4N3pcl15SACSegmentation7random_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set to true if we need a random seed. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

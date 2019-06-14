@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class SVMTrain &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class SVMTrain</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_s_v_m_train.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-svmtrain">
+<span id="exhale-class-classpcl-1-1-s-v-m-train"></span><h1>Class SVMTrain<a class="headerlink" href="#class-svmtrain" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_ml_include_pcl_ml_svm_wrapper.h.html#file-pcl-ml-include-pcl-ml-svm-wrapper-h"><span class="std std-ref">File svm_wrapper.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::SVM</span></code> (<a class="reference internal" href="classpcl_1_1_s_v_m.html#exhale-class-classpcl-1-1-s-v-m"><span class="std std-ref">Class SVM</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl8SVMTrainE">
+<span id="_CPPv3N3pcl8SVMTrainE"></span><span id="_CPPv2N3pcl8SVMTrainE"></span><span id="pcl::SVMTrain"></span><span class="target" id="classpcl_1_1_s_v_m_train"></span><em class="property">class </em><code class="sig-name descname">SVMTrain</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_s_v_m.html#_CPPv4N3pcl3SVME" title="pcl::SVM">SVM</a><a class="headerlink" href="#_CPPv4N3pcl8SVMTrainE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_s_v_m.html#classpcl_1_1_s_v_m"><span class="std std-ref">SVM</span></a> (Support Vector Machines) training class for the <a class="reference internal" href="classpcl_1_1_s_v_m.html#classpcl_1_1_s_v_m"><span class="std std-ref">SVM</span></a> machine learning. </p>
+<p>It creates a model for the classifier from a labelled input dataset. OPTIONAL: <a class="reference internal" href="structpcl_1_1_s_v_m_param.html#structpcl_1_1_s_v_m_param"><span class="std std-ref">pcl::SVMParam</span></a> has to be given as input to vary the default training method and parameters. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain8SVMTrainEv">
+<span id="_CPPv3N3pcl8SVMTrain8SVMTrainEv"></span><span id="_CPPv2N3pcl8SVMTrain8SVMTrainEv"></span><span id="pcl::SVMTrain::SVMTrain"></span><span class="target" id="classpcl_1_1_s_v_m_train_1af958b338c84171fbc044b271561a66ef"></span><code class="sig-name descname">SVMTrain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain8SVMTrainEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrainD0Ev">
+<span id="_CPPv3N3pcl8SVMTrainD0Ev"></span><span id="_CPPv2N3pcl8SVMTrainD0Ev"></span><span id="pcl::SVMTrain::~SVMTrain"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a4d3043d078eda40c1ced194ec6ef89df"></span><code class="sig-name descname">~SVMTrain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrainD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain13setParametersE8SVMParam">
+<span id="_CPPv3N3pcl8SVMTrain13setParametersE8SVMParam"></span><span id="_CPPv2N3pcl8SVMTrain13setParametersE8SVMParam"></span><span id="pcl::SVMTrain::setParameters__SVMParam"></span><span class="target" id="classpcl_1_1_s_v_m_train_1ac032e2dc6d89909d72aebc5cb46806f8"></span>void <code class="sig-name descname">setParameters</code><span class="sig-paren">(</span><a class="reference internal" href="structpcl_1_1_s_v_m_param.html#_CPPv4N3pcl8SVMParamE" title="pcl::SVMParam">SVMParam</a> <em>param</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain13setParametersE8SVMParam" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Change default training parameters (<a class="reference internal" href="structpcl_1_1_s_v_m_param.html#structpcl_1_1_s_v_m_param"><span class="std std-ref">pcl::SVMParam</span></a>). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain13getParametersEv">
+<span id="_CPPv3N3pcl8SVMTrain13getParametersEv"></span><span id="_CPPv2N3pcl8SVMTrain13getParametersEv"></span><span id="pcl::SVMTrain::getParameters"></span><span class="target" id="classpcl_1_1_s_v_m_train_1af70b307e8b0d305325380e49349c9158"></span><a class="reference internal" href="structpcl_1_1_s_v_m_param.html#_CPPv4N3pcl8SVMParamE" title="pcl::SVMParam">SVMParam</a> <code class="sig-name descname">getParameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain13getParametersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the current training parameters. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain18getClassifierModelEv">
+<span id="_CPPv3N3pcl8SVMTrain18getClassifierModelEv"></span><span id="_CPPv2N3pcl8SVMTrain18getClassifierModelEv"></span><span id="pcl::SVMTrain::getClassifierModel"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a74a008298d1d42571b181c0383416010"></span><a class="reference internal" href="structpcl_1_1_s_v_m_model.html#_CPPv4N3pcl8SVMModelE" title="pcl::SVMModel">SVMModel</a> <code class="sig-name descname">getClassifierModel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain18getClassifierModelEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the result of the training. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain19setInputTrainingSetENSt6vectorI7SVMDataEE">
+<span id="_CPPv3N3pcl8SVMTrain19setInputTrainingSetENSt6vectorI7SVMDataEE"></span><span id="_CPPv2N3pcl8SVMTrain19setInputTrainingSetENSt6vectorI7SVMDataEE"></span><span id="pcl::SVMTrain::setInputTrainingSet__std::vector:SVMData:"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a83f2a5e13dd354bd0fdaab63eebc1eea"></span>void <code class="sig-name descname">setInputTrainingSet</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="structpcl_1_1_s_v_m_data.html#_CPPv4N3pcl7SVMDataE" title="pcl::SVMData">SVMData</a>&gt; <em>training_set</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain19setInputTrainingSetENSt6vectorI7SVMDataEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>It adds/store the training set with labelled data. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain19getInputTrainingSetEv">
+<span id="_CPPv3N3pcl8SVMTrain19getInputTrainingSetEv"></span><span id="_CPPv2N3pcl8SVMTrain19getInputTrainingSetEv"></span><span id="pcl::SVMTrain::getInputTrainingSet"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a9937510055076d410ebb80def036e020"></span>std::vector&lt;<a class="reference internal" href="structpcl_1_1_s_v_m_data.html#_CPPv4N3pcl7SVMDataE" title="pcl::SVMData">SVMData</a>&gt; <code class="sig-name descname">getInputTrainingSet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain19getInputTrainingSetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the current training set. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain16resetTrainingSetEv">
+<span id="_CPPv3N3pcl8SVMTrain16resetTrainingSetEv"></span><span id="_CPPv2N3pcl8SVMTrain16resetTrainingSetEv"></span><span id="pcl::SVMTrain::resetTrainingSet"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a3656dabad7ef92656ccfd319657ee392"></span>void <code class="sig-name descname">resetTrainingSet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain16resetTrainingSetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset the training set. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain15trainClassifierEv">
+<span id="_CPPv3N3pcl8SVMTrain15trainClassifierEv"></span><span id="_CPPv2N3pcl8SVMTrain15trainClassifierEv"></span><span id="pcl::SVMTrain::trainClassifier"></span><span class="target" id="classpcl_1_1_s_v_m_train_1ab860aa193b6775d19bc97ec3d8bedf8f"></span>bool <code class="sig-name descname">trainClassifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain15trainClassifierEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Start the training of the <a class="reference internal" href="classpcl_1_1_s_v_m.html#classpcl_1_1_s_v_m"><span class="std std-ref">SVM</span></a> classifier. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>false if fails. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain11loadProblemEPKc">
+<span id="_CPPv3N3pcl8SVMTrain11loadProblemEPKc"></span><span id="_CPPv2N3pcl8SVMTrain11loadProblemEPKc"></span><span id="pcl::SVMTrain::loadProblem__cCP"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a910cc9a619fd9f4c28e1af99f28aa002"></span>bool <code class="sig-name descname">loadProblem</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain11loadProblemEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read in a problem (in svmlight format). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>false if fails. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain12setDebugModeEb">
+<span id="_CPPv3N3pcl8SVMTrain12setDebugModeEb"></span><span id="_CPPv2N3pcl8SVMTrain12setDebugModeEb"></span><span id="pcl::SVMTrain::setDebugMode__b"></span><span class="target" id="classpcl_1_1_s_v_m_train_1ab9959f5e2ee6c39ac14ed8e09b6afc98"></span>void <code class="sig-name descname">setDebugMode</code><span class="sig-paren">(</span>bool <em>in</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain12setDebugModeEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set to 1 for debugging info. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain15saveTrainingSetEPKc">
+<span id="_CPPv3N3pcl8SVMTrain15saveTrainingSetEPKc"></span><span id="_CPPv2N3pcl8SVMTrain15saveTrainingSetEPKc"></span><span id="pcl::SVMTrain::saveTrainingSet__cCP"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a9fc90b124c8c72e8c82e9d0657a8d22e"></span>bool <code class="sig-name descname">saveTrainingSet</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain15saveTrainingSetEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Save the raw training set in a file (in svmlight format). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>false if fails. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain19saveNormTrainingSetEPKc">
+<span id="_CPPv3N3pcl8SVMTrain19saveNormTrainingSetEPKc"></span><span id="_CPPv2N3pcl8SVMTrain19saveNormTrainingSetEPKc"></span><span id="pcl::SVMTrain::saveNormTrainingSet__cCP"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a993cd35745435d46b54597846a03005a"></span>bool <code class="sig-name descname">saveNormTrainingSet</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain19saveNormTrainingSetEPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Save the normalized training set in a file (in svmlight format). </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>false if fails. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain17doCrossValidationEv">
+<span id="_CPPv3N3pcl8SVMTrain17doCrossValidationEv"></span><span id="_CPPv2N3pcl8SVMTrain17doCrossValidationEv"></span><span id="pcl::SVMTrain::doCrossValidation"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a187c6e44967d05ad37ecee814ff04a41"></span>void <code class="sig-name descname">doCrossValidation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain17doCrossValidationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To cross validate the classifier. </p>
+<p>It is automatic for probability estimate. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8SVMTrain12scaleFactorsENSt6vectorI7SVMDataEER11svm_scaling">
+<span id="_CPPv3N3pcl8SVMTrain12scaleFactorsENSt6vectorI7SVMDataEER11svm_scaling"></span><span id="_CPPv2N3pcl8SVMTrain12scaleFactorsENSt6vectorI7SVMDataEER11svm_scaling"></span><span id="pcl::SVMTrain::scaleFactors__std::vector:SVMData:.svm_scalingR"></span><span class="target" id="classpcl_1_1_s_v_m_train_1ab996f6bdd3ac6565558722f493c75e67"></span>void <code class="sig-name descname">scaleFactors</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="structpcl_1_1_s_v_m_data.html#_CPPv4N3pcl7SVMDataE" title="pcl::SVMData">SVMData</a>&gt; <em>training_set</em>, <a class="reference internal" href="structsvm__scaling.html#_CPPv411svm_scaling" title="svm_scaling">svm_scaling</a> &amp;<em>scaling</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain12scaleFactorsENSt6vectorI7SVMDataEER11svm_scaling" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>It extracts scaling factors from the input training_set. </p>
+<p>The scaling of the training_set is a mandatory for a good training of the classifier. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl8SVMTrain6debug_E">
+<span id="_CPPv3N3pcl8SVMTrain6debug_E"></span><span id="_CPPv2N3pcl8SVMTrain6debug_E"></span><span id="pcl::SVMTrain::debug___b"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a79cd040923f29218d1439beca44567f9"></span>bool <code class="sig-name descname">debug_</code><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain6debug_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8SVMTrain17cross_validation_E">
+<span id="_CPPv3N3pcl8SVMTrain17cross_validation_E"></span><span id="_CPPv2N3pcl8SVMTrain17cross_validation_E"></span><span id="pcl::SVMTrain::cross_validation___i"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a5ba57443a16d3acda98b65ec845812d9"></span>int <code class="sig-name descname">cross_validation_</code><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain17cross_validation_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8SVMTrain8nr_fold_E">
+<span id="_CPPv3N3pcl8SVMTrain8nr_fold_E"></span><span id="_CPPv2N3pcl8SVMTrain8nr_fold_E"></span><span id="pcl::SVMTrain::nr_fold___i"></span><span class="target" id="classpcl_1_1_s_v_m_train_1af3f31a62a1d874a16b52b48f0d1f7bb1"></span>int <code class="sig-name descname">nr_fold_</code><a class="headerlink" href="#_CPPv4N3pcl8SVMTrain8nr_fold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3SVM22labelled_training_set_E">
+<span id="_CPPv3N3pcl3SVM22labelled_training_set_E"></span><span id="_CPPv2N3pcl3SVM22labelled_training_set_E"></span><span id="pcl::SVM::labelled_training_set___b"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a6bb65a7b07c50941541328e63901f96d"></span>bool <code class="sig-name descname">labelled_training_set_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3SVM6model_E">
+<span id="_CPPv3N3pcl3SVM6model_E"></span><span id="_CPPv2N3pcl3SVM6model_E"></span><span id="pcl::SVM::model___SVMModel"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a0e12dd4f830021cddc47784c5bbf1372"></span><a class="reference internal" href="structpcl_1_1_s_v_m_model.html#_CPPv4N3pcl8SVMModelE" title="pcl::SVMModel">SVMModel</a> <code class="sig-name descname">model_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3SVM5line_E">
+<span id="_CPPv3N3pcl3SVM5line_E"></span><span id="_CPPv2N3pcl3SVM5line_E"></span><span id="pcl::SVM::line___cP"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a4f9d24c5f4974b0a3b0b1fbb85383bc5"></span>char *<code class="sig-name descname">line_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3SVM13max_line_len_E">
+<span id="_CPPv3N3pcl3SVM13max_line_len_E"></span><span id="_CPPv2N3pcl3SVM13max_line_len_E"></span><span id="pcl::SVM::max_line_len___i"></span><span class="target" id="classpcl_1_1_s_v_m_train_1a4bb878e7f0ce22bfd287b2bb5d90e0b4"></span>int <code class="sig-name descname">max_line_len_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3SVM13training_set_E">
+<span id="_CPPv3N3pcl3SVM13training_set_E"></span><span id="_CPPv2N3pcl3SVM13training_set_E"></span><span id="pcl::SVM::training_set___std::vector:SVMData:"></span><span class="target" id="classpcl_1_1_s_v_m_train_1ae5613f4a7e5c16048d574b82777aa6c0"></span>std::vector&lt;<a class="reference internal" href="structpcl_1_1_s_v_m_data.html#_CPPv4N3pcl7SVMDataE" title="pcl::SVMData">SVMData</a>&gt; <code class="sig-name descname">training_set_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3SVM5prob_E">
+<span id="_CPPv3N3pcl3SVM5prob_E"></span><span id="_CPPv2N3pcl3SVM5prob_E"></span><span id="pcl::SVM::prob___svm_problem"></span><span class="target" id="classpcl_1_1_s_v_m_train_1ae0254a960defb5bfdf6c2881d4161671"></span><a class="reference internal" href="structsvm__problem.html#_CPPv411svm_problem" title="svm_problem">svm_problem</a> <code class="sig-name descname">prob_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3SVM8scaling_E">
+<span id="_CPPv3N3pcl3SVM8scaling_E"></span><span id="_CPPv2N3pcl3SVM8scaling_E"></span><span id="pcl::SVM::scaling___svm_scaling"></span><span class="target" id="classpcl_1_1_s_v_m_train_1ad70eb2297758546dcb90305b9eae72f2"></span><a class="reference internal" href="structsvm__scaling.html#_CPPv411svm_scaling" title="svm_scaling">svm_scaling</a> <code class="sig-name descname">scaling_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3SVM6param_E">
+<span id="_CPPv3N3pcl3SVM6param_E"></span><span id="_CPPv2N3pcl3SVM6param_E"></span><span id="pcl::SVM::param___SVMParam"></span><span class="target" id="classpcl_1_1_s_v_m_train_1add0ef11f557841224ce3d7bb5997a332"></span><a class="reference internal" href="structpcl_1_1_s_v_m_param.html#_CPPv4N3pcl8SVMParamE" title="pcl::SVMParam">SVMParam</a> <code class="sig-name descname">param_</code><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3SVM11class_name_E">
+<span id="_CPPv3N3pcl3SVM11class_name_E"></span><span id="_CPPv2N3pcl3SVM11class_name_E"></span><span id="pcl::SVM::class_name___ss"></span><span class="target" id="classpcl_1_1_s_v_m_train_1ac03b37af785e13ad213af8f870a3b7db"></span>std::string <code class="sig-name descname">class_name_</code><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

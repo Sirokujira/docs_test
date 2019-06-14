@@ -1,0 +1,605 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class DefaultConvergenceCriteria &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class DefaultConvergenceCriteria</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1registration_1_1_default_convergence_criteria.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-defaultconvergencecriteria">
+<span id="exhale-class-classpcl-1-1registration-1-1-default-convergence-criteria"></span><h1>Template Class DefaultConvergenceCriteria<a class="headerlink" href="#template-class-defaultconvergencecriteria" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_registration_include_pcl_registration_default_convergence_criteria.h.html#file-pcl-registration-include-pcl-registration-default-convergence-criteria-h"><span class="std std-ref">File default_convergence_criteria.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::registration::ConvergenceCriteria</span></code> (<a class="reference internal" href="classpcl_1_1registration_1_1_convergence_criteria.html#exhale-class-classpcl-1-1registration-1-1-convergence-criteria"><span class="std std-ref">Class ConvergenceCriteria</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl12registration26DefaultConvergenceCriteriaE">
+<span id="_CPPv3I0EN3pcl12registration26DefaultConvergenceCriteriaE"></span><span id="_CPPv2I0EN3pcl12registration26DefaultConvergenceCriteriaE"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria"></span>template&lt;typename <code class="sig-name descname">Scalar</code> = float&gt;<br /><em class="property">class </em><code class="sig-name descname">DefaultConvergenceCriteria</code> : <em class="property">public</em> pcl::registration::<a class="reference internal" href="classpcl_1_1registration_1_1_convergence_criteria.html#_CPPv4N3pcl12registration19ConvergenceCriteriaE" title="pcl::registration::ConvergenceCriteria">ConvergenceCriteria</a><a class="headerlink" href="#_CPPv4I0EN3pcl12registration26DefaultConvergenceCriteriaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><strong><a class="reference internal" href="#classpcl_1_1registration_1_1_default_convergence_criteria"><span class="std std-ref">DefaultConvergenceCriteria</span></a></strong> represents an instantiation of <a class="reference internal" href="classpcl_1_1registration_1_1_convergence_criteria.html#classpcl_1_1registration_1_1_convergence_criteria"><span class="std std-ref">ConvergenceCriteria</span></a>, and implements the following criteria for registration loop evaluation: </p>
+<p><ul class="simple">
+<li><p>a maximum number of iterations has been reached</p></li>
+<li><p>the transformation (R, t) cannot be further updated (the difference between current and previous is smaller than a threshold)</p></li>
+<li><p>the Mean Squared Error (MSE) between the current set of correspondences and the previous one is smaller than some threshold (both relative and absolute tests)</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Convergence is considered reached if ANY of the above criteria are met.</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Radu B. Rusu </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria16ConvergenceStateE">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria16ConvergenceStateE"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria16ConvergenceStateE"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1af73e20f93ee3785967363d1c7bebb191"></span><em class="property">enum </em><code class="sig-name descname">ConvergenceState</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria16ConvergenceStateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria34CONVERGENCE_CRITERIA_NOT_CONVERGEDE">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria34CONVERGENCE_CRITERIA_NOT_CONVERGEDE"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria34CONVERGENCE_CRITERIA_NOT_CONVERGEDE"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1af73e20f93ee3785967363d1c7bebb191ae1dcccab4d6f23b75cc34843133b5b68"></span><code class="sig-name descname">CONVERGENCE_CRITERIA_NOT_CONVERGED</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria34CONVERGENCE_CRITERIA_NOT_CONVERGEDE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria31CONVERGENCE_CRITERIA_ITERATIONSE">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria31CONVERGENCE_CRITERIA_ITERATIONSE"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria31CONVERGENCE_CRITERIA_ITERATIONSE"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1af73e20f93ee3785967363d1c7bebb191a33d2d17b367fae7d1f7e389b564cf326"></span><code class="sig-name descname">CONVERGENCE_CRITERIA_ITERATIONS</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria31CONVERGENCE_CRITERIA_ITERATIONSE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria30CONVERGENCE_CRITERIA_TRANSFORME">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria30CONVERGENCE_CRITERIA_TRANSFORME"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria30CONVERGENCE_CRITERIA_TRANSFORME"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1af73e20f93ee3785967363d1c7bebb191a04268b37e78826c099bfd91c9be57937"></span><code class="sig-name descname">CONVERGENCE_CRITERIA_TRANSFORM</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria30CONVERGENCE_CRITERIA_TRANSFORME" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria28CONVERGENCE_CRITERIA_ABS_MSEE">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria28CONVERGENCE_CRITERIA_ABS_MSEE"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria28CONVERGENCE_CRITERIA_ABS_MSEE"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1af73e20f93ee3785967363d1c7bebb191a3fc7c539432571b4fb7639e6b35ed31c"></span><code class="sig-name descname">CONVERGENCE_CRITERIA_ABS_MSE</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria28CONVERGENCE_CRITERIA_ABS_MSEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria28CONVERGENCE_CRITERIA_REL_MSEE">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria28CONVERGENCE_CRITERIA_REL_MSEE"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria28CONVERGENCE_CRITERIA_REL_MSEE"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1af73e20f93ee3785967363d1c7bebb191abd6529780ac93b743ed0194ba2b5e97b"></span><code class="sig-name descname">CONVERGENCE_CRITERIA_REL_MSE</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria28CONVERGENCE_CRITERIA_REL_MSEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria39CONVERGENCE_CRITERIA_NO_CORRESPONDENCESE">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria39CONVERGENCE_CRITERIA_NO_CORRESPONDENCESE"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria39CONVERGENCE_CRITERIA_NO_CORRESPONDENCESE"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1af73e20f93ee3785967363d1c7bebb191a035d3653e0c9e1b868b6445ec3f46b7c"></span><code class="sig-name descname">CONVERGENCE_CRITERIA_NO_CORRESPONDENCES</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria39CONVERGENCE_CRITERIA_NO_CORRESPONDENCESE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria3PtrE">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria3PtrE"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria3PtrE"></span><span id="pcl::registration::DefaultConvergenceCriteria::Ptr"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a7c2d32b7c3fffa4ff9764ce0cabcd9eb"></span><em class="property">typedef </em>boost::shared_ptr&lt;DefaultConvergenceCriteria&lt;Scalar&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria8ConstPtrE">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria8ConstPtrE"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria8ConstPtrE"></span><span id="pcl::registration::DefaultConvergenceCriteria::ConstPtr"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a58022c49c4fd3ad3b1e404c749ed4205"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> DefaultConvergenceCriteria&lt;Scalar&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria7Matrix4E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria7Matrix4E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria7Matrix4E"></span><span id="pcl::registration::DefaultConvergenceCriteria::Matrix4"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a1c1221a694fdcc1515111cd333f2eb5e"></span><em class="property">typedef </em>Eigen::Matrix&lt;Scalar, 4, 4&gt; <code class="sig-name descname">Matrix4</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria7Matrix4E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria26DefaultConvergenceCriteriaERKiRK7Matrix4RKN3pcl15CorrespondencesE">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria26DefaultConvergenceCriteriaERKiRK7Matrix4RKN3pcl15CorrespondencesE"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria26DefaultConvergenceCriteriaERKiRK7Matrix4RKN3pcl15CorrespondencesE"></span><span id="pcl::registration::DefaultConvergenceCriteria::DefaultConvergenceCriteria__iCR.Matrix4CR.pcl::CorrespondencesCR"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a1d38271b1b9abafd6a0b14ccee346c08"></span><code class="sig-name descname">DefaultConvergenceCriteria</code><span class="sig-paren">(</span><em class="property">const</em> int &amp;<em>iterations</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria7Matrix4E" title="pcl::registration::DefaultConvergenceCriteria::Matrix4">Matrix4</a> &amp;<em>transform</em>, <em class="property">const</em> pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>correspondences</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria26DefaultConvergenceCriteriaERKiRK7Matrix4RKN3pcl15CorrespondencesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+<p>Sets:<ul class="simple">
+<li><p>the maximum number of iterations to 1000</p></li>
+<li><p>the rotation threshold to 0.256 degrees (0.99999)</p></li>
+<li><p>the translation threshold to 0.0003 meters (3e-4^2)</p></li>
+<li><p>the MSE relative / absolute thresholds to 0.001% and 1e-12</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">iterations</span></code>: a reference to the number of iterations the loop has ran so far </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">transform</span></code>: a reference to the current transformation obtained by the transformation evaluation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">correspondences</span></code>: a reference to the current set of point correspondences between source and target </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteriaD0Ev">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteriaD0Ev"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteriaD0Ev"></span><span id="pcl::registration::DefaultConvergenceCriteria::~DefaultConvergenceCriteria"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a6ba345101e37eedd0edb92a4928b396e"></span><em class="property">virtual</em> <code class="sig-name descname">~DefaultConvergenceCriteria</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteriaD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria37setMaximumIterationsSimilarTransformsEKi">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria37setMaximumIterationsSimilarTransformsEKi"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria37setMaximumIterationsSimilarTransformsEKi"></span><span id="pcl::registration::DefaultConvergenceCriteria::setMaximumIterationsSimilarTransforms__iC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a69ea6a9c7cb745017a08b8bc0e45eff4"></span>void <code class="sig-name descname">setMaximumIterationsSimilarTransforms</code><span class="sig-paren">(</span><em class="property">const</em> int <em>nr_iterations</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria37setMaximumIterationsSimilarTransformsEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of iterations that the internal rotation, translation, and MSE differences are allowed to be similar. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nr_iterations</span></code>: the maximum number of iterations </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration26DefaultConvergenceCriteria37getMaximumIterationsSimilarTransformsEv">
+<span id="_CPPv3NK3pcl12registration26DefaultConvergenceCriteria37getMaximumIterationsSimilarTransformsEv"></span><span id="_CPPv2NK3pcl12registration26DefaultConvergenceCriteria37getMaximumIterationsSimilarTransformsEv"></span><span id="pcl::registration::DefaultConvergenceCriteria::getMaximumIterationsSimilarTransformsC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1ab4192fc61604e364b5faf212d2a428c3"></span>int <code class="sig-name descname">getMaximumIterationsSimilarTransforms</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration26DefaultConvergenceCriteria37getMaximumIterationsSimilarTransformsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum number of iterations that the internal rotation, translation, and MSE differences are allowed to be similar, as set by the user. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria20setMaximumIterationsEKi">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria20setMaximumIterationsEKi"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria20setMaximumIterationsEKi"></span><span id="pcl::registration::DefaultConvergenceCriteria::setMaximumIterations__iC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a551e8e512beef03d81cc64d0f598f147"></span>void <code class="sig-name descname">setMaximumIterations</code><span class="sig-paren">(</span><em class="property">const</em> int <em>nr_iterations</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria20setMaximumIterationsEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of iterations the internal optimization should run for. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nr_iterations</span></code>: the maximum number of iterations the internal optimization should run for </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration26DefaultConvergenceCriteria20getMaximumIterationsEv">
+<span id="_CPPv3NK3pcl12registration26DefaultConvergenceCriteria20getMaximumIterationsEv"></span><span id="_CPPv2NK3pcl12registration26DefaultConvergenceCriteria20getMaximumIterationsEv"></span><span id="pcl::registration::DefaultConvergenceCriteria::getMaximumIterationsC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a11237b354ba3e07a400325c16fed8523"></span>int <code class="sig-name descname">getMaximumIterations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration26DefaultConvergenceCriteria20getMaximumIterationsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum number of iterations the internal optimization should run for, as set by the user. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria32setFailureAfterMaximumIterationsEKb">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria32setFailureAfterMaximumIterationsEKb"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria32setFailureAfterMaximumIterationsEKb"></span><span id="pcl::registration::DefaultConvergenceCriteria::setFailureAfterMaximumIterations__bC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1ace30f3cde1dfb1a63e0c0deac84083fe"></span>void <code class="sig-name descname">setFailureAfterMaximumIterations</code><span class="sig-paren">(</span><em class="property">const</em> bool <em>failure_after_max_iter</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria32setFailureAfterMaximumIterationsEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specifies if the registration fails or converges when the maximum number of iterations is reached. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">failure_after_max_iter</span></code>: If true, the registration fails. If false, the registration is assumed to have converged. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration26DefaultConvergenceCriteria32getFailureAfterMaximumIterationsEv">
+<span id="_CPPv3NK3pcl12registration26DefaultConvergenceCriteria32getFailureAfterMaximumIterationsEv"></span><span id="_CPPv2NK3pcl12registration26DefaultConvergenceCriteria32getFailureAfterMaximumIterationsEv"></span><span id="pcl::registration::DefaultConvergenceCriteria::getFailureAfterMaximumIterationsC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a5ddf2d9957c228a7de44024ffef82456"></span>bool <code class="sig-name descname">getFailureAfterMaximumIterations</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration26DefaultConvergenceCriteria32getFailureAfterMaximumIterationsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get whether the registration will fail or converge when the maximum number of iterations is reached. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria20setRotationThresholdEKd">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria20setRotationThresholdEKd"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria20setRotationThresholdEKd"></span><span id="pcl::registration::DefaultConvergenceCriteria::setRotationThreshold__doubleC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a8c2718468e3f2f219dcbeab172982d84"></span>void <code class="sig-name descname">setRotationThreshold</code><span class="sig-paren">(</span><em class="property">const</em> double <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria20setRotationThresholdEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the rotation threshold cosine angle (maximum allowable difference between two consecutive transformations) in order for an optimization to be considered as having converged to the final solution. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: the rotation threshold in order for an optimization to be considered as having converged to the final solution. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration26DefaultConvergenceCriteria20getRotationThresholdEv">
+<span id="_CPPv3NK3pcl12registration26DefaultConvergenceCriteria20getRotationThresholdEv"></span><span id="_CPPv2NK3pcl12registration26DefaultConvergenceCriteria20getRotationThresholdEv"></span><span id="pcl::registration::DefaultConvergenceCriteria::getRotationThresholdC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1af862f17b53a068b23a4f27ff5bd3379b"></span>double <code class="sig-name descname">getRotationThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration26DefaultConvergenceCriteria20getRotationThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the rotation threshold cosine angle (maximum allowable difference between two consecutive transformations) as set by the user. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria23setTranslationThresholdEKd">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria23setTranslationThresholdEKd"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria23setTranslationThresholdEKd"></span><span id="pcl::registration::DefaultConvergenceCriteria::setTranslationThreshold__doubleC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a5d3085bb14b4a881acb7da2670573815"></span>void <code class="sig-name descname">setTranslationThreshold</code><span class="sig-paren">(</span><em class="property">const</em> double <em>threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria23setTranslationThresholdEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the translation threshold (maximum allowable difference between two consecutive transformations) in order for an optimization to be considered as having converged to the final solution. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">threshold</span></code>: the translation threshold in order for an optimization to be considered as having converged to the final solution. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration26DefaultConvergenceCriteria23getTranslationThresholdEv">
+<span id="_CPPv3NK3pcl12registration26DefaultConvergenceCriteria23getTranslationThresholdEv"></span><span id="_CPPv2NK3pcl12registration26DefaultConvergenceCriteria23getTranslationThresholdEv"></span><span id="pcl::registration::DefaultConvergenceCriteria::getTranslationThresholdC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1aa1ec6b6d90ee37a6e72337d25ac59f94"></span>double <code class="sig-name descname">getTranslationThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration26DefaultConvergenceCriteria23getTranslationThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the rotation threshold cosine angle (maximum allowable difference between two consecutive transformations) as set by the user. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria14setRelativeMSEEKd">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria14setRelativeMSEEKd"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria14setRelativeMSEEKd"></span><span id="pcl::registration::DefaultConvergenceCriteria::setRelativeMSE__doubleC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a5f7261d61ed08afcb5e69b85d29371c1"></span>void <code class="sig-name descname">setRelativeMSE</code><span class="sig-paren">(</span><em class="property">const</em> double <em>mse_relative</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria14setRelativeMSEEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the relative MSE between two consecutive sets of correspondences. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mse_relative</span></code>: the relative MSE threshold </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration26DefaultConvergenceCriteria14getRelativeMSEEv">
+<span id="_CPPv3NK3pcl12registration26DefaultConvergenceCriteria14getRelativeMSEEv"></span><span id="_CPPv2NK3pcl12registration26DefaultConvergenceCriteria14getRelativeMSEEv"></span><span id="pcl::registration::DefaultConvergenceCriteria::getRelativeMSEC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1ad0df120e947e45b9b9867da9c8ebb9a1"></span>double <code class="sig-name descname">getRelativeMSE</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration26DefaultConvergenceCriteria14getRelativeMSEEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the relative MSE between two consecutive sets of correspondences. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria14setAbsoluteMSEEKd">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria14setAbsoluteMSEEKd"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria14setAbsoluteMSEEKd"></span><span id="pcl::registration::DefaultConvergenceCriteria::setAbsoluteMSE__doubleC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a290ffd43753d70d66b15cd54e7b089be"></span>void <code class="sig-name descname">setAbsoluteMSE</code><span class="sig-paren">(</span><em class="property">const</em> double <em>mse_absolute</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria14setAbsoluteMSEEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the absolute MSE between two consecutive sets of correspondences. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mse_absolute</span></code>: the relative MSE threshold </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration26DefaultConvergenceCriteria14getAbsoluteMSEEv">
+<span id="_CPPv3NK3pcl12registration26DefaultConvergenceCriteria14getAbsoluteMSEEv"></span><span id="_CPPv2NK3pcl12registration26DefaultConvergenceCriteria14getAbsoluteMSEEv"></span><span id="pcl::registration::DefaultConvergenceCriteria::getAbsoluteMSEC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a700cd1931c15a10d46724fe04465c686"></span>double <code class="sig-name descname">getAbsoluteMSE</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration26DefaultConvergenceCriteria14getAbsoluteMSEEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the absolute MSE between two consecutive sets of correspondences. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria12hasConvergedEv">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria12hasConvergedEv"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria12hasConvergedEv"></span><span id="pcl::registration::DefaultConvergenceCriteria::hasConverged"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1adf5b7159af38f430d1ca543c7ea83838"></span>bool <code class="sig-name descname">hasConverged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria12hasConvergedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if convergence has been reached. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria19getConvergenceStateEv">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria19getConvergenceStateEv"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria19getConvergenceStateEv"></span><span id="pcl::registration::DefaultConvergenceCriteria::getConvergenceState"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1aa904602d1ff7e9d6515316af8f07d7da"></span><a class="reference internal" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria16ConvergenceStateE" title="pcl::registration::DefaultConvergenceCriteria::ConvergenceState">ConvergenceState</a> <code class="sig-name descname">getConvergenceState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria19getConvergenceStateEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Return the convergence state after hasConverged () </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria19setConvergenceStateE16ConvergenceState">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria19setConvergenceStateE16ConvergenceState"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria19setConvergenceStateE16ConvergenceState"></span><span id="pcl::registration::DefaultConvergenceCriteria::setConvergenceState__ConvergenceState"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a1351fb32104e835226a859ff32242b9c"></span>void <code class="sig-name descname">setConvergenceState</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria16ConvergenceStateE" title="pcl::registration::DefaultConvergenceCriteria::ConvergenceState">ConvergenceState</a> <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria19setConvergenceStateE16ConvergenceState" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the convergence state externally (for example, when ICP does not find enough correspondences to estimate a transformation, the function is called setting the convergence state to ConvergenceState::CONVERGENCE_CRITERIA_NO_CORRESPONDENCES) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c</span></code>: the convergence state </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4NK3pcl12registration26DefaultConvergenceCriteria12calculateMSEERKN3pcl15CorrespondencesE">
+<span id="_CPPv3NK3pcl12registration26DefaultConvergenceCriteria12calculateMSEERKN3pcl15CorrespondencesE"></span><span id="_CPPv2NK3pcl12registration26DefaultConvergenceCriteria12calculateMSEERKN3pcl15CorrespondencesE"></span><span id="pcl::registration::DefaultConvergenceCriteria::calculateMSE__pcl::CorrespondencesCRC"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1ac33b546c401ca10a785999e745fb1df2"></span>double <code class="sig-name descname">calculateMSE</code><span class="sig-paren">(</span><em class="property">const</em> pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<em>correspondences</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl12registration26DefaultConvergenceCriteria12calculateMSEERKN3pcl15CorrespondencesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate the mean squared error (MSE) of the distance for a given set of correspondences. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">correspondences</span></code>: the given set of correspondences </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria11iterations_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria11iterations_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria11iterations_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::iterations___iCR"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a5c4798a891fd194927c6c5bacfcd35af"></span><em class="property">const</em> int &amp;<code class="sig-name descname">iterations_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria11iterations_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of iterations done by the registration loop so far. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria15transformation_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria15transformation_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria15transformation_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::transformation___Matrix4CR"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a2318257a84e663a1cf7ef694a89aa25c"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria7Matrix4E" title="pcl::registration::DefaultConvergenceCriteria::Matrix4">Matrix4</a> &amp;<code class="sig-name descname">transformation_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria15transformation_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The current transformation obtained by the transformation estimation method. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria16correspondences_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria16correspondences_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria16correspondences_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::correspondences___pcl::CorrespondencesCR"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a599456356e647fb385523f0660ae9569"></span><em class="property">const</em> pcl::<a class="reference internal" href="typedef_namespacepcl_1a66ad9b4a33f4301faff229f2867080a6.html#_CPPv4N3pcl15CorrespondencesE" title="pcl::Correspondences">Correspondences</a> &amp;<code class="sig-name descname">correspondences_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria16correspondences_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The current set of point correspondences between the source and the target. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria25correspondences_prev_mse_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria25correspondences_prev_mse_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria25correspondences_prev_mse_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::correspondences_prev_mse___double"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1aee76f5b94e1415500bdace09aab6bc47"></span>double <code class="sig-name descname">correspondences_prev_mse_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria25correspondences_prev_mse_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The MSE for the previous set of correspondences. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria24correspondences_cur_mse_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria24correspondences_cur_mse_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria24correspondences_cur_mse_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::correspondences_cur_mse___double"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a1a9b10bb8d05cd7e8c1ed67a612af227"></span>double <code class="sig-name descname">correspondences_cur_mse_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria24correspondences_cur_mse_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The MSE for the current set of correspondences. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria15max_iterations_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria15max_iterations_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria15max_iterations_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::max_iterations___i"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a67204183600575362789d8e5bf6a33c7"></span>int <code class="sig-name descname">max_iterations_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria15max_iterations_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum nuyyGmber of iterations that the registration loop is to be executed. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria23failure_after_max_iter_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria23failure_after_max_iter_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria23failure_after_max_iter_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::failure_after_max_iter___b"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1ad638c67114687c49f4f2d4fdf0f3f75a"></span>bool <code class="sig-name descname">failure_after_max_iter_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria23failure_after_max_iter_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specifys if the registration fails or converges when the maximum number of iterations is reached. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria19rotation_threshold_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria19rotation_threshold_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria19rotation_threshold_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::rotation_threshold___double"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1aea294cd3daa63127d4230280f15509d9"></span>double <code class="sig-name descname">rotation_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria19rotation_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The rotation threshold is the relative rotation between two iterations (as angle cosine). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria22translation_threshold_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria22translation_threshold_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria22translation_threshold_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::translation_threshold___double"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a7df811255c4264f3569f2c812abbc8f7"></span>double <code class="sig-name descname">translation_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria22translation_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The translation threshold is the relative translation between two iterations (0 if no translation). </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria23mse_threshold_relative_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria23mse_threshold_relative_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria23mse_threshold_relative_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::mse_threshold_relative___double"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1aebfbc8c5443ffec37aaa3a735db7f479"></span>double <code class="sig-name descname">mse_threshold_relative_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria23mse_threshold_relative_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The relative change from the previous MSE for the current set of correspondences, e.g. </p>
+<p>.1 means 10% change. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria23mse_threshold_absolute_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria23mse_threshold_absolute_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria23mse_threshold_absolute_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::mse_threshold_absolute___double"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a94d8d4f4820d53c59b8893c8f6eb7845"></span>double <code class="sig-name descname">mse_threshold_absolute_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria23mse_threshold_absolute_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The absolute change from the previous MSE for the current set of correspondences. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria30iterations_similar_transforms_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria30iterations_similar_transforms_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria30iterations_similar_transforms_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::iterations_similar_transforms___i"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a0b5cc87b7d5ccbb14b74d24b22d0c7b7"></span>int <code class="sig-name descname">iterations_similar_transforms_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria30iterations_similar_transforms_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Internal counter for the number of iterations that the internal rotation, translation, and MSE differences are allowed to be similar. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria34max_iterations_similar_transforms_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria34max_iterations_similar_transforms_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria34max_iterations_similar_transforms_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::max_iterations_similar_transforms___i"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1af7ad260338d3dabd78c5bc3ea886914b"></span>int <code class="sig-name descname">max_iterations_similar_transforms_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria34max_iterations_similar_transforms_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum number of iterations that the internal rotation, translation, and MSE differences are allowed to be similar. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl12registration26DefaultConvergenceCriteria18convergence_state_E">
+<span id="_CPPv3N3pcl12registration26DefaultConvergenceCriteria18convergence_state_E"></span><span id="_CPPv2N3pcl12registration26DefaultConvergenceCriteria18convergence_state_E"></span><span id="pcl::registration::DefaultConvergenceCriteria::convergence_state___ConvergenceState"></span><span class="target" id="classpcl_1_1registration_1_1_default_convergence_criteria_1a014306c885752b9fd19079f570dd20e3"></span><a class="reference internal" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria16ConvergenceStateE" title="pcl::registration::DefaultConvergenceCriteria::ConvergenceState">ConvergenceState</a> <code class="sig-name descname">convergence_state_</code><a class="headerlink" href="#_CPPv4N3pcl12registration26DefaultConvergenceCriteria18convergence_state_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The state of the convergence (e.g., why did the registration converge). </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

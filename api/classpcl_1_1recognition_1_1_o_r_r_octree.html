@@ -1,0 +1,721 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class ORROctree &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class ORROctree</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1recognition_1_1_o_r_r_octree.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-orroctree">
+<span id="exhale-class-classpcl-1-1recognition-1-1-o-r-r-octree"></span><h1>Class ORROctree<a class="headerlink" href="#class-orroctree" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_recognition_include_pcl_recognition_ransac_based_orr_octree.h.html#file-pcl-recognition-include-pcl-recognition-ransac-based-orr-octree-h"><span class="std std-ref">File orr_octree.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node.html#exhale-class-classpcl-1-1recognition-1-1-o-r-r-octree-1-1-node"><span class="std std-ref">Class ORROctree::Node</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data.html#exhale-class-classpcl-1-1recognition-1-1-o-r-r-octree-1-1-node-1-1-data"><span class="std std-ref">Class Node::Data</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl11recognition9ORROctreeE">
+<span id="_CPPv3N3pcl11recognition9ORROctreeE"></span><span id="_CPPv2N3pcl11recognition9ORROctreeE"></span><span id="pcl::recognition::ORROctree"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree"></span><em class="property">class </em><code class="sig-name descname">ORROctree</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>That’s a very specialized and simple octree class. </p>
+<p>That’s the way it is intended to be, that’s why no templates and stuff like this.</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Chavdar Papazov </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl11recognition9ORROctree12PointCloudInE">
+<span id="_CPPv3N3pcl11recognition9ORROctree12PointCloudInE"></span><span id="_CPPv2N3pcl11recognition9ORROctree12PointCloudInE"></span><span id="pcl::recognition::ORROctree::PointCloudIn"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1ae77dce8d6abc55ea971a6cedf30a5393"></span><em class="property">typedef </em>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt; <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11recognition9ORROctree13PointCloudOutE">
+<span id="_CPPv3N3pcl11recognition9ORROctree13PointCloudOutE"></span><span id="_CPPv2N3pcl11recognition9ORROctree13PointCloudOutE"></span><span id="pcl::recognition::ORROctree::PointCloudOut"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1aa3b21643476fd97c5c5d035191b9a66c"></span><em class="property">typedef </em>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a>&gt; <code class="sig-name descname">PointCloudOut</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree13PointCloudOutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl11recognition9ORROctree11PointCloudNE">
+<span id="_CPPv3N3pcl11recognition9ORROctree11PointCloudNE"></span><span id="_CPPv2N3pcl11recognition9ORROctree11PointCloudNE"></span><span id="pcl::recognition::ORROctree::PointCloudN"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1ad2edcd0ddab0c27633f3f996b11c6626"></span><em class="property">typedef </em>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt; <code class="sig-name descname">PointCloudN</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree11PointCloudNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree9ORROctreeEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree9ORROctreeEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree9ORROctreeEv"></span><span id="pcl::recognition::ORROctree::ORROctree"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a808ee199504af6ea4b3de43d1a4ab0e7"></span><code class="sig-name descname">ORROctree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree9ORROctreeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctreeD0Ev">
+<span id="_CPPv3N3pcl11recognition9ORROctreeD0Ev"></span><span id="_CPPv2N3pcl11recognition9ORROctreeD0Ev"></span><span id="pcl::recognition::ORROctree::~ORROctree"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a0138d66c50231ca93f9f33f59980c19a"></span><em class="property">virtual</em> <code class="sig-name descname">~ORROctree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctreeD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree5clearEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree5clearEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree5clearEv"></span><span id="pcl::recognition::ORROctree::clear"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a34924489f64d662bf2f603da24d8981f"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree5buildERK12PointCloudInfPK11PointCloudNf">
+<span id="_CPPv3N3pcl11recognition9ORROctree5buildERK12PointCloudInfPK11PointCloudNf"></span><span id="_CPPv2N3pcl11recognition9ORROctree5buildERK12PointCloudInfPK11PointCloudNf"></span><span id="pcl::recognition::ORROctree::build__PointCloudInCR.float.PointCloudNCP.float"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a21fe7e0f3ed8ef7eb723e06775f6eb55"></span>void <code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree12PointCloudInE" title="pcl::recognition::ORROctree::PointCloudIn">PointCloudIn</a> &amp;<em>points</em>, float <em>voxel_size</em>, <em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree11PointCloudNE" title="pcl::recognition::ORROctree::PointCloudN">PointCloudN</a> *<em>normals</em> = NULL, float <em>enlarge_bounds</em> = 0.00001f<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree5buildERK12PointCloudInfPK11PointCloudNf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates an octree which encloses ‘points’ and with leaf size equal to ‘voxel_size’. </p>
+<p>‘enlarge_bounds’ makes sure that no points from the input will lie on the octree boundary by enlarging the bounds by that factor. For example, enlarge_bounds = 1 means that the bounds will be enlarged by 100%. The default value is fine. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree5buildEPKff">
+<span id="_CPPv3N3pcl11recognition9ORROctree5buildEPKff"></span><span id="_CPPv2N3pcl11recognition9ORROctree5buildEPKff"></span><span id="pcl::recognition::ORROctree::build__floatCP.float"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a6400cdd8040a10b2fbe4ef04a2434ca9"></span>void <code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="property">const</em> float *<em>bounds</em>, float <em>voxel_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree5buildEPKff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates an empty octree with bounds at least as large as the ones provided as input and with leaf size equal to ‘voxel_size’. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree10createLeafEfff">
+<span id="_CPPv3N3pcl11recognition9ORROctree10createLeafEfff"></span><span id="_CPPv2N3pcl11recognition9ORROctree10createLeafEfff"></span><span id="pcl::recognition::ORROctree::createLeaf__float.float.float"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a84d3bfb8bb1d80cb6855b089a29a23a4"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctreeE" title="pcl::recognition::ORROctree">ORROctree</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">createLeaf</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree10createLeafEfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates the leaf containing p = (x, y, z) and returns a pointer to it, however, only if p lies within the octree bounds! A more general version which allows p to be out of bounds is not implemented yet. </p>
+<p>The method returns NULL if p is not within the root bounds. If the leaf containing p already exists nothing happens and method just returns a pointer to the leaf. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree32getFullLeavesIntersectedBySphereEPKffRNSt4listIPN9ORROctree4NodeEEE">
+<span id="_CPPv3NK3pcl11recognition9ORROctree32getFullLeavesIntersectedBySphereEPKffRNSt4listIPN9ORROctree4NodeEEE"></span><span id="_CPPv2NK3pcl11recognition9ORROctree32getFullLeavesIntersectedBySphereEPKffRNSt4listIPN9ORROctree4NodeEEE"></span><span id="pcl::recognition::ORROctree::getFullLeavesIntersectedBySphere__floatCP.float.std::list:ORROctree::NodeP:RC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a6248d093eb44e0b7c6d7453da5f9ed77"></span>void <code class="sig-name descname">getFullLeavesIntersectedBySphere</code><span class="sig-paren">(</span><em class="property">const</em> float *<em>p</em>, float <em>radius</em>, std::list&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctreeE" title="pcl::recognition::ORROctree">ORROctree</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *&gt; &amp;<em>out</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree32getFullLeavesIntersectedBySphereEPKffRNSt4listIPN9ORROctree4NodeEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method returns a super set of the full leavess which are intersected by the sphere with radius ‘radius’ and centered at ‘p’. </p>
+<p>Pointers to the intersected full leaves are saved in ‘out’. The method computes a super set in the sense that in general not all leaves saved in ‘out’ are really intersected by the sphere. The intersection test is based on the leaf radius (since its faster than checking all leaf corners and sides), so we report more leaves than we should, but still, this is a fair approximation. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree25getRandomFullLeafOnSphereEPKff">
+<span id="_CPPv3NK3pcl11recognition9ORROctree25getRandomFullLeafOnSphereEPKff"></span><span id="_CPPv2NK3pcl11recognition9ORROctree25getRandomFullLeafOnSphereEPKff"></span><span id="pcl::recognition::ORROctree::getRandomFullLeafOnSphere__floatCP.floatC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1acf19048a461fb6a54b3b74d1d81eb65d"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctreeE" title="pcl::recognition::ORROctree">ORROctree</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">getRandomFullLeafOnSphere</code><span class="sig-paren">(</span><em class="property">const</em> float *<em>p</em>, float <em>radius</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree25getRandomFullLeafOnSphereEPKff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Randomly chooses and returns a full leaf that is intersected by the sphere with center ‘p’ and ‘radius’. </p>
+<p>Returns NULL if no leaf is intersected by that sphere. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree7getLeafEiii">
+<span id="_CPPv3N3pcl11recognition9ORROctree7getLeafEiii"></span><span id="_CPPv2N3pcl11recognition9ORROctree7getLeafEiii"></span><span id="pcl::recognition::ORROctree::getLeaf__i.i.i"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a9cdbc161b012778299a0c3ec73946e6e"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctreeE" title="pcl::recognition::ORROctree">ORROctree</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">getLeaf</code><span class="sig-paren">(</span>int <em>i</em>, int <em>j</em>, int <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree7getLeafEiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Since the leaves are aligned in a rectilinear grid, each leaf has a unique id. </p>
+<p>The method returns the leaf with id [i, j, k] or NULL is no such leaf exists. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree7getLeafEfff">
+<span id="_CPPv3N3pcl11recognition9ORROctree7getLeafEfff"></span><span id="_CPPv2N3pcl11recognition9ORROctree7getLeafEfff"></span><span id="pcl::recognition::ORROctree::getLeaf__float.float.float"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a226ab3bc336ddf40b65acef96958a3f9"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctreeE" title="pcl::recognition::ORROctree">ORROctree</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">getLeaf</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree7getLeafEfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a pointer to the leaf containing p = (x, y, z) or NULL if no such leaf exists. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree12deleteBranchEP4Node">
+<span id="_CPPv3N3pcl11recognition9ORROctree12deleteBranchEP4Node"></span><span id="_CPPv2N3pcl11recognition9ORROctree12deleteBranchEP4Node"></span><span id="pcl::recognition::ORROctree::deleteBranch__NodeP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a214263da240c970c83203f86ea1246dd"></span>void <code class="sig-name descname">deleteBranch</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree12deleteBranchEP4Node" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Deletes the branch ‘node’ is part of. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree13getFullLeavesEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree13getFullLeavesEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree13getFullLeavesEv"></span><span id="pcl::recognition::ORROctree::getFullLeaves"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1ac91c845365fae9fd9d4e270d5471f750"></span>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctreeE" title="pcl::recognition::ORROctree">ORROctree</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *&gt; &amp;<code class="sig-name descname">getFullLeaves</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree13getFullLeavesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a vector with all octree leaves which contain at least one point. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree13getFullLeavesEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree13getFullLeavesEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree13getFullLeavesEv"></span><span id="pcl::recognition::ORROctree::getFullLeavesC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a8bd01cc266dcf080d6bf347d9af32687"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctreeE" title="pcl::recognition::ORROctree">ORROctree</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *&gt; &amp;<code class="sig-name descname">getFullLeaves</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree13getFullLeavesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree19getFullLeavesPointsER13PointCloudOut">
+<span id="_CPPv3NK3pcl11recognition9ORROctree19getFullLeavesPointsER13PointCloudOut"></span><span id="_CPPv2NK3pcl11recognition9ORROctree19getFullLeavesPointsER13PointCloudOut"></span><span id="pcl::recognition::ORROctree::getFullLeavesPoints__PointCloudOutRC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a8ca1aa173aded0d8968a1ee651d1f928"></span>void <code class="sig-name descname">getFullLeavesPoints</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree13PointCloudOutE" title="pcl::recognition::ORROctree::PointCloudOut">PointCloudOut</a> &amp;<em>out</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree19getFullLeavesPointsER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree22getNormalsOfFullLeavesER11PointCloudN">
+<span id="_CPPv3NK3pcl11recognition9ORROctree22getNormalsOfFullLeavesER11PointCloudN"></span><span id="_CPPv2NK3pcl11recognition9ORROctree22getNormalsOfFullLeavesER11PointCloudN"></span><span id="pcl::recognition::ORROctree::getNormalsOfFullLeaves__PointCloudNRC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a3e3e57e62ee568cdc78f3fa0be858173"></span>void <code class="sig-name descname">getNormalsOfFullLeaves</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree11PointCloudNE" title="pcl::recognition::ORROctree::PointCloudN">PointCloudN</a> &amp;<em>out</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree22getNormalsOfFullLeavesER11PointCloudN" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree7getRootEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree7getRootEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree7getRootEv"></span><span id="pcl::recognition::ORROctree::getRoot"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a137f5bc0a179111f5ff56492a94a57c6"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctreeE" title="pcl::recognition::ORROctree">ORROctree</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">getRoot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree7getRootEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree9getBoundsEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree9getBoundsEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree9getBoundsEv"></span><span id="pcl::recognition::ORROctree::getBoundsC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a4b0935696fe43ba7e7871f730b2f6a59"></span><em class="property">const</em> float *<code class="sig-name descname">getBounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree9getBoundsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree9getBoundsEAL6E_f">
+<span id="_CPPv3NK3pcl11recognition9ORROctree9getBoundsEAL6E_f"></span><span id="_CPPv2NK3pcl11recognition9ORROctree9getBoundsEA6_f"></span><span id="pcl::recognition::ORROctree::getBounds__floatAC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1aca0c1849b29726f7ca7969e36bfeb30a"></span>void <code class="sig-name descname">getBounds</code><span class="sig-paren">(</span>float <em>b</em>[6]<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree9getBoundsEAL6E_f" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree12getVoxelSizeEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree12getVoxelSizeEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree12getVoxelSizeEv"></span><span id="pcl::recognition::ORROctree::getVoxelSizeC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a8fd114e8e508f70d265fc4f65b9aadd6"></span>float <code class="sig-name descname">getVoxelSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree12getVoxelSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree15insertNeighborsEP4Node">
+<span id="_CPPv3N3pcl11recognition9ORROctree15insertNeighborsEP4Node"></span><span id="_CPPv2N3pcl11recognition9ORROctree15insertNeighborsEP4Node"></span><span id="pcl::recognition::ORROctree::insertNeighbors__NodeP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1accc85ef386cf4292cfa83c8467a3c006"></span>void <code class="sig-name descname">insertNeighbors</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree15insertNeighborsEP4Node" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree11voxel_size_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree11voxel_size_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree11voxel_size_E"></span><span id="pcl::recognition::ORROctree::voxel_size___float"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a2a129cfa15e44b41af4a86aa22a3ee0f"></span>float <code class="sig-name descname">voxel_size_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree11voxel_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree7bounds_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree7bounds_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree7bounds_E"></span><span id="pcl::recognition::ORROctree::bounds___floatA"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a5c1024bde86dc5037c25ceccfe199ee5"></span>float <code class="sig-name descname">bounds_</code>[6]<a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree7bounds_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree12tree_levels_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree12tree_levels_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree12tree_levels_E"></span><span id="pcl::recognition::ORROctree::tree_levels___i"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1ae3e57e1d63f487e57606e80e1878abb3"></span>int <code class="sig-name descname">tree_levels_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree12tree_levels_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree5root_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree5root_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree5root_E"></span><span id="pcl::recognition::ORROctree::root___NodeP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1a600390feaab955e3103399f6b6d82d78"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">root_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree5root_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree12full_leaves_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree12full_leaves_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree12full_leaves_E"></span><span id="pcl::recognition::ORROctree::full_leaves___std::vector:NodeP:"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1aec4b19ff48fd18d3d647aec5f76e3a82"></span>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *&gt; <code class="sig-name descname">full_leaves_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree12full_leaves_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4NodeE">
+<span id="_CPPv3N3pcl11recognition9ORROctree4NodeE"></span><span id="_CPPv2N3pcl11recognition9ORROctree4NodeE"></span><span id="pcl::recognition::ORROctree::Node"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node"></span><em class="property">class </em><code class="sig-name descname">Node</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4NodeEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4NodeEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4NodeEv"></span><span id="pcl::recognition::ORROctree::Node::Node"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a62805def449de04c40efd029073577c3"></span><code class="sig-name descname">Node</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4NodeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1ae522d7e557c22fe42c2a76a494cdb7ef"></span><code class="sig-name descname">virtual pcl::recognition::ORROctree::Node::~ Node()</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node9setCenterEPKf">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node9setCenterEPKf"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node9setCenterEPKf"></span><span id="pcl::recognition::ORROctree::Node::setCenter__floatCP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a0dd4b9d95781d8f42e7067ce860ac333"></span>void <code class="sig-name descname">setCenter</code><span class="sig-paren">(</span><em class="property">const</em> float *<em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node9setCenterEPKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node9setBoundsEPKf">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node9setBoundsEPKf"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node9setBoundsEPKf"></span><span id="pcl::recognition::ORROctree::Node::setBounds__floatCP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a09ce655227d21de861c40c6e89ea243a"></span>void <code class="sig-name descname">setBounds</code><span class="sig-paren">(</span><em class="property">const</em> float *<em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node9setBoundsEPKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node9setParentEP4Node">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node9setParentEP4Node"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node9setParentEP4Node"></span><span id="pcl::recognition::ORROctree::Node::setParent__NodeP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1aafc2ff6b54a74562a48656b5b33e5562"></span>void <code class="sig-name descname">setParent</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node9setParentEP4Node" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node7setDataEPN4Node4DataE">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node7setDataEPN4Node4DataE"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node7setDataEPN4Node4DataE"></span><span id="pcl::recognition::ORROctree::Node::setData__Node::DataP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1af220b6d7594decbc2bded00e29951504"></span>void <code class="sig-name descname">setData</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4Node4DataE" title="pcl::recognition::ORROctree::Node::Data">Data</a> *<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node7setDataEPN4Node4DataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node13computeRadiusEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node13computeRadiusEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node13computeRadiusEv"></span><span id="pcl::recognition::ORROctree::Node::computeRadius"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1ad220fe60a0d9faa33a6352d46a535fdc"></span>void <code class="sig-name descname">computeRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node13computeRadiusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the “radius” of the node which is half the diagonal length. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node9getCenterEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node9getCenterEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node9getCenterEv"></span><span id="pcl::recognition::ORROctree::Node::getCenterC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1add9e8976c1194f26453c38e766fe64ea"></span><em class="property">const</em> float *<code class="sig-name descname">getCenter</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node9getCenterEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node9getBoundsEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node9getBoundsEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node9getBoundsEv"></span><span id="pcl::recognition::ORROctree::Node::getBoundsC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a0c627548ba5ec4f3f0a447fea0fa487a"></span><em class="property">const</em> float *<code class="sig-name descname">getBounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node9getBoundsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node9getBoundsEAL6E_f">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node9getBoundsEAL6E_f"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node9getBoundsEA6_f"></span><span id="pcl::recognition::ORROctree::Node::getBounds__floatAC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a69d4e134b592578b5e13c0107a4e3750"></span>void <code class="sig-name descname">getBounds</code><span class="sig-paren">(</span>float <em>b</em>[6]<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node9getBoundsEAL6E_f" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node8getChildEi">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node8getChildEi"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node8getChildEi"></span><span id="pcl::recognition::ORROctree::Node::getChild__i"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1ac60036367e3c627f27590c3acae7c56d"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">getChild</code><span class="sig-paren">(</span>int <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node8getChildEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node11getChildrenEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node11getChildrenEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node11getChildrenEv"></span><span id="pcl::recognition::ORROctree::Node::getChildren"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a9065bc8f9073256b143d7fe95527b6ce"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">getChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node11getChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node7getDataEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node7getDataEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node7getDataEv"></span><span id="pcl::recognition::ORROctree::Node::getData"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1ac0fc1421425d7878500c2f3f65446650"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4Node4DataE" title="pcl::recognition::ORROctree::Node::Data">Data</a> *<code class="sig-name descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node7getDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node7getDataEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node7getDataEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node7getDataEv"></span><span id="pcl::recognition::ORROctree::Node::getDataC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1ae24afd5e585d06d4d1f0cd6d8674a29f"></span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4Node4DataE" title="pcl::recognition::ORROctree::Node::Data">Data</a> *<code class="sig-name descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node7getDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node11setUserDataEPv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node11setUserDataEPv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node11setUserDataEPv"></span><span id="pcl::recognition::ORROctree::Node::setUserData__voidP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a6f901c3b925ab7a8eb7329c8779f8829"></span>void <code class="sig-name descname">setUserData</code><span class="sig-paren">(</span>void *<em>user_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node11setUserDataEPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node9getParentEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node9getParentEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node9getParentEv"></span><span id="pcl::recognition::ORROctree::Node::getParent"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a7eb98dd5da3b11d922ce94084cabd80c"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">getParent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node9getParentEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node7hasDataEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node7hasDataEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node7hasDataEv"></span><span id="pcl::recognition::ORROctree::Node::hasData"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1af1380a0873505ef03df910f5d09c2411"></span>bool <code class="sig-name descname">hasData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node7hasDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node11hasChildrenEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node11hasChildrenEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node11hasChildrenEv"></span><span id="pcl::recognition::ORROctree::Node::hasChildren"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1aed86fff125a61631525c78ed050ce0aa"></span>bool <code class="sig-name descname">hasChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node11hasChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node9getRadiusEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node9getRadiusEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node9getRadiusEv"></span><span id="pcl::recognition::ORROctree::Node::getRadius"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a9888c21657686d1818e5f464f67529fe"></span>float <code class="sig-name descname">getRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node9getRadiusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the “radius” of the node which is half the diagonal length. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node14createChildrenEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node14createChildrenEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node14createChildrenEv"></span><span id="pcl::recognition::ORROctree::Node::createChildren"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1ac517e72fd13e5dfce7ed8dd868703653"></span>bool <code class="sig-name descname">createChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node14createChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node14deleteChildrenEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node14deleteChildrenEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node14deleteChildrenEv"></span><span id="pcl::recognition::ORROctree::Node::deleteChildren"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a8abcc84d28baa55eb6cb4526b639fcd2"></span>void <code class="sig-name descname">deleteChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node14deleteChildrenEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node10deleteDataEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node10deleteDataEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node10deleteDataEv"></span><span id="pcl::recognition::ORROctree::Node::deleteData"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a0ba30bae80b525195e1a852d5f6fd633"></span>void <code class="sig-name descname">deleteData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node10deleteDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node13makeNeighborsEP4Node">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node13makeNeighborsEP4Node"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node13makeNeighborsEP4Node"></span><span id="pcl::recognition::ORROctree::Node::makeNeighbors__NodeP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1af45ff21e9d4a58c573f76dd969e27ada"></span>void <code class="sig-name descname">makeNeighbors</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node13makeNeighborsEP4Node" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Make this and ‘node’ neighbors by inserting each node in the others node neighbor set. </p>
+<p>Nothing happens of either of the nodes has no data. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node5data_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node5data_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node5data_E"></span><span id="pcl::recognition::ORROctree::Node::data___Node::DataP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1aed78c5668c4c587494d2195b7d1b35ba"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a>::<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4Node4DataE" title="pcl::recognition::ORROctree::Node::Data">Data</a> *<code class="sig-name descname">data_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node5data_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node7center_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node7center_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node7center_E"></span><span id="pcl::recognition::ORROctree::Node::center___floatA"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a5f804dd854143bea81d23ed3b02a8640"></span>float <code class="sig-name descname">center_</code>[3]<a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node7center_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node7bounds_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node7bounds_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node7bounds_E"></span><span id="pcl::recognition::ORROctree::Node::bounds___floatA"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a5a1aefd343309028efdbd1d8c01f4c7a"></span>float <code class="sig-name descname">bounds_</code>[6]<a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node7bounds_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node7radius_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node7radius_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node7radius_E"></span><span id="pcl::recognition::ORROctree::Node::radius___float"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1afb409e95df28b3d984c2fc7ff96bf10b"></span>float <code class="sig-name descname">radius_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node7radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node7parent_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node7parent_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node7parent_E"></span><span id="pcl::recognition::ORROctree::Node::parent___NodeP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1a6d05ab4d74808210eb3e79970c111c5e"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">parent_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node7parent_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node9children_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node9children_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node9children_E"></span><span id="pcl::recognition::ORROctree::Node::children___NodeP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1aa38068c00e25f771da8a4dc219b6ea77"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<code class="sig-name descname">children_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node9children_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4DataE">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4DataE"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4DataE"></span><span id="pcl::recognition::ORROctree::Node::Data"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data"></span><em class="property">class </em><code class="sig-name descname">Data</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4DataE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data4DataEiiiiPv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data4DataEiiiiPv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data4DataEiiiiPv"></span><span id="pcl::recognition::ORROctree::Node::Data::Data__i.i.i.i.voidP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1aaf0b2a9a71a9363c94fb4cfe8b906fcc"></span><code class="sig-name descname">Data</code><span class="sig-paren">(</span>int <em>id_x</em>, int <em>id_y</em>, int <em>id_z</em>, int <em>lin_id</em>, void *<em>user_data</em> = NULL<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data4DataEiiiiPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a78efd0a41f942cd3bdca5f9e8d26b667"></span><code class="sig-name descname">virtual pcl::recognition::ORROctree::Node::Data::~ Data()</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data10addToPointEfff">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data10addToPointEfff"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data10addToPointEfff"></span><span id="pcl::recognition::ORROctree::Node::Data::addToPoint__float.float.float"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a832b8c8d88e9f93edf65bacbea8615a4"></span>void <code class="sig-name descname">addToPoint</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data10addToPointEfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data19computeAveragePointEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data19computeAveragePointEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data19computeAveragePointEv"></span><span id="pcl::recognition::ORROctree::Node::Data::computeAveragePoint"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1ad9323a672d38d64bb898416e42fb8172"></span>void <code class="sig-name descname">computeAveragePoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data19computeAveragePointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data11addToNormalEfff">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data11addToNormalEfff"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data11addToNormalEfff"></span><span id="pcl::recognition::ORROctree::Node::Data::addToNormal__float.float.float"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1adc246f279e239dd3976a4f3b7b7e9e2d"></span>void <code class="sig-name descname">addToNormal</code><span class="sig-paren">(</span>float <em>x</em>, float <em>y</em>, float <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data11addToNormalEfff" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node4Data8getPointEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node4Data8getPointEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node4Data8getPointEv"></span><span id="pcl::recognition::ORROctree::Node::Data::getPointC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1af8315916fea1fdbc141366497b717986"></span><em class="property">const</em> float *<code class="sig-name descname">getPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node4Data8getPointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data8getPointEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data8getPointEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data8getPointEv"></span><span id="pcl::recognition::ORROctree::Node::Data::getPoint"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a2da2dc966d428161fe2c8ed38db2edd2"></span>float *<code class="sig-name descname">getPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data8getPointEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node4Data9getNormalEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node4Data9getNormalEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node4Data9getNormalEv"></span><span id="pcl::recognition::ORROctree::Node::Data::getNormalC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a21675ff99f671b3d3a9aded9793b148f"></span><em class="property">const</em> float *<code class="sig-name descname">getNormal</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node4Data9getNormalEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data9getNormalEv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data9getNormalEv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data9getNormalEv"></span><span id="pcl::recognition::ORROctree::Node::Data::getNormal"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a028b7a111e6bf305de1f62dc3d4ab29e"></span>float *<code class="sig-name descname">getNormal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data9getNormalEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node4Data7get3dIdEAL3E_i">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node4Data7get3dIdEAL3E_i"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node4Data7get3dIdEA3_i"></span><span id="pcl::recognition::ORROctree::Node::Data::get3dId__iAC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a9c2827f9833938730ef67df475894014"></span>void <code class="sig-name descname">get3dId</code><span class="sig-paren">(</span>int <em>id</em>[3]<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node4Data7get3dIdEAL3E_i" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node4Data8get3dIdXEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node4Data8get3dIdXEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node4Data8get3dIdXEv"></span><span id="pcl::recognition::ORROctree::Node::Data::get3dIdXC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1ae04156da8a41cf7c474a04b3feb1b973"></span>int <code class="sig-name descname">get3dIdX</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node4Data8get3dIdXEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node4Data8get3dIdYEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node4Data8get3dIdYEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node4Data8get3dIdYEv"></span><span id="pcl::recognition::ORROctree::Node::Data::get3dIdYC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1aa1a8a0d72ef4aeac57389158840bbfd6"></span>int <code class="sig-name descname">get3dIdY</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node4Data8get3dIdYEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node4Data8get3dIdZEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node4Data8get3dIdZEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node4Data8get3dIdZEv"></span><span id="pcl::recognition::ORROctree::Node::Data::get3dIdZC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a4cc7769a974ec6d79eb19684ea8a88d0"></span>int <code class="sig-name descname">get3dIdZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node4Data8get3dIdZEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node4Data11getLinearIdEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node4Data11getLinearIdEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node4Data11getLinearIdEv"></span><span id="pcl::recognition::ORROctree::Node::Data::getLinearIdC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a4f90782b8ab8fa9634e7b6453cca77cc"></span>int <code class="sig-name descname">getLinearId</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node4Data11getLinearIdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data11setUserDataEPv">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data11setUserDataEPv"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data11setUserDataEPv"></span><span id="pcl::recognition::ORROctree::Node::Data::setUserData__voidP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1ad9b6f581ac6f40dcbfd09b2bf3b69228"></span>void <code class="sig-name descname">setUserData</code><span class="sig-paren">(</span>void *<em>user_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data11setUserDataEPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node4Data11getUserDataEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node4Data11getUserDataEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node4Data11getUserDataEv"></span><span id="pcl::recognition::ORROctree::Node::Data::getUserDataC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a04e217932774f75f197f39f33a441e0b"></span>void *<code class="sig-name descname">getUserData</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node4Data11getUserDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data14insertNeighborEP4Node">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data14insertNeighborEP4Node"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data14insertNeighborEP4Node"></span><span id="pcl::recognition::ORROctree::Node::Data::insertNeighbor__NodeP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a7a61a7480ba3b80bb05d1b05467ffc37"></span>void <code class="sig-name descname">insertNeighbor</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *<em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data14insertNeighborEP4Node" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition9ORROctree4Node4Data12getNeighborsEv">
+<span id="_CPPv3NK3pcl11recognition9ORROctree4Node4Data12getNeighborsEv"></span><span id="_CPPv2NK3pcl11recognition9ORROctree4Node4Data12getNeighborsEv"></span><span id="pcl::recognition::ORROctree::Node::Data::getNeighborsC"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a787b4621dd76be615148a7c21448abe5"></span><em class="property">const</em> std::set&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *&gt; &amp;<code class="sig-name descname">getNeighbors</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition9ORROctree4Node4Data12getNeighborsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data2n_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data2n_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data2n_E"></span><span id="pcl::recognition::ORROctree::Node::Data::n___floatA"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a668bc0ff189184347eb2f41869584b9c"></span>float <code class="sig-name descname">n_</code>[3]<a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data2n_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data2p_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data2p_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data2p_E"></span><span id="pcl::recognition::ORROctree::Node::Data::p___floatA"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a17fd77216ecffd0b9b907627de3c59e8"></span>float <code class="sig-name descname">p_</code>[3]<a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data2p_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data5id_x_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data5id_x_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data5id_x_E"></span><span id="pcl::recognition::ORROctree::Node::Data::id_x___i"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a940c8a8b178b013eb15e1a7600fde5cc"></span>int <code class="sig-name descname">id_x_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data5id_x_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data5id_y_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data5id_y_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data5id_y_E"></span><span id="pcl::recognition::ORROctree::Node::Data::id_y___i"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a67a6611e3ff2e93158249ca59cb06d20"></span>int <code class="sig-name descname">id_y_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data5id_y_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data5id_z_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data5id_z_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data5id_z_E"></span><span id="pcl::recognition::ORROctree::Node::Data::id_z___i"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a4613c1a0f26f3d807c374425c8d4d6eb"></span>int <code class="sig-name descname">id_z_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data5id_z_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data7lin_id_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data7lin_id_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data7lin_id_E"></span><span id="pcl::recognition::ORROctree::Node::Data::lin_id___i"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a5caaff6c655bd2e2ff7e07d4986a87bb"></span>int <code class="sig-name descname">lin_id_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data7lin_id_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data11num_points_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data11num_points_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data11num_points_E"></span><span id="pcl::recognition::ORROctree::Node::Data::num_points___i"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a51bec65462e2333e1e8fb3c7be2334f5"></span>int <code class="sig-name descname">num_points_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data11num_points_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data10neighbors_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data10neighbors_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data10neighbors_E"></span><span id="pcl::recognition::ORROctree::Node::Data::neighbors___std::set:NodeP:"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a9fe1dabc41f6fc6e7c15bbc1278818fb"></span>std::set&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition9ORROctree4NodeE" title="pcl::recognition::ORROctree::Node">Node</a> *&gt; <code class="sig-name descname">neighbors_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data10neighbors_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition9ORROctree4Node4Data10user_data_E">
+<span id="_CPPv3N3pcl11recognition9ORROctree4Node4Data10user_data_E"></span><span id="_CPPv2N3pcl11recognition9ORROctree4Node4Data10user_data_E"></span><span id="pcl::recognition::ORROctree::Node::Data::user_data___voidP"></span><span class="target" id="classpcl_1_1recognition_1_1_o_r_r_octree_1_1_node_1_1_data_1a9869809b008a8a2c14257fe35eba9e0e"></span>void *<code class="sig-name descname">user_data_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition9ORROctree4Node4Data10user_data_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

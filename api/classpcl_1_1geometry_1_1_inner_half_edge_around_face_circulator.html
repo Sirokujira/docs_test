@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class InnerHalfEdgeAroundFaceCirculator &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class InnerHalfEdgeAroundFaceCirculator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-innerhalfedgearoundfacecirculator">
+<span id="exhale-class-classpcl-1-1geometry-1-1-inner-half-edge-around-face-circulator"></span><h1>Template Class InnerHalfEdgeAroundFaceCirculator<a class="headerlink" href="#template-class-innerhalfedgearoundfacecirculator" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_geometry_include_pcl_geometry_mesh_circulators.h.html#file-pcl-geometry-include-pcl-geometry-mesh-circulators-h"><span class="std std-ref">File mesh_circulators.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">boost::equality_comparable&lt;</span> <span class="pre">pcl::geometry::InnerHalfEdgeAroundFaceCirculator&lt;</span> <span class="pre">MeshT</span> <span class="pre">&gt;,</span> <span class="pre">boost::unit_steppable&lt;</span> <span class="pre">pcl::geometry::InnerHalfEdgeAroundFaceCirculator&lt;</span> <span class="pre">MeshT</span> <span class="pre">&gt;</span> <span class="pre">&gt;</span> <span class="pre">&gt;</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorE">
+<span id="_CPPv3I0EN3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorE"></span><span id="_CPPv2I0EN3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorE"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator"></span>template&lt;class <code class="sig-name descname">MeshT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">InnerHalfEdgeAroundFaceCirculator</code> : <em class="property">private</em> boost::equality_comparable&lt;pcl::geometry::InnerHalfEdgeAroundFaceCirculator&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::MeshT">MeshT</a>&gt;, boost::unit_steppable&lt;pcl::geometry::InnerHalfEdgeAroundFaceCirculator&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::MeshT">MeshT</a>&gt;&gt;&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Circulates clockwise around a face and returns an index to the inner half-edge (the target). </p>
+<p>The best way to declare the circulator is to use the method <a class="reference internal" href="classpcl_1_1geometry_1_1_mesh_base.html#classpcl_1_1geometry_1_1_mesh_base_1a3c30f9b4f2c62b35eb70fa46e48f6024"><span class="std std-ref">pcl::geometry::MeshBase::getInnerHalfEdgeAroundFaceCirculator</span></a> (). <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>The circulator can’t be used to change the connectivity in the mesh (only const circulators are valid). </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Martin Saelzle </p>
+</dd>
+<dt><strong>Template Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MeshT</span></code>: <a class="reference internal" href="class_mesh.html#class_mesh"><span class="std std-ref">Mesh</span></a> to which this circulator belongs to. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4BaseE">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4BaseE"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4BaseE"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Base"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a2cb4410d3a96dadf3b7cf01152214164"></span><em class="property">typedef </em>boost::equality_comparable&lt;pcl::geometry::InnerHalfEdgeAroundFaceCirculator&lt;MeshT&gt;, boost::unit_steppable&lt;pcl::geometry::InnerHalfEdgeAroundFaceCirculator&lt;MeshT&gt;&gt;&gt; <code class="sig-name descname">Base</code><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4BaseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4SelfE">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4SelfE"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4SelfE"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Self"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1aa2ae860c4c666d6f0a50f639925061df"></span><em class="property">typedef </em>pcl::geometry::InnerHalfEdgeAroundFaceCirculator&lt;MeshT&gt; <code class="sig-name descname">Self</code><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4SelfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4MeshE">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4MeshE"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4MeshE"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Mesh"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a0777bff7df5d144315cf007566f0fa65"></span><em class="property">typedef </em>MeshT <code class="sig-name descname">Mesh</code><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4MeshE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator9FaceIndexE">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator9FaceIndexE"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator9FaceIndexE"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::FaceIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a681b51ce34fa3ebc6daa17285c70a165"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4MeshE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Mesh">Mesh</a>::FaceIndex <code class="sig-name descname">FaceIndex</code><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator9FaceIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator13HalfEdgeIndexE">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator13HalfEdgeIndexE"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator13HalfEdgeIndexE"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::HalfEdgeIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a668640661973bf68f34423ad7471596c"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4MeshE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Mesh">Mesh</a>::HalfEdgeIndex <code class="sig-name descname">HalfEdgeIndex</code><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator13HalfEdgeIndexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorEv">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorEv"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorEv"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::InnerHalfEdgeAroundFaceCirculator"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a2b04d66f65caabdc46212a128541714f"></span><code class="sig-name descname">InnerHalfEdgeAroundFaceCirculator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor resulting in an invalid circulator. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorERK9FaceIndexPC4Mesh">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorERK9FaceIndexPC4Mesh"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorERK9FaceIndexPC4Mesh"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::InnerHalfEdgeAroundFaceCirculator__FaceIndexCR.MeshPC"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1acded40470ad64138880ae28f082a4251"></span><code class="sig-name descname">InnerHalfEdgeAroundFaceCirculator</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator9FaceIndexE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::FaceIndex">FaceIndex</a> &amp;<em>idx_face</em>, <a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4MeshE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Mesh">Mesh</a> *<em class="property">const</em> <em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorERK9FaceIndexPC4Mesh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct from the face around which we want to circulate. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorERK13HalfEdgeIndexPC4Mesh">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorERK13HalfEdgeIndexPC4Mesh"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorERK13HalfEdgeIndexPC4Mesh"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::InnerHalfEdgeAroundFaceCirculator__HalfEdgeIndexCR.MeshPC"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1abe0286a043d1dabf1e1e8efb0559f86d"></span><code class="sig-name descname">InnerHalfEdgeAroundFaceCirculator</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator13HalfEdgeIndexE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::HalfEdgeIndex">HalfEdgeIndex</a> &amp;<em>idx_inner_half_edge</em>, <a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4MeshE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Mesh">Mesh</a> *<em class="property">const</em> <em>mesh</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator33InnerHalfEdgeAroundFaceCirculatorERK13HalfEdgeIndexPC4Mesh" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct directly from the inner half-edge. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator7isValidEv">
+<span id="_CPPv3NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator7isValidEv"></span><span id="_CPPv2NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator7isValidEv"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::isValidC"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a7af381f8f8e5744d77da69d633e02a8d"></span>bool <code class="sig-name descname">isValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator7isValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Check if the circulator is valid. </p>
+<p><dl class="simple">
+<dt><strong>Warning</strong></dt><dd><p>Does NOT check if the stored mesh pointer is valid. You have to ensure this yourself when constructing the circulator. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculatoreqERK4Self">
+<span id="_CPPv3NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculatoreqERK4Self"></span><span id="_CPPv2NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculatoreqERK4Self"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::eq-operator__SelfCRC"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a5e92295ee2b1da725d2a0699e2918b0b"></span>bool <code class="sig-name descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4SelfE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Self">Self</a> &amp;<em>other</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculatoreqERK4Self" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Comparison operators (with boost::operators): == !=. </p>
+<p><dl class="simple">
+<dt><strong>Warning</strong></dt><dd><p>Does NOT check if the circulators belong to the same mesh. Please check this yourself. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorppEv">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorppEv"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorppEv"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::inc-operator"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a0fcec1ccb1a68e391e565c18a08723d0"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4SelfE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Self">Self</a> &amp;<code class="sig-name descname">operator++</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculatorppEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Increment operators (with boost::operators): ++ (pre and post) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculatormmEv">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculatormmEv"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculatormmEv"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::dec-operator"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a48c181ebfa0c415a2e882368f75e75d2"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4SelfE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Self">Self</a> &amp;<code class="sig-name descname">operator--</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculatormmEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Decrement operators (with boost::operators):  (pre and post) </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator14getTargetIndexEv">
+<span id="_CPPv3NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator14getTargetIndexEv"></span><span id="_CPPv2NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator14getTargetIndexEv"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::getTargetIndexC"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a7768afee3590e2ccd6a91d24e4de2fd9"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator13HalfEdgeIndexE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::HalfEdgeIndex">HalfEdgeIndex</a> <code class="sig-name descname">getTargetIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator14getTargetIndexEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the index to the inner half-edge. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator23getCurrentHalfEdgeIndexEv">
+<span id="_CPPv3NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator23getCurrentHalfEdgeIndexEv"></span><span id="_CPPv2NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator23getCurrentHalfEdgeIndexEv"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::getCurrentHalfEdgeIndexC"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a8b84a0c044169b36b4943569df77b274"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator13HalfEdgeIndexE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::HalfEdgeIndex">HalfEdgeIndex</a> <code class="sig-name descname">getCurrentHalfEdgeIndex</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl8geometry33InnerHalfEdgeAroundFaceCirculator23getCurrentHalfEdgeIndexEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the half-edge that is currently stored in the circulator. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator5mesh_E">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator5mesh_E"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator5mesh_E"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::mesh___MeshP"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a5fcd3c4789cd7c6c548498382a4b4bea"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator4MeshE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::Mesh">Mesh</a> *<code class="sig-name descname">mesh_</code><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator5mesh_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The mesh to which this circulator belongs to. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator20idx_inner_half_edge_E">
+<span id="_CPPv3N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator20idx_inner_half_edge_E"></span><span id="_CPPv2N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator20idx_inner_half_edge_E"></span><span id="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::idx_inner_half_edge___HalfEdgeIndex"></span><span class="target" id="classpcl_1_1geometry_1_1_inner_half_edge_around_face_circulator_1a4101e63a50b61e2d93b170109e25e795"></span><a class="reference internal" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator13HalfEdgeIndexE" title="pcl::geometry::InnerHalfEdgeAroundFaceCirculator::HalfEdgeIndex">HalfEdgeIndex</a> <code class="sig-name descname">idx_inner_half_edge_</code><a class="headerlink" href="#_CPPv4N3pcl8geometry33InnerHalfEdgeAroundFaceCirculator20idx_inner_half_edge_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The inner half-edge of the face around which we want to circulate. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

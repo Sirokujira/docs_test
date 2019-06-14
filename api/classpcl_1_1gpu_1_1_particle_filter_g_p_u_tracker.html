@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class ParticleFilterGPUTracker &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class ParticleFilterGPUTracker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-particlefiltergputracker">
+<span id="exhale-class-classpcl-1-1gpu-1-1-particle-filter-g-p-u-tracker"></span><h1>Class ParticleFilterGPUTracker<a class="headerlink" href="#class-particlefiltergputracker" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_gpu_tracking_include_pcl_gpu_tracking_particle_filter.h.html#file-pcl-gpu-tracking-include-pcl-gpu-tracking-particle-filter-h"><span class="std std-ref">File particle_filter.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTrackerE">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTrackerE"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTrackerE"></span><span id="pcl::gpu::ParticleFilterGPUTracker"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker"></span><em class="property">class </em><code class="sig-name descname">ParticleFilterGPUTracker</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTrackerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9PointTypeE">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker9PointTypeE"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker9PointTypeE"></span><span id="pcl::gpu::ParticleFilterGPUTracker::PointType"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a7183cdd71a926f8fdda6003c92977f87"></span><em class="property">typedef </em>pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> <code class="sig-name descname">PointType</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9PointTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point type supported. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker8PixelRGBE">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker8PixelRGBE"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker8PixelRGBE"></span><span id="pcl::gpu::ParticleFilterGPUTracker::PixelRGB"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1ac494ea97be52a01af1ac34e97ce830f9"></span><em class="property">typedef </em>pcl::<a class="reference internal" href="structpcl_1_1_r_g_b.html#_CPPv4N3pcl3RGBE" title="pcl::RGB">RGB</a> <code class="sig-name descname">PixelRGB</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker8PixelRGBE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker8StateXYZE">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker8StateXYZE"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker8StateXYZE"></span><span id="pcl::gpu::ParticleFilterGPUTracker::StateXYZ"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a396feb989f0e6eb431d7fd9b0c2e2ce5"></span><em class="property">typedef </em>pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> <code class="sig-name descname">StateXYZ</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker8StateXYZE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker8StateRPYE">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker8StateRPYE"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker8StateRPYE"></span><span id="pcl::gpu::ParticleFilterGPUTracker::StateRPY"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a8a52387fd1499976dae1eb312ed2f311"></span><em class="property">typedef </em>pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z.html#_CPPv4N3pcl8PointXYZE" title="pcl::PointXYZ">PointXYZ</a> <code class="sig-name descname">StateRPY</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker8StateRPYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9StateTypeE">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker9StateTypeE"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker9StateTypeE"></span><span id="pcl::gpu::ParticleFilterGPUTracker::StateType"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a5b69fe6fec03073dc33166a1e8ed6c55"></span><em class="property">typedef </em>pcl::tracking::<a class="reference internal" href="structpcl_1_1tracking_1_1_particle_x_y_z_r_p_y.html#_CPPv4N3pcl8tracking14ParticleXYZRPYE" title="pcl::tracking::ParticleXYZRPY">ParticleXYZRPY</a> <code class="sig-name descname">StateType</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9StateTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker24ParticleFilterGPUTrackerEv">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker24ParticleFilterGPUTrackerEv"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker24ParticleFilterGPUTrackerEv"></span><span id="pcl::gpu::ParticleFilterGPUTracker::ParticleFilterGPUTracker"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a2601d2b638dcdd4e8cb3ab91e1824b49"></span><code class="sig-name descname">ParticleFilterGPUTracker</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker24ParticleFilterGPUTrackerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker14setParticleNumEKi">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker14setParticleNumEKi"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker14setParticleNumEKi"></span><span id="pcl::gpu::ParticleFilterGPUTracker::setParticleNum__iC"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a24e0b6665a75bdbf493cdafc69dbee58"></span>void <code class="sig-name descname">setParticleNum</code><span class="sig-paren">(</span><em class="property">const</em> int <em>particle_num</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker14setParticleNumEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>set the number of the particles. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">particle_num</span></code>: the number of the particles. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl3gpu24ParticleFilterGPUTracker14getParticleNumEv">
+<span id="_CPPv3NK3pcl3gpu24ParticleFilterGPUTracker14getParticleNumEv"></span><span id="_CPPv2NK3pcl3gpu24ParticleFilterGPUTracker14getParticleNumEv"></span><span id="pcl::gpu::ParticleFilterGPUTracker::getParticleNumC"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a6a38518d4ba6d3eed5eeac1cdf55c42b"></span>int <code class="sig-name descname">getParticleNum</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl3gpu24ParticleFilterGPUTracker14getParticleNumEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get the number of the particles. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker17setReferenceCloudERK13DeviceArray2DI9PointTypeE">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker17setReferenceCloudERK13DeviceArray2DI9PointTypeE"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker17setReferenceCloudERK13DeviceArray2DI9PointTypeE"></span><span id="pcl::gpu::ParticleFilterGPUTracker::setReferenceCloud__DeviceArray2D:PointType:CR"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a442a9725c9233a5cdc139c29611da172"></span>void <code class="sig-name descname">setReferenceCloud</code><span class="sig-paren">(</span><em class="property">const</em> DeviceArray2D&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9PointTypeE" title="pcl::gpu::ParticleFilterGPUTracker::PointType">PointType</a>&gt; &amp;<em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker17setReferenceCloudERK13DeviceArray2DI9PointTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>set a pointer to a reference dataset to be tracked. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ref</span></code>: a pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker17getReferenceCloudEv">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker17getReferenceCloudEv"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker17getReferenceCloudEv"></span><span id="pcl::gpu::ParticleFilterGPUTracker::getReferenceCloud"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a72117a7e56e5de250ab2f13d955e3061"></span>DeviceArray2D&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9PointTypeE" title="pcl::gpu::ParticleFilterGPUTracker::PointType">PointType</a>&gt; <em class="property">const</em> <code class="sig-name descname">getReferenceCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker17getReferenceCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>get a pointer to a reference dataset to be tracked. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker4colsEv">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker4colsEv"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker4colsEv"></span><span id="pcl::gpu::ParticleFilterGPUTracker::cols"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1acfc8f32b1001997a0a7b75f6da89cdda"></span>int <code class="sig-name descname">cols</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker4colsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker4rowsEv">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker4rowsEv"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker4rowsEv"></span><span id="pcl::gpu::ParticleFilterGPUTracker::rows"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a1fea886dd25994230f9201581838b1dc"></span>int <code class="sig-name descname">rows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker4rowsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTrackerclERK13DeviceArray2DI9PointTypeERK13DeviceArray2DI8PixelRGBE">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTrackerclERK13DeviceArray2DI9PointTypeERK13DeviceArray2DI8PixelRGBE"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTrackerclERK13DeviceArray2DI9PointTypeERK13DeviceArray2DI8PixelRGBE"></span><span id="pcl::gpu::ParticleFilterGPUTracker::call-operator__DeviceArray2D:PointType:CR.DeviceArray2D:PixelRGB:CR"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a1df3f87777e132329d14760563538cb8"></span><em class="property">virtual</em> bool <code class="sig-name descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> DeviceArray2D&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9PointTypeE" title="pcl::gpu::ParticleFilterGPUTracker::PointType">PointType</a>&gt; &amp;<em>input</em>, <em class="property">const</em> DeviceArray2D&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker8PixelRGBE" title="pcl::gpu::ParticleFilterGPUTracker::PixelRGB">PixelRGB</a>&gt; &amp;<em>input_colors</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTrackerclERK13DeviceArray2DI9PointTypeERK13DeviceArray2DI8PixelRGBE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9setMotionE9StateType">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker9setMotionE9StateType"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker9setMotionE9StateType"></span><span id="pcl::gpu::ParticleFilterGPUTracker::setMotion__StateType"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a8e6f4745f68e74779428571a8e161e92"></span><em class="property">virtual</em> void <code class="sig-name descname">setMotion</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9StateTypeE" title="pcl::gpu::ParticleFilterGPUTracker::StateType">StateType</a> <em>motion</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9setMotionE9StateType" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9getResultEv">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker9getResultEv"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker9getResultEv"></span><span id="pcl::gpu::ParticleFilterGPUTracker::getResult"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a6b62f20f3adcf4e0b0da5c587ee0b353"></span><em class="property">virtual</em> <a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9StateTypeE" title="pcl::gpu::ParticleFilterGPUTracker::StateType">StateType</a> <code class="sig-name descname">getResult</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9getResultEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker11initComputeEv">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker11initComputeEv"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker11initComputeEv"></span><span id="pcl::gpu::ParticleFilterGPUTracker::initCompute"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1aab1a4f1c170e294057bb8edd4a910da1"></span><em class="property">virtual</em> bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker15computeTrackingEv">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker15computeTrackingEv"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker15computeTrackingEv"></span><span id="pcl::gpu::ParticleFilterGPUTracker::computeTracking"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a452738c1606df8407d399d242b6d374a"></span><em class="property">virtual</em> void <code class="sig-name descname">computeTracking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker15computeTrackingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker15allocateBuffersEv">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker15allocateBuffersEv"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker15allocateBuffersEv"></span><span id="pcl::gpu::ParticleFilterGPUTracker::allocateBuffers"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a79df88690117e7cc6e9e731c368be033"></span><em class="property">virtual</em> void <code class="sig-name descname">allocateBuffers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker15allocateBuffersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker13tracker_name_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker13tracker_name_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker13tracker_name_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::tracker_name___ss"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1aedde7d228ce14822f0799f83f21ad487"></span>std::string <code class="sig-name descname">tracker_name_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker13tracker_name_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker4ref_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker4ref_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker4ref_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::ref___DeviceArray2D:PointType:"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a580dfd982c081107008b838446290c5f"></span>DeviceArray2D&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9PointTypeE" title="pcl::gpu::ParticleFilterGPUTracker::PointType">PointType</a>&gt; <code class="sig-name descname">ref_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker4ref_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker11ref_colors_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker11ref_colors_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker11ref_colors_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::ref_colors___DeviceArray2D:PixelRGB:"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a7a77388e29bf87ae3c63eaa599800808"></span>DeviceArray2D&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker8PixelRGBE" title="pcl::gpu::ParticleFilterGPUTracker::PixelRGB">PixelRGB</a>&gt; <code class="sig-name descname">ref_colors_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker11ref_colors_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker6input_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker6input_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker6input_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::input___DeviceArray2D:PointType:"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a5061a928771da6f8e78a658c336fa2e4"></span>DeviceArray2D&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9PointTypeE" title="pcl::gpu::ParticleFilterGPUTracker::PointType">PointType</a>&gt; <code class="sig-name descname">input_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker6input_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker13input_colors_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker13input_colors_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker13input_colors_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::input_colors___DeviceArray2D:PixelRGB:"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1acd4e4aafbb34aebd867fc15bd6091858"></span>DeviceArray2D&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker8PixelRGBE" title="pcl::gpu::ParticleFilterGPUTracker::PixelRGB">PixelRGB</a>&gt; <code class="sig-name descname">input_colors_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker13input_colors_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker10particles_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker10particles_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker10particles_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::particles___DeviceArray:StateType:"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a3be0a50cdbef73fd45639830cdb3aa00"></span>DeviceArray&lt;<a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9StateTypeE" title="pcl::gpu::ParticleFilterGPUTracker::StateType">StateType</a>&gt; <code class="sig-name descname">particles_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker10particles_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker10rng_statesE">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker10rng_statesE"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker10rng_statesE"></span><span id="pcl::gpu::ParticleFilterGPUTracker::rng_states__DeviceArray:curandState:"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a17249448842e18e85d525d83042a57b6"></span>DeviceArray&lt;curandState&gt; <code class="sig-name descname">rng_states</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker10rng_statesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker13particle_num_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker13particle_num_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker13particle_num_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::particle_num___i"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1abb164f9bc76d1f3b5fc3afa737881c21"></span>int <code class="sig-name descname">particle_num_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker13particle_num_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker22step_noise_covariance_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker22step_noise_covariance_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker22step_noise_covariance_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::step_noise_covariance___std::vector:float:"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1ad9ad8c9318c4337a05274926505a6478"></span>std::vector&lt;float&gt; <code class="sig-name descname">step_noise_covariance_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker22step_noise_covariance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker25initial_noise_covariance_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker25initial_noise_covariance_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker25initial_noise_covariance_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::initial_noise_covariance___std::vector:float:"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1ad6156447f90823d640bde97c291428a9"></span>std::vector&lt;float&gt; <code class="sig-name descname">initial_noise_covariance_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker25initial_noise_covariance_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker19initial_noise_mean_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker19initial_noise_mean_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker19initial_noise_mean_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::initial_noise_mean___std::vector:float:"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1aff00bbb2aa25885c6af37d3a0a29fb3e"></span>std::vector&lt;float&gt; <code class="sig-name descname">initial_noise_mean_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker19initial_noise_mean_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker7motion_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker7motion_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker7motion_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::motion___StateType"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a50f0c835b57dd911aab4802af241ffea"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9StateTypeE" title="pcl::gpu::ParticleFilterGPUTracker::StateType">StateType</a> <code class="sig-name descname">motion_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker7motion_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker13motion_ratio_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker13motion_ratio_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker13motion_ratio_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::motion_ratio___float"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a4a76598325607e0b7e04e503fcfc6026"></span>float <code class="sig-name descname">motion_ratio_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker13motion_ratio_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker11use_colors_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker11use_colors_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker11use_colors_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::use_colors___b"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1af2a50c9f6a2e734813f13f337fd29838"></span>bool <code class="sig-name descname">use_colors_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker11use_colors_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker21representative_state_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker21representative_state_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker21representative_state_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::representative_state___StateType"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a128f3c92fbbe6d1f10add4bbbfb53fbf"></span><a class="reference internal" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker9StateTypeE" title="pcl::gpu::ParticleFilterGPUTracker::StateType">StateType</a> <code class="sig-name descname">representative_state_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker21representative_state_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker5rows_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker5rows_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker5rows_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::rows___i"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1a4703d339868481772608be7af5dee5e2"></span>int <code class="sig-name descname">rows_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker5rows_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Height of input depth image. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl3gpu24ParticleFilterGPUTracker5cols_E">
+<span id="_CPPv3N3pcl3gpu24ParticleFilterGPUTracker5cols_E"></span><span id="_CPPv2N3pcl3gpu24ParticleFilterGPUTracker5cols_E"></span><span id="pcl::gpu::ParticleFilterGPUTracker::cols___i"></span><span class="target" id="classpcl_1_1gpu_1_1_particle_filter_g_p_u_tracker_1af6811fae33b85cb269214784cfceffe8"></span>int <code class="sig-name descname">cols_</code><a class="headerlink" href="#_CPPv4N3pcl3gpu24ParticleFilterGPUTracker5cols_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Width of input depth image. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

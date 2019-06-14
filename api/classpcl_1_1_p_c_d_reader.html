@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class PCDReader &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class PCDReader</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_p_c_d_reader.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-pcdreader">
+<span id="exhale-class-classpcl-1-1-p-c-d-reader"></span><h1>Class PCDReader<a class="headerlink" href="#class-pcdreader" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_pcd_io.h.html#file-pcl-io-include-pcl-io-pcd-io-h"><span class="std std-ref">File pcd_io.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::FileReader</span></code> (<a class="reference internal" href="classpcl_1_1_file_reader.html#exhale-class-classpcl-1-1-file-reader"><span class="std std-ref">Class FileReader</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl9PCDReaderE">
+<span id="_CPPv3N3pcl9PCDReaderE"></span><span id="_CPPv2N3pcl9PCDReaderE"></span><span id="pcl::PCDReader"></span><span class="target" id="classpcl_1_1_p_c_d_reader"></span><em class="property">class </em><code class="sig-name descname">PCDReader</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_file_reader.html#_CPPv4N3pcl10FileReaderE" title="pcl::FileReader">FileReader</a><a class="headerlink" href="#_CPPv4N3pcl9PCDReaderE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point Cloud Data (PCD) file format reader. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Radu B. Rusu </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl9PCDReaderUt8_anon_110E">
+<span id="_CPPv3N3pcl9PCDReaderUt8_anon_110E"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a7def151fa39ee5ca482794174edad188"></span><em class="property">enum </em><strong>[anonymous]</strong><a class="headerlink" href="#_CPPv4N3pcl9PCDReaderUt8_anon_110E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Various PCD file versions. </p>
+<p>PCD_V6 represents PCD files with version 0.6, which contain the following fields:<ul class="simple">
+<li><p>lines beginning with # are treated as comments</p></li>
+<li><p>FIELDS …</p></li>
+<li><p>SIZE …</p></li>
+<li><p>TYPE …</p></li>
+<li><p>COUNT …</p></li>
+<li><p>WIDTH …</p></li>
+<li><p>HEIGHT …</p></li>
+<li><p>POINTS …</p></li>
+<li><p>DATA ascii/binary</p></li>
+</ul>
+</p>
+<p>Everything that follows <strong>DATA</strong> is interpreted as data points and will be read accordingly.</p>
+<p>PCD_V7 represents PCD files with version 0.7 and has an important addon: it adds sensor origin/orientation (aka viewpoint) information to a dataset through the use of a new header field:<ul class="simple">
+<li><p>VIEWPOINT tx ty tz qw qx qy qz </p></li>
+</ul>
+</p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl9PCDReader6PCD_V6E">
+<span id="_CPPv3N3pcl9PCDReader6PCD_V6E"></span><span id="_CPPv2N3pcl9PCDReader6PCD_V6E"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a7def151fa39ee5ca482794174edad188a306cc1977fae3fc28c6d0698184fa8f6"></span><code class="sig-name descname">PCD_V6</code> = 0<a class="headerlink" href="#_CPPv4N3pcl9PCDReader6PCD_V6E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv4N3pcl9PCDReader6PCD_V7E">
+<span id="_CPPv3N3pcl9PCDReader6PCD_V7E"></span><span id="_CPPv2N3pcl9PCDReader6PCD_V7E"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a7def151fa39ee5ca482794174edad188a931c7875082fd6391f7d7b48a63e8aa1"></span><code class="sig-name descname">PCD_V7</code> = 1<a class="headerlink" href="#_CPPv4N3pcl9PCDReader6PCD_V7E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl9PCDReader9PCDReaderEv">
+<span id="_CPPv3N3pcl9PCDReader9PCDReaderEv"></span><span id="_CPPv2N3pcl9PCDReader9PCDReaderEv"></span><span id="pcl::PCDReader::PCDReader"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a30d526bb72cfb0e85d4bfd95e55ea950"></span><code class="sig-name descname">PCDReader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9PCDReader9PCDReaderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9PCDReaderD0Ev">
+<span id="_CPPv3N3pcl9PCDReaderD0Ev"></span><span id="_CPPv2N3pcl9PCDReaderD0Ev"></span><span id="pcl::PCDReader::~PCDReader"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a9da986913408efb40faaf5867b7cacca"></span><code class="sig-name descname">~PCDReader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9PCDReaderD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9PCDReader10readHeaderERNSt7istreamERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRj">
+<span id="_CPPv3N3pcl9PCDReader10readHeaderERNSt7istreamERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRj"></span><span id="_CPPv2N3pcl9PCDReader10readHeaderERNSt7istreamERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRj"></span><span id="pcl::PCDReader::readHeader__isR.pcl::PCLPointCloud2R.Eigen::Vector4fR.Eigen::QuaternionfR.iR.iR.unsigned-iR"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a0b95fbd90bb07f01395d991fd0da4622"></span>int <code class="sig-name descname">readHeader</code><span class="sig-paren">(</span>std::istream &amp;<em>binary_istream</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, Eigen::Vector4f &amp;<em>origin</em>, Eigen::Quaternionf &amp;<em>orientation</em>, int &amp;<em>pcd_version</em>, int &amp;<em>data_type</em>, unsigned int &amp;<em>data_idx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9PCDReader10readHeaderERNSt7istreamERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a point cloud data header from a PCD-formatted, binary istream. </p>
+<p>Load only the meta information (number of points, their types, etc), and not the points themselves, from a given PCD stream. Useful for fast evaluation of the underlying data structure.</p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>The PCD data is <strong>always</strong> stored in ROW major format! The read/write PCD methods will detect column major input and automatically convert it.</p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 (-1) on error</p></li>
+<li><p>== 0 on success </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">binary_istream</span></code>: a std::istream with openmode set to std::ios::binary. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant point cloud dataset (only these members will be filled: width, height, point_step, row_step, fields[]; data is resized but not written) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">origin</span></code>: the sensor acquisition origin (only for &gt; PCD_V7 - null if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">orientation</span></code>: the sensor acquisition orientation (only for &gt; PCD_V7 - identity if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pcd_version</span></code>: the PCD version of the file (i.e., PCD_V6, PCD_V7) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">data_type</span></code>: the type of data (0 = ASCII, 1 = Binary, 2 = Binary compressed) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">data_idx</span></code>: the offset of cloud data within the file</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9PCDReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRjKi">
+<span id="_CPPv3N3pcl9PCDReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRjKi"></span><span id="_CPPv2N3pcl9PCDReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRjKi"></span><span id="pcl::PCDReader::readHeader__ssCR.pcl::PCLPointCloud2R.Eigen::Vector4fR.Eigen::QuaternionfR.iR.iR.unsigned-iR.iC"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a28f335288e9e23826d241ea3053bf076"></span>int <code class="sig-name descname">readHeader</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, Eigen::Vector4f &amp;<em>origin</em>, Eigen::Quaternionf &amp;<em>orientation</em>, int &amp;<em>pcd_version</em>, int &amp;<em>data_type</em>, unsigned int &amp;<em>data_idx</em>, <em class="property">const</em> int <em>offset</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9PCDReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiRiRjKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a point cloud data header from a PCD file. </p>
+<p>Load only the meta information (number of points, their types, etc), and not the points themselves, from a given PCD file. Useful for fast evaluation of the underlying data structure.</p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>The PCD data is <strong>always</strong> stored in ROW major format! The read/write PCD methods will detect column major input and automatically convert it.</p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 (-1) on error</p></li>
+<li><p>== 0 on success </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the file to load </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant point cloud dataset (only these members will be filled: width, height, point_step, row_step, fields[]; data is resized but not written) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">origin</span></code>: the sensor acquisition origin (only for &gt; PCD_V7 - null if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">orientation</span></code>: the sensor acquisition orientation (only for &gt; PCD_V7 - identity if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pcd_version</span></code>: the PCD version of the file (i.e., PCD_V6, PCD_V7) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">data_type</span></code>: the type of data (0 = ASCII, 1 = Binary, 2 = Binary compressed) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">data_idx</span></code>: the offset of cloud data within the file </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the offset of where to expect the PCD Header in the file (optional parameter). One usage example for setting the offset parameter is for reading data from a TAR “archive containing multiple PCD files: TAR files always add a 512 byte header in front of the actual file, so set the offset to the next byte after the header (e.g., 513).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9PCDReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2EKi">
+<span id="_CPPv3N3pcl9PCDReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2EKi"></span><span id="_CPPv2N3pcl9PCDReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2EKi"></span><span id="pcl::PCDReader::readHeader__ssCR.pcl::PCLPointCloud2R.iC"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1ad7f0e72226fcd3b75b98d064ab2c63e2"></span>int <code class="sig-name descname">readHeader</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, <em class="property">const</em> int <em>offset</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9PCDReader10readHeaderERKNSt6stringERN3pcl14PCLPointCloud2EKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a point cloud data header from a PCD file. </p>
+<p>Load only the meta information (number of points, their types, etc), and not the points themselves, from a given PCD file. Useful for fast evaluation of the underlying data structure.</p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>The PCD data is <strong>always</strong> stored in ROW major format! The read/write PCD methods will detect column major input and automatically convert it.</p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 (-1) on error</p></li>
+<li><p>== 0 on success </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the file to load </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant point cloud dataset (only these members will be filled: width, height, point_step, row_step, fields[]; data is resized but not written) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the offset of where to expect the PCD Header in the file (optional parameter). One usage example for setting the offset parameter is for reading data from a TAR “archive containing multiple PCD files: TAR files always add a 512 byte header in front of the actual file, so set the offset to the next byte after the header (e.g., 513).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9PCDReader13readBodyASCIIERNSt7istreamERN3pcl14PCLPointCloud2Ei">
+<span id="_CPPv3N3pcl9PCDReader13readBodyASCIIERNSt7istreamERN3pcl14PCLPointCloud2Ei"></span><span id="_CPPv2N3pcl9PCDReader13readBodyASCIIERNSt7istreamERN3pcl14PCLPointCloud2Ei"></span><span id="pcl::PCDReader::readBodyASCII__isR.pcl::PCLPointCloud2R.i"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1ac49750cac3f5c8cbce041f8399912337"></span>int <code class="sig-name descname">readBodyASCII</code><span class="sig-paren">(</span>std::istream &amp;<em>stream</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, int <em>pcd_version</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9PCDReader13readBodyASCIIERNSt7istreamERN3pcl14PCLPointCloud2Ei" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the point cloud data (body) from a PCD stream. </p>
+<p>Reads the cloud points from a text-formatted stream. For use after <a class="reference internal" href="#classpcl_1_1_p_c_d_reader_1a0b95fbd90bb07f01395d991fd0da4622"><span class="std std-ref">readHeader()</span></a>, when the resulting data_type == 0.</p>
+<p><dl class="simple">
+<dt><strong>Attention</strong></dt><dd><p>This assumes the stream has been seeked to the position indicated by the data_idx result of <a class="reference internal" href="#classpcl_1_1_p_c_d_reader_1a0b95fbd90bb07f01395d991fd0da4622"><span class="std std-ref">readHeader()</span></a>.</p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 (-1) on error</p></li>
+<li><p>== 0 on success </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stream</span></code>: the stream from which to read the body. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant point cloud dataset to be filled. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pcd_version</span></code>: the PCD version of the stream (from <a class="reference internal" href="#classpcl_1_1_p_c_d_reader_1a0b95fbd90bb07f01395d991fd0da4622"><span class="std std-ref">readHeader()</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9PCDReader14readBodyBinaryEPKhRN3pcl14PCLPointCloud2Eibj">
+<span id="_CPPv3N3pcl9PCDReader14readBodyBinaryEPKhRN3pcl14PCLPointCloud2Eibj"></span><span id="_CPPv2N3pcl9PCDReader14readBodyBinaryEPKhRN3pcl14PCLPointCloud2Eibj"></span><span id="pcl::PCDReader::readBodyBinary__unsigned-cCP.pcl::PCLPointCloud2R.i.b.unsigned-i"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1ac9451748db653fd0901a0c4b6b750552"></span>int <code class="sig-name descname">readBodyBinary</code><span class="sig-paren">(</span><em class="property">const</em> unsigned char *<em>data</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, int <em>pcd_version</em>, bool <em>compressed</em>, unsigned int <em>data_idx</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9PCDReader14readBodyBinaryEPKhRN3pcl14PCLPointCloud2Eibj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read the point cloud data (body) from a block of memory. </p>
+<p>Reads the cloud points from a binary-formatted memory block. For use after <a class="reference internal" href="#classpcl_1_1_p_c_d_reader_1a0b95fbd90bb07f01395d991fd0da4622"><span class="std std-ref">readHeader()</span></a>, when the resulting data_type is nonzero.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 (-1) on error</p></li>
+<li><p>== 0 on success </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: the memory location from which to read the body. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant point cloud dataset to be filled. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pcd_version</span></code>: the PCD version of the stream (from <a class="reference internal" href="#classpcl_1_1_p_c_d_reader_1a0b95fbd90bb07f01395d991fd0da4622"><span class="std std-ref">readHeader()</span></a>). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">compressed</span></code>: indicates whether the PCD block contains compressed data. This should be true if the data_type returne by <a class="reference internal" href="#classpcl_1_1_p_c_d_reader_1a0b95fbd90bb07f01395d991fd0da4622"><span class="std std-ref">readHeader()</span></a> == 2. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data_idx</span></code>: the offset of the body, as reported by <a class="reference internal" href="#classpcl_1_1_p_c_d_reader_1a0b95fbd90bb07f01395d991fd0da4622"><span class="std std-ref">readHeader()</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9PCDReader4readERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiKi">
+<span id="_CPPv3N3pcl9PCDReader4readERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiKi"></span><span id="_CPPv2N3pcl9PCDReader4readERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiKi"></span><span id="pcl::PCDReader::read__ssCR.pcl::PCLPointCloud2R.Eigen::Vector4fR.Eigen::QuaternionfR.iR.iC"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a21f154e8ce3f4d5e905ecaa395935c42"></span>int <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, Eigen::Vector4f &amp;<em>origin</em>, Eigen::Quaternionf &amp;<em>orientation</em>, int &amp;<em>pcd_version</em>, <em class="property">const</em> int <em>offset</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9PCDReader4readERKNSt6stringERN3pcl14PCLPointCloud2ERN5Eigen8Vector4fERN5Eigen11QuaternionfERiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a point cloud data from a PCD file and store it into a pcl/PCLPointCloud2. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 (-1) on error</p></li>
+<li><p>== 0 on success </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the file containing the actual <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message read from disk </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">origin</span></code>: the sensor acquisition origin (only for &gt; PCD_V7 - null if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">orientation</span></code>: the sensor acquisition orientation (only for &gt; PCD_V7 - identity if not present) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">pcd_version</span></code>: the PCD version of the file (either PCD_V6 or PCD_V7) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the offset of where to expect the PCD Header in the file (optional parameter). One usage example for setting the offset parameter is for reading data from a TAR “archive containing multiple PCD files: TAR files always add a 512 byte header in front of the actual file, so set the offset to the next byte after the header (e.g., 513).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl9PCDReader4readERKNSt6stringERN3pcl14PCLPointCloud2EKi">
+<span id="_CPPv3N3pcl9PCDReader4readERKNSt6stringERN3pcl14PCLPointCloud2EKi"></span><span id="_CPPv2N3pcl9PCDReader4readERKNSt6stringERN3pcl14PCLPointCloud2EKi"></span><span id="pcl::PCDReader::read__ssCR.pcl::PCLPointCloud2R.iC"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a81f91dadebc44e618d3bea8178bc7698"></span>int <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, pcl::<a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#_CPPv4N3pcl14PCLPointCloud2E" title="pcl::PCLPointCloud2">PCLPointCloud2</a> &amp;<em>cloud</em>, <em class="property">const</em> int <em>offset</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl9PCDReader4readERKNSt6stringERN3pcl14PCLPointCloud2EKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a point cloud data from a PCD (PCD_V6) and store it into a pcl/PCLPointCloud2. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>This function is provided for backwards compatibility only and it can only read PCD_V6 files correctly, as <a class="reference internal" href="structpcl_1_1_p_c_l_point_cloud2.html#structpcl_1_1_p_c_l_point_cloud2"><span class="std std-ref">pcl::PCLPointCloud2</span></a> does not contain a sensor origin/orientation. Reading any file </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 (-1) on error</p></li>
+<li><p>== 0 on success </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the file containing the actual <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message read from disk </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the offset of where to expect the PCD Header in the file (optional parameter). One usage example for setting the offset parameter is for reading data from a TAR “archive containing multiple PCD files: TAR files always add a 512 byte header in front of the actual file, so set the offset to the next byte after the header (e.g., 513).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl9PCDReader4readEiRKNSt6stringERN3pcl10PointCloudI6PointTEEKi">
+<span id="_CPPv3I0EN3pcl9PCDReader4readERKNSt6stringERN3pcl10PointCloudI6PointTEEKi"></span><span id="_CPPv2I0EN3pcl9PCDReader4readERKNSt6stringERN3pcl10PointCloudI6PointTEEKi"></span><span class="target" id="classpcl_1_1_p_c_d_reader_1a977a238557b3e1d5c9380d30ecba779a"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br />int <code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>file_name</em>, pcl::PointCloud&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl9PCDReader4readEiRKNSt6stringERN3pcl10PointCloudI6PointTEEKi" title="pcl::PCDReader::read::PointT">PointT</a>&gt; &amp;<em>cloud</em>, <em class="property">const</em> int <em>offset</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl9PCDReader4readEiRKNSt6stringERN3pcl10PointCloudI6PointTEEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Read a point cloud data from any PCD file, and convert it to the given template format. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p><ul class="simple">
+<li><p>&lt; 0 (-1) on error</p></li>
+<li><p>== 0 on success </p></li>
+</ul>
+</p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">file_name</span></code>: the name of the file containing the actual <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> data </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cloud</span></code>: the resultant <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message read from disk </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">offset</span></code>: the offset of where to expect the PCD Header in the file (optional parameter). One usage example for setting the offset parameter is for reading data from a TAR “archive containing multiple PCD files: TAR files always add a 512 byte header in front of the actual file, so set the offset to the next byte after the header (e.g., 513).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

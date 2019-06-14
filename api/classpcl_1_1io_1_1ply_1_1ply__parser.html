@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class ply_parser &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class ply_parser</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1io_1_1ply_1_1ply__parser.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-ply-parser">
+<span id="exhale-class-classpcl-1-1io-1-1ply-1-1ply-parser"></span><h1>Class ply_parser<a class="headerlink" href="#class-ply-parser" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_io_include_pcl_io_ply_ply_parser.h.html#file-pcl-io-include-pcl-io-ply-ply-parser-h"><span class="std std-ref">File ply_parser.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1element.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1element"><span class="std std-ref">Struct ply_parser::element</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1list-property"><span class="std std-ref">Template Struct ply_parser::list_property</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__begin__callback__type.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1list-property-begin-callback-type"><span class="std std-ref">Template Struct ply_parser::list_property_begin_callback_type</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callback__type.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1list-property-definition-callback-type"><span class="std std-ref">Template Struct ply_parser::list_property_definition_callback_type</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callbacks__type.html#exhale-class-classpcl-1-1io-1-1ply-1-1ply-parser-1-1list-property-definition-callbacks-type"><span class="std std-ref">Class ply_parser::list_property_definition_callbacks_type</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callbacks__type_1_1callbacks__element.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1list-property-definition-callbacks-type-1-1callbacks-element"><span class="std std-ref">Template Struct list_property_definition_callbacks_type::callbacks_element</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callbacks__type_1_1pair__with.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1list-property-definition-callbacks-type-1-1pair-with"><span class="std std-ref">Template Struct list_property_definition_callbacks_type::pair_with</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callbacks__type_1_1sequence__product.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1list-property-definition-callbacks-type-1-1sequence-product"><span class="std std-ref">Template Struct list_property_definition_callbacks_type::sequence_product</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__element__callback__type.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1list-property-element-callback-type"><span class="std std-ref">Template Struct ply_parser::list_property_element_callback_type</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__end__callback__type.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1list-property-end-callback-type"><span class="std std-ref">Template Struct ply_parser::list_property_end_callback_type</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1property.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1property"><span class="std std-ref">Struct ply_parser::property</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1scalar-property"><span class="std std-ref">Template Struct ply_parser::scalar_property</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__callback__type.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1scalar-property-callback-type"><span class="std std-ref">Template Struct ply_parser::scalar_property_callback_type</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callback__type.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1scalar-property-definition-callback-type"><span class="std std-ref">Template Struct ply_parser::scalar_property_definition_callback_type</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callbacks__type.html#exhale-class-classpcl-1-1io-1-1ply-1-1ply-parser-1-1scalar-property-definition-callbacks-type"><span class="std std-ref">Class ply_parser::scalar_property_definition_callbacks_type</span></a></p></li>
+<li><p><a class="reference internal" href="structpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callbacks__type_1_1callbacks__element.html#exhale-struct-structpcl-1-1io-1-1ply-1-1ply-parser-1-1scalar-property-definition-callbacks-type-1-1callbacks-element"><span class="std std-ref">Template Struct scalar_property_definition_callbacks_type::callbacks_element</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4N3pcl2io3ply10ply_parserE">
+<span id="_CPPv3N3pcl2io3ply10ply_parserE"></span><span id="_CPPv2N3pcl2io3ply10ply_parserE"></span><span id="pcl::io::ply::ply_parser"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser"></span><em class="property">class </em><code class="sig-name descname">ply_parser</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parserE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Class <a class="reference internal" href="#classpcl_1_1io_1_1ply_1_1ply__parser"><span class="std std-ref">ply_parser</span></a> parses a PLY file and generates appropriate atomic parsers for the body. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Ares Lagae as part of libply, Nizar Sallem Ported with agreement from the author under the terms of the BSD license. </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="enum">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser5flagsE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser5flagsE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser5flagsE"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a0418b4f78cf83fa3c46b1d8ce925ca34"></span><em class="property">enum </em><code class="sig-name descname">flags</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser5flagsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><em>Values:</em></p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser18info_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser18info_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser18info_callback_typeE"></span><span id="pcl::io::ply::ply_parser::info_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a30819286e25550e5404c4ed0ef50eab9"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>std::size_t, <em class="property">const</em> std::string&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">info_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser18info_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser21warning_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser21warning_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser21warning_callback_typeE"></span><span id="pcl::io::ply::ply_parser::warning_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a8839e10d469b9bd692dbef8a23ff8f04"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>std::size_t, <em class="property">const</em> std::string&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">warning_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser21warning_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser19error_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser19error_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser19error_callback_typeE"></span><span id="pcl::io::ply::ply_parser::error_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a1dd707c08f60ae9d0352ad06086e7289"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>std::size_t, <em class="property">const</em> std::string&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">error_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser19error_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser19magic_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser19magic_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser19magic_callback_typeE"></span><span id="pcl::io::ply::ply_parser::magic_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1aa9413d0269eb1a5dcb25af46a704dd94"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span><span class="sig-paren">)</span>&gt; <code class="sig-name descname">magic_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser19magic_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser20format_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser20format_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser20format_callback_typeE"></span><span id="pcl::io::ply::ply_parser::format_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a3855dc74ea470d31e7e09b0c93075df0"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span><a class="reference internal" href="typedef_ply_8h_1adfc0c1d6eee432dd6d0748de8d4b060a.html#_CPPv4N3pcl2io3ply11format_typeE" title="pcl::io::ply::format_type">format_type</a>, <em class="property">const</em> std::string&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">format_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser20format_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser21comment_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser21comment_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser21comment_callback_typeE"></span><span id="pcl::io::ply::ply_parser::comment_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1acbec908f4060abf05cf3791e546c00f3"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span><em class="property">const</em> std::string&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">comment_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser21comment_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser22obj_info_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser22obj_info_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser22obj_info_callback_typeE"></span><span id="pcl::io::ply::ply_parser::obj_info_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1afeacd5897f518d7bc716eaa1502a4f0e"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span><em class="property">const</em> std::string&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">obj_info_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser22obj_info_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser24end_header_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser24end_header_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser24end_header_callback_typeE"></span><span id="pcl::io::ply::ply_parser::end_header_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1abc5e76d5ca2c0630b4f54cb44a9765a3"></span><em class="property">typedef </em>boost::function&lt;bool<span class="sig-paren">(</span><span class="sig-paren">)</span>&gt; <code class="sig-name descname">end_header_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser24end_header_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser27begin_element_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser27begin_element_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser27begin_element_callback_typeE"></span><span id="pcl::io::ply::ply_parser::begin_element_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1ae02a9e30245006dabc4cf8150f0659db"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span><span class="sig-paren">)</span>&gt; <code class="sig-name descname">begin_element_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser27begin_element_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser25end_element_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser25end_element_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser25end_element_callback_typeE"></span><span id="pcl::io::ply::ply_parser::end_element_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1afdb1f2a85ca81531f087897f52b732ab"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span><span class="sig-paren">)</span>&gt; <code class="sig-name descname">end_element_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser25end_element_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser22element_callbacks_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser22element_callbacks_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser22element_callbacks_typeE"></span><span id="pcl::io::ply::ply_parser::element_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1af356dd919e7dc3fd058fc3769565c030"></span><em class="property">typedef </em>boost::tuple&lt;<a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser27begin_element_callback_typeE" title="pcl::io::ply::ply_parser::begin_element_callback_type">begin_element_callback_type</a>, <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser25end_element_callback_typeE" title="pcl::io::ply::ply_parser::end_element_callback_type">end_element_callback_type</a>&gt; <code class="sig-name descname">element_callbacks_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser22element_callbacks_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser32element_definition_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser32element_definition_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser32element_definition_callback_typeE"></span><span id="pcl::io::ply::ply_parser::element_definition_callback_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a22f35153063709464eeec9c94d304868"></span><em class="property">typedef </em>boost::function&lt;<a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser22element_callbacks_typeE" title="pcl::io::ply::ply_parser::element_callbacks_type">element_callbacks_type</a><span class="sig-paren">(</span><em class="property">const</em> std::string&amp;, std::size_t<span class="sig-paren">)</span>&gt; <code class="sig-name descname">element_definition_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser32element_definition_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser12scalar_typesE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser12scalar_typesE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser12scalar_typesE"></span><span id="pcl::io::ply::ply_parser::scalar_types"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1afc4451e310461edd7f5cf11f2359e1cf"></span><em class="property">typedef </em>boost::mpl::vector&lt;<a class="reference internal" href="typedef_ply_8h_1a1296d0a2ea1c287aa347877b3ca96940.html#_CPPv4N3pcl2io3ply4int8E" title="pcl::io::ply::int8">int8</a>, <a class="reference internal" href="typedef_ply_8h_1afe411fcf44c7e75d93d22b6e10c46f20.html#_CPPv4N3pcl2io3ply5int16E" title="pcl::io::ply::int16">int16</a>, <a class="reference internal" href="typedef_ply_8h_1afeb4f606d8f9541ccfc5a7e21a9dff8a.html#_CPPv4N3pcl2io3ply5int32E" title="pcl::io::ply::int32">int32</a>, <a class="reference internal" href="typedef_ply_8h_1aac1a7d75e0bf8cf22d6dee28a67f9d26.html#_CPPv4N3pcl2io3ply5uint8E" title="pcl::io::ply::uint8">uint8</a>, <a class="reference internal" href="typedef_ply_8h_1a2628c2f09a60dc77282bd2162601b7dc.html#_CPPv4N3pcl2io3ply6uint16E" title="pcl::io::ply::uint16">uint16</a>, <a class="reference internal" href="typedef_ply_8h_1aeeca245c5a794c8f6846a34783864029.html#_CPPv4N3pcl2io3ply6uint32E" title="pcl::io::ply::uint32">uint32</a>, <a class="reference internal" href="typedef_ply_8h_1ab4ba2d0ecc72e84bcccc4f72dc0cffa8.html#_CPPv4N3pcl2io3ply7float32E" title="pcl::io::ply::float32">float32</a>, <a class="reference internal" href="typedef_ply_8h_1a7c805d0080d2a1038ef301bd30911df1.html#_CPPv4N3pcl2io3ply7float64E" title="pcl::io::ply::float64">float64</a>&gt; <code class="sig-name descname">scalar_types</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser12scalar_typesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser10size_typesE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser10size_typesE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser10size_typesE"></span><span id="pcl::io::ply::ply_parser::size_types"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1aac2cd68fc86e07811f0f5b9c762fe1e3"></span><em class="property">typedef </em>boost::mpl::vector&lt;<a class="reference internal" href="typedef_ply_8h_1aac1a7d75e0bf8cf22d6dee28a67f9d26.html#_CPPv4N3pcl2io3ply5uint8E" title="pcl::io::ply::uint8">uint8</a>, <a class="reference internal" href="typedef_ply_8h_1a2628c2f09a60dc77282bd2162601b7dc.html#_CPPv4N3pcl2io3ply6uint16E" title="pcl::io::ply::uint16">uint16</a>, <a class="reference internal" href="typedef_ply_8h_1aeeca245c5a794c8f6846a34783864029.html#_CPPv4N3pcl2io3ply6uint32E" title="pcl::io::ply::uint32">uint32</a>&gt; <code class="sig-name descname">size_types</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser10size_typesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser10flags_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser10flags_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser10flags_typeE"></span><span id="pcl::io::ply::ply_parser::flags_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1ac857cec8f70f118d2b655d24e57443f9"></span><em class="property">typedef </em>int <code class="sig-name descname">flags_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser10flags_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser13info_callbackERK18info_callback_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser13info_callbackERK18info_callback_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser13info_callbackERK18info_callback_type"></span><span id="pcl::io::ply::ply_parser::info_callback__info_callback_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a5d909ab5ccbfa08d963e3d68c3595434"></span>void <code class="sig-name descname">info_callback</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser18info_callback_typeE" title="pcl::io::ply::ply_parser::info_callback_type">info_callback_type</a> &amp;<em>info_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser13info_callbackERK18info_callback_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser16warning_callbackERK21warning_callback_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser16warning_callbackERK21warning_callback_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser16warning_callbackERK21warning_callback_type"></span><span id="pcl::io::ply::ply_parser::warning_callback__warning_callback_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a8deda7b62d0acd52044c5dc7ce0e3a75"></span>void <code class="sig-name descname">warning_callback</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser21warning_callback_typeE" title="pcl::io::ply::ply_parser::warning_callback_type">warning_callback_type</a> &amp;<em>warning_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser16warning_callbackERK21warning_callback_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser14error_callbackERK19error_callback_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser14error_callbackERK19error_callback_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser14error_callbackERK19error_callback_type"></span><span id="pcl::io::ply::ply_parser::error_callback__error_callback_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a065f34a000005fb10780997bab3b5f68"></span>void <code class="sig-name descname">error_callback</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser19error_callback_typeE" title="pcl::io::ply::ply_parser::error_callback_type">error_callback_type</a> &amp;<em>error_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser14error_callbackERK19error_callback_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser14magic_callbackERK19magic_callback_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser14magic_callbackERK19magic_callback_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser14magic_callbackERK19magic_callback_type"></span><span id="pcl::io::ply::ply_parser::magic_callback__magic_callback_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a6a863f88e8a5fb93190768497a04c0d8"></span>void <code class="sig-name descname">magic_callback</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser19magic_callback_typeE" title="pcl::io::ply::ply_parser::magic_callback_type">magic_callback_type</a> &amp;<em>magic_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser14magic_callbackERK19magic_callback_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser15format_callbackERK20format_callback_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser15format_callbackERK20format_callback_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser15format_callbackERK20format_callback_type"></span><span id="pcl::io::ply::ply_parser::format_callback__format_callback_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a918514e0e33c14ca37fa949f235553c6"></span>void <code class="sig-name descname">format_callback</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser20format_callback_typeE" title="pcl::io::ply::ply_parser::format_callback_type">format_callback_type</a> &amp;<em>format_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser15format_callbackERK20format_callback_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser27element_definition_callbackERK32element_definition_callback_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser27element_definition_callbackERK32element_definition_callback_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser27element_definition_callbackERK32element_definition_callback_type"></span><span id="pcl::io::ply::ply_parser::element_definition_callback__element_definition_callback_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1ae7d7b821e15e24455970f54e8d4f318a"></span>void <code class="sig-name descname">element_definition_callback</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser32element_definition_callback_typeE" title="pcl::io::ply::ply_parser::element_definition_callback_type">element_definition_callback_type</a> &amp;<em>element_definition_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser27element_definition_callbackERK32element_definition_callback_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser36scalar_property_definition_callbacksERK41scalar_property_definition_callbacks_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser36scalar_property_definition_callbacksERK41scalar_property_definition_callbacks_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser36scalar_property_definition_callbacksERK41scalar_property_definition_callbacks_type"></span><span id="pcl::io::ply::ply_parser::scalar_property_definition_callbacks__scalar_property_definition_callbacks_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1ab3b3274dcb4c4ae06419b9b9d1fe5340"></span>void <code class="sig-name descname">scalar_property_definition_callbacks</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_typeE" title="pcl::io::ply::ply_parser::scalar_property_definition_callbacks_type">scalar_property_definition_callbacks_type</a> &amp;<em>scalar_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser36scalar_property_definition_callbacksERK41scalar_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser34list_property_definition_callbacksERK39list_property_definition_callbacks_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser34list_property_definition_callbacksERK39list_property_definition_callbacks_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser34list_property_definition_callbacksERK39list_property_definition_callbacks_type"></span><span id="pcl::io::ply::ply_parser::list_property_definition_callbacks__list_property_definition_callbacks_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a31fcdc3e06d463bc66bfd8aea49a3a2c"></span>void <code class="sig-name descname">list_property_definition_callbacks</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser39list_property_definition_callbacks_typeE" title="pcl::io::ply::ply_parser::list_property_definition_callbacks_type">list_property_definition_callbacks_type</a> &amp;<em>list_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser34list_property_definition_callbacksERK39list_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser16comment_callbackERK21comment_callback_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser16comment_callbackERK21comment_callback_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser16comment_callbackERK21comment_callback_type"></span><span id="pcl::io::ply::ply_parser::comment_callback__comment_callback_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a052cefb4d77bc38a72c69533e690db0c"></span>void <code class="sig-name descname">comment_callback</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser21comment_callback_typeE" title="pcl::io::ply::ply_parser::comment_callback_type">comment_callback_type</a> &amp;<em>comment_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser16comment_callbackERK21comment_callback_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser17obj_info_callbackERK22obj_info_callback_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser17obj_info_callbackERK22obj_info_callback_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser17obj_info_callbackERK22obj_info_callback_type"></span><span id="pcl::io::ply::ply_parser::obj_info_callback__obj_info_callback_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a2bcbaeb0790e36199356388d609dbe5a"></span>void <code class="sig-name descname">obj_info_callback</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser22obj_info_callback_typeE" title="pcl::io::ply::ply_parser::obj_info_callback_type">obj_info_callback_type</a> &amp;<em>obj_info_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser17obj_info_callbackERK22obj_info_callback_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser19end_header_callbackERK24end_header_callback_type">
+<span id="_CPPv3N3pcl2io3ply10ply_parser19end_header_callbackERK24end_header_callback_type"></span><span id="_CPPv2N3pcl2io3ply10ply_parser19end_header_callbackERK24end_header_callback_type"></span><span id="pcl::io::ply::ply_parser::end_header_callback__end_header_callback_typeCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a4466322273e2fcca669da69aac9ca43f"></span>void <code class="sig-name descname">end_header_callback</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser24end_header_callback_typeE" title="pcl::io::ply::ply_parser::end_header_callback_type">end_header_callback_type</a> &amp;<em>end_header_callback</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser19end_header_callbackERK24end_header_callback_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser10ply_parserEv">
+<span id="_CPPv3N3pcl2io3ply10ply_parser10ply_parserEv"></span><span id="_CPPv2N3pcl2io3ply10ply_parser10ply_parserEv"></span><span id="pcl::io::ply::ply_parser::ply_parser"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a2ec982e167b1cfef4b0b04495f9c3f5a"></span><code class="sig-name descname">ply_parser</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser10ply_parserEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser5parseERKNSt6stringE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser5parseERKNSt6stringE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser5parseERKNSt6stringE"></span><span id="pcl::io::ply::ply_parser::parse__ssCR"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1ac09f741658d22abc6cac1b0edb54b7a2"></span>bool <code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser5parseERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl2io3ply10ply_parser2atERN40scalar_property_definition_callback_typeI10ScalarTypeE4typeER41scalar_property_definition_callbacks_type">
+<span id="_CPPv3I0EN3pcl2io3ply10ply_parser2atER41scalar_property_definition_callbacks_type"></span><span id="_CPPv2I0EN3pcl2io3ply10ply_parser2atER41scalar_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a65e0ba63f11e5900c1291d15b1428ee6"></span>template&lt;typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">static</em> scalar_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl2io3ply10ply_parser2atERN40scalar_property_definition_callback_typeI10ScalarTypeE4typeER41scalar_property_definition_callbacks_type" title="pcl::io::ply::ply_parser::at::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_typeE" title="pcl::io::ply::ply_parser::scalar_property_definition_callbacks_type">scalar_property_definition_callbacks_type</a> &amp;<em>scalar_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl2io3ply10ply_parser2atERN40scalar_property_definition_callback_typeI10ScalarTypeE4typeER41scalar_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl2io3ply10ply_parser2atERKN40scalar_property_definition_callback_typeI10ScalarTypeE4typeERK41scalar_property_definition_callbacks_type">
+<span id="_CPPv3I0EN3pcl2io3ply10ply_parser2atERK41scalar_property_definition_callbacks_type"></span><span id="_CPPv2I0EN3pcl2io3ply10ply_parser2atERK41scalar_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a9f20de9aa5f707ee5e3f214973b4f974"></span>template&lt;typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">static</em> <em class="property">const</em> scalar_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl2io3ply10ply_parser2atERN40scalar_property_definition_callback_typeI10ScalarTypeE4typeER41scalar_property_definition_callbacks_type" title="pcl::io::ply::ply_parser::at::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_typeE" title="pcl::io::ply::ply_parser::scalar_property_definition_callbacks_type">scalar_property_definition_callbacks_type</a> &amp;<em>scalar_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl2io3ply10ply_parser2atERKN40scalar_property_definition_callback_typeI10ScalarTypeE4typeERK41scalar_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I00EN3pcl2io3ply10ply_parser2atERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type">
+<span id="_CPPv3I00EN3pcl2io3ply10ply_parser2atER39list_property_definition_callbacks_type"></span><span id="_CPPv2I00EN3pcl2io3ply10ply_parser2atER39list_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a43d56e75022701a41752014afa38eabe"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">static</em> list_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl2io3ply10ply_parser2atERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="pcl::io::ply::ply_parser::at::SizeType">SizeType</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl2io3ply10ply_parser2atERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="pcl::io::ply::ply_parser::at::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser39list_property_definition_callbacks_typeE" title="pcl::io::ply::ply_parser::list_property_definition_callbacks_type">list_property_definition_callbacks_type</a> &amp;<em>list_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00EN3pcl2io3ply10ply_parser2atERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I00EN3pcl2io3ply10ply_parser2atERKN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeERK39list_property_definition_callbacks_type">
+<span id="_CPPv3I00EN3pcl2io3ply10ply_parser2atERK39list_property_definition_callbacks_type"></span><span id="_CPPv2I00EN3pcl2io3ply10ply_parser2atERK39list_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1a7385117cb3d8f5ccc85bf285706118cd"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">static</em> <em class="property">const</em> list_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl2io3ply10ply_parser2atERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="pcl::io::ply::ply_parser::at::SizeType">SizeType</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl2io3ply10ply_parser2atERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="pcl::io::ply::ply_parser::at::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser39list_property_definition_callbacks_typeE" title="pcl::io::ply::ply_parser::list_property_definition_callbacks_type">list_property_definition_callbacks_type</a> &amp;<em>list_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00EN3pcl2io3ply10ply_parser2atERKN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeERK39list_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl2io3ply10ply_parser33list_property_begin_callback_typeE">
+<span id="_CPPv3I00EN3pcl2io3ply10ply_parser33list_property_begin_callback_typeE"></span><span id="_CPPv2I00EN3pcl2io3ply10ply_parser33list_property_begin_callback_typeE"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__begin__callback__type"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">struct </em><code class="sig-name descname">list_property_begin_callback_type</code><a class="headerlink" href="#_CPPv4I00EN3pcl2io3ply10ply_parser33list_property_begin_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser33list_property_begin_callback_type4typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser33list_property_begin_callback_type4typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser33list_property_begin_callback_type4typeE"></span><span id="pcl::io::ply::ply_parser::list_property_begin_callback_type::type"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__begin__callback__type_1a874e6f260416b3281388b2ce95dd4b1e"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>SizeType<span class="sig-paren">)</span>&gt; <code class="sig-name descname">type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser33list_property_begin_callback_type4typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl2io3ply10ply_parser38list_property_definition_callback_typeE">
+<span id="_CPPv3I00EN3pcl2io3ply10ply_parser38list_property_definition_callback_typeE"></span><span id="_CPPv2I00EN3pcl2io3ply10ply_parser38list_property_definition_callback_typeE"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callback__type"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">struct </em><code class="sig-name descname">list_property_definition_callback_type</code><a class="headerlink" href="#_CPPv4I00EN3pcl2io3ply10ply_parser38list_property_definition_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser38list_property_definition_callback_type33list_property_begin_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser38list_property_definition_callback_type33list_property_begin_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser38list_property_definition_callback_type33list_property_begin_callback_typeE"></span><span id="pcl::io::ply::ply_parser::list_property_definition_callback_type::list_property_begin_callback_type"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callback__type_1a262fe404feea812dc8e4a824c400ee1e"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser38list_property_definition_callback_type33list_property_begin_callback_typeE" title="pcl::io::ply::ply_parser::list_property_definition_callback_type::list_property_begin_callback_type">list_property_begin_callback_type</a>&lt;SizeType, ScalarType&gt;::type <code class="sig-name descname">list_property_begin_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser38list_property_definition_callback_type33list_property_begin_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser38list_property_definition_callback_type35list_property_element_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser38list_property_definition_callback_type35list_property_element_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser38list_property_definition_callback_type35list_property_element_callback_typeE"></span><span id="pcl::io::ply::ply_parser::list_property_definition_callback_type::list_property_element_callback_type"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callback__type_1afca7725af76aa35b564ae63382a9522e"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser38list_property_definition_callback_type35list_property_element_callback_typeE" title="pcl::io::ply::ply_parser::list_property_definition_callback_type::list_property_element_callback_type">list_property_element_callback_type</a>&lt;SizeType, ScalarType&gt;::type <code class="sig-name descname">list_property_element_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser38list_property_definition_callback_type35list_property_element_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser38list_property_definition_callback_type31list_property_end_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser38list_property_definition_callback_type31list_property_end_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser38list_property_definition_callback_type31list_property_end_callback_typeE"></span><span id="pcl::io::ply::ply_parser::list_property_definition_callback_type::list_property_end_callback_type"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callback__type_1a8d39aa950406572767fab6fc9c2e35d1"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser38list_property_definition_callback_type31list_property_end_callback_typeE" title="pcl::io::ply::ply_parser::list_property_definition_callback_type::list_property_end_callback_type">list_property_end_callback_type</a>&lt;SizeType, ScalarType&gt;::type <code class="sig-name descname">list_property_end_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser38list_property_definition_callback_type31list_property_end_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt>
+<span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callback__type_1a51c5b6e1521987032792d99dcb41262e"></span><em class="property">typedef </em><code class="sig-name descname">boost::function&lt; boost::tuple&lt; list_property_begin_callback_type, list_property_element_callback_type, list_property_end_callback_type &gt;const std::string&amp;, const std::string&amp;)&gt; pcl::io::ply::ply_parser::list_property_definition_callback_type::type</code></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser39list_property_definition_callbacks_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser39list_property_definition_callbacks_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser39list_property_definition_callbacks_typeE"></span><span id="pcl::io::ply::ply_parser::list_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callbacks__type"></span><em class="property">class </em><code class="sig-name descname">list_property_definition_callbacks_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser39list_property_definition_callbacks_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4I00EN3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeEv">
+<span id="_CPPv3I00EN3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getEv"></span><span id="_CPPv2I00EN3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getEv"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callbacks__type_1a67c36511d10414161ce91e7deb3a646f"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br />list_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeEv" title="pcl::io::ply::ply_parser::list_property_definition_callbacks_type::get::SizeType">SizeType</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeEv" title="pcl::io::ply::ply_parser::list_property_definition_callbacks_type::get::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00EN3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I00ENK3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getERKN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeEv">
+<span id="_CPPv3I00ENK3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getEv"></span><span id="_CPPv2I00ENK3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getEv"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callbacks__type_1a467e20f110d6495063fdacff62a670dc"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">const</em> list_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeEv" title="pcl::io::ply::ply_parser::list_property_definition_callbacks_type::get::SizeType">SizeType</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getERN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeEv" title="pcl::io::ply::ply_parser::list_property_definition_callbacks_type::get::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I00ENK3pcl2io3ply10ply_parser39list_property_definition_callbacks_type3getERKN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv4I00E2atRN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type">
+<span id="_CPPv3I00E2atR39list_property_definition_callbacks_type"></span><span id="_CPPv2I00E2atR39list_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callbacks__type_1ac6c7e00e47aa6b5afc6ff1855565b915"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br />list_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I00E2atRN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="at::SizeType">SizeType</a>, <a class="reference internal" href="#_CPPv4I00E2atRN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="at::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span>list_property_definition_callbacks_type &amp;<em>list_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00E2atRN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I00E2atRKN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeERK39list_property_definition_callbacks_type">
+<span id="_CPPv3I00E2atRK39list_property_definition_callbacks_type"></span><span id="_CPPv2I00E2atRK39list_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__definition__callbacks__type_1a547f88fd17f94fbc2109626c4b260783"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">const</em> list_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I00E2atRN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="at::SizeType">SizeType</a>, <a class="reference internal" href="#_CPPv4I00E2atRN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeER39list_property_definition_callbacks_type" title="at::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span><em class="property">const</em> list_property_definition_callbacks_type &amp;<em>list_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I00E2atRKN38list_property_definition_callback_typeI8SizeType10ScalarTypeE4typeERK39list_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl2io3ply10ply_parser35list_property_element_callback_typeE">
+<span id="_CPPv3I00EN3pcl2io3ply10ply_parser35list_property_element_callback_typeE"></span><span id="_CPPv2I00EN3pcl2io3ply10ply_parser35list_property_element_callback_typeE"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__element__callback__type"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">struct </em><code class="sig-name descname">list_property_element_callback_type</code><a class="headerlink" href="#_CPPv4I00EN3pcl2io3ply10ply_parser35list_property_element_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser35list_property_element_callback_type4typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser35list_property_element_callback_type4typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser35list_property_element_callback_type4typeE"></span><span id="pcl::io::ply::ply_parser::list_property_element_callback_type::type"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__element__callback__type_1a04c3a6b3de907488356e1ea7e285d6d3"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>ScalarType<span class="sig-paren">)</span>&gt; <code class="sig-name descname">type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser35list_property_element_callback_type4typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl2io3ply10ply_parser31list_property_end_callback_typeE">
+<span id="_CPPv3I00EN3pcl2io3ply10ply_parser31list_property_end_callback_typeE"></span><span id="_CPPv2I00EN3pcl2io3ply10ply_parser31list_property_end_callback_typeE"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__end__callback__type"></span>template&lt;typename <code class="sig-name descname">SizeType</code>, typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">struct </em><code class="sig-name descname">list_property_end_callback_type</code><a class="headerlink" href="#_CPPv4I00EN3pcl2io3ply10ply_parser31list_property_end_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser31list_property_end_callback_type4typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser31list_property_end_callback_type4typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser31list_property_end_callback_type4typeE"></span><span id="pcl::io::ply::ply_parser::list_property_end_callback_type::type"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1list__property__end__callback__type_1a695a27725b88a5dc8a23fb953fbaf32a"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span><span class="sig-paren">)</span>&gt; <code class="sig-name descname">type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser31list_property_end_callback_type4typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl2io3ply10ply_parser29scalar_property_callback_typeE">
+<span id="_CPPv3I0EN3pcl2io3ply10ply_parser29scalar_property_callback_typeE"></span><span id="_CPPv2I0EN3pcl2io3ply10ply_parser29scalar_property_callback_typeE"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__callback__type"></span>template&lt;typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">struct </em><code class="sig-name descname">scalar_property_callback_type</code><a class="headerlink" href="#_CPPv4I0EN3pcl2io3ply10ply_parser29scalar_property_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser29scalar_property_callback_type4typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser29scalar_property_callback_type4typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser29scalar_property_callback_type4typeE"></span><span id="pcl::io::ply::ply_parser::scalar_property_callback_type::type"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__callback__type_1ac4b1ff9a91e74dca5aac833a004a6cef"></span><em class="property">typedef </em>boost::function&lt;void<span class="sig-paren">(</span>ScalarType<span class="sig-paren">)</span>&gt; <code class="sig-name descname">type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser29scalar_property_callback_type4typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl2io3ply10ply_parser40scalar_property_definition_callback_typeE">
+<span id="_CPPv3I0EN3pcl2io3ply10ply_parser40scalar_property_definition_callback_typeE"></span><span id="_CPPv2I0EN3pcl2io3ply10ply_parser40scalar_property_definition_callback_typeE"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callback__type"></span>template&lt;typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">struct </em><code class="sig-name descname">scalar_property_definition_callback_type</code><a class="headerlink" href="#_CPPv4I0EN3pcl2io3ply10ply_parser40scalar_property_definition_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type29scalar_property_callback_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type29scalar_property_callback_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type29scalar_property_callback_typeE"></span><span id="pcl::io::ply::ply_parser::scalar_property_definition_callback_type::scalar_property_callback_type"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callback__type_1a1a526f38c7b737d5f7358d967b03a00a"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type29scalar_property_callback_typeE" title="pcl::io::ply::ply_parser::scalar_property_definition_callback_type::scalar_property_callback_type">scalar_property_callback_type</a>&lt;ScalarType&gt;::type <code class="sig-name descname">scalar_property_callback_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type29scalar_property_callback_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type4typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type4typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type4typeE"></span><span id="pcl::io::ply::ply_parser::scalar_property_definition_callback_type::type"></span><span class="target" id="structpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callback__type_1afb953c43c4283355fa92c9bbebc1b488"></span><em class="property">typedef </em>boost::function&lt;<a class="reference internal" href="#_CPPv4N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type29scalar_property_callback_typeE" title="pcl::io::ply::ply_parser::scalar_property_definition_callback_type::scalar_property_callback_type">scalar_property_callback_type</a><span class="sig-paren">(</span><em class="property">const</em> std::string&amp;, <em class="property">const</em> std::string&amp;<span class="sig-paren">)</span>&gt; <code class="sig-name descname">type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser40scalar_property_definition_callback_type4typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_typeE">
+<span id="_CPPv3N3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_typeE"></span><span id="_CPPv2N3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_typeE"></span><span id="pcl::io::ply::ply_parser::scalar_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callbacks__type"></span><em class="property">class </em><code class="sig-name descname">scalar_property_definition_callbacks_type</code><a class="headerlink" href="#_CPPv4N3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4I0ENK3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getERKN40scalar_property_definition_callback_typeI10ScalarTypeE4typeEv">
+<span id="_CPPv3I0ENK3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getEv"></span><span id="_CPPv2I0ENK3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getEv"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callbacks__type_1a7ba60d88c9d040f16ffecd38f95f1e23"></span>template&lt;typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">const</em> scalar_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I0ENK3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getERKN40scalar_property_definition_callback_typeI10ScalarTypeE4typeEv" title="pcl::io::ply::ply_parser::scalar_property_definition_callbacks_type::get::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4I0ENK3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getERKN40scalar_property_definition_callback_typeI10ScalarTypeE4typeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0EN3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getERN40scalar_property_definition_callback_typeI10ScalarTypeE4typeEv">
+<span id="_CPPv3I0EN3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getEv"></span><span id="_CPPv2I0EN3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getEv"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callbacks__type_1a9a41175302ba77c88a3cb8bcfb8255f6"></span>template&lt;typename <code class="sig-name descname">ScalarType</code>&gt;<br />scalar_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I0ENK3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getERKN40scalar_property_definition_callback_typeI10ScalarTypeE4typeEv" title="pcl::io::ply::ply_parser::scalar_property_definition_callbacks_type::get::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN3pcl2io3ply10ply_parser41scalar_property_definition_callbacks_type3getERN40scalar_property_definition_callback_typeI10ScalarTypeE4typeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt id="_CPPv4I0E2atRN40scalar_property_definition_callback_typeI10ScalarTypeE4typeER41scalar_property_definition_callbacks_type">
+<span id="_CPPv3I0E2atR41scalar_property_definition_callbacks_type"></span><span id="_CPPv2I0E2atR41scalar_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callbacks__type_1ae2537266c9dc1ab6e03333b2180c342b"></span>template&lt;typename <code class="sig-name descname">ScalarType</code>&gt;<br />scalar_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I0E2atRN40scalar_property_definition_callback_typeI10ScalarTypeE4typeER41scalar_property_definition_callbacks_type" title="at::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span>scalar_property_definition_callbacks_type &amp;<em>scalar_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E2atRN40scalar_property_definition_callback_typeI10ScalarTypeE4typeER41scalar_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4I0E2atRKN40scalar_property_definition_callback_typeI10ScalarTypeE4typeERK41scalar_property_definition_callbacks_type">
+<span id="_CPPv3I0E2atRK41scalar_property_definition_callbacks_type"></span><span id="_CPPv2I0E2atRK41scalar_property_definition_callbacks_type"></span><span class="target" id="classpcl_1_1io_1_1ply_1_1ply__parser_1_1scalar__property__definition__callbacks__type_1a3d19bd88e353c75a66f69ab7d92bbae9"></span>template&lt;typename <code class="sig-name descname">ScalarType</code>&gt;<br /><em class="property">const</em> scalar_property_definition_callback_type&lt;<a class="reference internal" href="#_CPPv4I0E2atRN40scalar_property_definition_callback_typeI10ScalarTypeE4typeER41scalar_property_definition_callbacks_type" title="at::ScalarType">ScalarType</a>&gt;::type &amp;<code class="sig-name descname">at</code><span class="sig-paren">(</span><em class="property">const</em> scalar_property_definition_callbacks_type &amp;<em>scalar_property_definition_callbacks</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0E2atRKN40scalar_property_definition_callback_typeI10ScalarTypeE4typeERK41scalar_property_definition_callbacks_type" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

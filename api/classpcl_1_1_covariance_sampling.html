@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class CovarianceSampling &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class CovarianceSampling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_covariance_sampling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-covariancesampling">
+<span id="exhale-class-classpcl-1-1-covariance-sampling"></span><h1>Template Class CovarianceSampling<a class="headerlink" href="#template-class-covariancesampling" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_filters_include_pcl_filters_covariance_sampling.h.html#file-pcl-filters-include-pcl-filters-covariance-sampling-h"><span class="std std-ref">File covariance_sampling.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::FilterIndices&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_filter_indices.html#exhale-class-classpcl-1-1-filter-indices"><span class="std std-ref">Template Class FilterIndices</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl18CovarianceSamplingE">
+<span id="_CPPv3I00EN3pcl18CovarianceSamplingE"></span><span id="_CPPv2I00EN3pcl18CovarianceSamplingE"></span><span class="target" id="classpcl_1_1_covariance_sampling"></span>template&lt;typename <code class="sig-name descname">PointT</code>, typename <code class="sig-name descname">PointNT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">CovarianceSampling</code> : <em class="property">public</em> pcl::FilterIndices&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl18CovarianceSamplingE" title="pcl::CovarianceSampling::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl18CovarianceSamplingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point Cloud sampling based on the 6D covariances. </p>
+<p>It selects the points such that the resulting cloud is as stable as possible for being registered (against a copy of itself) with ICP. The algorithm adds points to the resulting cloud incrementally, while trying to keep all the 6 eigenvalues of the covariance matrix as close to each other as possible. This class also comes with the <em>computeConditionNumber</em> method that returns a number which shows how stable a point cloud will be when used as input for ICP (the closer the value it is to 1.0, the better).</p>
+<p>Based on the following publication:<ul class="simple">
+<li><p>”Geometrically Stable Sampling for the ICP Algorithm” - N. Gelfand, L. Ikemoto, S. Rusinkiewicz, M. Levoy</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Alexandru E. Ichim, <a class="reference external" href="mailto:alex&#46;e&#46;ichim&#37;&#52;&#48;gmail&#46;com">alex<span>&#46;</span>e<span>&#46;</span>ichim<span>&#64;</span>gmail<span>&#46;</span>com</a> </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl18CovarianceSampling3PtrE">
+<span id="_CPPv3N3pcl18CovarianceSampling3PtrE"></span><span id="_CPPv2N3pcl18CovarianceSampling3PtrE"></span><span id="pcl::CovarianceSampling::Ptr"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a56723f0d423110f9d327ed67e98ff7a5"></span><em class="property">typedef </em>boost::shared_ptr&lt;CovarianceSampling&lt;PointT, PointNT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl18CovarianceSampling8ConstPtrE">
+<span id="_CPPv3N3pcl18CovarianceSampling8ConstPtrE"></span><span id="_CPPv2N3pcl18CovarianceSampling8ConstPtrE"></span><span id="pcl::CovarianceSampling::ConstPtr"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a607e51921186236680b147d43744ef87"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> CovarianceSampling&lt;PointT, PointNT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling18CovarianceSamplingEv">
+<span id="_CPPv3N3pcl18CovarianceSampling18CovarianceSamplingEv"></span><span id="_CPPv2N3pcl18CovarianceSampling18CovarianceSamplingEv"></span><span id="pcl::CovarianceSampling::CovarianceSampling"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a5a3e08593454dc450d55638402bdf9a5"></span><code class="sig-name descname">CovarianceSampling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling18CovarianceSamplingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling18setNumberOfSamplesEj">
+<span id="_CPPv3N3pcl18CovarianceSampling18setNumberOfSamplesEj"></span><span id="_CPPv2N3pcl18CovarianceSampling18setNumberOfSamplesEj"></span><span id="pcl::CovarianceSampling::setNumberOfSamples__unsigned-i"></span><span class="target" id="classpcl_1_1_covariance_sampling_1ac705c2a818792c53b1a3c64b6eca676d"></span>void <code class="sig-name descname">setNumberOfSamples</code><span class="sig-paren">(</span>unsigned int <em>samples</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling18setNumberOfSamplesEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set number of indices to be sampled. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">samples</span></code>: the number of sample indices </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18CovarianceSampling18getNumberOfSamplesEv">
+<span id="_CPPv3NK3pcl18CovarianceSampling18getNumberOfSamplesEv"></span><span id="_CPPv2NK3pcl18CovarianceSampling18getNumberOfSamplesEv"></span><span id="pcl::CovarianceSampling::getNumberOfSamplesC"></span><span class="target" id="classpcl_1_1_covariance_sampling_1ada5284058f054b0e18dcfbbf3b876079"></span>unsigned int <code class="sig-name descname">getNumberOfSamples</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18CovarianceSampling18getNumberOfSamplesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the value of the internal <em>num_samples_</em> parameter. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling10setNormalsERK15NormalsConstPtr">
+<span id="_CPPv3N3pcl18CovarianceSampling10setNormalsERK15NormalsConstPtr"></span><span id="_CPPv2N3pcl18CovarianceSampling10setNormalsERK15NormalsConstPtr"></span><span id="pcl::CovarianceSampling::setNormals__NormalsConstPtrCR"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a77f474e133011e1cff3130c6c3732b78"></span>void <code class="sig-name descname">setNormals</code><span class="sig-paren">(</span><em class="property">const</em> NormalsConstPtr &amp;<em>normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling10setNormalsERK15NormalsConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the normals computed on the input point cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normals</span></code>: the normals computed for the input cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl18CovarianceSampling10getNormalsEv">
+<span id="_CPPv3NK3pcl18CovarianceSampling10getNormalsEv"></span><span id="_CPPv2NK3pcl18CovarianceSampling10getNormalsEv"></span><span id="pcl::CovarianceSampling::getNormalsC"></span><span class="target" id="classpcl_1_1_covariance_sampling_1aab9deb8cf8f2825c391ec6d87975ba5a"></span>NormalsConstPtr <code class="sig-name descname">getNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl18CovarianceSampling10getNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the normals computed on the input point cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling22computeConditionNumberEv">
+<span id="_CPPv3N3pcl18CovarianceSampling22computeConditionNumberEv"></span><span id="_CPPv2N3pcl18CovarianceSampling22computeConditionNumberEv"></span><span id="pcl::CovarianceSampling::computeConditionNumber"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a82eac9e85ffed525bb467e3cd58a87e4"></span>double <code class="sig-name descname">computeConditionNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling22computeConditionNumberEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the condition number of the input point cloud. </p>
+<p>The condition number is the ratio between the largest and smallest eigenvalues of the 6x6 covariance matrix of the cloud. The closer this number is to 1.0, the more stable the cloud is for ICP registration. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the condition number </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling23computeCovarianceMatrixERN5Eigen6MatrixIdXL6EEXL6EEEE">
+<span id="_CPPv3N3pcl18CovarianceSampling23computeCovarianceMatrixERN5Eigen6MatrixIdXL6EEXL6EEEE"></span><span id="_CPPv2N3pcl18CovarianceSampling23computeCovarianceMatrixERN5Eigen6MatrixIdX6EX6EEE"></span><span id="pcl::CovarianceSampling::computeCovarianceMatrix__Eigen::Matrix:double.6.6:R"></span><span class="target" id="classpcl_1_1_covariance_sampling_1ab2210a7ae6ce3f6bf71e13ee3cf9249b"></span>bool <code class="sig-name descname">computeCovarianceMatrix</code><span class="sig-paren">(</span>Eigen::Matrix&lt;double, 6, 6&gt; &amp;<em>covariance_matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling23computeCovarianceMatrixERN5Eigen6MatrixIdXL6EEXL6EEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the covariance matrix of the input cloud. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>whether the computation succeeded or not </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">covariance_matrix</span></code>: the computed covariance matrix. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling22computeConditionNumberERKN5Eigen6MatrixIdXL6EEXL6EEEE">
+<span id="_CPPv3N3pcl18CovarianceSampling22computeConditionNumberERKN5Eigen6MatrixIdXL6EEXL6EEEE"></span><span id="_CPPv2N3pcl18CovarianceSampling22computeConditionNumberERKN5Eigen6MatrixIdX6EX6EEE"></span><span id="pcl::CovarianceSampling::computeConditionNumber__Eigen::Matrix:double.6.6:CR"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a8f2b37a9be66d9745201d5cb1fa36774"></span>double <code class="sig-name descname">computeConditionNumber</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Matrix&lt;double, 6, 6&gt; &amp;<em>covariance_matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling22computeConditionNumberERKN5Eigen6MatrixIdXL6EEXL6EEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the condition number of the input point cloud. </p>
+<p>The condition number is the ratio between the largest and smallest eigenvalues of the 6x6 covariance matrix of the cloud. The closer this number is to 1.0, the more stable the cloud is for ICP registration. <dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the condition number </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">covariance_matrix</span></code>: user given covariance matrix. Assumed to be self adjoint/symmetric. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling11initComputeEv">
+<span id="_CPPv3N3pcl18CovarianceSampling11initComputeEv"></span><span id="_CPPv2N3pcl18CovarianceSampling11initComputeEv"></span><span id="pcl::CovarianceSampling::initCompute"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a96c690d493e6114a22621233bb784e0e"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling11applyFilterER5Cloud">
+<span id="_CPPv3N3pcl18CovarianceSampling11applyFilterER5Cloud"></span><span id="_CPPv2N3pcl18CovarianceSampling11applyFilterER5Cloud"></span><span id="pcl::CovarianceSampling::applyFilter__CloudR"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a7d073302aaf53592ebaad290041162c4"></span>void <code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span>Cloud &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling11applyFilterER5Cloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sample of point indices into a separate <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant point cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling11applyFilterERNSt6vectorIiEE">
+<span id="_CPPv3N3pcl18CovarianceSampling11applyFilterERNSt6vectorIiEE"></span><span id="_CPPv2N3pcl18CovarianceSampling11applyFilterERNSt6vectorIiEE"></span><span id="pcl::CovarianceSampling::applyFilter__std::vector:i:R"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a2731ee72e45ed3e80f0580cd2eab9096"></span>void <code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span>std::vector&lt;int&gt; &amp;<em>indices</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling11applyFilterERNSt6vectorIiEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sample of point indices. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">indices</span></code>: the resultant point cloud indices </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl18CovarianceSampling12num_samples_E">
+<span id="_CPPv3N3pcl18CovarianceSampling12num_samples_E"></span><span id="_CPPv2N3pcl18CovarianceSampling12num_samples_E"></span><span id="pcl::CovarianceSampling::num_samples___unsigned-i"></span><span class="target" id="classpcl_1_1_covariance_sampling_1ad5e2ddf8d42b6a47fbf16398eff29833"></span>unsigned int <code class="sig-name descname">num_samples_</code><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling12num_samples_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of indices that will be returned. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18CovarianceSampling14input_normals_E">
+<span id="_CPPv3N3pcl18CovarianceSampling14input_normals_E"></span><span id="_CPPv2N3pcl18CovarianceSampling14input_normals_E"></span><span id="pcl::CovarianceSampling::input_normals___NormalsConstPtr"></span><span class="target" id="classpcl_1_1_covariance_sampling_1a498a76c8589afc1a508f4daada7ab64d"></span>NormalsConstPtr <code class="sig-name descname">input_normals_</code><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling14input_normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The normals computed at each point in the input cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl18CovarianceSampling14scaled_points_E">
+<span id="_CPPv3N3pcl18CovarianceSampling14scaled_points_E"></span><span id="_CPPv2N3pcl18CovarianceSampling14scaled_points_E"></span><span id="pcl::CovarianceSampling::scaled_points___std::vector:Eigen::Vector3f.Eigen::aligned_allocator:Eigen::Vector3f::"></span><span class="target" id="classpcl_1_1_covariance_sampling_1ab4360c7c6a4f126663b5b43b0e6416e5"></span>std::vector&lt;Eigen::Vector3f, Eigen::aligned_allocator&lt;Eigen::Vector3f&gt;&gt; <code class="sig-name descname">scaled_points_</code><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling14scaled_points_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl18CovarianceSampling22sort_dot_list_functionENSt4pairIidEENSt4pairIidEE">
+<span id="_CPPv3N3pcl18CovarianceSampling22sort_dot_list_functionENSt4pairIidEENSt4pairIidEE"></span><span id="_CPPv2N3pcl18CovarianceSampling22sort_dot_list_functionENSt4pairIidEENSt4pairIidEE"></span><span id="pcl::CovarianceSampling::sort_dot_list_function__std::pair:i.double:.std::pair:i.double:"></span><span class="target" id="classpcl_1_1_covariance_sampling_1ad3704f3ded27de1bd5532559423e9ed8"></span><em class="property">static</em> bool <code class="sig-name descname">sort_dot_list_function</code><span class="sig-paren">(</span>std::pair&lt;int, double&gt; <em>a</em>, std::pair&lt;int, double&gt; <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl18CovarianceSampling22sort_dot_list_functionENSt4pairIidEENSt4pairIidEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

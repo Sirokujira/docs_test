@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class ISSKeypoint3D &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class ISSKeypoint3D</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_i_s_s_keypoint3_d.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-isskeypoint3d">
+<span id="exhale-class-classpcl-1-1-i-s-s-keypoint3-d"></span><h1>Template Class ISSKeypoint3D<a class="headerlink" href="#template-class-isskeypoint3d" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_keypoints_include_pcl_keypoints_iss_3d.h.html#file-pcl-keypoints-include-pcl-keypoints-iss-3d-h"><span class="std std-ref">File iss_3d.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Keypoint&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_keypoint.html#exhale-class-classpcl-1-1-keypoint"><span class="std std-ref">Template Class Keypoint</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I000EN3pcl13ISSKeypoint3DE">
+<span id="_CPPv3I000EN3pcl13ISSKeypoint3DE"></span><span id="_CPPv2I000EN3pcl13ISSKeypoint3DE"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">PointOutT</code>, typename <code class="sig-name descname">NormalT</code> = pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt;<br /><em class="property">class </em><code class="sig-name descname">ISSKeypoint3D</code> : <em class="property">public</em> pcl::Keypoint&lt;<a class="reference internal" href="#_CPPv4I000EN3pcl13ISSKeypoint3DE" title="pcl::ISSKeypoint3D::PointInT">PointInT</a>, <a class="reference internal" href="#_CPPv4I000EN3pcl13ISSKeypoint3DE" title="pcl::ISSKeypoint3D::PointOutT">PointOutT</a>&gt;<a class="headerlink" href="#_CPPv4I000EN3pcl13ISSKeypoint3DE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classpcl_1_1_i_s_s_keypoint3_d"><span class="std std-ref">ISSKeypoint3D</span></a> detects the Intrinsic Shape Signatures keypoints for a given point cloud. </p>
+<p>This class is based on a particular implementation made by Federico Tombari and Samuele Salti and it has been explicitly adapted to PCL.</p>
+<p>For more information about the original ISS detector, see:</p>
+<p><p>Code example:</p>
+<dl class="simple">
+<dt><strong></strong></dt><dd><p>Yu Zhong, “Intrinsic shape signatures: A shape descriptor for 3D object recognition,” Computer Vision Workshops (ICCV Workshops), 2009 IEEE 12th International Conference on , vol., no., pp.689-696, Sept. 27 2009-Oct. 4 2009</p>
+</dd>
+</dl>
+</p>
+<p><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">model</span> <span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="o">&gt;</span> <span class="p">());;</span>
+<span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">model_keypoints</span> <span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="o">&gt;</span> <span class="p">());</span>
+<span class="n">pcl</span><span class="o">::</span><span class="n">search</span><span class="o">::</span><span class="n">KdTree</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">tree</span> <span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">search</span><span class="o">::</span><span class="n">KdTree</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="o">&gt;</span> <span class="p">());</span>
+
+<span class="c1">// Fill in the model cloud</span>
+
+<span class="kt">double</span> <span class="n">model_resolution</span><span class="p">;</span>
+
+<span class="c1">// Compute model_resolution</span>
+
+<span class="n">pcl</span><span class="o">::</span><span class="n">ISSKeypoint3D</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="p">,</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGBA</span><span class="o">&gt;</span> <span class="n">iss_detector</span><span class="p">;</span>
+
+<span class="n">iss_detector</span><span class="p">.</span><span class="n">setSearchMethod</span> <span class="p">(</span><span class="n">tree</span><span class="p">);</span>
+<span class="n">iss_detector</span><span class="p">.</span><span class="n">setSalientRadius</span> <span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="n">model_resolution</span><span class="p">);</span>
+<span class="n">iss_detector</span><span class="p">.</span><span class="n">setNonMaxRadius</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">model_resolution</span><span class="p">);</span>
+<span class="n">iss_detector</span><span class="p">.</span><span class="n">setThreshold21</span> <span class="p">(</span><span class="mf">0.975</span><span class="p">);</span>
+<span class="n">iss_detector</span><span class="p">.</span><span class="n">setThreshold32</span> <span class="p">(</span><span class="mf">0.975</span><span class="p">);</span>
+<span class="n">iss_detector</span><span class="p">.</span><span class="n">setMinNeighbors</span> <span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">iss_detector</span><span class="p">.</span><span class="n">setNumberOfThreads</span> <span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">iss_detector</span><span class="p">.</span><span class="n">setInputCloud</span> <span class="p">(</span><span class="n">model</span><span class="p">);</span>
+<span class="n">iss_detector</span><span class="p">.</span><span class="n">compute</span> <span class="p">(</span><span class="o">*</span><span class="n">model_keypoints</span><span class="p">);</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Gioia Ballin </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D3PtrE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D3PtrE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D3PtrE"></span><span id="pcl::ISSKeypoint3D::Ptr"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a4a484badf80517cc78b525afdf127a0d"></span><em class="property">typedef </em>boost::shared_ptr&lt;ISSKeypoint3D&lt;PointInT, PointOutT, <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D8ConstPtrE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D8ConstPtrE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D8ConstPtrE"></span><span id="pcl::ISSKeypoint3D::ConstPtr"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1aee6d86262255703db6f9d8f44a704c1f"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> ISSKeypoint3D&lt;PointInT, PointOutT, <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D12PointCloudInE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D12PointCloudInE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D12PointCloudInE"></span><span id="pcl::ISSKeypoint3D::PointCloudIn"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1af2d61407bb45fc49cec16ba321f2227d"></span><em class="property">typedef </em>Keypoint&lt;PointInT, PointOutT&gt;::PointCloudIn <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D13PointCloudOutE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D13PointCloudOutE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D13PointCloudOutE"></span><span id="pcl::ISSKeypoint3D::PointCloudOut"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a66a8fb8c52b1a1b92abc63b9099afee5"></span><em class="property">typedef </em>Keypoint&lt;PointInT, PointOutT&gt;::PointCloudOut <code class="sig-name descname">PointCloudOut</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D13PointCloudOutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D11PointCloudNE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D11PointCloudNE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D11PointCloudNE"></span><span id="pcl::ISSKeypoint3D::PointCloudN"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a2d183f89ab6271c2d13bc3eb8dc2185c"></span><em class="property">typedef </em>pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt; <code class="sig-name descname">PointCloudN</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D11PointCloudNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D14PointCloudNPtrE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D14PointCloudNPtrE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D14PointCloudNPtrE"></span><span id="pcl::ISSKeypoint3D::PointCloudNPtr"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a7a44e17632ab7832686013daf5bcc789"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl13ISSKeypoint3D11PointCloudNE" title="pcl::ISSKeypoint3D::PointCloudN">PointCloudN</a>::Ptr <code class="sig-name descname">PointCloudNPtr</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D14PointCloudNPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D19PointCloudNConstPtrE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D19PointCloudNConstPtrE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D19PointCloudNConstPtrE"></span><span id="pcl::ISSKeypoint3D::PointCloudNConstPtr"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a21cfd38a06d4b4fac2e78f1de8a3bd7b"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl13ISSKeypoint3D11PointCloudNE" title="pcl::ISSKeypoint3D::PointCloudN">PointCloudN</a>::ConstPtr <code class="sig-name descname">PointCloudNConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D19PointCloudNConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D14OctreeSearchInE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D14OctreeSearchInE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D14OctreeSearchInE"></span><span id="pcl::ISSKeypoint3D::OctreeSearchIn"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1abbc4012a9bfa60cc0499decca15a7c37"></span><em class="property">typedef </em>pcl::octree::OctreePointCloudSearch&lt;PointInT&gt; <code class="sig-name descname">OctreeSearchIn</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D14OctreeSearchInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D17OctreeSearchInPtrE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D17OctreeSearchInPtrE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D17OctreeSearchInPtrE"></span><span id="pcl::ISSKeypoint3D::OctreeSearchInPtr"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a172d08b3e5dffaca84f12f05fa87ea06"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl13ISSKeypoint3D14OctreeSearchInE" title="pcl::ISSKeypoint3D::OctreeSearchIn">OctreeSearchIn</a>::Ptr <code class="sig-name descname">OctreeSearchInPtr</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D17OctreeSearchInPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D13ISSKeypoint3DEd">
+<span id="_CPPv3N3pcl13ISSKeypoint3D13ISSKeypoint3DEd"></span><span id="_CPPv2N3pcl13ISSKeypoint3D13ISSKeypoint3DEd"></span><span id="pcl::ISSKeypoint3D::ISSKeypoint3D__double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1abd04154f4b62ac83bdc6811b433522de"></span><code class="sig-name descname">ISSKeypoint3D</code><span class="sig-paren">(</span>double <em>salient_radius</em> = 0.0001<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D13ISSKeypoint3DEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">salient_radius</span></code>: the radius of the spherical neighborhood used to compute the scatter matrix. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3DD0Ev">
+<span id="_CPPv3N3pcl13ISSKeypoint3DD0Ev"></span><span id="_CPPv2N3pcl13ISSKeypoint3DD0Ev"></span><span id="pcl::ISSKeypoint3D::~ISSKeypoint3D"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a4efc3c6ba09b2363b12712c0fb2d55a1"></span><code class="sig-name descname">~ISSKeypoint3D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3DD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D16setSalientRadiusEd">
+<span id="_CPPv3N3pcl13ISSKeypoint3D16setSalientRadiusEd"></span><span id="_CPPv2N3pcl13ISSKeypoint3D16setSalientRadiusEd"></span><span id="pcl::ISSKeypoint3D::setSalientRadius__double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a5feefc782bd54c324170b82482711360"></span>void <code class="sig-name descname">setSalientRadius</code><span class="sig-paren">(</span>double <em>salient_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D16setSalientRadiusEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the radius of the spherical neighborhood used to compute the scatter matrix. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">salient_radius</span></code>: the radius of the spherical neighborhood </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D15setNonMaxRadiusEd">
+<span id="_CPPv3N3pcl13ISSKeypoint3D15setNonMaxRadiusEd"></span><span id="_CPPv2N3pcl13ISSKeypoint3D15setNonMaxRadiusEd"></span><span id="pcl::ISSKeypoint3D::setNonMaxRadius__double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1ade672eadfb5e9ae231348cca7b49aabd"></span>void <code class="sig-name descname">setNonMaxRadius</code><span class="sig-paren">(</span>double <em>non_max_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D15setNonMaxRadiusEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the radius for the application of the non maxima supression algorithm. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">non_max_radius</span></code>: the non maxima suppression radius </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D15setNormalRadiusEd">
+<span id="_CPPv3N3pcl13ISSKeypoint3D15setNormalRadiusEd"></span><span id="_CPPv2N3pcl13ISSKeypoint3D15setNormalRadiusEd"></span><span id="pcl::ISSKeypoint3D::setNormalRadius__double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a9549a2fac5de5583404ee6699ffe26c1"></span>void <code class="sig-name descname">setNormalRadius</code><span class="sig-paren">(</span>double <em>normal_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D15setNormalRadiusEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the radius used for the estimation of the surface normals of the input cloud. </p>
+<p>If the radius is too large, the temporal performances of the detector may degrade significantly. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normal_radius</span></code>: the radius used to estimate surface normals </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D15setBorderRadiusEd">
+<span id="_CPPv3N3pcl13ISSKeypoint3D15setBorderRadiusEd"></span><span id="_CPPv2N3pcl13ISSKeypoint3D15setBorderRadiusEd"></span><span id="pcl::ISSKeypoint3D::setBorderRadius__double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a5f3b3731352fcb7b3dadca2a8bfa78e9"></span>void <code class="sig-name descname">setBorderRadius</code><span class="sig-paren">(</span>double <em>border_radius</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D15setBorderRadiusEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the radius used for the estimation of the boundary points. </p>
+<p>If the radius is too large, the temporal performances of the detector may degrade significantly. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">border_radius</span></code>: the radius used to compute the boundary points </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D14setThreshold21Ed">
+<span id="_CPPv3N3pcl13ISSKeypoint3D14setThreshold21Ed"></span><span id="_CPPv2N3pcl13ISSKeypoint3D14setThreshold21Ed"></span><span id="pcl::ISSKeypoint3D::setThreshold21__double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a8530d096380170a4d81d65ae2e85d9ca"></span>void <code class="sig-name descname">setThreshold21</code><span class="sig-paren">(</span>double <em>gamma_21</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D14setThreshold21Ed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the upper bound on the ratio between the second and the first eigenvalue. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">gamma_21</span></code>: the upper bound on the ratio between the second and the first eigenvalue </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D14setThreshold32Ed">
+<span id="_CPPv3N3pcl13ISSKeypoint3D14setThreshold32Ed"></span><span id="_CPPv2N3pcl13ISSKeypoint3D14setThreshold32Ed"></span><span id="pcl::ISSKeypoint3D::setThreshold32__double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1aa0687ad53c67c5a140ecea019036d67d"></span>void <code class="sig-name descname">setThreshold32</code><span class="sig-paren">(</span>double <em>gamma_32</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D14setThreshold32Ed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the upper bound on the ratio between the third and the second eigenvalue. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">gamma_32</span></code>: the upper bound on the ratio between the third and the second eigenvalue </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D15setMinNeighborsEi">
+<span id="_CPPv3N3pcl13ISSKeypoint3D15setMinNeighborsEi"></span><span id="_CPPv2N3pcl13ISSKeypoint3D15setMinNeighborsEi"></span><span id="pcl::ISSKeypoint3D::setMinNeighbors__i"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a90c224d042979a73195fdcbc7b007f05"></span>void <code class="sig-name descname">setMinNeighbors</code><span class="sig-paren">(</span>int <em>min_neighbors</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D15setMinNeighborsEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the minimum number of neighbors that has to be found while applying the non maxima suppression algorithm. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">min_neighbors</span></code>: the minimum number of neighbors required </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D10setNormalsERK19PointCloudNConstPtr">
+<span id="_CPPv3N3pcl13ISSKeypoint3D10setNormalsERK19PointCloudNConstPtr"></span><span id="_CPPv2N3pcl13ISSKeypoint3D10setNormalsERK19PointCloudNConstPtr"></span><span id="pcl::ISSKeypoint3D::setNormals__PointCloudNConstPtrCR"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a2f59c8225cdd9e2b7aa8b309d73d7b13"></span>void <code class="sig-name descname">setNormals</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13ISSKeypoint3D19PointCloudNConstPtrE" title="pcl::ISSKeypoint3D::PointCloudNConstPtr">PointCloudNConstPtr</a> &amp;<em>normals</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D10setNormalsERK19PointCloudNConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the normals if pre-calculated normals are available. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normals</span></code>: the given cloud of normals </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D17setAngleThresholdEf">
+<span id="_CPPv3N3pcl13ISSKeypoint3D17setAngleThresholdEf"></span><span id="_CPPv2N3pcl13ISSKeypoint3D17setAngleThresholdEf"></span><span id="pcl::ISSKeypoint3D::setAngleThreshold__float"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a8984ac00ee1822bcdae48486394175c1"></span>void <code class="sig-name descname">setAngleThreshold</code><span class="sig-paren">(</span>float <em>angle</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D17setAngleThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the decision boundary (angle threshold) that marks points as boundary or regular. </p>
+<p>(default <span class="math">\pi / 2.0</span>) <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">angle</span></code>: the angle threshold </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D18setNumberOfThreadsEj">
+<span id="_CPPv3N3pcl13ISSKeypoint3D18setNumberOfThreadsEj"></span><span id="_CPPv2N3pcl13ISSKeypoint3D18setNumberOfThreadsEj"></span><span id="pcl::ISSKeypoint3D::setNumberOfThreads__unsigned-i"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a2afb0b8044b352a795ab38f85218f581"></span>void <code class="sig-name descname">setNumberOfThreads</code><span class="sig-paren">(</span>unsigned int <em>nr_threads</em> = 0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D18setNumberOfThreadsEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize the scheduler and set the number of threads to use. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nr_threads</span></code>: the number of hardware threads to use (0 sets the value back to automatic) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D17getBoundaryPointsER12PointCloudIndf">
+<span id="_CPPv3N3pcl13ISSKeypoint3D17getBoundaryPointsER12PointCloudIndf"></span><span id="_CPPv2N3pcl13ISSKeypoint3D17getBoundaryPointsER12PointCloudIndf"></span><span id="pcl::ISSKeypoint3D::getBoundaryPoints__PointCloudInR.double.float"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1aea90235222675852378ca58bd8202494"></span>bool *<code class="sig-name descname">getBoundaryPoints</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl13ISSKeypoint3D12PointCloudInE" title="pcl::ISSKeypoint3D::PointCloudIn">PointCloudIn</a> &amp;<em>input</em>, double <em>border_radius</em>, float <em>angle_threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D17getBoundaryPointsER12PointCloudIndf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the boundary points for the given input cloud. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the vector of boolean values in which the information about the boundary points is stored </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: the input cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">border_radius</span></code>: the radius used to compute the boundary points </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">angle_threshold</span></code>: the decision boundary that marks the points as boundary </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D16getScatterMatrixERKiRN5Eigen8Matrix3dE">
+<span id="_CPPv3N3pcl13ISSKeypoint3D16getScatterMatrixERKiRN5Eigen8Matrix3dE"></span><span id="_CPPv2N3pcl13ISSKeypoint3D16getScatterMatrixERKiRN5Eigen8Matrix3dE"></span><span id="pcl::ISSKeypoint3D::getScatterMatrix__iCR.Eigen::Matrix3dR"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a61e2d8e2b2546001194e438034bb1f8d"></span>void <code class="sig-name descname">getScatterMatrix</code><span class="sig-paren">(</span><em class="property">const</em> int &amp;<em>current_index</em>, Eigen::Matrix3d &amp;<em>cov_m</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D16getScatterMatrixERKiRN5Eigen8Matrix3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the scatter matrix for a point index. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">current_index</span></code>: the index of the point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cov_m</span></code>: the point scatter matrix </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D11initComputeEv">
+<span id="_CPPv3N3pcl13ISSKeypoint3D11initComputeEv"></span><span id="_CPPv2N3pcl13ISSKeypoint3D11initComputeEv"></span><span id="pcl::ISSKeypoint3D::initCompute"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1ac2a9b728c1984938db6cb35b1f8618b4"></span>bool <code class="sig-name descname">initCompute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D11initComputeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Perform the initial checks before computing the keypoints. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>true if all the checks are passed, false otherwise </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D15detectKeypointsER13PointCloudOut">
+<span id="_CPPv3N3pcl13ISSKeypoint3D15detectKeypointsER13PointCloudOut"></span><span id="_CPPv2N3pcl13ISSKeypoint3D15detectKeypointsER13PointCloudOut"></span><span id="pcl::ISSKeypoint3D::detectKeypoints__PointCloudOutR"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a08dec275b42269d09e7bcbdcac32e6bf"></span>void <code class="sig-name descname">detectKeypoints</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl13ISSKeypoint3D13PointCloudOutE" title="pcl::ISSKeypoint3D::PointCloudOut">PointCloudOut</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D15detectKeypointsER13PointCloudOut" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Detect the keypoints by performing the EVD of the scatter matrix. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant cloud of keypoints </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D15salient_radius_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D15salient_radius_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D15salient_radius_E"></span><span id="pcl::ISSKeypoint3D::salient_radius___double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a7172556ea66b5b2a1c86c48097e4b66c"></span>double <code class="sig-name descname">salient_radius_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D15salient_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The radius of the spherical neighborhood used to compute the scatter matrix. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D15non_max_radius_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D15non_max_radius_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D15non_max_radius_E"></span><span id="pcl::ISSKeypoint3D::non_max_radius___double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a962bdf309d623503b1b262fedb829754"></span>double <code class="sig-name descname">non_max_radius_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D15non_max_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The non maxima suppression radius. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D14normal_radius_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D14normal_radius_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D14normal_radius_E"></span><span id="pcl::ISSKeypoint3D::normal_radius___double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1ac8ecef68caca79848c9c87f8d25187a4"></span>double <code class="sig-name descname">normal_radius_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D14normal_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The radius used to compute the normals of the input cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D14border_radius_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D14border_radius_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D14border_radius_E"></span><span id="pcl::ISSKeypoint3D::border_radius___double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1acee859609fc4af6647ff620e2345b5ab"></span>double <code class="sig-name descname">border_radius_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D14border_radius_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The radius used to compute the boundary points of the input cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D9gamma_21_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D9gamma_21_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D9gamma_21_E"></span><span id="pcl::ISSKeypoint3D::gamma_21___double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a9371d707be211e6a031f00de27aec208"></span>double <code class="sig-name descname">gamma_21_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D9gamma_21_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The upper bound on the ratio between the second and the first eigenvalue returned by the EVD. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D9gamma_32_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D9gamma_32_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D9gamma_32_E"></span><span id="pcl::ISSKeypoint3D::gamma_32___double"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a5785e509ce928ec4bb18de8ccd920668"></span>double <code class="sig-name descname">gamma_32_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D9gamma_32_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The upper bound on the ratio between the third and the second eigenvalue returned by the EVD. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D18third_eigen_value_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D18third_eigen_value_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D18third_eigen_value_E"></span><span id="pcl::ISSKeypoint3D::third_eigen_value___doubleP"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a1e2c3555b8731f73f80038d53c5e02d1"></span>double *<code class="sig-name descname">third_eigen_value_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D18third_eigen_value_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Store the third eigen value associated to each point in the input cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D12edge_points_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D12edge_points_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D12edge_points_E"></span><span id="pcl::ISSKeypoint3D::edge_points___bP"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1a7ed8196d927bc413146e7a76dd885255"></span>bool *<code class="sig-name descname">edge_points_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D12edge_points_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Store the information about the boundary points of the input cloud. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D14min_neighbors_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D14min_neighbors_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D14min_neighbors_E"></span><span id="pcl::ISSKeypoint3D::min_neighbors___i"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1ae9a44f39d2d44e6406bd28f4bedfaef5"></span>int <code class="sig-name descname">min_neighbors_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D14min_neighbors_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Minimum number of neighbors that has to be found while applying the non maxima suppression algorithm. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D8normals_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D8normals_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D8normals_E"></span><span id="pcl::ISSKeypoint3D::normals___PointCloudNConstPtr"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1aa182e0c44f26fb0da65ea203046db3e9"></span><a class="reference internal" href="#_CPPv4N3pcl13ISSKeypoint3D19PointCloudNConstPtrE" title="pcl::ISSKeypoint3D::PointCloudNConstPtr">PointCloudNConstPtr</a> <code class="sig-name descname">normals_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D8normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The cloud of normals related to the input surface. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D16angle_threshold_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D16angle_threshold_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D16angle_threshold_E"></span><span id="pcl::ISSKeypoint3D::angle_threshold___float"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1ab052a7323d71aeb347563cd061f37823"></span>float <code class="sig-name descname">angle_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D16angle_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The decision boundary (angle threshold) that marks points as boundary or regular. </p>
+<p>(default <span class="math">\pi / 2.0</span>) </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13ISSKeypoint3D8threads_E">
+<span id="_CPPv3N3pcl13ISSKeypoint3D8threads_E"></span><span id="_CPPv2N3pcl13ISSKeypoint3D8threads_E"></span><span id="pcl::ISSKeypoint3D::threads___unsigned-i"></span><span class="target" id="classpcl_1_1_i_s_s_keypoint3_d_1aa65049e1122f688195bff1672f697fa4"></span>unsigned int <code class="sig-name descname">threads_</code><a class="headerlink" href="#_CPPv4N3pcl13ISSKeypoint3D8threads_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The number of threads that has to be used by the scheduler. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

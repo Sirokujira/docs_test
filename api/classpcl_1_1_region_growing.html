@@ -1,0 +1,701 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class RegionGrowing &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class RegionGrowing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_region_growing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-regiongrowing">
+<span id="exhale-class-classpcl-1-1-region-growing"></span><h1>Template Class RegionGrowing<a class="headerlink" href="#template-class-regiongrowing" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_segmentation_include_pcl_segmentation_region_growing.h.html#file-pcl-segmentation-include-pcl-segmentation-region-growing-h"><span class="std std-ref">File region_growing.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PCLBase&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_c_l_base.html#exhale-class-classpcl-1-1-p-c-l-base"><span class="std std-ref">Template Class PCLBase</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::RegionGrowingRGB&lt;</span> <span class="pre">PointT,</span> <span class="pre">NormalT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_region_growing_r_g_b.html#exhale-class-classpcl-1-1-region-growing-r-g-b"><span class="std std-ref">Template Class RegionGrowingRGB</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl13RegionGrowingE">
+<span id="_CPPv3I00EN3pcl13RegionGrowingE"></span><span id="_CPPv2I00EN3pcl13RegionGrowingE"></span><span class="target" id="classpcl_1_1_region_growing"></span>template&lt;typename <code class="sig-name descname">PointT</code>, typename <code class="sig-name descname">NormalT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">RegionGrowing</code> : <em class="property">public</em> pcl::PCLBase&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl13RegionGrowingE" title="pcl::RegionGrowing::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl13RegionGrowingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Implements the well known Region Growing algorithm used for segmentation. </p>
+<p>Description can be found in the article “Segmentation of point clouds using smoothness constraint” by T. Rabbania, F. A. van den Heuvelb, G. Vosselmanc. In addition to residual test, the possibility to test curvature is added. </p>
+<p>Subclassed by <a class="reference internal" href="classpcl_1_1_region_growing_r_g_b.html#classpcl_1_1_region_growing_r_g_b"><span class="std std-ref">pcl::RegionGrowingRGB&lt; PointT, NormalT &gt;</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl13RegionGrowing6KdTreeE">
+<span id="_CPPv3N3pcl13RegionGrowing6KdTreeE"></span><span id="_CPPv2N3pcl13RegionGrowing6KdTreeE"></span><span id="pcl::RegionGrowing::KdTree"></span><span class="target" id="classpcl_1_1_region_growing_1a9ff687d22b2c7db8325c3483488dcaff"></span><em class="property">typedef </em>pcl::search::Search&lt;PointT&gt; <code class="sig-name descname">KdTree</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing6KdTreeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13RegionGrowing9KdTreePtrE">
+<span id="_CPPv3N3pcl13RegionGrowing9KdTreePtrE"></span><span id="_CPPv2N3pcl13RegionGrowing9KdTreePtrE"></span><span id="pcl::RegionGrowing::KdTreePtr"></span><span class="target" id="classpcl_1_1_region_growing_1a0c9f2170d20e26e864ceb30ce07ee6eb"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl13RegionGrowing6KdTreeE" title="pcl::RegionGrowing::KdTree">KdTree</a>::Ptr <code class="sig-name descname">KdTreePtr</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing9KdTreePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13RegionGrowing6NormalE">
+<span id="_CPPv3N3pcl13RegionGrowing6NormalE"></span><span id="_CPPv2N3pcl13RegionGrowing6NormalE"></span><span id="pcl::RegionGrowing::Normal"></span><span class="target" id="classpcl_1_1_region_growing_1a0abcac01820e2cbac433e04c57d3fe09"></span><em class="property">typedef </em>pcl::PointCloud&lt;<a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt; <code class="sig-name descname">Normal</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing6NormalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13RegionGrowing9NormalPtrE">
+<span id="_CPPv3N3pcl13RegionGrowing9NormalPtrE"></span><span id="_CPPv2N3pcl13RegionGrowing9NormalPtrE"></span><span id="pcl::RegionGrowing::NormalPtr"></span><span class="target" id="classpcl_1_1_region_growing_1a3625ed32c993e612ec4304a7761a5352"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl13RegionGrowing6NormalE" title="pcl::RegionGrowing::Normal">Normal</a>::Ptr <code class="sig-name descname">NormalPtr</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing9NormalPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl13RegionGrowing10PointCloudE">
+<span id="_CPPv3N3pcl13RegionGrowing10PointCloudE"></span><span id="_CPPv2N3pcl13RegionGrowing10PointCloudE"></span><span id="pcl::RegionGrowing::PointCloud"></span><span class="target" id="classpcl_1_1_region_growing_1a094821dd021aed2a0ed290c3ebf2a60d"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointT&gt; <code class="sig-name descname">PointCloud</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing10PointCloudE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing13RegionGrowingEv">
+<span id="_CPPv3N3pcl13RegionGrowing13RegionGrowingEv"></span><span id="_CPPv2N3pcl13RegionGrowing13RegionGrowingEv"></span><span id="pcl::RegionGrowing::RegionGrowing"></span><span class="target" id="classpcl_1_1_region_growing_1a32553136086e9bab3f0f9482ae088576"></span><code class="sig-name descname">RegionGrowing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing13RegionGrowingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor that sets default values for member variables. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowingD0Ev">
+<span id="_CPPv3N3pcl13RegionGrowingD0Ev"></span><span id="_CPPv2N3pcl13RegionGrowingD0Ev"></span><span id="pcl::RegionGrowing::~RegionGrowing"></span><span class="target" id="classpcl_1_1_region_growing_1abd5307cad362027812ce6703af129046"></span><code class="sig-name descname">~RegionGrowing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowingD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This destructor destroys the cloud, normals and search method used for finding KNN. </p>
+<p>In other words it frees memory. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing17getMinClusterSizeEv">
+<span id="_CPPv3N3pcl13RegionGrowing17getMinClusterSizeEv"></span><span id="_CPPv2N3pcl13RegionGrowing17getMinClusterSizeEv"></span><span id="pcl::RegionGrowing::getMinClusterSize"></span><span class="target" id="classpcl_1_1_region_growing_1a503eb2ff26d2ff282332c62665cdf451"></span>int <code class="sig-name descname">getMinClusterSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing17getMinClusterSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the minimum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing17setMinClusterSizeEi">
+<span id="_CPPv3N3pcl13RegionGrowing17setMinClusterSizeEi"></span><span id="_CPPv2N3pcl13RegionGrowing17setMinClusterSizeEi"></span><span id="pcl::RegionGrowing::setMinClusterSize__i"></span><span class="target" id="classpcl_1_1_region_growing_1ac040a7d547bb09b295386045725aa848"></span>void <code class="sig-name descname">setMinClusterSize</code><span class="sig-paren">(</span>int <em>min_cluster_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing17setMinClusterSizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the minimum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing17getMaxClusterSizeEv">
+<span id="_CPPv3N3pcl13RegionGrowing17getMaxClusterSizeEv"></span><span id="_CPPv2N3pcl13RegionGrowing17getMaxClusterSizeEv"></span><span id="pcl::RegionGrowing::getMaxClusterSize"></span><span class="target" id="classpcl_1_1_region_growing_1a7bef7a2920c179c99928acc7474c41ab"></span>int <code class="sig-name descname">getMaxClusterSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing17getMaxClusterSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the maximum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing17setMaxClusterSizeEi">
+<span id="_CPPv3N3pcl13RegionGrowing17setMaxClusterSizeEi"></span><span id="_CPPv2N3pcl13RegionGrowing17setMaxClusterSizeEi"></span><span id="pcl::RegionGrowing::setMaxClusterSize__i"></span><span class="target" id="classpcl_1_1_region_growing_1a51294408aa0da3e72690e9ab03bae90d"></span>void <code class="sig-name descname">setMaxClusterSize</code><span class="sig-paren">(</span>int <em>max_cluster_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing17setMaxClusterSizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the maximum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing17getSmoothModeFlagEv">
+<span id="_CPPv3NK3pcl13RegionGrowing17getSmoothModeFlagEv"></span><span id="_CPPv2NK3pcl13RegionGrowing17getSmoothModeFlagEv"></span><span id="pcl::RegionGrowing::getSmoothModeFlagC"></span><span class="target" id="classpcl_1_1_region_growing_1ae14b6b9cb6a6aaf8872c3c965f2e6e00"></span>bool <code class="sig-name descname">getSmoothModeFlag</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing17getSmoothModeFlagEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the flag value. </p>
+<p>This flag signalizes which mode of algorithm will be used. If it is set to true than it will work as said in the article. This means that it will be testing the angle between normal of the current point and it’s neighbours normal. Otherwise, it will be testing the angle between normal of the current point and normal of the initial point that was chosen for growing new segment. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing17setSmoothModeFlagEb">
+<span id="_CPPv3N3pcl13RegionGrowing17setSmoothModeFlagEb"></span><span id="_CPPv2N3pcl13RegionGrowing17setSmoothModeFlagEb"></span><span id="pcl::RegionGrowing::setSmoothModeFlag__b"></span><span class="target" id="classpcl_1_1_region_growing_1af10c614af98ec42bacf015f7db6b9935"></span>void <code class="sig-name descname">setSmoothModeFlag</code><span class="sig-paren">(</span>bool <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing17setSmoothModeFlagEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function allows to turn on/off the smoothness constraint. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">value</span></code>: new mode value, if set to true then the smooth version will be used. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing20getCurvatureTestFlagEv">
+<span id="_CPPv3NK3pcl13RegionGrowing20getCurvatureTestFlagEv"></span><span id="_CPPv2NK3pcl13RegionGrowing20getCurvatureTestFlagEv"></span><span id="pcl::RegionGrowing::getCurvatureTestFlagC"></span><span class="target" id="classpcl_1_1_region_growing_1aa86a85c140e251c5a5d4223482678134"></span>bool <code class="sig-name descname">getCurvatureTestFlag</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing20getCurvatureTestFlagEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the flag that signalize if the curvature test is turned on/off. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing20setCurvatureTestFlagEb">
+<span id="_CPPv3N3pcl13RegionGrowing20setCurvatureTestFlagEb"></span><span id="_CPPv2N3pcl13RegionGrowing20setCurvatureTestFlagEb"></span><span id="pcl::RegionGrowing::setCurvatureTestFlag__b"></span><span class="target" id="classpcl_1_1_region_growing_1a1f7a093b9cdc5337309cdeabffc1cd92"></span>void <code class="sig-name descname">setCurvatureTestFlag</code><span class="sig-paren">(</span>bool <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing20setCurvatureTestFlagEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to turn on/off the curvature test. </p>
+<p>Note that at least one test (residual or curvature) must be turned on. If you are turning curvature test off then residual test will be turned on automatically. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">value</span></code>: new value for curvature test. If set to true then the test will be turned on </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing19getResidualTestFlagEv">
+<span id="_CPPv3NK3pcl13RegionGrowing19getResidualTestFlagEv"></span><span id="_CPPv2NK3pcl13RegionGrowing19getResidualTestFlagEv"></span><span id="pcl::RegionGrowing::getResidualTestFlagC"></span><span class="target" id="classpcl_1_1_region_growing_1a07f77c72b5c223988455944f8a86dc03"></span>bool <code class="sig-name descname">getResidualTestFlag</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing19getResidualTestFlagEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the flag that signalize if the residual test is turned on/off. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing19setResidualTestFlagEb">
+<span id="_CPPv3N3pcl13RegionGrowing19setResidualTestFlagEb"></span><span id="_CPPv2N3pcl13RegionGrowing19setResidualTestFlagEb"></span><span id="pcl::RegionGrowing::setResidualTestFlag__b"></span><span class="target" id="classpcl_1_1_region_growing_1ad1846b7d16b40f3187c42c81b80abc79"></span>void <code class="sig-name descname">setResidualTestFlag</code><span class="sig-paren">(</span>bool <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing19setResidualTestFlagEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to turn on/off the residual test. </p>
+<p>Note that at least one test (residual or curvature) must be turned on. If you are turning residual test off then curvature test will be turned on automatically. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">value</span></code>: new value for residual test. If set to true then the test will be turned on </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing22getSmoothnessThresholdEv">
+<span id="_CPPv3NK3pcl13RegionGrowing22getSmoothnessThresholdEv"></span><span id="_CPPv2NK3pcl13RegionGrowing22getSmoothnessThresholdEv"></span><span id="pcl::RegionGrowing::getSmoothnessThresholdC"></span><span class="target" id="classpcl_1_1_region_growing_1a942fc25d32886ee34262e7ff3fe675bf"></span>float <code class="sig-name descname">getSmoothnessThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing22getSmoothnessThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns smoothness threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing22setSmoothnessThresholdEf">
+<span id="_CPPv3N3pcl13RegionGrowing22setSmoothnessThresholdEf"></span><span id="_CPPv2N3pcl13RegionGrowing22setSmoothnessThresholdEf"></span><span id="pcl::RegionGrowing::setSmoothnessThreshold__float"></span><span class="target" id="classpcl_1_1_region_growing_1aaa88700937bc1090bfca521a93b80f71"></span>void <code class="sig-name descname">setSmoothnessThreshold</code><span class="sig-paren">(</span>float <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing22setSmoothnessThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to set smoothness threshold used for testing the points. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">theta</span></code>: new threshold value for the angle between normals </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing20getResidualThresholdEv">
+<span id="_CPPv3NK3pcl13RegionGrowing20getResidualThresholdEv"></span><span id="_CPPv2NK3pcl13RegionGrowing20getResidualThresholdEv"></span><span id="pcl::RegionGrowing::getResidualThresholdC"></span><span class="target" id="classpcl_1_1_region_growing_1a8a01f23a15454f9c214be1319ff88cc8"></span>float <code class="sig-name descname">getResidualThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing20getResidualThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns residual threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing20setResidualThresholdEf">
+<span id="_CPPv3N3pcl13RegionGrowing20setResidualThresholdEf"></span><span id="_CPPv2N3pcl13RegionGrowing20setResidualThresholdEf"></span><span id="pcl::RegionGrowing::setResidualThreshold__float"></span><span class="target" id="classpcl_1_1_region_growing_1a1e3de83fe8e15eccc7f56f4f8762d936"></span>void <code class="sig-name descname">setResidualThreshold</code><span class="sig-paren">(</span>float <em>residual</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing20setResidualThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to set residual threshold used for testing the points. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">residual</span></code>: new threshold value for residual testing </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing21getCurvatureThresholdEv">
+<span id="_CPPv3NK3pcl13RegionGrowing21getCurvatureThresholdEv"></span><span id="_CPPv2NK3pcl13RegionGrowing21getCurvatureThresholdEv"></span><span id="pcl::RegionGrowing::getCurvatureThresholdC"></span><span class="target" id="classpcl_1_1_region_growing_1a6463a53955895a5688dddbfcc8c173c2"></span>float <code class="sig-name descname">getCurvatureThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing21getCurvatureThresholdEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns curvature threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing21setCurvatureThresholdEf">
+<span id="_CPPv3N3pcl13RegionGrowing21setCurvatureThresholdEf"></span><span id="_CPPv2N3pcl13RegionGrowing21setCurvatureThresholdEf"></span><span id="pcl::RegionGrowing::setCurvatureThreshold__float"></span><span class="target" id="classpcl_1_1_region_growing_1ad7554b09a34b2997992c44b947d4ac07"></span>void <code class="sig-name descname">setCurvatureThreshold</code><span class="sig-paren">(</span>float <em>curvature</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing21setCurvatureThresholdEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to set curvature threshold used for testing the points. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">curvature</span></code>: new threshold value for curvature testing </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing21getNumberOfNeighboursEv">
+<span id="_CPPv3NK3pcl13RegionGrowing21getNumberOfNeighboursEv"></span><span id="_CPPv2NK3pcl13RegionGrowing21getNumberOfNeighboursEv"></span><span id="pcl::RegionGrowing::getNumberOfNeighboursC"></span><span class="target" id="classpcl_1_1_region_growing_1aa649d6423eb7c7e247d9a09bd39ec5e1"></span>unsigned int <code class="sig-name descname">getNumberOfNeighbours</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing21getNumberOfNeighboursEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the number of nearest neighbours used for KNN. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing21setNumberOfNeighboursEj">
+<span id="_CPPv3N3pcl13RegionGrowing21setNumberOfNeighboursEj"></span><span id="_CPPv2N3pcl13RegionGrowing21setNumberOfNeighboursEj"></span><span id="pcl::RegionGrowing::setNumberOfNeighbours__unsigned-i"></span><span class="target" id="classpcl_1_1_region_growing_1a4d2c77b68143901495b42fd0dfbb241c"></span>void <code class="sig-name descname">setNumberOfNeighbours</code><span class="sig-paren">(</span>unsigned int <em>neighbour_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing21setNumberOfNeighboursEj" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to set the number of neighbours. </p>
+<p>For more information check the article. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">neighbour_number</span></code>: number of neighbours to use </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing15getSearchMethodEv">
+<span id="_CPPv3NK3pcl13RegionGrowing15getSearchMethodEv"></span><span id="_CPPv2NK3pcl13RegionGrowing15getSearchMethodEv"></span><span id="pcl::RegionGrowing::getSearchMethodC"></span><span class="target" id="classpcl_1_1_region_growing_1a9a9fdb648434826b0bf7cd1a616f85f5"></span>pcl::RegionGrowing&lt;PointT, <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;::KdTreePtr <code class="sig-name descname">getSearchMethod</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing15getSearchMethodEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the pointer to the search method that is used for KNN. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing15setSearchMethodERK9KdTreePtr">
+<span id="_CPPv3N3pcl13RegionGrowing15setSearchMethodERK9KdTreePtr"></span><span id="_CPPv2N3pcl13RegionGrowing15setSearchMethodERK9KdTreePtr"></span><span id="pcl::RegionGrowing::setSearchMethod__KdTreePtrCR"></span><span class="target" id="classpcl_1_1_region_growing_1a23191c1b6a711340a91740b3717140ff"></span>void <code class="sig-name descname">setSearchMethod</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13RegionGrowing9KdTreePtrE" title="pcl::RegionGrowing::KdTreePtr">KdTreePtr</a> &amp;<em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing15setSearchMethodERK9KdTreePtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Allows to set search method that will be used for finding KNN. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tree</span></code>: pointer to a <a class="reference internal" href="classpcl_1_1_kd_tree.html#classpcl_1_1_kd_tree"><span class="std std-ref">KdTree</span></a> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing15getInputNormalsEv">
+<span id="_CPPv3NK3pcl13RegionGrowing15getInputNormalsEv"></span><span id="_CPPv2NK3pcl13RegionGrowing15getInputNormalsEv"></span><span id="pcl::RegionGrowing::getInputNormalsC"></span><span class="target" id="classpcl_1_1_region_growing_1a60c617a3f8cccfa6c5f5d7e41c7ad14e"></span>pcl::RegionGrowing&lt;PointT, <a class="reference internal" href="typedef_iccv2011_2include_2typedefs_8h_1a765d00e69b7489bf92a6b8724c4ea6fd.html#_CPPv47NormalT" title="NormalT">NormalT</a>&gt;::NormalPtr <code class="sig-name descname">getInputNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing15getInputNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing15setInputNormalsERK9NormalPtr">
+<span id="_CPPv3N3pcl13RegionGrowing15setInputNormalsERK9NormalPtr"></span><span id="_CPPv2N3pcl13RegionGrowing15setInputNormalsERK9NormalPtr"></span><span id="pcl::RegionGrowing::setInputNormals__NormalPtrCR"></span><span class="target" id="classpcl_1_1_region_growing_1a26a874b69b4c786886fece175990e727"></span>void <code class="sig-name descname">setInputNormals</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl13RegionGrowing9NormalPtrE" title="pcl::RegionGrowing::NormalPtr">NormalPtr</a> &amp;<em>norm</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing15setInputNormalsERK9NormalPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method sets the normals. </p>
+<p>They are needed for the algorithm, so if no normals will be set, the algorithm would not be able to segment the points. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">norm</span></code>: normals that will be used in the algorithm </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing7extractERNSt6vectorIN3pcl12PointIndicesEEE">
+<span id="_CPPv3N3pcl13RegionGrowing7extractERNSt6vectorIN3pcl12PointIndicesEEE"></span><span id="_CPPv2N3pcl13RegionGrowing7extractERNSt6vectorIN3pcl12PointIndicesEEE"></span><span id="pcl::RegionGrowing::extract__std::vector:pcl::PointIndices:R"></span><span class="target" id="classpcl_1_1_region_growing_1a9ef8286d7ced3ff97667653b96a4bd21"></span>void <code class="sig-name descname">extract</code><span class="sig-paren">(</span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>&gt; &amp;<em>clusters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing7extractERNSt6vectorIN3pcl12PointIndicesEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method launches the segmentation algorithm and returns the clusters that were obtained during the segmentation. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">clusters</span></code>: clusters that were obtained. Each cluster is an array of point indices. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing19getSegmentFromPointEiRN3pcl12PointIndicesE">
+<span id="_CPPv3N3pcl13RegionGrowing19getSegmentFromPointEiRN3pcl12PointIndicesE"></span><span id="_CPPv2N3pcl13RegionGrowing19getSegmentFromPointEiRN3pcl12PointIndicesE"></span><span id="pcl::RegionGrowing::getSegmentFromPoint__i.pcl::PointIndicesR"></span><span class="target" id="classpcl_1_1_region_growing_1a72b71b0e82a8080dcd26142968eb21e3"></span>void <code class="sig-name descname">getSegmentFromPoint</code><span class="sig-paren">(</span>int <em>index</em>, pcl::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a> &amp;<em>cluster</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing19getSegmentFromPointEiRN3pcl12PointIndicesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>For a given point this function builds a segment to which it belongs and returns this segment. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">index</span></code>: index of the initial point which will be the seed for growing a segment. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">cluster</span></code>: cluster to which the point belongs. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing15getColoredCloudEv">
+<span id="_CPPv3N3pcl13RegionGrowing15getColoredCloudEv"></span><span id="_CPPv2N3pcl13RegionGrowing15getColoredCloudEv"></span><span id="pcl::RegionGrowing::getColoredCloud"></span><span class="target" id="classpcl_1_1_region_growing_1aeb1ae724085424bc60bb4cf27ff27283"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b.html#_CPPv4N3pcl11PointXYZRGBE" title="pcl::PointXYZRGB">PointXYZRGB</a>&gt;::Ptr <code class="sig-name descname">getColoredCloud</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing15getColoredCloudEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the cloud was successfully segmented, then function returns colored cloud. </p>
+<p>Otherwise it returns an empty pointer. Points that belong to the same segment have the same color. But this function doesn’t guarantee that different segments will have different color(it all depends on RNG). Points that were not listed in the indices array will have red color. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing19getColoredCloudRGBAEv">
+<span id="_CPPv3N3pcl13RegionGrowing19getColoredCloudRGBAEv"></span><span id="_CPPv2N3pcl13RegionGrowing19getColoredCloudRGBAEv"></span><span id="pcl::RegionGrowing::getColoredCloudRGBA"></span><span class="target" id="classpcl_1_1_region_growing_1a1aed39b32b17e43362d5d72112e6e3d2"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b_a.html#_CPPv4N3pcl12PointXYZRGBAE" title="pcl::PointXYZRGBA">PointXYZRGBA</a>&gt;::Ptr <code class="sig-name descname">getColoredCloudRGBA</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing19getColoredCloudRGBAEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If the cloud was successfully segmented, then function returns colored cloud. </p>
+<p>Otherwise it returns an empty pointer. Points that belong to the same segment have the same color. But this function doesn’t guarantee that different segments will have different color(it all depends on RNG). Points that were not listed in the indices array will have red color. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing22prepareForSegmentationEv">
+<span id="_CPPv3N3pcl13RegionGrowing22prepareForSegmentationEv"></span><span id="_CPPv2N3pcl13RegionGrowing22prepareForSegmentationEv"></span><span id="pcl::RegionGrowing::prepareForSegmentation"></span><span class="target" id="classpcl_1_1_region_growing_1a510496b033f5261bc0325da4a9ec0e3b"></span>bool <code class="sig-name descname">prepareForSegmentation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing22prepareForSegmentationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method simply checks if it is possible to execute the segmentation algorithm with the current settings. </p>
+<p>If it is possible then it returns true. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing19findPointNeighboursEv">
+<span id="_CPPv3N3pcl13RegionGrowing19findPointNeighboursEv"></span><span id="_CPPv2N3pcl13RegionGrowing19findPointNeighboursEv"></span><span id="pcl::RegionGrowing::findPointNeighbours"></span><span class="target" id="classpcl_1_1_region_growing_1a541edb18fa47990020ceb640186c95dc"></span>void <code class="sig-name descname">findPointNeighbours</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing19findPointNeighboursEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method finds KNN for each point and saves them to the array because the algorithm needs to find KNN a few times. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing33applySmoothRegionGrowingAlgorithmEv">
+<span id="_CPPv3N3pcl13RegionGrowing33applySmoothRegionGrowingAlgorithmEv"></span><span id="_CPPv2N3pcl13RegionGrowing33applySmoothRegionGrowingAlgorithmEv"></span><span id="pcl::RegionGrowing::applySmoothRegionGrowingAlgorithm"></span><span class="target" id="classpcl_1_1_region_growing_1ad9fdb4c1edc24da8b149866dcfc819d5"></span>void <code class="sig-name descname">applySmoothRegionGrowingAlgorithm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing33applySmoothRegionGrowingAlgorithmEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function implements the algorithm described in the article “Segmentation of point clouds using smoothness constraint” by T. </p>
+<p>Rabbania, F. A. van den Heuvelb, G. Vosselmanc. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing10growRegionEii">
+<span id="_CPPv3N3pcl13RegionGrowing10growRegionEii"></span><span id="_CPPv2N3pcl13RegionGrowing10growRegionEii"></span><span id="pcl::RegionGrowing::growRegion__i.i"></span><span class="target" id="classpcl_1_1_region_growing_1a3ac4219f1374555e9dd76a7338905a6d"></span>int <code class="sig-name descname">growRegion</code><span class="sig-paren">(</span>int <em>initial_seed</em>, int <em>segment_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing10growRegionEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method grows a segment for the given seed point. </p>
+<p>And returns the number of its points. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">initial_seed</span></code>: index of the point that will serve as the seed point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">segment_number</span></code>: indicates which number this segment will have </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl13RegionGrowing13validatePointEiiiRb">
+<span id="_CPPv3NK3pcl13RegionGrowing13validatePointEiiiRb"></span><span id="_CPPv2NK3pcl13RegionGrowing13validatePointEiiiRb"></span><span id="pcl::RegionGrowing::validatePoint__i.i.i.bRC"></span><span class="target" id="classpcl_1_1_region_growing_1a71c8914239d04758cc94e59886b8308a"></span>bool <code class="sig-name descname">validatePoint</code><span class="sig-paren">(</span>int <em>initial_seed</em>, int <em>point</em>, int <em>nghbr</em>, bool &amp;<em>is_a_seed</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl13RegionGrowing13validatePointEiiiRb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function is checking if the point with index ‘nghbr’ belongs to the segment. </p>
+<p>If so, then it returns true. It also checks if this point can serve as the seed. <dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">initial_seed</span></code>: index of the initial point that was passed to the <a class="reference internal" href="#classpcl_1_1_region_growing_1a3ac4219f1374555e9dd76a7338905a6d"><span class="std std-ref">growRegion()</span></a> function </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">point</span></code>: index of the current seed point </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nghbr</span></code>: index of the point that is neighbour of the current seed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">is_a_seed</span></code>: this value is set to true if the point with index ‘nghbr’ can serve as the seed </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl13RegionGrowing15assembleRegionsEv">
+<span id="_CPPv3N3pcl13RegionGrowing15assembleRegionsEv"></span><span id="_CPPv2N3pcl13RegionGrowing15assembleRegionsEv"></span><span id="pcl::RegionGrowing::assembleRegions"></span><span class="target" id="classpcl_1_1_region_growing_1af6effde13de0fe92a2e006dcdcde79ef"></span>void <code class="sig-name descname">assembleRegions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing15assembleRegionsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function simply assembles the regions from list of point labels. </p>
+<p>Each cluster is an array of point indices. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing20min_pts_per_cluster_E">
+<span id="_CPPv3N3pcl13RegionGrowing20min_pts_per_cluster_E"></span><span id="_CPPv2N3pcl13RegionGrowing20min_pts_per_cluster_E"></span><span id="pcl::RegionGrowing::min_pts_per_cluster___i"></span><span class="target" id="classpcl_1_1_region_growing_1aaf5fe4e97596798764ebd768193b3054"></span>int <code class="sig-name descname">min_pts_per_cluster_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing20min_pts_per_cluster_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the minimum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing20max_pts_per_cluster_E">
+<span id="_CPPv3N3pcl13RegionGrowing20max_pts_per_cluster_E"></span><span id="_CPPv2N3pcl13RegionGrowing20max_pts_per_cluster_E"></span><span id="pcl::RegionGrowing::max_pts_per_cluster___i"></span><span class="target" id="classpcl_1_1_region_growing_1a740af3118950d0bef662a7ab60177b6a"></span>int <code class="sig-name descname">max_pts_per_cluster_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing20max_pts_per_cluster_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the maximum number of points that a cluster needs to contain in order to be considered valid. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing17smooth_mode_flag_E">
+<span id="_CPPv3N3pcl13RegionGrowing17smooth_mode_flag_E"></span><span id="_CPPv2N3pcl13RegionGrowing17smooth_mode_flag_E"></span><span id="pcl::RegionGrowing::smooth_mode_flag___b"></span><span class="target" id="classpcl_1_1_region_growing_1a8d9411960ec9656fa6e727e0558d57f7"></span>bool <code class="sig-name descname">smooth_mode_flag_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing17smooth_mode_flag_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Flag that signalizes if the smoothness constraint will be used. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing15curvature_flag_E">
+<span id="_CPPv3N3pcl13RegionGrowing15curvature_flag_E"></span><span id="_CPPv2N3pcl13RegionGrowing15curvature_flag_E"></span><span id="pcl::RegionGrowing::curvature_flag___b"></span><span class="target" id="classpcl_1_1_region_growing_1a1a5665f6c84af901ed018521b8b3677d"></span>bool <code class="sig-name descname">curvature_flag_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing15curvature_flag_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If set to true then curvature test will be done during segmentation. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing14residual_flag_E">
+<span id="_CPPv3N3pcl13RegionGrowing14residual_flag_E"></span><span id="_CPPv2N3pcl13RegionGrowing14residual_flag_E"></span><span id="pcl::RegionGrowing::residual_flag___b"></span><span class="target" id="classpcl_1_1_region_growing_1aa217ad1c027e687ff378edb852ca3052"></span>bool <code class="sig-name descname">residual_flag_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing14residual_flag_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If set to true then residual test will be done during segmentation. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing16theta_threshold_E">
+<span id="_CPPv3N3pcl13RegionGrowing16theta_threshold_E"></span><span id="_CPPv2N3pcl13RegionGrowing16theta_threshold_E"></span><span id="pcl::RegionGrowing::theta_threshold___float"></span><span class="target" id="classpcl_1_1_region_growing_1a87c8818e2c3eb306f1e44fa98bb55a89"></span>float <code class="sig-name descname">theta_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing16theta_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Thershold used for testing the smoothness between points. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing19residual_threshold_E">
+<span id="_CPPv3N3pcl13RegionGrowing19residual_threshold_E"></span><span id="_CPPv2N3pcl13RegionGrowing19residual_threshold_E"></span><span id="pcl::RegionGrowing::residual_threshold___float"></span><span class="target" id="classpcl_1_1_region_growing_1ab9039b5534be233e1aa26bbadeecd42a"></span>float <code class="sig-name descname">residual_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing19residual_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Thershold used in residual test. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing20curvature_threshold_E">
+<span id="_CPPv3N3pcl13RegionGrowing20curvature_threshold_E"></span><span id="_CPPv2N3pcl13RegionGrowing20curvature_threshold_E"></span><span id="pcl::RegionGrowing::curvature_threshold___float"></span><span class="target" id="classpcl_1_1_region_growing_1a8afe22fadb13bbd9a0d90753129b336c"></span>float <code class="sig-name descname">curvature_threshold_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing20curvature_threshold_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Thershold used in curvature test. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing17neighbour_number_E">
+<span id="_CPPv3N3pcl13RegionGrowing17neighbour_number_E"></span><span id="_CPPv2N3pcl13RegionGrowing17neighbour_number_E"></span><span id="pcl::RegionGrowing::neighbour_number___unsigned-i"></span><span class="target" id="classpcl_1_1_region_growing_1a8e71c3e1eab57f9eac8ff2897200fe5a"></span>unsigned int <code class="sig-name descname">neighbour_number_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing17neighbour_number_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of neighbours to find. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing7search_E">
+<span id="_CPPv3N3pcl13RegionGrowing7search_E"></span><span id="_CPPv2N3pcl13RegionGrowing7search_E"></span><span id="pcl::RegionGrowing::search___KdTreePtr"></span><span class="target" id="classpcl_1_1_region_growing_1a257e86a32165cc92f55c9a0b610b7917"></span><a class="reference internal" href="#_CPPv4N3pcl13RegionGrowing9KdTreePtrE" title="pcl::RegionGrowing::KdTreePtr">KdTreePtr</a> <code class="sig-name descname">search_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing7search_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Serch method that will be used for KNN. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing8normals_E">
+<span id="_CPPv3N3pcl13RegionGrowing8normals_E"></span><span id="_CPPv2N3pcl13RegionGrowing8normals_E"></span><span id="pcl::RegionGrowing::normals___NormalPtr"></span><span class="target" id="classpcl_1_1_region_growing_1a071c48f5d44f919aba6f8f386fd5e988"></span><a class="reference internal" href="#_CPPv4N3pcl13RegionGrowing9NormalPtrE" title="pcl::RegionGrowing::NormalPtr">NormalPtr</a> <code class="sig-name descname">normals_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing8normals_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Contains normals of the points that will be segmented. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing17point_neighbours_E">
+<span id="_CPPv3N3pcl13RegionGrowing17point_neighbours_E"></span><span id="_CPPv2N3pcl13RegionGrowing17point_neighbours_E"></span><span id="pcl::RegionGrowing::point_neighbours___std::vector:std::vector:i::"></span><span class="target" id="classpcl_1_1_region_growing_1a3e4cd088c8a767b380613c9471cc15d5"></span>std::vector&lt;std::vector&lt;int&gt;&gt; <code class="sig-name descname">point_neighbours_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing17point_neighbours_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Contains neighbours of each point. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing13point_labels_E">
+<span id="_CPPv3N3pcl13RegionGrowing13point_labels_E"></span><span id="_CPPv2N3pcl13RegionGrowing13point_labels_E"></span><span id="pcl::RegionGrowing::point_labels___std::vector:i:"></span><span class="target" id="classpcl_1_1_region_growing_1a83457053cb030294787154b4d29a9e87"></span>std::vector&lt;int&gt; <code class="sig-name descname">point_labels_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing13point_labels_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Point labels that tells to which segment each point belongs. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing12normal_flag_E">
+<span id="_CPPv3N3pcl13RegionGrowing12normal_flag_E"></span><span id="_CPPv2N3pcl13RegionGrowing12normal_flag_E"></span><span id="pcl::RegionGrowing::normal_flag___b"></span><span class="target" id="classpcl_1_1_region_growing_1a95f1b3605f488bcaa677d166f2b0f362"></span>bool <code class="sig-name descname">normal_flag_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing12normal_flag_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If set to true then normal/smoothness test will be done during segmentation. </p>
+<p>It is always set to true for the usual region growing algorithm. It is used for turning on/off the test for smoothness in the child class <a class="reference internal" href="classpcl_1_1_region_growing_r_g_b.html#classpcl_1_1_region_growing_r_g_b"><span class="std std-ref">RegionGrowingRGB</span></a>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing19num_pts_in_segment_E">
+<span id="_CPPv3N3pcl13RegionGrowing19num_pts_in_segment_E"></span><span id="_CPPv2N3pcl13RegionGrowing19num_pts_in_segment_E"></span><span id="pcl::RegionGrowing::num_pts_in_segment___std::vector:i:"></span><span class="target" id="classpcl_1_1_region_growing_1a2d9823fcc36dd839f1b0e35f5949b468"></span>std::vector&lt;int&gt; <code class="sig-name descname">num_pts_in_segment_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing19num_pts_in_segment_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tells how much points each segment contains. </p>
+<p>Used for reserving memory. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing9clusters_E">
+<span id="_CPPv3N3pcl13RegionGrowing9clusters_E"></span><span id="_CPPv2N3pcl13RegionGrowing9clusters_E"></span><span id="pcl::RegionGrowing::clusters___std::vector:pcl::PointIndices:"></span><span class="target" id="classpcl_1_1_region_growing_1af330bc7d3ac671aee8e1a48608608b72"></span>std::vector&lt;pcl::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>&gt; <code class="sig-name descname">clusters_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing9clusters_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>After the segmentation it will contain the segments. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl13RegionGrowing19number_of_segments_E">
+<span id="_CPPv3N3pcl13RegionGrowing19number_of_segments_E"></span><span id="_CPPv2N3pcl13RegionGrowing19number_of_segments_E"></span><span id="pcl::RegionGrowing::number_of_segments___i"></span><span class="target" id="classpcl_1_1_region_growing_1addb7479a6c8b6a8fd5ca68aadfd9b7cf"></span>int <code class="sig-name descname">number_of_segments_</code><a class="headerlink" href="#_CPPv4N3pcl13RegionGrowing19number_of_segments_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Stores the number of segments. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

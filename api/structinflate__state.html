@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Struct inflate_state &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Struct inflate_state</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/structinflate__state.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="struct-inflate-state">
+<span id="exhale-struct-structinflate-state"></span><h1>Struct inflate_state<a class="headerlink" href="#struct-inflate-state" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_3rdparty_opennurbs_inflate.h.html#file-pcl-surface-include-pcl-surface-3rdparty-opennurbs-inflate-h"><span class="std std-ref">File inflate.h</span></a></p></li>
+</ul>
+<div class="section" id="struct-documentation">
+<h2>Struct Documentation<a class="headerlink" href="#struct-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv413inflate_state">
+<span id="_CPPv313inflate_state"></span><span id="_CPPv213inflate_state"></span><span id="inflate_state"></span><span class="target" id="structinflate__state"></span><em class="property">struct </em><code class="sig-name descname">inflate_state</code><a class="headerlink" href="#_CPPv413inflate_state" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4modeE">
+<span id="_CPPv3N13inflate_state4modeE"></span><span id="_CPPv2N13inflate_state4modeE"></span><span id="inflate_state::mode__inflate_mode"></span><span class="target" id="structinflate__state_1a9c7906fee7eeeb450b13576531ca639d"></span><a class="reference internal" href="enum_inflate_8h_1a164ea0159d5f0b5f12a646f25f99ecea.html#_CPPv412inflate_mode" title="inflate_mode">inflate_mode</a> <code class="sig-name descname">mode</code><a class="headerlink" href="#_CPPv4N13inflate_state4modeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4lastE">
+<span id="_CPPv3N13inflate_state4lastE"></span><span id="_CPPv2N13inflate_state4lastE"></span><span id="inflate_state::last__i"></span><span class="target" id="structinflate__state_1ab3cbcd2c5ff3b0b8b34ef402a13afdf7"></span>int <code class="sig-name descname">last</code><a class="headerlink" href="#_CPPv4N13inflate_state4lastE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4wrapE">
+<span id="_CPPv3N13inflate_state4wrapE"></span><span id="_CPPv2N13inflate_state4wrapE"></span><span id="inflate_state::wrap__i"></span><span class="target" id="structinflate__state_1a990d157b5c0d4ba178c3361de9ce6561"></span>int <code class="sig-name descname">wrap</code><a class="headerlink" href="#_CPPv4N13inflate_state4wrapE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state8havedictE">
+<span id="_CPPv3N13inflate_state8havedictE"></span><span id="_CPPv2N13inflate_state8havedictE"></span><span id="inflate_state::havedict__i"></span><span class="target" id="structinflate__state_1a2eb1cd634ed6baade952ffa5938ebcdc"></span>int <code class="sig-name descname">havedict</code><a class="headerlink" href="#_CPPv4N13inflate_state8havedictE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5flagsE">
+<span id="_CPPv3N13inflate_state5flagsE"></span><span id="_CPPv2N13inflate_state5flagsE"></span><span id="inflate_state::flags__i"></span><span class="target" id="structinflate__state_1a9dcf6151443750d75b2283d0a3e62c39"></span>int <code class="sig-name descname">flags</code><a class="headerlink" href="#_CPPv4N13inflate_state5flagsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4dmaxE">
+<span id="_CPPv3N13inflate_state4dmaxE"></span><span id="_CPPv2N13inflate_state4dmaxE"></span><span id="inflate_state::dmax__unsigned"></span><span class="target" id="structinflate__state_1ae3d433011714e673b22e82156acc4416"></span>unsigned <code class="sig-name descname">dmax</code><a class="headerlink" href="#_CPPv4N13inflate_state4dmaxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5checkE">
+<span id="_CPPv3N13inflate_state5checkE"></span><span id="_CPPv2N13inflate_state5checkE"></span><span id="inflate_state::check__unsigned-i"></span><span class="target" id="structinflate__state_1a31a6aed9664e85cc7b8688caf14b1b63"></span>unsigned int <code class="sig-name descname">check</code><a class="headerlink" href="#_CPPv4N13inflate_state5checkE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5totalE">
+<span id="_CPPv3N13inflate_state5totalE"></span><span id="_CPPv2N13inflate_state5totalE"></span><span id="inflate_state::total__unsigned-i"></span><span class="target" id="structinflate__state_1a52c92e5d30b000beb68377830468bfc1"></span>unsigned int <code class="sig-name descname">total</code><a class="headerlink" href="#_CPPv4N13inflate_state5totalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4headE">
+<span id="_CPPv3N13inflate_state4headE"></span><span id="_CPPv2N13inflate_state4headE"></span><span id="inflate_state::head__gz_headerp"></span><span class="target" id="structinflate__state_1aac35b33a559009eb4bc0e2bdd8e9b5c6"></span>gz_headerp <code class="sig-name descname">head</code><a class="headerlink" href="#_CPPv4N13inflate_state4headE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5wbitsE">
+<span id="_CPPv3N13inflate_state5wbitsE"></span><span id="_CPPv2N13inflate_state5wbitsE"></span><span id="inflate_state::wbits__unsigned"></span><span class="target" id="structinflate__state_1a71f844b589ac450f17d69f3692a8c5cc"></span>unsigned <code class="sig-name descname">wbits</code><a class="headerlink" href="#_CPPv4N13inflate_state5wbitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5wsizeE">
+<span id="_CPPv3N13inflate_state5wsizeE"></span><span id="_CPPv2N13inflate_state5wsizeE"></span><span id="inflate_state::wsize__unsigned"></span><span class="target" id="structinflate__state_1acca16ca86216760eaf307bf71e15e470"></span>unsigned <code class="sig-name descname">wsize</code><a class="headerlink" href="#_CPPv4N13inflate_state5wsizeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5whaveE">
+<span id="_CPPv3N13inflate_state5whaveE"></span><span id="_CPPv2N13inflate_state5whaveE"></span><span id="inflate_state::whave__unsigned"></span><span class="target" id="structinflate__state_1a6b56aabe80412784eadc1068981c9d00"></span>unsigned <code class="sig-name descname">whave</code><a class="headerlink" href="#_CPPv4N13inflate_state5whaveE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5writeE">
+<span id="_CPPv3N13inflate_state5writeE"></span><span id="_CPPv2N13inflate_state5writeE"></span><span id="inflate_state::write__unsigned"></span><span class="target" id="structinflate__state_1a8b89588c1a322e622ebb694d8daa644c"></span>unsigned <code class="sig-name descname">write</code><a class="headerlink" href="#_CPPv4N13inflate_state5writeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="structinflate__state_1a9cc4c0bde426383731394dcf91c40673"></span><code class="sig-name descname">unsigned char FAR* inflate_state::window</code></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4holdE">
+<span id="_CPPv3N13inflate_state4holdE"></span><span id="_CPPv2N13inflate_state4holdE"></span><span id="inflate_state::hold__unsigned-i"></span><span class="target" id="structinflate__state_1af75585bd3178e75fa71832ed34c13e4d"></span>unsigned int <code class="sig-name descname">hold</code><a class="headerlink" href="#_CPPv4N13inflate_state4holdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4bitsE">
+<span id="_CPPv3N13inflate_state4bitsE"></span><span id="_CPPv2N13inflate_state4bitsE"></span><span id="inflate_state::bits__unsigned"></span><span class="target" id="structinflate__state_1ab37c3563f306f29e6ded8e933af14365"></span>unsigned <code class="sig-name descname">bits</code><a class="headerlink" href="#_CPPv4N13inflate_state4bitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state6lengthE">
+<span id="_CPPv3N13inflate_state6lengthE"></span><span id="_CPPv2N13inflate_state6lengthE"></span><span id="inflate_state::length__unsigned"></span><span class="target" id="structinflate__state_1a5179d4c9b332d976cce7c6cce6bdf3c1"></span>unsigned <code class="sig-name descname">length</code><a class="headerlink" href="#_CPPv4N13inflate_state6lengthE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state6offsetE">
+<span id="_CPPv3N13inflate_state6offsetE"></span><span id="_CPPv2N13inflate_state6offsetE"></span><span id="inflate_state::offset__unsigned"></span><span class="target" id="structinflate__state_1af1e38258e8585b1a37854066ef9d939c"></span>unsigned <code class="sig-name descname">offset</code><a class="headerlink" href="#_CPPv4N13inflate_state6offsetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5extraE">
+<span id="_CPPv3N13inflate_state5extraE"></span><span id="_CPPv2N13inflate_state5extraE"></span><span id="inflate_state::extra__unsigned"></span><span class="target" id="structinflate__state_1a5b7b0be77d61e8468716c7f265dd0780"></span>unsigned <code class="sig-name descname">extra</code><a class="headerlink" href="#_CPPv4N13inflate_state5extraE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="structinflate__state_1a4560e1eb3318f7ea41896be84de0679a"></span><code class="sig-name descname">code const FAR* inflate_state::lencode</code></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="structinflate__state_1a19f7ae2fe2682cb1163860f6991a107f"></span><code class="sig-name descname">code const FAR* inflate_state::distcode</code></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state7lenbitsE">
+<span id="_CPPv3N13inflate_state7lenbitsE"></span><span id="_CPPv2N13inflate_state7lenbitsE"></span><span id="inflate_state::lenbits__unsigned"></span><span class="target" id="structinflate__state_1a3ff97e6b230d7551fc848ff9de0236e9"></span>unsigned <code class="sig-name descname">lenbits</code><a class="headerlink" href="#_CPPv4N13inflate_state7lenbitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state8distbitsE">
+<span id="_CPPv3N13inflate_state8distbitsE"></span><span id="_CPPv2N13inflate_state8distbitsE"></span><span id="inflate_state::distbits__unsigned"></span><span class="target" id="structinflate__state_1a98952f3f8f420a05b567f080aca0eb4b"></span>unsigned <code class="sig-name descname">distbits</code><a class="headerlink" href="#_CPPv4N13inflate_state8distbitsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5ncodeE">
+<span id="_CPPv3N13inflate_state5ncodeE"></span><span id="_CPPv2N13inflate_state5ncodeE"></span><span id="inflate_state::ncode__unsigned"></span><span class="target" id="structinflate__state_1a62b5ea8559856b315b6c89d9114c2109"></span>unsigned <code class="sig-name descname">ncode</code><a class="headerlink" href="#_CPPv4N13inflate_state5ncodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4nlenE">
+<span id="_CPPv3N13inflate_state4nlenE"></span><span id="_CPPv2N13inflate_state4nlenE"></span><span id="inflate_state::nlen__unsigned"></span><span class="target" id="structinflate__state_1a489b005f4fe214353cd80b77b4f23194"></span>unsigned <code class="sig-name descname">nlen</code><a class="headerlink" href="#_CPPv4N13inflate_state4nlenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5ndistE">
+<span id="_CPPv3N13inflate_state5ndistE"></span><span id="_CPPv2N13inflate_state5ndistE"></span><span id="inflate_state::ndist__unsigned"></span><span class="target" id="structinflate__state_1a4415e5e51efdd0c8672e4c601caa4762"></span>unsigned <code class="sig-name descname">ndist</code><a class="headerlink" href="#_CPPv4N13inflate_state5ndistE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4haveE">
+<span id="_CPPv3N13inflate_state4haveE"></span><span id="_CPPv2N13inflate_state4haveE"></span><span id="inflate_state::have__unsigned"></span><span class="target" id="structinflate__state_1a4a2b15912256bcf7b39980e15095ba58"></span>unsigned <code class="sig-name descname">have</code><a class="headerlink" href="#_CPPv4N13inflate_state4haveE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt>
+<span class="target" id="structinflate__state_1a872bf267d91efb4143e9cfb812e670bb"></span><code class="sig-name descname">code FAR* inflate_state::next</code></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4lensE">
+<span id="_CPPv3N13inflate_state4lensE"></span><span id="_CPPv2N13inflate_state4lensE"></span><span id="inflate_state::lens__unsigned-shortA"></span><span class="target" id="structinflate__state_1aa0620e64487c48635f6c3a11a0aeb99d"></span>unsigned short <code class="sig-name descname">lens</code>[320]<a class="headerlink" href="#_CPPv4N13inflate_state4lensE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state4workE">
+<span id="_CPPv3N13inflate_state4workE"></span><span id="_CPPv2N13inflate_state4workE"></span><span id="inflate_state::work__unsigned-shortA"></span><span class="target" id="structinflate__state_1a85403907f7f5b9d355821ffa2591456c"></span>unsigned short <code class="sig-name descname">work</code>[288]<a class="headerlink" href="#_CPPv4N13inflate_state4workE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N13inflate_state5codesE">
+<span id="_CPPv3N13inflate_state5codesE"></span><span id="_CPPv2N13inflate_state5codesE"></span><span id="inflate_state::codes__codeA"></span><span class="target" id="structinflate__state_1af9581f523a7d8d47fba6cdd73eaf1edc"></span><a class="reference internal" href="structcode.html#_CPPv44code" title="code">code</a> <code class="sig-name descname">codes</code>[<code class="sig-name descname">ENOUGH</code>]<a class="headerlink" href="#_CPPv4N13inflate_state5codesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

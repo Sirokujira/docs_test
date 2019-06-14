@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class BilateralUpsampling &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class BilateralUpsampling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_bilateral_upsampling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-bilateralupsampling">
+<span id="exhale-class-classpcl-1-1-bilateral-upsampling"></span><h1>Template Class BilateralUpsampling<a class="headerlink" href="#template-class-bilateralupsampling" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_surface_include_pcl_surface_bilateral_upsampling.h.html#file-pcl-surface-include-pcl-surface-bilateral-upsampling-h"><span class="std std-ref">File bilateral_upsampling.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::CloudSurfaceProcessing&lt;</span> <span class="pre">PointInT,</span> <span class="pre">PointOutT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_cloud_surface_processing.html#exhale-class-classpcl-1-1-cloud-surface-processing"><span class="std std-ref">Template Class CloudSurfaceProcessing</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl19BilateralUpsamplingE">
+<span id="_CPPv3I00EN3pcl19BilateralUpsamplingE"></span><span id="_CPPv2I00EN3pcl19BilateralUpsamplingE"></span><span class="target" id="classpcl_1_1_bilateral_upsampling"></span>template&lt;typename <code class="sig-name descname">PointInT</code>, typename <code class="sig-name descname">PointOutT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">BilateralUpsampling</code> : <em class="property">public</em> pcl::CloudSurfaceProcessing&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl19BilateralUpsamplingE" title="pcl::BilateralUpsampling::PointInT">PointInT</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl19BilateralUpsamplingE" title="pcl::BilateralUpsampling::PointOutT">PointOutT</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl19BilateralUpsamplingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Bilateral filtering implementation, based on the following paper: </p>
+<p><ul class="simple">
+<li><p>Kopf, Johannes and Cohen, Michael F. and Lischinski, Dani and Uyttendaele, Matt - Joint Bilateral Upsampling,</p></li>
+<li><p>ACM Transactions in Graphics, July 2007</p></li>
+</ul>
+</p>
+<p>Takes in a colored organized point cloud (i.e. <a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b.html#structpcl_1_1_point_x_y_z_r_g_b"><span class="std std-ref">PointXYZRGB</span></a> or <a class="reference internal" href="structpcl_1_1_point_x_y_z_r_g_b_a.html#structpcl_1_1_point_x_y_z_r_g_b_a"><span class="std std-ref">PointXYZRGBA</span></a>), that might contain nan values for the depth information, and it will return an upsampled version of this cloud, based on the formula: <div class="math">
+<p><span class="math">\tilde{S}_p = \frac{1}{k_p} \sum_{q_d \in \Omega} {S_{q_d} f(||p_d - q_d|| g(||\tilde{I}_p-\tilde{I}_q||})</span></p>
+</div></p>
+<p>where S is the depth image, I is the <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> image and f and g are Gaussian functions centered at 0 and with standard deviations <span class="math">\sigma_{color}</span> and <span class="math">\sigma_{depth}</span> </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl19BilateralUpsampling3PtrE">
+<span id="_CPPv3N3pcl19BilateralUpsampling3PtrE"></span><span id="_CPPv2N3pcl19BilateralUpsampling3PtrE"></span><span id="pcl::BilateralUpsampling::Ptr"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a7e7e94c57c849ed31eb0f8f5326fb050"></span><em class="property">typedef </em>boost::shared_ptr&lt;BilateralUpsampling&lt;PointInT, PointOutT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19BilateralUpsampling8ConstPtrE">
+<span id="_CPPv3N3pcl19BilateralUpsampling8ConstPtrE"></span><span id="_CPPv2N3pcl19BilateralUpsampling8ConstPtrE"></span><span id="pcl::BilateralUpsampling::ConstPtr"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1acbb845850005401006ea83ee84291ea2"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> BilateralUpsampling&lt;PointInT, PointOutT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl19BilateralUpsampling13PointCloudOutE">
+<span id="_CPPv3N3pcl19BilateralUpsampling13PointCloudOutE"></span><span id="_CPPv2N3pcl19BilateralUpsampling13PointCloudOutE"></span><span id="pcl::BilateralUpsampling::PointCloudOut"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a804c2815eddc469e375e4261fe60675d"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointOutT&gt; <code class="sig-name descname">PointCloudOut</code><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling13PointCloudOutE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl19BilateralUpsampling19BilateralUpsamplingEv">
+<span id="_CPPv3N3pcl19BilateralUpsampling19BilateralUpsamplingEv"></span><span id="_CPPv2N3pcl19BilateralUpsampling19BilateralUpsamplingEv"></span><span id="pcl::BilateralUpsampling::BilateralUpsampling"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a73c65ef7f80b7e63797df397c34a49ff"></span><code class="sig-name descname">BilateralUpsampling</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling19BilateralUpsamplingEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19BilateralUpsampling13setWindowSizeEi">
+<span id="_CPPv3N3pcl19BilateralUpsampling13setWindowSizeEi"></span><span id="_CPPv2N3pcl19BilateralUpsampling13setWindowSizeEi"></span><span id="pcl::BilateralUpsampling::setWindowSize__i"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1acd0eae8cf27d0f32d3d78649690ba897"></span>void <code class="sig-name descname">setWindowSize</code><span class="sig-paren">(</span>int <em>window_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling13setWindowSizeEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that sets the window size for the filter. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">window_size</span></code>: the given window size </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19BilateralUpsampling13getWindowSizeEv">
+<span id="_CPPv3NK3pcl19BilateralUpsampling13getWindowSizeEv"></span><span id="_CPPv2NK3pcl19BilateralUpsampling13getWindowSizeEv"></span><span id="pcl::BilateralUpsampling::getWindowSizeC"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1afd7c27e23f6837eec417c1d6238773d4"></span>int <code class="sig-name descname">getWindowSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19BilateralUpsampling13getWindowSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the filter window size. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19BilateralUpsampling13setSigmaColorERKf">
+<span id="_CPPv3N3pcl19BilateralUpsampling13setSigmaColorERKf"></span><span id="_CPPv2N3pcl19BilateralUpsampling13setSigmaColorERKf"></span><span id="pcl::BilateralUpsampling::setSigmaColor__floatCR"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1ad4f7695ba231d9ea5ff7778a653166dc"></span>void <code class="sig-name descname">setSigmaColor</code><span class="sig-paren">(</span><em class="property">const</em> float &amp;<em>sigma_color</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling13setSigmaColorERKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that sets the sigma color parameter. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sigma_color</span></code>: the new value to be set </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19BilateralUpsampling13getSigmaColorEv">
+<span id="_CPPv3NK3pcl19BilateralUpsampling13getSigmaColorEv"></span><span id="_CPPv2NK3pcl19BilateralUpsampling13getSigmaColorEv"></span><span id="pcl::BilateralUpsampling::getSigmaColorC"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a77957460468ef7c36f7bf4a73e8acad6"></span>float <code class="sig-name descname">getSigmaColor</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19BilateralUpsampling13getSigmaColorEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the current sigma color value. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19BilateralUpsampling13setSigmaDepthERKf">
+<span id="_CPPv3N3pcl19BilateralUpsampling13setSigmaDepthERKf"></span><span id="_CPPv2N3pcl19BilateralUpsampling13setSigmaDepthERKf"></span><span id="pcl::BilateralUpsampling::setSigmaDepth__floatCR"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1ac92d07884010ec8e7c618587251e464c"></span>void <code class="sig-name descname">setSigmaDepth</code><span class="sig-paren">(</span><em class="property">const</em> float &amp;<em>sigma_depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling13setSigmaDepthERKf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that sets the sigma depth parameter. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sigma_depth</span></code>: the new value to be set </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19BilateralUpsampling13getSigmaDepthEv">
+<span id="_CPPv3NK3pcl19BilateralUpsampling13getSigmaDepthEv"></span><span id="_CPPv2NK3pcl19BilateralUpsampling13getSigmaDepthEv"></span><span id="pcl::BilateralUpsampling::getSigmaDepthC"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a1430bd487587488968ef808cf69693e5"></span>float <code class="sig-name descname">getSigmaDepth</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19BilateralUpsampling13getSigmaDepthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the current sigma depth value. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19BilateralUpsampling19setProjectionMatrixERKN5Eigen8Matrix3fE">
+<span id="_CPPv3N3pcl19BilateralUpsampling19setProjectionMatrixERKN5Eigen8Matrix3fE"></span><span id="_CPPv2N3pcl19BilateralUpsampling19setProjectionMatrixERKN5Eigen8Matrix3fE"></span><span id="pcl::BilateralUpsampling::setProjectionMatrix__Eigen::Matrix3fCR"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a349a7e997fba0920915560f025d4c2f1"></span>void <code class="sig-name descname">setProjectionMatrix</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Matrix3f &amp;<em>projection_matrix</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling19setProjectionMatrixERKN5Eigen8Matrix3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that sets the projection matrix to be used when unprojecting the points in the depth image back to (x,y,z) positions. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>There are 2 matrices already set in the class, used for the 2 modes available for the Kinect. They are tuned to be the same as the ones in the OpenNiGrabber </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">projection_matrix</span></code>: the new projection matrix to be set </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl19BilateralUpsampling19getProjectionMatrixEv">
+<span id="_CPPv3NK3pcl19BilateralUpsampling19getProjectionMatrixEv"></span><span id="_CPPv2NK3pcl19BilateralUpsampling19getProjectionMatrixEv"></span><span id="pcl::BilateralUpsampling::getProjectionMatrixC"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a407617669e5ba19bf15981e2a02ced4e"></span>Eigen::Matrix3f <code class="sig-name descname">getProjectionMatrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl19BilateralUpsampling19getProjectionMatrixEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the current projection matrix. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19BilateralUpsampling7processERN3pcl10PointCloudI9PointOutTEE">
+<span id="_CPPv3N3pcl19BilateralUpsampling7processERN3pcl10PointCloudI9PointOutTEE"></span><span id="_CPPv2N3pcl19BilateralUpsampling7processERN3pcl10PointCloudI9PointOutTEE"></span><span id="pcl::BilateralUpsampling::process__pcl::PointCloud:PointOutT:R"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1ab6dfd35673c9e2dec504138ead4a01d9"></span>void <code class="sig-name descname">process</code><span class="sig-paren">(</span>pcl::PointCloud&lt;PointOutT&gt; &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling7processERN3pcl10PointCloudI9PointOutTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Method that does the actual processing on the input cloud. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the container of the resulting upsampled cloud </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl19BilateralUpsampling25KinectVGAProjectionMatrixE">
+<span id="_CPPv3N3pcl19BilateralUpsampling25KinectVGAProjectionMatrixE"></span><span id="_CPPv2N3pcl19BilateralUpsampling25KinectVGAProjectionMatrixE"></span><span id="pcl::BilateralUpsampling::KinectVGAProjectionMatrix__Eigen::Matrix3f"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a80e99b04a8ea7d90ab0080d69a3629a6"></span>Eigen::Matrix3f <code class="sig-name descname">KinectVGAProjectionMatrix</code><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling25KinectVGAProjectionMatrixE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl19BilateralUpsampling26KinectSXGAProjectionMatrixE">
+<span id="_CPPv3N3pcl19BilateralUpsampling26KinectSXGAProjectionMatrixE"></span><span id="_CPPv2N3pcl19BilateralUpsampling26KinectSXGAProjectionMatrixE"></span><span id="pcl::BilateralUpsampling::KinectSXGAProjectionMatrix__Eigen::Matrix3f"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a165ac3d9954bd0b87a5ff4a4f6f40273"></span>Eigen::Matrix3f <code class="sig-name descname">KinectSXGAProjectionMatrix</code><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling26KinectSXGAProjectionMatrixE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl19BilateralUpsampling17performProcessingERN3pcl10PointCloudI9PointOutTEE">
+<span id="_CPPv3N3pcl19BilateralUpsampling17performProcessingERN3pcl10PointCloudI9PointOutTEE"></span><span id="_CPPv2N3pcl19BilateralUpsampling17performProcessingERN3pcl10PointCloudI9PointOutTEE"></span><span id="pcl::BilateralUpsampling::performProcessing__pcl::PointCloud:PointOutT:R"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1ab7f192b2de2a6a681b529705baf5f28f"></span>void <code class="sig-name descname">performProcessing</code><span class="sig-paren">(</span>pcl::PointCloud&lt;PointOutT&gt; &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling17performProcessingERN3pcl10PointCloudI9PointOutTEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Abstract cloud processing method. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl19BilateralUpsampling16computeDistancesERN5Eigen8MatrixXfERN5Eigen8VectorXfE">
+<span id="_CPPv3N3pcl19BilateralUpsampling16computeDistancesERN5Eigen8MatrixXfERN5Eigen8VectorXfE"></span><span id="_CPPv2N3pcl19BilateralUpsampling16computeDistancesERN5Eigen8MatrixXfERN5Eigen8VectorXfE"></span><span id="pcl::BilateralUpsampling::computeDistances__Eigen::MatrixXfR.Eigen::VectorXfR"></span><span class="target" id="classpcl_1_1_bilateral_upsampling_1a1891188e162146676f2ad1f98a02d012"></span>void <code class="sig-name descname">computeDistances</code><span class="sig-paren">(</span>Eigen::MatrixXf &amp;<em>val_exp_depth</em>, Eigen::VectorXf &amp;<em>val_exp_rgb</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl19BilateralUpsampling16computeDistancesERN5Eigen8MatrixXfERN5Eigen8VectorXfE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the distance for depth and <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a>. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">val_exp_depth</span></code>: distance values for depth </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">val_exp_rgb</span></code>: distance values for <a class="reference internal" href="structpcl_1_1_r_g_b.html#structpcl_1_1_r_g_b"><span class="std std-ref">RGB</span></a> </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

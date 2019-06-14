@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class SurfaceNormalModality &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class SurfaceNormalModality</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_surface_normal_modality.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-surfacenormalmodality">
+<span id="exhale-class-classpcl-1-1-surface-normal-modality"></span><h1>Template Class SurfaceNormalModality<a class="headerlink" href="#template-class-surfacenormalmodality" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_recognition_include_pcl_recognition_surface_normal_modality.h.html#file-pcl-recognition-include-pcl-recognition-surface-normal-modality-h"><span class="std std-ref">File surface_normal_modality.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structpcl_1_1_surface_normal_modality_1_1_candidate.html#exhale-struct-structpcl-1-1-surface-normal-modality-1-1-candidate"><span class="std std-ref">Struct SurfaceNormalModality::Candidate</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-types">
+<h3>Base Types<a class="headerlink" href="#base-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::QuantizableModality</span></code> (<a class="reference internal" href="classpcl_1_1_quantizable_modality.html#exhale-class-classpcl-1-1-quantizable-modality"><span class="std std-ref">Class QuantizableModality</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::PCLBase&lt;</span> <span class="pre">PointInT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_p_c_l_base.html#exhale-class-classpcl-1-1-p-c-l-base"><span class="std std-ref">Template Class PCLBase</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl21SurfaceNormalModalityE">
+<span id="_CPPv3I0EN3pcl21SurfaceNormalModalityE"></span><span id="_CPPv2I0EN3pcl21SurfaceNormalModalityE"></span><span class="target" id="classpcl_1_1_surface_normal_modality"></span>template&lt;typename <code class="sig-name descname">PointInT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">SurfaceNormalModality</code> : <em class="property">public</em> pcl::<a class="reference internal" href="classpcl_1_1_quantizable_modality.html#_CPPv4N3pcl19QuantizableModalityE" title="pcl::QuantizableModality">QuantizableModality</a>, <em class="property">public</em> pcl::PCLBase&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl21SurfaceNormalModalityE" title="pcl::SurfaceNormalModality::PointInT">PointInT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl21SurfaceNormalModalityE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Modality based on surface normals. </p>
+<p><dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Stefan Holzer </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality12PointCloudInE">
+<span id="_CPPv3N3pcl21SurfaceNormalModality12PointCloudInE"></span><span id="_CPPv2N3pcl21SurfaceNormalModality12PointCloudInE"></span><span id="pcl::SurfaceNormalModality::PointCloudIn"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a9c7ce099774bedc0907801de35aae220"></span><em class="property">typedef </em>pcl::PointCloud&lt;PointInT&gt; <code class="sig-name descname">PointCloudIn</code><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality12PointCloudInE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality21SurfaceNormalModalityEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality21SurfaceNormalModalityEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality21SurfaceNormalModalityEv"></span><span id="pcl::SurfaceNormalModality::SurfaceNormalModality"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1adf5471ede18de2346bf72e430687b576"></span><code class="sig-name descname">SurfaceNormalModality</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality21SurfaceNormalModalityEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModalityD0Ev">
+<span id="_CPPv3N3pcl21SurfaceNormalModalityD0Ev"></span><span id="_CPPv2N3pcl21SurfaceNormalModalityD0Ev"></span><span id="pcl::SurfaceNormalModality::~SurfaceNormalModality"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a088d3f324dcffcfabd08b2043d6238fb"></span><code class="sig-name descname">~SurfaceNormalModality</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModalityD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality16setSpreadingSizeEK6size_t">
+<span id="_CPPv3N3pcl21SurfaceNormalModality16setSpreadingSizeEK6size_t"></span><span id="_CPPv2N3pcl21SurfaceNormalModality16setSpreadingSizeEK6size_t"></span><span id="pcl::SurfaceNormalModality::setSpreadingSize__sC"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a502066744d48e115f9416107cf8e9336"></span>void <code class="sig-name descname">setSpreadingSize</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>spreading_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality16setSpreadingSizeEK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the spreading size. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">spreading_size</span></code>: the spreading size. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality20setVariableFeatureNrEKb">
+<span id="_CPPv3N3pcl21SurfaceNormalModality20setVariableFeatureNrEKb"></span><span id="_CPPv2N3pcl21SurfaceNormalModality20setVariableFeatureNrEKb"></span><span id="pcl::SurfaceNormalModality::setVariableFeatureNr__bC"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1ae0e36dff36e4a80f4be853159630d0d2"></span>void <code class="sig-name descname">setVariableFeatureNr</code><span class="sig-paren">(</span><em class="property">const</em> bool <em>enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality20setVariableFeatureNrEKb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enables/disables the use of extracting a variable number of features. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">enabled</span></code>: specifies whether extraction of a variable number of features will be enabled/disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality17getSurfaceNormalsEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality17getSurfaceNormalsEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality17getSurfaceNormalsEv"></span><span id="pcl::SurfaceNormalModality::getSurfaceNormals"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1ad22686f686120cbec54eeca27c8850f0"></span>pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt; &amp;<code class="sig-name descname">getSurfaceNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality17getSurfaceNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the surface normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21SurfaceNormalModality17getSurfaceNormalsEv">
+<span id="_CPPv3NK3pcl21SurfaceNormalModality17getSurfaceNormalsEv"></span><span id="_CPPv2NK3pcl21SurfaceNormalModality17getSurfaceNormalsEv"></span><span id="pcl::SurfaceNormalModality::getSurfaceNormalsC"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a2b976f5469678c55fb58d614bc74ef44"></span><em class="property">const</em> pcl::PointCloud&lt;pcl::<a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a>&gt; &amp;<code class="sig-name descname">getSurfaceNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21SurfaceNormalModality17getSurfaceNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns the surface normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality15getQuantizedMapEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality15getQuantizedMapEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality15getQuantizedMapEv"></span><span id="pcl::SurfaceNormalModality::getQuantizedMap"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1ab74742de3ba15cbfeca0969c60d95b80"></span><a class="reference internal" href="classpcl_1_1_quantized_map.html#_CPPv4N3pcl12QuantizedMapE" title="pcl::QuantizedMap">QuantizedMap</a> &amp;<code class="sig-name descname">getQuantizedMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality15getQuantizedMapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a reference to the internal quantized map. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality23getSpreadedQuantizedMapEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality23getSpreadedQuantizedMapEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality23getSpreadedQuantizedMapEv"></span><span id="pcl::SurfaceNormalModality::getSpreadedQuantizedMap"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a9210a435968b3cac68435cec03420df5"></span><a class="reference internal" href="classpcl_1_1_quantized_map.html#_CPPv4N3pcl12QuantizedMapE" title="pcl::QuantizedMap">QuantizedMap</a> &amp;<code class="sig-name descname">getSpreadedQuantizedMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality23getSpreadedQuantizedMapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a reference to the internal spread quantized map. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality17getOrientationMapEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality17getOrientationMapEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality17getOrientationMapEv"></span><span id="pcl::SurfaceNormalModality::getOrientationMap"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1adf2fb96f80b26c7baff085ab01c844ee"></span><a class="reference internal" href="structpcl_1_1_l_i_n_e_m_o_d___orientation_map.html#_CPPv4N3pcl22LINEMOD_OrientationMapE" title="pcl::LINEMOD_OrientationMap">LINEMOD_OrientationMap</a> &amp;<code class="sig-name descname">getOrientationMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality17getOrientationMapEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns a reference to the orientation map. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21SurfaceNormalModality15extractFeaturesERK7MaskMap6size_t6size_tRNSt6vectorI24QuantizedMultiModFeatureEE">
+<span id="_CPPv3NK3pcl21SurfaceNormalModality15extractFeaturesERK7MaskMap6size_t6size_tRNSt6vectorI24QuantizedMultiModFeatureEE"></span><span id="_CPPv2NK3pcl21SurfaceNormalModality15extractFeaturesERK7MaskMap6size_t6size_tRNSt6vectorI24QuantizedMultiModFeatureEE"></span><span id="pcl::SurfaceNormalModality::extractFeatures__MaskMapCR.s.s.std::vector:QuantizedMultiModFeature:RC"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1ad10f56a7c00a36cbffc6b3dd464b6bb2"></span>void <code class="sig-name descname">extractFeatures</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1_mask_map.html#_CPPv4N3pcl7MaskMapE" title="pcl::MaskMap">MaskMap</a> &amp;<em>mask</em>, size_t <em>nr_features</em>, size_t <em>modality_index</em>, std::vector&lt;<a class="reference internal" href="structpcl_1_1_quantized_multi_mod_feature.html#_CPPv4N3pcl24QuantizedMultiModFeatureE" title="pcl::QuantizedMultiModFeature">QuantizedMultiModFeature</a>&gt; &amp;<em>features</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21SurfaceNormalModality15extractFeaturesERK7MaskMap6size_t6size_tRNSt6vectorI24QuantizedMultiModFeatureEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extracts features from this modality within the specified mask. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mask</span></code>: defines the areas where features are searched in. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nr_features</span></code>: defines the number of features to be extracted (might be less if not sufficient information is present in the modality). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">modality_index</span></code>: the index which is stored in the extracted features. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">features</span></code>: the destination for the extracted features. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21SurfaceNormalModality18extractAllFeaturesERK7MaskMap6size_t6size_tRNSt6vectorI24QuantizedMultiModFeatureEE">
+<span id="_CPPv3NK3pcl21SurfaceNormalModality18extractAllFeaturesERK7MaskMap6size_t6size_tRNSt6vectorI24QuantizedMultiModFeatureEE"></span><span id="_CPPv2NK3pcl21SurfaceNormalModality18extractAllFeaturesERK7MaskMap6size_t6size_tRNSt6vectorI24QuantizedMultiModFeatureEE"></span><span id="pcl::SurfaceNormalModality::extractAllFeatures__MaskMapCR.s.s.std::vector:QuantizedMultiModFeature:RC"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1af31077712cfe8911bd9627f79ab3782f"></span>void <code class="sig-name descname">extractAllFeatures</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1_mask_map.html#_CPPv4N3pcl7MaskMapE" title="pcl::MaskMap">MaskMap</a> &amp;<em>mask</em>, size_t <em>nr_features</em>, size_t <em>modality_index</em>, std::vector&lt;<a class="reference internal" href="structpcl_1_1_quantized_multi_mod_feature.html#_CPPv4N3pcl24QuantizedMultiModFeatureE" title="pcl::QuantizedMultiModFeature">QuantizedMultiModFeature</a>&gt; &amp;<em>features</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21SurfaceNormalModality18extractAllFeaturesERK7MaskMap6size_t6size_tRNSt6vectorI24QuantizedMultiModFeatureEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extracts all possible features from the modality within the specified mask. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mask</span></code>: defines the areas where features are searched in. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">nr_features</span></code>: IGNORED (TODO: remove this parameter). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">modality_index</span></code>: the index which is stored in the extracted features. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">features</span></code>: the destination for the extracted features. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality13setInputCloudERKN12PointCloudIn8ConstPtrE">
+<span id="_CPPv3N3pcl21SurfaceNormalModality13setInputCloudERKN12PointCloudIn8ConstPtrE"></span><span id="_CPPv2N3pcl21SurfaceNormalModality13setInputCloudERKN12PointCloudIn8ConstPtrE"></span><span id="pcl::SurfaceNormalModality::setInputCloud__PointCloudIn::ConstPtrCR"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a49d1ef3d40ddcf485b1a6c7739bfa301"></span><em class="property">virtual</em> void <code class="sig-name descname">setInputCloud</code><span class="sig-paren">(</span><em class="property">const</em> <em class="property">typename</em> <a class="reference internal" href="#_CPPv4N3pcl21SurfaceNormalModality12PointCloudInE" title="pcl::SurfaceNormalModality::PointCloudIn">PointCloudIn</a>::ConstPtr &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality13setInputCloudERKN12PointCloudIn8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input dataset (overwrites the <a class="reference internal" href="classpcl_1_1_p_c_l_base.html#classpcl_1_1_p_c_l_base_1a1952d7101f3942bac3b69ed55c1ca7ea"><span class="std std-ref">PCLBase::setInputCloud</span></a> method) </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the const boost shared pointer to a <a class="reference internal" href="classpcl_1_1_point_cloud.html#classpcl_1_1_point_cloud"><span class="std std-ref">PointCloud</span></a> message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality16processInputDataEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality16processInputDataEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality16processInputDataEv"></span><span id="pcl::SurfaceNormalModality::processInputData"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a4e79645c315583b70b671461f46edf70"></span>void <code class="sig-name descname">processInputData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality16processInputDataEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Processes the input data (smoothing, computing gradients, quantizing, filtering, spreading). </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality28processInputDataFromFilteredEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality28processInputDataFromFilteredEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality28processInputDataFromFilteredEv"></span><span id="pcl::SurfaceNormalModality::processInputDataFromFiltered"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a8091954a4456860ee5ac563715bfbf72"></span>void <code class="sig-name descname">processInputDataFromFiltered</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality28processInputDataFromFilteredEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Processes the input data assuming that everything up to filtering is already done/available (so only spreading is performed). </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality21computeSurfaceNormalsEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality21computeSurfaceNormalsEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality21computeSurfaceNormalsEv"></span><span id="pcl::SurfaceNormalModality::computeSurfaceNormals"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a00eb230538b0061ca2a8a6324f2b9d40"></span>void <code class="sig-name descname">computeSurfaceNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality21computeSurfaceNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes the surface normals from the input cloud. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality32computeAndQuantizeSurfaceNormalsEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality32computeAndQuantizeSurfaceNormalsEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality32computeAndQuantizeSurfaceNormalsEv"></span><span id="pcl::SurfaceNormalModality::computeAndQuantizeSurfaceNormals"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a08c179a483ef572ebe1f43f9fce81d97"></span>void <code class="sig-name descname">computeAndQuantizeSurfaceNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality32computeAndQuantizeSurfaceNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes and quantizes the surface normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality33computeAndQuantizeSurfaceNormals2Ev">
+<span id="_CPPv3N3pcl21SurfaceNormalModality33computeAndQuantizeSurfaceNormals2Ev"></span><span id="_CPPv2N3pcl21SurfaceNormalModality33computeAndQuantizeSurfaceNormals2Ev"></span><span id="pcl::SurfaceNormalModality::computeAndQuantizeSurfaceNormals2"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a47eba682876ce6fae24aa4020f4649c7"></span>void <code class="sig-name descname">computeAndQuantizeSurfaceNormals2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality33computeAndQuantizeSurfaceNormals2Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes and quantizes the surface normals. </p>
+<p>Compute quantized normal image from depth image.</p>
+<p>Implements section 2.6 “Extension to Dense Depth Sensors.”</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality22quantizeSurfaceNormalsEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality22quantizeSurfaceNormalsEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality22quantizeSurfaceNormalsEv"></span><span id="pcl::SurfaceNormalModality::quantizeSurfaceNormals"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1a8e7319d0e451388baf875fba8a223bf0"></span>void <code class="sig-name descname">quantizeSurfaceNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality22quantizeSurfaceNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Quantizes the surface normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality29filterQuantizedSurfaceNormalsEv">
+<span id="_CPPv3N3pcl21SurfaceNormalModality29filterQuantizedSurfaceNormalsEv"></span><span id="_CPPv2N3pcl21SurfaceNormalModality29filterQuantizedSurfaceNormalsEv"></span><span id="pcl::SurfaceNormalModality::filterQuantizedSurfaceNormals"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1ae0f10e280b61a13ff064e9578164204d"></span>void <code class="sig-name descname">filterQuantizedSurfaceNormals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality29filterQuantizedSurfaceNormalsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Filters the quantized surface normals. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl21SurfaceNormalModality18computeDistanceMapERK7MaskMapR11DistanceMap">
+<span id="_CPPv3NK3pcl21SurfaceNormalModality18computeDistanceMapERK7MaskMapR11DistanceMap"></span><span id="_CPPv2NK3pcl21SurfaceNormalModality18computeDistanceMapERK7MaskMapR11DistanceMap"></span><span id="pcl::SurfaceNormalModality::computeDistanceMap__MaskMapCR.DistanceMapRC"></span><span class="target" id="classpcl_1_1_surface_normal_modality_1ab6f7ea436fe627a8d04608b2aca933cc"></span>void <code class="sig-name descname">computeDistanceMap</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="classpcl_1_1_mask_map.html#_CPPv4N3pcl7MaskMapE" title="pcl::MaskMap">MaskMap</a> &amp;<em>input</em>, <a class="reference internal" href="classpcl_1_1_distance_map.html#_CPPv4N3pcl11DistanceMapE" title="pcl::DistanceMap">DistanceMap</a> &amp;<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl21SurfaceNormalModality18computeDistanceMapERK7MaskMapR11DistanceMap" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes a distance map from the supplied input mask. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: the mask for which a distance map will be computed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the destination for the distance map. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl21SurfaceNormalModality9CandidateE">
+<span id="_CPPv3N3pcl21SurfaceNormalModality9CandidateE"></span><span id="_CPPv2N3pcl21SurfaceNormalModality9CandidateE"></span><span id="pcl::SurfaceNormalModality::Candidate"></span><span class="target" id="structpcl_1_1_surface_normal_modality_1_1_candidate"></span><em class="property">struct </em><code class="sig-name descname">Candidate</code><a class="headerlink" href="#_CPPv4N3pcl21SurfaceNormalModality9CandidateE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="structpcl_1_1_surface_normal_modality_1_1_candidate.html#structpcl_1_1_surface_normal_modality_1_1_candidate"><span class="std std-ref">Candidate</span></a> for a feature (used in feature extraction methods). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate9CandidateEv">
+<span id="_CPPv3IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate9CandidateEv"></span><span id="_CPPv2IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate9CandidateEv"></span><span class="target" id="structpcl_1_1_surface_normal_modality_1_1_candidate_1a045f6c308701efed2769df8e8320302e"></span>template&lt;&gt;<br /><code class="sig-name descname">Candidate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate9CandidateEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl21SurfaceNormalModalityI8PointInTE9CandidateltEbRK9Candidate">
+<span id="_CPPv3IENK3pcl21SurfaceNormalModalityI8PointInTE9CandidateltERK9Candidate"></span><span id="_CPPv2IENK3pcl21SurfaceNormalModalityI8PointInTE9CandidateltERK9Candidate"></span><span class="target" id="structpcl_1_1_surface_normal_modality_1_1_candidate_1ad91ad8006eac9c920dcda4d0e3dad5dd"></span>template&lt;&gt;<br />bool <code class="sig-name descname">operator&lt;</code><span class="sig-paren">(</span><em class="property">const</em> Candidate &amp;<em>rhs</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl21SurfaceNormalModalityI8PointInTE9CandidateltEbRK9Candidate" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compares two candidates based on their distance to the next different quantized value. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rhs</span></code>: the candidate to compare with. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate6normalE">
+<span id="_CPPv3IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate6normalE"></span><span id="_CPPv2IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate6normalE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_surface_normal_modality_1_1_candidate_1a81e312e092eb9c37b6072e795977803d"></span><a class="reference internal" href="structpcl_1_1_normal.html#_CPPv4N3pcl6NormalE" title="pcl::Normal">Normal</a> <code class="sig-name descname">normal</code><a class="headerlink" href="#_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate6normalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="structpcl_1_1_normal.html#structpcl_1_1_normal"><span class="std std-ref">Normal</span></a>. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate8distanceE">
+<span id="_CPPv3IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate8distanceE"></span><span id="_CPPv2IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate8distanceE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_surface_normal_modality_1_1_candidate_1a27db3c3a483fc4fb4df419fbc643c996"></span>float <code class="sig-name descname">distance</code><a class="headerlink" href="#_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate8distanceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Distance to the next different quantized value. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate9bin_indexE">
+<span id="_CPPv3IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate9bin_indexE"></span><span id="_CPPv2IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate9bin_indexE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_surface_normal_modality_1_1_candidate_1af2e406c33133a890c136fffce75c1d1d"></span>unsigned char <code class="sig-name descname">bin_index</code><a class="headerlink" href="#_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate9bin_indexE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Quantized value. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate1xE">
+<span id="_CPPv3IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate1xE"></span><span id="_CPPv2IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate1xE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_surface_normal_modality_1_1_candidate_1a3d494817c873a9485cc88fd14c3e0948"></span>size_t <code class="sig-name descname">x</code><a class="headerlink" href="#_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate1xE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>x-position of the feature. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate1yE">
+<span id="_CPPv3IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate1yE"></span><span id="_CPPv2IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate1yE"></span>template&lt;&gt;<br /><span class="target" id="structpcl_1_1_surface_normal_modality_1_1_candidate_1aba2d91bbb5969c4648dbf31c0246f2cd"></span>size_t <code class="sig-name descname">y</code><a class="headerlink" href="#_CPPv4IEN3pcl21SurfaceNormalModalityI8PointInTE9Candidate1yE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>y-position of the feature. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

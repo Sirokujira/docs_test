@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Class vtkVertexBufferObjectMapper &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Class vtkVertexBufferObjectMapper</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classvtk_vertex_buffer_object_mapper.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-vtkvertexbufferobjectmapper">
+<span id="exhale-class-classvtk-vertex-buffer-object-mapper"></span><h1>Class vtkVertexBufferObjectMapper<a class="headerlink" href="#class-vtkvertexbufferobjectmapper" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_visualization_include_pcl_visualization_vtk_vtkVertexBufferObjectMapper.h.html#file-pcl-visualization-include-pcl-visualization-vtk-vtkvertexbufferobjectmapper-h"><span class="std std-ref">File vtkVertexBufferObjectMapper.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">vtkMapper</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv427vtkVertexBufferObjectMapper">
+<span id="_CPPv327vtkVertexBufferObjectMapper"></span><span id="_CPPv227vtkVertexBufferObjectMapper"></span><span id="vtkVertexBufferObjectMapper"></span><span class="target" id="classvtk_vertex_buffer_object_mapper"></span><em class="property">class </em><code class="sig-name descname">vtkVertexBufferObjectMapper</code> : <em class="property">public</em> vtkMapper<a class="headerlink" href="#_CPPv427vtkVertexBufferObjectMapper" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper12vtkTypeMacroE27vtkVertexBufferObjectMapper9vtkMapper">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper12vtkTypeMacroE27vtkVertexBufferObjectMapper9vtkMapper"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper12vtkTypeMacroE27vtkVertexBufferObjectMapper9vtkMapper"></span><span id="vtkVertexBufferObjectMapper::vtkTypeMacro__vtkVertexBufferObjectMapper.vtkMapper"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a67827906724012ce1495d8ecabd15e66"></span><code class="sig-name descname">vtkTypeMacro</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv427vtkVertexBufferObjectMapper" title="vtkVertexBufferObjectMapper">vtkVertexBufferObjectMapper</a>, vtkMapper<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper12vtkTypeMacroE27vtkVertexBufferObjectMapper9vtkMapper" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper6RenderEP11vtkRendererP8vtkActor">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper6RenderEP11vtkRendererP8vtkActor"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper6RenderEP11vtkRendererP8vtkActor"></span><span id="vtkVertexBufferObjectMapper::Render__vtkRendererP.vtkActorP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a7d5fdf1efbcaa912e10a71435a9d627f"></span><em class="property">virtual</em> void <code class="sig-name descname">Render</code><span class="sig-paren">(</span>vtkRenderer *<em>ren</em>, vtkActor *<em>act</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper6RenderEP11vtkRendererP8vtkActor" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper8SetInputEP11vtkPolyData">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper8SetInputEP11vtkPolyData"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper8SetInputEP11vtkPolyData"></span><span id="vtkVertexBufferObjectMapper::SetInput__vtkPolyDataP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1adb7ba91e658ea36ce51818ee6d83ff05"></span>void <code class="sig-name descname">SetInput</code><span class="sig-paren">(</span>vtkPolyData *<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper8SetInputEP11vtkPolyData" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper8SetInputEP10vtkDataSet">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper8SetInputEP10vtkDataSet"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper8SetInputEP10vtkDataSet"></span><span id="vtkVertexBufferObjectMapper::SetInput__vtkDataSetP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1adbf6b555ee4e223dd70473c76dc31d61"></span>void <code class="sig-name descname">SetInput</code><span class="sig-paren">(</span>vtkDataSet *<em>input</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper8SetInputEP10vtkDataSet" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper8GetInputEv">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper8GetInputEv"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper8GetInputEv"></span><span id="vtkVertexBufferObjectMapper::GetInput"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a39cfd561aa1580609736ba014bd337ea"></span>vtkPolyData *<code class="sig-name descname">GetInput</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper8GetInputEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper10SetProgramE15vtkSmartPointerI17vtkShaderProgram2E">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper10SetProgramE15vtkSmartPointerI17vtkShaderProgram2E"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper10SetProgramE15vtkSmartPointerI17vtkShaderProgram2E"></span><span id="vtkVertexBufferObjectMapper::SetProgram__vtkSmartPointer:vtkShaderProgram2:"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1aadb89d23daba4ab5927b27dfd7a7bfdd"></span>void <code class="sig-name descname">SetProgram</code><span class="sig-paren">(</span><a class="reference internal" href="classvtk_smart_pointer.html#_CPPv4I0E15vtkSmartPointer" title="vtkSmartPointer">vtkSmartPointer</a>&lt;vtkShaderProgram2&gt; <em>program</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper10SetProgramE15vtkSmartPointerI17vtkShaderProgram2E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper6UpdateEv">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper6UpdateEv"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper6UpdateEv"></span><span id="vtkVertexBufferObjectMapper::Update"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a3f4db04ff1ae4f084572ae54ebbf2922"></span>void <code class="sig-name descname">Update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper6UpdateEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper9GetBoundsEv">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper9GetBoundsEv"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper9GetBoundsEv"></span><span id="vtkVertexBufferObjectMapper::GetBounds"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a087f60a4bbcdf1b2c7ed49026bf7588a"></span><em class="property">virtual</em> double *<code class="sig-name descname">GetBounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper9GetBoundsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper9GetBoundsEAL6E_d">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper9GetBoundsEAL6E_d"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper9GetBoundsEA6_d"></span><span id="vtkVertexBufferObjectMapper::GetBounds__doubleA"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a9161c34b48656429da6b46d15b90e0f8"></span><em class="property">virtual</em> void <code class="sig-name descname">GetBounds</code><span class="sig-paren">(</span>double <em>bounds</em>[6]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper9GetBoundsEAL6E_d" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper3NewEv">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper3NewEv"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper3NewEv"></span><span id="vtkVertexBufferObjectMapper::New"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1adb6fafb8bc2d6bbdd37d70127effe5ca"></span><em class="property">static</em> <a class="reference internal" href="#_CPPv427vtkVertexBufferObjectMapper" title="vtkVertexBufferObjectMapper">vtkVertexBufferObjectMapper</a> *<code class="sig-name descname">New</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper3NewEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper27vtkVertexBufferObjectMapperEv">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper27vtkVertexBufferObjectMapperEv"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper27vtkVertexBufferObjectMapperEv"></span><span id="vtkVertexBufferObjectMapper::vtkVertexBufferObjectMapper"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a1b163268d4a3b4a920713405b996e3e8"></span><code class="sig-name descname">vtkVertexBufferObjectMapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper27vtkVertexBufferObjectMapperEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapperD0Ev">
+<span id="_CPPv3N27vtkVertexBufferObjectMapperD0Ev"></span><span id="_CPPv2N27vtkVertexBufferObjectMapperD0Ev"></span><span id="vtkVertexBufferObjectMapper::~vtkVertexBufferObjectMapper"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1aa2fa1d7b9ef8e0e8640e5ad90c528184"></span><code class="sig-name descname">~vtkVertexBufferObjectMapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapperD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper13ComputeBoundsEv">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper13ComputeBoundsEv"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper13ComputeBoundsEv"></span><span id="vtkVertexBufferObjectMapper::ComputeBounds"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a78e9e2013e9644a2854d9e6f7dc8d13e"></span><em class="property">virtual</em> void <code class="sig-name descname">ComputeBounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper13ComputeBoundsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper24FillInputPortInformationEiP14vtkInformation">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper24FillInputPortInformationEiP14vtkInformation"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper24FillInputPortInformationEiP14vtkInformation"></span><span id="vtkVertexBufferObjectMapper::FillInputPortInformation__i.vtkInformationP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a3d7f3d6bf6af939ebe4eac0756bd8318"></span><em class="property">virtual</em> int <code class="sig-name descname">FillInputPortInformation</code><span class="sig-paren">(</span>int, vtkInformation *<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper24FillInputPortInformationEiP14vtkInformation" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper13createShadersEP21vtkOpenGLRenderWindow">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper13createShadersEP21vtkOpenGLRenderWindow"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper13createShadersEP21vtkOpenGLRenderWindow"></span><span id="vtkVertexBufferObjectMapper::createShaders__vtkOpenGLRenderWindowP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a6c878634dd22f8ce05c096e894fe966d"></span>void <code class="sig-name descname">createShaders</code><span class="sig-paren">(</span>vtkOpenGLRenderWindow *<em>win</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper13createShadersEP21vtkOpenGLRenderWindow" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper10createVBOsEP15vtkRenderWindow">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper10createVBOsEP15vtkRenderWindow"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper10createVBOsEP15vtkRenderWindow"></span><span id="vtkVertexBufferObjectMapper::createVBOs__vtkRenderWindowP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1ae96a4b03d282bbb7b6bf7d5eaa500981"></span>void <code class="sig-name descname">createVBOs</code><span class="sig-paren">(</span>vtkRenderWindow *<em>win</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper10createVBOsEP15vtkRenderWindow" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper9vertexVboE">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper9vertexVboE"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper9vertexVboE"></span><span id="vtkVertexBufferObjectMapper::vertexVbo__vtkVertexBufferObjectP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1adbe4221ee97392c3c9c867704aa79bcd"></span><a class="reference internal" href="classvtk_vertex_buffer_object.html#_CPPv421vtkVertexBufferObject" title="vtkVertexBufferObject">vtkVertexBufferObject</a> *<code class="sig-name descname">vertexVbo</code><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper9vertexVboE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper9indiceVboE">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper9indiceVboE"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper9indiceVboE"></span><span id="vtkVertexBufferObjectMapper::indiceVbo__vtkVertexBufferObjectP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1ab9b6f76b4f967beed4f797da6810b6be"></span><a class="reference internal" href="classvtk_vertex_buffer_object.html#_CPPv421vtkVertexBufferObject" title="vtkVertexBufferObject">vtkVertexBufferObject</a> *<code class="sig-name descname">indiceVbo</code><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper9indiceVboE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper8colorVboE">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper8colorVboE"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper8colorVboE"></span><span id="vtkVertexBufferObjectMapper::colorVbo__vtkVertexBufferObjectP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a1e0044ea98392040ec6a372abea68824"></span><a class="reference internal" href="classvtk_vertex_buffer_object.html#_CPPv421vtkVertexBufferObject" title="vtkVertexBufferObject">vtkVertexBufferObject</a> *<code class="sig-name descname">colorVbo</code><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper8colorVboE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper9normalVboE">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper9normalVboE"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper9normalVboE"></span><span id="vtkVertexBufferObjectMapper::normalVbo__vtkVertexBufferObjectP"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a689fb45ed52c1ac1f425299dacfc5703"></span><a class="reference internal" href="classvtk_vertex_buffer_object.html#_CPPv421vtkVertexBufferObject" title="vtkVertexBufferObject">vtkVertexBufferObject</a> *<code class="sig-name descname">normalVbo</code><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper9normalVboE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper7programE">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper7programE"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper7programE"></span><span id="vtkVertexBufferObjectMapper::program__vtkSmartPointer:vtkShaderProgram2:"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1ad1d748f29cbe48cf66b7ec550bec0c81"></span><a class="reference internal" href="classvtk_smart_pointer.html#_CPPv4I0E15vtkSmartPointer" title="vtkSmartPointer">vtkSmartPointer</a>&lt;vtkShaderProgram2&gt; <code class="sig-name descname">program</code><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper7programE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper11initializedE">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper11initializedE"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper11initializedE"></span><span id="vtkVertexBufferObjectMapper::initialized__b"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a4b0c3357fa8217a8a9110d8ce2c84682"></span>bool <code class="sig-name descname">initialized</code><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper11initializedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N27vtkVertexBufferObjectMapper18shadersInitializedE">
+<span id="_CPPv3N27vtkVertexBufferObjectMapper18shadersInitializedE"></span><span id="_CPPv2N27vtkVertexBufferObjectMapper18shadersInitializedE"></span><span id="vtkVertexBufferObjectMapper::shadersInitialized__b"></span><span class="target" id="classvtk_vertex_buffer_object_mapper_1a1ebbfc1703220e7a92c787379f38d10f"></span>bool <code class="sig-name descname">shadersInitialized</code><a class="headerlink" href="#_CPPv4N27vtkVertexBufferObjectMapper18shadersInitializedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

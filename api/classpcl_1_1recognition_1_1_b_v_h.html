@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class BVH &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class BVH</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1recognition_1_1_b_v_h.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-bvh">
+<span id="exhale-class-classpcl-1-1recognition-1-1-b-v-h"></span><h1>Template Class BVH<a class="headerlink" href="#template-class-bvh" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_recognition_include_pcl_recognition_ransac_based_bvh.h.html#file-pcl-recognition-include-pcl-recognition-ransac-based-bvh-h"><span class="std std-ref">File bvh.h</span></a></p></li>
+</ul>
+<div class="section" id="nested-relationships">
+<h2>Nested Relationships<a class="headerlink" href="#nested-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-types">
+<h3>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object.html#exhale-class-classpcl-1-1recognition-1-1-b-v-h-1-1-bounded-object"><span class="std std-ref">Class BVH::BoundedObject</span></a></p></li>
+<li><p><a class="reference internal" href="classpcl_1_1recognition_1_1_b_v_h_1_1_node.html#exhale-class-classpcl-1-1recognition-1-1-b-v-h-1-1-node"><span class="std std-ref">Class BVH::Node</span></a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl11recognition3BVHE">
+<span id="_CPPv3I0EN3pcl11recognition3BVHE"></span><span id="_CPPv2I0EN3pcl11recognition3BVHE"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h"></span>template&lt;class <code class="sig-name descname">UserData</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">BVH</code><a class="headerlink" href="#_CPPv4I0EN3pcl11recognition3BVHE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This class is an implementation of bounding volume hierarchies. </p>
+<p>Use the build method to construct the data structure. To use the class, construct an std::vector of pointers to <a class="reference internal" href="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object.html#classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object"><span class="std std-ref">BVH::BoundedObject</span></a> objects and pass it to the build method. <a class="reference internal" href="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object.html#classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object"><span class="std std-ref">BVH::BoundedObject</span></a> is a template class, so you can save user-defined data in it.</p>
+<p>The tree is built such that each leaf contains exactly one object. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition3BVH3BVHEv">
+<span id="_CPPv3N3pcl11recognition3BVH3BVHEv"></span><span id="_CPPv2N3pcl11recognition3BVH3BVHEv"></span><span id="pcl::recognition::BVH::BVH"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1a3bfad2776a44417ccda2bf1c7b68a38c"></span><code class="sig-name descname">BVH</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition3BVH3BVHEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition3BVHD0Ev">
+<span id="_CPPv3N3pcl11recognition3BVHD0Ev"></span><span id="_CPPv2N3pcl11recognition3BVHD0Ev"></span><span id="pcl::recognition::BVH::~BVH"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1a83fc659fdc229f5db61cd4b0c94322c9"></span><em class="property">virtual</em> <code class="sig-name descname">~BVH</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition3BVHD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition3BVH5buildERNSt6vectorIP13BoundedObjectEE">
+<span id="_CPPv3N3pcl11recognition3BVH5buildERNSt6vectorIP13BoundedObjectEE"></span><span id="_CPPv2N3pcl11recognition3BVH5buildERNSt6vectorIP13BoundedObjectEE"></span><span id="pcl::recognition::BVH::build__std::vector:BoundedObjectP:R"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1afde44579825078f7e58410a7a3da46fa"></span>void <code class="sig-name descname">build</code><span class="sig-paren">(</span>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition3BVH13BoundedObjectE" title="pcl::recognition::BVH::BoundedObject">BoundedObject</a> *&gt; &amp;<em>objects</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition3BVH5buildERNSt6vectorIP13BoundedObjectEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Creates the tree. </p>
+<p>No need to call clear, it’s called within the method. ‘objects’ is a vector of pointers to bounded objects which have to have valid bounds and centroids. Use the getData method of <a class="reference internal" href="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object.html#classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object"><span class="std std-ref">BoundedObject</span></a> to retrieve the user-defined data saved in the object. Note that vector will be sorted within the method!</p>
+<p>The tree is built such that each leaf contains exactly one object. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl11recognition3BVH5clearEv">
+<span id="_CPPv3N3pcl11recognition3BVH5clearEv"></span><span id="_CPPv2N3pcl11recognition3BVH5clearEv"></span><span id="pcl::recognition::BVH::clear"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1a8ac26c30f4bff3de64cba9f68ed7f035"></span>void <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl11recognition3BVH5clearEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Frees the memory allocated by this object. </p>
+<p>After that, you have to call build to use the tree again. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition3BVH15getInputObjectsEv">
+<span id="_CPPv3NK3pcl11recognition3BVH15getInputObjectsEv"></span><span id="_CPPv2NK3pcl11recognition3BVH15getInputObjectsEv"></span><span id="pcl::recognition::BVH::getInputObjectsC"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1a0259a169e69c287447208066ae03e665"></span><em class="property">const</em> std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition3BVH13BoundedObjectE" title="pcl::recognition::BVH::BoundedObject">BoundedObject</a> *&gt; *<code class="sig-name descname">getInputObjects</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition3BVH15getInputObjectsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl11recognition3BVH9intersectEAL6E_KfRNSt4listIP13BoundedObjectEE">
+<span id="_CPPv3NK3pcl11recognition3BVH9intersectEAL6E_KfRNSt4listIP13BoundedObjectEE"></span><span id="_CPPv2NK3pcl11recognition3BVH9intersectEA6_KfRNSt4listIP13BoundedObjectEE"></span><span id="pcl::recognition::BVH::intersect__floatCA.std::list:BoundedObjectP:RC"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1a0b273b2ef11ccc133b8839743c9f133c"></span>bool <code class="sig-name descname">intersect</code><span class="sig-paren">(</span><em class="property">const</em> float <em>box</em>[6], std::list&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition3BVH13BoundedObjectE" title="pcl::recognition::BVH::BoundedObject">BoundedObject</a> *&gt; &amp;<em>intersected_objects</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl11recognition3BVH9intersectEAL6E_KfRNSt4listIP13BoundedObjectEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pushes back in ‘intersected_objects’ the bounded objects intersected by the input ‘box’ and returns true. </p>
+<p>Returns false if no objects are intersected. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition3BVH5root_E">
+<span id="_CPPv3N3pcl11recognition3BVH5root_E"></span><span id="_CPPv2N3pcl11recognition3BVH5root_E"></span><span id="pcl::recognition::BVH::root___NodeP"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1a937c614502b89f017e208bb27d985d4a"></span><a class="reference internal" href="#_CPPv4N3pcl11recognition3BVH4NodeE" title="pcl::recognition::BVH::Node">Node</a> *<code class="sig-name descname">root_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition3BVH5root_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl11recognition3BVH15sorted_objects_E">
+<span id="_CPPv3N3pcl11recognition3BVH15sorted_objects_E"></span><span id="_CPPv2N3pcl11recognition3BVH15sorted_objects_E"></span><span id="pcl::recognition::BVH::sorted_objects___std::vector:BoundedObjectP:P"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1a1c71261ae6285dc843200b827cb42b05"></span>std::vector&lt;<a class="reference internal" href="#_CPPv4N3pcl11recognition3BVH13BoundedObjectE" title="pcl::recognition::BVH::BoundedObject">BoundedObject</a> *&gt; *<code class="sig-name descname">sorted_objects_</code><a class="headerlink" href="#_CPPv4N3pcl11recognition3BVH15sorted_objects_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="class">
+<dt id="_CPPv4N3pcl11recognition3BVH13BoundedObjectE">
+<span id="_CPPv3N3pcl11recognition3BVH13BoundedObjectE"></span><span id="_CPPv2N3pcl11recognition3BVH13BoundedObjectE"></span><span id="pcl::recognition::BVH::BoundedObject"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object"></span><em class="property">class </em><code class="sig-name descname">BoundedObject</code><a class="headerlink" href="#_CPPv4N3pcl11recognition3BVH13BoundedObjectE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject13BoundedObjectERK8UserData">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE13BoundedObject13BoundedObjectERK8UserData"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE13BoundedObject13BoundedObjectERK8UserData"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1a2f88da68fda684258ee47bf7194dfcdd"></span>template&lt;&gt;<br /><code class="sig-name descname">BoundedObject</code><span class="sig-paren">(</span><em class="property">const</em> UserData &amp;<em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject13BoundedObjectERK8UserData" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObjectD0Ev">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE13BoundedObjectD0Ev"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE13BoundedObjectD0Ev"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1a7954eed2b141c5bb659bc3cf716db070"></span>template&lt;&gt;<br /><em class="property">virtual</em> <code class="sig-name descname">~BoundedObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObjectD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject9getBoundsEPfv">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE13BoundedObject9getBoundsEv"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE13BoundedObject9getBoundsEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1ae34bdf8dbe8b602f5f3fa44454dbc2d3"></span>template&lt;&gt;<br />float *<code class="sig-name descname">getBounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject9getBoundsEPfv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject11getCentroidEPfv">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE13BoundedObject11getCentroidEv"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE13BoundedObject11getCentroidEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1aa90759650d9984697a7d03b69b79ed12"></span>template&lt;&gt;<br />float *<code class="sig-name descname">getCentroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject11getCentroidEPfv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition3BVHI8UserDataE13BoundedObject11getCentroidEPKfv">
+<span id="_CPPv3IENK3pcl11recognition3BVHI8UserDataE13BoundedObject11getCentroidEv"></span><span id="_CPPv2IENK3pcl11recognition3BVHI8UserDataE13BoundedObject11getCentroidEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1a2fb984d15146df23303911ce650a8701"></span>template&lt;&gt;<br /><em class="property">const</em> float *<code class="sig-name descname">getCentroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl11recognition3BVHI8UserDataE13BoundedObject11getCentroidEPKfv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject7getDataER8UserDatav">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE13BoundedObject7getDataEv"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE13BoundedObject7getDataEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1ae0f2c458f465e3969e546d3c645f869f"></span>template&lt;&gt;<br />UserData &amp;<code class="sig-name descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject7getDataER8UserDatav" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject28compareCentroidsXCoordinatesEbPK13BoundedObjectPK13BoundedObject">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE13BoundedObject28compareCentroidsXCoordinatesEPK13BoundedObjectPK13BoundedObject"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE13BoundedObject28compareCentroidsXCoordinatesEPK13BoundedObjectPK13BoundedObject"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1a02fc019accc25a0caad7f1c1bbc1dc75"></span>template&lt;&gt;<br /><em class="property">static</em> bool <code class="sig-name descname">compareCentroidsXCoordinates</code><span class="sig-paren">(</span><em class="property">const</em> BoundedObject *<em>a</em>, <em class="property">const</em> BoundedObject *<em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject28compareCentroidsXCoordinatesEbPK13BoundedObjectPK13BoundedObject" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This method is for std::sort. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject7bounds_E">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE13BoundedObject7bounds_E"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE13BoundedObject7bounds_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1a0d70526fd243b6b33ace9dbf29e08509"></span>float <code class="sig-name descname">bounds_</code>[6]<a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject7bounds_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>These are the bounds of the object. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject9centroid_E">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE13BoundedObject9centroid_E"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE13BoundedObject9centroid_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1a660744a0cff70470db84dd29c9e1bce9"></span>float <code class="sig-name descname">centroid_</code>[3]<a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject9centroid_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is the centroid. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject5data_E">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE13BoundedObject5data_E"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE13BoundedObject5data_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_bounded_object_1a1bf2ceb664f12586f1b35768cba2aef8"></span>UserData <code class="sig-name descname">data_</code><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE13BoundedObject5data_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This is the user-defined data object. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="_CPPv4N3pcl11recognition3BVH4NodeE">
+<span id="_CPPv3N3pcl11recognition3BVH4NodeE"></span><span id="_CPPv2N3pcl11recognition3BVH4NodeE"></span><span id="pcl::recognition::BVH::Node"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node"></span><em class="property">class </em><code class="sig-name descname">Node</code><a class="headerlink" href="#_CPPv4N3pcl11recognition3BVH4NodeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node4NodeERNSt6vectorIP13BoundedObjectEEii">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE4Node4NodeERNSt6vectorIP13BoundedObjectEEii"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE4Node4NodeERNSt6vectorIP13BoundedObjectEEii"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1a9209dd1fbb3bbe29737630c5b9451ce6"></span>template&lt;&gt;<br /><code class="sig-name descname">Node</code><span class="sig-paren">(</span>std::vector&lt;BoundedObject *&gt; &amp;<em>sorted_objects</em>, int <em>first_id</em>, int <em>last_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node4NodeERNSt6vectorIP13BoundedObjectEEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>‘sorted_objects’ is a sorted vector of bounded objects. </p>
+<p>It has to be sorted in ascending order according to the objects’ x-coordinates. The constructor recursively calls itself with the right ‘first_id’ and ‘last_id’ and with the same vector ‘sorted_objects’. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE4NodeD0Ev">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE4NodeD0Ev"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE4NodeD0Ev"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1aede3d02b2d83d4bc3c9275bd821f8e33"></span>template&lt;&gt;<br /><em class="property">virtual</em> <code class="sig-name descname">~Node</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE4NodeD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition3BVHI8UserDataE4Node11hasChildrenEbv">
+<span id="_CPPv3IENK3pcl11recognition3BVHI8UserDataE4Node11hasChildrenEv"></span><span id="_CPPv2IENK3pcl11recognition3BVHI8UserDataE4Node11hasChildrenEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1a5ff53be408f192a729ff6c80e3864d94"></span>template&lt;&gt;<br />bool <code class="sig-name descname">hasChildren</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl11recognition3BVHI8UserDataE4Node11hasChildrenEbv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node12getLeftChildEP4Nodev">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE4Node12getLeftChildEv"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE4Node12getLeftChildEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1a5a1d535a9210b7fbb21b39ddca394373"></span>template&lt;&gt;<br />Node *<code class="sig-name descname">getLeftChild</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node12getLeftChildEP4Nodev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node13getRightChildEP4Nodev">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE4Node13getRightChildEv"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE4Node13getRightChildEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1a6fe0e983ccc199f11bd8340cf40324d3"></span>template&lt;&gt;<br />Node *<code class="sig-name descname">getRightChild</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node13getRightChildEP4Nodev" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node9getObjectEP13BoundedObjectv">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE4Node9getObjectEv"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE4Node9getObjectEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1a0917112411f2765a48c42ccc70014d9e"></span>template&lt;&gt;<br />BoundedObject *<code class="sig-name descname">getObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node9getObjectEP13BoundedObjectv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition3BVHI8UserDataE4Node6isLeafEbv">
+<span id="_CPPv3IENK3pcl11recognition3BVHI8UserDataE4Node6isLeafEv"></span><span id="_CPPv2IENK3pcl11recognition3BVHI8UserDataE4Node6isLeafEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1a77810d1e2141e9dc35148e4b6a64c08b"></span>template&lt;&gt;<br />bool <code class="sig-name descname">isLeaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl11recognition3BVHI8UserDataE4Node6isLeafEbv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition3BVHI8UserDataE4Node9intersectEbAL6E_Kf">
+<span id="_CPPv3IENK3pcl11recognition3BVHI8UserDataE4Node9intersectEAL6E_Kf"></span><span id="_CPPv2IENK3pcl11recognition3BVHI8UserDataE4Node9intersectEA6_Kf"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1a6bf7463fab84a3b0064d569e2ba0946a"></span>template&lt;&gt;<br />bool <code class="sig-name descname">intersect</code><span class="sig-paren">(</span><em class="property">const</em> float <em>box</em>[6]<span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl11recognition3BVHI8UserDataE4Node9intersectEbAL6E_Kf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Returns true if ‘box’ intersects or touches (with a side or a vertex) this node. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4IENK3pcl11recognition3BVHI8UserDataE4Node24computeBoundingBoxVolumeEdv">
+<span id="_CPPv3IENK3pcl11recognition3BVHI8UserDataE4Node24computeBoundingBoxVolumeEv"></span><span id="_CPPv2IENK3pcl11recognition3BVHI8UserDataE4Node24computeBoundingBoxVolumeEv"></span><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1ac12123768067d50b7123051657771675"></span>template&lt;&gt;<br />double <code class="sig-name descname">computeBoundingBoxVolume</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4IENK3pcl11recognition3BVHI8UserDataE4Node24computeBoundingBoxVolumeEdv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Computes and returns the volume of the bounding box of this node. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node7bounds_E">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE4Node7bounds_E"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE4Node7bounds_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1ac1d4d404659a2fe5e244891bcaa667fa"></span>float <code class="sig-name descname">bounds_</code>[6]<a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node7bounds_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node9children_E">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE4Node9children_E"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE4Node9children_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1a8cacd60bf5a29e311f7c6c624371ea4f"></span>Node *<code class="sig-name descname">children_</code>[2]<a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node9children_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node7object_E">
+<span id="_CPPv3IEN3pcl11recognition3BVHI8UserDataE4Node7object_E"></span><span id="_CPPv2IEN3pcl11recognition3BVHI8UserDataE4Node7object_E"></span>template&lt;&gt;<br /><span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1ae891e621a7332e17ffd7061b138d31c7"></span>BoundedObject *<code class="sig-name descname">object_</code><a class="headerlink" href="#_CPPv4IEN3pcl11recognition3BVHI8UserDataE4Node7object_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Friends</p>
+<dl class="function">
+<dt>
+<span class="target" id="classpcl_1_1recognition_1_1_b_v_h_1_1_node_1a9cba446288d7c69a8b0d57e5cbe1cd39"></span><em class="property">friend </em><code class="sig-name descname">pcl::recognition::BVH::BVH</code></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

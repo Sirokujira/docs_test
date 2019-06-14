@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class BilateralFilter &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class BilateralFilter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_bilateral_filter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-bilateralfilter">
+<span id="exhale-class-classpcl-1-1-bilateral-filter"></span><h1>Template Class BilateralFilter<a class="headerlink" href="#template-class-bilateralfilter" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_filters_include_pcl_filters_bilateral.h.html#file-pcl-filters-include-pcl-filters-bilateral-h"><span class="std std-ref">File bilateral.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Filter&lt;</span> <span class="pre">PointT</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_filter.html#exhale-class-classpcl-1-1-filter"><span class="std std-ref">Template Class Filter</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I0EN3pcl15BilateralFilterE">
+<span id="_CPPv3I0EN3pcl15BilateralFilterE"></span><span id="_CPPv2I0EN3pcl15BilateralFilterE"></span><span class="target" id="classpcl_1_1_bilateral_filter"></span>template&lt;typename <code class="sig-name descname">PointT</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">BilateralFilter</code> : <em class="property">public</em> pcl::Filter&lt;<a class="reference internal" href="#_CPPv4I0EN3pcl15BilateralFilterE" title="pcl::BilateralFilter::PointT">PointT</a>&gt;<a class="headerlink" href="#_CPPv4I0EN3pcl15BilateralFilterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A bilateral filter implementation for point cloud data. </p>
+<p>Uses the intensity data channel. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>For more information please see <strong>C. Tomasi and R. Manduchi. Bilateral Filtering for Gray and Color Images. In Proceedings of the IEEE International Conference on Computer Vision, 1998.</strong> </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Luca Penasa </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl15BilateralFilter3PtrE">
+<span id="_CPPv3N3pcl15BilateralFilter3PtrE"></span><span id="_CPPv2N3pcl15BilateralFilter3PtrE"></span><span id="pcl::BilateralFilter::Ptr"></span><span class="target" id="classpcl_1_1_bilateral_filter_1a1814041247143eb5a4e3d1b6983e1db4"></span><em class="property">typedef </em>boost::shared_ptr&lt;BilateralFilter&lt;PointT&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl15BilateralFilter3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl15BilateralFilter8ConstPtrE">
+<span id="_CPPv3N3pcl15BilateralFilter8ConstPtrE"></span><span id="_CPPv2N3pcl15BilateralFilter8ConstPtrE"></span><span id="pcl::BilateralFilter::ConstPtr"></span><span class="target" id="classpcl_1_1_bilateral_filter_1a7e2800fc619fd3b6d1e4b85295eaf6db"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> BilateralFilter&lt;PointT&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl15BilateralFilter8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl15BilateralFilter15BilateralFilterEv">
+<span id="_CPPv3N3pcl15BilateralFilter15BilateralFilterEv"></span><span id="_CPPv2N3pcl15BilateralFilter15BilateralFilterEv"></span><span id="pcl::BilateralFilter::BilateralFilter"></span><span class="target" id="classpcl_1_1_bilateral_filter_1a6d2043ffcb98ec957d38ac1c9746790c"></span><code class="sig-name descname">BilateralFilter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15BilateralFilter15BilateralFilterEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p>Sets sigma_s_ to 0 and sigma_r_ to MAXDBL </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15BilateralFilter11applyFilterER10PointCloud">
+<span id="_CPPv3N3pcl15BilateralFilter11applyFilterER10PointCloud"></span><span id="_CPPv2N3pcl15BilateralFilter11applyFilterER10PointCloud"></span><span id="pcl::BilateralFilter::applyFilter__PointCloudR"></span><span class="target" id="classpcl_1_1_bilateral_filter_1ac53b23b96cbb811e70525222a754ab70"></span>void <code class="sig-name descname">applyFilter</code><span class="sig-paren">(</span>PointCloud &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15BilateralFilter11applyFilterER10PointCloud" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="classpcl_1_1_filter.html#classpcl_1_1_filter"><span class="std std-ref">Filter</span></a> the input data and store the results into output. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant point cloud message </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15BilateralFilter18computePointWeightEKiRKNSt6vectorIiEERKNSt6vectorIfEE">
+<span id="_CPPv3N3pcl15BilateralFilter18computePointWeightEKiRKNSt6vectorIiEERKNSt6vectorIfEE"></span><span id="_CPPv2N3pcl15BilateralFilter18computePointWeightEKiRKNSt6vectorIiEERKNSt6vectorIfEE"></span><span id="pcl::BilateralFilter::computePointWeight__iC.std::vector:i:CR.std::vector:float:CR"></span><span class="target" id="classpcl_1_1_bilateral_filter_1a066c204ca8bc026925fef5f5bf7e7837"></span>double <code class="sig-name descname">computePointWeight</code><span class="sig-paren">(</span><em class="property">const</em> int <em>pid</em>, <em class="property">const</em> std::vector&lt;int&gt; &amp;<em>indices</em>, <em class="property">const</em> std::vector&lt;float&gt; &amp;<em>distances</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15BilateralFilter18computePointWeightEKiRKNSt6vectorIiEERKNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute the intensity average for a single point. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>the intensity average at a given point index </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pid</span></code>: the point index to compute the weight for </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">indices</span></code>: the set of nearest neighor indices </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">distances</span></code>: the set of nearest neighbor distances </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15BilateralFilter11setHalfSizeEKd">
+<span id="_CPPv3N3pcl15BilateralFilter11setHalfSizeEKd"></span><span id="_CPPv2N3pcl15BilateralFilter11setHalfSizeEKd"></span><span id="pcl::BilateralFilter::setHalfSize__doubleC"></span><span class="target" id="classpcl_1_1_bilateral_filter_1afc66e9881892c38ab0583a3e794e10be"></span>void <code class="sig-name descname">setHalfSize</code><span class="sig-paren">(</span><em class="property">const</em> double <em>sigma_s</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15BilateralFilter11setHalfSizeEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the half size of the Gaussian bilateral filter window. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sigma_s</span></code>: the half size of the Gaussian bilateral filter window to use </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15BilateralFilter11getHalfSizeEv">
+<span id="_CPPv3NK3pcl15BilateralFilter11getHalfSizeEv"></span><span id="_CPPv2NK3pcl15BilateralFilter11getHalfSizeEv"></span><span id="pcl::BilateralFilter::getHalfSizeC"></span><span class="target" id="classpcl_1_1_bilateral_filter_1ac254e5699f91bf688d21282c63f1aa67"></span>double <code class="sig-name descname">getHalfSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15BilateralFilter11getHalfSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the half size of the Gaussian bilateral filter window as set by the user. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15BilateralFilter9setStdDevEKd">
+<span id="_CPPv3N3pcl15BilateralFilter9setStdDevEKd"></span><span id="_CPPv2N3pcl15BilateralFilter9setStdDevEKd"></span><span id="pcl::BilateralFilter::setStdDev__doubleC"></span><span class="target" id="classpcl_1_1_bilateral_filter_1adc9cfc0e5547a902d046da9d66c8cdc8"></span>void <code class="sig-name descname">setStdDev</code><span class="sig-paren">(</span><em class="property">const</em> double <em>sigma_r</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15BilateralFilter9setStdDevEKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set the standard deviation parameter. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sigma_r</span></code>: the new standard deviation parameter </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl15BilateralFilter9getStdDevEv">
+<span id="_CPPv3NK3pcl15BilateralFilter9getStdDevEv"></span><span id="_CPPv2NK3pcl15BilateralFilter9getStdDevEv"></span><span id="pcl::BilateralFilter::getStdDevC"></span><span class="target" id="classpcl_1_1_bilateral_filter_1a5e1455ab6c90044b98572c2078f89156"></span>double <code class="sig-name descname">getStdDev</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl15BilateralFilter9getStdDevEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the value of the current standard deviation parameter of the bilateral filter. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl15BilateralFilter15setSearchMethodERK9KdTreePtr">
+<span id="_CPPv3N3pcl15BilateralFilter15setSearchMethodERK9KdTreePtr"></span><span id="_CPPv2N3pcl15BilateralFilter15setSearchMethodERK9KdTreePtr"></span><span id="pcl::BilateralFilter::setSearchMethod__KdTreePtrCR"></span><span class="target" id="classpcl_1_1_bilateral_filter_1a33c48632fadd95cd4cd5889b0342640b"></span>void <code class="sig-name descname">setSearchMethod</code><span class="sig-paren">(</span><em class="property">const</em> KdTreePtr &amp;<em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl15BilateralFilter15setSearchMethodERK9KdTreePtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the search object. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">tree</span></code>: a pointer to the spatial search object. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,923 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class NormalDistributionsTransform &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class NormalDistributionsTransform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_normal_distributions_transform.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-normaldistributionstransform">
+<span id="exhale-class-classpcl-1-1-normal-distributions-transform"></span><h1>Template Class NormalDistributionsTransform<a class="headerlink" href="#template-class-normaldistributionstransform" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_registration_include_pcl_registration_ndt.h.html#file-pcl-registration-include-pcl-registration-ndt-h"><span class="std std-ref">File ndt.h</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">pcl::Registration&lt;</span> <span class="pre">PointSource,</span> <span class="pre">PointTarget</span> <span class="pre">&gt;</span></code> (<a class="reference internal" href="classpcl_1_1_registration.html#exhale-class-classpcl-1-1-registration"><span class="std std-ref">Template Class Registration</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00EN3pcl28NormalDistributionsTransformE">
+<span id="_CPPv3I00EN3pcl28NormalDistributionsTransformE"></span><span id="_CPPv2I00EN3pcl28NormalDistributionsTransformE"></span><span class="target" id="classpcl_1_1_normal_distributions_transform"></span>template&lt;typename <code class="sig-name descname">PointSource</code>, typename <code class="sig-name descname">PointTarget</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">NormalDistributionsTransform</code> : <em class="property">public</em> pcl::Registration&lt;<a class="reference internal" href="#_CPPv4I00EN3pcl28NormalDistributionsTransformE" title="pcl::NormalDistributionsTransform::PointSource">PointSource</a>, <a class="reference internal" href="#_CPPv4I00EN3pcl28NormalDistributionsTransformE" title="pcl::NormalDistributionsTransform::PointTarget">PointTarget</a>&gt;<a class="headerlink" href="#_CPPv4I00EN3pcl28NormalDistributionsTransformE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A 3D <a class="reference internal" href="structpcl_1_1_normal.html#structpcl_1_1_normal"><span class="std std-ref">Normal</span></a> Distribution Transform registration implementation for point cloud data. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>For more information please see <strong>Magnusson, M. (2009). The Three-Dimensional Normal-Distributions Transform — an Efﬁcient Representation for <a class="reference internal" href="classpcl_1_1_registration.html#classpcl_1_1_registration"><span class="std std-ref">Registration</span></a>, Surface Analysis, and Loop Detection. PhD thesis, Orebro University. Orebro Studies in Technology 36.</strong>, <strong>More, J., and Thuente, D. (1994). Line Search Algorithm with Guaranteed Sufficient Decrease In ACM Transactions on Mathematical Software.</strong> and Sun, W. and Yuan, Y, (2006) Optimization Theory and Methods: Nonlinear Programming. 89-100 </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>Math refactored by Todor Stoyanov. </p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Brian Okorn (Space and Naval Warfare Systems Center Pacific) </p>
+</dd>
+</dl>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform3PtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform3PtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform3PtrE"></span><span id="pcl::NormalDistributionsTransform::Ptr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1aa8b4b6147b12649200bcbaf5521a4f6f"></span><em class="property">typedef </em>boost::shared_ptr&lt;NormalDistributionsTransform&lt;PointSource, PointTarget&gt;&gt; <code class="sig-name descname">Ptr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform3PtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform8ConstPtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform8ConstPtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform8ConstPtrE"></span><span id="pcl::NormalDistributionsTransform::ConstPtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1aa9b617a12ab87ffcaa5a8ef1a7ee5baa"></span><em class="property">typedef </em>boost::shared_ptr&lt;<em class="property">const</em> NormalDistributionsTransform&lt;PointSource, PointTarget&gt;&gt; <code class="sig-name descname">ConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform8ConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform28NormalDistributionsTransformEv">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform28NormalDistributionsTransformEv"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform28NormalDistributionsTransformEv"></span><span id="pcl::NormalDistributionsTransform::NormalDistributionsTransform"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1af7bf146541e1f56bbc890fb21581b228"></span><code class="sig-name descname">NormalDistributionsTransform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform28NormalDistributionsTransformEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p>Sets <a class="reference internal" href="#classpcl_1_1_normal_distributions_transform_1a779d3b4c4f5181eb4f5ed6a660c66471"><span class="std std-ref">outlier_ratio_</span></a> to 0.35, <a class="reference internal" href="#classpcl_1_1_normal_distributions_transform_1a15165f7e13bbfbc6a2e5e54bc8ed5c28"><span class="std std-ref">step_size_</span></a> to 0.05 and <a class="reference internal" href="#classpcl_1_1_normal_distributions_transform_1a979b1ab50b52b130e0b29fda50e0afb0"><span class="std std-ref">resolution_</span></a> to 1.0 </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransformD0Ev">
+<span id="_CPPv3N3pcl28NormalDistributionsTransformD0Ev"></span><span id="_CPPv2N3pcl28NormalDistributionsTransformD0Ev"></span><span id="pcl::NormalDistributionsTransform::~NormalDistributionsTransform"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1aacf2c41d361548584e398a44225896ce"></span><em class="property">virtual</em> <code class="sig-name descname">~NormalDistributionsTransform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransformD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Empty destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform14setInputTargetERK24PointCloudTargetConstPtr">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform14setInputTargetERK24PointCloudTargetConstPtr"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform14setInputTargetERK24PointCloudTargetConstPtr"></span><span id="pcl::NormalDistributionsTransform::setInputTarget__PointCloudTargetConstPtrCR"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1abc9909b2197aaa297edcffe1a0a2b1ae"></span>void <code class="sig-name descname">setInputTarget</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform24PointCloudTargetConstPtrE" title="pcl::NormalDistributionsTransform::PointCloudTargetConstPtr">PointCloudTargetConstPtr</a> &amp;<em>cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform14setInputTargetERK24PointCloudTargetConstPtr" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Provide a pointer to the input target (e.g., the point cloud that we want to align the input source to). </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">cloud</span></code>: the input point cloud target </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform13setResolutionEf">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform13setResolutionEf"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform13setResolutionEf"></span><span id="pcl::NormalDistributionsTransform::setResolution__float"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a4b1282cd7399d47b02f210f47a47ccaa"></span>void <code class="sig-name descname">setResolution</code><span class="sig-paren">(</span>float <em>resolution</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform13setResolutionEf" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set/change the voxel grid resolution. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">resolution</span></code>: side length of voxels </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl28NormalDistributionsTransform13getResolutionEv">
+<span id="_CPPv3NK3pcl28NormalDistributionsTransform13getResolutionEv"></span><span id="_CPPv2NK3pcl28NormalDistributionsTransform13getResolutionEv"></span><span id="pcl::NormalDistributionsTransform::getResolutionC"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a23d792fcdc2d052ed08571f5537e21a5"></span>float <code class="sig-name descname">getResolution</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl28NormalDistributionsTransform13getResolutionEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get voxel grid resolution. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>side length of voxels </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl28NormalDistributionsTransform11getStepSizeEv">
+<span id="_CPPv3NK3pcl28NormalDistributionsTransform11getStepSizeEv"></span><span id="_CPPv2NK3pcl28NormalDistributionsTransform11getStepSizeEv"></span><span id="pcl::NormalDistributionsTransform::getStepSizeC"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a5b009e0b8e2ae8e5c1c97e6a66494b45"></span>double <code class="sig-name descname">getStepSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl28NormalDistributionsTransform11getStepSizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the newton line search maximum step length. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>maximum step length </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform11setStepSizeEd">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform11setStepSizeEd"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform11setStepSizeEd"></span><span id="pcl::NormalDistributionsTransform::setStepSize__double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1af6e7b6e4d7129bb12d65477a56d99d99"></span>void <code class="sig-name descname">setStepSize</code><span class="sig-paren">(</span>double <em>step_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform11setStepSizeEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set/change the newton line search maximum step length. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">step_size</span></code>: maximum step length </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl28NormalDistributionsTransform14getOulierRatioEv">
+<span id="_CPPv3NK3pcl28NormalDistributionsTransform14getOulierRatioEv"></span><span id="_CPPv2NK3pcl28NormalDistributionsTransform14getOulierRatioEv"></span><span id="pcl::NormalDistributionsTransform::getOulierRatioC"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1aedf43d53d08c848cab4ad95d8380bd1f"></span>double <code class="sig-name descname">getOulierRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl28NormalDistributionsTransform14getOulierRatioEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the point cloud outlier ratio. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>outlier ratio </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform14setOulierRatioEd">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform14setOulierRatioEd"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform14setOulierRatioEd"></span><span id="pcl::NormalDistributionsTransform::setOulierRatio__double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1acb58f7261434f0670d2063cb6396b03c"></span>void <code class="sig-name descname">setOulierRatio</code><span class="sig-paren">(</span>double <em>outlier_ratio</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform14setOulierRatioEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Set/change the point cloud outlier ratio. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">outlier_ratio</span></code>: outlier ratio </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl28NormalDistributionsTransform28getTransformationProbabilityEv">
+<span id="_CPPv3NK3pcl28NormalDistributionsTransform28getTransformationProbabilityEv"></span><span id="_CPPv2NK3pcl28NormalDistributionsTransform28getTransformationProbabilityEv"></span><span id="pcl::NormalDistributionsTransform::getTransformationProbabilityC"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a5ce68689eb10fe61b9e6427ba143cbf1"></span>double <code class="sig-name descname">getTransformationProbability</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl28NormalDistributionsTransform28getTransformationProbabilityEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the registration alignment probability. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>transformation probability </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4NK3pcl28NormalDistributionsTransform20getFinalNumIterationEv">
+<span id="_CPPv3NK3pcl28NormalDistributionsTransform20getFinalNumIterationEv"></span><span id="_CPPv2NK3pcl28NormalDistributionsTransform20getFinalNumIterationEv"></span><span id="pcl::NormalDistributionsTransform::getFinalNumIterationC"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a62b635e6111fa3e0a756cebadcc6f78b"></span>int <code class="sig-name descname">getFinalNumIteration</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK3pcl28NormalDistributionsTransform20getFinalNumIterationEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of iterations required to calculate alignment. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>final number of iterations </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Static Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform16convertTransformERKN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen8Affine3fE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform16convertTransformERKN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen8Affine3fE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform16convertTransformERKN5Eigen6MatrixIdX6EX1EEERN5Eigen8Affine3fE"></span><span id="pcl::NormalDistributionsTransform::convertTransform__Eigen::Matrix:double.6.1:CR.Eigen::Affine3fR"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a60ca3541f15f9ffb2b0b0bc43b9d3d69"></span><em class="property">static</em> void <code class="sig-name descname">convertTransform</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>x</em>, Eigen::Affine3f &amp;<em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform16convertTransformERKN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen8Affine3fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert 6 element transformation vector to affine transformation. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: transformation vector of the form [x, y, z, roll, pitch, yaw] </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">trans</span></code>: affine transform corresponding to given transfomation vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform16convertTransformERKN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen8Matrix4fE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform16convertTransformERKN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen8Matrix4fE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform16convertTransformERKN5Eigen6MatrixIdX6EX1EEERN5Eigen8Matrix4fE"></span><span id="pcl::NormalDistributionsTransform::convertTransform__Eigen::Matrix:double.6.1:CR.Eigen::Matrix4fR"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a6cd487fcf59a975ca9b898a56a429a5f"></span><em class="property">static</em> void <code class="sig-name descname">convertTransform</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>x</em>, Eigen::Matrix4f &amp;<em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform16convertTransformERKN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen8Matrix4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert 6 element transformation vector to transformation matrix. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: transformation vector of the form [x, y, z, roll, pitch, yaw] </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">trans</span></code>: 4x4 transformation matrix corresponding to given transfomation vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Types</p>
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform16PointCloudSourceE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform16PointCloudSourceE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform16PointCloudSourceE"></span><span id="pcl::NormalDistributionsTransform::PointCloudSource"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a2e2d2207fc06d2b13cea6ca0095ec832"></span><em class="property">typedef </em>Registration&lt;PointSource, PointTarget&gt;::PointCloudSource <code class="sig-name descname">PointCloudSource</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudSourceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform19PointCloudSourcePtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform19PointCloudSourcePtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform19PointCloudSourcePtrE"></span><span id="pcl::NormalDistributionsTransform::PointCloudSourcePtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1adc8a7c0612ab8a8f180d9206a140ef9c"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudSourceE" title="pcl::NormalDistributionsTransform::PointCloudSource">PointCloudSource</a>::Ptr <code class="sig-name descname">PointCloudSourcePtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform19PointCloudSourcePtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform24PointCloudSourceConstPtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform24PointCloudSourceConstPtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform24PointCloudSourceConstPtrE"></span><span id="pcl::NormalDistributionsTransform::PointCloudSourceConstPtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a0e2f041bdfe5a16e3339c92f89eb0dd1"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudSourceE" title="pcl::NormalDistributionsTransform::PointCloudSource">PointCloudSource</a>::ConstPtr <code class="sig-name descname">PointCloudSourceConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform24PointCloudSourceConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform16PointCloudTargetE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform16PointCloudTargetE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform16PointCloudTargetE"></span><span id="pcl::NormalDistributionsTransform::PointCloudTarget"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a8976723d9512dc45f8563a8a89dedd79"></span><em class="property">typedef </em>Registration&lt;PointSource, PointTarget&gt;::PointCloudTarget <code class="sig-name descname">PointCloudTarget</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudTargetE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform19PointCloudTargetPtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform19PointCloudTargetPtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform19PointCloudTargetPtrE"></span><span id="pcl::NormalDistributionsTransform::PointCloudTargetPtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a7d25d22748a3b6078332fafe34386603"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudTargetE" title="pcl::NormalDistributionsTransform::PointCloudTarget">PointCloudTarget</a>::Ptr <code class="sig-name descname">PointCloudTargetPtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform19PointCloudTargetPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform24PointCloudTargetConstPtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform24PointCloudTargetConstPtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform24PointCloudTargetConstPtrE"></span><span id="pcl::NormalDistributionsTransform::PointCloudTargetConstPtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a8962763655f7257d56ef2f12e821d77d"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudTargetE" title="pcl::NormalDistributionsTransform::PointCloudTarget">PointCloudTarget</a>::ConstPtr <code class="sig-name descname">PointCloudTargetConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform24PointCloudTargetConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform15PointIndicesPtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform15PointIndicesPtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform15PointIndicesPtrE"></span><span id="pcl::NormalDistributionsTransform::PointIndicesPtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a450ffdcd8ec97e95117070d423264da4"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndices3PtrE" title="pcl::PointIndices::Ptr">Ptr</a> <code class="sig-name descname">PointIndicesPtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform15PointIndicesPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform20PointIndicesConstPtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform20PointIndicesConstPtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform20PointIndicesConstPtrE"></span><span id="pcl::NormalDistributionsTransform::PointIndicesConstPtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a42cc623b9722da6bd2ad88208e75bb9d"></span><em class="property">typedef </em><a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndicesE" title="pcl::PointIndices">PointIndices</a>::<a class="reference internal" href="structpcl_1_1_point_indices.html#_CPPv4N3pcl12PointIndices8ConstPtrE" title="pcl::PointIndices::ConstPtr">ConstPtr</a> <code class="sig-name descname">PointIndicesConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform20PointIndicesConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform10TargetGridE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform10TargetGridE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform10TargetGridE"></span><span id="pcl::NormalDistributionsTransform::TargetGrid"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a0d245ca8e5df83bb576ea5bf61e513be"></span><em class="property">typedef </em>VoxelGridCovariance&lt;PointTarget&gt; <code class="sig-name descname">TargetGrid</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform10TargetGridE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Typename of searchable voxel grid containing mean and covariance. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform13TargetGridPtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform13TargetGridPtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform13TargetGridPtrE"></span><span id="pcl::NormalDistributionsTransform::TargetGridPtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1acd0bc0223e03d2453ab9e910877c6239"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform10TargetGridE" title="pcl::NormalDistributionsTransform::TargetGrid">TargetGrid</a> *<code class="sig-name descname">TargetGridPtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform13TargetGridPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Typename of pointer to searchable voxel grid. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform18TargetGridConstPtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform18TargetGridConstPtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform18TargetGridConstPtrE"></span><span id="pcl::NormalDistributionsTransform::TargetGridConstPtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a4ce910fa207bd060f856268504dcd5da"></span><em class="property">typedef </em><em class="property">const</em> <a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform10TargetGridE" title="pcl::NormalDistributionsTransform::TargetGrid">TargetGrid</a> *<code class="sig-name descname">TargetGridConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform18TargetGridConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Typename of const pointer to searchable voxel grid. </p>
+</dd></dl>
+
+<dl class="type">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform22TargetGridLeafConstPtrE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform22TargetGridLeafConstPtrE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform22TargetGridLeafConstPtrE"></span><span id="pcl::NormalDistributionsTransform::TargetGridLeafConstPtr"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1ae241178695742c3cc138682b32f5f4b0"></span><em class="property">typedef </em><a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform10TargetGridE" title="pcl::NormalDistributionsTransform::TargetGrid">TargetGrid</a>::LeafConstPtr <code class="sig-name descname">TargetGridLeafConstPtr</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform22TargetGridLeafConstPtrE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Typename of const pointer to searchable voxel grid leaf. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform21computeTransformationER16PointCloudSource">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform21computeTransformationER16PointCloudSource"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform21computeTransformationER16PointCloudSource"></span><span id="pcl::NormalDistributionsTransform::computeTransformation__PointCloudSourceR"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a60ae727dd5185e7fc804b4d8de973a85"></span><em class="property">virtual</em> void <code class="sig-name descname">computeTransformation</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudSourceE" title="pcl::NormalDistributionsTransform::PointCloudSource">PointCloudSource</a> &amp;<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform21computeTransformationER16PointCloudSource" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate the transformation and returns the transformed source (input) as output. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant input transformed point cloud dataset </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE"></span><span id="pcl::NormalDistributionsTransform::computeTransformation__PointCloudSourceR.Eigen::Matrix4fCR"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a4abd14dda61865b6063868c3f3fc8845"></span>void <code class="sig-name descname">computeTransformation</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudSourceE" title="pcl::NormalDistributionsTransform::PointCloudSource">PointCloudSource</a> &amp;<em>output</em>, <em class="property">const</em> Eigen::Matrix4f &amp;<em>guess</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform21computeTransformationER16PointCloudSourceRKN5Eigen8Matrix4fE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate the transformation and returns the transformed source (input) as output. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: the resultant input transformed point cloud dataset </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">guess</span></code>: the initial gross estimation of the transformation </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform4initEv">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform4initEv"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform4initEv"></span><span id="pcl::NormalDistributionsTransform::init"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1abd92aa13bd087dafada2010c413905b7"></span>void <code class="sig-name descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform4initEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initiate covariance voxel structure. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform18computeDerivativesERN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL6EEEER16PointCloudSourceRN5Eigen6MatrixIdXL6EEXL1EEEEb">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform18computeDerivativesERN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL6EEEER16PointCloudSourceRN5Eigen6MatrixIdXL6EEXL1EEEEb"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform18computeDerivativesERN5Eigen6MatrixIdX6EX1EEERN5Eigen6MatrixIdX6EX6EEER16PointCloudSourceRN5Eigen6MatrixIdX6EX1EEEb"></span><span id="pcl::NormalDistributionsTransform::computeDerivatives__Eigen::Matrix:double.6.1:R.Eigen::Matrix:double.6.6:R.PointCloudSourceR.Eigen::Matrix:double.6.1:R.b"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a2eb79c026d9ec3bde70cf4b53377aa53"></span>double <code class="sig-name descname">computeDerivatives</code><span class="sig-paren">(</span>Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>score_gradient</em>, Eigen::Matrix&lt;double, 6, 6&gt; &amp;<em>hessian</em>, <a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudSourceE" title="pcl::NormalDistributionsTransform::PointCloudSource">PointCloudSource</a> &amp;<em>trans_cloud</em>, Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>p</em>, bool <em>compute_hessian</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform18computeDerivativesERN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL6EEEER16PointCloudSourceRN5Eigen6MatrixIdXL6EEXL1EEEEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute derivatives of probability function w.r.t. </p>
+<p>the transformation vector. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Equation 6.10, 6.12 and 6.13 [Magnusson 2009]. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">score_gradient</span></code>: the gradient vector of the probability function w.r.t. the transformation vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">hessian</span></code>: the hessian matrix of the probability function w.r.t. the transformation vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">trans_cloud</span></code>: transformed point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p</span></code>: the current transform vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">compute_hessian</span></code>: flag to calculate hessian, unnessissary for step calculation. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform17updateDerivativesERN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL6EEEERN5Eigen8Vector3dERN5Eigen8Matrix3dEb">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform17updateDerivativesERN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL6EEEERN5Eigen8Vector3dERN5Eigen8Matrix3dEb"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform17updateDerivativesERN5Eigen6MatrixIdX6EX1EEERN5Eigen6MatrixIdX6EX6EEERN5Eigen8Vector3dERN5Eigen8Matrix3dEb"></span><span id="pcl::NormalDistributionsTransform::updateDerivatives__Eigen::Matrix:double.6.1:R.Eigen::Matrix:double.6.6:R.Eigen::Vector3dR.Eigen::Matrix3dR.b"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1ad006c7315b1f52de25efc41183c5ed60"></span>double <code class="sig-name descname">updateDerivatives</code><span class="sig-paren">(</span>Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>score_gradient</em>, Eigen::Matrix&lt;double, 6, 6&gt; &amp;<em>hessian</em>, Eigen::Vector3d &amp;<em>x_trans</em>, Eigen::Matrix3d &amp;<em>c_inv</em>, bool <em>compute_hessian</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform17updateDerivativesERN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL6EEEERN5Eigen8Vector3dERN5Eigen8Matrix3dEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute individual point contirbutions to derivatives of probability function w.r.t. </p>
+<p>the transformation vector. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Equation 6.10, 6.12 and 6.13 [Magnusson 2009]. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">score_gradient</span></code>: the gradient vector of the probability function w.r.t. the transformation vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">hessian</span></code>: the hessian matrix of the probability function w.r.t. the transformation vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x_trans</span></code>: transformed point minus mean of occupied covariance voxel </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c_inv</span></code>: covariance of occupied covariance voxel </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">compute_hessian</span></code>: flag to calculate hessian, unnessissary for step calculation. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform23computeAngleDerivativesERN5Eigen6MatrixIdXL6EEXL1EEEEb">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform23computeAngleDerivativesERN5Eigen6MatrixIdXL6EEXL1EEEEb"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform23computeAngleDerivativesERN5Eigen6MatrixIdX6EX1EEEb"></span><span id="pcl::NormalDistributionsTransform::computeAngleDerivatives__Eigen::Matrix:double.6.1:R.b"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1af99468f56f6bb95bef79193ab0b16205"></span>void <code class="sig-name descname">computeAngleDerivatives</code><span class="sig-paren">(</span>Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>p</em>, bool <em>compute_hessian</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform23computeAngleDerivativesERN5Eigen6MatrixIdXL6EEXL1EEEEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Precompute anglular components of derivatives. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Equation 6.19 and 6.21 [Magnusson 2009]. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p</span></code>: the current transform vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">compute_hessian</span></code>: flag to calculate hessian, unnessissary for step calculation. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform23computePointDerivativesERN5Eigen8Vector3dEb">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform23computePointDerivativesERN5Eigen8Vector3dEb"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform23computePointDerivativesERN5Eigen8Vector3dEb"></span><span id="pcl::NormalDistributionsTransform::computePointDerivatives__Eigen::Vector3dR.b"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1acdba743aa6ea3747e2fddeed10cc5ec1"></span>void <code class="sig-name descname">computePointDerivatives</code><span class="sig-paren">(</span>Eigen::Vector3d &amp;<em>x</em>, bool <em>compute_hessian</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform23computePointDerivativesERN5Eigen8Vector3dEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute point derivatives. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Equation 6.18-21 [Magnusson 2009]. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: point from the input cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">compute_hessian</span></code>: flag to calculate hessian, unnessissary for step calculation. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform14computeHessianERN5Eigen6MatrixIdXL6EEXL6EEEER16PointCloudSourceRN5Eigen6MatrixIdXL6EEXL1EEEE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform14computeHessianERN5Eigen6MatrixIdXL6EEXL6EEEER16PointCloudSourceRN5Eigen6MatrixIdXL6EEXL1EEEE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform14computeHessianERN5Eigen6MatrixIdX6EX6EEER16PointCloudSourceRN5Eigen6MatrixIdX6EX1EEE"></span><span id="pcl::NormalDistributionsTransform::computeHessian__Eigen::Matrix:double.6.6:R.PointCloudSourceR.Eigen::Matrix:double.6.1:R"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a12a31cfee6372534d795c1f65fbfbd2d"></span>void <code class="sig-name descname">computeHessian</code><span class="sig-paren">(</span>Eigen::Matrix&lt;double, 6, 6&gt; &amp;<em>hessian</em>, <a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudSourceE" title="pcl::NormalDistributionsTransform::PointCloudSource">PointCloudSource</a> &amp;<em>trans_cloud</em>, Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform14computeHessianERN5Eigen6MatrixIdXL6EEXL6EEEER16PointCloudSourceRN5Eigen6MatrixIdXL6EEXL1EEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute hessian of probability function w.r.t. </p>
+<p>the transformation vector. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Equation 6.13 [Magnusson 2009]. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">hessian</span></code>: the hessian matrix of the probability function w.r.t. the transformation vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">trans_cloud</span></code>: transformed point cloud </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">p</span></code>: the current transform vector </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform13updateHessianERN5Eigen6MatrixIdXL6EEXL6EEEERN5Eigen8Vector3dERN5Eigen8Matrix3dE">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform13updateHessianERN5Eigen6MatrixIdXL6EEXL6EEEERN5Eigen8Vector3dERN5Eigen8Matrix3dE"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform13updateHessianERN5Eigen6MatrixIdX6EX6EEERN5Eigen8Vector3dERN5Eigen8Matrix3dE"></span><span id="pcl::NormalDistributionsTransform::updateHessian__Eigen::Matrix:double.6.6:R.Eigen::Vector3dR.Eigen::Matrix3dR"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a9c6bd836040e430eea730cd6d16694f9"></span>void <code class="sig-name descname">updateHessian</code><span class="sig-paren">(</span>Eigen::Matrix&lt;double, 6, 6&gt; &amp;<em>hessian</em>, Eigen::Vector3d &amp;<em>x_trans</em>, Eigen::Matrix3d &amp;<em>c_inv</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform13updateHessianERN5Eigen6MatrixIdXL6EEXL6EEEERN5Eigen8Vector3dERN5Eigen8Matrix3dE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute individual point contirbutions to hessian of probability function w.r.t. </p>
+<p>the transformation vector. <dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Equation 6.13 [Magnusson 2009]. </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">hessian</span></code>: the hessian matrix of the probability function w.r.t. the transformation vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x_trans</span></code>: transformed point minus mean of occupied covariance voxel </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">c_inv</span></code>: covariance of occupied covariance voxel </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform19computeStepLengthMTERKN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL1EEEEdddRdRN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL6EEEER16PointCloudSource">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform19computeStepLengthMTERKN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL1EEEEdddRdRN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL6EEEER16PointCloudSource"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform19computeStepLengthMTERKN5Eigen6MatrixIdX6EX1EEERN5Eigen6MatrixIdX6EX1EEEdddRdRN5Eigen6MatrixIdX6EX1EEERN5Eigen6MatrixIdX6EX6EEER16PointCloudSource"></span><span id="pcl::NormalDistributionsTransform::computeStepLengthMT__Eigen::Matrix:double.6.1:CR.Eigen::Matrix:double.6.1:R.double.double.double.doubleR.Eigen::Matrix:double.6.1:R.Eigen::Matrix:double.6.6:R.PointCloudSourceR"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a92103be9ce6dc6838d13353358daa852"></span>double <code class="sig-name descname">computeStepLengthMT</code><span class="sig-paren">(</span><em class="property">const</em> Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>x</em>, Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>step_dir</em>, double <em>step_init</em>, double <em>step_max</em>, double <em>step_min</em>, double &amp;<em>score</em>, Eigen::Matrix&lt;double, 6, 1&gt; &amp;<em>score_gradient</em>, Eigen::Matrix&lt;double, 6, 6&gt; &amp;<em>hessian</em>, <a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform16PointCloudSourceE" title="pcl::NormalDistributionsTransform::PointCloudSource">PointCloudSource</a> &amp;<em>trans_cloud</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform19computeStepLengthMTERKN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL1EEEEdddRdRN5Eigen6MatrixIdXL6EEXL1EEEERN5Eigen6MatrixIdXL6EEXL6EEEER16PointCloudSource" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute line search step length and update transform and probability derivatives using More-Thuente method. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Search Algorithm [More, Thuente 1994] </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>final step length </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">x</span></code>: initial transformation vector, <span class="math">x</span> in Equation 1.3 (Moore, Thuente 1994) and <span class="math">\vec{p}</span> in Algorithm 2 [Magnusson 2009] </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">step_dir</span></code>: descent direction, <span class="math">p</span> in Equation 1.3 (Moore, Thuente 1994) and <span class="math">\delta \vec{p}</span> normalized in Algorithm 2 [Magnusson 2009] </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">step_init</span></code>: initial step length estimate, <span class="math">\alpha_0</span> in Moore-Thuente (1994) and the noramal of <span class="math">\delta \vec{p}</span> in Algorithm 2 [Magnusson 2009] </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">step_max</span></code>: maximum step length, <span class="math">\alpha_max</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">step_min</span></code>: minimum step length, <span class="math">\alpha_min</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">score</span></code>: final score function value, <span class="math">f(x + \alpha p)</span> in Equation 1.3 (Moore, Thuente 1994) and <span class="math">score</span> in Algorithm 2 [Magnusson 2009] </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">score_gradient</span></code>: gradient of score function w.r.t. transformation vector, <span class="math">f'(x + \alpha p)</span> in Moore-Thuente (1994) and <span class="math">\vec{g}</span> in Algorithm 2 [Magnusson 2009] </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">hessian</span></code>: hessian of score function w.r.t. transformation vector, <span class="math">f''(x + \alpha p)</span> in Moore-Thuente (1994) and <span class="math">H</span> in Algorithm 2 [Magnusson 2009] </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">trans_cloud</span></code>: transformed point cloud, <span class="math">X</span> transformed by <span class="math">T(\vec{p},\vec{x})</span> in Algorithm 2 [Magnusson 2009] </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform16updateIntervalMTERdRdRdRdRdRdddd">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform16updateIntervalMTERdRdRdRdRdRdddd"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform16updateIntervalMTERdRdRdRdRdRdddd"></span><span id="pcl::NormalDistributionsTransform::updateIntervalMT__doubleR.doubleR.doubleR.doubleR.doubleR.doubleR.double.double.double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1acef200272607a40dc9890481f11c2480"></span>bool <code class="sig-name descname">updateIntervalMT</code><span class="sig-paren">(</span>double &amp;<em>a_l</em>, double &amp;<em>f_l</em>, double &amp;<em>g_l</em>, double &amp;<em>a_u</em>, double &amp;<em>f_u</em>, double &amp;<em>g_u</em>, double <em>a_t</em>, double <em>f_t</em>, double <em>g_t</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform16updateIntervalMTERdRdRdRdRdRdddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Update interval of possible step lengths for More-Thuente method, <span class="math">I</span> in More-Thuente (1994) </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Updating Algorithm until some value satisfies <span class="math">\psi(\alpha_k) \leq 0</span> and <span class="math">\phi'(\alpha_k) \geq 0</span> and Modified Updating Algorithm from then on [More, Thuente 1994]. </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>if interval converges </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">a_l</span></code>: first endpoint of interval <span class="math">I</span>, <span class="math">\alpha_l</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">f_l</span></code>: value at first endpoint, <span class="math">f_l</span> in Moore-Thuente (1994), <span class="math">\psi(\alpha_l)</span> for Update Algorithm and <span class="math">\phi(\alpha_l)</span> for Modified Update Algorithm </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">g_l</span></code>: derivative at first endpoint, <span class="math">g_l</span> in Moore-Thuente (1994), <span class="math">\psi'(\alpha_l)</span> for Update Algorithm and <span class="math">\phi'(\alpha_l)</span> for Modified Update Algorithm </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">a_u</span></code>: second endpoint of interval <span class="math">I</span>, <span class="math">\alpha_u</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">f_u</span></code>: value at second endpoint, <span class="math">f_u</span> in Moore-Thuente (1994), <span class="math">\psi(\alpha_u)</span> for Update Algorithm and <span class="math">\phi(\alpha_u)</span> for Modified Update Algorithm </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">g_u</span></code>: derivative at second endpoint, <span class="math">g_u</span> in Moore-Thuente (1994), <span class="math">\psi'(\alpha_u)</span> for Update Algorithm and <span class="math">\phi'(\alpha_u)</span> for Modified Update Algorithm </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a_t</span></code>: trial value, <span class="math">\alpha_t</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">f_t</span></code>: value at trial value, <span class="math">f_t</span> in Moore-Thuente (1994), <span class="math">\psi(\alpha_t)</span> for Update Algorithm and <span class="math">\phi(\alpha_t)</span> for Modified Update Algorithm </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">g_t</span></code>: derivative at trial value, <span class="math">g_t</span> in Moore-Thuente (1994), <span class="math">\psi'(\alpha_t)</span> for Update Algorithm and <span class="math">\phi'(\alpha_t)</span> for Modified Update Algorithm </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform21trialValueSelectionMTEddddddddd">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform21trialValueSelectionMTEddddddddd"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform21trialValueSelectionMTEddddddddd"></span><span id="pcl::NormalDistributionsTransform::trialValueSelectionMT__double.double.double.double.double.double.double.double.double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a7ae4590ac0242cb320ea6f29e1b93ba6"></span>double <code class="sig-name descname">trialValueSelectionMT</code><span class="sig-paren">(</span>double <em>a_l</em>, double <em>f_l</em>, double <em>g_l</em>, double <em>a_u</em>, double <em>f_u</em>, double <em>g_u</em>, double <em>a_t</em>, double <em>f_t</em>, double <em>g_t</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform21trialValueSelectionMTEddddddddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Select new trial value for More-Thuente method. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p>Trial Value Selection [More, Thuente 1994], <span class="math">\psi(\alpha_k)</span> is used for <span class="math">f_k</span> and <span class="math">g_k</span> until some value satisfies the test <span class="math">\psi(\alpha_k) \leq 0</span> and <span class="math">\phi'(\alpha_k) \geq 0</span> then <span class="math">\phi(\alpha_k)</span> is used from then on. </p>
+</dd>
+<dt><strong>Note</strong></dt><dd><p>Interpolation Minimizer equations from Optimization Theory and Methods: Nonlinear Programming By Wenyu Sun, Ya-xiang Yuan (89-100). </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>new trial value </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a_l</span></code>: first endpoint of interval <span class="math">I</span>, <span class="math">\alpha_l</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">f_l</span></code>: value at first endpoint, <span class="math">f_l</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">g_l</span></code>: derivative at first endpoint, <span class="math">g_l</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a_u</span></code>: second endpoint of interval <span class="math">I</span>, <span class="math">\alpha_u</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">f_u</span></code>: value at second endpoint, <span class="math">f_u</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">g_u</span></code>: derivative at second endpoint, <span class="math">g_u</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a_t</span></code>: previous trial value, <span class="math">\alpha_t</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">f_t</span></code>: value at previous trial value, <span class="math">f_t</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">g_t</span></code>: derivative at previous trial value, <span class="math">g_t</span> in Moore-Thuente (1994) </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform22auxilaryFunction_PsiMTEddddd">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform22auxilaryFunction_PsiMTEddddd"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform22auxilaryFunction_PsiMTEddddd"></span><span id="pcl::NormalDistributionsTransform::auxilaryFunction_PsiMT__double.double.double.double.double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a8fc05efdb729b163d4e3f175186b5e5a"></span>double <code class="sig-name descname">auxilaryFunction_PsiMT</code><span class="sig-paren">(</span>double <em>a</em>, double <em>f_a</em>, double <em>f_0</em>, double <em>g_0</em>, double <em>mu</em> = 1.e-4<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform22auxilaryFunction_PsiMTEddddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Auxiliary function used to determine endpoints of More-Thuente interval. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p><span class="math">\psi(\alpha)</span> in Equation 1.6 (Moore, Thuente 1994) </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>sufficient decrease value </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">a</span></code>: the step length, <span class="math">\alpha</span> in More-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">f_a</span></code>: function value at step length a, <span class="math">\phi(\alpha)</span> in More-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">f_0</span></code>: initial function value, <span class="math">\phi(0)</span> in Moore-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">g_0</span></code>: initial function gradiant, <span class="math">\phi'(0)</span> in More-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mu</span></code>: the step length, constant <span class="math">\mu</span> in Equation 1.1 [More, Thuente 1994] </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform23auxilaryFunction_dPsiMTEddd">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform23auxilaryFunction_dPsiMTEddd"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform23auxilaryFunction_dPsiMTEddd"></span><span id="pcl::NormalDistributionsTransform::auxilaryFunction_dPsiMT__double.double.double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a93428f5aa08e84203bde53cd554c6794"></span>double <code class="sig-name descname">auxilaryFunction_dPsiMT</code><span class="sig-paren">(</span>double <em>g_a</em>, double <em>g_0</em>, double <em>mu</em> = 1.e-4<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform23auxilaryFunction_dPsiMTEddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Auxiliary function derivative used to determine endpoints of More-Thuente interval. </p>
+<p><dl class="simple">
+<dt><strong>Note</strong></dt><dd><p><span class="math">\psi'(\alpha)</span>, derivative of Equation 1.6 (Moore, Thuente 1994) </p>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>sufficient decrease derivative </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">g_a</span></code>: function gradient at step length a, <span class="math">\phi'(\alpha)</span> in More-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">g_0</span></code>: initial function gradiant, <span class="math">\phi'(0)</span> in More-Thuente (1994) </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">mu</span></code>: the step length, constant <span class="math">\mu</span> in Equation 1.1 [More, Thuente 1994] </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Protected Attributes</p>
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform13target_cells_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform13target_cells_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform13target_cells_E"></span><span id="pcl::NormalDistributionsTransform::target_cells___TargetGrid"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1acb7ebafdcdf51bb6a2209c66d7838fb0"></span><a class="reference internal" href="#_CPPv4N3pcl28NormalDistributionsTransform10TargetGridE" title="pcl::NormalDistributionsTransform::TargetGrid">TargetGrid</a> <code class="sig-name descname">target_cells_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform13target_cells_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The voxel grid generated from target cloud containing point means and covariances. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform11resolution_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform11resolution_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform11resolution_E"></span><span id="pcl::NormalDistributionsTransform::resolution___float"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a979b1ab50b52b130e0b29fda50e0afb0"></span>float <code class="sig-name descname">resolution_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform11resolution_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The side length of voxels. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform10step_size_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform10step_size_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform10step_size_E"></span><span id="pcl::NormalDistributionsTransform::step_size___double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a15165f7e13bbfbc6a2e5e54bc8ed5c28"></span>double <code class="sig-name descname">step_size_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform10step_size_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The maximum step length. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform14outlier_ratio_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform14outlier_ratio_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform14outlier_ratio_E"></span><span id="pcl::NormalDistributionsTransform::outlier_ratio___double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a779d3b4c4f5181eb4f5ed6a660c66471"></span>double <code class="sig-name descname">outlier_ratio_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform14outlier_ratio_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The ratio of outliers of points w.r.t. </p>
+<p>a normal distribution, Equation 6.7 [Magnusson 2009]. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9gauss_d1_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9gauss_d1_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9gauss_d1_E"></span><span id="pcl::NormalDistributionsTransform::gauss_d1___double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a7b014c047dcf7fb8d5285e1cffeb125c"></span>double <code class="sig-name descname">gauss_d1_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9gauss_d1_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The normalization constants used fit the point distribution to a normal distribution, Equation 6.8 [Magnusson 2009]. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9gauss_d2_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9gauss_d2_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9gauss_d2_E"></span><span id="pcl::NormalDistributionsTransform::gauss_d2___double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1aa4c1362e9c212e213c98ad7679f30f1a"></span>double <code class="sig-name descname">gauss_d2_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9gauss_d2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform18trans_probability_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform18trans_probability_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform18trans_probability_E"></span><span id="pcl::NormalDistributionsTransform::trans_probability___double"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a0ce7df093334bfbfba42233e15b3fede"></span>double <code class="sig-name descname">trans_probability_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform18trans_probability_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The probability score of the transform applied to the input cloud, Equation 6.9 and 6.10 [Magnusson 2009]. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform8j_ang_a_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform8j_ang_a_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform8j_ang_a_E"></span><span id="pcl::NormalDistributionsTransform::j_ang_a___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a583433afdfb7aa6e817fb5603753b3f3"></span>Eigen::Vector3d <code class="sig-name descname">j_ang_a_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform8j_ang_a_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Precomputed Angular Gradient. </p>
+<p>The precomputed angular derivatives for the jacobian of a transformation vector, Equation 6.19 [Magnusson 2009]. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform8j_ang_b_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform8j_ang_b_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform8j_ang_b_E"></span><span id="pcl::NormalDistributionsTransform::j_ang_b___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a3f9d37ed53949085071b72fa9c6ea5e4"></span>Eigen::Vector3d <code class="sig-name descname">j_ang_b_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform8j_ang_b_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform8j_ang_c_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform8j_ang_c_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform8j_ang_c_E"></span><span id="pcl::NormalDistributionsTransform::j_ang_c___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a08d6035f9898f0eb337ad8685227663e"></span>Eigen::Vector3d <code class="sig-name descname">j_ang_c_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform8j_ang_c_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform8j_ang_d_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform8j_ang_d_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform8j_ang_d_E"></span><span id="pcl::NormalDistributionsTransform::j_ang_d___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a0f71b0577053e4ddc3e2e14c96d0c6a7"></span>Eigen::Vector3d <code class="sig-name descname">j_ang_d_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform8j_ang_d_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform8j_ang_e_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform8j_ang_e_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform8j_ang_e_E"></span><span id="pcl::NormalDistributionsTransform::j_ang_e___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1af9f5f2fb4a78a8ef10956d44589be652"></span>Eigen::Vector3d <code class="sig-name descname">j_ang_e_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform8j_ang_e_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform8j_ang_f_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform8j_ang_f_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform8j_ang_f_E"></span><span id="pcl::NormalDistributionsTransform::j_ang_f___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1ab63fda65e6d8e53a82fe2d49a345227c"></span>Eigen::Vector3d <code class="sig-name descname">j_ang_f_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform8j_ang_f_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform8j_ang_g_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform8j_ang_g_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform8j_ang_g_E"></span><span id="pcl::NormalDistributionsTransform::j_ang_g___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1abf52d22cbf38c82d142222c00f4533db"></span>Eigen::Vector3d <code class="sig-name descname">j_ang_g_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform8j_ang_g_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform8j_ang_h_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform8j_ang_h_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform8j_ang_h_E"></span><span id="pcl::NormalDistributionsTransform::j_ang_h___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a3231f58522b2e2ebae9254f8f3b76883"></span>Eigen::Vector3d <code class="sig-name descname">j_ang_h_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform8j_ang_h_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_a2_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_a2_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_a2_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_a2___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1aa87d6f6163465d5952f385120819169b"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_a2_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_a2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Precomputed Angular Hessian. </p>
+<p>The precomputed angular derivatives for the hessian of a transformation vector, Equation 6.19 [Magnusson 2009]. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_a3_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_a3_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_a3_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_a3___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a24499997f4e074c1be911f5d3be58b30"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_a3_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_a3_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_b2_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_b2_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_b2_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_b2___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a28e2d2600c461feee0edc323045c8229"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_b2_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_b2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_b3_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_b3_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_b3_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_b3___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a48321dabffe92a96b2823e35aeb2068e"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_b3_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_b3_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_c2_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_c2_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_c2_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_c2___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1ac14fbcfe48706f1296bdb3a91d69789d"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_c2_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_c2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_c3_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_c3_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_c3_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_c3___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1ae64350ac91587c66ae84fdc6ccc51924"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_c3_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_c3_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_d1_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_d1_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_d1_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_d1___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1afd5c6bfb7bac5228769127a74fc91a22"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_d1_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_d1_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_d2_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_d2_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_d2_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_d2___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1afa266fad2a838ea47bc96ebda27f9f1f"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_d2_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_d2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_d3_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_d3_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_d3_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_d3___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a977355e4ed8831ea9fb9c1b4c614feed"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_d3_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_d3_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_e1_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_e1_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_e1_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_e1___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1aaf340e103f610226b58a3edef962ad3e"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_e1_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_e1_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_e2_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_e2_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_e2_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_e2___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a49c141a43fa64e66fac85f4509f2f036"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_e2_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_e2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_e3_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_e3_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_e3_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_e3___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a6c465ba1017426950c5a65079f92a5ea"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_e3_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_e3_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_f1_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_f1_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_f1_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_f1___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1afa3763fdc6524b07e0ff63e5746088fa"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_f1_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_f1_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_f2_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_f2_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_f2_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_f2___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a09baeb58f50e2a6bcc2d06a6c4dcf66c"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_f2_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_f2_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform9h_ang_f3_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform9h_ang_f3_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform9h_ang_f3_E"></span><span id="pcl::NormalDistributionsTransform::h_ang_f3___Eigen::Vector3d"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a4d285624d11a742ec42226b303a0d24a"></span>Eigen::Vector3d <code class="sig-name descname">h_ang_f3_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform9h_ang_f3_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform15point_gradient_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform15point_gradient_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform15point_gradient_E"></span><span id="pcl::NormalDistributionsTransform::point_gradient___Eigen::Matrix:double.3.6:"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1a03884aff71b4d6263ea6b4a3346b87b1"></span>Eigen::Matrix&lt;double, 3, 6&gt; <code class="sig-name descname">point_gradient_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform15point_gradient_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The first order derivative of the transformation of a point w.r.t. </p>
+<p>the transform vector, <span class="math">J_E</span> in Equation 6.18 [Magnusson 2009]. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N3pcl28NormalDistributionsTransform14point_hessian_E">
+<span id="_CPPv3N3pcl28NormalDistributionsTransform14point_hessian_E"></span><span id="_CPPv2N3pcl28NormalDistributionsTransform14point_hessian_E"></span><span id="pcl::NormalDistributionsTransform::point_hessian___Eigen::Matrix:double.18.6:"></span><span class="target" id="classpcl_1_1_normal_distributions_transform_1ad2250a36e3b63a879bac14df26272e4d"></span>Eigen::Matrix&lt;double, 18, 6&gt; <code class="sig-name descname">point_hessian_</code><a class="headerlink" href="#_CPPv4N3pcl28NormalDistributionsTransform14point_hessian_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The second order derivative of the transformation of a point w.r.t. </p>
+<p>the transform vector, <span class="math">H_E</span> in Equation 6.20 [Magnusson 2009]. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

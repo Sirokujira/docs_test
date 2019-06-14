@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Template Class DecisionForestTrainer &mdash; pcl 1.9.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script type="text/javascript" src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/modified_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pcl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html">Table of contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#features">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#i-o">I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#keypoints">Keypoints</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#kdtree">KdTree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#octree">Octree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#range-images">Range Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#recognition">Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#registration">Registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#sample-consensus">Sample Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#segmentation">Segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#surface">Surface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#visualization">Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#applications">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/tutorials/content/index.html#gpu">GPU</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Advanced Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html">Compiling PCL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#developing-pcl-code">Developing PCL code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#committing-changes-to-the-git-master">Committing changes to the git master</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#improving-the-pcl-documentation">Improving the PCL documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pcl/doc/advanced/content/index.html#how-to-build-a-minimal-example">How to build a minimal example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pcl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Template Class DecisionForestTrainer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/classpcl_1_1_decision_forest_trainer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-class-decisionforesttrainer">
+<span id="exhale-class-classpcl-1-1-decision-forest-trainer"></span><h1>Template Class DecisionForestTrainer<a class="headerlink" href="#template-class-decisionforesttrainer" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_pcl_ml_include_pcl_ml_dt_decision_forest_trainer.h.html#file-pcl-ml-include-pcl-ml-dt-decision-forest-trainer-h"><span class="std std-ref">File decision_forest_trainer.h</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv4I00000EN3pcl21DecisionForestTrainerE">
+<span id="_CPPv3I00000EN3pcl21DecisionForestTrainerE"></span><span id="_CPPv2I00000EN3pcl21DecisionForestTrainerE"></span><span class="target" id="classpcl_1_1_decision_forest_trainer"></span>template&lt;class <code class="sig-name descname">FeatureType</code>, class <code class="sig-name descname">DataSet</code>, class <code class="sig-name descname">LabelType</code>, class <code class="sig-name descname">ExampleIndex</code>, class <code class="sig-name descname">NodeType</code>&gt;<br /><em class="property">class </em><code class="sig-name descname">DecisionForestTrainer</code><a class="headerlink" href="#_CPPv4I00000EN3pcl21DecisionForestTrainerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Trainer for decision trees. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer21DecisionForestTrainerEv">
+<span id="_CPPv3N3pcl21DecisionForestTrainer21DecisionForestTrainerEv"></span><span id="_CPPv2N3pcl21DecisionForestTrainer21DecisionForestTrainerEv"></span><span id="pcl::DecisionForestTrainer::DecisionForestTrainer"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1acc7032e3f6878b366becf5e5199ffbfa"></span><code class="sig-name descname">DecisionForestTrainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer21DecisionForestTrainerEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainerD0Ev">
+<span id="_CPPv3N3pcl21DecisionForestTrainerD0Ev"></span><span id="_CPPv2N3pcl21DecisionForestTrainerD0Ev"></span><span id="pcl::DecisionForestTrainer::~DecisionForestTrainer"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1a593a78b1a9ef4730ce8d53240f62b594"></span><code class="sig-name descname">~DecisionForestTrainer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainerD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer23setNumberOfTreesToTrainEK6size_t">
+<span id="_CPPv3N3pcl21DecisionForestTrainer23setNumberOfTreesToTrainEK6size_t"></span><span id="_CPPv2N3pcl21DecisionForestTrainer23setNumberOfTreesToTrainEK6size_t"></span><span id="pcl::DecisionForestTrainer::setNumberOfTreesToTrain__sC"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1a694f64f2fc578961105cb2de053c8ebe"></span>void <code class="sig-name descname">setNumberOfTreesToTrain</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>num_of_trees</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer23setNumberOfTreesToTrainEK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the number of trees to train. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_of_trees</span></code>: The number of trees. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer17setFeatureHandlerERN3pcl14FeatureHandlerI11FeatureType7DataSet12ExampleIndexEE">
+<span id="_CPPv3N3pcl21DecisionForestTrainer17setFeatureHandlerERN3pcl14FeatureHandlerI11FeatureType7DataSet12ExampleIndexEE"></span><span id="_CPPv2N3pcl21DecisionForestTrainer17setFeatureHandlerERN3pcl14FeatureHandlerI11FeatureType7DataSet12ExampleIndexEE"></span><span id="pcl::DecisionForestTrainer::setFeatureHandler__pcl::FeatureHandler:FeatureType.DataSet.ExampleIndex:R"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1affb20f4c78f522abf7a6e318ca999958"></span>void <code class="sig-name descname">setFeatureHandler</code><span class="sig-paren">(</span>pcl::FeatureHandler&lt;FeatureType, DataSet, ExampleIndex&gt; &amp;<em>feature_handler</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer17setFeatureHandlerERN3pcl14FeatureHandlerI11FeatureType7DataSet12ExampleIndexEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the feature handler used to create and evaluate features. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">feature_handler</span></code>: The feature handler. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer17setStatsEstimatorERN3pcl14StatsEstimatorI9LabelType8NodeType7DataSet12ExampleIndexEE">
+<span id="_CPPv3N3pcl21DecisionForestTrainer17setStatsEstimatorERN3pcl14StatsEstimatorI9LabelType8NodeType7DataSet12ExampleIndexEE"></span><span id="_CPPv2N3pcl21DecisionForestTrainer17setStatsEstimatorERN3pcl14StatsEstimatorI9LabelType8NodeType7DataSet12ExampleIndexEE"></span><span id="pcl::DecisionForestTrainer::setStatsEstimator__pcl::StatsEstimator:LabelType.NodeType.DataSet.ExampleIndex:R"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1a2d91edee4cd00765989daa0bb138dc16"></span>void <code class="sig-name descname">setStatsEstimator</code><span class="sig-paren">(</span>pcl::StatsEstimator&lt;LabelType, NodeType, DataSet, ExampleIndex&gt; &amp;<em>stats_estimator</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer17setStatsEstimatorERN3pcl14StatsEstimatorI9LabelType8NodeType7DataSet12ExampleIndexEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the object for estimating the statistics for tree nodes. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">stats_estimator</span></code>: The statistics estimator. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer15setMaxTreeDepthEK6size_t">
+<span id="_CPPv3N3pcl21DecisionForestTrainer15setMaxTreeDepthEK6size_t"></span><span id="_CPPv2N3pcl21DecisionForestTrainer15setMaxTreeDepthEK6size_t"></span><span id="pcl::DecisionForestTrainer::setMaxTreeDepth__sC"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1ac9fb156d93023ae28d2868cc77f9f232"></span>void <code class="sig-name descname">setMaxTreeDepth</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>max_tree_depth</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer15setMaxTreeDepthEK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the maximum depth of the learned tree. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">max_tree_depth</span></code>: Maximum depth of the learned tree. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer16setNumOfFeaturesEK6size_t">
+<span id="_CPPv3N3pcl21DecisionForestTrainer16setNumOfFeaturesEK6size_t"></span><span id="_CPPv2N3pcl21DecisionForestTrainer16setNumOfFeaturesEK6size_t"></span><span id="pcl::DecisionForestTrainer::setNumOfFeatures__sC"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1af157ebf3ab0fc36d970a56df889d0764"></span>void <code class="sig-name descname">setNumOfFeatures</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>num_of_features</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer16setNumOfFeaturesEK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the number of features used to find optimal decision features. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_of_features</span></code>: The number of features. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer18setNumOfThresholdsEK6size_t">
+<span id="_CPPv3N3pcl21DecisionForestTrainer18setNumOfThresholdsEK6size_t"></span><span id="_CPPv2N3pcl21DecisionForestTrainer18setNumOfThresholdsEK6size_t"></span><span id="pcl::DecisionForestTrainer::setNumOfThresholds__sC"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1aaefbd227253039f1762c023363866977"></span>void <code class="sig-name descname">setNumOfThresholds</code><span class="sig-paren">(</span><em class="property">const</em> size_t <em>num_of_threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer18setNumOfThresholdsEK6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the number of thresholds tested for finding the optimal decision threshold on the feature responses. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_of_threshold</span></code>: The number of thresholds. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer18setTrainingDataSetER7DataSet">
+<span id="_CPPv3N3pcl21DecisionForestTrainer18setTrainingDataSetER7DataSet"></span><span id="_CPPv2N3pcl21DecisionForestTrainer18setTrainingDataSetER7DataSet"></span><span id="pcl::DecisionForestTrainer::setTrainingDataSet__DataSetR"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1a51bb668cde26ec215c738d6ea49321e0"></span>void <code class="sig-name descname">setTrainingDataSet</code><span class="sig-paren">(</span>DataSet &amp;<em>data_set</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer18setTrainingDataSetER7DataSet" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the input data set used for training. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data_set</span></code>: The data set used for training. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer11setExamplesERNSt6vectorI12ExampleIndexEE">
+<span id="_CPPv3N3pcl21DecisionForestTrainer11setExamplesERNSt6vectorI12ExampleIndexEE"></span><span id="_CPPv2N3pcl21DecisionForestTrainer11setExamplesERNSt6vectorI12ExampleIndexEE"></span><span id="pcl::DecisionForestTrainer::setExamples__std::vector:ExampleIndex:R"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1ab3e0194e7f6c31d26903d963c26bcbd0"></span>void <code class="sig-name descname">setExamples</code><span class="sig-paren">(</span>std::vector&lt;ExampleIndex&gt; &amp;<em>examples</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer11setExamplesERNSt6vectorI12ExampleIndexEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Example indices that specify the data used for training. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">examples</span></code>: The examples. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer12setLabelDataERNSt6vectorI9LabelTypeEE">
+<span id="_CPPv3N3pcl21DecisionForestTrainer12setLabelDataERNSt6vectorI9LabelTypeEE"></span><span id="_CPPv2N3pcl21DecisionForestTrainer12setLabelDataERNSt6vectorI9LabelTypeEE"></span><span id="pcl::DecisionForestTrainer::setLabelData__std::vector:LabelType:R"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1af73b24f6125f364b9002da7f31d272b7"></span>void <code class="sig-name descname">setLabelData</code><span class="sig-paren">(</span>std::vector&lt;LabelType&gt; &amp;<em>label_data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer12setLabelDataERNSt6vectorI9LabelTypeEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the label data corresponding to the example data. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">label_data</span></code>: The label data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer22setMinExamplesForSplitE6size_t">
+<span id="_CPPv3N3pcl21DecisionForestTrainer22setMinExamplesForSplitE6size_t"></span><span id="_CPPv2N3pcl21DecisionForestTrainer22setMinExamplesForSplitE6size_t"></span><span id="pcl::DecisionForestTrainer::setMinExamplesForSplit__s"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1abe3c4a349ff797233b7588b144072380"></span>void <code class="sig-name descname">setMinExamplesForSplit</code><span class="sig-paren">(</span>size_t <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer22setMinExamplesForSplitE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the minimum number of examples to continue growing a tree. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">n</span></code>: Number of examples </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer13setThresholdsERNSt6vectorIfEE">
+<span id="_CPPv3N3pcl21DecisionForestTrainer13setThresholdsERNSt6vectorIfEE"></span><span id="_CPPv2N3pcl21DecisionForestTrainer13setThresholdsERNSt6vectorIfEE"></span><span id="pcl::DecisionForestTrainer::setThresholds__std::vector:float:R"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1a525a99f17519b3b66f022e4fb6522381"></span>void <code class="sig-name descname">setThresholds</code><span class="sig-paren">(</span>std::vector&lt;float&gt; &amp;<em>thres</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer13setThresholdsERNSt6vectorIfEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify the thresholds to be used when evaluating features. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">thres</span></code>: The threshold values. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer27setDecisionTreeDataProviderERN5boost10shared_ptrIN3pcl31DecisionTreeTrainerDataProviderI11FeatureType7DataSet9LabelType12ExampleIndex8NodeTypeEEEE">
+<span id="_CPPv3N3pcl21DecisionForestTrainer27setDecisionTreeDataProviderERN5boost10shared_ptrIN3pcl31DecisionTreeTrainerDataProviderI11FeatureType7DataSet9LabelType12ExampleIndex8NodeTypeEEEE"></span><span id="_CPPv2N3pcl21DecisionForestTrainer27setDecisionTreeDataProviderERN5boost10shared_ptrIN3pcl31DecisionTreeTrainerDataProviderI11FeatureType7DataSet9LabelType12ExampleIndex8NodeTypeEEEE"></span><span id="pcl::DecisionForestTrainer::setDecisionTreeDataProvider__boost::shared_ptr:pcl::DecisionTreeTrainerDataProvider:FeatureType.DataSet.LabelType.ExampleIndex.NodeType::R"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1a5576065b2e1de3fc70a03822665437c4"></span>void <code class="sig-name descname">setDecisionTreeDataProvider</code><span class="sig-paren">(</span>boost::shared_ptr&lt;pcl::DecisionTreeTrainerDataProvider&lt;FeatureType, DataSet, LabelType, ExampleIndex, NodeType&gt;&gt; &amp;<em>dtdp</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer27setDecisionTreeDataProviderERN5boost10shared_ptrIN3pcl31DecisionTreeTrainerDataProviderI11FeatureType7DataSet9LabelType12ExampleIndex8NodeTypeEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify the data provider. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dtdp</span></code>: The data provider that should implement getDatasetAndLabels(…) function </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer28setRandomFeaturesAtSplitNodeEb">
+<span id="_CPPv3N3pcl21DecisionForestTrainer28setRandomFeaturesAtSplitNodeEb"></span><span id="_CPPv2N3pcl21DecisionForestTrainer28setRandomFeaturesAtSplitNodeEb"></span><span id="pcl::DecisionForestTrainer::setRandomFeaturesAtSplitNode__b"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1aa277da116e3e9eab9f6e95b11257b7d4"></span>void <code class="sig-name descname">setRandomFeaturesAtSplitNode</code><span class="sig-paren">(</span>bool <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer28setRandomFeaturesAtSplitNodeEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Specify if the features are randomly generated at each split node. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">b</span></code>: Do it or not. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv4N3pcl21DecisionForestTrainer5trainER14DecisionForestI8NodeTypeE">
+<span id="_CPPv3N3pcl21DecisionForestTrainer5trainER14DecisionForestI8NodeTypeE"></span><span id="_CPPv2N3pcl21DecisionForestTrainer5trainER14DecisionForestI8NodeTypeE"></span><span id="pcl::DecisionForestTrainer::train__DecisionForest:NodeType:R"></span><span class="target" id="classpcl_1_1_decision_forest_trainer_1abc5a1198a387ef416195c9a953e6138a"></span>void <code class="sig-name descname">train</code><span class="sig-paren">(</span>DecisionForest&lt;NodeType&gt; &amp;<em>forest</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3pcl21DecisionForestTrainer5trainER14DecisionForestI8NodeTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Trains a decision forest using the set training data and settings. </p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">forest</span></code>: Destination for the trained forest. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, open perception foundation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
